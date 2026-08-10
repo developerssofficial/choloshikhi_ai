@@ -1,1 +1,2 @@
-# pnpm workspace config (empty - single package project)
+packages:
+  - '.'
