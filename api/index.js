@@ -196,17 +196,7 @@ async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     if (req.method === 'OPTIONS')
         return res.status(200).end();
-    // Debug: return what the function sees
-    if (req.url && req.url.includes('_debug')) {
-        return ok(res, {
-            url: req.url,
-            matchedPath: req.headers['x-matched-path'],
-            method: req.method,
-            query: req.query,
-            headers: Object.keys(req.headers || {}),
-        });
-    }
-    // Use x-matched-path or x-vercel-id or query to determine original URL
+    // Use x-matched-path to get original URL when rewritten by Vercel
     const matchedPath = req.headers['x-matched-path'] || req.url || '/';
     const url = matchedPath.startsWith('/') ? matchedPath : `/${matchedPath}`;
     const method = req.method || 'GET';
