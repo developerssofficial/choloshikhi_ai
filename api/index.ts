@@ -154,10 +154,9 @@ export default async function handler(req: any, res: any) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(200).end();
 
-  // Parse URL - use _original_url query param if present (for Vercel routing)
-  const parsedUrl = new URL(req.url || '/', `https://${req.headers.host || 'localhost'}`);
-  const originalUrl = parsedUrl.searchParams.get('_original_url');
-  const url = originalUrl ? `/api/${originalUrl}` : (req.url || '/');
+  // Use x-matched-path header to get the original URL when rewritten by Vercel
+  const matchedPath = req.headers['x-matched-path'] || req.url || '/';
+  const url = matchedPath.startsWith('/') ? matchedPath : `/${matchedPath}`;
   const method = req.method || 'GET';
 
   try {
