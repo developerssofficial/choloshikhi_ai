@@ -1,6 +1,13 @@
 {
   "rewrites": [
-    { "source": "/api/:path+", "destination": "/api/index" },
+    { "source": "/api/chat/health", "destination": "/api/index" },
+    { "source": "/api/chat", "destination": "/api/index" },
+    { "source": "/api/conversations/:path*", "destination": "/api/index" },
+    { "source": "/api/conversations", "destination": "/api/index" },
+    { "source": "/api/memories/:path*", "destination": "/api/index" },
+    { "source": "/api/memories", "destination": "/api/index" },
+    { "source": "/api/prompt-cache", "destination": "/api/index" },
+    { "source": "/api/subscription/:path*", "destination": "/api/index" },
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
 }
