@@ -1,6 +1,6 @@
 import crypto from 'crypto';
-import { generateRequestId, jsonError, setCorsHeaders } from '../../_lib/helpers';
-import { getSupabase } from '../../_lib/supabase';
+import { generateRequestId, jsonError, setCorsHeaders } from '../_lib/helpers';
+import { getSupabase } from '../_lib/supabase';
 
 export default async function handler(req: any, res: any) {
   setCorsHeaders(res);

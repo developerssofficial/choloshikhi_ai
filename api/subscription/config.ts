@@ -1,4 +1,4 @@
-import { setCorsHeaders } from '../../_lib/helpers';
+import { setCorsHeaders } from '../_lib/helpers';
 
 export default async function handler(req: any, res: any) {
   setCorsHeaders(res);
