@@ -1,7 +1,43 @@
 {
   "builds": [
     {
-      "src": "api/**/*.ts",
+      "src": "api/chat.ts",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/conversations.ts",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/conversations/[id].ts",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/conversations/[id]/messages.ts",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/memories.ts",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/memory.ts",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/prompt-cache.ts",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/subscription/status.ts",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/subscription/config.ts",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/subscription/webhook.ts",
       "use": "@vercel/node"
     },
     {
