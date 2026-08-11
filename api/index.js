@@ -197,13 +197,13 @@ async function handler(req, res) {
     if (req.method === 'OPTIONS')
         return res.status(200).end();
     // Debug: return what the function sees
-    if (req.url === '/api/index' && req.method === 'GET' && req.query && req.query._debug) {
+    if (req.url && req.url.includes('_debug')) {
         return ok(res, {
             url: req.url,
             matchedPath: req.headers['x-matched-path'],
             method: req.method,
             query: req.query,
-            headers: Object.keys(req.headers || {}).filter(h => h.startsWith('x-')),
+            headers: Object.keys(req.headers || {}),
         });
     }
     // Use x-matched-path or x-vercel-id or query to determine original URL
