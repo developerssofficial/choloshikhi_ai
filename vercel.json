@@ -13,5 +13,11 @@
     "api/subscription/status.ts": { "maxDuration": 10 },
     "api/subscription/config.ts": { "maxDuration": 10 },
     "api/subscription/webhook.ts": { "maxDuration": 10 }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
+    }
+  ]
 }
