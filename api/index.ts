@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-import crypto from 'crypto';
+import * as crypto from 'crypto';
 
 // ============ SINGLETON CLIENT ============
 let _supabase: any = null;
