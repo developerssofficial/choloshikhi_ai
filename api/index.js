@@ -200,6 +200,10 @@ async function handler(req, res) {
     const matchedPath = req.headers['x-matched-path'] || req.url || '/';
     const url = matchedPath.startsWith('/') ? matchedPath : `/${matchedPath}`;
     const method = req.method || 'GET';
+    // Temporary debug for non-working routes
+    if (url === '/api/index') {
+        return ok(res, { debug: true, url: req.url, matchedPath: req.headers['x-matched-path'], method, allHeaders: JSON.stringify(req.headers) });
+    }
     try {
         // ===== CHAT HEALTH =====
         if (url === '/api/chat/health' && method === 'GET') {
