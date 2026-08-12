@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useAuth } from "@/lib/auth";
 import Link from "next/link";
+import RenderMessage from "@/components/RenderMessage";
 
 interface Message {
   role: "user" | "assistant";
@@ -439,8 +440,12 @@ export default function ChatPage() {
                         : "text-gray-300 rounded-2xl rounded-bl-md"
                     }`}>
                       {msg.image && <img src={msg.image} alt="" className="mb-2 rounded-xl max-h-48 object-cover" />}
-                      {displayText}
-                      {isTyping && <span className="inline-block w-[2px] h-3.5 bg-violet-400 ml-0.5 align-middle animate-pulse" />}
+                    {msg.role === "assistant" ? (
+                      <RenderMessage text={displayText} />
+                    ) : (
+                      displayText
+                    )}
+                    {isTyping && <span className="inline-block w-[2px] h-3.5 bg-violet-400 ml-0.5 align-middle animate-pulse" />}
                     </div>
                     <button
                       onClick={() => handleCopy(displayText, i)}

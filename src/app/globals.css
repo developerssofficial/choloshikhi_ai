@@ -1,3 +1,4 @@
+@import "katex/dist/katex.min.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,3 +17,16 @@
   background: rgba(139, 92, 246, 0.25);
   color: white;
 }
+
+/* KaTeX dark theme overrides */
+.katex-inline { display: inline; }
+.katex-block { display: block; }
+.katex { color: #d1d5db; font-size: 1.05em; }
+.katex .mord { color: #d1d5db; }
+.katex .mbin { color: #a78bfa; }
+.katex .mrel { color: #34d399; }
+.katex .mopen, .katex .mclose { color: #9ca3af; }
+.katex .mop { color: #60a5fa; }
+.katex .mfrac-line { border-color: #6b7280; }
+.katex .katex-html { overflow-x: auto; overflow-y: hidden; }
+.katex .katex-display { margin: 0.5em 0; }

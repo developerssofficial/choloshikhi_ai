@@ -466,8 +466,17 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    /* ===== STRIP MARKDOWN (clean text for frontend) ===== */
+    /* ===== STRIP MARKDOWN (clean text for frontend, preserve LaTeX) ===== */
     if (response) {
+      // Extract LaTeX expressions first to protect them from markdown stripping
+      const latexBlocks: string[] = [];
+      // Block math: $$...$$ or \[...\]
+      response = response.replace(/\$\$([\s\S]+?)\$\$/g, (_, m) => { latexBlocks.push(m); return `%%LATEX_BLOCK_${latexBlocks.length - 1}%%`; });
+      response = response.replace(/\\\[([\s\S]+?)\\\]/g, (_, m) => { latexBlocks.push(m); return `%%LATEX_BLOCK_${latexBlocks.length - 1}%%`; });
+      // Inline math: $...$ or \(...\)
+      response = response.replace(/\$([^\$\n]+?)\$/g, (_, m) => { latexBlocks.push(m); return `%%LATEX_INLINE_${latexBlocks.length - 1}%%`; });
+      response = response.replace(/\\\((.+?)\\\)/g, (_, m) => { latexBlocks.push(m); return `%%LATEX_INLINE_${latexBlocks.length - 1}%%`; });
+
       response = response
         .replace(/\*\*(.+?)\*\*/g, "$1")   // **bold** → bold
         .replace(/\*(.+?)\*/g, "$1")        // *italic* → italic
@@ -482,6 +491,12 @@ export async function POST(req: NextRequest) {
         .replace(/---+/g, "")               // --- → horizontal rule
         .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1") // [text](url) → text
         .trim();
+
+      // Restore LaTeX expressions
+      for (let i = latexBlocks.length - 1; i >= 0; i--) {
+        response = response.replace(`%%LATEX_BLOCK_${i}%%`, `$$${latexBlocks[i]}$$`);
+        response = response.replace(`%%LATEX_INLINE_${i}%%`, `$${latexBlocks[i]}$`);
+      }
     }
 
     /* ===== CACHE ===== */
