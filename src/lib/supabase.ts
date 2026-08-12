@@ -1,20 +1,9 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from "@supabase/supabase-js";
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.error('[Supabase] Missing VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY — auth and database will not work.');
-}
-
-export const supabase = createClient(
-  supabaseUrl || 'https://placeholder.supabase.co',
-  supabaseAnonKey || 'placeholder-key',
-  {
-    auth: {
-      autoRefreshToken: true,
-      persistSession: true,
-      detectSessionInUrl: true,
-    },
-  }
-);
+export const supabase: SupabaseClient =
+  supabaseUrl.startsWith("http") && supabaseKey.length > 10
+    ? createClient(supabaseUrl, supabaseKey)
+    : createClient("http://localhost:54321", "placeholder");
