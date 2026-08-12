@@ -160,6 +160,84 @@ function setCachedResponse(key: string, response: string) {
   promptCache.set(key, { response, time: Date.now() });
 }
 
+/* ===== TAVILY WEB SEARCH ===== */
+const TAVILY_URL = "https://api.tavily.com/search";
+
+interface SearchResult {
+  title: string;
+  url: string;
+  content: string;
+}
+
+async function tavilySearch(query: string): Promise<SearchResult[]> {
+  const apiKey = process.env.TAVILY_API_KEY;
+  if (!apiKey) return [];
+
+  try {
+    const res = await fetch(TAVILY_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        api_key: apiKey,
+        query,
+        max_results: 5,
+        search_depth: "basic",
+      }),
+      signal: AbortSignal.timeout(10000),
+    });
+
+    if (!res.ok) return [];
+    const data = await res.json();
+    return (data.results || []).slice(0, 5).map((r: any) => ({
+      title: r.title || "",
+      url: r.url || "",
+      content: r.content || "",
+    }));
+  } catch {
+    return [];
+  }
+}
+
+// Decide if the user's message needs web search (cheap Gemini classification)
+async function needsWebSearch(message: string): Promise<boolean> {
+  const apiKey = getNextGeminiKey();
+  if (!apiKey) return false;
+
+  try {
+    const res = await fetch(`${GEMINI_URL}?key=${apiKey}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        systemInstruction: { parts: [{ text: "You classify user messages. Reply with ONLY 'yes' or 'no'. Does this message need current/real-time web information (news, weather, prices, recent events, current dates)? General knowledge questions, math, explanations = no. Current events, prices, weather, recent news = yes." }] },
+        contents: [{ role: "user", parts: [{ text: message }] }],
+        generationConfig: { temperature: 0, maxOutputTokens: 5 },
+      }),
+      signal: AbortSignal.timeout(5000),
+    });
+
+    if (!res.ok) return false;
+    const data = await res.json();
+    const answer = (data?.candidates?.[0]?.content?.parts?.[0]?.text || "").toLowerCase().trim();
+    return answer.includes("yes");
+  } catch {
+    return false;
+  }
+}
+
+// Build search-augmented prompt
+function buildSearchPrompt(message: string, results: SearchResult[]): string {
+  const context = results
+    .map((r, i) => `[${i + 1}] ${r.title}\n${r.url}\n${r.content}`)
+    .join("\n\n");
+
+  return (
+    `Use the following web search results to answer the user's question. ` +
+    `Be accurate, cite sources using [1], [2] etc., and respond in the user's language.\n\n` +
+    `SEARCH RESULTS:\n${context}\n\n` +
+    `USER QUESTION: ${message}`
+  );
+}
+
 /* ===== MEMORY: fetch recent chat history from Supabase ===== */
 async function getMemory(userId: string): Promise<Array<{ role: string; content: string }>> {
   try {
@@ -395,9 +473,24 @@ export async function POST(req: NextRequest) {
       activeSystemPrompt = getEducationPrompt(teachingState);
     }
 
-    /* ===== PROMPT CACHE (skip for image, multi-turn, and education mode) ===== */
+    /* ===== WEB SEARCH (Normal Mode only) ===== */
+    let searchResults: SearchResult[] = [];
+    let searched = false;
+    if (!isEducation && !image) {
+      try {
+        const shouldSearch = await needsWebSearch(message);
+        if (shouldSearch) {
+          searchResults = await tavilySearch(message);
+          searched = searchResults.length > 0;
+        }
+      } catch {
+        // Classification failed — proceed without search
+      }
+    }
+
+    /* ===== PROMPT CACHE (skip for image, multi-turn, education, and search) ===== */
     const cacheKey = message.trim().toLowerCase();
-    if (!image && memory.length === 0 && !isEducation) {
+    if (!image && memory.length === 0 && !isEducation && !searched) {
       const cached = getCachedResponse(cacheKey);
       if (cached) {
         return NextResponse.json({ response: cached, provider: "cache" });
@@ -445,26 +538,30 @@ export async function POST(req: NextRequest) {
       // Text → Gemini first, MIMO fallback (both get memory)
       const hasGemini = !!getNextGeminiKey();
 
+      // Use search-augmented prompt if search was performed
+      const textMessage = searched ? buildSearchPrompt(message, searchResults) : message;
+
       if (hasGemini) {
         try {
-          response = await callGemini(message, memory, undefined, activeSystemPrompt);
+          response = await callGemini(textMessage, memory, undefined, activeSystemPrompt);
           usedProvider = "gemini";
         } catch (err: any) {
           if (err.message === "RATE_LIMITED") markKeyRateLimited(getGeminiKeys()[geminiKeyState.idx] || "");
-          // Gemini failed, try MIMO
         }
       }
 
       if (!response) {
         try {
-          response = await callMimo(message, memory, undefined, activeSystemPrompt);
+          response = await callMimo(textMessage, memory, undefined, activeSystemPrompt);
           usedProvider = "mimo";
         } catch (err: any) {
-          console.error("Both providers failed:", err.message);
-          return NextResponse.json(
-            { error: "AI এখন ডাউন। কিছুক্ষর পরে আবার চেষ্টা করো।" },
-            { status: 503 }
-          );
+          // Fallback: try Gemini one more time
+          try {
+            response = await callGemini(textMessage, memory, undefined, activeSystemPrompt);
+            usedProvider = "gemini";
+          } catch {
+            throw new Error("AI Providers failed");
+          }
         }
       }
     }
@@ -517,7 +614,13 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    return NextResponse.json({ response, provider: usedProvider });
+    return NextResponse.json({
+      response,
+      provider: usedProvider,
+      ...(searched && searchResults.length > 0 ? {
+        sources: searchResults.map((r) => ({ title: r.title, url: r.url })),
+      } : {}),
+    });
   } catch (error: any) {
     console.error("Chat error:", error);
     return NextResponse.json(
