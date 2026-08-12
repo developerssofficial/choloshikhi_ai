@@ -59,8 +59,12 @@ export default function ChatPage() {
 
     setTypingText("");
     let pos = 0;
+    // Speed scales with length: shorter = slower per char, longer = slightly faster
+    const len = fullText.length;
+    const speed = len < 50 ? 30 : len < 150 ? 25 : len < 400 ? 20 : 15; // ms per tick
+    const step = len < 50 ? 1 : len < 150 ? 2 : len < 400 ? 3 : 4; // chars per tick
     typingRef.current = setInterval(() => {
-      pos += 3; // 3 chars per tick for Bengali
+      pos += step;
       if (pos >= fullText.length) {
         pos = fullText.length;
         clearInterval(typingRef.current!);
@@ -69,7 +73,7 @@ export default function ChatPage() {
       } else {
         setTypingText(fullText.slice(0, pos));
       }
-    }, 18);
+    }, speed);
 
     return () => { if (typingRef.current) clearInterval(typingRef.current); };
   }, [typingIdx, messages]);
