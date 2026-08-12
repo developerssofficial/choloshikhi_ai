@@ -48,6 +48,56 @@ function formatDate(d: string): string {
   return date.toLocaleDateString("bn-BD", { month: "short", day: "numeric" });
 }
 
+function getDomain(url: string): string {
+  try {
+    return new URL(url).hostname.replace("www.", "");
+  } catch {
+    return url;
+  }
+}
+
+function SourcesCard({ sources }: { sources: { title: string; url: string }[] }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="mt-2 border border-white/[0.06] rounded-xl overflow-hidden bg-white/[0.02]">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-3 py-2 text-[10px] text-gray-500 hover:text-gray-400 hover:bg-white/[0.03] transition-colors"
+      >
+        <div className="flex items-center gap-1.5">
+          <svg className="w-3 h-3 text-violet-400/70" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+          <span>{sources.length} source{sources.length > 1 ? "s" : ""}</span>
+        </div>
+        <svg
+          className={`w-3 h-3 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+      </button>
+      <div
+        className={`transition-all duration-200 ease-out ${open ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"} overflow-hidden`}
+      >
+        <div className="px-3 pb-2 space-y-1">
+          {sources.map((src, j) => (
+            <a
+              key={j}
+              href={src.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-2 text-[10px] text-gray-500 hover:text-violet-300 py-1 rounded transition-colors"
+            >
+              <span className="text-violet-400/50 font-mono mt-px flex-shrink-0">[{j + 1}]</span>
+              <div className="min-w-0">
+                <p className="truncate">{src.title}</p>
+                <p className="text-[8px] text-gray-600 truncate">{getDomain(src.url)}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ChatPage() {
   const { user, loading, signInWithGoogle, signOut } = useAuth();
   const [messages, setMessages] = useState<Message[]>([]);
@@ -62,6 +112,9 @@ export default function ChatPage() {
   const [loadingSessions, setLoadingSessions] = useState(false);
   const [copiedIdx, setCopiedIdx] = useState<number | null>(null);
   const [mode, setMode] = useState<"normal" | "education">("normal");
+  const [searching, setSearching] = useState(false);
+  const [searchComplete, setSearchComplete] = useState<number | null>(null);
+  const searchCompleteRef = useRef<NodeJS.Timeout | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -197,6 +250,9 @@ export default function ChatPage() {
       },
     ]);
     setSending(true);
+    if (mode === "normal") setSearching(true);
+    setSearchComplete(null);
+    if (searchCompleteRef.current) clearTimeout(searchCompleteRef.current);
 
     // Auto-create session on first message (with first message as title)
     let activeSessionId = sessionId;
@@ -238,7 +294,17 @@ export default function ChatPage() {
         setTimeout(() => setTypingIdx(next.length - 1), 50);
         return next;
       });
+
+      // Show "search complete" for 3 seconds if search was performed
+      if (data.sources && data.sources.length > 0) {
+        setSearching(false);
+        setSearchComplete(data.sources.length);
+        searchCompleteRef.current = setTimeout(() => setSearchComplete(null), 3000);
+      } else {
+        setSearching(false);
+      }
     } catch (err: any) {
+      setSearching(false);
       setMessages((prev) => [...prev, { role: "assistant", content: err.message || "কিছু সমস্যা হয়েছে।" }]);
     } finally {
       setSending(false);
@@ -467,21 +533,12 @@ export default function ChatPage() {
                       )}
                     </button>
                     {msg.sources && msg.sources.length > 0 && (
-                      <div className="mt-2 pt-2 border-t border-white/[0.06]">
-                        <p className="text-[9px] text-gray-600 mb-1">Sources:</p>
-                        <div className="flex flex-wrap gap-1">
-                          {msg.sources.map((src, j) => (
-                            <a
-                              key={j}
-                              href={src.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-[9px] text-violet-400/70 hover:text-violet-300 bg-white/[0.03] px-1.5 py-0.5 rounded truncate max-w-[180px] block"
-                              title={src.title}>
-                              {src.title.slice(0, 30)}{src.title.length > 30 ? "..." : ""}
-                            </a>
-                          ))}
-                        </div>
+                      <SourcesCard sources={msg.sources} />
+                    )}
+                    {searchComplete !== null && i === messages.length - 1 && msg.role === "assistant" && (
+                      <div className="mt-1.5 flex items-center gap-1.5 text-[9px] text-emerald-400/70 animate-[fadeout_3s_ease-in_forwards]">
+                        <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                        <span>Web search complete · {searchComplete} source{searchComplete > 1 ? "s" : ""}</span>
                       </div>
                     )}
                   </div>
@@ -494,11 +551,22 @@ export default function ChatPage() {
                     <span className="text-white text-[8px] font-bold">চ</span>
                   </div>
                   <div className="px-3 py-2.5">
-                    <div className="flex gap-1">
-                      <div className="w-1.5 h-1.5 bg-gray-500 rounded-full animate-bounce" />
-                      <div className="w-1.5 h-1.5 bg-gray-500 rounded-full animate-bounce [animation-delay:0.1s]" />
-                      <div className="w-1.5 h-1.5 bg-gray-500 rounded-full animate-bounce [animation-delay:0.2s]" />
-                    </div>
+                    {searching ? (
+                      <div className="flex items-center gap-2 text-[11px] text-gray-500">
+                        <div className="flex gap-0.5">
+                          <div className="w-1 h-1 bg-violet-400 rounded-full animate-bounce" />
+                          <div className="w-1 h-1 bg-violet-400 rounded-full animate-bounce [animation-delay:0.15s]" />
+                          <div className="w-1 h-1 bg-violet-400 rounded-full animate-bounce [animation-delay:0.3s]" />
+                        </div>
+                        <span>Searching the web...</span>
+                      </div>
+                    ) : (
+                      <div className="flex gap-1">
+                        <div className="w-1.5 h-1.5 bg-gray-500 rounded-full animate-bounce" />
+                        <div className="w-1.5 h-1.5 bg-gray-500 rounded-full animate-bounce [animation-delay:0.1s]" />
+                        <div className="w-1.5 h-1.5 bg-gray-500 rounded-full animate-bounce [animation-delay:0.2s]" />
+                      </div>
+                    )}
                   </div>
                 </div>
               )}

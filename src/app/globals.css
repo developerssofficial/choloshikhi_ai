@@ -30,3 +30,10 @@
 .katex .mfrac-line { border-color: #6b7280; }
 .katex .katex-html { overflow-x: auto; overflow-y: hidden; }
 .katex .katex-display { margin: 0.5em 0; }
+
+/* Search complete fadeout */
+@keyframes fadeout {
+  0% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { opacity: 0; }
+}
