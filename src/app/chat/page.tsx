@@ -106,7 +106,11 @@ export default function ChatPage() {
     const fullText = messages[typingIdx]?.content;
     if (!fullText) return;
 
-    if (fullText.length < 6 || fullText.includes("Limit") || fullText.includes("সমস্যা")) {
+    if (fullText.length < 6 || fullText.includes("Limit") || fullText.includes("সমস্যা") ||
+        fullText.includes("\\frac") || fullText.includes("\\sqrt") || fullText.includes("\\sum") ||
+        fullText.includes("\\int") || fullText.includes("\\alpha") || fullText.includes("\\beta") ||
+        fullText.includes("$$") || fullText.includes("\\(") || fullText.includes("\\[") ||
+        /\$[^$]+\$/.test(fullText)) {
       setTypingText(fullText);
       setTypingIdx(null);
       return;

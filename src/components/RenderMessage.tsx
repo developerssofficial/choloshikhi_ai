@@ -10,60 +10,52 @@ function renderKatex(latex: string, displayMode: boolean): string {
       throwOnError: false,
       trust: true,
       strict: false,
-      macros: {
-        "\\R": "\\mathbb{R}",
-        "\\N": "\\mathbb{N}",
-        "\\Z": "\\mathbb{Z}",
-      },
     });
   } catch {
-    // If KaTeX fails, return the raw LaTeX in a code tag
-    return `<code class="text-red-400 text-[12px]">${latex}</code>`;
+    return `<span style="color:#f87171;font-size:12px">[${latex}]</span>`;
   }
 }
 
-// Parse text with LaTeX and return HTML string
 function parseMathToHTML(text: string): string {
-  // Protect LaTeX from any remaining HTML escaping
   const tokens: string[] = [];
   let result = text;
 
   // Block math: $$...$$ or \[...\]
   result = result.replace(/\$\$([\s\S]+?)\$\$/g, (_, latex) => {
-    const html = renderKatex(latex.trim(), true);
-    tokens.push(`<div class="katex-block my-3 overflow-x-auto text-center">${html}</div>`);
-    return `%%MATH_${tokens.length - 1}%%`;
+    tokens.push(`<div class="katex-block my-3 overflow-x-auto text-center">${renderKatex(latex.trim(), true)}</div>`);
+    return `§§${tokens.length - 1}§§`;
   });
   result = result.replace(/\\\[([\s\S]+?)\\\]/g, (_, latex) => {
-    const html = renderKatex(latex.trim(), true);
-    tokens.push(`<div class="katex-block my-3 overflow-x-auto text-center">${html}</div>`);
-    return `%%MATH_${tokens.length - 1}%%`;
+    tokens.push(`<div class="katex-block my-3 overflow-x-auto text-center">${renderKatex(latex.trim(), true)}</div>`);
+    return `§§${tokens.length - 1}§§`;
   });
 
-  // Inline math: $...$ or \(...\)
-  result = result.replace(/\$([^\$\n]+?)\$/g, (_, latex) => {
-    const html = renderKatex(latex.trim(), false);
-    tokens.push(`<span class="katex-inline">${html}</span>`);
-    return `%%MATH_${tokens.length - 1}%%`;
-  });
+  // Inline math: \(...\) then $...$
   result = result.replace(/\\\((.+?)\\\)/g, (_, latex) => {
-    const html = renderKatex(latex.trim(), false);
-    tokens.push(`<span class="katex-inline">${html}</span>`);
-    return `%%MATH_${tokens.length - 1}%%`;
+    tokens.push(`<span class="katex-inline">${renderKatex(latex.trim(), false)}</span>`);
+    return `§§${tokens.length - 1}§§`;
+  });
+  result = result.replace(/\$([^\$\n]+?)\$/g, (_, latex) => {
+    tokens.push(`<span class="katex-inline">${renderKatex(latex.trim(), false)}</span>`);
+    return `§§${tokens.length - 1}§§`;
   });
 
-  // Escape HTML for remaining plain text (but preserve newlines)
+  // Detect raw backslash patterns like \frac{a}{b} (without $ delimiters)
+  result = result.replace(/(\\(?:frac|sqrt|sum|int|lim|sin|cos|tan|log|ln|exp|sup|inf|max|min|partial|nabla|infty|alpha|beta|gamma|delta|theta|pi|sigma|forall|exists|rightarrow|leftarrow|mathbb|mathrm|mathbf|text|leq|geq|neq|approx|equiv|times|div|cdot|pm|cup|cap|in|notin|subset|supset|Rightarrow|Leftarrow)\s*(?:\{[^{}]*\}|\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}|\([^()]*\)|\[[^\[\]]*\]))/g, (match) => {
+    tokens.push(`<span class="katex-inline">${renderKatex(match.trim(), false)}</span>`);
+    return `§§${tokens.length - 1}§§`;
+  });
+
+  // Escape HTML in remaining plain text
   result = result
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
+    .replace(/>/g, "&gt;")
+    .replace(/\n/g, "<br>");
 
-  // Convert line breaks to <br>
-  result = result.replace(/\n/g, "<br>");
-
-  // Restore math tokens
+  // Restore all math tokens
   for (let i = 0; i < tokens.length; i++) {
-    result = result.replace(`%%MATH_${i}%%`, tokens[i]);
+    result = result.replace(`§§${i}§§`, tokens[i]);
   }
 
   return result;
@@ -73,8 +65,6 @@ export default function RenderMessage({ text }: { text: string }) {
   const html = useMemo(() => parseMathToHTML(text), [text]);
 
   return (
-    <span
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
+    <span dangerouslySetInnerHTML={{ __html: html }} />
   );
 }
