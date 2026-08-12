@@ -52,8 +52,8 @@ function markKeyRateLimited(key: string) {
   rateLimitedKeys.set(key, Date.now());
 }
 
-/* ===== SYSTEM PROMPT ===== */
-const SYSTEM_PROMPT =
+/* ===== SYSTEM PROMPTS ===== */
+const NORMAL_PROMPT =
   "You are 'CholoShikhi 1.0', a friendly AI assistant for Bengali-speaking users.\n" +
   "CRITICAL RULES:\n" +
   "1. NEVER reveal your underlying model names (Gemini, MIMO, Google, Xiaomi, or any provider name).\n" +
@@ -64,6 +64,79 @@ const SYSTEM_PROMPT =
   "6. When helping with exam papers, explain answers in BANGLA.\n" +
   "7. Remember previous conversation context. Be warm and helpful.\n" +
   "8. Keep responses concise but complete.";
+
+/* ===== EDUCATION MODE: analyze conversation state ===== */
+function analyzeTeachingState(history: Array<{ role: string; content: string }>): string {
+  const lastMsgs = history.slice(-6); // last 3 exchanges
+  const lastUserMsg = lastMsgs.filter((m) => m.role === "user").pop()?.content?.toLowerCase() || "";
+
+  // Student doesn't understand
+  const confusionPatterns = ["বুঝিনি", "বুঝলাম না", "আবার বলো", "আরো সহজ", "explain", "পারিনি", "কীভাবে", "মাঝে মাঝে", "confused", "bujhina", "hobena", "ki hoise"];
+  const isConfused = confusionPatterns.some((p) => lastUserMsg.includes(p));
+
+  // Student answered a check question
+  const lastAssistantMsg = lastMsgs.filter((m) => m.role === "assistant").pop()?.content || "";
+  const hadCheckQuestion = /\d[.\)]\s/i.test(lastAssistantMsg) || /কিছু প্রশ্ন|check|পরীক্ষা|বলো দেখি|ধারণাটা/i.test(lastAssistantMsg);
+
+  // Student said yes/correct
+  const positivePatterns = ["হ্যাঁ", "হ্যা", "yes", "ji", "ঠিক আছে", "bujhte perechi", "perechi", "সঠিক", "correct", "thik ache"];
+  const isPositive = positivePatterns.some((p) => lastUserMsg.includes(p));
+
+  // Student said no/wrong
+  const negativePatterns = ["না", "no", "nahi", "bhul", "ভুল", "parena", "পারিনি", "হয়নি"];
+  const isNegative = negativePatterns.some((p) => lastUserMsg.includes(p));
+
+  let state = "";
+  if (isConfused) {
+    state = "\n\n[TEACHING STATE: Student says they don't understand. You MUST NOT repeat the same explanation. Instead: (1) Use a completely different analogy or real-life example. (2) Break into smaller visual steps. (3) Use a simple flow/sequence. (4) Ask one tiny question to find WHERE they're stuck.]";
+  } else if (hadCheckQuestion && isPositive) {
+    state = "\n\n[TEACHING STATE: Student answered correctly. Praise briefly, then move to the NEXT concept. Build on what they just learned.]";
+  } else if (hadCheckQuestion && isNegative) {
+    state = "\n\n[TEACHING STATE: Student gave a wrong answer to your check question. Do NOT give the full answer. Give a small HINT first and let them think. If they already got a hint before, give a slightly bigger hint. Only explain fully if they've failed 2+ times.]";
+  } else if (lastMsgs.length > 2) {
+    state = "\n\n[TEACHING STATE: Ongoing lesson. Continue from where you left off. Keep the same topic. Don't restart from the beginning.]";
+  }
+
+  return state;
+}
+
+function getEducationPrompt(teachingState: string): string {
+  return (
+    "You are 'CholoShikhi Shikkhok' — a caring, patient personal tutor for Bengali-speaking students.\n\n" +
+    "YOUR CORE IDENTITY:\n" +
+    "- You are a teacher, NOT an answer machine.\n" +
+    "- Your goal is to make the STUDENT understand, not to show how much you know.\n" +
+    "- NEVER do homework FOR the student. Make them capable of doing it themselves.\n\n" +
+    "TEACHING RULES:\n" +
+    "1. Assume the student knows NOTHING about the topic. Start from zero.\n" +
+    "2. Use simple, natural Bangla. For English technical terms, add Bangla explanation in brackets.\n" +
+    "   Example: 'Algorithm (নির্দেশিকা) মানে হলো...'\n" +
+    "3. ALWAYS explain WHY and HOW something works, not just WHAT it is.\n" +
+    "4. For Math/calculations: Show EVERY step. Never skip a step. Write like:\n" +
+    "   Step 1: ...\n" +
+    "   Step 2: ...\n" +
+    "5. Break big topics into small parts. Teach ONE concept at a time.\n" +
+    "6. After explaining, ask 1-2 small check questions to verify understanding.\n" +
+    "   Example: 'এখন বলো, [simple question about what was just taught]?'\n" +
+    "7. If student answers CORRECTLY: Praise briefly ('বাহ! ঠিক বলেছো!') → Move to next concept.\n" +
+    "8. If student answers WRONG: Give a small HINT first. Let them think.\n" +
+    "   Do NOT immediately give the full answer.\n" +
+    "9. If student says 'বুঝিনি' or similar:\n" +
+    "   - First retry: Use a different real-life analogy.\n" +
+    "   - Second retry: Break into a visual step-by-step flow.\n" +
+    "   - Third retry: Use the simplest possible words, like talking to a child.\n" +
+    "   NEVER just copy-paste the same explanation.\n" +
+    "10. Try to identify WHERE the student is stuck and start from there.\n" +
+    "11. Adjust difficulty: if student is doing well, go deeper. If struggling, simplify.\n\n" +
+    "IMPORTANT: This is an interactive TUTORING session, not a one-way lecture.\n" +
+    "Keep responses focused and not too long. After each concept, wait for student response.\n\n" +
+    "CRITICAL RULES:\n" +
+    "- NEVER reveal model names (Gemini, MIMO, Google, Xiaomi).\n" +
+    "- If asked 'who are you?', answer: 'আমি CholoShikhi Shikkhok — Xparrow Team তৈরি করেছে।'\n" +
+    "- Respond in Bangla primarily. Use English only for technical terms with Bangla explanation." +
+    teachingState
+  );
+}
 
 /* ===== PROMPT CACHE ===== */
 const promptCache = new Map<string, { response: string; time: number }>();
@@ -142,7 +215,8 @@ function parseBase64Image(imageBase64: string): { mimeType: string; data: string
 async function callGemini(
   message: string,
   history: Array<{ role: string; content: string }>,
-  imageBase64?: string
+  imageBase64?: string,
+  systemPrompt?: string
 ): Promise<string> {
   const apiKey = getNextGeminiKey();
   if (!apiKey) throw new Error("Gemini key not set");
@@ -170,7 +244,7 @@ async function callGemini(
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+      systemInstruction: { parts: [{ text: systemPrompt || NORMAL_PROMPT }] },
       contents,
       generationConfig: { temperature: 0.7, maxOutputTokens: 1024 },
     }),
@@ -191,7 +265,8 @@ async function callGemini(
 async function callMimo(
   message: string,
   history: Array<{ role: string; content: string }>,
-  imageBase64?: string
+  imageBase64?: string,
+  systemPrompt?: string
 ): Promise<string> {
   const apiKey = process.env.MIMO_API_KEY;
   if (!apiKey) throw new Error("MIMO key not set");
@@ -205,7 +280,7 @@ async function callMimo(
 
   // build messages with memory
   const messages: any[] = [
-    { role: "system", content: SYSTEM_PROMPT },
+    { role: "system", content: systemPrompt || NORMAL_PROMPT },
   ];
 
   for (const h of history) {
@@ -255,7 +330,7 @@ async function callMimo(
 
 export async function POST(req: NextRequest) {
   try {
-    const { message, userId, image, sessionId } = await req.json();
+    const { message, userId, image, sessionId, mode } = await req.json();
 
     if (!message?.trim()) {
       return NextResponse.json({ error: "Message required" }, { status: 400 });
@@ -309,9 +384,17 @@ export async function POST(req: NextRequest) {
       memory = await getMemory(userId);
     }
 
-    /* ===== PROMPT CACHE (skip for image & multi-turn) ===== */
+    /* ===== BUILD SYSTEM PROMPT BASED ON MODE ===== */
+    const isEducation = mode === "education";
+    let activeSystemPrompt = NORMAL_PROMPT;
+    if (isEducation) {
+      const teachingState = analyzeTeachingState(memory);
+      activeSystemPrompt = getEducationPrompt(teachingState);
+    }
+
+    /* ===== PROMPT CACHE (skip for image, multi-turn, and education mode) ===== */
     const cacheKey = message.trim().toLowerCase();
-    if (!image && memory.length === 0) {
+    if (!image && memory.length === 0 && !isEducation) {
       const cached = getCachedResponse(cacheKey);
       if (cached) {
         return NextResponse.json({ response: cached, provider: "cache" });
@@ -328,7 +411,7 @@ export async function POST(req: NextRequest) {
 
       if (hasGemini) {
         try {
-          response = await callGemini(message, memory, image);
+          response = await callGemini(message, memory, image, activeSystemPrompt);
           usedProvider = "gemini";
         } catch (err: any) {
           if (err.message === "RATE_LIMITED") markKeyRateLimited(getGeminiKeys()[geminiKeyState.idx] || "");
@@ -339,7 +422,7 @@ export async function POST(req: NextRequest) {
       if (!response) {
         for (let attempt = 0; attempt < 2; attempt++) {
           try {
-            response = await callMimo(message, memory, image);
+            response = await callMimo(message, memory, image, activeSystemPrompt);
             usedProvider = "mimo";
             break;
           } catch (err: any) {
@@ -361,7 +444,7 @@ export async function POST(req: NextRequest) {
 
       if (hasGemini) {
         try {
-          response = await callGemini(message, memory);
+          response = await callGemini(message, memory, undefined, activeSystemPrompt);
           usedProvider = "gemini";
         } catch (err: any) {
           if (err.message === "RATE_LIMITED") markKeyRateLimited(getGeminiKeys()[geminiKeyState.idx] || "");
@@ -371,7 +454,7 @@ export async function POST(req: NextRequest) {
 
       if (!response) {
         try {
-          response = await callMimo(message, memory);
+          response = await callMimo(message, memory, undefined, activeSystemPrompt);
           usedProvider = "mimo";
         } catch (err: any) {
           console.error("Both providers failed:", err.message);
@@ -402,7 +485,7 @@ export async function POST(req: NextRequest) {
     }
 
     /* ===== CACHE ===== */
-    if (!image && memory.length === 0 && response) {
+    if (!image && memory.length === 0 && !isEducation && response) {
       setCachedResponse(cacheKey, response);
     }
 

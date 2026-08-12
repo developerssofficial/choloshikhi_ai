@@ -59,6 +59,7 @@ export default function ChatPage() {
   const [showHistory, setShowHistory] = useState(false);
   const [loadingSessions, setLoadingSessions] = useState(false);
   const [copiedIdx, setCopiedIdx] = useState<number | null>(null);
+  const [mode, setMode] = useState<"normal" | "education">("normal");
   const bottomRef = useRef<HTMLDivElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -205,11 +206,12 @@ export default function ChatPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          message: userMsg,
-          userId: user?.id || null,
-          sessionId: activeSessionId,
-          image: imageToSend || null,
-        }),
+            message: userMsg,
+            userId: user?.id || null,
+            sessionId: activeSessionId,
+            mode,
+            image: imageToSend || null,
+          }),
       });
 
       const data = await res.json();
@@ -385,9 +387,30 @@ export default function ChatPage() {
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
             </button>
           </div>
-          <h2 className="text-xs font-medium text-gray-400">
-            {chatActive ? (messages[0]?.content?.slice(0, 40) || "চলো শিখি Ai") : "চলো শিখি Ai"}
-          </h2>
+
+          {/* Mode Toggle */}
+          <div className="flex items-center bg-[#1a1a24] border border-white/[0.08] rounded-full p-0.5">
+            <button
+              onClick={() => setMode("normal")}
+              className={`px-3 py-1 text-[10px] font-medium rounded-full transition-all ${
+                mode === "normal"
+                  ? "bg-violet-600 text-white"
+                  : "text-gray-500 hover:text-gray-300"
+              }`}>
+              Normal
+            </button>
+            <button
+              onClick={() => setMode("education")}
+              className={`px-3 py-1 text-[10px] font-medium rounded-full transition-all flex items-center gap-1 ${
+                mode === "education"
+                  ? "bg-emerald-600 text-white"
+                  : "text-gray-500 hover:text-gray-300"
+              }`}>
+              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+              Shikkhok
+            </button>
+          </div>
+
           <div className="flex items-center gap-3">
             {user && (
               <span className="text-[10px] text-gray-500">{user.email}</span>
@@ -453,7 +476,10 @@ export default function ChatPage() {
         ) : (
           /* ===== LANDING STATE ===== */
           <div className="flex-1 flex flex-col items-center justify-center px-4">
-            <p className="text-gray-300 text-xl font-medium mb-8">{getGreeting()}{user ? `, ${user.name || "বন্ধু"}` : ""}</p>
+            <p className="text-gray-300 text-xl font-medium mb-2">{getGreeting()}{user ? `, ${user.name || "বন্ধু"}` : ""}</p>
+            {mode === "education" && (
+              <p className="text-emerald-400/70 text-xs">Education Mode — আমি তোমার ব্যক্তিগত শিক্ষক</p>
+            )}
           </div>
         )}
 
@@ -495,7 +521,7 @@ export default function ChatPage() {
               <input ref={inputRef} type="text" value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSend()}
-                placeholder="কিছু জিজ্ঞাসা করো..."
+                placeholder={mode === "education" ? "কোনো বিষয় শিখতে চাও? প্রশ্ন করো..." : "কিছু জিজ্ঞাসা করো..."}
                 disabled={sending}
                 className="flex-1 bg-transparent text-white placeholder-gray-500 focus:outline-none text-sm disabled:opacity-40"
               />
@@ -508,8 +534,8 @@ export default function ChatPage() {
             {/* Model badge */}
             <div className="flex items-center justify-center mt-2">
               <div className="flex items-center gap-1.5 text-[10px] text-gray-600">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                CholoShikhi 1.0
+                <span className={`w-1.5 h-1.5 rounded-full ${mode === "education" ? "bg-emerald-500" : "bg-violet-500"}`} />
+                {mode === "education" ? "CholoShikhi Shikkhok" : "CholoShikhi 1.0"}
               </div>
             </div>
           </div>
