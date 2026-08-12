@@ -3,35 +3,11 @@
 import { useState, useRef, useEffect } from "react";
 import { useAuth } from "@/lib/auth";
 import Link from "next/link";
-import ChatModal from "@/components/ChatModal";
 
 interface Message {
   role: "user" | "assistant";
   content: string;
   image?: string;
-}
-
-const GUEST_LIMIT = 15;
-const GUEST_KEY = "guest_msg_count";
-const GUEST_DATE_KEY = "guest_msg_date";
-
-function getGuestCount(): number {
-  if (typeof window === "undefined") return 0;
-  const today = new Date().toISOString().split("T")[0];
-  const storedDate = localStorage.getItem(GUEST_DATE_KEY);
-  if (storedDate !== today) {
-    localStorage.setItem(GUEST_DATE_KEY, today);
-    localStorage.setItem(GUEST_KEY, "0");
-    return 0;
-  }
-  return parseInt(localStorage.getItem(GUEST_KEY) || "0", 10);
-}
-
-function addGuestCount(): number {
-  if (typeof window === "undefined") return 0;
-  const count = getGuestCount() + 1;
-  localStorage.setItem(GUEST_KEY, String(count));
-  return count;
 }
 
 function getGreeting(): string {
@@ -54,8 +30,6 @@ export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [todayUsage, setTodayUsage] = useState(0);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [typingIdx, setTypingIdx] = useState<number | null>(null);
   const [typingText, setTypingText] = useState("");
@@ -64,9 +38,6 @@ export default function ChatPage() {
   const inputRef = useRef<HTMLInputElement>(null);
   const typingRef = useRef<NodeJS.Timeout | null>(null);
 
-  const guestRemaining = GUEST_LIMIT - getGuestCount();
-  const isGuest = !user;
-  const isBlocked = isGuest && guestRemaining <= 0;
   const chatActive = messages.length > 0;
 
   useEffect(() => {
@@ -105,7 +76,7 @@ export default function ChatPage() {
 
   const handleSend = async (text?: string) => {
     const msg = text || input.trim();
-    if ((!msg && !imagePreview) || sending || isBlocked) return;
+    if ((!msg && !imagePreview) || sending) return;
 
     // Clear any ongoing typewriter animation
     if (typingRef.current) clearInterval(typingRef.current);
@@ -140,10 +111,6 @@ export default function ChatPage() {
       const data = await res.json();
 
       if (res.status === 429) {
-        if (!user) {
-          addGuestCount();
-          setShowModal(true);
-        }
         setMessages((prev) => [...prev, { role: "assistant", content: data.error || "Limit shesheche!" }]);
         return;
       }
@@ -155,7 +122,6 @@ export default function ChatPage() {
         setTimeout(() => setTypingIdx(next.length - 1), 50);
         return next;
       });
-      user ? setTodayUsage((p) => p + 1) : addGuestCount();
     } catch (err: any) {
       setMessages((prev) => [...prev, { role: "assistant", content: err.message || "কিছু সমস্যা হয়েছে।" }]);
     } finally {
@@ -172,8 +138,6 @@ export default function ChatPage() {
     reader.readAsDataURL(file);
     e.target.value = "";
   };
-
-  const handleLogin = () => { setShowModal(false); signInWithGoogle(); };
 
   if (loading) {
     return (
@@ -228,10 +192,8 @@ export default function ChatPage() {
           </div>
           <h2 className="text-xs font-medium text-gray-400">চলো শিখি Ai</h2>
           <div className="flex items-center gap-3">
-            {user ? (
-              <span className="text-[10px] text-gray-500">{todayUsage}<span className="text-gray-600">/50</span></span>
-            ) : (
-              <span className="text-[10px] text-gray-500">{guestRemaining > 0 ? `${guestRemaining} free` : "limit done"}</span>
+            {user && (
+              <span className="text-[10px] text-gray-500">{user.email}</span>
             )}
           </div>
         </header>
@@ -316,7 +278,7 @@ export default function ChatPage() {
             {/* Input Box */}
             <div className="flex items-center bg-[#1a1a24] border border-white/[0.08] rounded-2xl px-4 py-3 focus-within:border-white/[0.15] transition-colors">
               <input ref={fileRef} type="file" accept="image/*" onChange={handleImageSelect} className="hidden" />
-              <button onClick={() => fileRef.current?.click()} disabled={sending || isBlocked}
+              <button onClick={() => fileRef.current?.click()} disabled={sending}
                 className="text-gray-500 hover:text-violet-400 transition-colors disabled:opacity-40 mr-2 flex-shrink-0"
                 title="ছবি">
                 <svg className="w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
@@ -324,11 +286,11 @@ export default function ChatPage() {
               <input ref={inputRef} type="text" value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSend()}
-                placeholder={isBlocked ? "লগইন করুন..." : "কিছু জিজ্ঞাসা করো..."}
-                disabled={sending || isBlocked}
+                placeholder="কিছু জিজ্ঞাসা করো..."
+                disabled={sending}
                 className="flex-1 bg-transparent text-white placeholder-gray-500 focus:outline-none text-sm disabled:opacity-40"
               />
-              <button onClick={() => handleSend()} disabled={(!input.trim() && !imagePreview) || sending || isBlocked}
+              <button onClick={() => handleSend()} disabled={(!input.trim() && !imagePreview) || sending}
                 className="ml-2 w-8 h-8 rounded-xl bg-violet-600 flex items-center justify-center text-white hover:bg-violet-500 disabled:opacity-20 disabled:cursor-not-allowed transition-all flex-shrink-0">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
               </button>
@@ -345,7 +307,6 @@ export default function ChatPage() {
         </div>
       </div>
 
-      {showModal && <ChatModal onLogin={handleLogin} onClose={() => setShowModal(false)} />}
     </div>
   );
 }

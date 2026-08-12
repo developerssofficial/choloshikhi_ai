@@ -7,9 +7,50 @@ const GEMINI_URL =
 const MIMO_URL = "https://api.xiaomimimo.com/v1/chat/completions";
 const MIMO_MODEL = "mimo-v2.5";
 const TIMEOUT_MS = 15000;
-const GUEST_LIMIT = 15;
-const USER_LIMIT = 50;
 const MEMORY_LIMIT = 20; // recent messages to remember
+
+/* ===== GEMINI KEY ROTATION ===== */
+// Supports comma-separated multiple keys: GEMINI_API_KEY=key1,key2,key3
+// Rate-limited keys auto-recover after 1 hour
+const geminiKeyState = { idx: 0 };
+const rateLimitedKeys = new Map<string, number>(); // key → timestamp
+
+function getGeminiKeys(): string[] {
+  const raw = process.env.GEMINI_API_KEY || "";
+  return raw
+    .split(",")
+    .map((k) => k.trim())
+    .filter(Boolean);
+}
+
+function getNextGeminiKey(): string | null {
+  const keys = getGeminiKeys();
+  if (keys.length === 0) return null;
+
+  const now = Date.now();
+  // Clean up expired rate-limited keys (older than 1 hour)
+  for (const [key, ts] of rateLimitedKeys) {
+    if (now - ts > 3600_000) rateLimitedKeys.delete(key);
+  }
+
+  // Try all keys starting from current index
+  for (let i = 0; i < keys.length; i++) {
+    const idx = (geminiKeyState.idx + i) % keys.length;
+    const key = keys[idx];
+    if (!rateLimitedKeys.has(key)) {
+      geminiKeyState.idx = (idx + 1) % keys.length;
+      return key;
+    }
+  }
+
+  // All keys rate-limited — return first one (will fail and trigger MIMO fallback)
+  geminiKeyState.idx = (geminiKeyState.idx + 1) % keys.length;
+  return keys[0];
+}
+
+function markKeyRateLimited(key: string) {
+  rateLimitedKeys.set(key, Date.now());
+}
 
 /* ===== SYSTEM PROMPT ===== */
 const SYSTEM_PROMPT =
@@ -23,23 +64,6 @@ const SYSTEM_PROMPT =
   "6. When helping with exam papers, explain answers in BANGLA.\n" +
   "7. Remember previous conversation context. Be warm and helpful.\n" +
   "8. Keep responses concise but complete.";
-
-/* ===== IN-MEMORY GUEST CONVERSATION HISTORY ===== */
-const guestHistory = new Map<string, Array<{ role: string; content: string }>>();
-
-function getGuestHistory(ip: string): Array<{ role: string; content: string }> {
-  return guestHistory.get(ip) || [];
-}
-
-function addToGuestHistory(ip: string, role: string, content: string) {
-  const history = getGuestHistory(ip);
-  history.push({ role, content });
-  // keep last 20 messages
-  if (history.length > MEMORY_LIMIT) {
-    history.splice(0, history.length - MEMORY_LIMIT);
-  }
-  guestHistory.set(ip, history);
-}
 
 /* ===== PROMPT CACHE ===== */
 const promptCache = new Map<string, { response: string; time: number }>();
@@ -58,38 +82,6 @@ function setCachedResponse(key: string, response: string) {
     if (oldest) promptCache.delete(oldest);
   }
   promptCache.set(key, { response, time: Date.now() });
-}
-
-/* ===== GUEST TRACKING ===== */
-const guestCounts = new Map<string, { count: number; date: string }>();
-
-function getGuestCount(ip: string): number {
-  const today = new Date().toISOString().split("T")[0];
-  const entry = guestCounts.get(ip);
-  if (!entry || entry.date !== today) {
-    guestCounts.set(ip, { count: 0, date: today });
-    return 0;
-  }
-  return entry.count;
-}
-
-function incrementGuest(ip: string): number {
-  const today = new Date().toISOString().split("T")[0];
-  const entry = guestCounts.get(ip);
-  if (!entry || entry.date !== today) {
-    guestCounts.set(ip, { count: 1, date: today });
-    return 1;
-  }
-  entry.count++;
-  return entry.count;
-}
-
-function getClientIp(req: NextRequest): string {
-  return (
-    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-    req.headers.get("x-real-ip") ||
-    "unknown"
-  );
 }
 
 /* ===== MEMORY: fetch recent chat history from Supabase ===== */
@@ -129,7 +121,7 @@ async function callGemini(
   history: Array<{ role: string; content: string }>,
   imageBase64?: string
 ): Promise<string> {
-  const apiKey = process.env.GEMINI_API_KEY;
+  const apiKey = getNextGeminiKey();
   if (!apiKey) throw new Error("Gemini key not set");
 
   // build contents with memory
@@ -241,7 +233,6 @@ async function callMimo(
 export async function POST(req: NextRequest) {
   try {
     const { message, userId, image } = await req.json();
-    const ip = getClientIp(req);
 
     if (!message?.trim()) {
       return NextResponse.json({ error: "Message required" }, { status: 400 });
@@ -287,39 +278,12 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    /* ===== RATE LIMITING ===== */
-    if (!userId) {
-      const count = getGuestCount(ip);
-      if (count >= GUEST_LIMIT) {
-        return NextResponse.json(
-          { error: "ফ্রি ১৫টি মেসেজ শেষ! লগইন করো।", limited: true },
-          { status: 429 }
-        );
-      }
-    } else {
-      const today = new Date().toISOString().split("T")[0];
-      const { data: usage } = await supabase
-        .from("user_usage")
-        .select("message_count")
-        .eq("user_id", userId)
-        .eq("usage_date", today)
-        .single();
-
-      const todayCount = usage?.message_count ?? 0;
-      if (todayCount >= USER_LIMIT) {
-        return NextResponse.json(
-          { error: "আজকের ৫০টি মেসেজ শেষ! আগামীকাল আবার চেষ্টা করো।", limited: true },
-          { status: 429 }
-        );
-      }
-    }
-
     /* ===== MEMORY: fetch conversation history ===== */
     let memory: Array<{ role: string; content: string }> = [];
     if (userId) {
       memory = await getMemory(userId);
     } else {
-      memory = getGuestHistory(ip);
+      memory = [];
     }
 
     /* ===== PROMPT CACHE (skip for image & multi-turn) ===== */
@@ -337,13 +301,14 @@ export async function POST(req: NextRequest) {
 
     if (image) {
       // Image → Gemini first, MIMO fallback (both support vision)
-      const hasGemini = !!process.env.GEMINI_API_KEY;
+      const hasGemini = !!getNextGeminiKey();
 
       if (hasGemini) {
         try {
           response = await callGemini(message, memory, image);
           usedProvider = "gemini";
-        } catch {
+        } catch (err: any) {
+          if (err.message === "RATE_LIMITED") markKeyRateLimited(getGeminiKeys()[geminiKeyState.idx] || "");
           // Gemini failed, try MIMO
         }
       }
@@ -369,13 +334,14 @@ export async function POST(req: NextRequest) {
       }
     } else {
       // Text → Gemini first, MIMO fallback (both get memory)
-      const hasGemini = !!process.env.GEMINI_API_KEY;
+      const hasGemini = !!getNextGeminiKey();
 
       if (hasGemini) {
         try {
           response = await callGemini(message, memory);
           usedProvider = "gemini";
-        } catch {
+        } catch (err: any) {
+          if (err.message === "RATE_LIMITED") markKeyRateLimited(getGeminiKeys()[geminiKeyState.idx] || "");
           // Gemini failed, try MIMO
         }
       }
@@ -424,16 +390,6 @@ export async function POST(req: NextRequest) {
         message: message.trim(),
         response,
       });
-
-      const today = new Date().toISOString().split("T")[0];
-      await supabase.rpc("increment_usage", {
-        p_user_id: userId,
-        p_date: today,
-      });
-    } else {
-      incrementGuest(ip);
-      addToGuestHistory(ip, "user", message.trim());
-      addToGuestHistory(ip, "assistant", response);
     }
 
     return NextResponse.json({ response, provider: usedProvider });
