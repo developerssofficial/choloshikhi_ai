@@ -108,6 +108,29 @@ async function getMemory(userId: string): Promise<Array<{ role: string; content:
   }
 }
 
+/* ===== MEMORY: fetch session-specific chat history ===== */
+async function getSessionMemory(sessionId: string): Promise<Array<{ role: string; content: string }>> {
+  try {
+    const { data } = await supabase
+      .from("chat_history")
+      .select("message, response")
+      .eq("session_id", sessionId)
+      .order("timestamp", { ascending: true })
+      .limit(MEMORY_LIMIT);
+
+    if (!data?.length) return [];
+
+    const history: Array<{ role: string; content: string }> = [];
+    for (const row of data) {
+      history.push({ role: "user", content: row.message });
+      history.push({ role: "assistant", content: row.response });
+    }
+    return history;
+  } catch {
+    return [];
+  }
+}
+
 /* ===== AI PROVIDERS ===== */
 
 function parseBase64Image(imageBase64: string): { mimeType: string; data: string } | null {
@@ -232,7 +255,7 @@ async function callMimo(
 
 export async function POST(req: NextRequest) {
   try {
-    const { message, userId, image } = await req.json();
+    const { message, userId, image, sessionId } = await req.json();
 
     if (!message?.trim()) {
       return NextResponse.json({ error: "Message required" }, { status: 400 });
@@ -280,10 +303,10 @@ export async function POST(req: NextRequest) {
 
     /* ===== MEMORY: fetch conversation history ===== */
     let memory: Array<{ role: string; content: string }> = [];
-    if (userId) {
+    if (userId && sessionId) {
+      memory = await getSessionMemory(sessionId);
+    } else if (userId) {
       memory = await getMemory(userId);
-    } else {
-      memory = [];
     }
 
     /* ===== PROMPT CACHE (skip for image & multi-turn) ===== */
@@ -387,6 +410,7 @@ export async function POST(req: NextRequest) {
     if (userId) {
       await supabase.from("chat_history").insert({
         user_id: userId,
+        session_id: sessionId || null,
         message: message.trim(),
         response,
       });

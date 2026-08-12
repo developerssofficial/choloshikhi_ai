@@ -10,6 +10,13 @@ interface Message {
   image?: string;
 }
 
+interface ChatSession {
+  id: string;
+  title: string;
+  created_at: string;
+  updated_at: string;
+}
+
 function getGreeting(): string {
   const h = new Date().getHours();
   if (h < 12) return "সুপ্রভাত";
@@ -25,6 +32,20 @@ const SUGGESTIONS = [
   { icon: "📝", label: "Help", text: "/help" },
 ];
 
+function formatDate(d: string): string {
+  const date = new Date(d);
+  const now = new Date();
+  const diff = now.getTime() - date.getTime();
+  const mins = Math.floor(diff / 60000);
+  if (mins < 1) return "এইমাত্র";
+  if (mins < 60) return `${mins} মিনিট আগে`;
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24) return `${hrs} ঘণ্টা আগে`;
+  const days = Math.floor(hrs / 24);
+  if (days < 7) return `${days} দিন আগে`;
+  return date.toLocaleDateString("bn-BD", { month: "short", day: "numeric" });
+}
+
 export default function ChatPage() {
   const { user, loading, signInWithGoogle, signOut } = useAuth();
   const [messages, setMessages] = useState<Message[]>([]);
@@ -33,24 +54,47 @@ export default function ChatPage() {
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [typingIdx, setTypingIdx] = useState<number | null>(null);
   const [typingText, setTypingText] = useState("");
+  const [sessionId, setSessionId] = useState<string | null>(null);
+  const [sessions, setSessions] = useState<ChatSession[]>([]);
+  const [showHistory, setShowHistory] = useState(false);
+  const [loadingSessions, setLoadingSessions] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const typingRef = useRef<NodeJS.Timeout | null>(null);
+  const sessionCreatedRef = useRef(false);
 
   const chatActive = messages.length > 0;
 
+  // Fetch user's sessions
+  const fetchSessions = async () => {
+    if (!user) return;
+    setLoadingSessions(true);
+    try {
+      const res = await fetch("/api/sessions", {
+        headers: { "x-user-id": user.id },
+      });
+      const data = await res.json();
+      if (data.sessions) setSessions(data.sessions);
+    } catch {}
+    setLoadingSessions(false);
+  };
+
+  useEffect(() => {
+    if (user) fetchSessions();
+  }, [user]);
+
+  // Scroll to bottom
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, typingText]);
 
-  // Typewriter effect for AI responses
+  // Typewriter effect
   useEffect(() => {
     if (typingIdx === null) return;
     const fullText = messages[typingIdx]?.content;
     if (!fullText) return;
 
-    // Short or error messages — skip animation
     if (fullText.length < 6 || fullText.includes("Limit") || fullText.includes("সমস্যা")) {
       setTypingText(fullText);
       setTypingIdx(null);
@@ -74,11 +118,52 @@ export default function ChatPage() {
     return () => { if (typingRef.current) clearInterval(typingRef.current); };
   }, [typingIdx, messages]);
 
+  // Create new session
+  const createSession = async (title: string): Promise<string | null> => {
+    if (!user) return null;
+    try {
+      const res = await fetch("/api/sessions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId: user.id, title }),
+      });
+      const data = await res.json();
+      if (data.session) {
+        setSessions((prev) => [data.session, ...prev]);
+        return data.session.id;
+      }
+    } catch {}
+    return null;
+  };
+
+  // Load session messages
+  const loadSession = async (sid: string) => {
+    try {
+      const res = await fetch(`/api/sessions/${sid}`);
+      const data = await res.json();
+      if (data.messages) {
+        setMessages(data.messages);
+        setSessionId(sid);
+        setShowHistory(false);
+      }
+    } catch {}
+  };
+
+  // Start new chat
+  const startNewChat = () => {
+    if (typingRef.current) clearInterval(typingRef.current);
+    setTypingIdx(null);
+    setTypingText("");
+    setMessages([]);
+    setSessionId(null);
+    sessionCreatedRef.current = false;
+    setShowHistory(false);
+  };
+
   const handleSend = async (text?: string) => {
     const msg = text || input.trim();
     if ((!msg && !imagePreview) || sending) return;
 
-    // Clear any ongoing typewriter animation
     if (typingRef.current) clearInterval(typingRef.current);
     setTypingIdx(null);
     setTypingText("");
@@ -97,6 +182,15 @@ export default function ChatPage() {
     ]);
     setSending(true);
 
+    // Auto-create session on first message (with first message as title)
+    let activeSessionId = sessionId;
+    if (user && !activeSessionId && !sessionCreatedRef.current) {
+      sessionCreatedRef.current = true;
+      const title = (msg || "Image chat").slice(0, 50);
+      activeSessionId = await createSession(title);
+      if (activeSessionId) setSessionId(activeSessionId);
+    }
+
     try {
       const res = await fetch("/api/chat", {
         method: "POST",
@@ -104,6 +198,7 @@ export default function ChatPage() {
         body: JSON.stringify({
           message: userMsg,
           userId: user?.id || null,
+          sessionId: activeSessionId,
           image: imageToSend || null,
         }),
       });
@@ -139,6 +234,15 @@ export default function ChatPage() {
     e.target.value = "";
   };
 
+  const deleteSession = async (sid: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    try {
+      await fetch(`/api/sessions/${sid}`, { method: "DELETE" });
+      setSessions((prev) => prev.filter((s) => s.id !== sid));
+      if (sessionId === sid) startNewChat();
+    } catch {}
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-[#0f0f14]">
@@ -156,13 +260,14 @@ export default function ChatPage() {
         </Link>
 
         <div className="flex flex-col items-center gap-3 mt-4">
-          <Link href="/chat"
+          <button onClick={startNewChat}
             className="w-9 h-9 rounded-lg flex items-center justify-center text-gray-500 hover:text-white hover:bg-white/[0.06] transition-all"
             title="নতুন চ্যাট">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
-          </Link>
+          </button>
           <button
-            className="w-9 h-9 rounded-lg flex items-center justify-center text-gray-500 hover:text-white hover:bg-white/[0.06] transition-all"
+            onClick={() => { setShowHistory(!showHistory); if (user) fetchSessions(); }}
+            className={`w-9 h-9 rounded-lg flex items-center justify-center transition-all ${showHistory ? "text-white bg-white/[0.06]" : "text-gray-500 hover:text-white hover:bg-white/[0.06]"}`}
             title="History">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           </button>
@@ -181,16 +286,99 @@ export default function ChatPage() {
         </div>
       </aside>
 
+      {/* ===== HISTORY PANEL ===== */}
+      {showHistory && (
+        <div className="hidden md:flex flex-col w-[240px] border-r border-white/[0.06] bg-[#12121a]">
+          <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.06]">
+            <span className="text-xs font-medium text-gray-400">চ্যাট ইতিহাস</span>
+            <button onClick={() => setShowHistory(false)} className="text-gray-600 hover:text-gray-400 text-xs">✕</button>
+          </div>
+          <div className="flex-1 overflow-y-auto">
+            {!user ? (
+              <p className="text-gray-600 text-[11px] p-4 text-center">লগইন করুন</p>
+            ) : loadingSessions ? (
+              <div className="flex justify-center py-8">
+                <div className="w-5 h-5 border-2 border-gray-600 border-t-white rounded-full animate-spin" />
+              </div>
+            ) : sessions.length === 0 ? (
+              <p className="text-gray-600 text-[11px] p-4 text-center">কোনো চ্যাট নেই</p>
+            ) : (
+              sessions.map((s) => (
+                <button
+                  key={s.id}
+                  onClick={() => loadSession(s.id)}
+                  className={`w-full text-left px-4 py-2.5 border-b border-white/[0.03] hover:bg-white/[0.04] transition-colors group ${sessionId === s.id ? "bg-white/[0.06]" : ""}`}
+                >
+                  <div className="flex items-center justify-between">
+                    <p className="text-[11px] text-gray-300 truncate flex-1">{s.title}</p>
+                    <button
+                      onClick={(e) => deleteSession(s.id, e)}
+                      className="text-gray-700 hover:text-red-400 text-[10px] ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                      title="মুছুন">
+                      ✕
+                    </button>
+                  </div>
+                  <p className="text-[9px] text-gray-600 mt-0.5">{formatDate(s.updated_at)}</p>
+                </button>
+              ))
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* ===== MOBILE HISTORY DRAWER ===== */}
+      {showHistory && (
+        <div className="md:hidden fixed inset-0 z-40 flex">
+          <div className="absolute inset-0 bg-black/50" onClick={() => setShowHistory(false)} />
+          <div className="relative w-[260px] bg-[#12121a] border-r border-white/[0.06] flex flex-col h-full">
+            <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.06]">
+              <span className="text-xs font-medium text-gray-400">চ্যাট ইতিহাস</span>
+              <button onClick={() => setShowHistory(false)} className="text-gray-600 hover:text-gray-400 text-xs">✕</button>
+            </div>
+            <div className="flex-1 overflow-y-auto">
+              {!user ? (
+                <p className="text-gray-600 text-[11px] p-4 text-center">লগইন করুন</p>
+              ) : sessions.length === 0 ? (
+                <p className="text-gray-600 text-[11px] p-4 text-center">কোনো চ্যাট নেই</p>
+              ) : (
+                sessions.map((s) => (
+                  <button
+                    key={s.id}
+                    onClick={() => loadSession(s.id)}
+                    className={`w-full text-left px-4 py-2.5 border-b border-white/[0.03] hover:bg-white/[0.04] transition-colors group ${sessionId === s.id ? "bg-white/[0.06]" : ""}`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <p className="text-[11px] text-gray-300 truncate flex-1">{s.title}</p>
+                      <button
+                        onClick={(e) => deleteSession(s.id, e)}
+                        className="text-gray-700 hover:text-red-400 text-[10px] ml-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        ✕
+                      </button>
+                    </div>
+                    <p className="text-[9px] text-gray-600 mt-0.5">{formatDate(s.updated_at)}</p>
+                  </button>
+                ))
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* ===== MAIN ===== */}
       <div className="flex-1 flex flex-col min-w-0">
         {/* Header */}
         <header className="flex items-center justify-between px-4 h-12 border-b border-white/[0.06] shrink-0">
-          <div className="flex items-center gap-2 md:hidden">
-            <Link href="/" className="w-7 h-7 rounded-md bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center">
+          <div className="flex items-center gap-2">
+            <Link href="/" className="md:hidden w-7 h-7 rounded-md bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center">
               <span className="text-white text-[9px] font-bold">চ</span>
             </Link>
+            <button onClick={startNewChat} className="md:hidden text-gray-500 hover:text-white transition-colors" title="নতুন চ্যাট">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
+            </button>
           </div>
-          <h2 className="text-xs font-medium text-gray-400">চলো শিখি Ai</h2>
+          <h2 className="text-xs font-medium text-gray-400">
+            {chatActive ? (messages[0]?.content?.slice(0, 40) || "চলো শিখি Ai") : "চলো শিখি Ai"}
+          </h2>
           <div className="flex items-center gap-3">
             {user && (
               <span className="text-[10px] text-gray-500">{user.email}</span>
