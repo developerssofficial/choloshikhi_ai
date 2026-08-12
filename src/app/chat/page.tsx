@@ -58,6 +58,7 @@ export default function ChatPage() {
   const [sessions, setSessions] = useState<ChatSession[]>([]);
   const [showHistory, setShowHistory] = useState(false);
   const [loadingSessions, setLoadingSessions] = useState(false);
+  const [copiedIdx, setCopiedIdx] = useState<number | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -65,6 +66,14 @@ export default function ChatPage() {
   const sessionCreatedRef = useRef(false);
 
   const chatActive = messages.length > 0;
+
+  const handleCopy = async (text: string, idx: number) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedIdx(idx);
+      setTimeout(() => setCopiedIdx(null), 1500);
+    } catch {}
+  };
 
   // Fetch user's sessions
   const fetchSessions = async () => {
@@ -394,20 +403,32 @@ export default function ChatPage() {
                 const isTyping = typingIdx === i;
                 const displayText = isTyping ? typingText : msg.content;
                 return (
-                <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
+                <div key={i} className={`mb-3 group/msg flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                   {msg.role === "assistant" && (
                     <div className="w-6 h-6 rounded-md bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
                       <span className="text-white text-[8px] font-bold">চ</span>
                     </div>
                   )}
-                  <div className={`max-w-[80%] px-4 py-2.5 text-[13px] leading-relaxed whitespace-pre-wrap ${
-                    msg.role === "user"
-                      ? "bg-violet-600 text-white rounded-2xl rounded-br-md"
-                      : "text-gray-300 rounded-2xl rounded-bl-md"
-                  }`}>
-                    {msg.image && <img src={msg.image} alt="" className="mb-2 rounded-xl max-h-48 object-cover" />}
-                    {displayText}
-                    {isTyping && <span className="inline-block w-[2px] h-3.5 bg-violet-400 ml-0.5 align-middle animate-pulse" />}
+                  <div className="relative max-w-[80%]">
+                    <div className={`px-4 py-2.5 text-[13px] leading-relaxed whitespace-pre-wrap ${
+                      msg.role === "user"
+                        ? "bg-violet-600 text-white rounded-2xl rounded-br-md"
+                        : "text-gray-300 rounded-2xl rounded-bl-md"
+                    }`}>
+                      {msg.image && <img src={msg.image} alt="" className="mb-2 rounded-xl max-h-48 object-cover" />}
+                      {displayText}
+                      {isTyping && <span className="inline-block w-[2px] h-3.5 bg-violet-400 ml-0.5 align-middle animate-pulse" />}
+                    </div>
+                    <button
+                      onClick={() => handleCopy(displayText, i)}
+                      className={`absolute -bottom-5 ${msg.role === "user" ? "right-0" : "left-8"} opacity-0 group-hover/msg:opacity-100 transition-opacity text-gray-600 hover:text-gray-400`}
+                      title="Copy">
+                      {copiedIdx === i ? (
+                        <svg className="w-3.5 h-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                      ) : (
+                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                      )}
+                    </button>
                   </div>
                 </div>
                 );
