@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="bn">
       <head>
         <link rel="manifest" href="/manifest.webmanifest" />
-        <link rel="icon" href="/icons/icon-192.png" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/icons/icon-192.png" />
         <meta name="theme-color" content="#0f0f14" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />

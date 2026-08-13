@@ -342,8 +342,8 @@ export default function ChatPage() {
     <div className="flex h-screen bg-[#0f0f14]">
       {/* ===== SIDEBAR ===== */}
       <aside className="hidden md:flex flex-col w-[60px] border-r border-white/[0.06] py-4 items-center gap-4">
-        <Link href="/" className="w-9 h-9 rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center hover:opacity-80 transition-opacity">
-          <span className="text-white text-xs font-bold">চ</span>
+        <Link href="/" className="hover:opacity-80 transition-opacity">
+          <img src="/icons/icon-192.png" alt="CholoShikhi" className="w-9 h-9 rounded-lg" />
         </Link>
 
         <div className="flex flex-col items-center gap-3 mt-4">
@@ -456,8 +456,8 @@ export default function ChatPage() {
         {/* Header */}
         <header className="flex items-center justify-between px-4 h-12 border-b border-white/[0.06] shrink-0">
           <div className="flex items-center gap-2">
-            <Link href="/" className="md:hidden w-7 h-7 rounded-md bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center">
-              <span className="text-white text-[9px] font-bold">চ</span>
+            <Link href="/" className="md:hidden">
+              <img src="/icons/icon-192.png" alt="CholoShikhi" className="w-7 h-7 rounded-md" />
             </Link>
             <button onClick={startNewChat} className="md:hidden text-gray-500 hover:text-white transition-colors" title="নতুন চ্যাট">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
@@ -504,9 +504,7 @@ export default function ChatPage() {
                 return (
                 <div key={i} className={`mb-3 group/msg flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                   {msg.role === "assistant" && (
-                    <div className="w-6 h-6 rounded-md bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
-                      <span className="text-white text-[8px] font-bold">চ</span>
-                    </div>
+                    <img src="/icons/icon-192.png" alt="AI" className="w-6 h-6 rounded-md mr-2 mt-0.5 flex-shrink-0" />
                   )}
                   <div className="relative max-w-[80%]">
                     <div className={`px-4 py-2.5 text-[13px] leading-relaxed whitespace-pre-wrap ${
@@ -547,9 +545,7 @@ export default function ChatPage() {
               })}
               {sending && (
                 <div className="flex justify-start">
-                  <div className="w-6 h-6 rounded-md bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center mr-2 mt-0.5 flex-shrink-0">
-                    <span className="text-white text-[8px] font-bold">চ</span>
-                  </div>
+                  <img src="/icons/icon-192.png" alt="AI" className="w-6 h-6 rounded-md mr-2 mt-0.5 flex-shrink-0" />
                   <div className="px-3 py-2.5">
                     {searching ? (
                       <div className="flex items-center gap-2 text-[11px] text-gray-500">

@@ -125,9 +125,7 @@ export default function HomePage() {
       >
         <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center">
-              <span className="text-white text-[11px] font-bold">চ</span>
-            </div>
+            <img src="/icons/icon-192.png" alt="CholoShikhi" className="w-8 h-8 rounded-lg" />
             <span className="text-sm font-semibold text-white/90">CholoShikhi</span>
           </div>
           <div className="hidden md:flex items-center gap-6">
@@ -468,9 +466,7 @@ export default function HomePage() {
       {/* ===== CTA ===== */}
       <section className="py-24 px-6">
         <div className="max-w-xl mx-auto text-center">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center mx-auto mb-5">
-            <span className="text-white text-lg font-bold">চ</span>
-          </div>
+          <img src="/icons/icon-192.png" alt="CholoShikhi" className="w-12 h-12 rounded-2xl mx-auto mb-5" />
           <h2 className="text-2xl font-bold text-white mb-3">এখনই শুরু করো</h2>
           <p className="text-gray-500 text-[14px] mb-6">ফ্রি, সীমাহীন, বাংলায় — একবার try করো</p>
           <Link href="/chat" className="inline-block px-8 py-3 text-[14px] font-medium bg-violet-600 rounded-full hover:bg-violet-500 transition-colors">
@@ -483,9 +479,7 @@ export default function HomePage() {
       <footer className="border-t border-white/[0.04] py-8 px-6">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-md bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center">
-              <span className="text-white text-[8px] font-bold">চ</span>
-            </div>
+            <img src="/icons/icon-192.png" alt="CholoShikhi" className="w-6 h-6 rounded-md" />
             <span className="text-[12px] text-gray-600">© 2025 CholoShikhi · Xparrow Team</span>
           </div>
           <div className="flex items-center gap-4">
