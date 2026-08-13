@@ -160,6 +160,32 @@ function setCachedResponse(key: string, response: string) {
   promptCache.set(key, { response, time: Date.now() });
 }
 
+/* ===== TASK PLAN MODE ===== */
+const TASKPLAN_PROMPT =
+  "You are 'CholoShikhi Task Planner'. Your job is to break complex tasks into structured step-by-step plans.\n\n" +
+  "WHEN TO ACTIVATE: The user wants to do something complex that requires multiple steps — like coding a project, " +
+  "doing research, making a study plan, writing content, building an app, planning an event, etc.\n\n" +
+  "HOW TO RESPOND:\n" +
+  "You MUST return your response in EXACTLY this format:\n\n" +
+  "First, write a brief 2-3 line summary of the task plan in the user's language (Bangla).\n\n" +
+  "Then, on a NEW LINE, write the JSON block starting with ```json and ending with ```.\n\n" +
+  "The JSON must have this EXACT structure:\n" +
+  '```json\n{"taskGraph":{"title":"Task Title","taskType":"research|coding|planning|study|content","nodes":[{"id":"step-1","title":"Step Title","description":"Brief description of what to do","status":"pending","dependencies":[],"details":"Detailed explanation of this step"}]}}\n```\n\n' +
+  "RULES:\n" +
+  "1. ALWAYS return the JSON block with ```json ... ``` delimiter.\n" +
+  "2. taskType must be ONE OF: research, coding, planning, study, content\n" +
+  "3. Each node MUST have: id (step-1, step-2...), title, description, status (always 'pending'), dependencies (array of step IDs this depends on), details (2-3 sentence explanation)\n" +
+  "4. Order nodes so that dependencies are satisfied (step with no deps first)\n" +
+  "5. For research tasks: Include steps like data collection, verification, analysis, summary\n" +
+  "6. For coding tasks: Include steps like planning, setup, implementation, testing, deployment\n" +
+  "7. For planning tasks: Include steps like goal definition, breakdown, scheduling, execution, review\n" +
+  "8. For study tasks: Include steps like topic overview, fundamentals, practice, assessment\n" +
+  "9. For content tasks: Include steps like research, outline, draft, review, publish\n" +
+  "10. Write ALL text (title, description, details) in the SAME language the user writes in\n" +
+  "11. Keep descriptions concise but actionable\n" +
+  "12. NEVER reveal model names. If asked, say 'আমি CholoShikhi 1.0'\n" +
+  "13. Always wrap math in $...$ or $$...$$ delimiters\n";
+
 /* ===== TAVILY WEB SEARCH ===== */
 const TAVILY_URL = "https://api.tavily.com/search";
 
@@ -467,10 +493,13 @@ export async function POST(req: NextRequest) {
 
     /* ===== BUILD SYSTEM PROMPT BASED ON MODE ===== */
     const isEducation = mode === "education";
+    const isTaskPlan = mode === "taskplan";
     let activeSystemPrompt = NORMAL_PROMPT;
     if (isEducation) {
       const teachingState = analyzeTeachingState(memory);
       activeSystemPrompt = getEducationPrompt(teachingState);
+    } else if (isTaskPlan) {
+      activeSystemPrompt = TASKPLAN_PROMPT;
     }
 
     /* ===== WEB SEARCH (Normal Mode only) ===== */
@@ -566,6 +595,25 @@ export async function POST(req: NextRequest) {
       }
     }
 
+    /* ===== EXTRACT TASK GRAPH (taskplan mode only) ===== */
+    let taskGraph: any = null;
+    if (isTaskPlan && response) {
+      try {
+        // Extract JSON from ```json ... ``` block
+        const jsonMatch = response.match(/```json\s*([\s\S]*?)\s*```/);
+        if (jsonMatch) {
+          const parsed = JSON.parse(jsonMatch[1]);
+          if (parsed.taskGraph) {
+            taskGraph = parsed.taskGraph;
+            // Remove the JSON block from the display text
+            response = response.replace(/```json\s*[\s\S]*?\s*```/g, "").trim();
+          }
+        }
+      } catch {
+        // JSON parse failed — response stays as plain text
+      }
+    }
+
     /* ===== STRIP MARKDOWN (clean text for frontend, preserve LaTeX) ===== */
     if (response) {
       // Extract ALL LaTeX expressions first to protect them
@@ -617,6 +665,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({
       response,
       provider: usedProvider,
+      ...(taskGraph ? { taskGraph } : {}),
       ...(searched && searchResults.length > 0 ? {
         sources: searchResults.map((r) => ({ title: r.title, url: r.url })),
       } : {}),

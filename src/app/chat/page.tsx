@@ -4,12 +4,15 @@ import { useState, useRef, useEffect } from "react";
 import { useAuth } from "@/lib/auth";
 import Link from "next/link";
 import RenderMessage from "@/components/RenderMessage";
+import TaskFlowChart from "@/components/TaskFlowChart";
+import type { TaskGraph } from "@/components/TaskFlowChart";
 
 interface Message {
   role: "user" | "assistant";
   content: string;
   image?: string;
   sources?: { title: string; url: string }[];
+  taskGraph?: TaskGraph;
 }
 
 interface ChatSession {
@@ -31,6 +34,7 @@ const SUGGESTIONS = [
   { icon: "✏️", label: "Write", text: "আমাকে একটা লেখা লিখে দাও" },
   { icon: "🧮", label: "Solve", text: "আমাকে গণিত সমস্যা সমাধান করো" },
   { icon: "💡", label: "Explain", text: "আমাকে একটা ধারণা বোঝাও" },
+  { icon: "📋", label: "Plan", text: "আমাকে একটা প্ল্যান তৈরি করে দাও" },
   { icon: "📝", label: "Help", text: "/help" },
 ];
 
@@ -111,7 +115,7 @@ export default function ChatPage() {
   const [showHistory, setShowHistory] = useState(false);
   const [loadingSessions, setLoadingSessions] = useState(false);
   const [copiedIdx, setCopiedIdx] = useState<number | null>(null);
-  const [mode, setMode] = useState<"normal" | "education">("normal");
+  const [mode, setMode] = useState<"normal" | "education" | "taskplan">("normal");
   const [searching, setSearching] = useState(false);
   const [searchComplete, setSearchComplete] = useState<number | null>(null);
   const searchCompleteRef = useRef<NodeJS.Timeout | null>(null);
@@ -290,6 +294,7 @@ export default function ChatPage() {
           role: "assistant" as const,
           content: data.response,
           ...(data.sources ? { sources: data.sources } : {}),
+          ...(data.taskGraph ? { taskGraph: data.taskGraph } : {}),
         }];
         setTimeout(() => setTypingIdx(next.length - 1), 50);
         return next;
@@ -485,6 +490,16 @@ export default function ChatPage() {
               <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
               Shikkhok
             </button>
+            <button
+              onClick={() => setMode("taskplan")}
+              className={`px-3 py-1 text-[10px] font-medium rounded-full transition-all flex items-center gap-1 ${
+                mode === "taskplan"
+                  ? "bg-sky-600 text-white"
+                  : "text-gray-500 hover:text-gray-300"
+              }`}>
+              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+              Task
+            </button>
           </div>
 
           <div className="flex items-center gap-3">
@@ -532,6 +547,9 @@ export default function ChatPage() {
                     </button>
                     {msg.sources && msg.sources.length > 0 && (
                       <SourcesCard sources={msg.sources} />
+                    )}
+                    {msg.taskGraph && (
+                      <TaskFlowChart graph={msg.taskGraph} />
                     )}
                     {searchComplete !== null && i === messages.length - 1 && msg.role === "assistant" && (
                       <div className="mt-1.5 flex items-center gap-1.5 text-[9px] text-emerald-400/70 animate-[fadeout_3s_ease-in_forwards]">
@@ -630,8 +648,8 @@ export default function ChatPage() {
             {/* Model badge */}
             <div className="flex items-center justify-center mt-2">
               <div className="flex items-center gap-1.5 text-[10px] text-gray-600">
-                <span className={`w-1.5 h-1.5 rounded-full ${mode === "education" ? "bg-emerald-500" : "bg-violet-500"}`} />
-                {mode === "education" ? "CholoShikhi Shikkhok" : "CholoShikhi 1.0"}
+                <span className={`w-1.5 h-1.5 rounded-full ${mode === "education" ? "bg-emerald-500" : mode === "taskplan" ? "bg-sky-500" : "bg-violet-500"}`} />
+                {mode === "education" ? "CholoShikhi Shikkhok" : mode === "taskplan" ? "CholoShikhi Task Planner" : "CholoShikhi 1.0"}
               </div>
             </div>
           </div>
