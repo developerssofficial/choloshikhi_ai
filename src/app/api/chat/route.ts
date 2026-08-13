@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
+import { validateTaskGraph } from "@/lib/taskGraphValidator";
 
 /* ===== CONSTANTS ===== */
 const GEMINI_URL =
@@ -201,7 +202,9 @@ const TASKPLAN_PROMPT =
   "11. Math: always use $...$ or $$...$$ delimiters.\n" +
   "12. Sources: only include if you have real URLs from search results. Otherwise empty array [].\n" +
   "13. Each step must be a REAL actionable task, not a vague category.\n" +
-  "14. The plan should show RESEARCH-DRIVEN decisions — not generic best practices.";
+  "14. The plan should show RESEARCH-DRIVEN decisions — not generic best practices.\n" +
+  "15. NEVER make arbitrary budget/resource allocation decisions. If user says '1 lakh budget', do NOT split it into categories yourself. Instead, mark budget allocation as a recommendation that needs user confirmation.\n" +
+  "16. When marking assumptions or recommendations, prefix them with '[RECOMMENDATION]' in the 'what' or 'output' field so the frontend can visually distinguish confirmed decisions from suggestions.";
 
 /* ===== TAVILY WEB SEARCH ===== */
 const TAVILY_URL = "https://api.tavily.com/search";
@@ -691,6 +694,20 @@ export async function POST(req: NextRequest) {
         }
       } catch {
         // JSON parse failed — response stays as plain text
+      }
+    }
+
+    // Validate task graph if present
+    if (taskGraph) {
+      const validation = validateTaskGraph(taskGraph);
+      if (validation.valid && validation.cleanedGraph) {
+        taskGraph = validation.cleanedGraph;
+      } else {
+        // Graph invalid — strip it and return error message
+        taskGraph = null;
+        if (validation.errors.length > 0) {
+          response = "আমার তৈরি করা plan টি সঠিক ছিল না। আবার চেষ্টা করছি...";
+        }
       }
     }
 
