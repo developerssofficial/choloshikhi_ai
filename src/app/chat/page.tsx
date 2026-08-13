@@ -5,7 +5,8 @@ import { useAuth } from "@/lib/auth";
 import Link from "next/link";
 import RenderMessage from "@/components/RenderMessage";
 import TaskFlowChart from "@/components/TaskFlowChart";
-import type { TaskGraph } from "@/components/TaskFlowChart";
+import TaskExecutionPanel from "@/components/TaskExecutionPanel";
+import type { TaskGraph, TaskClarification, TaskNodeStatus } from "@/lib/taskTypes";
 
 interface Message {
   role: "user" | "assistant";
@@ -13,10 +14,7 @@ interface Message {
   image?: string;
   sources?: { title: string; url: string }[];
   taskGraph?: TaskGraph;
-  taskClarification?: {
-    message: string;
-    questions: { id: string; question: string; why: string }[];
-  };
+  taskClarification?: TaskClarification;
 }
 
 interface ChatSession {
@@ -106,6 +104,18 @@ function SourcesCard({ sources }: { sources: { title: string; url: string }[] })
   );
 }
 
+/** Sanitize display text — strip any leaked JSON that shouldn't be user-facing */
+function sanitizeDisplayText(text: string): string {
+  if (!text) return text;
+  // Strip ```json ... ``` blocks
+  let clean = text.replace(/```json\s*[\s\S]*?```/g, "").trim();
+  // Strip raw JSON objects (only if they look like structured data, not normal text)
+  if (/\{\s*"action"\s*:/.test(clean) || /\{\s*"taskGraph"\s*:/.test(clean) || /\{\s*"nodes"\s*:/.test(clean)) {
+    clean = clean.replace(/\{[\s\S]*\}/g, "").trim();
+  }
+  return clean || "";
+}
+
 export default function ChatPage() {
   const { user, loading, signInWithGoogle, signOut } = useAuth();
   const [messages, setMessages] = useState<Message[]>([]);
@@ -128,6 +138,12 @@ export default function ChatPage() {
   const inputRef = useRef<HTMLInputElement>(null);
   const typingRef = useRef<NodeJS.Timeout | null>(null);
   const sessionCreatedRef = useRef(false);
+
+  // ── Task Execution State ──────────────────────────────────────
+  const [executionId, setExecutionId] = useState<string | null>(null);
+  const [stepStatusOverrides, setStepStatusOverrides] = useState<Map<string, TaskNodeStatus>>(new Map());
+  const [stepOutputMap, setStepOutputMap] = useState<Map<string, string>>(new Map());
+  const [taskExecutionComplete, setTaskExecutionComplete] = useState(false);
 
   const chatActive = messages.length > 0;
 
@@ -258,7 +274,7 @@ export default function ChatPage() {
       },
     ]);
     setSending(true);
-    if (mode === "normal") setSearching(true);
+    if (mode === "normal" || mode === "taskplan") setSearching(true);
     setSearchComplete(null);
     if (searchCompleteRef.current) clearTimeout(searchCompleteRef.current);
 
@@ -520,7 +536,8 @@ export default function ChatPage() {
             <div className="max-w-2xl mx-auto space-y-4">
               {messages.map((msg, i) => {
                 const isTyping = typingIdx === i;
-                const displayText = isTyping ? typingText : msg.content;
+                const rawText = isTyping ? typingText : msg.content;
+                const displayText = msg.role === "assistant" ? sanitizeDisplayText(rawText) : rawText;
                 return (
                 <div key={i} className={`mb-3 group/msg flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                   {msg.role === "assistant" && (
@@ -554,28 +571,77 @@ export default function ChatPage() {
                       <SourcesCard sources={msg.sources} />
                     )}
                     {msg.taskGraph && (
-                      <TaskFlowChart graph={msg.taskGraph} />
+                      <>
+                        <TaskFlowChart
+                          graph={msg.taskGraph}
+                          stepStatusOverrides={stepStatusOverrides}
+                          stepOutputs={stepOutputMap}
+                        />
+                        <TaskExecutionPanel
+                          graph={msg.taskGraph}
+                          executionId={executionId}
+                          userId={user?.id || ""}
+                          onExecutionStart={(id) => setExecutionId(id)}
+                          onStepStatusChange={(stepId, status, output) => {
+                            setStepStatusOverrides((prev) => {
+                              const next = new Map(prev);
+                              next.set(stepId, status);
+                              return next;
+                            });
+                            if (output) {
+                              setStepOutputMap((prev) => {
+                                const next = new Map(prev);
+                                next.set(stepId, output);
+                                return next;
+                              });
+                            }
+                          }}
+                          onAllComplete={() => setTaskExecutionComplete(true)}
+                        />
+                      </>
                     )}
                     {msg.taskClarification && (
                       <div className="mt-3 border border-amber-500/20 rounded-2xl bg-amber-500/[0.04] p-4">
                         <div className="flex items-center gap-2 mb-3">
-                          <span className="text-amber-400 text-[11px]">💬</span>
-                          <p className="text-[11px] font-medium text-amber-400">আরো তথ্য দরকার</p>
+                          <span className="text-amber-400 text-[11px]">{"\uD83D\uDCAC"}</span>
+                          <p className="text-[11px] font-medium text-amber-400">{"\u0986\u09B0\u09CB \u09A4\u09A5\u09CD\u09AF \u09A6\u09B0\u0995\u09BE\u09B0"}</p>
                         </div>
-                        <div className="space-y-2.5">
-                          {msg.taskClarification.questions.map((q) => (
-                            <div key={q.id} className="flex items-start gap-2.5">
-                              <div className="w-5 h-5 rounded-md bg-amber-500/10 border border-amber-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <span className="text-[9px] font-bold text-amber-400">?</span>
+                        <div className="space-y-3">
+                          {msg.taskClarification.questions.map((q, qi) => (
+                            <div key={q.id} className="rounded-xl bg-amber-500/[0.03] border border-amber-500/10 p-3">
+                              <div className="flex items-start gap-2.5">
+                                <div className="w-5 h-5 rounded-md bg-amber-500/10 border border-amber-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                  <span className="text-[9px] font-bold text-amber-400">{qi + 1}</span>
+                                </div>
+                                <div className="flex-1">
+                                  <p className="text-[12px] text-white/90 leading-snug">{q.question}</p>
+                                  <p className="text-[10px] text-gray-500 mt-0.5">{q.why}</p>
+                                </div>
                               </div>
-                              <div>
-                                <p className="text-[12px] text-white/90 leading-snug">{q.question}</p>
-                                <p className="text-[10px] text-gray-500 mt-0.5">{q.why}</p>
-                              </div>
+                              {/* Quick answer options */}
+                              {q.options && q.options.length > 0 && (
+                                <div className="flex flex-wrap gap-1.5 mt-2 ml-7">
+                                  {q.options.map((opt) => (
+                                    <button
+                                      key={opt}
+                                      onClick={() => {
+                                        const answer = `${q.question}\n\nMy answer: ${opt}`;
+                                        setInput(answer);
+                                        setTimeout(() => handleSend(answer), 100);
+                                      }}
+                                      className="px-2.5 py-1 text-[10px] text-amber-300/80 bg-amber-500/[0.08] border border-amber-500/15 rounded-lg hover:bg-amber-500/[0.15] hover:text-amber-200 transition-all"
+                                    >
+                                      {opt}
+                                    </button>
+                                  ))}
+                                </div>
+                              )}
                             </div>
                           ))}
                         </div>
-                        <p className="text-[10px] text-gray-600 mt-3 border-t border-amber-500/10 pt-2">উত্তর দিয়ে আবার Task mode-তে পাঠাও — তাহলে customized plan পাবে।</p>
+                        <p className="text-[10px] text-gray-600 mt-3 border-t border-amber-500/10 pt-2">
+                          {"\u09A1\u09BE\u09A4\u09BE \u09A6\u09BF\u09AF\u09BC\u09C7 \u0986\u09AC\u09BE\u09B0 Task mode-\u09A4\u09C7 \u09AA\u09BE\u09A0\u09BE\u09A4\u09C7 \u2014 \u09A4\u09BE\u09B9\u09B2\u09C7 customized plan \u09AA\u09BE\u09AC\u09C7\u0964"}
+                        </p>
                       </div>
                     )}
                     {searchComplete !== null && i === messages.length - 1 && msg.role === "assistant" && (
@@ -599,7 +665,16 @@ export default function ChatPage() {
                           <div className="w-1 h-1 bg-violet-400 rounded-full animate-bounce [animation-delay:0.15s]" />
                           <div className="w-1 h-1 bg-violet-400 rounded-full animate-bounce [animation-delay:0.3s]" />
                         </div>
-                        <span>Searching the web...</span>
+                        <span>{mode === "taskplan" ? "Researching & analyzing..." : "Searching the web..."}</span>
+                      </div>
+                    ) : mode === "taskplan" ? (
+                      <div className="flex items-center gap-2 text-[11px] text-sky-400/70">
+                        <div className="flex gap-0.5">
+                          <div className="w-1 h-1 bg-sky-400 rounded-full animate-bounce" />
+                          <div className="w-1 h-1 bg-sky-400 rounded-full animate-bounce [animation-delay:0.15s]" />
+                          <div className="w-1 h-1 bg-sky-400 rounded-full animate-bounce [animation-delay:0.3s]" />
+                        </div>
+                        <span>Building your plan...</span>
                       </div>
                     ) : (
                       <div className="flex gap-1">
@@ -620,6 +695,9 @@ export default function ChatPage() {
             <p className="text-gray-300 text-xl font-medium mb-2">{getGreeting()}{user ? `, ${user.name || "বন্ধু"}` : ""}</p>
             {mode === "education" && (
               <p className="text-emerald-400/70 text-xs">Education Mode — আমি তোমার ব্যক্তিগত শিক্ষক</p>
+            )}
+            {mode === "taskplan" && (
+              <p className="text-sky-400/70 text-xs">Task Mode — জটিল কাজ বুঝি, গবেষণা করি, পরিকল্পনা তৈরি করি</p>
             )}
           </div>
         )}
@@ -662,7 +740,7 @@ export default function ChatPage() {
               <input ref={inputRef} type="text" value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSend()}
-                placeholder={mode === "education" ? "কোনো বিষয় শিখতে চাও? প্রশ্ন করো..." : "কিছু জিজ্ঞাসা করো..."}
+                placeholder={mode === "education" ? "কোনো বিষয় শিখতে চাও? প্রশ্ন করো..." : mode === "taskplan" ? "কোনো বড় কাজ আছে? বিস্তারিত লিখো..." : "কিছু জিজ্ঞাসা করো..."}
                 disabled={sending}
                 className="flex-1 bg-transparent text-white placeholder-gray-500 focus:outline-none text-sm disabled:opacity-40"
               />

@@ -4,3 +4,8 @@ node_modules/
 out/
 
 .vercel
+
+# Auto-generated
+AGENTS.md
+CLAUDE.md
+tsconfig.tsbuildinfo

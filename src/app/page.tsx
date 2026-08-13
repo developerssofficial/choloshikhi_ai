@@ -246,9 +246,9 @@ export default function HomePage() {
           {/* Team */}
           <div className="p-6 rounded-2xl border border-white/[0.06] bg-[#16161e] text-center">
             <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center mx-auto mb-4">
-              <span className="text-white text-lg font-bold">X</span>
+              <span className="text-white text-lg font-bold">S</span>
             </div>
-            <h3 className="text-[15px] font-semibold text-white mb-1">Xparrow Team</h3>
+            <h3 className="text-[15px] font-semibold text-white mb-1">Siblings Team</h3>
             <p className="text-[12px] text-gray-500 mb-1">CholoShikhi তৈরি ও পরিচালনা করছে</p>
             <p className="text-[12px] text-gray-600">বাংলাদেশ থেকে তৈরি</p>
           </div>
@@ -480,7 +480,7 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <img src="/icons/icon-192.png" alt="CholoShikhi" className="w-6 h-6 rounded-md" />
-            <span className="text-[12px] text-gray-600">© 2025 CholoShikhi · Xparrow Team</span>
+            <span className="text-[12px] text-gray-600">© 2025 CholoShikhi · Siblings Team</span>
           </div>
           <div className="flex items-center gap-4">
             <a href="#features" className="text-[11px] text-gray-600 hover:text-gray-400 transition-colors">Features</a>

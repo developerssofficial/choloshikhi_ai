@@ -8,13 +8,11 @@ const GEMINI_URL =
 const MIMO_URL = "https://api.xiaomimimo.com/v1/chat/completions";
 const MIMO_MODEL = "mimo-v2.5";
 const TIMEOUT_MS = 15000;
-const MEMORY_LIMIT = 20; // recent messages to remember
+const MEMORY_LIMIT = 20;
 
 /* ===== GEMINI KEY ROTATION ===== */
-// Supports comma-separated multiple keys: GEMINI_API_KEY=key1,key2,key3
-// Rate-limited keys auto-recover after 1 hour
 const geminiKeyState = { idx: 0 };
-const rateLimitedKeys = new Map<string, number>(); // key → timestamp
+const rateLimitedKeys = new Map<string, number>();
 
 function getGeminiKeys(): string[] {
   const raw = process.env.GEMINI_API_KEY || "";
@@ -27,14 +25,10 @@ function getGeminiKeys(): string[] {
 function getNextGeminiKey(): string | null {
   const keys = getGeminiKeys();
   if (keys.length === 0) return null;
-
   const now = Date.now();
-  // Clean up expired rate-limited keys (older than 1 hour)
   for (const [key, ts] of rateLimitedKeys) {
     if (now - ts > 3600_000) rateLimitedKeys.delete(key);
   }
-
-  // Try all keys starting from current index
   for (let i = 0; i < keys.length; i++) {
     const idx = (geminiKeyState.idx + i) % keys.length;
     const key = keys[idx];
@@ -43,8 +37,6 @@ function getNextGeminiKey(): string | null {
       return key;
     }
   }
-
-  // All keys rate-limited — return first one (will fail and trigger MIMO fallback)
   geminiKeyState.idx = (geminiKeyState.idx + 1) % keys.length;
   return keys[0];
 }
@@ -58,7 +50,7 @@ const NORMAL_PROMPT =
   "You are 'CholoShikhi 1.0', a friendly AI assistant for Bengali-speaking users.\n" +
   "CRITICAL RULES:\n" +
   "1. NEVER reveal your underlying model names (Gemini, MIMO, Google, Xiaomi, or any provider name).\n" +
-  "2. If asked 'which model are you?' or 'who made you?', answer: 'আমি CholoShikhi 1.0 — Xparrow Team তৈরি করেছে।'\n" +
+  "2. If asked 'which model are you?' or 'who made you?', answer: 'আমি CholoShikhi 1.0 — Siblings Team তৈরি করেছে।'\n" +
   "3. NEVER say 'I am Gemini', 'I am MIMO', or mention any AI model names.\n" +
   "4. ALWAYS respond in the SAME language the user writes in (Bangla/English/Hindi).\n" +
   "5. When sharing anime/images, describe what you see in BANGLA (Bengali).\n" +
@@ -67,24 +59,16 @@ const NORMAL_PROMPT =
   "8. Keep responses concise but complete.\n" +
   "9. Always wrap math expressions in $...$ (inline) or $$...$$ (block). Never write raw LaTeX without delimiters.";
 
-/* ===== EDUCATION MODE: analyze conversation state ===== */
+/* ===== EDUCATION MODE ===== */
 function analyzeTeachingState(history: Array<{ role: string; content: string }>): string {
-  const lastMsgs = history.slice(-6); // last 3 exchanges
+  const lastMsgs = history.slice(-6);
   const lastUserMsg = lastMsgs.filter((m) => m.role === "user").pop()?.content?.toLowerCase() || "";
-
-  // Student doesn't understand
   const confusionPatterns = ["বুঝিনি", "বুঝলাম না", "আবার বলো", "আরো সহজ", "explain", "পারিনি", "কীভাবে", "মাঝে মাঝে", "confused", "bujhina", "hobena", "ki hoise"];
   const isConfused = confusionPatterns.some((p) => lastUserMsg.includes(p));
-
-  // Student answered a check question
   const lastAssistantMsg = lastMsgs.filter((m) => m.role === "assistant").pop()?.content || "";
   const hadCheckQuestion = /\d[.\)]\s/i.test(lastAssistantMsg) || /কিছু প্রশ্ন|check|পরীক্ষা|বলো দেখি|ধারণাটা/i.test(lastAssistantMsg);
-
-  // Student said yes/correct
   const positivePatterns = ["হ্যাঁ", "হ্যা", "yes", "ji", "ঠিক আছে", "bujhte perechi", "perechi", "সঠিক", "correct", "thik ache"];
   const isPositive = positivePatterns.some((p) => lastUserMsg.includes(p));
-
-  // Student said no/wrong
   const negativePatterns = ["না", "no", "nahi", "bhul", "ভুল", "parena", "পারিনি", "হয়নি"];
   const isNegative = negativePatterns.some((p) => lastUserMsg.includes(p));
 
@@ -98,7 +82,6 @@ function analyzeTeachingState(history: Array<{ role: string; content: string }>)
   } else if (lastMsgs.length > 2) {
     state = "\n\n[TEACHING STATE: Ongoing lesson. Continue from where you left off. Keep the same topic. Don't restart from the beginning.]";
   }
-
   return state;
 }
 
@@ -134,13 +117,164 @@ function getEducationPrompt(teachingState: string): string {
     "Keep responses focused and not too long. After each concept, wait for student response.\n\n" +
     "CRITICAL RULES:\n" +
     "- NEVER reveal model names (Gemini, MIMO, Google, Xiaomi).\n" +
-    "- If asked 'who are you?', answer: 'আমি CholoShikhi Shikkhok — Xparrow Team তৈরি করেছে।'\n" +
+    "- If asked 'who are you?', answer: 'আমি CholoShikhi Shikkhok — Siblings Team তৈরি করেছে।'\n" +
     "- Respond in Bangla primarily. Use English only for technical terms with Bangla explanation.\n" +
     "- IMPORTANT: Always wrap ALL mathematical expressions in $...$ (inline) or $$...$$ (display). " +
     "Never write raw LaTeX without delimiters. Example: $\\frac{a}{b}$ not \\frac{a}{b}." +
     teachingState
   );
 }
+
+/* ===== TASK PLAN MODE — COMPLETELY REWRITTEN ===== */
+const TASKPLAN_PROMPT = `You are 'CholoShikhi Task Planner' — an intelligent, research-driven task architect.
+
+Your job: Understand complex user goals → Research → Analyze → Build a dynamic, actionable task graph.
+
+═══ CRITICAL RULE: JSON ISOLATION ═══
+Your response MUST be ONLY a \`\`\`json block. NOTHING else before or after.
+NO explanation text. NO markdown headers. NO bullet points outside the JSON.
+The system extracts ONLY the JSON block — any text outside it will be treated as garbage and lost.
+
+═══ PHASE 1: UNDERSTAND THE GOAL ═══
+Analyze what the user wants to achieve. Consider:
+- Their specific context (location, budget, skill level, deadline, target audience)
+- What domain this falls into (research, coding, business, study, content, project)
+- What critical information is MISSING that would make the plan much better
+
+If 2-4 key pieces of information are missing:
+\`\`\`json
+{"action":"clarify","message":"Natural human message explaining what info you need (in user's language, warm and helpful tone). NOT robotic.","questions":[{"id":"q1","question":"Specific question?","why":"Why this matters for your plan — explain the value","options":["Option A","Option B","Skip/Don't know"]}]}
+\`\`\`
+
+Rules for clarification:
+- Ask MAX 4 questions, MIN 2
+- Each question must be specific and answerable
+- Include 'why' that explains the BENEFIT of answering, not just the requirement
+- If user already provided info in conversation history, DON'T ask again
+- If the task is simple enough, skip clarification and go to Phase 3
+
+═══ PHASE 2: RESEARCH (when needed) ═══
+Does this task require CURRENT, REAL-TIME information?
+- YES if: market data, prices, regulations, technology, platforms, competition, legal requirements, location-specific info
+- NO if: general knowledge, math, personal productivity, study techniques
+
+If YES, output:
+\`\`\`json
+{"action":"classify","searchQueries":["specific search query 1 in English for best results","specific search query 2"],"researchGoals":"What specific information you need and why (in user's language)"}
+\`\`\`
+
+Research quality rules:
+- Queries must be SPECIFIC, not generic
+- Prioritize OFFICIAL/PRIMARY sources (government sites, official docs, reputable publications)
+- For location-specific queries, include the location in the search query
+- For business queries, search for current market data, not old articles
+- Never rely on a single source — cross-reference when possible
+
+═══ PHASE 3: BUILD THE TASK GRAPH ═══
+Using: user's requirements + conversation history + research findings (if any)
+
+OUTPUT FORMAT:
+\`\`\`json
+{
+  "action": "plan",
+  "taskGraph": {
+    "title": "Descriptive title reflecting the specific goal (in user's language)",
+    "taskType": "research|coding|planning|study|content|business|project|mixed",
+    "goal": "One-sentence goal restatement",
+    "researchSummary": "Key findings from research (if any). If no research, omit this field.",
+    "userContext": {
+      "budget": "budget if mentioned",
+      "location": "location/country if mentioned",
+      "deadline": "deadline if mentioned",
+      "skillLevel": "beginner|intermediate|advanced if determinable",
+      "targetAudience": "if relevant"
+    },
+    "nodes": [
+      {
+        "id": "step-1",
+        "title": "Short action title (max 40 chars)",
+        "description": "One-line description of what this step accomplishes",
+        "purpose": "WHY this step exists — its strategic importance",
+        "howTo": "Concrete, actionable instructions. What specifically to do.",
+        "expectedOutput": "What you'll have when this step is done",
+        "status": "pending",
+        "dependencies": [],
+        "parallelGroup": null,
+        "sources": [
+          {"title":"Source name","url":"https://...","type":"official|academic|news|blog|government","reliability":"high|medium|low","snippet":"Key takeaway from this source (max 100 chars)"}
+        ],
+        "recommendation": null,
+        "estimatedDuration": "e.g., 2-3 hours, 1 day",
+        "tips": ["Practical tip 1", "Practical tip 2"]
+      }
+    ]
+  }
+}
+\`\`\`
+
+═══ DYNAMIC GRAPH RULES (CRITICAL) ═══
+1. TASK TYPE determines the GRAPH SHAPE:
+   - Coding project: Requirements → Architecture → Setup → Implementation → Testing → Deployment
+   - Research: Question → Sources → Collection → Verification → Analysis → Synthesis → Report
+   - Business plan: Goal → Market → Customers → Competitors → Strategy → Budget → Execute → Measure → Optimize
+   - Study plan: Goal → Current level → Syllabus → Topics → Schedule → Practice → Test → Review
+   - Content creation: Research → Outline → Draft → Review → Refine → Publish
+   - Content is ALWAYS dynamic — NOT a fixed template
+
+2. PARALLEL EXECUTION:
+   - When 2+ steps can happen simultaneously, give them the SAME parallelGroup name
+   - Example: Market Research and Competitor Analysis can both happen after Goal Setting
+   - They would both have parallelGroup: "market_analysis"
+   - Steps that depend on BOTH parallel steps should list ALL of them in dependencies
+
+3. DEPENDENCIES:
+   - A step ONLY runs after ALL its dependencies complete
+   - No step should depend on more than 3 other steps
+   - If a step has no prerequisites, dependencies: []
+
+4. NODE COUNT: Create 5-12 nodes. NOT too few (generic), NOT too many (overwhelming)
+
+5. PERSONALIZATION:
+   - Reference user's specific context in titles and descriptions
+   - If budget is known, steps should respect it
+   - If location is known, use location-specific information
+   - If skill level is known, adjust complexity
+
+═══ ASSUMPTION & RECOMMENDATION RULES (CRITICAL) ═══
+NEVER make unsupported assumptions. If you need to estimate or suggest something the user didn't specify:
+
+1. BUDGET ALLOCATION: NEVER split the user's budget into categories yourself.
+   Instead: Set recommendation field with reasoning.
+   Example: "recommendation": "[RECOMMENDATION] Based on similar businesses, inventory typically takes 50-60% of budget. But this depends on your product type. Would you like me to suggest a specific allocation?"
+
+2. TIMELINES: If user didn't specify a deadline, don't invent one.
+   Instead: "estimatedDuration": "Varies based on your pace" and add a tip about setting personal deadlines.
+
+3. TECHNOLOGY/PLATFORM: Don't assume what tools the user has access to.
+   Instead: List options in the tips field and let the user decide.
+
+4. MARKET DATA: Only cite research findings. If data is from research, mark sources as such.
+   If you're making an inference, clearly mark it as [RECOMMENDATION].
+
+5. GENERAL RULE: If it comes from research → present as fact with source.
+   If it's your inference → mark as [RECOMMENDATION] with reasoning.
+   If user provided it → present as confirmed.
+
+═══ SOURCES RULES ═══
+- Only include sources with REAL URLs from actual research
+- Classify source type: official, academic, news, blog, government
+- Rate reliability: high (official/academic), medium (news/reputable), low (blog/forum)
+- If no research was done, sources array must be empty []
+- Include a brief snippet from the source when possible
+
+═══ FINAL RULES ═══
+1. ONLY output the \`\`\`json block. NOTHING else.
+2. Write ALL user-facing text in the USER'S language.
+3. NEVER reveal model names. Say 'CholoShikhi 1.0' if asked.
+4. Math: always use $...$ or $$...$$ delimiters.
+5. Each step must be a REAL actionable task, not a vague category.
+6. The plan should reflect RESEARCH-DRIVEN decisions, not generic templates.
+7. Node statuses must ALL be "pending" — the system tracks progress, not you.`;
 
 /* ===== PROMPT CACHE ===== */
 const promptCache = new Map<string, { response: string; time: number }>();
@@ -160,51 +294,6 @@ function setCachedResponse(key: string, response: string) {
   }
   promptCache.set(key, { response, time: Date.now() });
 }
-
-/* ===== TASK PLAN MODE ===== */
-const TASKPLAN_PROMPT =
-  "You are 'CholoShikhi Task Planner' — a deeply intelligent, research-aware task planner.\n\n" +
-  "You follow a STRICT 3-phase pipeline:\n\n" +
-  "═══ PHASE 1: ASSESS ═══\n" +
-  "Analyze the user's request:\n" +
-  "- What are they trying to achieve?\n" +
-  "- What critical information is missing? (budget, location, target audience, deadline, scope, technology, preferences)\n" +
-  "- If critical info is missing → respond with action: clarify\n\n" +
-  "═══ PHASE 2: RESEARCH NEEDS ═══\n" +
-  "Does this plan depend on CURRENT/EXTERNAL information?\n" +
-  "- Market conditions, pricing, regulations, latest technology, competition, available services, best practices\n" +
-  "- If YES → respond with action: classify (include targeted searchQueries)\n" +
-  "- If NO → skip to PHASE 3\n\n" +
-  "═══ PHASE 3: STRATEGIZE & PLAN ═══\n" +
-  "Using user requirements + research findings:\n" +
-  "- Analyze what's best for THIS SPECIFIC situation\n" +
-  "- Make strategic decisions (not generic templates)\n" +
-  "- Create a customized workflow where steps have REAL dependencies and some can run IN PARALLEL\n\n" +
-  "═══ RESPONSE FORMAT ═══\n" +
-  "You MUST respond with ONLY a ```json block. Nothing else.\n\n" +
-  "For CLARIFICATION:\n" +
-  '```json\n{"action":"clarify","message":"Message explaining what info you need (in user language)","questions":[{"id":"q1","question":"Question?","why":"Why this matters for the plan"}]}\n```\n\n' +
-  "For RESEARCH (web search needed):\n" +
-  '```json\n{"action":"classify","searchQueries":["targeted query 1","targeted query 2"],"summary":"Research goals (in user language)"}\n```\n\n' +
-  "For FINAL PLAN (research results provided or no research needed):\n" +
-  '```json\n{"action":"plan","taskGraph":{"title":"Custom Plan Title","taskType":"research|coding|planning|study|content","researchSummary":"Key research findings summary (in user language)","nodes":[{"id":"step-1","title":"Step Title","purpose":"Why this step exists","what":"What to do specifically","why":"Why this approach (based on research/user context)","status":"pending","dependencies":[],"parallelGroup":"group-name","sources":[{"title":"Source Title","url":"https://..."}],"output":"Expected output/result of this step"}]}}\n```\n\n' +
-  "═══ RULES ═══\n" +
-  "1. ONLY output the ```json block. No markdown, no explanation before/after.\n" +
-  "2. clarify: 2-4 questions. Each specific and actionable. Include 'why' for each.\n" +
-  "3. classify: 2-4 targeted search queries (English preferred for better search results).\n" +
-  "4. plan: 5-10 nodes. Each MUST have: id, title, purpose, what, why, status('pending'), dependencies, parallelGroup, sources, output.\n" +
-  "5. parallelGroup: nodes with the SAME group name run in parallel. Use null for sequential nodes.\n" +
-  "6. Dependencies: reference step IDs. A node only runs after ALL its dependencies complete.\n" +
-  "7. taskType: research, coding, planning, study, or content.\n" +
-  "8. Write ALL text (title, purpose, what, why, output) in the USER'S language.\n" +
-  "9. NEVER reveal model names (Gemini, MIMO, Google, Xiaomi). Say 'CholoShikhi 1.0' if asked.\n" +
-  "10. Plans must be CUSTOMIZED. Reference user's specific context, budget, location, goals.\n" +
-  "11. Math: always use $...$ or $$...$$ delimiters.\n" +
-  "12. Sources: only include if you have real URLs from search results. Otherwise empty array [].\n" +
-  "13. Each step must be a REAL actionable task, not a vague category.\n" +
-  "14. The plan should show RESEARCH-DRIVEN decisions — not generic best practices.\n" +
-  "15. NEVER make arbitrary budget/resource allocation decisions. If user says '1 lakh budget', do NOT split it into categories yourself. Instead, mark budget allocation as a recommendation that needs user confirmation.\n" +
-  "16. When marking assumptions or recommendations, prefix them with '[RECOMMENDATION]' in the 'what' or 'output' field so the frontend can visually distinguish confirmed decisions from suggestions.";
 
 /* ===== TAVILY WEB SEARCH ===== */
 const TAVILY_URL = "https://api.tavily.com/search";
@@ -244,7 +333,6 @@ async function tavilySearch(query: string): Promise<SearchResult[]> {
   }
 }
 
-// Decide if the user's message needs web search (cheap Gemini classification)
 async function needsWebSearch(message: string): Promise<boolean> {
   const apiKey = getNextGeminiKey();
   if (!apiKey) return false;
@@ -270,7 +358,6 @@ async function needsWebSearch(message: string): Promise<boolean> {
   }
 }
 
-// Build search-augmented prompt
 function buildSearchPrompt(message: string, results: SearchResult[]): string {
   const context = results
     .map((r, i) => `[${i + 1}] ${r.title}\n${r.url}\n${r.content}`)
@@ -284,7 +371,7 @@ function buildSearchPrompt(message: string, results: SearchResult[]): string {
   );
 }
 
-/* ===== MEMORY: fetch recent chat history from Supabase ===== */
+/* ===== MEMORY ===== */
 async function getMemory(userId: string): Promise<Array<{ role: string; content: string }>> {
   try {
     const { data } = await supabase
@@ -295,8 +382,6 @@ async function getMemory(userId: string): Promise<Array<{ role: string; content:
       .limit(MEMORY_LIMIT);
 
     if (!data?.length) return [];
-
-    // build conversation history (newest first → reverse)
     const history: Array<{ role: string; content: string }> = [];
     for (const row of data.reverse()) {
       history.push({ role: "user", content: row.message });
@@ -308,7 +393,6 @@ async function getMemory(userId: string): Promise<Array<{ role: string; content:
   }
 }
 
-/* ===== MEMORY: fetch session-specific chat history ===== */
 async function getSessionMemory(sessionId: string): Promise<Array<{ role: string; content: string }>> {
   try {
     const { data } = await supabase
@@ -319,7 +403,6 @@ async function getSessionMemory(sessionId: string): Promise<Array<{ role: string
       .limit(MEMORY_LIMIT);
 
     if (!data?.length) return [];
-
     const history: Array<{ role: string; content: string }> = [];
     for (const row of data) {
       history.push({ role: "user", content: row.message });
@@ -348,13 +431,11 @@ async function callGemini(
   const apiKey = getNextGeminiKey();
   if (!apiKey) throw new Error("Gemini key not set");
 
-  // build contents with memory
   const contents = history.map((h) => ({
     role: h.role === "assistant" ? "model" : "user",
     parts: [{ text: h.content }],
   }));
 
-  // build current message parts
   const parts: any[] = [];
   if (imageBase64) {
     const img = parseBase64Image(imageBase64);
@@ -373,7 +454,7 @@ async function callGemini(
     body: JSON.stringify({
       systemInstruction: { parts: [{ text: systemPrompt || NORMAL_PROMPT }] },
       contents,
-      generationConfig: { temperature: 0.7, maxOutputTokens: 1024 },
+      generationConfig: { temperature: 0.7, maxOutputTokens: 2048 },
     }),
     signal: AbortSignal.timeout(TIMEOUT_MS),
   });
@@ -398,14 +479,12 @@ async function callMimo(
   const apiKey = process.env.MIMO_API_KEY;
   if (!apiKey) throw new Error("MIMO key not set");
 
-  // Image-specific prompt for better Bangla output
   const imagePrompt =
     "এই ছবিটি দেখো এবং বাংলায় বর্ণনা করো। " +
     "পরীক্ষার প্রশ্ন হলে উত্তর বাংলায় দাও। " +
     "অ্যানিমে/ছবি হলে বাংলায় বর্ণনা করো।\n\n" +
     "User asked: " + message;
 
-  // build messages with memory
   const messages: any[] = [
     { role: "system", content: systemPrompt || NORMAL_PROMPT },
   ];
@@ -414,7 +493,6 @@ async function callMimo(
     messages.push({ role: h.role, content: h.content });
   }
 
-  // current message (with optional image)
   if (imageBase64) {
     messages.push({
       role: "user",
@@ -437,7 +515,7 @@ async function callMimo(
       model: MIMO_MODEL,
       messages,
       temperature: 0.7,
-      max_tokens: 1024,
+      max_tokens: 2048,
     }),
     signal: AbortSignal.timeout(TIMEOUT_MS),
   });
@@ -451,6 +529,51 @@ async function callMimo(
   const text = data?.choices?.[0]?.message?.content;
   if (!text) throw new Error("Empty MIMO response");
   return text;
+}
+
+/* ===== HELPER: Extract JSON safely from AI response ===== */
+function extractJsonFromResponse(response: string): any | null {
+  // Try ```json ... ``` block first
+  const jsonBlockMatch = response.match(/```json\s*([\s\S]*?)\s*```/);
+  if (jsonBlockMatch) {
+    try {
+      return JSON.parse(jsonBlockMatch[1]);
+    } catch {
+      // Fall through to other methods
+    }
+  }
+
+  // Try finding raw JSON object (first { to matching })
+  const braceMatch = response.match(/\{[\s\S]*\}/);
+  if (braceMatch) {
+    try {
+      return JSON.parse(braceMatch[0]);
+    } catch {
+      // Not valid JSON
+    }
+  }
+
+  return null;
+}
+
+/* ===== HELPER: Generate human-readable response for task actions ===== */
+function generateHumanReadableMessage(action: string, data: any): string {
+  if (action === "clarify" && data.message) {
+    return data.message;
+  }
+
+  if (action === "classify" && data.researchGoals) {
+    return `আমি এখন গুরুত্বপূর্ণ তথ্য সংগ্রহ করছি। একটু অপেক্ষা করো...\n\n${data.researchGoals}`;
+  }
+
+  if (action === "plan" && data.taskGraph) {
+    const graph = data.taskGraph;
+    const nodeCount = graph.nodes?.length || 0;
+    const title = graph.title || "আপনার প্ল্যান";
+    return `তোমার জন্য প্ল্যান তৈরি করা হয়েছে: ${title}\n\n${nodeCount}টি actionable step তৈরি করা হয়েছে। নিচে flowchart দেখো এবং প্রতিটি step expand করে বিস্তারিত জানো।`;
+  }
+
+  return "আমি আপনার request বিশ্লেষণ করছি...";
 }
 
 /* ===== MAIN ROUTE ===== */
@@ -491,7 +614,7 @@ export async function POST(req: NextRequest) {
           "চলো শিখি Ai — তোমার AI সহকারী! 🤖\n\n" +
           "আমি তোমার পূর্ববর্তী কথা মনে রাখি।\n" +
           "ছবি শেয়ার করো, শেখো, জানো।\n" +
-          "Developed by Xparrow Team.",
+          "Developed by Siblings Team.",
         provider: "local",
       });
     }
@@ -503,7 +626,7 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    /* ===== MEMORY: fetch conversation history ===== */
+    /* ===== MEMORY ===== */
     let memory: Array<{ role: string; content: string }> = [];
     if (userId && sessionId) {
       memory = await getSessionMemory(sessionId);
@@ -537,9 +660,9 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    /* ===== PROMPT CACHE (skip for image, multi-turn, education, and search) ===== */
+    /* ===== PROMPT CACHE (skip for image, multi-turn, education, search, taskplan) ===== */
     const cacheKey = message.trim().toLowerCase();
-    if (!image && memory.length === 0 && !isEducation && !searched) {
+    if (!image && memory.length === 0 && !isEducation && !isTaskPlan && !searched) {
       const cached = getCachedResponse(cacheKey);
       if (cached) {
         return NextResponse.json({ response: cached, provider: "cache" });
@@ -551,19 +674,15 @@ export async function POST(req: NextRequest) {
     let usedProvider = "";
 
     if (image) {
-      // Image → Gemini first, MIMO fallback (both support vision)
       const hasGemini = !!getNextGeminiKey();
-
       if (hasGemini) {
         try {
           response = await callGemini(message, memory, image, activeSystemPrompt);
           usedProvider = "gemini";
         } catch (err: any) {
           if (err.message === "RATE_LIMITED") markKeyRateLimited(getGeminiKeys()[geminiKeyState.idx] || "");
-          // Gemini failed, try MIMO
         }
       }
-
       if (!response) {
         for (let attempt = 0; attempt < 2; attempt++) {
           try {
@@ -576,7 +695,6 @@ export async function POST(req: NextRequest) {
           }
         }
       }
-
       if (!response) {
         return NextResponse.json(
           { error: "ছবি বিশ্লেষণে সমস্যা। আবার চেষ্টা করো।" },
@@ -584,10 +702,7 @@ export async function POST(req: NextRequest) {
         );
       }
     } else {
-      // Text → Gemini first, MIMO fallback (both get memory)
       const hasGemini = !!getNextGeminiKey();
-
-      // Use search-augmented prompt if search was performed
       const textMessage = searched ? buildSearchPrompt(message, searchResults) : message;
 
       if (hasGemini) {
@@ -598,13 +713,11 @@ export async function POST(req: NextRequest) {
           if (err.message === "RATE_LIMITED") markKeyRateLimited(getGeminiKeys()[geminiKeyState.idx] || "");
         }
       }
-
       if (!response) {
         try {
           response = await callMimo(textMessage, memory, undefined, activeSystemPrompt);
           usedProvider = "mimo";
         } catch (err: any) {
-          // Fallback: try Gemini one more time
           try {
             response = await callGemini(textMessage, memory, undefined, activeSystemPrompt);
             usedProvider = "gemini";
@@ -620,25 +733,22 @@ export async function POST(req: NextRequest) {
     let taskAction: string | null = null;
     let taskClarification: any = null;
     let taskSearchQueries: string[] = [];
-    let taskResearchNotes: string = "";
     let taskResearchSummary: string = "";
 
     if (isTaskPlan && response) {
       try {
-        const jsonMatch = response.match(/```json\s*([\s\S]*?)\s*```/);
-        if (jsonMatch) {
-          const parsed = JSON.parse(jsonMatch[1]);
+        const parsed = extractJsonFromResponse(response);
+
+        if (parsed && parsed.action) {
           taskAction = parsed.action;
 
           if (parsed.action === "clarify" && parsed.questions) {
-            // Store clarification for frontend rendering
             taskClarification = { message: parsed.message, questions: parsed.questions };
+            // Set human-readable response — NEVER raw JSON
             response = parsed.message || "আমাকে কিছু তথ্য দরকার।";
 
           } else if (parsed.action === "classify" && parsed.searchQueries) {
-            // AI says research is needed — perform Tavily searches now
             taskSearchQueries = parsed.searchQueries;
-            taskResearchNotes = parsed.summary || "";
 
             // Run parallel Tavily searches
             const searchPromises = parsed.searchQueries.map((q: string) =>
@@ -650,12 +760,12 @@ export async function POST(req: NextRequest) {
             if (allSearchResults.length > 0) {
               // Build research context from search results
               const researchContext = allSearchResults
-                .slice(0, 6)
+                .slice(0, 8)
                 .map((r: SearchResult) => `SOURCE: ${r.title}\nURL: ${r.url}\nCONTENT: ${r.content.slice(0, 500)}`)
                 .join("\n\n---\n\n");
 
               const researchMessage = [
-                { role: "user", content: `Research findings for your task:\n\n${researchContext}\n\nUse these research findings to create a customized, evidence-based plan. Reference specific findings in the plan.` },
+                { role: "user", content: `Research findings for your task:\n\n${researchContext}\n\nUse these research findings to create a customized, evidence-based plan. Reference specific findings in the plan. Include real source URLs in the nodes' sources arrays.` },
               ];
 
               // Second API call with research results
@@ -672,28 +782,45 @@ export async function POST(req: NextRequest) {
                 }
               }
 
-              // Re-extract the final plan from the second response
-              const planMatch = response.match(/```json\s*([\s\S]*?)\s*```/);
-              if (planMatch) {
-                const planParsed = JSON.parse(planMatch[1]);
-                if (planParsed.action === "plan" && planParsed.taskGraph) {
-                  taskGraph = planParsed.taskGraph;
-                  if (!taskGraph.researchSummary) {
-                    taskGraph.researchSummary = researchContext.slice(0, 300);
-                  }
-                  taskResearchSummary = taskGraph.researchSummary || "";
-                  response = "";
+              // Re-extract the final plan
+              const planParsed = extractJsonFromResponse(response);
+              if (planParsed && planParsed.action === "plan" && planParsed.taskGraph) {
+                taskGraph = planParsed.taskGraph;
+                if (!taskGraph.researchSummary) {
+                  taskGraph.researchSummary = researchContext.slice(0, 500);
                 }
+                taskResearchSummary = taskGraph.researchSummary || "";
+                // Set human-readable response — NEVER raw JSON
+                response = generateHumanReadableMessage("plan", planParsed);
+              } else {
+                // Second call didn't produce valid JSON — use a fallback message
+                response = "গবেষণা সম্পন্ন হয়েছে, কিন্তু plan generate করতে সমস্যা হয়েছে। আবার চেষ্টা করো।";
               }
+            } else {
+              // No search results found
+              response = "গবেষণার ফলাফল পাওয়া যায়নি। আবার চেষ্টা করো।";
             }
 
           } else if (parsed.action === "plan" && parsed.taskGraph) {
             taskGraph = parsed.taskGraph;
-            response = "";
+            // Set human-readable response — NEVER raw JSON
+            response = generateHumanReadableMessage("plan", parsed);
+          }
+        } else {
+          // AI didn't return valid JSON — this should NOT happen in taskplan mode
+          // But we handle it gracefully: return a text response
+          // Strip any JSON-like content from the response to prevent raw JSON leaking
+          response = response.replace(/```json[\s\S]*?```/g, "").replace(/\{[\s\S]*\}/g, "").trim();
+          if (!response) {
+            response = "আমি আপনার request বুঝতে পারিনি। আবার চেষ্টা করো — বেশি বিস্তারিত লিখে।";
           }
         }
       } catch {
-        // JSON parse failed — response stays as plain text
+        // JSON parse failed — strip any JSON from response to prevent raw leak
+        response = response.replace(/```json[\s\S]*?```/g, "").replace(/\{[\s\S]*\}/g, "").trim();
+        if (!response) {
+          response = "কিছু সমস্যা হয়েছে। আবার চেষ্টা করো।";
+        }
       }
     }
 
@@ -703,7 +830,6 @@ export async function POST(req: NextRequest) {
       if (validation.valid && validation.cleanedGraph) {
         taskGraph = validation.cleanedGraph;
       } else {
-        // Graph invalid — strip it and return error message
         taskGraph = null;
         if (validation.errors.length > 0) {
           response = "আমার তৈরি করা plan টি সঠিক ছিল না। আবার চেষ্টা করছি...";
@@ -713,39 +839,38 @@ export async function POST(req: NextRequest) {
 
     /* ===== STRIP MARKDOWN (clean text for frontend, preserve LaTeX) ===== */
     if (response) {
-      // Extract ALL LaTeX expressions first to protect them
       const latexBlocks: string[] = [];
-      // Block math: $$...$$ or \[...\]
       response = response.replace(/\$\$([\s\S]+?)\$\$/g, (_, m) => { latexBlocks.push(m); return `§§BLK${latexBlocks.length - 1}§§`; });
       response = response.replace(/\\\[([\s\S]+?)\\\]/g, (_, m) => { latexBlocks.push(m); return `§§BLK${latexBlocks.length - 1}§§`; });
-      // Inline math: \(...\) — do this before $...$ to avoid conflicts
       response = response.replace(/\\\((.+?)\\\)/g, (_, m) => { latexBlocks.push(m); return `§§INL${latexBlocks.length - 1}§§`; });
-      // Inline math: $...$ (single line only)
       response = response.replace(/\$([^\$\n]+?)\$/g, (_, m) => { latexBlocks.push(m); return `§§INL${latexBlocks.length - 1}§§`; });
 
       response = response
-        .replace(/\*\*(.+?)\*\*/g, "$1")   // **bold** → bold
-        .replace(/\*(.+?)\*/g, "$1")        // *italic* → italic
-        .replace(/__(.+?)__/g, "$1")        // __bold__ → bold
-        .replace(/~~(.+?)~~/g, "$1")        // ~~strikethrough~~ → strikethrough
+        .replace(/\*\*(.+?)\*\*/g, "$1")
+        .replace(/\*(.+?)\*/g, "$1")
+        .replace(/__(.+?)__/g, "$1")
+        .replace(/~~(.+?)~~/g, "$1")
         .replace(/`{3}[\s\S]*?`{3}/g, (m) => m.replace(/`{3}\w*\n?/g, "").replace(/`{3}/g, ""))
-        .replace(/`(.+?)`/g, "$1")          // `inline code` → inline code
-        .replace(/^#{1,6}\s+/gm, "")        // ### headings → headings
-        .replace(/^[-*+]\s+/gm, "• ")       // - list → bullet
-        .replace(/^>\s+/gm, "")             // > blockquote → blockquote
-        .replace(/---+/g, "")               // --- → horizontal rule
-        .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1") // [text](url) → text
+        .replace(/`(.+?)`/g, "$1")
+        .replace(/^#{1,6}\s+/gm, "")
+        .replace(/^[-*+]\s+/gm, "• ")
+        .replace(/^>\s+/gm, "")
+        .replace(/---+/g, "")
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
         .trim();
 
-      // Restore LaTeX expressions — block math first, then inline
+      // Restore LaTeX
       for (let i = latexBlocks.length - 1; i >= 0; i--) {
         response = response.replace(`§§BLK${i}§§`, `$$${latexBlocks[i]}$$`);
         response = response.replace(`§§INL${i}§§`, `$${latexBlocks[i]}$`);
       }
+
+      // Final safety: strip any remaining JSON-like content that might leak
+      response = response.replace(/```json[\s\S]*?```/g, "").trim();
     }
 
     /* ===== CACHE ===== */
-    if (!image && memory.length === 0 && !isEducation && response) {
+    if (!image && memory.length === 0 && !isEducation && !isTaskPlan && response) {
       setCachedResponse(cacheKey, response);
     }
 
@@ -769,9 +894,6 @@ export async function POST(req: NextRequest) {
       ...(taskResearchSummary ? { taskResearchSummary } : {}),
       ...(searched && searchResults.length > 0 ? {
         sources: searchResults.map((r) => ({ title: r.title, url: r.url })),
-      } : {}),
-      ...(taskAction === "classify" && taskSearchQueries.length > 0 ? {
-        sources: taskSearchQueries.map((q) => ({ query: q })),
       } : {}),
     });
   } catch (error: any) {
