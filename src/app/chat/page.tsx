@@ -13,6 +13,10 @@ interface Message {
   image?: string;
   sources?: { title: string; url: string }[];
   taskGraph?: TaskGraph;
+  taskClarification?: {
+    message: string;
+    questions: { id: string; question: string; why: string }[];
+  };
 }
 
 interface ChatSession {
@@ -295,6 +299,7 @@ export default function ChatPage() {
           content: data.response,
           ...(data.sources ? { sources: data.sources } : {}),
           ...(data.taskGraph ? { taskGraph: data.taskGraph } : {}),
+          ...(data.taskClarification ? { taskClarification: data.taskClarification } : {}),
         }];
         setTimeout(() => setTypingIdx(next.length - 1), 50);
         return next;
@@ -550,6 +555,28 @@ export default function ChatPage() {
                     )}
                     {msg.taskGraph && (
                       <TaskFlowChart graph={msg.taskGraph} />
+                    )}
+                    {msg.taskClarification && (
+                      <div className="mt-3 border border-amber-500/20 rounded-2xl bg-amber-500/[0.04] p-4">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="text-amber-400 text-[11px]">💬</span>
+                          <p className="text-[11px] font-medium text-amber-400">আরো তথ্য দরকার</p>
+                        </div>
+                        <div className="space-y-2.5">
+                          {msg.taskClarification.questions.map((q) => (
+                            <div key={q.id} className="flex items-start gap-2.5">
+                              <div className="w-5 h-5 rounded-md bg-amber-500/10 border border-amber-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <span className="text-[9px] font-bold text-amber-400">?</span>
+                              </div>
+                              <div>
+                                <p className="text-[12px] text-white/90 leading-snug">{q.question}</p>
+                                <p className="text-[10px] text-gray-500 mt-0.5">{q.why}</p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                        <p className="text-[10px] text-gray-600 mt-3 border-t border-amber-500/10 pt-2">উত্তর দিয়ে আবার Task mode-তে পাঠাও — তাহলে customized plan পাবে।</p>
+                      </div>
                     )}
                     {searchComplete !== null && i === messages.length - 1 && msg.role === "assistant" && (
                       <div className="mt-1.5 flex items-center gap-1.5 text-[9px] text-emerald-400/70 animate-[fadeout_3s_ease-in_forwards]">

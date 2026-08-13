@@ -21,6 +21,7 @@ export interface TaskNode {
 export interface TaskGraph {
   title: string;
   taskType: "research" | "coding" | "planning" | "study" | "content";
+  researchNotes?: string;
   nodes: TaskNode[];
 }
 
@@ -81,6 +82,19 @@ export default function TaskFlowChart({ graph }: { graph: TaskGraph }) {
           <span className="text-[10px] text-gray-500 font-mono">{overallProgress}%</span>
         </div>
       </div>
+
+      {/* Research Notes */}
+      {graph.researchNotes && (
+        <div className="px-4 py-2.5 border-b border-white/[0.04] bg-sky-500/[0.03]">
+          <div className="flex items-start gap-2">
+            <span className="text-sky-400 text-[11px] mt-0.5">📊</span>
+            <div>
+              <p className="text-[10px] font-medium text-sky-400 mb-0.5">Research Summary</p>
+              <p className="text-[11px] text-gray-400 leading-relaxed">{graph.researchNotes}</p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Nodes */}
       <div className="p-3 space-y-1.5">

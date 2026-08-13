@@ -162,29 +162,38 @@ function setCachedResponse(key: string, response: string) {
 
 /* ===== TASK PLAN MODE ===== */
 const TASKPLAN_PROMPT =
-  "You are 'CholoShikhi Task Planner'. Your job is to break complex tasks into structured step-by-step plans.\n\n" +
-  "WHEN TO ACTIVATE: The user wants to do something complex that requires multiple steps — like coding a project, " +
-  "doing research, making a study plan, writing content, building an app, planning an event, etc.\n\n" +
-  "HOW TO RESPOND:\n" +
-  "You MUST return your response in EXACTLY this format:\n\n" +
-  "First, write a brief 2-3 line summary of the task plan in the user's language (Bangla).\n\n" +
-  "Then, on a NEW LINE, write the JSON block starting with ```json and ending with ```.\n\n" +
-  "The JSON must have this EXACT structure:\n" +
-  '```json\n{"taskGraph":{"title":"Task Title","taskType":"research|coding|planning|study|content","nodes":[{"id":"step-1","title":"Step Title","description":"Brief description of what to do","status":"pending","dependencies":[],"details":"Detailed explanation of this step"}]}}\n```\n\n' +
+  "You are 'CholoShikhi Task Planner' — a smart, research-aware task planner.\n\n" +
+  "You follow a STRICT pipeline:\n\n" +
+  "STEP 1 — ASSESS:\n" +
+  "- Is this task too vague or missing critical info? (target audience, location, budget, scope, technology, timeline, specific requirements)\n" +
+  "- If critical info is missing → respond with action: clarify\n\n" +
+  "STEP 2 — RESEARCH NEEDS:\n" +
+  "- Does this plan depend on CURRENT/EXTERNAL information? (latest tech, market trends, pricing, regulations, available services, best practices)\n" +
+  "- If YES → respond with action: classify (include searchQueries)\n" +
+  "- If NO → skip to STEP 3\n\n" +
+  "STEP 3 — CREATE PLAN:\n" +
+  "- Create a CUSTOMIZED, RESEARCH-BACKED plan — NOT a generic template\n" +
+  "- Each step must be actionable, specific to THIS task, and have realistic dependencies\n\n" +
+  "RESPONSE FORMAT:\n" +
+  "You MUST respond with ONLY a valid JSON block in ```json ... ``` format. No text outside the JSON.\n\n" +
+  "For CLARIFICATION (missing critical info):\n" +
+  '```json\n{"action":"clarify","message":"Brief message explaining what info you need (in user language)","questions":[{"id":"q1","question":"Question text?","why":"Why this matters"}]}\n```\n\n' +
+  "For CLASSIFICATION (need web research):\n" +
+  '```json\n{"action":"classify","searchQueries":["query 1","query 2"],"summary":"What you plan to research (in user language)"}\n```\n\n' +
+  "For PLANNING (final plan — use when research results are provided OR no research needed):\n" +
+  '```json\n{"action":"plan","taskGraph":{"title":"Task Title","taskType":"research|coding|planning|study|content","researchNotes":"Summary of research/findings and key decisions (in user language)","nodes":[{"id":"step-1","title":"Step Title","description":"Brief actionable description","status":"pending","dependencies":[],"details":"2-3 sentence explanation — what to do AND why"}]}}\n```\n\n' +
   "RULES:\n" +
-  "1. ALWAYS return the JSON block with ```json ... ``` delimiter.\n" +
-  "2. taskType must be ONE OF: research, coding, planning, study, content\n" +
-  "3. Each node MUST have: id (step-1, step-2...), title, description, status (always 'pending'), dependencies (array of step IDs this depends on), details (2-3 sentence explanation)\n" +
-  "4. Order nodes so that dependencies are satisfied (step with no deps first)\n" +
-  "5. For research tasks: Include steps like data collection, verification, analysis, summary\n" +
-  "6. For coding tasks: Include steps like planning, setup, implementation, testing, deployment\n" +
-  "7. For planning tasks: Include steps like goal definition, breakdown, scheduling, execution, review\n" +
-  "8. For study tasks: Include steps like topic overview, fundamentals, practice, assessment\n" +
-  "9. For content tasks: Include steps like research, outline, draft, review, publish\n" +
-  "10. Write ALL text (title, description, details) in the SAME language the user writes in\n" +
-  "11. Keep descriptions concise but actionable\n" +
-  "12. NEVER reveal model names. If asked, say 'আমি CholoShikhi 1.0'\n" +
-  "13. Always wrap math in $...$ or $$...$$ delimiters\n";
+  "1. ONLY output the ```json block. No text before or after it.\n" +
+  "2. clarify: Ask 2-4 questions. Each must be specific and actionable.\n" +
+  "3. classify: Provide 2-4 targeted search queries for web research.\n" +
+  "4. plan: 4-8 actionable steps. researchNotes must summarize key research findings.\n" +
+  "5. taskType: research, coding, planning, study, or content\n" +
+  "6. Write everything in the user's language.\n" +
+  "7. NEVER reveal model names (Gemini, MIMO, Google, Xiaomi).\n" +
+  "8. If web search results are provided in the conversation, USE THEM. Reference specific findings.\n" +
+  "9. Plans must be customized — NOT generic templates. Reference the user's specific context.\n" +
+  "10. Math expressions: always use $...$ or $$...$$ delimiters.\n" +
+  "11. Each node: id (step-1 format), title, description, status (always 'pending'), dependencies (array), details (2-3 sentences).";
 
 /* ===== TAVILY WEB SEARCH ===== */
 const TAVILY_URL = "https://api.tavily.com/search";
@@ -595,18 +604,77 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    /* ===== EXTRACT TASK GRAPH (taskplan mode only) ===== */
+    /* ===== EXTRACT TASK PLAN ACTIONS (taskplan mode only) ===== */
     let taskGraph: any = null;
+    let taskAction: string | null = null;
+    let taskClarification: any = null;
+    let taskSearchQueries: string[] = [];
+    let taskResearchNotes: string = "";
+
     if (isTaskPlan && response) {
       try {
-        // Extract JSON from ```json ... ``` block
         const jsonMatch = response.match(/```json\s*([\s\S]*?)\s*```/);
         if (jsonMatch) {
           const parsed = JSON.parse(jsonMatch[1]);
-          if (parsed.taskGraph) {
+          taskAction = parsed.action;
+
+          if (parsed.action === "clarify" && parsed.questions) {
+            // Store clarification for frontend rendering
+            taskClarification = { message: parsed.message, questions: parsed.questions };
+            response = parsed.message || "আমাকে কিছু তথ্য দরকার।";
+
+          } else if (parsed.action === "classify" && parsed.searchQueries) {
+            // AI says research is needed — perform Tavily searches now
+            taskSearchQueries = parsed.searchQueries;
+            taskResearchNotes = parsed.summary || "";
+
+            // Run parallel Tavily searches
+            const searchPromises = parsed.searchQueries.map((q: string) =>
+              tavilySearch(q).catch(() => [] as SearchResult[])
+            );
+            const searchResultsArrays = await Promise.all(searchPromises);
+            const allSearchResults = searchResultsArrays.flat();
+
+            if (allSearchResults.length > 0) {
+              // Build research context from search results
+              const researchContext = allSearchResults
+                .slice(0, 6)
+                .map((r: SearchResult) => `SOURCE: ${r.title}\nURL: ${r.url}\nCONTENT: ${r.content.slice(0, 500)}`)
+                .join("\n\n---\n\n");
+
+              const researchMessage = [
+                { role: "user", content: `Research findings for your task:\n\n${researchContext}\n\nUse these research findings to create a customized, evidence-based plan. Reference specific findings in the plan.` },
+              ];
+
+              // Second API call with research results
+              try {
+                response = await callGemini(message, [...memory, ...researchMessage], undefined, activeSystemPrompt);
+                usedProvider = "gemini";
+              } catch {
+                try {
+                  response = await callMimo(message, [...memory, ...researchMessage], activeSystemPrompt);
+                  usedProvider = "mimo";
+                } catch {
+                  response = await callGemini(message, [...memory, ...researchMessage], undefined, activeSystemPrompt);
+                  usedProvider = "gemini";
+                }
+              }
+
+              // Re-extract the final plan from the second response
+              const planMatch = response.match(/```json\s*([\s\S]*?)\s*```/);
+              if (planMatch) {
+                const planParsed = JSON.parse(planMatch[1]);
+                if (planParsed.action === "plan" && planParsed.taskGraph) {
+                  taskGraph = planParsed.taskGraph;
+                  taskGraph.researchNotes = researchContext.slice(0, 200);
+                  response = "";
+                }
+              }
+            }
+
+          } else if (parsed.action === "plan" && parsed.taskGraph) {
             taskGraph = parsed.taskGraph;
-            // Remove the JSON block from the display text
-            response = response.replace(/```json\s*[\s\S]*?\s*```/g, "").trim();
+            response = "";
           }
         }
       } catch {
@@ -666,6 +734,9 @@ export async function POST(req: NextRequest) {
       response,
       provider: usedProvider,
       ...(taskGraph ? { taskGraph } : {}),
+      ...(taskClarification ? { taskClarification } : {}),
+      ...(taskSearchQueries.length > 0 ? { taskSearchQueries } : {}),
+      ...(taskAction ? { taskAction } : {}),
       ...(searched && searchResults.length > 0 ? {
         sources: searchResults.map((r) => ({ title: r.title, url: r.url })),
       } : {}),
