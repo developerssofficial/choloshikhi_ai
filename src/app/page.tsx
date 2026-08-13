@@ -2,16 +2,18 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePWAInstall } from "@/lib/pwa";
 
 /* ===================================================================
    CholoShikhi AI — Landing Page
-   Sections: Hero · Features · About · Docs · FAQ · CTA
+   Sections: Hero · Features · About · Docs · FAQ · App · CTA
    =================================================================== */
 
 const NAV_LINKS = [
   { label: "Features", href: "#features" },
   { label: "About", href: "#about" },
   { label: "Docs", href: "#docs" },
+  { label: "App", href: "#app" },
 ];
 
 const FEATURES = [
@@ -89,6 +91,7 @@ export default function HomePage() {
   const [scrolled, setScrolled] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+  const { state: installState, promptInstall } = usePWAInstall();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 30);
@@ -394,6 +397,70 @@ export default function HomePage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== APP INSTALL ===== */}
+      <section id="app" data-animate className="py-24 px-6 border-t border-white/[0.04]" style={{ opacity: visibleSections.has("app") ? 1 : 0, transform: visibleSections.has("app") ? "none" : "translateY(20px)", transition: "all 0.6s cubic-bezier(0.16, 1, 0.3, 1)" }}>
+        <div className="max-w-xl mx-auto text-center">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-[11px] text-indigo-300 mb-6">
+            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+            Mobile App
+          </div>
+          <h2 className="text-2xl font-bold text-white mb-3">CholoShikhi App</h2>
+          <p className="text-gray-500 text-[14px] mb-8 max-w-md mx-auto">
+            ফোনে সরাসরি install করো — browser ছাড়াই খোলো, দ্রুত চলো।
+          </p>
+
+          <div className="bg-[#16161e] border border-white/[0.06] rounded-2xl p-6 mb-6">
+            {installState === "installed" ? (
+              <div className="flex flex-col items-center gap-3">
+                <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center">
+                  <svg className="w-7 h-7 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                </div>
+                <p className="text-[14px] text-emerald-400 font-medium">App Installed</p>
+                <p className="text-[12px] text-gray-500">CholoShikhi তোমার ফোনে ইতিমধ্যে আছে!</p>
+              </div>
+            ) : installState === "installable" ? (
+              <div className="flex flex-col items-center gap-3">
+                <div className="w-14 h-14 rounded-2xl bg-violet-500/10 flex items-center justify-center">
+                  <svg className="w-7 h-7 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                </div>
+                <p className="text-[14px] text-white font-medium">App Install করো</p>
+                <p className="text-[12px] text-gray-500">এক ক্লিকে ফোনে install করো, পরে যেকোনো সময় খোলো।</p>
+                <button
+                  onClick={promptInstall}
+                  className="mt-2 px-6 py-2.5 text-[13px] font-medium bg-violet-600 rounded-full hover:bg-violet-500 transition-colors"
+                >
+                  Install CholoShikhi
+                </button>
+              </div>
+            ) : (
+              <div className="flex flex-col items-center gap-3">
+                <div className="w-14 h-14 rounded-2xl bg-sky-500/10 flex items-center justify-center">
+                  <svg className="w-7 h-7 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                </div>
+                <p className="text-[14px] text-white font-medium">কিভাবে Install করবে</p>
+                <div className="text-[12px] text-gray-500 text-left space-y-1.5 mt-1 max-w-xs">
+                  <div className="flex items-start gap-2"><span className="text-sky-400 mt-0.5">১.</span> Android Chrome-এ choloshikhiai.vercel.app খোলো।</div>
+                  <div className="flex items-start gap-2"><span className="text-sky-400 mt-0.5">২.</span> ব্রাউজারের menu (⋮) এ ক্লিক করো।</div>
+                  <div className="flex items-start gap-2"><span className="text-sky-400 mt-0.5">৩.</span> "Install app" বা "Add to Home screen" সিলেক্ট করো।</div>
+                  <div className="flex items-start gap-2"><span className="text-sky-400 mt-0.5">৪.</span> "Install" চাপো — হোমস্ক্রিনে CholoShikhi icon আসবে।</div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div className="flex items-center justify-center gap-3 text-[11px] text-gray-600">
+            <span className="flex items-center gap-1">
+              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+              SSL encrypted
+            </span>
+            <span>·</span>
+            <span>No data stored on device</span>
+            <span>·</span>
+            <span>Free forever</span>
           </div>
         </div>
       </section>
