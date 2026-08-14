@@ -5,6 +5,11 @@ out/
 
 .vercel
 
+# Desktop (Electron)
+desktop/node_modules/
+desktop/out/
+desktop/.forge-cache/
+
 # Auto-generated
 AGENTS.md
 CLAUDE.md

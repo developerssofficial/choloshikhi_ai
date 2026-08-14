@@ -2,11 +2,11 @@
 
 import { useState, useRef, useEffect } from "react";
 import { useAuth } from "@/lib/auth";
-import Link from "next/link";
 import { ViewTransition } from "react";
 import RenderMessage from "@/components/RenderMessage";
 import TaskFlowChart from "@/components/TaskFlowChart";
 import TaskExecutionPanel from "@/components/TaskExecutionPanel";
+import AppSidebar from "@/components/AppSidebar";
 import type { TaskGraph, TaskClarification, TaskNodeStatus } from "@/lib/taskTypes";
 
 interface Message {
@@ -40,20 +40,6 @@ const SUGGESTIONS = [
   { icon: "📋", label: "Plan", text: "আমাকে একটা প্ল্যান তৈরি করে দাও" },
   { icon: "📝", label: "Help", text: "/help" },
 ];
-
-function formatDate(d: string): string {
-  const date = new Date(d);
-  const now = new Date();
-  const diff = now.getTime() - date.getTime();
-  const mins = Math.floor(diff / 60000);
-  if (mins < 1) return "এইমাত্র";
-  if (mins < 60) return `${mins} মিনিট আগে`;
-  const hrs = Math.floor(mins / 60);
-  if (hrs < 24) return `${hrs} ঘণ্টা আগে`;
-  const days = Math.floor(hrs / 24);
-  if (days < 7) return `${days} দিন আগে`;
-  return date.toLocaleDateString("bn-BD", { month: "short", day: "numeric" });
-}
 
 function getDomain(url: string): string {
   try {
@@ -104,12 +90,11 @@ function SourcesCard({ sources }: { sources: { title: string; url: string }[] })
     </div>
   );
 }
+
 /** Sanitize display text — strip any leaked JSON that shouldn't be user-facing */
 function sanitizeDisplayText(text: string): string {
   if (!text) return text;
-  // Strip ```json ... ``` blocks
   let clean = text.replace(/```json\s*[\s\S]*?```/g, "").trim();
-  // Strip raw JSON objects (only if they look like structured data, not normal text)
   if (/\{\s*"action"\s*:/.test(clean) || /\{\s*"taskGraph"\s*:/.test(clean) || /\{\s*"nodes"\s*:/.test(clean)) {
     clean = clean.replace(/\{[\s\S]*\}/g, "").trim();
   }
@@ -126,7 +111,6 @@ export default function ChatPage() {
   const [typingText, setTypingText] = useState("");
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [sessions, setSessions] = useState<ChatSession[]>([]);
-  const [showHistory, setShowHistory] = useState(false);
   const [loadingSessions, setLoadingSessions] = useState(false);
   const [copiedIdx, setCopiedIdx] = useState<number | null>(null);
   const [mode, setMode] = useState<"normal" | "education" | "taskplan">("normal");
@@ -237,7 +221,6 @@ export default function ChatPage() {
       if (data.messages) {
         setMessages(data.messages);
         setSessionId(sid);
-        setShowHistory(false);
       }
     } catch {}
   };
@@ -250,7 +233,6 @@ export default function ChatPage() {
     setMessages([]);
     setSessionId(null);
     sessionCreatedRef.current = false;
-    setShowHistory(false);
   };
 
   const handleSend = async (text?: string) => {
@@ -278,7 +260,7 @@ export default function ChatPage() {
     setSearchComplete(null);
     if (searchCompleteRef.current) clearTimeout(searchCompleteRef.current);
 
-    // Auto-create session on first message (with first message as title)
+    // Auto-create session on first message
     let activeSessionId = sessionId;
     if (user && !activeSessionId && !sessionCreatedRef.current) {
       sessionCreatedRef.current = true;
@@ -321,7 +303,6 @@ export default function ChatPage() {
         return next;
       });
 
-      // Show "search complete" for 3 seconds if search was performed
       if (data.sources && data.sources.length > 0) {
         setSearching(false);
         setSearchComplete(data.sources.length);
@@ -347,157 +328,117 @@ export default function ChatPage() {
     e.target.value = "";
   };
 
-  const deleteSession = async (sid: string, e: React.MouseEvent) => {
-    e.stopPropagation();
-    try {
-      await fetch(`/api/sessions/${sid}`, { method: "DELETE" });
-      setSessions((prev) => prev.filter((s) => s.id !== sid));
-      if (sessionId === sid) startNewChat();
-    } catch {}
-  };
-
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-[#0f0f14]">
-        <div className="w-7 h-7 border-2 border-gray-600 border-t-white rounded-full animate-spin" />
+        <div className="flex flex-col items-center gap-3">
+          <img src="/logo-source.png" alt="CholoShikhi" className="w-12 h-12 rounded-xl object-contain shadow-lg shadow-violet-500/20" />
+          <div className="w-5 h-5 border-2 border-gray-600 border-t-violet-400 rounded-full animate-spin" />
+        </div>
       </div>
     );
   }
 
+  const isDesktop = !!(globalThis as any).electronAPI?.isElectron;
+
   return (
     <ViewTransition enter="page-enter" default="none">
-    <div className="flex h-screen bg-[#0f0f14]">
-      {/* ===== SIDEBAR ===== */}
-      <aside className="hidden md:flex flex-col w-[60px] border-r border-white/[0.06] py-4 items-center gap-4">
-        <Link href="/" className="hover:opacity-80 transition-opacity" transitionTypes={["nav-back"]}>
-          <img src="/icons/icon-192.png" alt="CholoShikhi" className="w-9 h-9 rounded-lg" />
-        </Link>
-
-        <div className="flex flex-col items-center gap-3 mt-4">
-          <button onClick={startNewChat}
-            className="w-9 h-9 rounded-lg flex items-center justify-center text-gray-500 hover:text-white hover:bg-white/[0.06] transition-all"
-            title="নতুন চ্যাট">
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
-          </button>
-          <button
-            onClick={() => { setShowHistory(!showHistory); if (user) fetchSessions(); }}
-            className={`w-9 h-9 rounded-lg flex items-center justify-center transition-all ${showHistory ? "text-white bg-white/[0.06]" : "text-gray-500 hover:text-white hover:bg-white/[0.06]"}`}
-            title="History">
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-          </button>
-        </div>
-
-        <div className="mt-auto">
-          {user ? (
-            <button onClick={signOut} className="w-8 h-8 rounded-full bg-violet-600 flex items-center justify-center text-white text-[10px] font-bold hover:bg-violet-500 transition-colors" title="লগআউট">
-              {user.name?.[0] || user.email?.[0] || "U"}
-            </button>
-          ) : (
-            <Link href="/" className="w-8 h-8 rounded-full bg-white/[0.06] flex items-center justify-center text-gray-500 hover:text-white transition-colors" title="হোম">
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
-            </Link>
-          )}
-        </div>
-      </aside>
-
-      {/* ===== HISTORY PANEL ===== */}
-      {showHistory && (
-        <div className="hidden md:flex flex-col w-[240px] border-r border-white/[0.06] bg-[#12121a]">
-          <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.06]">
-            <span className="text-xs font-medium text-gray-400">চ্যাট ইতিহাস</span>
-            <button onClick={() => setShowHistory(false)} className="text-gray-600 hover:text-gray-400 text-xs">✕</button>
-          </div>
-          <div className="flex-1 overflow-y-auto">
-            {!user ? (
-              <p className="text-gray-600 text-[11px] p-4 text-center">লগইন করুন</p>
-            ) : loadingSessions ? (
-              <div className="flex justify-center py-8">
-                <div className="w-5 h-5 border-2 border-gray-600 border-t-white rounded-full animate-spin" />
-              </div>
-            ) : sessions.length === 0 ? (
-              <p className="text-gray-600 text-[11px] p-4 text-center">কোনো চ্যাট নেই</p>
-            ) : (
-              sessions.map((s) => (
-                <button
-                  key={s.id}
-                  onClick={() => loadSession(s.id)}
-                  className={`w-full text-left px-4 py-2.5 border-b border-white/[0.03] hover:bg-white/[0.04] transition-colors group ${sessionId === s.id ? "bg-white/[0.06]" : ""}`}
-                >
-                  <div className="flex items-center justify-between">
-                    <p className="text-[11px] text-gray-300 truncate flex-1">{s.title}</p>
-                    <button
-                      onClick={(e) => deleteSession(s.id, e)}
-                      className="text-gray-700 hover:text-red-400 text-[10px] ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                      title="মুছুন">
-                      ✕
-                    </button>
-                  </div>
-                  <p className="text-[9px] text-gray-600 mt-0.5">{formatDate(s.updated_at)}</p>
-                </button>
-              ))
-            )}
-          </div>
-        </div>
+    <div className="flex h-screen bg-[#0f0f14] overflow-hidden">
+      {/* ===== SIDEBAR (web/mobile only) ===== */}
+      {!isDesktop && (
+      <AppSidebar
+        onNewChat={startNewChat}
+        onLoadSession={loadSession}
+        activeSessionId={sessionId}
+        sessions={sessions}
+        loadingSessions={loadingSessions}
+        onFetchSessions={fetchSessions}
+      />
       )}
 
-      {/* ===== MOBILE HISTORY DRAWER ===== */}
-      {showHistory && (
-        <div className="md:hidden fixed inset-0 z-40 flex">
-          <div className="absolute inset-0 bg-black/50" onClick={() => setShowHistory(false)} />
-          <div className="relative w-[260px] bg-[#12121a] border-r border-white/[0.06] flex flex-col h-full">
-            <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.06]">
-              <span className="text-xs font-medium text-gray-400">চ্যাট ইতিহাস</span>
-              <button onClick={() => setShowHistory(false)} className="text-gray-600 hover:text-gray-400 text-xs">✕</button>
-            </div>
-            <div className="flex-1 overflow-y-auto">
-              {!user ? (
-                <p className="text-gray-600 text-[11px] p-4 text-center">লগইন করুন</p>
-              ) : sessions.length === 0 ? (
-                <p className="text-gray-600 text-[11px] p-4 text-center">কোনো চ্যাট নেই</p>
-              ) : (
-                sessions.map((s) => (
-                  <button
-                    key={s.id}
-                    onClick={() => loadSession(s.id)}
-                    className={`w-full text-left px-4 py-2.5 border-b border-white/[0.03] hover:bg-white/[0.04] transition-colors group ${sessionId === s.id ? "bg-white/[0.06]" : ""}`}
-                  >
-                    <div className="flex items-center justify-between">
-                      <p className="text-[11px] text-gray-300 truncate flex-1">{s.title}</p>
-                      <button
-                        onClick={(e) => deleteSession(s.id, e)}
-                        className="text-gray-700 hover:text-red-400 text-[10px] ml-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                        ✕
-                      </button>
-                    </div>
-                    <p className="text-[9px] text-gray-600 mt-0.5">{formatDate(s.updated_at)}</p>
-                  </button>
-                ))
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ===== MAIN ===== */}
+      {/* ===== MAIN CONTENT ===== */}
       <div className="flex-1 flex flex-col min-w-0">
-        {/* Header */}
-        <header className="flex items-center justify-between px-4 h-12 border-b border-white/[0.06] shrink-0">
-          <div className="flex items-center gap-2">
-            <Link href="/" className="md:hidden">
-              <img src="/icons/icon-192.png" alt="CholoShikhi" className="w-7 h-7 rounded-md" />
-            </Link>
-            <button onClick={startNewChat} className="md:hidden text-gray-500 hover:text-white transition-colors" title="নতুন চ্যাট">
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
-            </button>
-          </div>
+        {/* Header — Desktop: drag region + logo + window controls */}
+        {isDesktop ? (
+          <header
+            className="flex items-center justify-between px-4 h-10 border-b border-white/[0.06] shrink-0 bg-[#0f0f14]/80 backdrop-blur-xl select-none"
+            style={{ WebkitAppRegion: "drag" } as React.CSSProperties}
+          >
+            {/* Left: logo */}
+            <div className="flex items-center gap-2.5" style={{ WebkitAppRegion: "no-drag" } as React.CSSProperties}>
+              <img src="/logo-source.png" alt="CholoShikhi" className="w-7 h-7 rounded-lg object-contain shadow-lg shadow-violet-500/25" />
+              <span className="text-[12px] font-semibold text-white/90 tracking-wide">CholoShikhi</span>
+            </div>
 
-          {/* Mode Toggle */}
+            {/* Center: empty drag zone */}
+            <div className="flex-1" />
+
+            {/* Right: login + window controls */}
+            <div className="flex items-center gap-1" style={{ WebkitAppRegion: "no-drag" } as React.CSSProperties}>
+              {/* Login button */}
+              {user ? (
+                <button
+                  onClick={signOut}
+                  className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[10px] text-gray-400 hover:text-white hover:bg-white/[0.06] transition-all mr-2"
+                  title="লগআউট"
+                >
+                  <div className="w-5 h-5 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center text-white text-[8px] font-bold">
+                    {user.name?.[0] || user.email?.[0] || "U"}
+                  </div>
+                  <span className="hidden lg:inline">{user.email?.split("@")[0]}</span>
+                </button>
+              ) : (
+                <button
+                  onClick={signInWithGoogle}
+                  className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[10px] text-gray-400 hover:text-violet-400 hover:bg-white/[0.06] transition-all mr-2"
+                  title="লগইন"
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                  <span>লগইন</span>
+                </button>
+              )}
+              <a
+                href="/download"
+                className="w-7 h-7 flex items-center justify-center text-gray-500 hover:text-violet-400 hover:bg-white/[0.06] rounded transition-all"
+                title="ডাউনলোড"
+              >
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+              </a>
+              <button
+                onClick={() => (window as any).electronAPI?.minimize()}
+                className="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-300 hover:bg-white/[0.06] rounded transition-all"
+              >
+                <svg width="10" height="10" viewBox="0 0 12 12"><rect y="5.5" width="12" height="1" fill="currentColor"/></svg>
+              </button>
+              <button
+                onClick={() => (window as any).electronAPI?.maximize()}
+                className="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-300 hover:bg-white/[0.06] rounded transition-all"
+              >
+                <svg width="10" height="10" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" stroke="currentColor" strokeWidth="1" fill="none"/></svg>
+              </button>
+              <button
+                onClick={() => (window as any).electronAPI?.close()}
+                className="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-white hover:bg-red-600 rounded transition-all"
+              >
+                <svg width="10" height="10" viewBox="0 0 12 12"><line x1="1" y1="1" x2="11" y2="11" stroke="currentColor" strokeWidth="1.2"/><line x1="11" y1="1" x2="1" y2="11" stroke="currentColor" strokeWidth="1.2"/></svg>
+              </button>
+            </div>
+          </header>
+        ) : (
+        /* Header — Web/Mobile: mode toggle in center */
+        <header className="flex items-center justify-between px-4 h-12 border-b border-white/[0.06] shrink-0 bg-[#0f0f14]/80 backdrop-blur-xl">
+          {/* Left: mobile spacer for hamburger */}
+          <div className="w-9 md:w-0" />
+
+          {/* Center: Mode Toggle */}
           <div className="flex items-center bg-[#1a1a24] border border-white/[0.08] rounded-full p-0.5">
             <button
               onClick={() => setMode("normal")}
               className={`px-3 py-1 text-[10px] font-medium rounded-full transition-all ${
                 mode === "normal"
-                  ? "bg-violet-600 text-white"
+                  ? "bg-violet-600 text-white shadow-sm"
                   : "text-gray-500 hover:text-gray-300"
               }`}>
               Normal
@@ -506,7 +447,7 @@ export default function ChatPage() {
               onClick={() => setMode("education")}
               className={`px-3 py-1 text-[10px] font-medium rounded-full transition-all flex items-center gap-1 ${
                 mode === "education"
-                  ? "bg-emerald-600 text-white"
+                  ? "bg-emerald-600 text-white shadow-sm"
                   : "text-gray-500 hover:text-gray-300"
               }`}>
               <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
@@ -516,7 +457,7 @@ export default function ChatPage() {
               onClick={() => setMode("taskplan")}
               className={`px-3 py-1 text-[10px] font-medium rounded-full transition-all flex items-center gap-1 ${
                 mode === "taskplan"
-                  ? "bg-sky-600 text-white"
+                  ? "bg-sky-600 text-white shadow-sm"
                   : "text-gray-500 hover:text-gray-300"
               }`}>
               <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
@@ -524,17 +465,19 @@ export default function ChatPage() {
             </button>
           </div>
 
+          {/* Right: user info */}
           <div className="flex items-center gap-3">
             {user && (
-              <span className="text-[10px] text-gray-500">{user.email}</span>
+              <span className="text-[10px] text-gray-500 hidden lg:block">{user.email}</span>
             )}
           </div>
         </header>
+        )}
 
-        {/* Messages */}
+        {/* Messages or Welcome */}
         {chatActive ? (
-          <div className="flex-1 overflow-y-auto px-4 py-6">
-            <div className="max-w-2xl mx-auto space-y-4">
+          <div className="flex-1 overflow-y-auto">
+            <div className="max-w-2xl mx-auto px-4 py-6 space-y-4">
               {messages.map((msg, i) => {
                 const isTyping = typingIdx === i;
                 const rawText = isTyping ? typingText : msg.content;
@@ -619,7 +562,6 @@ export default function ChatPage() {
                                   <p className="text-[10px] text-gray-500 mt-0.5">{q.why}</p>
                                 </div>
                               </div>
-                              {/* Quick answer options */}
                               {q.options && q.options.length > 0 && (
                                 <div className="flex flex-wrap gap-1.5 mt-2 ml-7">
                                   {q.options.map((opt) => (
@@ -691,14 +633,19 @@ export default function ChatPage() {
             </div>
           </div>
         ) : (
-          /* ===== LANDING STATE ===== */
+          /* ===== WELCOME STATE ===== */
           <div className="flex-1 flex flex-col items-center justify-center px-4">
-            <p className="text-gray-300 text-xl font-medium mb-2">{getGreeting()}{user ? `, ${user.name || "বন্ধু"}` : ""}</p>
-            {mode === "education" && (
-              <p className="text-emerald-400/70 text-xs">Education Mode — আমি তোমার ব্যক্তিগত শিক্ষক</p>
-            )}
-            {mode === "taskplan" && (
-              <p className="text-sky-400/70 text-xs">Task Mode — জটিল কাজ বুঝি, গবেষণা করি, পরিকল্পনা তৈরি করি</p>
+            <div className="mb-6 relative">
+              <img src="/logo-source.png" alt="CholoShikhi" className="w-16 h-16 rounded-2xl object-contain shadow-2xl shadow-violet-500/25" />
+              <div className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-[#0f0f14]" />
+            </div>
+            <p className="text-gray-200 text-lg font-medium mb-1">{getGreeting()}{user ? `, ${user.name || "বন্ধু"}` : ""}</p>
+            {mode === "education" ? (
+              <p className="text-emerald-400/70 text-xs mb-6">Education Mode — আমি তোমার ব্যক্তিগত শিক্ষক</p>
+            ) : mode === "taskplan" ? (
+              <p className="text-sky-400/70 text-xs mb-6">Task Mode — জটিল কাজ বুঝি, গবেষণা করি, পরিকল্পনা তৈরি করি</p>
+            ) : (
+              <p className="text-gray-500 text-xs mb-6">আমি CholoShikhi — তোমার AI সহকারী</p>
             )}
           </div>
         )}
@@ -706,7 +653,7 @@ export default function ChatPage() {
         {/* ===== INPUT AREA ===== */}
         <div className="px-4 pb-4 md:pb-6 shrink-0">
           <div className="max-w-2xl mx-auto">
-            {/* Suggestions (show when no messages) */}
+            {/* Suggestions */}
             {!chatActive && (
               <div className="flex items-center justify-center gap-2 mb-3 flex-wrap">
                 {SUGGESTIONS.map((s) => (
@@ -722,6 +669,25 @@ export default function ChatPage() {
               </div>
             )}
 
+            {/* Desktop Mode Toggle (integrated into input area) */}
+            {isDesktop && (
+              <div className="flex items-center gap-1 mb-2 px-1">
+                <svg className="w-3 h-3 text-gray-600 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" /></svg>
+                <button onClick={() => setMode("normal")}
+                  className={`px-2.5 py-1 text-[9px] font-medium rounded-md transition-all ${mode === "normal" ? "bg-violet-600 text-white" : "text-gray-600 hover:text-gray-400 hover:bg-white/[0.04]"}`}>
+                  Normal
+                </button>
+                <button onClick={() => setMode("education")}
+                  className={`px-2.5 py-1 text-[9px] font-medium rounded-md transition-all ${mode === "education" ? "bg-emerald-600 text-white" : "text-gray-600 hover:text-gray-400 hover:bg-white/[0.04]"}`}>
+                  Shikkhok
+                </button>
+                <button onClick={() => setMode("taskplan")}
+                  className={`px-2.5 py-1 text-[9px] font-medium rounded-md transition-all ${mode === "taskplan" ? "bg-sky-600 text-white" : "text-gray-600 hover:text-gray-400 hover:bg-white/[0.04]"}`}>
+                  Task
+                </button>
+              </div>
+            )}
+
             {/* Image Preview */}
             {imagePreview && (
               <div className="mb-2 flex items-center gap-2">
@@ -731,7 +697,7 @@ export default function ChatPage() {
             )}
 
             {/* Input Box */}
-            <div className="flex items-center bg-[#1a1a24] border border-white/[0.08] rounded-2xl px-4 py-3 focus-within:border-white/[0.15] transition-colors">
+            <div className="flex items-center bg-[#1a1a24] border border-white/[0.08] rounded-2xl px-4 py-3 focus-within:border-violet-500/30 focus-within:shadow-lg focus-within:shadow-violet-500/5 transition-all">
               <input ref={fileRef} type="file" accept="image/*" onChange={handleImageSelect} className="hidden" />
               <button onClick={() => fileRef.current?.click()} disabled={sending}
                 className="text-gray-500 hover:text-violet-400 transition-colors disabled:opacity-40 mr-2 flex-shrink-0"
@@ -761,7 +727,6 @@ export default function ChatPage() {
           </div>
         </div>
       </div>
-
     </div>
     </ViewTransition>
   );

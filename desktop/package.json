@@ -1,0 +1,20 @@
+{
+  "name": "choloshikhi-desktop",
+  "version": "1.0.0",
+  "description": "CholoShikhi AI — Desktop Application",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-forge make --platform=win32 --arch=x64",
+    "package": "electron-forge package --platform=win32 --arch=x64"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.1"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.8.0",
+    "@electron-forge/maker-squirrel": "^7.8.0",
+    "@electron-forge/maker-zip": "^7.8.0",
+    "electron": "^35.0.0"
+  }
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, useCallback } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
@@ -15,12 +15,17 @@ const supabase = isSupabaseConfigured
 
 const GUEST_STORAGE_KEY = "choloshikhi_guest_id";
 
+// ── Electron detection ──
+const isElectron =
+  typeof window !== "undefined" && !!(window as any).electronAPI?.isElectron;
+
 interface AuthState {
   user: { id: string; email: string; name: string } | null;
   loading: boolean;
   signInWithGoogle: () => Promise<void>;
   signOut: () => Promise<void>;
   guestId: string | null;
+  isElectron: boolean;
 }
 
 const AuthContext = createContext<AuthState>({
@@ -29,11 +34,9 @@ const AuthContext = createContext<AuthState>({
   signInWithGoogle: async () => {},
   signOut: async () => {},
   guestId: null,
+  isElectron: false,
 });
 
-/**
- * Get or create a stable guest UUID for this browser session.
- */
 function getOrCreateGuestId(): string {
   if (typeof window === "undefined") return crypto.randomUUID();
   let guestId = sessionStorage.getItem(GUEST_STORAGE_KEY);
@@ -44,22 +47,25 @@ function getOrCreateGuestId(): string {
   return guestId;
 }
 
-/**
- * Merge guest data into real user account after login.
- */
 async function mergeGuestToUser(guestId: string, realUserId: string) {
   try {
-    // Transfer chat sessions
     await supabase!.from("chat_sessions").update({ user_id: realUserId }).eq("user_id", guestId);
-    // Transfer chat history
     await supabase!.from("chat_history").update({ user_id: realUserId }).eq("user_id", guestId);
-    // Transfer task executions
     await supabase!.from("task_executions").update({ user_id: realUserId }).eq("user_id", guestId);
-    // Clean up guest usage
     await supabase!.from("user_usage").delete().eq("user_id", guestId);
   } catch (err) {
     console.error("Guest merge error:", err);
   }
+}
+
+/** Parse URL hash string into key-value pairs */
+function parseHashParams(hash: string): Record<string, string> {
+  const params: Record<string, string> = {};
+  hash.split("&").forEach((pair) => {
+    const [key, value] = pair.split("=");
+    if (key && value) params[key] = decodeURIComponent(value);
+  });
+  return params;
 }
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
@@ -68,7 +74,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [guestId, setGuestId] = useState<string | null>(null);
 
   useEffect(() => {
-    // Initialize guest ID on mount
     setGuestId(getOrCreateGuestId());
 
     if (!supabase) {
@@ -78,17 +83,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session?.user) {
-        const realUserId = session.user.id;
         setUser({
-          id: realUserId,
+          id: session.user.id,
           email: session.user.email ?? "",
           name: session.user.user_metadata?.full_name ?? "",
         });
-
-        // Merge guest data if guest ID exists
         const currentGuestId = getOrCreateGuestId();
-        if (currentGuestId && currentGuestId !== realUserId) {
-          mergeGuestToUser(currentGuestId, realUserId);
+        if (currentGuestId && currentGuestId !== session.user.id) {
+          mergeGuestToUser(currentGuestId, session.user.id);
         }
       }
       setLoading(false);
@@ -97,17 +99,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const { data: listener } = supabase.auth.onAuthStateChange(
       (_event, session) => {
         if (session?.user) {
-          const realUserId = session.user.id;
           setUser({
-            id: realUserId,
+            id: session.user.id,
             email: session.user.email ?? "",
             name: session.user.user_metadata?.full_name ?? "",
           });
-
-          // Merge guest data on login
           const currentGuestId = getOrCreateGuestId();
-          if (currentGuestId && currentGuestId !== realUserId) {
-            mergeGuestToUser(currentGuestId, realUserId);
+          if (currentGuestId && currentGuestId !== session.user.id) {
+            mergeGuestToUser(currentGuestId, session.user.id);
           }
         } else {
           setUser(null);
@@ -118,22 +117,63 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return () => listener.subscription.unsubscribe();
   }, []);
 
+  // ── Electron auth callback listener ──
+  useEffect(() => {
+    if (!isElectron) return;
+    const api = (window as any).electronAPI;
+
+    api.onAuthCallback(async (hashString: string) => {
+      if (!supabase) return;
+      const params = parseHashParams(hashString);
+      const accessToken = params.access_token;
+      const refreshToken = params.refresh_token;
+
+      if (accessToken) {
+        // Set session in Supabase client
+        await supabase.auth.setSession({
+          access_token: accessToken,
+          refresh_token: refreshToken || "",
+        });
+      }
+    });
+  }, []);
+
   const signInWithGoogle = async () => {
     if (!supabase) return;
-    await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: { redirectTo: window.location.origin },
-    });
+
+    if (isElectron) {
+      // ── Electron: popup flow ──
+      const api = (window as any).electronAPI;
+      const { data } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+          skipBrowserRedirect: true,
+          redirectTo: window.location.origin,
+        },
+      });
+      if (data?.url) {
+        await api.electronLogin(data.url);
+      }
+    } else {
+      // ── Web: redirect flow ──
+      await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: { redirectTo: window.location.origin },
+      });
+    }
   };
 
   const signOut = async () => {
     if (!supabase) return;
     await supabase.auth.signOut();
     setUser(null);
+    if (isElectron) {
+      await (window as any).electronAPI.electronLogout();
+    }
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, signInWithGoogle, signOut, guestId }}>
+    <AuthContext.Provider value={{ user, loading, signInWithGoogle, signOut, guestId, isElectron }}>
       {children}
     </AuthContext.Provider>
   );

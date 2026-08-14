@@ -107,6 +107,43 @@
 ::view-transition-old(site-header) { display: none; }
 ::view-transition-new(site-header) { animation: none; }
 
+/* ═══ Sidebar Styles ═══════════════════════════════════════════ */
+
+.sidebar-btn {
+  @apply w-9 h-9 rounded-lg flex items-center justify-center text-gray-500 hover:text-white hover:bg-white/[0.06] transition-all;
+}
+.sidebar-btn-active {
+  @apply text-white bg-white/[0.06];
+}
+.sidebar-tooltip {
+  @apply absolute left-full ml-3 px-2 py-1 text-[10px] text-white bg-[#1a1a24] border border-white/[0.08] rounded-lg whitespace-nowrap opacity-0 pointer-events-none transition-opacity duration-150 z-50 shadow-xl;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.group:hover .sidebar-tooltip {
+  @apply opacity-100;
+}
+
+@keyframes slide-in-left {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
+.animate-slide-in-left {
+  animation: slide-in-left 200ms ease-out;
+}
+
+/* ═══ Login Modal Animations ═══════════════════════════════════ */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
 /* ── Respect reduced motion ─────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(*),
