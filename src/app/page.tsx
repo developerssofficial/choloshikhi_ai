@@ -423,7 +423,7 @@ export default function HomePage() {
               <h3 className="text-white text-sm font-semibold mb-1">Windows</h3>
               <p className="text-gray-500 text-[11px] mb-5">Windows 10/11 · Desktop App</p>
               <a
-                href="https://github.com/Arshtech001/CholoShikhi/releases/download/v1.0.0/CholoShikhi-1.0.0-Setup.exe"
+                href="https://github.com/developerssofficial/choloshikhi_ai/releases/download/v1.0.0/CholoShikhi-1.0.0.Setup.exe"
                 download
                 className="w-full py-2.5 rounded-xl bg-violet-600 text-white text-[13px] font-medium hover:bg-violet-500 transition-all flex items-center justify-center gap-2"
               >
