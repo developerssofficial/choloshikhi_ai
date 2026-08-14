@@ -37,3 +37,82 @@
   70% { opacity: 1; }
   100% { opacity: 0; }
 }
+
+/* ═══ Page Transition Animations ═══════════════════════════════ */
+
+/* Allow clicks through the transition overlay */
+::view-transition {
+  pointer-events: none;
+}
+
+/* ── Fade + slide up (enter new content) ────────────────────── */
+::view-transition-old(.page-enter) {
+  animation:
+    120ms ease-in both fade reverse,
+    120ms ease-in both slide-y reverse;
+}
+::view-transition-new(.page-enter) {
+  animation:
+    180ms ease-out 120ms both fade,
+    300ms ease-out 120ms both slide-y;
+}
+
+@keyframes fade {
+  from { filter: blur(2px); opacity: 0; }
+  to   { filter: blur(0);   opacity: 1; }
+}
+@keyframes slide-y {
+  from { transform: translateY(8px); }
+  to   { transform: translateY(0); }
+}
+
+/* ── Directional nav-forward (slide left) ───────────────────── */
+::view-transition-old(.nav-forward) {
+  animation:
+    120ms ease-in both fade reverse,
+    300ms ease-in-out both slide-left reverse;
+}
+::view-transition-new(.nav-forward) {
+  animation:
+    180ms ease-out 120ms both fade,
+    300ms ease-in-out 120ms both slide-left;
+}
+
+/* ── Directional nav-back (slide right) ─────────────────────── */
+::view-transition-old(.nav-back) {
+  animation:
+    120ms ease-in both fade reverse,
+    300ms ease-in-out both slide-right reverse;
+}
+::view-transition-new(.nav-back) {
+  animation:
+    180ms ease-out 120ms both fade,
+    300ms ease-in-out 120ms both slide-right;
+}
+
+@keyframes slide-left {
+  from { translate: -40px; }
+  to   { translate: 0; }
+}
+@keyframes slide-right {
+  from { translate: 40px; }
+  to   { translate: 0; }
+}
+
+/* ── Anchor header (stays fixed during transitions) ─────────── */
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(site-header) { display: none; }
+::view-transition-new(site-header) { animation: none; }
+
+/* ── Respect reduced motion ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}

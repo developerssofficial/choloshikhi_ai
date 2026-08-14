@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { ViewTransition } from "react";
 import Link from "next/link";
 import { usePWAInstall } from "@/lib/pwa";
 
@@ -115,6 +116,7 @@ export default function HomePage() {
   }, []);
 
   return (
+    <ViewTransition enter="page-enter" default="none">
     <div className="min-h-screen bg-[#0f0f14] text-white">
 
       {/* ===== NAVBAR ===== */}
@@ -134,7 +136,7 @@ export default function HomePage() {
                 {l.label}
               </a>
             ))}
-            <Link href="/chat" className="px-4 py-1.5 text-[12px] font-medium bg-violet-600 rounded-full hover:bg-violet-500 transition-colors">
+            <Link href="/chat" className="px-4 py-1.5 text-[12px] font-medium bg-violet-600 rounded-full hover:bg-violet-500 transition-colors" transitionTypes={["nav-forward"]}>
               Start Chat
             </Link>
           </div>
@@ -153,7 +155,7 @@ export default function HomePage() {
                 {l.label}
               </a>
             ))}
-            <Link href="/chat" onClick={() => setMobileMenuOpen(false)} className="block text-center mt-2 px-4 py-2 text-[13px] font-medium bg-violet-600 rounded-full hover:bg-violet-500 transition-colors">
+            <Link href="/chat" onClick={() => setMobileMenuOpen(false)} className="block text-center mt-2 px-4 py-2 text-[13px] font-medium bg-violet-600 rounded-full hover:bg-violet-500 transition-colors" transitionTypes={["nav-forward"]}>
               Start Chat
             </Link>
           </div>
@@ -177,7 +179,7 @@ export default function HomePage() {
             চ্যাট করো, শেখো, জানো — সব এক জায়গায়।
           </p>
           <div className="flex items-center justify-center gap-3">
-            <Link href="/chat" className="px-6 py-2.5 text-[13px] font-medium bg-violet-600 rounded-full hover:bg-violet-500 transition-colors">
+            <Link href="/chat" className="px-6 py-2.5 text-[13px] font-medium bg-violet-600 rounded-full hover:bg-violet-500 transition-colors" transitionTypes={["nav-forward"]}>
               এখনই শুরু করো →
             </Link>
             <a href="#features" className="px-6 py-2.5 text-[13px] text-gray-400 border border-white/[0.08] rounded-full hover:bg-white/[0.04] transition-colors">
@@ -469,7 +471,7 @@ export default function HomePage() {
           <img src="/icons/icon-192.png" alt="CholoShikhi" className="w-12 h-12 rounded-2xl mx-auto mb-5" />
           <h2 className="text-2xl font-bold text-white mb-3">এখনই শুরু করো</h2>
           <p className="text-gray-500 text-[14px] mb-6">ফ্রি, সীমাহীন, বাংলায় — একবার try করো</p>
-          <Link href="/chat" className="inline-block px-8 py-3 text-[14px] font-medium bg-violet-600 rounded-full hover:bg-violet-500 transition-colors">
+          <Link href="/chat" className="inline-block px-8 py-3 text-[14px] font-medium bg-violet-600 rounded-full hover:bg-violet-500 transition-colors" transitionTypes={["nav-forward"]}>
             চলো শিখি →
           </Link>
         </div>
@@ -486,11 +488,12 @@ export default function HomePage() {
             <a href="#features" className="text-[11px] text-gray-600 hover:text-gray-400 transition-colors">Features</a>
             <a href="#about" className="text-[11px] text-gray-600 hover:text-gray-400 transition-colors">About</a>
             <a href="#docs" className="text-[11px] text-gray-600 hover:text-gray-400 transition-colors">Docs</a>
-            <Link href="/chat" className="text-[11px] text-gray-600 hover:text-gray-400 transition-colors">Chat</Link>
+            <Link href="/chat" className="text-[11px] text-gray-600 hover:text-gray-400 transition-colors" transitionTypes={["nav-forward"]}>Chat</Link>
           </div>
         </div>
       </footer>
 
     </div>
+    </ViewTransition>
   );
 }

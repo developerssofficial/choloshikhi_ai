@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useAuth } from "@/lib/auth";
 import Link from "next/link";
+import { ViewTransition } from "react";
 import RenderMessage from "@/components/RenderMessage";
 import TaskFlowChart from "@/components/TaskFlowChart";
 import TaskExecutionPanel from "@/components/TaskExecutionPanel";
@@ -103,7 +104,6 @@ function SourcesCard({ sources }: { sources: { title: string; url: string }[] })
     </div>
   );
 }
-
 /** Sanitize display text — strip any leaked JSON that shouldn't be user-facing */
 function sanitizeDisplayText(text: string): string {
   if (!text) return text;
@@ -365,10 +365,11 @@ export default function ChatPage() {
   }
 
   return (
+    <ViewTransition enter="page-enter" default="none">
     <div className="flex h-screen bg-[#0f0f14]">
       {/* ===== SIDEBAR ===== */}
       <aside className="hidden md:flex flex-col w-[60px] border-r border-white/[0.06] py-4 items-center gap-4">
-        <Link href="/" className="hover:opacity-80 transition-opacity">
+        <Link href="/" className="hover:opacity-80 transition-opacity" transitionTypes={["nav-back"]}>
           <img src="/icons/icon-192.png" alt="CholoShikhi" className="w-9 h-9 rounded-lg" />
         </Link>
 
@@ -762,5 +763,6 @@ export default function ChatPage() {
       </div>
 
     </div>
+    </ViewTransition>
   );
 }
