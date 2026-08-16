@@ -7,6 +7,7 @@ import RenderMessage from "@/components/RenderMessage";
 import TaskFlowChart from "@/components/TaskFlowChart";
 import TaskExecutionPanel from "@/components/TaskExecutionPanel";
 import AppSidebar from "@/components/AppSidebar";
+import AccountMenu from "@/components/AccountMenu";
 import type { TaskGraph, TaskClarification, TaskNodeStatus } from "@/lib/taskTypes";
 
 interface Message {
@@ -102,7 +103,7 @@ function sanitizeDisplayText(text: string): string {
 }
 
 export default function ChatPage() {
-  const { user, loading, signInWithGoogle, signOut } = useAuth();
+  const { user, loading } = useAuth();
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
@@ -373,32 +374,9 @@ export default function ChatPage() {
             {/* Center: empty drag zone */}
             <div className="flex-1" />
 
-            {/* Right: login + window controls */}
+            {/* Right: account + window controls */}
             <div className="flex items-center gap-1" style={{ WebkitAppRegion: "no-drag" } as React.CSSProperties}>
-              {/* Login button */}
-              {user ? (
-                <button
-                  onClick={signOut}
-                  className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[10px] text-gray-400 hover:text-white hover:bg-white/[0.06] transition-all mr-2"
-                  title="লগআউট"
-                >
-                  <div className="w-5 h-5 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center text-white text-[8px] font-bold">
-                    {user.name?.[0] || user.email?.[0] || "U"}
-                  </div>
-                  <span className="hidden lg:inline">{user.email?.split("@")[0]}</span>
-                </button>
-              ) : (
-                <button
-                  onClick={signInWithGoogle}
-                  className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-[10px] text-gray-400 hover:text-violet-400 hover:bg-white/[0.06] transition-all mr-2"
-                  title="লগইন"
-                >
-                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                  <span>লগইন</span>
-                </button>
-              )}
+              <AccountMenu compact />
               <a
                 href="/download"
                 className="w-7 h-7 flex items-center justify-center text-gray-500 hover:text-violet-400 hover:bg-white/[0.06] rounded transition-all"
