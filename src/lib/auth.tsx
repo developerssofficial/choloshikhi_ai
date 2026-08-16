@@ -165,6 +165,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const signInWithGoogle = async () => {
     if (!supabase) return;
+    const currentPath = typeof window !== "undefined" ? window.location.pathname : "/chat";
+    const redirectUrl = `${window.location.origin}${currentPath}`;
 
     if (isElectron) {
       // ── Electron: browser flow ──
@@ -183,7 +185,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       // ── Web: redirect flow ──
       await supabase.auth.signInWithOAuth({
         provider: "google",
-        options: { redirectTo: window.location.origin },
+        options: { redirectTo: redirectUrl },
       });
     }
   };
