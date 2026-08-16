@@ -117,14 +117,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return () => listener.subscription.unsubscribe();
   }, []);
 
-  // ── Electron auth callback listener ──
+  // ── Electron browser auth data listener ──
   useEffect(() => {
     if (!isElectron) return;
     const api = (window as any).electronAPI;
 
-    api.onAuthCallback(async (callbackData: { type: string; data: string }) => {
+    api.onAuthData(async (callbackData: { type: string; data: string }) => {
       if (!supabase) return;
-      console.log("[Auth] Received callback:", callbackData.type);
+      console.log("[Auth] Received auth data:", callbackData.type);
 
       try {
         if (callbackData.type === "code") {
@@ -154,9 +154,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
               console.log("[Auth] Token login successful");
             }
           }
+        } else if (callbackData.type === "error") {
+          console.error("[Auth] Auth error from browser:", callbackData.data);
         }
       } catch (err) {
-        console.error("[Auth] Callback handler error:", err);
+        console.error("[Auth] Auth data handler error:", err);
       }
     });
   }, []);
@@ -165,7 +167,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     if (!supabase) return;
 
     if (isElectron) {
-      // ── Electron: popup flow ──
+      // ── Electron: browser flow ──
       const api = (window as any).electronAPI;
       const { data } = await supabase.auth.signInWithOAuth({
         provider: "google",

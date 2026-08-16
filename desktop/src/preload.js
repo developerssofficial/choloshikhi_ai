@@ -10,11 +10,11 @@ contextBridge.exposeInMainWorld("electronAPI", {
     ipcRenderer.on("window-maximize-change", (_event, isMaximized) => callback(isMaximized));
   },
 
-  // Auth (Electron OAuth popup flow)
+  // Auth (Electron browser-based OAuth flow)
   isElectron: true,
   electronLogin: (authUrl) => ipcRenderer.invoke("electron-login", authUrl),
   electronLogout: () => ipcRenderer.invoke("electron-logout"),
-  onAuthCallback: (callback) => {
-    ipcRenderer.on("auth-callback", (_event, data) => callback(data));
+  onAuthData: (callback) => {
+    ipcRenderer.on("auth-data", (_event, data) => callback(data));
   },
 });

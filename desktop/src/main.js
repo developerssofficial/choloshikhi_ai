@@ -1,6 +1,8 @@
 const { app, BrowserWindow, ipcMain, shell } = require("electron");
 const path = require("path");
 const fs = require("fs");
+const http = require("http");
+const url = require("url");
 
 // ── Squirrel.Windows installer events ──
 if (require("electron-squirrel-startup")) app.quit();
@@ -134,75 +136,117 @@ ipcMain.on("window-maximize", () => {
 ipcMain.on("window-close", () => mainWindow?.close());
 ipcMain.handle("window-is-maximized", () => mainWindow?.isMaximized() ?? false);
 
-// ── Electron OAuth Login (popup flow) ──
-ipcMain.handle("electron-login", async (_event, authUrl) => {
-  console.log("[Auth] Opening login popup:", authUrl);
+// ── Electron OAuth Login (browser-based flow) ──
+let authServer = null;
+let authTimeout = null;
+const AUTH_PORT_START = 3847;
+const AUTH_PORT_MAX = AUTH_PORT_START + 10;
 
-  return new Promise((resolve) => {
-    const popup = new BrowserWindow({
-      width: 500, height: 620,
-      show: true, frame: true,
-      title: "CholoShikhi — Login",
-      backgroundColor: "#0f0f14",
-      parent: mainWindow, modal: false,
-      webPreferences: { contextIsolation: true, nodeIntegration: false },
-    });
-
-    popup.loadURL(authUrl);
-    let resolved = false;
-
-    function handleNavigate(navUrl) {
-      if (resolved) return;
-      try {
-        console.log("[Auth] Popup navigating:", navUrl.substring(0, 120));
-        const base = isDev ? DEV_URL.replace("/chat", "") : WEB_URL.replace("/chat", "");
-        if (!navUrl.startsWith(base)) return;
-
-        const urlObj = new URL(navUrl);
-
-        // Flow 1: Implicit — access_token in hash
-        if (urlObj.hash?.includes("access_token")) {
-          console.log("[Auth] Found access_token in hash");
-          resolved = true;
-          mainWindow?.webContents.send("auth-callback", { type: "token", data: urlObj.hash.substring(1) });
-          popup.close();
-          resolve({ success: true });
-          return;
-        }
-
-        // Flow 2: PKCE — code in query params
-        const code = urlObj.searchParams.get("code");
-        if (code) {
-          console.log("[Auth] Found PKCE code in query params");
-          resolved = true;
-          mainWindow?.webContents.send("auth-callback", { type: "code", data: code });
-          popup.close();
-          resolve({ success: true });
-          return;
-        }
-      } catch (err) {
-        console.error("[Auth] Navigation handler error:", err.message);
+function startAuthServer(redirectBase) {
+  return new Promise((resolve, reject) => {
+    function tryPort(port) {
+      if (port > AUTH_PORT_MAX) {
+        reject(new Error("All ports 3847-3857 are occupied"));
+        return;
       }
+
+      const server = http.createServer((req, res) => {
+        const parsed = url.parse(req.url, true);
+
+        if (parsed.pathname === "/callback") {
+          const code = parsed.query.code;
+          const error = parsed.query.error;
+          const hash = parsed.hash;
+
+          console.log("[Auth] Callback received on port", port);
+
+          // Send a friendly success page to the browser
+          res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+          res.end(`<!DOCTYPE html><html><head><title>Login Successful</title>
+<style>body{font-family:system-ui;background:#0f0f14;color:#fff;display:flex;align-items:center;justify-content:center;height:100vh;margin:0}
+.box{text-align:center}.box h1{color:#8b5cf6;margin-bottom:8px}.box p{color:#9ca3af;font-size:14px}</style></head>
+<body><div class="box"><h1>✓ Login Successful</h1><p>You can close this tab and return to CholoShikhi.</p></div></body></html>`);
+
+          // Close the server immediately (single-use)
+          server.close();
+          if (authTimeout) { clearTimeout(authTimeout); authTimeout = null; }
+
+          if (error) {
+            console.error("[Auth] OAuth error:", error);
+            mainWindow?.webContents.send("auth-data", { type: "error", data: error });
+            return;
+          }
+
+          if (code) {
+            // PKCE flow — Supabase auth code
+            console.log("[Auth] Received PKCE code from browser");
+            mainWindow?.webContents.send("auth-data", { type: "code", data: code });
+          } else if (hash && hash.includes("access_token")) {
+            // Implicit flow — tokens in hash
+            console.log("[Auth] Received access token from browser");
+            mainWindow?.webContents.send("auth-data", { type: "token", data: hash.substring(1) });
+          } else {
+            console.error("[Auth] Callback has no code or token");
+            mainWindow?.webContents.send("auth-data", { type: "error", data: "No auth data in callback" });
+          }
+        } else {
+          // Unknown path — 404
+          res.writeHead(404);
+          res.end("Not found");
+        }
+      });
+
+      server.listen(port, "127.0.0.1", () => {
+        console.log(`[Auth] Callback server listening on port ${port}`);
+        resolve({ server, port });
+      });
+
+      server.on("error", (err) => {
+        if (err.code === "EADDRINUSE") {
+          console.log(`[Auth] Port ${port} in use, trying ${port + 1}`);
+          tryPort(port + 1);
+        } else {
+          reject(err);
+        }
+      });
     }
 
-    popup.webContents.on("will-navigate", (_e, u) => handleNavigate(u));
-    popup.webContents.on("did-navigate", (_e, u) => handleNavigate(u));
-    popup.webContents.on("did-navigate-in-page", (_e, u) => handleNavigate(u));
-    popup.on("closed", () => {
-      if (!resolved) {
-        console.log("[Auth] Popup closed by user without completing login");
-        resolve({ success: false, reason: "popup_closed" });
-      }
-    });
-    setTimeout(() => {
-      if (!resolved && !popup.isDestroyed()) {
+    tryPort(AUTH_PORT_START);
+  });
+}
+
+ipcMain.handle("electron-login", async (_event, authUrl) => {
+  console.log("[Auth] Starting browser login flow");
+
+  try {
+    // Start local callback server
+    const { server, port } = await startAuthServer();
+    authServer = server;
+
+    // Replace the redirect URI in the auth URL to point to our local server
+    // The authUrl from Supabase has redirectTo=<origin>, we change it to localhost
+    const localRedirect = `http://127.0.0.1:${port}/callback`;
+    const modifiedUrl = new URL(authUrl);
+    modifiedUrl.searchParams.set("redirect_to", localRedirect);
+    const finalUrl = modifiedUrl.toString();
+
+    console.log("[Auth] Opening browser with URL:", finalUrl.substring(0, 100) + "...");
+    shell.openExternal(finalUrl);
+
+    // Timeout after 2 minutes
+    authTimeout = setTimeout(() => {
+      if (authServer) {
         console.log("[Auth] Login timed out after 2 minutes");
-        resolved = true;
-        popup.close();
-        resolve({ success: false, reason: "timeout" });
+        authServer.close();
+        authServer = null;
       }
     }, 120000);
-  });
+
+    return { success: true };
+  } catch (err) {
+    console.error("[Auth] Failed to start auth server:", err.message);
+    return { success: false, reason: err.message };
+  }
 });
 
 ipcMain.handle("electron-logout", async () => {
