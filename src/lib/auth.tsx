@@ -122,18 +122,41 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     if (!isElectron) return;
     const api = (window as any).electronAPI;
 
-    api.onAuthCallback(async (hashString: string) => {
+    api.onAuthCallback(async (callbackData: { type: string; data: string }) => {
       if (!supabase) return;
-      const params = parseHashParams(hashString);
-      const accessToken = params.access_token;
-      const refreshToken = params.refresh_token;
+      console.log("[Auth] Received callback:", callbackData.type);
 
-      if (accessToken) {
-        // Set session in Supabase client
-        await supabase.auth.setSession({
-          access_token: accessToken,
-          refresh_token: refreshToken || "",
-        });
+      try {
+        if (callbackData.type === "code") {
+          // PKCE flow — exchange code for session
+          console.log("[Auth] Exchanging PKCE code for session...");
+          const { data, error } = await supabase.auth.exchangeCodeForSession(callbackData.data);
+          if (error) {
+            console.error("[Auth] Code exchange failed:", error.message);
+          } else {
+            console.log("[Auth] PKCE login successful:", data.user?.email);
+          }
+        } else if (callbackData.type === "token") {
+          // Implicit flow — tokens in hash
+          const params = parseHashParams(callbackData.data);
+          const accessToken = params.access_token;
+          const refreshToken = params.refresh_token;
+
+          if (accessToken) {
+            console.log("[Auth] Setting session with access token...");
+            const { error } = await supabase.auth.setSession({
+              access_token: accessToken,
+              refresh_token: refreshToken || "",
+            });
+            if (error) {
+              console.error("[Auth] setSession failed:", error.message);
+            } else {
+              console.log("[Auth] Token login successful");
+            }
+          }
+        }
+      } catch (err) {
+        console.error("[Auth] Callback handler error:", err);
       }
     });
   }, []);

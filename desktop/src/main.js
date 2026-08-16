@@ -136,6 +136,8 @@ ipcMain.handle("window-is-maximized", () => mainWindow?.isMaximized() ?? false);
 
 // ── Electron OAuth Login (popup flow) ──
 ipcMain.handle("electron-login", async (_event, authUrl) => {
+  console.log("[Auth] Opening login popup:", authUrl);
+
   return new Promise((resolve) => {
     const popup = new BrowserWindow({
       width: 500, height: 620,
@@ -152,25 +154,53 @@ ipcMain.handle("electron-login", async (_event, authUrl) => {
     function handleNavigate(navUrl) {
       if (resolved) return;
       try {
+        console.log("[Auth] Popup navigating:", navUrl.substring(0, 120));
         const base = isDev ? DEV_URL.replace("/chat", "") : WEB_URL.replace("/chat", "");
-        if (navUrl.startsWith(base)) {
-          const urlObj = new URL(navUrl);
-          if (urlObj.hash?.includes("access_token")) {
-            resolved = true;
-            mainWindow?.webContents.send("auth-callback", urlObj.hash.substring(1));
-            popup.close();
-            resolve({ success: true });
-          }
+        if (!navUrl.startsWith(base)) return;
+
+        const urlObj = new URL(navUrl);
+
+        // Flow 1: Implicit — access_token in hash
+        if (urlObj.hash?.includes("access_token")) {
+          console.log("[Auth] Found access_token in hash");
+          resolved = true;
+          mainWindow?.webContents.send("auth-callback", { type: "token", data: urlObj.hash.substring(1) });
+          popup.close();
+          resolve({ success: true });
+          return;
         }
-      } catch {}
+
+        // Flow 2: PKCE — code in query params
+        const code = urlObj.searchParams.get("code");
+        if (code) {
+          console.log("[Auth] Found PKCE code in query params");
+          resolved = true;
+          mainWindow?.webContents.send("auth-callback", { type: "code", data: code });
+          popup.close();
+          resolve({ success: true });
+          return;
+        }
+      } catch (err) {
+        console.error("[Auth] Navigation handler error:", err.message);
+      }
     }
 
     popup.webContents.on("will-navigate", (_e, u) => handleNavigate(u));
     popup.webContents.on("did-navigate", (_e, u) => handleNavigate(u));
     popup.webContents.on("did-navigate-in-page", (_e, u) => handleNavigate(u));
-    popup.on("closed", () => { if (!resolved) resolve({ success: false, reason: "popup_closed" }); });
+    popup.on("closed", () => {
+      if (!resolved) {
+        console.log("[Auth] Popup closed by user without completing login");
+        resolve({ success: false, reason: "popup_closed" });
+      }
+    });
     setTimeout(() => {
-      if (!resolved && !popup.isDestroyed()) { resolved = true; popup.close(); resolve({ success: false, reason: "timeout" }); }
+      if (!resolved && !popup.isDestroyed()) {
+        console.log("[Auth] Login timed out after 2 minutes");
+        resolved = true;
+        popup.close();
+        resolve({ success: false, reason: "timeout" });
+      }
     }, 120000);
   });
 });
