@@ -78,9 +78,7 @@ export default function AppSidebar({
       <div className="flex flex-col items-center gap-1 pt-3 pb-2">
         {/* Logo — hidden in Electron (titlebar has it) */}
         {!isElectron && (
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-violet-500/20 mb-2">
-            <span className="text-white text-sm font-bold">চ</span>
-          </div>
+          <img src="/logo-source.png" alt="CholoShikhi" className="w-9 h-9 rounded-xl object-contain shadow-lg shadow-violet-500/20 mb-2" />
         )}
         {isElectron && <div className="mb-2" />}
 
