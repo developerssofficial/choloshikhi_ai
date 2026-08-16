@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "@/lib/auth";
 import LoginModal from "@/components/LoginModal";
-import AccountMenu from "@/components/AccountMenu";
 
 interface ChatSession {
   id: string;
@@ -43,7 +42,7 @@ export default function AppSidebar({
   loadingSessions,
   onFetchSessions,
 }: Props) {
-  const { user, isElectron } = useAuth();
+  const { user, signInWithGoogle, signOut, isElectron } = useAuth();
   const [showHistory, setShowHistory] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -127,7 +126,29 @@ export default function AppSidebar({
 
       {/* Bottom section */}
       <div className="flex flex-col items-center gap-1 pb-3 pt-2">
-        <AccountMenu />
+        {/* User */}
+        {user ? (
+          <div className="relative group">
+            <button
+              onClick={signOut}
+              className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center text-white text-[11px] font-bold hover:shadow-lg hover:shadow-violet-500/25 transition-all"
+              title="লগআউট"
+            >
+              {user.name?.[0] || user.email?.[0] || "U"}
+            </button>
+            <span className="sidebar-tooltip">লগআউট</span>
+          </div>
+        ) : (
+          <button
+            onClick={() => setShowLoginModal(true)}
+            className="w-8 h-8 rounded-full bg-white/[0.06] border border-white/[0.08] flex items-center justify-center text-gray-500 hover:text-violet-400 hover:bg-white/[0.1] hover:border-violet-500/30 transition-all"
+            title="লগইন"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </button>
+        )}
       </div>
     </>
   );
