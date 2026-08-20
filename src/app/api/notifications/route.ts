@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
+import { verifyAuthUser } from "@/lib/supabase-auth";
 
 /* ===================================================================
    GET /api/notifications — List user notifications
@@ -9,8 +10,9 @@ import { supabase } from "@/lib/supabase";
 
 export async function GET(req: NextRequest) {
   try {
+    const authUser = await verifyAuthUser(req);
+    const userId = authUser?.id;
     const { searchParams } = new URL(req.url);
-    const userId = searchParams.get("userId");
     const unreadOnly = searchParams.get("unread") === "true";
     const limit = parseInt(searchParams.get("limit") || "20");
 
@@ -51,7 +53,9 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
   try {
-    const { userId, type, title, body, actionUrl, metadata } = await req.json();
+    const authUser = await verifyAuthUser(req);
+    const userId = authUser?.id;
+    const { type, title, body, actionUrl, metadata } = await req.json();
 
     if (!userId || !type || !title || !body) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
@@ -81,7 +85,9 @@ export async function POST(req: NextRequest) {
 
 export async function PATCH(req: NextRequest) {
   try {
-    const { userId, notificationIds, markAll } = await req.json();
+    const authUser = await verifyAuthUser(req);
+    const userId = authUser?.id;
+    const { notificationIds, markAll } = await req.json();
 
     if (!userId) {
       return NextResponse.json({ error: "userId required" }, { status: 400 });

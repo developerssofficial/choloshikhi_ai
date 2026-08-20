@@ -102,7 +102,7 @@ function sanitizeDisplayText(text: string): string {
 }
 
 export default function ChatPage() {
-  const { user, loading, signInWithGoogle, signOut } = useAuth();
+  const { user, loading, signInWithGoogle, signOut, getToken } = useAuth();
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
@@ -144,9 +144,11 @@ export default function ChatPage() {
     if (!user) return;
     setLoadingSessions(true);
     try {
-      const res = await fetch("/api/sessions", {
-        headers: { "x-user-id": user.id },
-      });
+      const token = await getToken();
+      const headers: Record<string, string> = {};
+      if (token) headers["Authorization"] = `Bearer ${token}`;
+
+      const res = await fetch("/api/sessions", { headers });
       const data = await res.json();
       if (data.sessions) setSessions(data.sessions);
     } catch {}
@@ -199,10 +201,14 @@ export default function ChatPage() {
   const createSession = async (title: string): Promise<string | null> => {
     if (!user) return null;
     try {
+      const token = await getToken();
+      const headers: Record<string, string> = { "Content-Type": "application/json" };
+      if (token) headers["Authorization"] = `Bearer ${token}`;
+
       const res = await fetch("/api/sessions", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId: user.id, title }),
+        headers,
+        body: JSON.stringify({ title }),
       });
       const data = await res.json();
       if (data.session) {
@@ -216,7 +222,11 @@ export default function ChatPage() {
   // Load session messages
   const loadSession = async (sid: string) => {
     try {
-      const res = await fetch(`/api/sessions/${sid}`);
+      const token = await getToken();
+      const headers: Record<string, string> = {};
+      if (token) headers["Authorization"] = `Bearer ${token}`;
+
+      const res = await fetch(`/api/sessions/${sid}`, { headers });
       const data = await res.json();
       if (data.messages) {
         setMessages(data.messages);
@@ -270,12 +280,15 @@ export default function ChatPage() {
     }
 
     try {
+      const token = await getToken();
+      const headers: Record<string, string> = { "Content-Type": "application/json" };
+      if (token) headers["Authorization"] = `Bearer ${token}`;
+
       const res = await fetch("/api/chat", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers,
         body: JSON.stringify({
             message: userMsg,
-            userId: user?.id || null,
             sessionId: activeSessionId,
             mode,
             image: imageToSend || null,

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
+import { verifyAuthUser } from "@/lib/supabase-auth";
 import { getEligibleSteps, calculateProgress } from "@/lib/taskExecutionEngine";
 
 /* ===================================================================
@@ -15,12 +16,17 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
+    const authUser = await verifyAuthUser(req);
+    if (!authUser) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
 
-    // Fetch execution
+    // Fetch execution — verify ownership
     const { data: execution, error: execError } = await supabase
       .from("task_executions")
       .select("*")
       .eq("id", id)
+      .eq("user_id", authUser.id)
       .single();
 
     if (execError || !execution) {

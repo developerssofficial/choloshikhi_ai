@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 import { validateTaskGraph } from "@/lib/taskGraphValidator";
+import { verifyAuthUser } from "@/lib/supabase-auth";
 
 /* ===== CONSTANTS ===== */
 const GEMINI_URL =
@@ -582,11 +583,15 @@ function generateHumanReadableMessage(action: string, data: any): string {
 
 export async function POST(req: NextRequest) {
   try {
-    const { message, userId, image, sessionId, mode } = await req.json();
+    const { message, userId: bodyUserId, image, sessionId, mode } = await req.json();
 
     if (!message?.trim()) {
       return NextResponse.json({ error: "Message required" }, { status: 400 });
     }
+
+    /* ===== AUTH: Verify JWT from header, fall back to body userId ===== */
+    const authUser = await verifyAuthUser(req);
+    const userId = authUser?.id || bodyUserId || null;
 
     /* ===== SLASH COMMANDS ===== */
     const cmd = message.trim().toLowerCase();

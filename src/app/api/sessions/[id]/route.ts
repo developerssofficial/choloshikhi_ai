@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
+import { verifyAuthUser } from "@/lib/supabase-auth";
 
 // GET /api/sessions/[id] - Get session messages
 export async function GET(
@@ -8,12 +9,17 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
+    const authUser = await verifyAuthUser(req);
+    if (!authUser) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
 
-    // Fetch session info
+    // Fetch session info — verify ownership
     const { data: session } = await supabase
       .from("chat_sessions")
       .select("id, title")
       .eq("id", id)
+      .eq("user_id", authUser.id)
       .single();
 
     if (!session) {
@@ -50,11 +56,16 @@ export async function DELETE(
 ) {
   try {
     const { id } = await params;
+    const authUser = await verifyAuthUser(req);
+    if (!authUser) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
 
     const { error } = await supabase
       .from("chat_sessions")
       .delete()
-      .eq("id", id);
+      .eq("id", id)
+      .eq("user_id", authUser.id);
 
     if (error) throw error;
 

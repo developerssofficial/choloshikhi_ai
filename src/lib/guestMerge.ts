@@ -93,12 +93,4 @@ export async function mergeGuestData(
   }
 }
 
-/**
- * Get the effective user ID for API calls.
- */
-export function getEffectiveUserId(
-  realUserId: string | undefined,
-  guestId: string | undefined
-): string {
-  return realUserId || guestId || crypto.randomUUID();
-}
+

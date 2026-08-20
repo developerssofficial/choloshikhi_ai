@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
+import { verifyAuthUser } from "@/lib/supabase-auth";
 
 /* ===================================================================
    POST /api/task-execution/[id]/cancel
@@ -13,7 +14,8 @@ export async function POST(
 ) {
   try {
     const { id } = await params;
-    const { userId } = await req.json();
+    const authUser = await verifyAuthUser(req);
+    const userId = authUser?.id;
 
     if (!userId) {
       return NextResponse.json({ error: "User ID required" }, { status: 400 });

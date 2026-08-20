@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
+import { verifyAuthUser } from "@/lib/supabase-auth";
 import {
   AIExecutionProvider,
   getEligibleSteps,
@@ -17,7 +18,9 @@ import type { TaskNode, TaskNodeStatus } from "@/lib/taskTypes";
 
 export async function POST(req: NextRequest) {
   try {
-    const { executionId, stepId, userId, userInput } = await req.json();
+    const { executionId, stepId, userInput } = await req.json();
+    const authUser = await verifyAuthUser(req);
+    const userId = authUser?.id;
 
     if (!executionId || !stepId || !userId) {
       return NextResponse.json(

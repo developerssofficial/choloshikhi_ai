@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import { useAuth } from "@/lib/auth";
 import type {
   TaskGraph,
   TaskNodeStatus,
@@ -29,22 +30,7 @@ interface Props {
 const POLL_INTERVAL_MS = 3000;
 const MAX_AUTO_RUN = 20;
 
-// ── Generate or retrieve a stable guest ID per browser session ────
-function getEffectiveUserId(userId: string | undefined): string {
-  if (userId) return userId;
 
-  // Check sessionStorage for a persistent guest ID
-  const STORAGE_KEY = "choloshikhi_guest_id";
-  if (typeof window !== "undefined") {
-    let guestId = sessionStorage.getItem(STORAGE_KEY);
-    if (!guestId) {
-      guestId = crypto.randomUUID();
-      sessionStorage.setItem(STORAGE_KEY, guestId);
-    }
-    return guestId;
-  }
-  return crypto.randomUUID();
-}
 
 export default function TaskExecutionPanel({
   graph,
@@ -54,7 +40,8 @@ export default function TaskExecutionPanel({
   onStepStatusChange,
   onAllComplete,
 }: Props) {
-  const effectiveUserId = getEffectiveUserId(userId);
+  const { getToken } = useAuth();
+  const effectiveUserId = userId || null;
   const isGuest = !userId;
 
   const [executionId, setExecutionId] = useState(initialExecId);
@@ -77,7 +64,11 @@ export default function TaskExecutionPanel({
     if (!executionId) return;
 
     try {
-      const res = await fetch(`/api/task-execution/${executionId}/status`);
+      const token = await getToken();
+      const headers: Record<string, string> = {};
+      if (token) headers["Authorization"] = `Bearer ${token}`;
+
+      const res = await fetch(`/api/task-execution/${executionId}/status`, { headers });
       if (!res.ok) return;
       const data: ExecutionStatusResponse = await res.json();
 
@@ -129,10 +120,14 @@ export default function TaskExecutionPanel({
     setIsStarting(true);
     setError(null);
     try {
+      const token = await getToken();
+      const headers: Record<string, string> = { "Content-Type": "application/json" };
+      if (token) headers["Authorization"] = `Bearer ${token}`;
+
       const res = await fetch("/api/task-execution/start", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ graph, userId: effectiveUserId }),
+        headers,
+        body: JSON.stringify({ graph }),
       });
       const data = await res.json();
       if (!res.ok) { setError(data.error || "Failed to start"); return; }
@@ -153,10 +148,14 @@ export default function TaskExecutionPanel({
   const runStep = async (stepId: string, userInput?: string) => {
     if (!executionId) return;
     try {
+      const token = await getToken();
+      const headers: Record<string, string> = { "Content-Type": "application/json" };
+      if (token) headers["Authorization"] = `Bearer ${token}`;
+
       const res = await fetch("/api/task-execution/run-step", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ executionId, stepId, userId: effectiveUserId, userInput }),
+        headers,
+        body: JSON.stringify({ executionId, stepId, userInput }),
       });
       const data = await res.json();
       if (!res.ok) { console.error("Step failed:", data.error); return; }
@@ -215,10 +214,13 @@ export default function TaskExecutionPanel({
   const handleCancel = async () => {
     if (!executionId) return;
     try {
+      const token = await getToken();
+      const headers: Record<string, string> = { "Content-Type": "application/json" };
+      if (token) headers["Authorization"] = `Bearer ${token}`;
+
       await fetch(`/api/task-execution/${executionId}/cancel`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId: effectiveUserId }),
+        headers,
       });
       setIsRunning(false);
       stopPolling();

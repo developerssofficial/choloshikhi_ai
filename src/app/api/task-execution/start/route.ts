@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
+import { verifyAuthUser } from "@/lib/supabase-auth";
 
 /* ===================================================================
    POST /api/task-execution/start
@@ -10,7 +11,9 @@ import { supabase } from "@/lib/supabase";
 
 export async function POST(req: NextRequest) {
   try {
-    const { graph, userId, sessionId } = await req.json();
+    const { graph, sessionId } = await req.json();
+    const authUser = await verifyAuthUser(req);
+    const userId = authUser?.id;
 
     if (!graph || !graph.nodes || !graph.title) {
       return NextResponse.json({ error: "Invalid task graph" }, { status: 400 });

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
+import { verifyAuthUser } from "@/lib/supabase-auth";
 
 /* ===================================================================
    POST /api/notifications/daily-task
@@ -17,7 +18,8 @@ interface DailyTaskResult {
 
 export async function POST(req: NextRequest) {
   try {
-    const { userId } = await req.json();
+    const authUser = await verifyAuthUser(req);
+    const userId = authUser?.id;
 
     if (!userId) {
       return NextResponse.json({ error: "userId required" }, { status: 400 });
