@@ -49,6 +49,26 @@ function getDomain(url: string): string {
   }
 }
 
+// Guest memory: localStorage-based conversation memory for non-logged-in users
+const GUEST_MEMORY_KEY = "choloshikhi_guest_memory";
+const GUEST_MEMORY_LIMIT = 50;
+
+function loadGuestMemory(): Array<{ role: string; content: string }> {
+  try {
+    const raw = localStorage.getItem(GUEST_MEMORY_KEY);
+    if (!raw) return [];
+    return JSON.parse(raw);
+  } catch {
+    return [];
+  }
+}
+
+function saveGuestMemory(memory: Array<{ role: string; content: string }>) {
+  try {
+    localStorage.setItem(GUEST_MEMORY_KEY, JSON.stringify(memory.slice(-GUEST_MEMORY_LIMIT)));
+  } catch {}
+}
+
 function SourcesCard({ sources }: { sources: { title: string; url: string }[] }) {
   const [open, setOpen] = useState(false);
 
@@ -292,6 +312,7 @@ export default function ChatPage() {
             sessionId: activeSessionId,
             mode,
             image: imageToSend || null,
+            guestMemory: !user ? loadGuestMemory() : undefined,
           }),
       });
 
@@ -322,6 +343,14 @@ export default function ChatPage() {
         searchCompleteRef.current = setTimeout(() => setSearchComplete(null), 3000);
       } else {
         setSearching(false);
+      }
+
+      // Save to guest memory (localStorage) for non-logged-in users
+      if (!user && data.response) {
+        const mem = loadGuestMemory();
+        mem.push({ role: "user", content: userMsg });
+        mem.push({ role: "assistant", content: data.response });
+        saveGuestMemory(mem);
       }
     } catch (err: any) {
       setSearching(false);

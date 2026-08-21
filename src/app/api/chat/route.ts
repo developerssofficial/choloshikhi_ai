@@ -9,7 +9,7 @@ const GEMINI_URL =
 const MIMO_URL = "https://api.xiaomimimo.com/v1/chat/completions";
 const MIMO_MODEL = "mimo-v2.5";
 const TIMEOUT_MS = 15000;
-const MEMORY_LIMIT = 20;
+const MEMORY_LIMIT = 50;
 
 /* ===== GEMINI KEY ROTATION ===== */
 const geminiKeyState = { idx: 0 };
@@ -375,6 +375,64 @@ function buildSearchPrompt(message: string, results: SearchResult[]): string {
 }
 
 /* ===== MEMORY ===== */
+
+// Fetch stored user knowledge (personal, learning, preference, progress, context)
+async function getUserMemory(userId: string): Promise<Record<string, string>> {
+  try {
+    const { data } = await supabase
+      .from("user_memory")
+      .select("category, key, value")
+      .eq("user_id", userId)
+      .order("confidence", { ascending: false });
+
+    if (!data?.length) return {};
+    const memory: Record<string, string> = {};
+    for (const row of data) {
+      memory[`${row.category}:${row.key}`] = row.value;
+    }
+    return memory;
+  } catch {
+    return {};
+  }
+}
+
+// Get last few messages from user's most recent OTHER session (cross-session context)
+async function getCrossSessionContext(userId: string, currentSessionId?: string | null): Promise<Array<{ role: string; content: string }>> {
+  try {
+    // Find user's most recent session that is NOT the current one
+    const { data: sessions } = await supabase
+      .from("chat_sessions")
+      .select("id")
+      .eq("user_id", userId)
+      .order("updated_at", { ascending: false })
+      .limit(5);
+
+    if (!sessions?.length) return [];
+
+    // Pick the most recent session that isn't the current one
+    const otherSession = sessions.find(s => s.id !== currentSessionId);
+    if (!otherSession) return [];
+
+    // Get last 6 messages from that session (3 exchanges)
+    const { data: rows } = await supabase
+      .from("chat_history")
+      .select("message, response")
+      .eq("session_id", otherSession.id)
+      .order("timestamp", { ascending: false })
+      .limit(3);
+
+    if (!rows?.length) return [];
+    const history: Array<{ role: string; content: string }> = [];
+    for (const row of rows.reverse()) {
+      history.push({ role: "user", content: row.message });
+      history.push({ role: "assistant", content: row.response });
+    }
+    return history;
+  } catch {
+    return [];
+  }
+}
+
 async function getMemory(userId: string): Promise<Array<{ role: string; content: string }>> {
   try {
     const { data } = await supabase
@@ -415,6 +473,193 @@ async function getSessionMemory(sessionId: string): Promise<Array<{ role: string
   } catch {
     return [];
   }
+}
+
+// Extract key facts from a conversation and store in user_memory
+// Also extracts topics and session summary in a single API call for efficiency
+const MEMORY_EXTRACT_PROMPT =
+  "Analyze this conversation turn and extract structured information.\n" +
+  "Return ONLY a JSON object with THREE fields:\n\n" +
+  "1. \"facts\": Array of user facts discovered. Each has category, key, value.\n" +
+  "   - personal: name/class/age/location/occupation\n" +
+  "   - learning: academic_level/strong_subject/weak_subject/topics_studied\n" +
+  "   - preference: language/teaching_style/response_length\n" +
+  "   - progress: what_mastered/what_struggles_with/current_mistakes\n" +
+  "   - context: current_project/recent_question/deadline\n" +
+  "   Rules: Only extract EXPLICITLY stated facts. Not guesses. Max 3 facts per turn.\n" +
+  "   If user contradicts old memory, UPDATE the key with new value.\n\n" +
+  "2. \"topics\": Array of academic/learning topics discussed this turn.\n" +
+  "   Each has: topic (specific, e.g. 'quadratic equations' not just 'math'),\n" +
+  "   coverage: 'introduced' (first time), 'practiced' (answering questions),\n" +
+  "   'mastered' (got correct), 'struggled' (had difficulty)\n\n" +
+  "3. \"summary\": ONE sentence (max 15 words) describing what this conversation turn was about.\n" +
+  "   Example: \"User asked about Pythagorean theorem and solved 3 practice problems\"\n\n" +
+  "Example output:\n" +
+  "{\"facts\":[{\"category\":\"learning\",\"key\":\"weak_at\",\"value\":\"Algebra\"}],\n" +
+  " \"topics\":[{\"topic\":\"Pythagorean theorem\",\"coverage\":\"practiced\"}],\n" +
+  " \"summary\":\"Discussed Pythagorean theorem with practice problems\"}\n\n" +
+  "If nothing notable, return: {\"facts\":[],\"topics\":[],\"summary\":\"\"}\n" +
+  "Return ONLY the JSON object.";
+
+interface ExtractedMemory {
+  facts: Array<{ category: string; key: string; value: string }>;
+  topics: Array<{ topic: string; coverage: string }>;
+  summary: string;
+}
+
+async function extractUserMemory(userId: string, userMsg: string, aiResponse: string): Promise<ExtractedMemory | null> {
+  try {
+    const apiKey = getNextGeminiKey();
+    if (!apiKey) return null;
+
+    const res = await fetch(`${GEMINI_URL}?key=${apiKey}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        systemInstruction: { parts: [{ text: MEMORY_EXTRACT_PROMPT }] },
+        contents: [{ role: "user", parts: [{ text: `User: ${userMsg}\nAI: ${aiResponse}` }] }],
+        generationConfig: { temperature: 0, maxOutputTokens: 400 },
+      }),
+      signal: AbortSignal.timeout(5000),
+    });
+
+    if (!res.ok) return null;
+    const data = await res.json();
+    const text = (data?.candidates?.[0]?.content?.parts?.[0]?.text || "").trim();
+
+    // Parse JSON object from response
+    const jsonMatch = text.match(/\{[\s\S]*\}/);
+    if (!jsonMatch) return null;
+    const parsed = JSON.parse(jsonMatch[0]) as ExtractedMemory;
+    return parsed;
+  } catch {
+    return null;
+  }
+}
+
+// Save extracted facts into user_memory (with deduplication)
+async function saveFacts(userId: string, facts: Array<{ category: string; key: string; value: string }>): Promise<void> {
+  for (const fact of facts.slice(0, 3)) {
+    if (!fact.category || !fact.key || !fact.value) continue;
+    // Skip noise: very short or generic values
+    if (String(fact.value).length < 3) continue;
+    // Skip generic categories that don't carry real info
+    if (fact.key === "other" || fact.key === "general") continue;
+
+    await supabase.rpc("upsert_user_memory", {
+      p_user_id: userId,
+      p_category: fact.category,
+      p_key: fact.key,
+      p_value: String(fact.value).slice(0, 500),
+      p_confidence: 0.8,
+    });
+  }
+}
+
+// Save topic tracking
+async function saveTopics(userId: string, topics: Array<{ topic: string; coverage: string }>): Promise<void> {
+  for (const t of topics.slice(0, 5)) {
+    if (!t.topic) continue;
+    const topicSlug = t.topic.toLowerCase().trim().slice(0, 100);
+    const coverage = ["introduced", "practiced", "mastered", "struggled"].includes(t.coverage)
+      ? t.coverage : "practiced";
+
+    // Upsert topic: increment mention count, update coverage
+    try {
+      const { data: existing } = await supabase
+        .from("user_topics")
+        .select("id, mention_count, coverage")
+        .eq("user_id", userId)
+        .eq("topic", topicSlug)
+        .single();
+
+      if (existing) {
+        // Update existing topic
+        const newCoverage = coverage === "struggled" ? "struggled"
+          : coverage === "mastered" ? "mastered"
+          : existing.coverage === "mastered" ? "mastered"
+          : existing.coverage === "struggled" && coverage !== "mastered" ? "struggled"
+          : coverage;
+
+        await supabase
+          .from("user_topics")
+          .update({
+            coverage: newCoverage,
+            mention_count: existing.mention_count + 1,
+            last_practiced: new Date().toISOString(),
+          })
+          .eq("id", existing.id);
+      } else {
+        await supabase
+          .from("user_topics")
+          .insert({
+            user_id: userId,
+            topic: topicSlug,
+            coverage,
+            mention_count: 1,
+          });
+      }
+    } catch {
+      // Best-effort
+    }
+  }
+}
+
+// Run smart pruning (low-confidence old entries, cap at 100)
+async function pruneMemory(userId: string): Promise<void> {
+  try {
+    await supabase.rpc("prune_user_memory", { p_user_id: userId });
+  } catch {
+    // Best-effort
+  }
+}
+
+// Build a knowledge context string from stored user memory + topics
+function buildUserKnowledgePrompt(memory: Record<string, string>, topics?: Array<{ topic: string; coverage: string; mention_count: number }>): string {
+  if (Object.keys(memory).length === 0 && (!topics || topics.length === 0)) return "";
+
+  const personal = Object.entries(memory)
+    .filter(([k]) => k.startsWith("personal:"))
+    .map(([_, v]) => v)
+    .join(", ");
+  const learning = Object.entries(memory)
+    .filter(([k]) => k.startsWith("learning:"))
+    .map(([k, v]) => `${k.split(":")[1]}: ${v}`)
+    .join(", ");
+  const preferences = Object.entries(memory)
+    .filter(([k]) => k.startsWith("preference:"))
+    .map(([k, v]) => `${k.split(":")[1]}: ${v}`)
+    .join(", ");
+  const progress = Object.entries(memory)
+    .filter(([k]) => k.startsWith("progress:"))
+    .map(([k, v]) => `${k.split(":")[1]}: ${v}`)
+    .join(", ");
+  const context = Object.entries(memory)
+    .filter(([k]) => k.startsWith("context:"))
+    .map(([k, v]) => `${k.split(":")[1]}: ${v}`)
+    .join(", ");
+
+  let prompt = "\n\n═══ USER KNOWLEDGE (from past conversations) ═══\n";
+  if (personal) prompt += `Personal: ${personal}\n`;
+  if (learning) prompt += `Learning profile: ${learning}\n`;
+  if (preferences) prompt += `Preferences: ${preferences}\n`;
+  if (progress) prompt += `Progress: ${progress}\n`;
+  if (context) prompt += `Recent context: ${context}\n`;
+
+  // Add topic knowledge
+  if (topics && topics.length > 0) {
+    const struggled = topics.filter(t => t.coverage === "struggled").map(t => t.topic);
+    const mastered = topics.filter(t => t.coverage === "mastered").map(t => t.topic);
+    const practiced = topics.filter(t => t.coverage === "practiced").map(t => t.topic);
+
+    if (struggled.length > 0) prompt += `Struggled with: ${struggled.join(", ")} — spend extra time here\n`;
+    if (mastered.length > 0) prompt += `Mastered: ${mastered.join(", ")} — can skip basics\n`;
+    if (practiced.length > 0) prompt += `Practiced: ${practiced.join(", ")} — reinforce if needed\n`;
+  }
+
+  prompt += "Use this knowledge to personalize your responses. Reference it naturally — don't list it back to the user.";
+
+  return prompt;
 }
 
 /* ===== AI PROVIDERS ===== */
@@ -583,7 +828,7 @@ function generateHumanReadableMessage(action: string, data: any): string {
 
 export async function POST(req: NextRequest) {
   try {
-    const { message, userId: bodyUserId, image, sessionId, mode } = await req.json();
+    const { message, userId: bodyUserId, image, sessionId, mode, guestMemory } = await req.json();
 
     if (!message?.trim()) {
       return NextResponse.json({ error: "Message required" }, { status: 400 });
@@ -610,7 +855,7 @@ export async function POST(req: NextRequest) {
 
     if (cmd === "/status") {
       return NextResponse.json({
-        response: `CholoShikhi 1.0 — Active\nMemory: ${MEMORY_LIMIT} messages`,
+        response: `CholoShikhi 1.0 — Active\nMemory: ${MEMORY_LIMIT} messages + persistent user knowledge`,
         provider: "local",
       });
     }
@@ -637,8 +882,34 @@ export async function POST(req: NextRequest) {
     let memory: Array<{ role: string; content: string }> = [];
     if (userId && sessionId) {
       memory = await getSessionMemory(sessionId);
+      // Add cross-session context (last few messages from previous session)
+      if (memory.length < 6) {
+        const crossContext = await getCrossSessionContext(userId, sessionId);
+        if (crossContext.length > 0) {
+          memory = [...crossContext, { role: "user", content: "[Previous conversation context]" }, ...memory];
+        }
+      }
     } else if (userId) {
       memory = await getMemory(userId);
+    } else if (guestMemory && Array.isArray(guestMemory) && guestMemory.length > 0) {
+      // Guest user: use client-side memory from localStorage
+      memory = guestMemory.slice(-MEMORY_LIMIT);
+    }
+
+    /* ===== USER KNOWLEDGE (persistent memory + topics) ===== */
+    let userKnowledge = "";
+    if (userId) {
+      const [userMemory, topicsData] = await Promise.all([
+        getUserMemory(userId),
+        supabase
+          .from("user_topics")
+          .select("topic, coverage, mention_count")
+          .eq("user_id", userId)
+          .order("last_practiced", { ascending: false })
+          .limit(20)
+          .then(r => r.data || []),
+      ]);
+      userKnowledge = buildUserKnowledgePrompt(userMemory, topicsData);
     }
 
     /* ===== BUILD SYSTEM PROMPT BASED ON MODE ===== */
@@ -650,6 +921,10 @@ export async function POST(req: NextRequest) {
       activeSystemPrompt = getEducationPrompt(teachingState);
     } else if (isTaskPlan) {
       activeSystemPrompt = TASKPLAN_PROMPT;
+    }
+    // Inject user knowledge into system prompt
+    if (userKnowledge) {
+      activeSystemPrompt += userKnowledge;
     }
 
     /* ===== WEB SEARCH (Normal Mode only) ===== */
@@ -889,6 +1164,20 @@ export async function POST(req: NextRequest) {
         message: message.trim(),
         response,
       });
+
+      // Extract and store user memory (best-effort, non-blocking)
+      if (!isTaskPlan && response && message.trim().length > 10) {
+        extractUserMemory(userId, message.trim(), response).then(async (extracted) => {
+          if (extracted) {
+            // Save facts, topics, and prune in parallel
+            await Promise.all([
+              extracted.facts.length > 0 ? saveFacts(userId, extracted.facts) : Promise.resolve(),
+              extracted.topics.length > 0 ? saveTopics(userId, extracted.topics) : Promise.resolve(),
+              pruneMemory(userId),
+            ]);
+          }
+        }).catch(() => {});
+      }
     }
 
     return NextResponse.json({
