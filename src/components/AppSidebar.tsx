@@ -43,13 +43,29 @@ export default function AppSidebar({
   loadingSessions,
   onFetchSessions,
 }: Props) {
-  const { user, signInWithGoogle, signOut, isElectron } = useAuth();
+  const { user, signInWithGoogle, signOut, isElectron, getToken } = useAuth();
   const router = useRouter();
   const [showHistory, setShowHistory] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showAccount, setShowAccount] = useState(false);
+  const [myUsername, setMyUsername] = useState<string | null>(null);
   const accountRef = useRef<HTMLDivElement>(null);
+
+  // Fetch username on login
+  useEffect(() => {
+    if (!user) { setMyUsername(null); return; }
+    (async () => {
+      try {
+        const token = await getToken();
+        const headers: Record<string, string> = {};
+        if (token) headers["Authorization"] = `Bearer ${token}`;
+        const res = await fetch("/api/profile", { headers });
+        const data = await res.json();
+        if (data.username) setMyUsername(data.username);
+      } catch {}
+    })();
+  }, [user, getToken]);
 
   const toggleHistory = () => {
     const next = !showHistory;
@@ -157,6 +173,9 @@ export default function AppSidebar({
                 <div className="px-4 py-3 border-b border-white/[0.06]">
                   <p className="text-xs font-medium text-white truncate">{user.name || "User"}</p>
                   <p className="text-[10px] text-gray-500 truncate mt-0.5">{user.email}</p>
+                  {myUsername && (
+                    <p className="text-[10px] text-violet-400/70 font-mono mt-1">{myUsername}</p>
+                  )}
                 </div>
                 <button
                   onClick={() => { signOut(); setShowAccount(false); }}
