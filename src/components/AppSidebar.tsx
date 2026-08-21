@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useAuth } from "@/lib/auth";
+import { useRouter } from "next/navigation";
 import LoginModal from "@/components/LoginModal";
 
 interface ChatSession {
@@ -43,6 +44,7 @@ export default function AppSidebar({
   onFetchSessions,
 }: Props) {
   const { user, signInWithGoogle, signOut, isElectron } = useAuth();
+  const router = useRouter();
   const [showHistory, setShowHistory] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -105,6 +107,20 @@ export default function AppSidebar({
           </svg>
           <span className="sidebar-tooltip">চ্যাট ইতিহাস</span>
         </button>
+
+        {/* DM — Messages */}
+        {user && (
+          <button
+            onClick={() => router.push("/chat/dm")}
+            className="sidebar-btn group relative"
+            title="Messages"
+          >
+            <svg className="w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            <span className="sidebar-tooltip">Messages</span>
+          </button>
+        )}
       </div>
 
       {/* Spacer */}
