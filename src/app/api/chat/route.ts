@@ -447,8 +447,8 @@ interface SearchClassification {
 }
 
 // Fast keyword-based pre-filter: skip classifySearch for obvious non-search messages
-// Saves 3-5 seconds per non-search message
-function fastClassify(message: string): SearchClassification | null {
+// Saves 3-5 seconds per non-search message by eliminating the Gemini classify call
+function fastClassify(message: string): SearchClassification {
   const lower = message.toLowerCase().trim();
 
   // Very short messages — never need search
@@ -463,32 +463,74 @@ function fastClassify(message: string): SearchClassification | null {
   ];
   if (noSearchPatterns.some(p => typeof p === "string" ? lower === p || lower.startsWith(p) : p.test(lower))) {
     return { needsSearch: false, complexity: "simple" };
-  };
+  }
 
-  // Math, code, explanation patterns
+  // Math, code, explanation, creative patterns — never need search
   const noSearchKeywords = [
     "calculate", "solve", "equation", "formula",
-    "code", "program", "function", "python", "javascript",
-    "explain", "বোঝাও", "ব্যাখ্যা", "কী হয়",
+    "code", "program", "function", "python", "javascript", "html", "css",
+    "explain", "বোঝাও", "ব্যাখ্যা", "কী হয়", "কি হয়",
     "write", "লিখো", "translate", "অনুবাদ",
+    "summarize", "সারমর্ম", "list", "তালিকা",
+    "how to", "কিভাবে", "step by step", "ধাপে ধাপে",
+    "define", "সংজ্ঞা", "meaning", "মানে",
+    "example", "উদাহরণ",
+    "pattern", "fibbonacci", "factorial", "recursion",
+    "essay", "paragraph", "letter", "application",
+    "prompt", "system prompt",
+    "shikkhok", "education", "শিক্ষক", "শেখো",
   ];
   if (noSearchKeywords.some(k => lower.includes(k))) {
     return { needsSearch: false, complexity: "simple" };
   }
 
-  // Clear search signals — skip classify, go direct
-  const searchSignals = [
-    "today", "current", "recent", "latest", "now",
-    "আজ", "এইমাত্র", "সাম্প্রতিক", "এখন", "দাম", "price",
-    "weather", "আবহাওয়া", "রেট", "rate",
-    "news", "খবর",
+  // Clear search signals — go direct to search
+  const heavySearchPatterns = [
+    "market analysis", "market research", "বাজার বিশ্লেষণ",
+    "competitive analysis", "প্রতিযোগিতা",
+    "legal", "regulation", "আইন", "নীতিমালা",
+    "investment", "বিনিয়োগ", "stock", "শেয়ার",
+    "detailed comparison", "বিস্তারিত তুলনা",
+    "comprehensive", "সম্পূর্ণ",
+    "research report", "গবেষণা প্রতিবেদন",
   ];
-  if (searchSignals.some(s => lower.includes(s))) {
+  if (heavySearchPatterns.some(p => lower.includes(p))) {
+    return { needsSearch: true, complexity: "heavy" };
+  }
+
+  const standardSearchPatterns = [
+    "today", "current", "recent", "latest", "now", "this year", "this month",
+    "আজ", "এইমাত্র", "সাম্প্রতিক", "এখন", "এই বছর", "এই মাস",
+    "price", "দাম", "cost", "খরচ",
+    "weather", "আবহাওয়া", "মৌসুম",
+    "news", "খবর", "সংবাদ",
+    "rate", "রেট", "interest rate", "বৈঠার",
+    "population", "জনসংখ্যা",
+    "gdp", "inflation", "মুদ্রাস্ফীতি",
+    "election", "নির্বাচন",
+    "result", "রেজাল্ট", "exam result",
+    "score", "স্কোর",
+    "match", "খেলা", "cricket", "football",
+    "campaign", "প্রচারণা",
+    "launch", "রিলিজ",
+    "release date", "মুক্তির তারিখ",
+    "review", "রিভিউ",
+    "recipe", "রেসিপি",
+    "tourism", "পর্যটন",
+    "visa", "ভিসা",
+    "admission", "ভর্তি",
+    "scholarship", "বৃত্তি",
+    "job", "চাকরি", "recruitment", "নিয়োগ",
+    "salary", "বেতন",
+    "flight", "ফ্লাইট",
+    "hotel", "হোটেল",
+  ];
+  if (standardSearchPatterns.some(p => lower.includes(p))) {
     return { needsSearch: true, complexity: "standard" };
   }
 
-  // Needs actual AI classification
-  return null;
+  // Default: assume no search needed (speed over completeness)
+  return { needsSearch: false, complexity: "simple" };
 }
 
 async function classifySearch(message: string): Promise<SearchClassification> {
@@ -1078,38 +1120,61 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    /* ===== MEMORY ===== */
+    /* ===== MEMORY (ALL DB QUERIES IN PARALLEL) ===== */
     let memory: Array<{ role: string; content: string }> = [];
-    if (userId && sessionId) {
-      memory = await getSessionMemory(sessionId);
-      // Add cross-session context (last few messages from previous session)
-      if (memory.length < 6) {
-        const crossContext = await getCrossSessionContext(userId, sessionId);
-        if (crossContext.length > 0) {
-          memory = [...crossContext, { role: "user", content: "[Previous conversation context]" }, ...memory];
+    let userKnowledge = "";
+
+    // Fire all DB queries at once — saves ~400-600ms
+    const [sessionMemory, crossContext, userMemoryData, topicsData] = await Promise.all([
+      // Session or full memory
+      (userId && sessionId)
+        ? supabase.from("chat_history").select("message, response").eq("session_id", sessionId).order("timestamp", { ascending: true }).limit(MEMORY_LIMIT).then(r => r.data || [])
+        : userId
+        ? supabase.from("chat_history").select("message, response").eq("user_id", userId).order("timestamp", { ascending: false }).limit(MEMORY_LIMIT).then(r => r.data || [])
+        : Promise.resolve([]),
+      // Cross-session context (only if user has session with few messages)
+      (userId && sessionId)
+        ? supabase.from("chat_sessions").select("id").eq("user_id", userId).order("updated_at", { ascending: false }).limit(5).then(async (r) => {
+            const sessions = r.data || [];
+            const otherSession = sessions.find((s: any) => s.id !== sessionId);
+            if (!otherSession) return [];
+            const msgs = await supabase.from("chat_history").select("message, response").eq("session_id", otherSession.id).order("timestamp", { ascending: false }).limit(3);
+            return msgs.data || [];
+          })
+        : Promise.resolve([]),
+      // User memory
+      userId ? getUserMemory(userId) : Promise.resolve({}),
+      // User topics
+      userId ? supabase.from("user_topics").select("topic, coverage, mention_count").eq("user_id", userId).order("last_practiced", { ascending: false }).limit(20).then(r => r.data || []) : Promise.resolve([]),
+    ]);
+
+    // Assemble session memory
+    if (userId && sessionId && sessionMemory.length > 0) {
+      memory = sessionMemory.map((row: any) => [
+        { role: "user", content: row.message },
+        { role: "assistant", content: row.response },
+      ]).flat();
+      // Add cross-session context if session is young
+      if (memory.length < 6 && crossContext.length > 0) {
+        const crossHistory: Array<{ role: string; content: string }> = [];
+        for (const row of crossContext) {
+          crossHistory.push({ role: "user", content: row.message });
+          crossHistory.push({ role: "assistant", content: row.response });
         }
+        memory = [...crossHistory, { role: "user", content: "[Previous conversation context]" }, ...memory];
       }
-    } else if (userId) {
-      memory = await getMemory(userId);
+    } else if (userId && !sessionId && sessionMemory.length > 0) {
+      memory = sessionMemory.map((row: any) => [
+        { role: "user", content: row.message },
+        { role: "assistant", content: row.response },
+      ]).flat();
     } else if (guestMemory && Array.isArray(guestMemory) && guestMemory.length > 0) {
-      // Guest user: use client-side memory from localStorage
       memory = guestMemory.slice(-MEMORY_LIMIT);
     }
 
-    /* ===== USER KNOWLEDGE (persistent memory + topics) ===== */
-    let userKnowledge = "";
+    // Assemble user knowledge
     if (userId) {
-      const [userMemory, topicsData] = await Promise.all([
-        getUserMemory(userId),
-        supabase
-          .from("user_topics")
-          .select("topic, coverage, mention_count")
-          .eq("user_id", userId)
-          .order("last_practiced", { ascending: false })
-          .limit(20)
-          .then(r => r.data || []),
-      ]);
-      userKnowledge = buildUserKnowledgePrompt(userMemory, topicsData);
+      userKnowledge = buildUserKnowledgePrompt(userMemoryData, topicsData);
     }
 
     /* ===== BUILD SYSTEM PROMPT BASED ON MODE ===== */
@@ -1131,16 +1196,15 @@ export async function POST(req: NextRequest) {
     let searchResults: SearchResult[] = [];
     let searched = false;
     let searchComplexity: "simple" | "standard" | "heavy" = "standard";
+
+    // ONLY use fast keyword filter — NO separate classify API call
+    // This saves 3-5 seconds per request
     if (!isEducation && !image) {
-      try {
-        const classification = await classifySearch(message);
-        if (classification.needsSearch) {
-          searchComplexity = classification.complexity;
-          searchResults = await tavilySearch(message, searchComplexity);
-          searched = searchResults.length > 0;
-        }
-      } catch {
-        // Classification failed — proceed without search
+      const fastResult = fastClassify(message);
+      if (fastResult.needsSearch) {
+        searchComplexity = fastResult.complexity;
+        searchResults = await tavilySearch(message, searchComplexity);
+        searched = searchResults.length > 0;
       }
     }
 
