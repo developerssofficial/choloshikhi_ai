@@ -248,10 +248,22 @@ export default function DMPage() {
 
     try {
       const token = await getToken();
-      const headers: Record<string, string> = { "Content-Type": "application/json" };
-      if (token) headers["Authorization"] = `Bearer ${token}`;
-      const res = await fetch(`/api/dm/${selectedConvId}`, { method: "POST", headers, body: JSON.stringify({ content: msgContent }) });
-      const data = await res.json();
+      if (!token) {
+        setMessages((prev) => prev.filter((m) => m.id !== tempId));
+        setInput(msgContent);
+        setSendError("Not logged in — please refresh");
+        setSending(false);
+        return;
+      }
+      const res = await fetch(`/api/dm/${selectedConvId}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
+        body: JSON.stringify({ content: msgContent }),
+      });
+
+      // Safe JSON parse — server might return HTML on error
+      let data: any;
+      try { data = await res.json(); } catch { data = { error: `HTTP ${res.status}` }; }
 
       if (!res.ok || data.error) {
         setMessages((prev) => prev.filter((m) => m.id !== tempId));
@@ -261,7 +273,7 @@ export default function DMPage() {
         setMessages((prev) => prev.map((m) => m.id === tempId ? data.message : m));
         fetchConversations();
       }
-    } catch (e: any) {
+    } catch {
       setMessages((prev) => prev.filter((m) => m.id !== tempId));
       setInput(msgContent);
       setSendError("Network error — try again");

@@ -12,82 +12,45 @@ export async function GET(
     const authUser = await verifyAuthUser(req);
     if (!authUser) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-    // Verify participant
-    const { data: participation, error: partErr } = await supabase
-      .from("dm_participants")
-      .select("conversation_id")
-      .eq("conversation_id", id)
-      .eq("user_id", authUser.id)
-      .single();
+    // Verify participant + get other user + get own username — ALL in parallel
+    const [partResult, otherPartResult, myProfResult, messagesResult] = await Promise.all([
+      supabase.from("dm_participants").select("conversation_id").eq("conversation_id", id).eq("user_id", authUser.id).single(),
+      supabase.from("dm_participants").select("user_id").eq("conversation_id", id).neq("user_id", authUser.id).single(),
+      supabase.from("student_profiles").select("username").eq("user_id", authUser.id).single(),
+      supabase.from("dm_messages").select("id, content, sender_id, created_at, is_read").eq("conversation_id", id).order("created_at", { ascending: true }).limit(100),
+    ]);
 
-    if (partErr || !participation) {
-      console.error("DM GET: participant check failed", { userId: authUser.id, convId: id, err: partErr });
+    if (partResult.error || !partResult.data) {
       return NextResponse.json({ error: "Access denied" }, { status: 403 });
     }
 
-    // Get other user's anonymous profile
-    const { data: otherPart } = await supabase
-      .from("dm_participants")
-      .select("user_id")
-      .eq("conversation_id", id)
-      .neq("user_id", authUser.id)
-      .single();
-
+    // Get other user's profile (only if we have their userId)
     let otherUser: { userId: string; username: string } | null = null;
-    if (otherPart?.user_id) {
+    if (otherPartResult.data?.user_id) {
       const { data: prof } = await supabase
-        .from("student_profiles")
-        .select("username")
-        .eq("user_id", otherPart.user_id)
-        .single();
-      if (prof) otherUser = { userId: otherPart.user_id, username: prof.username };
+        .from("student_profiles").select("username")
+        .eq("user_id", otherPartResult.data.user_id).single();
+      if (prof) otherUser = { userId: otherPartResult.data.user_id, username: prof.username };
     }
 
-    // Get own username
-    const { data: myProf } = await supabase
-      .from("student_profiles")
-      .select("username")
-      .eq("user_id", authUser.id)
-      .single();
+    const messages = messagesResult.data || [];
 
-    // Fetch messages
-    const { data: messages, error: msgErr } = await supabase
-      .from("dm_messages")
-      .select("id, content, sender_id, created_at, is_read")
-      .eq("conversation_id", id)
-      .order("created_at", { ascending: true })
-      .limit(100);
-
-    if (msgErr) {
-      console.error("DM GET: message fetch error", { convId: id, err: msgErr });
-      throw msgErr;
-    }
-
-    // Mark unread as read
-    const unreadIds = (messages || [])
-      .filter(m => m.sender_id !== authUser.id && !m.is_read)
-      .map(m => m.id);
-
+    // Mark unread as read (fire-and-forget)
+    const unreadIds = messages.filter(m => m.sender_id !== authUser.id && !m.is_read).map(m => m.id);
     if (unreadIds.length > 0) {
-      await supabase
-        .from("dm_messages")
-        .update({ is_read: true })
-        .in("id", unreadIds);
+      supabase.from("dm_messages").update({ is_read: true }).in("id", unreadIds).then(() => {});
     }
 
     return NextResponse.json({
       otherUser,
-      myUsername: myProf?.username || null,
-      messages: (messages || []).map(m => ({
-        id: m.id,
-        content: m.content,
-        isMine: m.sender_id === authUser.id,
-        createdAt: m.created_at,
+      myUsername: myProfResult.data?.username || null,
+      messages: messages.map(m => ({
+        id: m.id, content: m.content, isMine: m.sender_id === authUser.id, createdAt: m.created_at,
       })),
     });
   } catch (error: any) {
     console.error("DM GET error:", error?.message || error);
-    return NextResponse.json({ error: "Failed to load messages" }, { status: 500 });
+    return NextResponse.json({ error: "Failed" }, { status: 500 });
   }
 }
 
@@ -98,23 +61,21 @@ export async function POST(
 ) {
   try {
     const { id } = await params;
+
     const authUser = await verifyAuthUser(req);
-    if (!authUser) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    if (!authUser) return NextResponse.json({ error: "Login required" }, { status: 401 });
 
     // Verify participant
-    const { data: participation, error: partErr } = await supabase
-      .from("dm_participants")
-      .select("conversation_id")
-      .eq("conversation_id", id)
-      .eq("user_id", authUser.id)
-      .single();
+    const { error: partErr } = await supabase
+      .from("dm_participants").select("conversation_id")
+      .eq("conversation_id", id).eq("user_id", authUser.id).single();
 
-    if (partErr || !participation) {
-      console.error("DM POST: participant check failed", { userId: authUser.id, convId: id, err: partErr });
-      return NextResponse.json({ error: "Access denied" }, { status: 403 });
-    }
+    if (partErr) return NextResponse.json({ error: "Access denied" }, { status: 403 });
 
-    const { content } = await req.json();
+    let body: any;
+    try { body = await req.json(); } catch { return NextResponse.json({ error: "Invalid body" }, { status: 400 }); }
+
+    const { content } = body;
     if (!content?.trim()) return NextResponse.json({ error: "Empty message" }, { status: 400 });
 
     // Insert message
@@ -129,30 +90,18 @@ export async function POST(
       .single();
 
     if (insertErr) {
-      console.error("DM POST: insert failed", {
-        convId: id,
-        senderId: authUser.id,
-        err: insertErr,
-      });
-      return NextResponse.json({ error: `Send failed: ${insertErr.message}` }, { status: 500 });
+      console.error("DM INSERT FAILED:", { convId: id, sender: authUser.id, err: insertErr });
+      return NextResponse.json({ error: insertErr.message || "Send failed" }, { status: 500 });
     }
 
-    // Update conversation timestamp
-    await supabase
-      .from("dm_conversations")
-      .update({ updated_at: new Date().toISOString() })
-      .eq("id", id);
+    // Update conversation timestamp (fire-and-forget)
+    supabase.from("dm_conversations").update({ updated_at: new Date().toISOString() }).eq("id", id).then(() => {});
 
     return NextResponse.json({
-      message: {
-        id: msg.id,
-        content: msg.content,
-        isMine: true,
-        createdAt: msg.created_at,
-      },
+      message: { id: msg.id, content: msg.content, isMine: true, createdAt: msg.created_at },
     });
   } catch (error: any) {
     console.error("DM POST error:", error?.message || error);
-    return NextResponse.json({ error: "Failed to send" }, { status: 500 });
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }
