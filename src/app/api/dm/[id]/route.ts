@@ -94,9 +94,7 @@ export async function POST(
       return NextResponse.json({ error: insertErr.message || "Send failed" }, { status: 500 });
     }
 
-    // Update conversation timestamp (fire-and-forget)
-    supabase.from("dm_conversations").update({ updated_at: new Date().toISOString() }).eq("id", id).then(() => {});
-
+    // Done — trigger on_dm_message_insert handles updated_at
     return NextResponse.json({
       message: { id: msg.id, content: msg.content, isMine: true, createdAt: msg.created_at },
     });
