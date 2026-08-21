@@ -3,22 +3,15 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useAuth } from "@/lib/auth";
 import { useRouter } from "next/navigation";
-import { createClient } from "@supabase/supabase-js";
+import { createClient, SupabaseClient } from "@supabase/supabase-js";
 
 /* ===================================================================
    DM Page — Messenger-style anonymous messaging
-   Real-time via Supabase Realtime subscriptions
-   Students only see each other's CSH_XXXXXX username
+   Single Supabase client, proper Realtime cleanup
    =================================================================== */
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
-
-function getSupabaseClient(token: string) {
-  return createClient(supabaseUrl, supabaseAnonKey, {
-    global: { headers: { Authorization: `Bearer ${token}` } },
-  });
-}
 
 interface Conversation {
   id: string;
@@ -83,15 +76,28 @@ export default function DMPage() {
   const [searchLoading, setSearchLoading] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
   const searchDebounceRef = useRef<NodeJS.Timeout | null>(null);
   const myUserIdRef = useRef<string | null>(null);
+  const sbRef = useRef<SupabaseClient | null>(null);
+  const channelRef = useRef<any>(null);
+  const selectedConvRef = useRef<string | null>(null);
 
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, []);
 
-  // Fetch conversations
+  // Get or create a single Supabase client with the user's JWT
+  const getSb = useCallback(async () => {
+    const token = await getToken();
+    if (!token) return null;
+    if (sbRef.current) return sbRef.current;
+    sbRef.current = createClient(supabaseUrl, supabaseAnonKey, {
+      global: { headers: { Authorization: `Bearer ${token}` } },
+    });
+    return sbRef.current;
+  }, [getToken]);
+
+  // Fetch conversations via API (not Supabase direct — avoids RLS issues)
   const fetchConversations = useCallback(async () => {
     if (!user) return;
     setLoadingConvs(true);
@@ -102,11 +108,11 @@ export default function DMPage() {
       const res = await fetch("/api/dm", { headers });
       const data = await res.json();
       if (data.conversations) setConversations(data.conversations);
-    } catch {}
+    } catch (e) { console.error("fetchConversations error:", e); }
     setLoadingConvs(false);
   }, [user, getToken]);
 
-  // Fetch messages for a conversation
+  // Fetch messages for a conversation via API
   const fetchMessages = useCallback(async (convId: string) => {
     if (!user) return;
     setLoadingMessages(true);
@@ -122,29 +128,35 @@ export default function DMPage() {
         setMyUsername(data.myUsername);
         setTimeout(scrollToBottom, 100);
       }
-    } catch {}
+    } catch (e) { console.error("fetchMessages error:", e); }
     setLoadingMessages(false);
   }, [user, getToken, scrollToBottom]);
 
-  // Real-time subscription for messages
+  // Real-time: subscribe when conversation changes, unsubscribe when it changes away
   useEffect(() => {
+    selectedConvRef.current = selectedConvId;
+
+    // Clean up old channel
+    if (channelRef.current) {
+      channelRef.current.unsubscribe();
+      channelRef.current = null;
+    }
+
     if (!selectedConvId || !user) return;
 
-    let sub: ReturnType<ReturnType<typeof getSupabaseClient>["channel"]> | null = null;
-    let mounted = true;
+    let cancelled = false;
 
     (async () => {
-      const token = await getToken();
-      if (!token || !mounted) return;
+      const sb = await getSb();
+      if (!sb || cancelled) return;
 
-      const client = getSupabaseClient(token);
-
-      // Fetch initial messages
+      // Fetch messages
       await fetchMessages(selectedConvId);
+      if (cancelled) return;
 
-      // Subscribe to new messages in this conversation
-      sub = client
-        .channel(`dm:${selectedConvId}`)
+      // Subscribe to new messages
+      const channel = sb
+        .channel(`dm-live:${selectedConvId}`)
         .on(
           "postgres_changes",
           {
@@ -154,43 +166,35 @@ export default function DMPage() {
             filter: `conversation_id=eq.${selectedConvId}`,
           },
           (payload) => {
-            if (!mounted) return;
+            if (cancelled) return;
             const newMsg = payload.new as any;
             const isMine = newMsg.sender_id === myUserIdRef.current;
             setMessages((prev) => {
-              // Skip if already exists (from optimistic update)
               if (prev.some((m) => m.id === newMsg.id)) return prev;
-              return [
-                ...prev,
-                {
-                  id: newMsg.id,
-                  content: newMsg.content,
-                  isMine,
-                  createdAt: newMsg.created_at,
-                },
-              ];
+              return [...prev, { id: newMsg.id, content: newMsg.content, isMine, createdAt: newMsg.created_at }];
             });
             setTimeout(scrollToBottom, 50);
           }
         )
         .subscribe();
+
+      if (!cancelled) channelRef.current = channel;
     })();
 
     return () => {
-      mounted = false;
-      if (sub) sub.unsubscribe();
+      cancelled = true;
+      if (channelRef.current) {
+        channelRef.current.unsubscribe();
+        channelRef.current = null;
+      }
     };
-  }, [selectedConvId, user, getToken, fetchMessages, scrollToBottom]);
+  }, [selectedConvId, user, getSb, fetchMessages, scrollToBottom]);
 
-  // Store my userId for realtime filter
-  useEffect(() => {
-    if (user) myUserIdRef.current = user.id;
-  }, [user]);
+  // Store userId for realtime filter
+  useEffect(() => { if (user) myUserIdRef.current = user.id; }, [user]);
 
-  // Load conversations on mount
-  useEffect(() => {
-    if (user) fetchConversations();
-  }, [user, fetchConversations]);
+  // Load conversations
+  useEffect(() => { if (user) fetchConversations(); }, [user, fetchConversations]);
 
   // Search users
   const handleSearch = (q: string) => {
@@ -211,17 +215,13 @@ export default function DMPage() {
     }, 400);
   };
 
-  // Start or open conversation
+  // Start conversation
   const startConversation = async (username: string) => {
     try {
       const token = await getToken();
       const headers: Record<string, string> = { "Content-Type": "application/json" };
       if (token) headers["Authorization"] = `Bearer ${token}`;
-      const res = await fetch("/api/dm", {
-        method: "POST",
-        headers,
-        body: JSON.stringify({ targetUsername: username }),
-      });
+      const res = await fetch("/api/dm", { method: "POST", headers, body: JSON.stringify({ targetUsername: username }) });
       const data = await res.json();
       if (data.conversationId) {
         setShowSearch(false);
@@ -241,46 +241,34 @@ export default function DMPage() {
     const msgContent = input.trim();
     setInput("");
 
-    // Optimistic UI
-    const optimisticId = "temp-" + Date.now();
-    const optimisticMsg: Message = {
-      id: optimisticId,
-      content: msgContent,
-      isMine: true,
-      createdAt: new Date().toISOString(),
-    };
-    setMessages((prev) => [...prev, optimisticMsg]);
+    // Optimistic
+    const tempId = "temp-" + Date.now();
+    setMessages((prev) => [...prev, { id: tempId, content: msgContent, isMine: true, createdAt: new Date().toISOString() }]);
     setTimeout(scrollToBottom, 50);
 
     try {
       const token = await getToken();
       const headers: Record<string, string> = { "Content-Type": "application/json" };
       if (token) headers["Authorization"] = `Bearer ${token}`;
-      const res = await fetch(`/api/dm/${selectedConvId}`, {
-        method: "POST",
-        headers,
-        body: JSON.stringify({ content: msgContent }),
-      });
+      const res = await fetch(`/api/dm/${selectedConvId}`, { method: "POST", headers, body: JSON.stringify({ content: msgContent }) });
       const data = await res.json();
-      if (data.error) {
-        // Server returned error
-        setMessages((prev) => prev.filter((m) => m.id !== optimisticId));
+
+      if (!res.ok || data.error) {
+        setMessages((prev) => prev.filter((m) => m.id !== tempId));
         setInput(msgContent);
-        setSendError(data.error);
+        setSendError(data.error || `Error ${res.status}`);
       } else if (data.message) {
-        // Replace optimistic with real message
-        setMessages((prev) => prev.map((m) => (m.id === optimisticId ? data.message : m)));
+        setMessages((prev) => prev.map((m) => m.id === tempId ? data.message : m));
         fetchConversations();
       }
-    } catch {
-      setMessages((prev) => prev.filter((m) => m.id !== optimisticId));
+    } catch (e: any) {
+      setMessages((prev) => prev.filter((m) => m.id !== tempId));
       setInput(msgContent);
-      setSendError("Network error");
+      setSendError("Network error — try again");
     }
     setSending(false);
   };
 
-  // Loading state
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-[#0f0f14]">
@@ -294,19 +282,15 @@ export default function DMPage() {
       <div className="flex flex-col items-center justify-center min-h-screen bg-[#0f0f14] text-white px-4">
         <img src="/icons/icon-192.png" alt="CholoShikhi" className="w-12 h-12 rounded-xl mb-4" />
         <p className="text-gray-400 text-sm mb-4 text-center">Login to message other students anonymously</p>
-        <button onClick={signInWithGoogle} className="px-6 py-2.5 text-[13px] font-medium bg-violet-600 rounded-full hover:bg-violet-500 transition-colors">
-          Login with Google
-        </button>
+        <button onClick={signInWithGoogle} className="px-6 py-2.5 text-[13px] font-medium bg-violet-600 rounded-full hover:bg-violet-500 transition-colors">Login with Google</button>
       </div>
     );
   }
 
   return (
     <div className="flex h-screen bg-[#0f0f14] overflow-hidden">
-
-      {/* ===== LEFT: Conversation List ===== */}
+      {/* LEFT: Conversations */}
       <div className={`${selectedConvId ? "hidden md:flex" : "flex"} flex-col w-full md:w-80 border-r border-white/[0.06]`}>
-        {/* Header */}
         <div className="flex items-center justify-between px-4 h-12 border-b border-white/[0.06] shrink-0">
           <div className="flex items-center gap-2">
             <button onClick={() => router.push("/chat")} className="text-gray-500 hover:text-white transition-colors">
@@ -319,34 +303,29 @@ export default function DMPage() {
           </button>
         </div>
 
-        {/* Search Modal */}
+        {/* Search */}
         {showSearch && (
           <div className="absolute inset-0 z-50 bg-[#0f0f14] flex flex-col md:w-80 md:relative">
             <div className="flex items-center gap-2 px-4 h-12 border-b border-white/[0.06] shrink-0">
               <button onClick={() => { setShowSearch(false); setSearchQuery(""); setSearchResults([]); }} className="text-gray-400 hover:text-white">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
               </button>
-              <input type="text" value={searchQuery} onChange={(e) => handleSearch(e.target.value)} placeholder="Enter CSH_XXXXXX username..." autoFocus className="flex-1 bg-transparent text-white text-sm placeholder-gray-500 focus:outline-none font-mono" />
+              <input type="text" value={searchQuery} onChange={(e) => handleSearch(e.target.value)} placeholder="CSH_XXXXXX username..." autoFocus className="flex-1 bg-transparent text-white text-sm placeholder-gray-500 focus:outline-none font-mono" />
             </div>
             <div className="flex-1 overflow-y-auto">
               {searchLoading && <div className="p-4 text-center text-gray-500 text-xs">Searching...</div>}
-              {!searchLoading && searchResults.length === 0 && searchQuery.length >= 3 && (
-                <div className="p-4 text-center text-gray-500 text-xs">No students found</div>
-              )}
+              {!searchLoading && searchResults.length === 0 && searchQuery.length >= 3 && <div className="p-4 text-center text-gray-500 text-xs">No students found</div>}
               {searchResults.map((r) => (
                 <button key={r.userId} onClick={() => startConversation(r.username)} className="w-full flex items-center gap-3 px-4 py-3 hover:bg-white/[0.04] transition-colors border-b border-white/[0.04]">
-                  <div className={`w-9 h-9 rounded-full bg-gradient-to-br ${usernameColor(r.username)} flex items-center justify-center text-white text-[10px] font-bold`}>
-                    {r.username.slice(-2)}
-                  </div>
+                  <div className={`w-9 h-9 rounded-full bg-gradient-to-br ${usernameColor(r.username)} flex items-center justify-center text-white text-[10px] font-bold`}>{r.username.slice(-2)}</div>
                   <div className="text-left">
                     <p className="text-xs font-mono text-white">{r.username}</p>
-                    <p className="text-[10px] text-gray-500">Tap to start messaging</p>
+                    <p className="text-[10px] text-gray-500">Tap to message</p>
                   </div>
                 </button>
               ))}
               {searchQuery.length < 3 && !searchLoading && (
                 <div className="p-6 text-center text-gray-600 text-xs">
-                  <svg className="w-8 h-8 mx-auto mb-2 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                   Type a CSH_XXXXXX username to find a student
                 </div>
               )}
@@ -354,22 +333,19 @@ export default function DMPage() {
           </div>
         )}
 
-        {/* Conversation List */}
+        {/* Conversation list */}
         {!showSearch && (
           <div className="flex-1 overflow-y-auto">
             {loadingConvs && conversations.length === 0 && <div className="p-4 text-center text-gray-500 text-xs">Loading...</div>}
             {!loadingConvs && conversations.length === 0 && (
               <div className="flex flex-col items-center justify-center h-full px-4 text-center">
-                <svg className="w-10 h-10 text-gray-700 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
                 <p className="text-gray-500 text-xs mb-1">No conversations yet</p>
-                <p className="text-gray-600 text-[10px]">Tap + to find a student by username</p>
+                <p className="text-gray-600 text-[10px]">Tap + to find a student</p>
               </div>
             )}
             {conversations.map((conv) => (
               <button key={conv.id} onClick={() => setSelectedConvId(conv.id)} className={`w-full flex items-center gap-3 px-4 py-3 hover:bg-white/[0.04] transition-colors border-b border-white/[0.04] ${selectedConvId === conv.id ? "bg-white/[0.06]" : ""}`}>
-                <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${conv.otherUser ? usernameColor(conv.otherUser.username) : "from-gray-600 to-gray-700"} flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0`}>
-                  {conv.otherUser?.username.slice(-2) || "??"}
-                </div>
+                <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${conv.otherUser ? usernameColor(conv.otherUser.username) : "from-gray-600 to-gray-700"} flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0`}>{conv.otherUser?.username.slice(-2) || "??"}</div>
                 <div className="flex-1 min-w-0 text-left">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-mono text-white truncate">{conv.otherUser?.username || "Unknown"}</span>
@@ -386,20 +362,17 @@ export default function DMPage() {
         )}
       </div>
 
-      {/* ===== RIGHT: Message Thread ===== */}
+      {/* RIGHT: Messages */}
       <div className={`${selectedConvId ? "flex" : "hidden md:flex"} flex-col flex-1 min-w-0`}>
         {selectedConvId ? (
           <>
-            {/* Chat Header */}
             <div className="flex items-center gap-3 px-4 h-12 border-b border-white/[0.06] shrink-0">
               <button onClick={() => setSelectedConvId(null)} className="md:hidden text-gray-400 hover:text-white">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
               </button>
               {otherUser && (
                 <div className="flex items-center gap-2.5">
-                  <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${usernameColor(otherUser.username)} flex items-center justify-center text-white text-[9px] font-bold`}>
-                    {otherUser.username.slice(-2)}
-                  </div>
+                  <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${usernameColor(otherUser.username)} flex items-center justify-center text-white text-[9px] font-bold`}>{otherUser.username.slice(-2)}</div>
                   <div>
                     <p className="text-xs font-mono text-white">{otherUser.username}</p>
                     <p className="text-[9px] text-gray-500">Anonymous</p>
@@ -408,14 +381,10 @@ export default function DMPage() {
               )}
             </div>
 
-            {/* Messages */}
             <div className="flex-1 overflow-y-auto px-4 py-3 space-y-2">
-              {loadingMessages && messages.length === 0 && <div className="text-center py-8 text-gray-500 text-xs">Loading messages...</div>}
+              {loadingMessages && messages.length === 0 && <div className="text-center py-8 text-gray-500 text-xs">Loading...</div>}
               {!loadingMessages && messages.length === 0 && (
-                <div className="text-center py-8">
-                  <p className="text-gray-600 text-xs">No messages yet</p>
-                  <p className="text-gray-700 text-[10px] mt-1">Send the first message!</p>
-                </div>
+                <div className="text-center py-8"><p className="text-gray-600 text-xs">No messages yet</p><p className="text-gray-700 text-[10px] mt-1">Send the first message!</p></div>
               )}
               {messages.map((msg) => (
                 <div key={msg.id} className={`flex ${msg.isMine ? "justify-end" : "justify-start"}`}>
@@ -428,18 +397,16 @@ export default function DMPage() {
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Send error */}
             {sendError && (
-              <div className="mx-3 mb-1 px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-[10px] text-red-400">
-                {sendError}
-                <button onClick={() => setSendError(null)} className="ml-2 text-red-500 hover:text-red-400">✕</button>
+              <div className="mx-3 mb-1 px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-[10px] text-red-400 flex items-center justify-between">
+                <span>{sendError}</span>
+                <button onClick={() => setSendError(null)} className="text-red-500 hover:text-red-400 ml-2">✕</button>
               </div>
             )}
 
-            {/* Input */}
             <div className="px-3 pb-3 shrink-0">
               <div className="flex items-center bg-[#1a1a24] border border-white/[0.08] rounded-2xl px-3 py-2 focus-within:border-violet-500/30 transition-all">
-                <input ref={inputRef} type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSend()} placeholder="Type a message..." disabled={sending} maxLength={2000} className="flex-1 bg-transparent text-white text-sm placeholder-gray-500 focus:outline-none disabled:opacity-40" />
+                <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSend()} placeholder="Type a message..." disabled={sending} maxLength={2000} className="flex-1 bg-transparent text-white text-sm placeholder-gray-500 focus:outline-none disabled:opacity-40" />
                 <button onClick={handleSend} disabled={!input.trim() || sending} className="ml-2 w-8 h-8 rounded-xl bg-violet-600 flex items-center justify-center text-white hover:bg-violet-500 disabled:opacity-20 disabled:cursor-not-allowed transition-all flex-shrink-0">
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
                 </button>
@@ -449,11 +416,8 @@ export default function DMPage() {
           </>
         ) : (
           <div className="flex-1 flex flex-col items-center justify-center text-center px-4">
-            <div className="w-16 h-16 rounded-2xl bg-white/[0.04] flex items-center justify-center mb-4">
-              <svg className="w-8 h-8 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
-            </div>
             <p className="text-gray-400 text-sm mb-1">Messages</p>
-            <p className="text-gray-600 text-[11px]">Find a student by their CSH_XXXXXX username to start chatting</p>
+            <p className="text-gray-600 text-[11px]">Find a student by CSH_XXXXXX username</p>
           </div>
         )}
       </div>
