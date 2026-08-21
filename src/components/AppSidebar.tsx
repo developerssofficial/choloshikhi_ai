@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useAuth } from "@/lib/auth";
 import { useRouter } from "next/navigation";
 import LoginModal from "@/components/LoginModal";
@@ -48,6 +48,8 @@ export default function AppSidebar({
   const [showHistory, setShowHistory] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showAccount, setShowAccount] = useState(false);
+  const accountRef = useRef<HTMLDivElement>(null);
 
   const toggleHistory = () => {
     const next = !showHistory;
@@ -63,6 +65,16 @@ export default function AppSidebar({
     window.addEventListener("resize", handler);
     return () => window.removeEventListener("resize", handler);
   }, []);
+
+  // Close account dropdown on outside click
+  useEffect(() => {
+    if (!showAccount) return;
+    const handler = (e: MouseEvent) => {
+      if (accountRef.current && !accountRef.current.contains(e.target as Node)) setShowAccount(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [showAccount]);
 
   const deleteSession = async (sid: string, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -130,15 +142,33 @@ export default function AppSidebar({
       <div className="flex flex-col items-center gap-1 pb-3 pt-2">
         {/* User */}
         {user ? (
-          <div className="relative group">
+          <div className="relative" ref={accountRef}>
             <button
-              onClick={signOut}
+              onClick={() => setShowAccount((v) => !v)}
               className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center text-white text-[11px] font-bold hover:shadow-lg hover:shadow-violet-500/25 transition-all"
-              title="লগআউট"
+              title="Account"
             >
               {user.name?.[0] || user.email?.[0] || "U"}
             </button>
-            <span className="sidebar-tooltip">লগআউট</span>
+            <span className="sidebar-tooltip">Account</span>
+
+            {showAccount && (
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 bg-[#1a1a24] border border-white/[0.08] rounded-xl shadow-2xl shadow-black/60 overflow-hidden z-50 text-left">
+                <div className="px-4 py-3 border-b border-white/[0.06]">
+                  <p className="text-xs font-medium text-white truncate">{user.name || "User"}</p>
+                  <p className="text-[10px] text-gray-500 truncate mt-0.5">{user.email}</p>
+                </div>
+                <button
+                  onClick={() => { signOut(); setShowAccount(false); }}
+                  className="w-full flex items-center gap-2.5 px-4 py-2.5 text-[11px] text-gray-400 hover:text-red-400 hover:bg-white/[0.04] transition-colors"
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                  </svg>
+                  <span>Logout</span>
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           <button

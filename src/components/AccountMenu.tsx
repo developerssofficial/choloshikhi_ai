@@ -54,8 +54,8 @@ export default function AccountMenu({ compact }: Props) {
   };
 
   useEffect(() => {
-    if (user && open) fetchSub();
-  }, [user, open]);
+    if (user) fetchSub();
+  }, [user]);
 
   // Redeem code
   const handleRedeem = async () => {
