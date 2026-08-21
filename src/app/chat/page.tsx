@@ -287,7 +287,6 @@ export default function ChatPage() {
       },
     ]);
     setSending(true);
-    if (mode === "normal" || mode === "taskplan") setSearching(true);
     setSearchComplete(null);
     if (searchCompleteRef.current) clearTimeout(searchCompleteRef.current);
 
@@ -638,21 +637,7 @@ export default function ChatPage() {
                 <div className="flex justify-start">
                   <img src="/icons/icon-192.png" alt="AI" className="w-6 h-6 rounded-md mr-2 mt-0.5 flex-shrink-0" />
                   <div className="px-3 py-2.5">
-                    {searching ? (
-                      <div className="flex items-center gap-2 text-[11px] text-gray-500">
-                        <div className="flex gap-0.5">
-                          <div className="w-1 h-1 bg-violet-400 rounded-full animate-bounce" />
-                          <div className="w-1 h-1 bg-violet-400 rounded-full animate-bounce [animation-delay:0.15s]" />
-                          <div className="w-1 h-1 bg-violet-400 rounded-full animate-bounce [animation-delay:0.3s]" />
-                        </div>
-                        <span>
-                          {mode === "taskplan" ? "Researching & analyzing..." :
-                           searchComplexity === "heavy" ? "Deep researching — cross-referencing sources..." :
-                           searchComplexity === "simple" ? "Quick lookup..." :
-                           "Searching the web..."}
-                        </span>
-                      </div>
-                    ) : mode === "taskplan" ? (
+                    {mode === "taskplan" ? (
                       <div className="flex items-center gap-2 text-[11px] text-sky-400/70">
                         <div className="flex gap-0.5">
                           <div className="w-1 h-1 bg-sky-400 rounded-full animate-bounce" />

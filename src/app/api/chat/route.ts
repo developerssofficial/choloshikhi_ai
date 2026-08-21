@@ -446,7 +446,56 @@ interface SearchClassification {
   complexity: "simple" | "standard" | "heavy";
 }
 
+// Fast keyword-based pre-filter: skip classifySearch for obvious non-search messages
+// Saves 3-5 seconds per non-search message
+function fastClassify(message: string): SearchClassification | null {
+  const lower = message.toLowerCase().trim();
+
+  // Very short messages — never need search
+  if (lower.length < 8) return { needsSearch: false, complexity: "simple" };
+
+  // Greetings, thanks, small talk
+  const noSearchPatterns = [
+    "hi", "hello", "hey", "thanks", "thank you", "ok", "okay", "bye",
+    "assalamu", "namaskar", "shukriya", "dhonnobad",
+    "ki obostha", "kemon acho", "amar naam", "tumi ki",
+    /^\/[a-z]+/,  // slash commands
+  ];
+  if (noSearchPatterns.some(p => typeof p === "string" ? lower === p || lower.startsWith(p) : p.test(lower))) {
+    return { needsSearch: false, complexity: "simple" };
+  };
+
+  // Math, code, explanation patterns
+  const noSearchKeywords = [
+    "calculate", "solve", "equation", "formula",
+    "code", "program", "function", "python", "javascript",
+    "explain", "বোঝাও", "ব্যাখ্যা", "কী হয়",
+    "write", "লিখো", "translate", "অনুবাদ",
+  ];
+  if (noSearchKeywords.some(k => lower.includes(k))) {
+    return { needsSearch: false, complexity: "simple" };
+  }
+
+  // Clear search signals — skip classify, go direct
+  const searchSignals = [
+    "today", "current", "recent", "latest", "now",
+    "আজ", "এইমাত্র", "সাম্প্রতিক", "এখন", "দাম", "price",
+    "weather", "আবহাওয়া", "রেট", "rate",
+    "news", "খবর",
+  ];
+  if (searchSignals.some(s => lower.includes(s))) {
+    return { needsSearch: true, complexity: "standard" };
+  }
+
+  // Needs actual AI classification
+  return null;
+}
+
 async function classifySearch(message: string): Promise<SearchClassification> {
+  // Fast pre-filter first
+  const fast = fastClassify(message);
+  if (fast !== null) return fast;
+
   const apiKey = getNextGeminiKey();
   if (!apiKey) return { needsSearch: false, complexity: "simple" };
 
@@ -469,7 +518,7 @@ async function classifySearch(message: string): Promise<SearchClassification> {
         contents: [{ role: "user", parts: [{ text: message }] }],
         generationConfig: { temperature: 0, maxOutputTokens: 50 },
       }),
-      signal: AbortSignal.timeout(5000),
+      signal: AbortSignal.timeout(3000),
     });
 
     if (!res.ok) return { needsSearch: false, complexity: "simple" };
