@@ -307,9 +307,80 @@ interface SearchResult {
   content: string;
 }
 
-async function tavilySearch(query: string): Promise<SearchResult[]> {
+// Quality indicators: government, academic, news, official domains
+const HIGH_QUALITY_DOMAINS = [
+  ".gov", ".edu", ".org", "wikipedia.org", "bbc.com", "reuters.com",
+  "apnews.com", "who.int", "un.org", "worldbank.org", "imf.org",
+  "stackoverflow.com", "github.com", "mdn.mozilla.org", "w3.org",
+];
+
+function isHighQualityUrl(url: string): boolean {
+  const lower = url.toLowerCase();
+  return HIGH_QUALITY_DOMAINS.some(d => lower.includes(d));
+}
+
+function filterResults(results: SearchResult[]): SearchResult[] {
+  // Remove duplicates by URL domain+path
+  const seen = new Set<string>();
+  const unique = results.filter(r => {
+    try {
+      const key = new URL(r.url).pathname.replace(/\/+$/, "");
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    } catch {
+      return true;
+    }
+  });
+
+  // Remove results with very short content (< 50 chars = likely junk)
+  const substantial = unique.filter(r => r.content.length >= 50);
+
+  // Sort: high-quality sources first, then by content length
+  return substantial.sort((a, b) => {
+    const aQuality = isHighQualityUrl(a.url) ? 1 : 0;
+    const bQuality = isHighQualityUrl(b.url) ? 1 : 0;
+    if (bQuality !== aQuality) return bQuality - aQuality;
+    return b.content.length - a.content.length;
+  });
+}
+
+interface SearchConfig {
+  query: string;
+  maxResults: number;
+  searchDepth: "basic" | "advanced";
+}
+
+// Build multiple targeted queries for complex topics
+function buildSearchQueries(message: string, complexity: "simple" | "standard" | "heavy"): SearchConfig {
+  if (complexity === "heavy") {
+    // Heavy: multi-angle search with advanced depth
+    return {
+      query: message,
+      maxResults: 12,
+      searchDepth: "advanced",
+    };
+  }
+  if (complexity === "standard") {
+    return {
+      query: message,
+      maxResults: 8,
+      searchDepth: "basic",
+    };
+  }
+  // Simple: quick search, few results
+  return {
+    query: message,
+    maxResults: 5,
+    searchDepth: "basic",
+  };
+}
+
+async function tavilySearch(query: string, complexity: "simple" | "standard" | "heavy" = "standard"): Promise<SearchResult[]> {
   const apiKey = process.env.TAVILY_API_KEY;
   if (!apiKey) return [];
+
+  const config = buildSearchQueries(query, complexity);
 
   try {
     const res = await fetch(TAVILY_URL, {
@@ -317,58 +388,138 @@ async function tavilySearch(query: string): Promise<SearchResult[]> {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         api_key: apiKey,
-        query,
-        max_results: 5,
-        search_depth: "basic",
+        query: config.query,
+        max_results: config.maxResults,
+        search_depth: config.searchDepth,
       }),
-      signal: AbortSignal.timeout(10000),
+      signal: AbortSignal.timeout(config.searchDepth === "advanced" ? 15000 : 10000),
     });
 
     if (!res.ok) return [];
     const data = await res.json();
-    return (data.results || []).slice(0, 5).map((r: any) => ({
+    const raw = (data.results || []).map((r: any) => ({
       title: r.title || "",
       url: r.url || "",
       content: r.content || "",
     }));
+
+    // Filter and sort by quality
+    const filtered = filterResults(raw);
+
+    // For heavy queries: also run a second angle query if first results are thin
+    if (complexity === "heavy" && filtered.length < 5) {
+      try {
+        const secondQuery = `${query} detailed analysis`;
+        const res2 = await fetch(TAVILY_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            api_key: apiKey,
+            query: secondQuery,
+            max_results: 8,
+            search_depth: "advanced",
+          }),
+          signal: AbortSignal.timeout(15000),
+        });
+        if (res2.ok) {
+          const data2 = await res2.json();
+          const raw2 = (data2.results || []).map((r: any) => ({
+            title: r.title || "",
+            url: r.url || "",
+            content: r.content || "",
+          }));
+          // Merge, deduplicate, re-filter
+          const merged = filterResults([...filtered, ...raw2]);
+          return merged.slice(0, 15);
+        }
+      } catch {}
+    }
+
+    return filtered.slice(0, config.maxResults);
   } catch {
     return [];
   }
 }
 
-async function needsWebSearch(message: string): Promise<boolean> {
+interface SearchClassification {
+  needsSearch: boolean;
+  complexity: "simple" | "standard" | "heavy";
+}
+
+async function classifySearch(message: string): Promise<SearchClassification> {
   const apiKey = getNextGeminiKey();
-  if (!apiKey) return false;
+  if (!apiKey) return { needsSearch: false, complexity: "simple" };
 
   try {
     const res = await fetch(`${GEMINI_URL}?key=${apiKey}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        systemInstruction: { parts: [{ text: "You classify user messages. Reply with ONLY 'yes' or 'no'. Does this message need current/real-time web information (news, weather, prices, recent events, current dates)? General knowledge questions, math, explanations = no. Current events, prices, weather, recent news = yes." }] },
+        systemInstruction: { parts: [{ text:
+          "Classify this user message for web search needs.\n" +
+          "Reply with ONLY a JSON: {\"needsSearch\": true/false, \"complexity\": \"simple\"/\"standard\"/\"heavy\"}\n\n" +
+          "Rules:\n" +
+          "- needsSearch = false: General knowledge, math, explanations, coding help, creative writing, personal questions\n" +
+          "- needsSearch = true, complexity = simple: Quick factual lookup (weather, time, simple price, single fact)\n" +
+          "- needsSearch = true, complexity = standard: Current events, news, product comparison, recent developments\n" +
+          "- needsSearch = true, complexity = heavy: Deep research needed — market analysis, detailed comparison, multi-faceted topics, legal/regulatory info, comprehensive guides\n\n" +
+          "Consider: Does this need REAL-TIME data? Is it multi-faceted? Would a single source be enough or do we need cross-referencing?\n" +
+          "Return ONLY the JSON object."
+        }] },
         contents: [{ role: "user", parts: [{ text: message }] }],
-        generationConfig: { temperature: 0, maxOutputTokens: 5 },
+        generationConfig: { temperature: 0, maxOutputTokens: 50 },
       }),
       signal: AbortSignal.timeout(5000),
     });
 
-    if (!res.ok) return false;
+    if (!res.ok) return { needsSearch: false, complexity: "simple" };
     const data = await res.json();
-    const answer = (data?.candidates?.[0]?.content?.parts?.[0]?.text || "").toLowerCase().trim();
-    return answer.includes("yes");
+    const text = (data?.candidates?.[0]?.content?.parts?.[0]?.text || "").trim();
+
+    // Parse JSON
+    const jsonMatch = text.match(/\{[\s\S]*\}/);
+    if (jsonMatch) {
+      const parsed = JSON.parse(jsonMatch[0]);
+      return {
+        needsSearch: parsed.needsSearch === true,
+        complexity: ["simple", "standard", "heavy"].includes(parsed.complexity) ? parsed.complexity : "standard",
+      };
+    }
+
+    // Fallback: simple yes/no
+    return { needsSearch: text.includes("true") || text.includes("yes"), complexity: "standard" };
   } catch {
-    return false;
+    return { needsSearch: false, complexity: "simple" };
   }
 }
 
-function buildSearchPrompt(message: string, results: SearchResult[]): string {
+function buildSearchPrompt(message: string, results: SearchResult[], complexity: "simple" | "standard" | "heavy"): string {
   const context = results
     .map((r, i) => `[${i + 1}] ${r.title}\n${r.url}\n${r.content}`)
     .join("\n\n");
 
+  const sourceCount = results.length;
+  const highQualityCount = results.filter(r => isHighQualityUrl(r.url)).length;
+
+  let instructions = "";
+  if (complexity === "heavy") {
+    instructions =
+      `This is a RESEARCH query requiring comprehensive analysis. You have ${sourceCount} sources (${highQualityCount} high-quality).\n` +
+      `Cross-reference multiple sources. Cite sources using [1], [2] etc.\n` +
+      `If sources conflict, mention the different viewpoints. Be thorough.\n` +
+      `Present facts from sources — if information is insufficient, say so honestly rather than guessing.`;
+  } else if (complexity === "standard") {
+    instructions =
+      `Use these ${sourceCount} sources to answer accurately. Cite sources using [1], [2] etc.\n` +
+      `Prioritize recent and authoritative information. Respond in the user's language.`;
+  } else {
+    instructions =
+      `Use these ${sourceCount} sources for a quick, direct answer. Cite using [1].\n` +
+      `Keep it brief and to the point.`;
+  }
+
   return (
-    `Use the following web search results to answer the user's question. ` +
-    `Be accurate, cite sources using [1], [2] etc., and respond in the user's language.\n\n` +
+    `${instructions}\n\n` +
     `SEARCH RESULTS:\n${context}\n\n` +
     `USER QUESTION: ${message}`
   );
@@ -930,11 +1081,13 @@ export async function POST(req: NextRequest) {
     /* ===== WEB SEARCH (Normal Mode only) ===== */
     let searchResults: SearchResult[] = [];
     let searched = false;
+    let searchComplexity: "simple" | "standard" | "heavy" = "standard";
     if (!isEducation && !image) {
       try {
-        const shouldSearch = await needsWebSearch(message);
-        if (shouldSearch) {
-          searchResults = await tavilySearch(message);
+        const classification = await classifySearch(message);
+        if (classification.needsSearch) {
+          searchComplexity = classification.complexity;
+          searchResults = await tavilySearch(message, searchComplexity);
           searched = searchResults.length > 0;
         }
       } catch {
@@ -985,7 +1138,7 @@ export async function POST(req: NextRequest) {
       }
     } else {
       const hasGemini = !!getNextGeminiKey();
-      const textMessage = searched ? buildSearchPrompt(message, searchResults) : message;
+      const textMessage = searched ? buildSearchPrompt(message, searchResults, searchComplexity) : message;
 
       if (hasGemini) {
         try {
@@ -1190,6 +1343,7 @@ export async function POST(req: NextRequest) {
       ...(taskResearchSummary ? { taskResearchSummary } : {}),
       ...(searched && searchResults.length > 0 ? {
         sources: searchResults.map((r) => ({ title: r.title, url: r.url })),
+        searchComplexity,
       } : {}),
     });
   } catch (error: any) {

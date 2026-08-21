@@ -136,6 +136,7 @@ export default function ChatPage() {
   const [mode, setMode] = useState<"normal" | "education" | "taskplan">("normal");
   const [searching, setSearching] = useState(false);
   const [searchComplete, setSearchComplete] = useState<number | null>(null);
+  const [searchComplexity, setSearchComplexity] = useState<"simple" | "standard" | "heavy">("standard");
   const searchCompleteRef = useRef<NodeJS.Timeout | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
@@ -340,6 +341,7 @@ export default function ChatPage() {
       if (data.sources && data.sources.length > 0) {
         setSearching(false);
         setSearchComplete(data.sources.length);
+        if (data.searchComplexity) setSearchComplexity(data.searchComplexity);
         searchCompleteRef.current = setTimeout(() => setSearchComplete(null), 3000);
       } else {
         setSearching(false);
@@ -643,7 +645,12 @@ export default function ChatPage() {
                           <div className="w-1 h-1 bg-violet-400 rounded-full animate-bounce [animation-delay:0.15s]" />
                           <div className="w-1 h-1 bg-violet-400 rounded-full animate-bounce [animation-delay:0.3s]" />
                         </div>
-                        <span>{mode === "taskplan" ? "Researching & analyzing..." : "Searching the web..."}</span>
+                        <span>
+                          {mode === "taskplan" ? "Researching & analyzing..." :
+                           searchComplexity === "heavy" ? "Deep researching — cross-referencing sources..." :
+                           searchComplexity === "simple" ? "Quick lookup..." :
+                           "Searching the web..."}
+                        </span>
                       </div>
                     ) : mode === "taskplan" ? (
                       <div className="flex items-center gap-2 text-[11px] text-sky-400/70">
