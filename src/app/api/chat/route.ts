@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 import { validateTaskGraph } from "@/lib/taskGraphValidator";
 import { verifyAuthUser } from "@/lib/supabase-auth";
+import { canSendMessage, incrementTeacherUsage } from "@/lib/subscription";
 
 /* ===== CONSTANTS ===== */
 const GEMINI_URL =
@@ -1120,6 +1121,17 @@ export async function POST(req: NextRequest) {
       });
     }
 
+    /* ===== SUBSCRIPTION QUOTA CHECK ===== */
+    if (userId && mode === "education") {
+      const quota = await canSendMessage(userId, mode);
+      if (!quota.allowed) {
+        return NextResponse.json({
+          error: quota.reason || "Shikkhok mode limit reached. Upgrade or redeem a code.",
+          quotaExceeded: true,
+        }, { status: 429 });
+      }
+    }
+
     /* ===== MEMORY (ALL DB QUERIES IN PARALLEL) ===== */
     let memory: Array<{ role: string; content: string }> = [];
     let userKnowledge = "";
@@ -1430,6 +1442,11 @@ export async function POST(req: NextRequest) {
         message: message.trim(),
         response,
       });
+
+      // Increment teacher mode usage (non-blocking)
+      if (isEducation) {
+        incrementTeacherUsage(userId).catch(() => {});
+      }
 
       // Extract and store user memory (best-effort, non-blocking)
       if (!isTaskPlan && response && message.trim().length > 10) {
