@@ -12,17 +12,20 @@ export async function GET(
     const authUser = await verifyAuthUser(req);
     if (!authUser) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-    // Verify user is a participant
-    const { data: participation } = await supabase
+    // Verify participant
+    const { data: participation, error: partErr } = await supabase
       .from("dm_participants")
       .select("conversation_id")
       .eq("conversation_id", id)
       .eq("user_id", authUser.id)
       .single();
 
-    if (!participation) return NextResponse.json({ error: "Access denied" }, { status: 403 });
+    if (partErr || !participation) {
+      console.error("DM GET: participant check failed", { userId: authUser.id, convId: id, err: partErr });
+      return NextResponse.json({ error: "Access denied" }, { status: 403 });
+    }
 
-    // Get other user info
+    // Get other user's anonymous profile
     const { data: otherPart } = await supabase
       .from("dm_participants")
       .select("user_id")
@@ -40,24 +43,27 @@ export async function GET(
       if (prof) otherUser = { userId: otherPart.user_id, username: prof.username };
     }
 
-    // Get own username for "me" label
+    // Get own username
     const { data: myProf } = await supabase
       .from("student_profiles")
       .select("username")
       .eq("user_id", authUser.id)
       .single();
 
-    // Fetch messages (last 100)
-    const { data: messages, error } = await supabase
+    // Fetch messages
+    const { data: messages, error: msgErr } = await supabase
       .from("dm_messages")
       .select("id, content, sender_id, created_at, is_read")
       .eq("conversation_id", id)
       .order("created_at", { ascending: true })
       .limit(100);
 
-    if (error) throw error;
+    if (msgErr) {
+      console.error("DM GET: message fetch error", { convId: id, err: msgErr });
+      throw msgErr;
+    }
 
-    // Mark unread messages as read
+    // Mark unread as read
     const unreadIds = (messages || [])
       .filter(m => m.sender_id !== authUser.id && !m.is_read)
       .map(m => m.id);
@@ -80,8 +86,8 @@ export async function GET(
       })),
     });
   } catch (error: any) {
-    console.error("DM messages error:", error);
-    return NextResponse.json({ error: "Failed" }, { status: 500 });
+    console.error("DM GET error:", error?.message || error);
+    return NextResponse.json({ error: "Failed to load messages" }, { status: 500 });
   }
 }
 
@@ -96,20 +102,23 @@ export async function POST(
     if (!authUser) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
     // Verify participant
-    const { data: participation } = await supabase
+    const { data: participation, error: partErr } = await supabase
       .from("dm_participants")
       .select("conversation_id")
       .eq("conversation_id", id)
       .eq("user_id", authUser.id)
       .single();
 
-    if (!participation) return NextResponse.json({ error: "Access denied" }, { status: 403 });
+    if (partErr || !participation) {
+      console.error("DM POST: participant check failed", { userId: authUser.id, convId: id, err: partErr });
+      return NextResponse.json({ error: "Access denied" }, { status: 403 });
+    }
 
     const { content } = await req.json();
     if (!content?.trim()) return NextResponse.json({ error: "Empty message" }, { status: 400 });
 
     // Insert message
-    const { data: msg, error } = await supabase
+    const { data: msg, error: insertErr } = await supabase
       .from("dm_messages")
       .insert({
         conversation_id: id,
@@ -119,7 +128,14 @@ export async function POST(
       .select("id, content, created_at")
       .single();
 
-    if (error) throw error;
+    if (insertErr) {
+      console.error("DM POST: insert failed", {
+        convId: id,
+        senderId: authUser.id,
+        err: insertErr,
+      });
+      return NextResponse.json({ error: `Send failed: ${insertErr.message}` }, { status: 500 });
+    }
 
     // Update conversation timestamp
     await supabase
@@ -136,7 +152,7 @@ export async function POST(
       },
     });
   } catch (error: any) {
-    console.error("DM send error:", error);
-    return NextResponse.json({ error: "Failed" }, { status: 500 });
+    console.error("DM POST error:", error?.message || error);
+    return NextResponse.json({ error: "Failed to send" }, { status: 500 });
   }
 }

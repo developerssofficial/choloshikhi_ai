@@ -3,21 +3,28 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useAuth } from "@/lib/auth";
 import { useRouter } from "next/navigation";
+import { createClient } from "@supabase/supabase-js";
 
 /* ===================================================================
    DM Page — Messenger-style anonymous messaging
+   Real-time via Supabase Realtime subscriptions
    Students only see each other's CSH_XXXXXX username
    =================================================================== */
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
+
+function getSupabaseClient(token: string) {
+  return createClient(supabaseUrl, supabaseAnonKey, {
+    global: { headers: { Authorization: `Bearer ${token}` } },
+  });
+}
 
 interface Conversation {
   id: string;
   updatedAt: string;
   otherUser: { userId: string; username: string } | null;
-  lastMessage: {
-    content: string;
-    isMine: boolean;
-    createdAt: string;
-  } | null;
+  lastMessage: { content: string; isMine: boolean; createdAt: string } | null;
   unreadCount: number;
 }
 
@@ -35,30 +42,21 @@ function timeAgo(dateStr: string): string {
   if (mins < 60) return `${mins}m`;
   const hrs = Math.floor(mins / 60);
   if (hrs < 24) return `${hrs}h`;
-  const days = Math.floor(hrs / 24);
-  return `${days}d`;
+  return `${Math.floor(hrs / 24)}d`;
 }
 
 function shortTime(dateStr: string): string {
-  const d = new Date(dateStr);
-  return d.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: true });
+  return new Date(dateStr).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: true });
 }
 
-// Generate a consistent color from a username
 function usernameColor(username: string): string {
   let hash = 0;
-  for (let i = 0; i < username.length; i++) {
-    hash = username.charCodeAt(i) + ((hash << 5) - hash);
-  }
+  for (let i = 0; i < username.length; i++) hash = username.charCodeAt(i) + ((hash << 5) - hash);
   const colors = [
-    "from-violet-500 to-indigo-600",
-    "from-emerald-500 to-teal-600",
-    "from-sky-500 to-blue-600",
-    "from-amber-500 to-orange-600",
-    "from-rose-500 to-pink-600",
-    "from-cyan-500 to-sky-600",
-    "from-fuchsia-500 to-purple-600",
-    "from-lime-500 to-green-600",
+    "from-violet-500 to-indigo-600", "from-emerald-500 to-teal-600",
+    "from-sky-500 to-blue-600", "from-amber-500 to-orange-600",
+    "from-rose-500 to-pink-600", "from-cyan-500 to-sky-600",
+    "from-fuchsia-500 to-purple-600", "from-lime-500 to-green-600",
   ];
   return colors[Math.abs(hash) % colors.length];
 }
@@ -67,20 +65,18 @@ export default function DMPage() {
   const { user, loading, signInWithGoogle, getToken } = useAuth();
   const router = useRouter();
 
-  // Conversation list state
   const [conversations, setConversations] = useState<Conversation[]>([]);
   const [loadingConvs, setLoadingConvs] = useState(false);
   const [selectedConvId, setSelectedConvId] = useState<string | null>(null);
 
-  // Message thread state
   const [messages, setMessages] = useState<Message[]>([]);
   const [loadingMessages, setLoadingMessages] = useState(false);
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState<string | null>(null);
   const [otherUser, setOtherUser] = useState<{ userId: string; username: string } | null>(null);
   const [myUsername, setMyUsername] = useState<string | null>(null);
 
-  // Search state
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<{ userId: string; username: string }[]>([]);
@@ -89,9 +85,8 @@ export default function DMPage() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const searchDebounceRef = useRef<NodeJS.Timeout | null>(null);
-  const pollRef = useRef<NodeJS.Timeout | null>(null);
+  const myUserIdRef = useRef<string | null>(null);
 
-  // Scroll to bottom
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, []);
@@ -131,14 +126,66 @@ export default function DMPage() {
     setLoadingMessages(false);
   }, [user, getToken, scrollToBottom]);
 
-  // Poll for new messages every 5s when conversation is open
+  // Real-time subscription for messages
   useEffect(() => {
-    if (selectedConvId) {
-      fetchMessages(selectedConvId);
-      pollRef.current = setInterval(() => fetchMessages(selectedConvId), 5000);
-    }
-    return () => { if (pollRef.current) clearInterval(pollRef.current); };
-  }, [selectedConvId, fetchMessages]);
+    if (!selectedConvId || !user) return;
+
+    let sub: ReturnType<ReturnType<typeof getSupabaseClient>["channel"]> | null = null;
+    let mounted = true;
+
+    (async () => {
+      const token = await getToken();
+      if (!token || !mounted) return;
+
+      const client = getSupabaseClient(token);
+
+      // Fetch initial messages
+      await fetchMessages(selectedConvId);
+
+      // Subscribe to new messages in this conversation
+      sub = client
+        .channel(`dm:${selectedConvId}`)
+        .on(
+          "postgres_changes",
+          {
+            event: "INSERT",
+            schema: "public",
+            table: "dm_messages",
+            filter: `conversation_id=eq.${selectedConvId}`,
+          },
+          (payload) => {
+            if (!mounted) return;
+            const newMsg = payload.new as any;
+            const isMine = newMsg.sender_id === myUserIdRef.current;
+            setMessages((prev) => {
+              // Skip if already exists (from optimistic update)
+              if (prev.some((m) => m.id === newMsg.id)) return prev;
+              return [
+                ...prev,
+                {
+                  id: newMsg.id,
+                  content: newMsg.content,
+                  isMine,
+                  createdAt: newMsg.created_at,
+                },
+              ];
+            });
+            setTimeout(scrollToBottom, 50);
+          }
+        )
+        .subscribe();
+    })();
+
+    return () => {
+      mounted = false;
+      if (sub) sub.unsubscribe();
+    };
+  }, [selectedConvId, user, getToken, fetchMessages, scrollToBottom]);
+
+  // Store my userId for realtime filter
+  useEffect(() => {
+    if (user) myUserIdRef.current = user.id;
+  }, [user]);
 
   // Load conversations on mount
   useEffect(() => {
@@ -190,17 +237,19 @@ export default function DMPage() {
   const handleSend = async () => {
     if (!input.trim() || !selectedConvId || sending) return;
     setSending(true);
+    setSendError(null);
     const msgContent = input.trim();
     setInput("");
 
     // Optimistic UI
+    const optimisticId = "temp-" + Date.now();
     const optimisticMsg: Message = {
-      id: "temp-" + Date.now(),
+      id: optimisticId,
       content: msgContent,
       isMine: true,
       createdAt: new Date().toISOString(),
     };
-    setMessages(prev => [...prev, optimisticMsg]);
+    setMessages((prev) => [...prev, optimisticMsg]);
     setTimeout(scrollToBottom, 50);
 
     try {
@@ -213,14 +262,20 @@ export default function DMPage() {
         body: JSON.stringify({ content: msgContent }),
       });
       const data = await res.json();
-      if (data.message) {
-        // Replace optimistic with real
-        setMessages(prev => prev.map(m => m.id === optimisticMsg.id ? data.message : m));
+      if (data.error) {
+        // Server returned error
+        setMessages((prev) => prev.filter((m) => m.id !== optimisticId));
+        setInput(msgContent);
+        setSendError(data.error);
+      } else if (data.message) {
+        // Replace optimistic with real message
+        setMessages((prev) => prev.map((m) => (m.id === optimisticId ? data.message : m)));
+        fetchConversations();
       }
-      fetchConversations();
     } catch {
-      setMessages(prev => prev.filter(m => m.id !== optimisticMsg.id));
+      setMessages((prev) => prev.filter((m) => m.id !== optimisticId));
       setInput(msgContent);
+      setSendError("Network error");
     }
     setSending(false);
   };
@@ -234,23 +289,17 @@ export default function DMPage() {
     );
   }
 
-  // Not logged in
   if (!user) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-[#0f0f14] text-white px-4">
         <img src="/icons/icon-192.png" alt="CholoShikhi" className="w-12 h-12 rounded-xl mb-4" />
         <p className="text-gray-400 text-sm mb-4 text-center">Login to message other students anonymously</p>
-        <button
-          onClick={signInWithGoogle}
-          className="px-6 py-2.5 text-[13px] font-medium bg-violet-600 rounded-full hover:bg-violet-500 transition-colors"
-        >
+        <button onClick={signInWithGoogle} className="px-6 py-2.5 text-[13px] font-medium bg-violet-600 rounded-full hover:bg-violet-500 transition-colors">
           Login with Google
         </button>
       </div>
     );
   }
-
-  const selectedConv = conversations.find(c => c.id === selectedConvId);
 
   return (
     <div className="flex h-screen bg-[#0f0f14] overflow-hidden">
@@ -265,11 +314,7 @@ export default function DMPage() {
             </button>
             <span className="text-sm font-semibold text-white/90">Messages</span>
           </div>
-          <button
-            onClick={() => setShowSearch(true)}
-            className="w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 hover:text-violet-400 hover:bg-white/[0.06] transition-all"
-            title="New message"
-          >
+          <button onClick={() => setShowSearch(true)} className="w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 hover:text-violet-400 hover:bg-white/[0.06] transition-all" title="New message">
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
           </button>
         </div>
@@ -278,32 +323,18 @@ export default function DMPage() {
         {showSearch && (
           <div className="absolute inset-0 z-50 bg-[#0f0f14] flex flex-col md:w-80 md:relative">
             <div className="flex items-center gap-2 px-4 h-12 border-b border-white/[0.06] shrink-0">
-              <button onClick={() => { setShowSearch(false); setSearchQuery(""); setSearchResults([]); }}
-                className="text-gray-400 hover:text-white">
+              <button onClick={() => { setShowSearch(false); setSearchQuery(""); setSearchResults([]); }} className="text-gray-400 hover:text-white">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
               </button>
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => handleSearch(e.target.value)}
-                placeholder="Enter CSH_XXXXXX username..."
-                autoFocus
-                className="flex-1 bg-transparent text-white text-sm placeholder-gray-500 focus:outline-none font-mono"
-              />
+              <input type="text" value={searchQuery} onChange={(e) => handleSearch(e.target.value)} placeholder="Enter CSH_XXXXXX username..." autoFocus className="flex-1 bg-transparent text-white text-sm placeholder-gray-500 focus:outline-none font-mono" />
             </div>
             <div className="flex-1 overflow-y-auto">
-              {searchLoading && (
-                <div className="p-4 text-center text-gray-500 text-xs">Searching...</div>
-              )}
+              {searchLoading && <div className="p-4 text-center text-gray-500 text-xs">Searching...</div>}
               {!searchLoading && searchResults.length === 0 && searchQuery.length >= 3 && (
                 <div className="p-4 text-center text-gray-500 text-xs">No students found</div>
               )}
-              {searchResults.map(r => (
-                <button
-                  key={r.userId}
-                  onClick={() => startConversation(r.username)}
-                  className="w-full flex items-center gap-3 px-4 py-3 hover:bg-white/[0.04] transition-colors border-b border-white/[0.04]"
-                >
+              {searchResults.map((r) => (
+                <button key={r.userId} onClick={() => startConversation(r.username)} className="w-full flex items-center gap-3 px-4 py-3 hover:bg-white/[0.04] transition-colors border-b border-white/[0.04]">
                   <div className={`w-9 h-9 rounded-full bg-gradient-to-br ${usernameColor(r.username)} flex items-center justify-center text-white text-[10px] font-bold`}>
                     {r.username.slice(-2)}
                   </div>
@@ -326,9 +357,7 @@ export default function DMPage() {
         {/* Conversation List */}
         {!showSearch && (
           <div className="flex-1 overflow-y-auto">
-            {loadingConvs && conversations.length === 0 && (
-              <div className="p-4 text-center text-gray-500 text-xs">Loading...</div>
-            )}
+            {loadingConvs && conversations.length === 0 && <div className="p-4 text-center text-gray-500 text-xs">Loading...</div>}
             {!loadingConvs && conversations.length === 0 && (
               <div className="flex flex-col items-center justify-center h-full px-4 text-center">
                 <svg className="w-10 h-10 text-gray-700 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
@@ -336,35 +365,19 @@ export default function DMPage() {
                 <p className="text-gray-600 text-[10px]">Tap + to find a student by username</p>
               </div>
             )}
-            {conversations.map(conv => (
-              <button
-                key={conv.id}
-                onClick={() => setSelectedConvId(conv.id)}
-                className={`w-full flex items-center gap-3 px-4 py-3 hover:bg-white/[0.04] transition-colors border-b border-white/[0.04] ${
-                  selectedConvId === conv.id ? "bg-white/[0.06]" : ""
-                }`}
-              >
+            {conversations.map((conv) => (
+              <button key={conv.id} onClick={() => setSelectedConvId(conv.id)} className={`w-full flex items-center gap-3 px-4 py-3 hover:bg-white/[0.04] transition-colors border-b border-white/[0.04] ${selectedConvId === conv.id ? "bg-white/[0.06]" : ""}`}>
                 <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${conv.otherUser ? usernameColor(conv.otherUser.username) : "from-gray-600 to-gray-700"} flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0`}>
                   {conv.otherUser?.username.slice(-2) || "??"}
                 </div>
                 <div className="flex-1 min-w-0 text-left">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-mono text-white truncate">{conv.otherUser?.username || "Unknown"}</span>
-                    <span className="text-[10px] text-gray-600 flex-shrink-0 ml-2">
-                      {conv.lastMessage ? timeAgo(conv.lastMessage.createdAt) : ""}
-                    </span>
+                    <span className="text-[10px] text-gray-600 flex-shrink-0 ml-2">{conv.lastMessage ? timeAgo(conv.lastMessage.createdAt) : ""}</span>
                   </div>
                   <div className="flex items-center justify-between mt-0.5">
-                    <p className="text-[11px] text-gray-500 truncate">
-                      {conv.lastMessage
-                        ? `${conv.lastMessage.isMine ? "You: " : ""}${conv.lastMessage.content}`
-                        : "No messages yet"}
-                    </p>
-                    {conv.unreadCount > 0 && (
-                      <span className="ml-2 w-4 h-4 rounded-full bg-violet-600 text-white text-[8px] flex items-center justify-center flex-shrink-0">
-                        {conv.unreadCount > 9 ? "9+" : conv.unreadCount}
-                      </span>
-                    )}
+                    <p className="text-[11px] text-gray-500 truncate">{conv.lastMessage ? `${conv.lastMessage.isMine ? "You: " : ""}${conv.lastMessage.content}` : "No messages yet"}</p>
+                    {conv.unreadCount > 0 && <span className="ml-2 w-4 h-4 rounded-full bg-violet-600 text-white text-[8px] flex items-center justify-center flex-shrink-0">{conv.unreadCount > 9 ? "9+" : conv.unreadCount}</span>}
                   </div>
                 </div>
               </button>
@@ -397,9 +410,7 @@ export default function DMPage() {
 
             {/* Messages */}
             <div className="flex-1 overflow-y-auto px-4 py-3 space-y-2">
-              {loadingMessages && messages.length === 0 && (
-                <div className="text-center py-8 text-gray-500 text-xs">Loading messages...</div>
-              )}
+              {loadingMessages && messages.length === 0 && <div className="text-center py-8 text-gray-500 text-xs">Loading messages...</div>}
               {!loadingMessages && messages.length === 0 && (
                 <div className="text-center py-8">
                   <p className="text-gray-600 text-xs">No messages yet</p>
@@ -408,50 +419,35 @@ export default function DMPage() {
               )}
               {messages.map((msg) => (
                 <div key={msg.id} className={`flex ${msg.isMine ? "justify-end" : "justify-start"}`}>
-                  <div className={`max-w-[75%] px-3 py-2 rounded-2xl ${
-                    msg.isMine
-                      ? "bg-violet-600 text-white rounded-br-md"
-                      : "bg-white/[0.06] text-gray-300 rounded-bl-md"
-                  }`}>
+                  <div className={`max-w-[75%] px-3 py-2 rounded-2xl ${msg.isMine ? "bg-violet-600 text-white rounded-br-md" : "bg-white/[0.06] text-gray-300 rounded-bl-md"}`}>
                     <p className="text-[13px] leading-relaxed whitespace-pre-wrap">{msg.content}</p>
-                    <p className={`text-[9px] mt-0.5 ${msg.isMine ? "text-violet-300" : "text-gray-600"}`}>
-                      {shortTime(msg.createdAt)}
-                    </p>
+                    <p className={`text-[9px] mt-0.5 ${msg.isMine ? "text-violet-300" : "text-gray-600"}`}>{shortTime(msg.createdAt)}</p>
                   </div>
                 </div>
               ))}
               <div ref={messagesEndRef} />
             </div>
 
+            {/* Send error */}
+            {sendError && (
+              <div className="mx-3 mb-1 px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-[10px] text-red-400">
+                {sendError}
+                <button onClick={() => setSendError(null)} className="ml-2 text-red-500 hover:text-red-400">✕</button>
+              </div>
+            )}
+
             {/* Input */}
             <div className="px-3 pb-3 shrink-0">
               <div className="flex items-center bg-[#1a1a24] border border-white/[0.08] rounded-2xl px-3 py-2 focus-within:border-violet-500/30 transition-all">
-                <input
-                  ref={inputRef}
-                  type="text"
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSend()}
-                  placeholder="Type a message..."
-                  disabled={sending}
-                  maxLength={2000}
-                  className="flex-1 bg-transparent text-white text-sm placeholder-gray-500 focus:outline-none disabled:opacity-40"
-                />
-                <button
-                  onClick={handleSend}
-                  disabled={!input.trim() || sending}
-                  className="ml-2 w-8 h-8 rounded-xl bg-violet-600 flex items-center justify-center text-white hover:bg-violet-500 disabled:opacity-20 disabled:cursor-not-allowed transition-all flex-shrink-0"
-                >
+                <input ref={inputRef} type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSend()} placeholder="Type a message..." disabled={sending} maxLength={2000} className="flex-1 bg-transparent text-white text-sm placeholder-gray-500 focus:outline-none disabled:opacity-40" />
+                <button onClick={handleSend} disabled={!input.trim() || sending} className="ml-2 w-8 h-8 rounded-xl bg-violet-600 flex items-center justify-center text-white hover:bg-violet-500 disabled:opacity-20 disabled:cursor-not-allowed transition-all flex-shrink-0">
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
                 </button>
               </div>
-              {myUsername && (
-                <p className="text-[9px] text-gray-600 text-center mt-1">You: {myUsername}</p>
-              )}
+              {myUsername && <p className="text-[9px] text-gray-600 text-center mt-1">You: {myUsername}</p>}
             </div>
           </>
         ) : (
-          /* Empty state */
           <div className="flex-1 flex flex-col items-center justify-center text-center px-4">
             <div className="w-16 h-16 rounded-2xl bg-white/[0.04] flex items-center justify-center mb-4">
               <svg className="w-8 h-8 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
