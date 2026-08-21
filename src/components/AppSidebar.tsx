@@ -153,7 +153,7 @@ export default function AppSidebar({
             <span className="sidebar-tooltip">Account</span>
 
             {showAccount && (
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 bg-[#1a1a24] border border-white/[0.08] rounded-xl shadow-2xl shadow-black/60 overflow-hidden z-50 text-left">
+              <div className="absolute bottom-full left-full ml-2 mb-0 w-56 bg-[#1a1a24] border border-white/[0.08] rounded-xl shadow-2xl shadow-black/60 overflow-hidden z-50 text-left">
                 <div className="px-4 py-3 border-b border-white/[0.06]">
                   <p className="text-xs font-medium text-white truncate">{user.name || "User"}</p>
                   <p className="text-[10px] text-gray-500 truncate mt-0.5">{user.email}</p>
