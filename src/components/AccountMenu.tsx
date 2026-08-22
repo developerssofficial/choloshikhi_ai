@@ -22,6 +22,10 @@ export default function AccountMenu({ compact }: Props) {
   const [open, setOpen] = useState(false);
   const [showRedeem, setShowRedeem] = useState(false);
   const [showEditName, setShowEditName] = useState(false);
+  const [showNickname, setShowNickname] = useState(false);
+  const [nicknameInput, setNicknameInput] = useState("");
+  const [nicknameLoading, setNicknameLoading] = useState(false);
+  const [nicknameMsg, setNicknameMsg] = useState("");
   const [redeemCode, setRedeemCode] = useState("");
   const [redeemLoading, setRedeemLoading] = useState(false);
   const [redeemMsg, setRedeemMsg] = useState("");
@@ -54,7 +58,17 @@ export default function AccountMenu({ compact }: Props) {
   };
 
   useEffect(() => {
-    if (user) fetchSub();
+    if (user) {
+      fetchSub();
+      // Load nickname
+      getToken().then(token => {
+        if (!token) return;
+        fetch("/api/profile/nickname", { headers: { Authorization: `Bearer ${token}` } })
+          .then(r => r.json())
+          .then(d => { if (d.nickname) setNicknameInput(d.nickname); })
+          .catch(() => {});
+      });
+    }
   }, [user]);
 
   // Redeem code
@@ -104,6 +118,38 @@ export default function AccountMenu({ compact }: Props) {
       }
     } catch {}
     setEditNameLoading(false);
+  };
+
+  // Save nickname
+  const handleSaveNickname = async () => {
+    const val = nicknameInput.trim();
+    if (!val || val.length < 2) {
+      setNicknameMsg("Nickname must be at least 2 characters");
+      return;
+    }
+    setNicknameLoading(true);
+    setNicknameMsg("");
+    try {
+      const token = await getToken();
+      const headers: Record<string, string> = { "Content-Type": "application/json" };
+      if (token) headers["Authorization"] = `Bearer ${token}`;
+      const res = await fetch("/api/profile/nickname", {
+        method: "PATCH",
+        headers,
+        body: JSON.stringify({ nickname: val || null }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setNicknameMsg("✓ Nickname saved!");
+        setShowNickname(false);
+        fetchSub();
+      } else {
+        setNicknameMsg(data.error || "Failed to save");
+      }
+    } catch {
+      setNicknameMsg("Network error");
+    }
+    setNicknameLoading(false);
   };
 
   // Not logged in
@@ -166,6 +212,16 @@ export default function AccountMenu({ compact }: Props) {
             {sub?.username && (
               <p className="text-[10px] text-violet-400/70 font-mono mt-1">{sub.username}</p>
             )}
+            {/* Nickname display + set button */}
+            <div className="flex items-center gap-2 mt-1">
+              {nicknameInput && (
+                <p className="text-[10px] text-emerald-400/70">Nickname: {nicknameInput}</p>
+              )}
+              <button onClick={() => { setShowNickname(true); setNicknameMsg(""); }}
+                className="text-[9px] text-gray-500 hover:text-emerald-400 transition-colors">
+                {nicknameInput ? "Change" : "Set Nickname"}
+              </button>
+            </div>
           </div>
 
           {/* Plan badge + quota */}
@@ -231,6 +287,37 @@ export default function AccountMenu({ compact }: Props) {
                   {editNameLoading ? "..." : "Save"}
                 </button>
                 <button onClick={() => setShowEditName(false)}
+                  className="flex-1 py-1 text-[10px] text-gray-400 border border-white/[0.06] rounded-lg hover:bg-white/[0.04]">
+                  Cancel
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Nickname section */}
+          {showNickname && (
+            <div className="px-4 py-3 border-b border-white/[0.06]">
+              <p className="text-[10px] text-gray-400 mb-1">Nickname</p>
+              <p className="text-[9px] text-gray-600 mb-2">Shown in groups & DMs (2-20 chars, letters/numbers/_)</p>
+              <input
+                type="text"
+                value={nicknameInput}
+                onChange={(e) => setNicknameInput(e.target.value.replace(/[^a-zA-Z0-9_]/g, ""))}
+                placeholder="e.g. cool_student"
+                maxLength={20}
+                className="w-full bg-white/[0.04] border border-white/[0.08] rounded-lg px-3 py-1.5 text-[11px] text-white placeholder-gray-600 focus:outline-none focus:border-violet-500/30"
+              />
+              {nicknameMsg && (
+                <p className={`text-[10px] mt-1 ${nicknameMsg.includes("✓") ? "text-emerald-400" : "text-red-400"}`}>
+                  {nicknameMsg}
+                </p>
+              )}
+              <div className="flex gap-2 mt-2">
+                <button onClick={handleSaveNickname} disabled={nicknameLoading}
+                  className="flex-1 py-1 text-[10px] bg-violet-600 text-white rounded-lg hover:bg-violet-500 disabled:opacity-40">
+                  {nicknameLoading ? "..." : "Save"}
+                </button>
+                <button onClick={() => { setShowNickname(false); setNicknameMsg(""); }}
                   className="flex-1 py-1 text-[10px] text-gray-400 border border-white/[0.06] rounded-lg hover:bg-white/[0.04]">
                   Cancel
                 </button>
