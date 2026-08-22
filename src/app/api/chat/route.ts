@@ -8,8 +8,6 @@ import { filterProfanity } from "@/lib/profanityFilter";
 /* ===== CONSTANTS ===== */
 const GEMINI_URL =
   "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent";
-const MIMO_URL = "https://api.xiaomimimo.com/v1/chat/completions";
-const MIMO_MODEL = "mimo-v2.5";
 const TIMEOUT_MS = 15000;
 const MEMORY_LIMIT = 50;
 
@@ -52,9 +50,9 @@ function markKeyRateLimited(key: string) {
 const NORMAL_PROMPT =
   "You are 'CholoShikhi 1.0', a friendly AI assistant for Bengali-speaking users (mostly from Bangladesh).\n" +
   "CRITICAL RULES:\n" +
-  "1. NEVER reveal your underlying model names (Gemini, MIMO, Google, Xiaomi, or any provider name).\n" +
+  "1. NEVER reveal your underlying model names (Gemini, Google, or any provider name).\n" +
   "2. If asked 'which model are you?' or 'who made you?', answer: 'আমি CholoShikhi 1.0 — Siblings Team তৈরি করেছে।'\n" +
-  "3. NEVER say 'I am Gemini', 'I am MIMO', or mention any AI model names.\n" +
+  "3. NEVER say 'I am Gemini' or mention any AI model names.\n" +
   "4. ALWAYS respond in the SAME language the user writes in (Bangla/English/Hindi).\n" +
   "5. When sharing anime/images, describe what you see in BANGLA (Bengali).\n" +
   "6. When helping with exam papers, explain answers in BANGLA.\n" +
@@ -120,7 +118,7 @@ function getEducationPrompt(teachingState: string): string {
     "IMPORTANT: This is an interactive TUTORING session, not a one-way lecture.\n" +
     "Keep responses focused and not too long. After each concept, wait for student response.\n\n" +
     "CRITICAL RULES:\n" +
-    "- NEVER reveal model names (Gemini, MIMO, Google, Xiaomi).\n" +
+    "- NEVER reveal model names (Gemini, Google).\n" +
     "- If asked 'who are you?', answer: 'আমি CholoShikhi Shikkhok — Siblings Team তৈরি করেছে।'\n" +
     "- Respond in Bangla primarily. Use English only for technical terms with Bangla explanation.\n" +
     "- IMPORTANT: Always wrap ALL mathematical expressions in $...$ (inline) or $$...$$ (display). " +
@@ -962,67 +960,6 @@ async function callGemini(
   return text;
 }
 
-async function callMimo(
-  message: string,
-  history: Array<{ role: string; content: string }>,
-  imageBase64?: string,
-  systemPrompt?: string
-): Promise<string> {
-  const apiKey = process.env.MIMO_API_KEY;
-  if (!apiKey) throw new Error("MIMO key not set");
-
-  const imagePrompt =
-    "এই ছবিটি দেখো এবং বাংলায় বর্ণনা করো। " +
-    "পরীক্ষার প্রশ্ন হলে উত্তর বাংলায় দাও। " +
-    "অ্যানিমে/ছবি হলে বাংলায় বর্ণনা করো।\n\n" +
-    "User asked: " + message;
-
-  const messages: any[] = [
-    { role: "system", content: systemPrompt || NORMAL_PROMPT },
-  ];
-
-  for (const h of history) {
-    messages.push({ role: h.role, content: h.content });
-  }
-
-  if (imageBase64) {
-    messages.push({
-      role: "user",
-      content: [
-        { type: "image_url", image_url: { url: imageBase64 } },
-        { type: "text", text: imagePrompt },
-      ],
-    });
-  } else {
-    messages.push({ role: "user", content: message });
-  }
-
-  const res = await fetch(MIMO_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      model: MIMO_MODEL,
-      messages,
-      temperature: 0.7,
-      max_tokens: 2048,
-    }),
-    signal: AbortSignal.timeout(TIMEOUT_MS),
-  });
-
-  if (!res.ok) {
-    const data = await res.json();
-    throw new Error(data?.error?.message || `MIMO ${res.status}`);
-  }
-
-  const data = await res.json();
-  const text = data?.choices?.[0]?.message?.content;
-  if (!text) throw new Error("Empty MIMO response");
-  return text;
-}
-
 /* ===== HELPER: Extract JSON safely from AI response ===== */
 function extractJsonFromResponse(response: string): any | null {
   // Try ```json ... ``` block first
@@ -1248,18 +1185,6 @@ export async function POST(req: NextRequest) {
         }
       }
       if (!response) {
-        for (let attempt = 0; attempt < 2; attempt++) {
-          try {
-            response = await callMimo(message, memory, image, activeSystemPrompt);
-            usedProvider = "mimo";
-            break;
-          } catch (err: any) {
-            console.error(`MIMO image attempt ${attempt + 1} failed:`, err.message);
-            if (attempt === 0) await new Promise((r) => setTimeout(r, 1000));
-          }
-        }
-      }
-      if (!response) {
         return NextResponse.json(
           { error: "ছবি বিশ্লেষণে সমস্যা। আবার চেষ্টা করো।" },
           { status: 503 }
@@ -1278,17 +1203,7 @@ export async function POST(req: NextRequest) {
         }
       }
       if (!response) {
-        try {
-          response = await callMimo(textMessage, memory, undefined, activeSystemPrompt);
-          usedProvider = "mimo";
-        } catch (err: any) {
-          try {
-            response = await callGemini(textMessage, memory, undefined, activeSystemPrompt);
-            usedProvider = "gemini";
-          } catch {
-            throw new Error("AI Providers failed");
-          }
-        }
+        throw new Error("AI provider unavailable");
       }
     }
 
@@ -1337,13 +1252,7 @@ export async function POST(req: NextRequest) {
                 response = await callGemini(message, [...memory, ...researchMessage], undefined, activeSystemPrompt);
                 usedProvider = "gemini";
               } catch {
-                try {
-                  response = await callMimo(message, [...memory, ...researchMessage], undefined, activeSystemPrompt);
-                  usedProvider = "mimo";
-                } catch {
-                  response = await callGemini(message, [...memory, ...researchMessage], undefined, activeSystemPrompt);
-                  usedProvider = "gemini";
-                }
+                response = "গবেষণা সম্পন্ন হয়েছে, কিন্তু plan generate করতে সমস্যা হয়েছে। আবার চেষ্টা করো।";
               }
 
               // Re-extract the final plan

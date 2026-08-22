@@ -1,7 +1,7 @@
 /* ===================================================================
    TaskExecutionEngine — Provider-agnostic step execution
    
-   Executes individual task steps via AI (Gemini/MIMO).
+   Executes individual task steps via AI (Gemini).
    Future: swap in n8n webhook adapter via ExecutionProvider interface.
    =================================================================== */
 
@@ -18,8 +18,6 @@ import type {
 /* ===== AI CALL HELPERS (borrowed from route.ts) ===== */
 const GEMINI_URL =
   "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent";
-const MIMO_URL = "https://api.xiaomimimo.com/v1/chat/completions";
-const MIMO_MODEL = "mimo-v2.5";
 const TIMEOUT_MS = 20000;
 
 function getGeminiKeys(): string[] {
@@ -65,49 +63,8 @@ async function callGeminiForStep(prompt: string): Promise<string> {
   return text;
 }
 
-async function callMimoForStep(prompt: string): Promise<string> {
-  const apiKey = process.env.MIMO_API_KEY;
-  if (!apiKey) throw new Error("No MIMO key available");
-
-  const res = await fetch(MIMO_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      model: MIMO_MODEL,
-      messages: [
-        { role: "system", content: "You are an AI task executor. Execute the given step and return structured JSON output. Always respond in the user's language. Never reveal model names." },
-        { role: "user", content: prompt },
-      ],
-      temperature: 0.5,
-      max_tokens: 1500,
-    }),
-    signal: AbortSignal.timeout(TIMEOUT_MS),
-  });
-
-  if (!res.ok) {
-    const data = await res.json().catch(() => ({}));
-    throw new Error(data?.error?.message || `MIMO ${res.status}`);
-  }
-
-  const data = await res.json();
-  const text = data?.choices?.[0]?.message?.content;
-  if (!text) throw new Error("Empty MIMO response");
-  return text;
-}
-
 async function executeStepWithAI(prompt: string): Promise<string> {
-  try {
-    return await callGeminiForStep(prompt);
-  } catch {
-    try {
-      return await callMimoForStep(prompt);
-    } catch {
-      return await callGeminiForStep(prompt);
-    }
-  }
+  return await callGeminiForStep(prompt);
 }
 
 /* ===== STEP EXECUTION PROMPT BUILDER ===== */
