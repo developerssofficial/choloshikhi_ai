@@ -227,15 +227,40 @@ const BAD_WORDS = new Set<string>([
   "wetback","wet dream","white power","whore","worldsex","wrapping men",
   "wrinkled starfish","xxx","yaoi","yellow showers","yiffy","zoophilia",
 
-  // === Bengali profanity (common offensive words) ===
-  "মাদারচোদ","মাগী","বালের চোদ","বাল","চোদ","চোদা","ভোদা","বোবা","গান্ড",
-  "গান্ডু","পেলে","পুটকি","বেশ্যা","খানকি","হারামি","পোলা","পুত","মুইরা",
-  "ফুদ্ধি","তাল","কুত্তা","কুত্তার বাচ্চা","শুয়োর","শুয়োরের বাচ্চা",
-  "পাগল","রান্ধা","রান্ধনি","নাস্তিক","ধর্মদ্রোহী","জাহান্নামী",
-  "বেহায়া","নারীমারা","বাউড়ি","চোর","চোরা","ডাকাত","গুণ্ডা","মাফিয়া",
-  "লাঞ্ছনা","অশ্লীল","নোংরা","নোংরালোক","গন্দকা","ময়লা","জঘন্য",
-  "পাপি","পাপিকা","জাহাল","জাহিল","জাহির","মূর্খ","বোবা","তোতাপাখি",
-  "বদমাশ","গালি","গালুও","গালিও","কান্না","কাঁদো","রাত","দিন",
+  // === Bengali profanity (Bengali script) ===
+  "বেশ্যা","খানকি","মাগী","বাল","চুতমারানী","চোদা","চোদাচুদি","ভোদা",
+  "পুটকি","রেন্ডী","গুদ","গান্ড","গান্ডু","চোদ","মাদারচোদ","বালের চোদ",
+  "পেলে","হারামি","পোলা","পুত","মুইরা","সামা","তাল","কুত্তা",
+  "কুত্তার বাচ্চা","শুয়োর","শুয়োরের বাচ্চা","পাগল","রান্ধা","রান্ধনি",
+  "বাউড়ি","চোর","চোরা","ডাকাত","গুণ্ডা","লাঞ্ছনা","নোংরা","জঘন্য",
+  "বেহায়া","মূর্খ","বদমাশ","জাহাল","জাহিল",
+  // More Bengali slurs
+  "পোঁদ","পোদ্দার","তোতা","খসখসে","বেশ্যাপুত","বেশ্যাকে","মাদক",
+  "নশাল","জারজ","অবৈধ","হিজড়া","ক্রসড্রেসার","ছাগল","ছাগলনাচ",
+  "গাধা","গাধানাচ","বোঝা","বোঝারক","পাগলাটে","পাগলখানা",
+
+  // === Banglish / Romanized Bengali profanity ===
+  "bessha","khanki","magi","magir","bal","chutmarani","choda","chodachudi",
+  "voda","putki","rendi","gud","gand","gandu","sama","pute",
+  "madarchod","balerchod","chodaichudi","maslanchi","maslanchod",
+  "harami","pola","pote","kutta","kuttarbacha","shuer","shuerbacha",
+  "byshya","khenki","mari","balercchod","lancha","nongra",
+  "behaia","murkho","badmash","jahal","jahil","jorja",
+  "pot","poda","totla","khasskhass","byshapute","jaj","nashila",
+  "besshi","kanki","magirbaccha","balchoda","chuta","chudachudi",
+  "bhoda","putkiki","rendir","gudgand","sandhi","peldi",
+  "maichod","balchod","samacche","beshaputi","totakami",
+  "kuttakami","shuor","polakami","gandukami","chudakami",
+  "besshak","khankir","magirchele","balichele","putkir","rendirbaccha",
+  "madarch","baler","chodar","gandir","khankirbaccha",
+  "balira","chodara","vodaichudi","gudir",
+  "samar","potir","jorjar","nashik","haramir","jahalr","jahilr",
+  "behenchod","behenchud","madarchud","balerchud","chudmarani",
+  "beshash","khenkir","magiachele","baliraichele","chuti","chudir",
+  "gandirbaccha","samacche","putir","rendichele","kutir",
+  "madarchood","balchud","chodchudi","beshyapute","gandichudi",
+  "peldichele","maslanchir","totlakami","jajir","jorjir",
+  "mairchod","mairchud","chupakami","chupakari","lanchirbaccha",
 ]);
 
 // Multi-word phrases that need special handling
@@ -266,23 +291,53 @@ function normalize(text: string): string {
 }
 
 /**
+ * Check if a character is Bengali (Unicode block U+0980–U+09FF).
+ */
+function isBengali(text: string): boolean {
+  return /[\u0980-\u09FF]/.test(text);
+}
+
+/**
  * Create a regex pattern that matches any bad word as a whole word.
- * Uses word boundaries to avoid false positives (e.g., "class" won't match "ass").
+ * Handles both ASCII (\\b) and Bengali script (custom boundary) words.
  */
 function buildRegex(): RegExp {
-  // Sort phrases by length (longest first) to match longer phrases before single words
+  // Sort phrases by length (longest first)
   const allWords = [...PHRASES, ...Array.from(BAD_WORDS)]
     .map(w => w.trim().toLowerCase())
     .filter(w => w.length > 0)
     .sort((a, b) => b.length - a.length);
 
-  // Escape special regex characters in each word
   const escaped = allWords.map(w =>
     w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
   );
 
-  // Join with alternation, use word boundaries
-  return new RegExp(`\\b(?:${escaped.join('|')})\\b`, 'gi');
+  // Split into ASCII-only words and Bengali words
+  const asciiWords: string[] = [];
+  const bengaliWords: string[] = [];
+
+  for (const w of escaped) {
+    if (isBengali(w)) {
+      bengaliWords.push(w);
+    } else {
+      asciiWords.push(w);
+    }
+  }
+
+  const parts: string[] = [];
+
+  // ASCII words: use standard \b word boundary
+  if (asciiWords.length > 0) {
+    parts.push(`\\b(?:${asciiWords.join('|')})\\b`);
+  }
+
+  // Bengali words: use custom boundary — must not be surrounded by Bengali letters
+  // This prevents matching substrings inside longer Bengali words
+  if (bengaliWords.length > 0) {
+    parts.push(`(?<![\\u0980-\\u09FF])(?:${bengaliWords.join('|')})(?![\\u0980-\\u09FF])`);
+  }
+
+  return new RegExp(`(?:${parts.join('|')})`, 'gi');
 }
 
 // Pre-compiled regex (built once on module load)
