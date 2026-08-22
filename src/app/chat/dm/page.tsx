@@ -103,6 +103,20 @@ export default function DMPage() {
     return () => { cancelled = true; };
   }, [user, loading]);
 
+  // Cleanup on unmount — disconnect all channels + destroy client
+  useEffect(() => {
+    return () => {
+      if (channelRef.current) {
+        channelRef.current.unsubscribe();
+        channelRef.current = null;
+      }
+      if (sbRef.current) {
+        sbRef.current.removeAllChannels();
+        sbRef.current = null;
+      }
+    };
+  }, []);
+
   // Fetch conversations via API — stable callback, no deps
   const fetchConversations = useCallback(async () => {
     setLoadingConvs(true);

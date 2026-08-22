@@ -101,6 +101,20 @@ export default function GroupChatPage() {
     return () => { cancelled = true; };
   }, [user, loading]);
 
+  // Cleanup on unmount — disconnect all channels + destroy client
+  useEffect(() => {
+    return () => {
+      if (channelRef.current) {
+        channelRef.current.unsubscribe();
+        channelRef.current = null;
+      }
+      if (sbRef.current) {
+        sbRef.current.removeAllChannels();
+        sbRef.current = null;
+      }
+    };
+  }, []);
+
   // Fetch groups — stable callback, NO getToken in deps
   const fetchGroups = useCallback(async () => {
     if (!user) return;
@@ -144,6 +158,12 @@ export default function GroupChatPage() {
 
   // Realtime subscription — waits for sbReady before connecting
   useEffect(() => {
+    // Always clean up old channel first
+    if (channelRef.current) {
+      channelRef.current.unsubscribe();
+      channelRef.current = null;
+    }
+
     if (!sbRef.current || !selectedGroupId) return;
 
     let cancelled = false;
