@@ -8,6 +8,7 @@ import EmojiPicker from "@/components/EmojiPicker";
 
 /* ===================================================================
    Group Chat Page — Private groups, owner-only invite, roles
+   Single Supabase client via ref (no memory leak), proper Realtime cleanup
    =================================================================== */
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
@@ -78,23 +79,31 @@ export default function GroupChatPage() {
 
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
-  const [sbClient, setSbClient] = useState<SupabaseClient | null>(null);
+  // Single Supabase client via REF (not state!) — prevents memory leak
+  const sbRef = useRef<SupabaseClient | null>(null);
   const channelRef = useRef<any>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const selectedGroupRef = useRef<string | null>(null);
 
-  // Create Supabase client for Realtime
+  // Keep ref in sync with state
+  useEffect(() => { selectedGroupRef.current = selectedGroupId; }, [selectedGroupId]);
+
+  // Create Supabase client for Realtime — ONCE per login
   useEffect(() => {
     if (loading || !user) return;
+    let cancelled = false;
     getToken().then(token => {
-      if (!token) return;
-      const client = createClient(supabaseUrl, supabaseAnonKey, {
-        global: { headers: { Authorization: `Bearer ${token}` } },
-      });
-      setSbClient(client);
+      if (cancelled || !token) return;
+      if (!sbRef.current) {
+        sbRef.current = createClient(supabaseUrl, supabaseAnonKey, {
+          global: { headers: { Authorization: `Bearer ${token}` } },
+        });
+      }
     });
-  }, [user, loading, getToken]);
+    return () => { cancelled = true; };
+  }, [user, loading]); // NO getToken in deps
 
-  // Fetch groups
+  // Fetch groups — stable callback, NO getToken in deps
   const fetchGroups = useCallback(async () => {
     if (!user) return;
     setLoadingGroups(true);
@@ -109,11 +118,11 @@ export default function GroupChatPage() {
     } finally {
       setLoadingGroups(false);
     }
-  }, [user, getToken]);
+  }, [user]); // NO getToken
 
   useEffect(() => { fetchGroups(); }, [fetchGroups]);
 
-  // Fetch messages for selected group
+  // Fetch messages — stable, NO getToken in deps
   const fetchMessages = useCallback(async (groupId: string) => {
     setLoadingMessages(true);
     try {
@@ -129,26 +138,26 @@ export default function GroupChatPage() {
     } finally {
       setLoadingMessages(false);
     }
-  }, [getToken]);
+  }, []); // NO getToken
 
   useEffect(() => {
     if (selectedGroupId) fetchMessages(selectedGroupId);
-  }, [selectedGroupId, fetchMessages]);
+  }, [selectedGroupId]); // NO fetchMessages in deps (stable)
 
-  // Realtime subscription
+  // Realtime subscription — uses sbRef, NO user object in deps
   useEffect(() => {
-    if (!sbClient || !selectedGroupId) return;
+    if (!sbRef.current || !selectedGroupId) return;
 
     let cancelled = false;
-    const channel = sbClient
+    const channel = sbRef.current
       .channel(`group-msgs-${selectedGroupId}`)
       .on("postgres_changes",
         { event: "INSERT", schema: "public", table: "group_messages", filter: `group_id=eq.${selectedGroupId}` },
         (payload: any) => {
           if (cancelled) return;
           const newMsg = payload.new;
-          // Fetch sender profile
-          sbClient.from("student_profiles").select("username, nickname, display_name").eq("user_id", newMsg.sender_id).single()
+          const myId = user?.id;
+          sbRef.current?.from("student_profiles").select("username, nickname, display_name").eq("user_id", newMsg.sender_id).single()
             .then(({ data: prof }) => {
               if (cancelled) return;
               setMessages(prev => {
@@ -159,7 +168,7 @@ export default function GroupChatPage() {
                   senderId: newMsg.sender_id,
                   senderUsername: prof?.username || "Unknown",
                   senderNickname: prof?.nickname || prof?.display_name || null,
-                  isMine: newMsg.sender_id === user?.id,
+                  isMine: newMsg.sender_id === myId,
                   createdAt: newMsg.created_at,
                 }];
               });
@@ -170,9 +179,9 @@ export default function GroupChatPage() {
 
     channelRef.current = channel;
     return () => { cancelled = true; channel.unsubscribe(); channelRef.current = null; };
-  }, [sbClient, selectedGroupId, user]);
+  }, [selectedGroupId]); // NO sbClient, NO user
 
-  // Scroll to bottom on new messages
+  // Scroll to bottom — SINGLE effect only
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
@@ -256,7 +265,7 @@ export default function GroupChatPage() {
       if (!res.ok) throw new Error(data.error);
       setAddMemberUsername("");
       setShowAddMember(false);
-      fetchMessages(selectedGroupId); // refresh members
+      fetchMessages(selectedGroupId);
     } catch (e: any) {
       alert(e.message || "Failed to add member");
     } finally {
@@ -279,15 +288,10 @@ export default function GroupChatPage() {
         setSelectedGroupId(null);
         setGroupInfo(null);
       }
-    } catch (e: any) {
+    } catch {
       alert("Failed to leave group");
     }
   };
-
-  // Scroll to bottom
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
 
   if (loading) {
     return (
