@@ -85,23 +85,24 @@ export default function DMPage() {
   const selectedConvRef = useRef<string | null>(null);
 
   const scrollToBottom = useCallback(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    messagesEndRef.current?.scrollIntoView({ behavior: "auto" }); // instant, not smooth
   }, []);
 
-  // Get or create a single Supabase client with the user's JWT
-  const getSb = useCallback(async () => {
-    const token = await getToken();
-    if (!token) return null;
-    if (sbRef.current) return sbRef.current;
-    sbRef.current = createClient(supabaseUrl, supabaseAnonKey, {
-      global: { headers: { Authorization: `Bearer ${token}` } },
+  // Create Supabase client ONCE on mount — not on every conversation switch
+  useEffect(() => {
+    if (loading || !user || sbRef.current) return;
+    let cancelled = false;
+    getToken().then(token => {
+      if (cancelled || !token || sbRef.current) return;
+      sbRef.current = createClient(supabaseUrl, supabaseAnonKey, {
+        global: { headers: { Authorization: `Bearer ${token}` } },
+      });
     });
-    return sbRef.current;
-  }, [getToken]);
+    return () => { cancelled = true; };
+  }, [user, loading]); // NO getToken in deps
 
-  // Fetch conversations via API (not Supabase direct — avoids RLS issues)
+  // Fetch conversations via API — stable callback, no deps
   const fetchConversations = useCallback(async () => {
-    if (!user) return;
     setLoadingConvs(true);
     try {
       const token = await getToken();
@@ -112,11 +113,10 @@ export default function DMPage() {
       if (data.conversations) setConversations(data.conversations);
     } catch (e) { console.error("fetchConversations error:", e); }
     setLoadingConvs(false);
-  }, [user, getToken]);
+  }, []); // stable — no deps
 
   // Fetch messages for a conversation via API
   const fetchMessages = useCallback(async (convId: string) => {
-    if (!user) return;
     setLoadingMessages(true);
     try {
       const token = await getToken();
@@ -128,11 +128,11 @@ export default function DMPage() {
         setMessages(data.messages);
         setOtherUser(data.otherUser);
         setMyUsername(data.myUsername);
-        setTimeout(scrollToBottom, 100);
+        scrollToBottom();
       }
     } catch (e) { console.error("fetchMessages error:", e); }
     setLoadingMessages(false);
-  }, [user, getToken, scrollToBottom]);
+  }, []); // stable — no deps
 
   // Real-time: subscribe when conversation changes, unsubscribe when it changes away
   useEffect(() => {
@@ -146,42 +146,40 @@ export default function DMPage() {
 
     if (!selectedConvId || !user) return;
 
+    // Use sbRef directly — no await needed
+    const sb = sbRef.current;
+    if (!sb) return;
+
     let cancelled = false;
 
-    (async () => {
-      const sb = await getSb();
-      if (!sb || cancelled) return;
+    // Fetch messages
+    fetchMessages(selectedConvId);
 
-      // Fetch messages
-      await fetchMessages(selectedConvId);
-      if (cancelled) return;
+    // Subscribe to new messages
+    const channel = sb
+      .channel(`dm-live:${selectedConvId}`)
+      .on(
+        "postgres_changes",
+        {
+          event: "INSERT",
+          schema: "public",
+          table: "dm_messages",
+          filter: `conversation_id=eq.${selectedConvId}`,
+        },
+        (payload) => {
+          if (cancelled) return;
+          const newMsg = payload.new as any;
+          const isMine = newMsg.sender_id === myUserIdRef.current;
+          setMessages((prev) => {
+            if (prev.some((m) => m.id === newMsg.id)) return prev;
+            return [...prev, { id: newMsg.id, content: newMsg.content, isMine, createdAt: newMsg.created_at }];
+          });
+          scrollToBottom();
+        }
+      )
+      .subscribe();
 
-      // Subscribe to new messages
-      const channel = sb
-        .channel(`dm-live:${selectedConvId}`)
-        .on(
-          "postgres_changes",
-          {
-            event: "INSERT",
-            schema: "public",
-            table: "dm_messages",
-            filter: `conversation_id=eq.${selectedConvId}`,
-          },
-          (payload) => {
-            if (cancelled) return;
-            const newMsg = payload.new as any;
-            const isMine = newMsg.sender_id === myUserIdRef.current;
-            setMessages((prev) => {
-              if (prev.some((m) => m.id === newMsg.id)) return prev;
-              return [...prev, { id: newMsg.id, content: newMsg.content, isMine, createdAt: newMsg.created_at }];
-            });
-            setTimeout(scrollToBottom, 50);
-          }
-        )
-        .subscribe();
-
-      if (!cancelled) channelRef.current = channel;
-    })();
+    channelRef.current = channel;
 
     return () => {
       cancelled = true;
@@ -190,7 +188,7 @@ export default function DMPage() {
         channelRef.current = null;
       }
     };
-  }, [selectedConvId, user, getSb, fetchMessages, scrollToBottom]);
+  }, [selectedConvId, user]); // stable deps — sbRef used directly
 
   // Store userId for realtime filter
   useEffect(() => { if (user) myUserIdRef.current = user.id; }, [user]);
@@ -273,7 +271,8 @@ export default function DMPage() {
         setSendError(data.error || `Error ${res.status}`);
       } else if (data.message) {
         setMessages((prev) => prev.map((m) => m.id === tempId ? data.message : m));
-        fetchConversations();
+        // Update conversation's last message in sidebar optimistically
+        setConversations(prev => prev.map(c => c.id === selectedConvId ? { ...c, lastMessage: { content: msgContent, isMine: true, createdAt: new Date().toISOString() }, updatedAt: new Date().toISOString() } : c));
       }
     } catch {
       setMessages((prev) => prev.filter((m) => m.id !== tempId));

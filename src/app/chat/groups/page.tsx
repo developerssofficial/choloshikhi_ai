@@ -181,9 +181,9 @@ export default function GroupChatPage() {
     return () => { cancelled = true; channel.unsubscribe(); channelRef.current = null; };
   }, [selectedGroupId]); // NO sbClient, NO user
 
-  // Scroll to bottom — SINGLE effect only
+  // Scroll to bottom — SINGLE effect, instant
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    messagesEndRef.current?.scrollIntoView({ behavior: "auto" });
   }, [messages]);
 
   // Send message
