@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 import { verifyAuthUser } from "@/lib/supabase-auth";
 import { filterProfanity } from "@/lib/profanityFilter";
+import { getDb } from "@/lib/mongodb";
+import { ObjectId } from "mongodb";
 
 // GET /api/dm/[id] — Fetch messages + mark read
 export async function GET(
@@ -13,40 +15,37 @@ export async function GET(
     const authUser = await verifyAuthUser(req);
     if (!authUser) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-    // Verify participant + get other user + get own username — ALL in parallel
-    const [partResult, otherPartResult, myProfResult, messagesResult] = await Promise.all([
-      supabase.from("dm_participants").select("conversation_id").eq("conversation_id", id).eq("user_id", authUser.id).single(),
-      supabase.from("dm_participants").select("user_id").eq("conversation_id", id).neq("user_id", authUser.id).single(),
-      supabase.from("student_profiles").select("username").eq("user_id", authUser.id).single(),
-      supabase.from("dm_messages").select("id, content, sender_id, created_at, is_read").eq("conversation_id", id).order("created_at", { ascending: true }).limit(100),
-    ]);
+    const db = await getDb();
+    const convs = db.collection("dm_conversations");
+    const msgs = db.collection("dm_messages");
 
-    if (partResult.error || !partResult.data) {
+    // Verify participant
+    const conv = await convs.findOne({ _id: new ObjectId(id) });
+    if (!conv || !conv.participants.includes(authUser.id)) {
       return NextResponse.json({ error: "Access denied" }, { status: 403 });
     }
 
-    // Get other user's profile (only if we have their userId)
-    let otherUser: { userId: string; username: string } | null = null;
-    if (otherPartResult.data?.user_id) {
-      const { data: prof } = await supabase
-        .from("student_profiles").select("username")
-        .eq("user_id", otherPartResult.data.user_id).single();
-      if (prof) otherUser = { userId: otherPartResult.data.user_id, username: prof.username };
-    }
+    const otherId = conv.participants.find((p: string) => p !== authUser.id);
 
-    const messages = messagesResult.data || [];
+    // Get messages + profiles in parallel
+    const [messages, myProf, otherProf] = await Promise.all([
+      msgs.find({ conversation_id: id }).sort({ created_at: 1 }).limit(100).toArray(),
+      supabase.from("student_profiles").select("username").eq("user_id", authUser.id).single(),
+      otherId ? supabase.from("student_profiles").select("username").eq("user_id", otherId).single() : null,
+    ]);
 
     // Mark unread as read (fire-and-forget)
-    const unreadIds = messages.filter(m => m.sender_id !== authUser.id && !m.is_read).map(m => m.id);
-    if (unreadIds.length > 0) {
-      supabase.from("dm_messages").update({ is_read: true }).in("id", unreadIds).then(() => {});
-    }
+    const unreadFilter = { conversation_id: id, sender_id: { $ne: authUser.id }, is_read: false };
+    msgs.updateMany(unreadFilter, { $set: { is_read: true } }).catch(() => {});
 
     return NextResponse.json({
-      otherUser,
-      myUsername: myProfResult.data?.username || null,
-      messages: messages.map(m => ({
-        id: m.id, content: m.content, isMine: m.sender_id === authUser.id, createdAt: m.created_at,
+      otherUser: otherProf?.data && otherId ? { userId: otherId, username: otherProf.data.username } : null,
+      myUsername: myProf?.data?.username || null,
+      messages: messages.map((m: any) => ({
+        id: m._id.toString(),
+        content: m.content,
+        isMine: m.sender_id === authUser.id,
+        createdAt: m.created_at,
       })),
     });
   } catch (error: any) {
@@ -62,16 +61,18 @@ export async function POST(
 ) {
   try {
     const { id } = await params;
-
     const authUser = await verifyAuthUser(req);
     if (!authUser) return NextResponse.json({ error: "Login required" }, { status: 401 });
 
-    // Verify participant
-    const { error: partErr } = await supabase
-      .from("dm_participants").select("conversation_id")
-      .eq("conversation_id", id).eq("user_id", authUser.id).single();
+    const db = await getDb();
+    const convs = db.collection("dm_conversations");
+    const msgs = db.collection("dm_messages");
 
-    if (partErr) return NextResponse.json({ error: "Access denied" }, { status: 403 });
+    // Verify participant
+    const conv = await convs.findOne({ _id: new ObjectId(id) });
+    if (!conv || !conv.participants.includes(authUser.id)) {
+      return NextResponse.json({ error: "Access denied" }, { status: 403 });
+    }
 
     let body: any;
     try { body = await req.json(); } catch { return NextResponse.json({ error: "Invalid body" }, { status: 400 }); }
@@ -79,28 +80,29 @@ export async function POST(
     const { content } = body;
     if (!content?.trim()) return NextResponse.json({ error: "Empty message" }, { status: 400 });
 
-    // Profanity filter: replace bad words with stars
+    // Profanity filter
     const filteredContent = filterProfanity(content.trim());
 
-    // Insert message
-    const { data: msg, error: insertErr } = await supabase
-      .from("dm_messages")
-      .insert({
-        conversation_id: id,
-        sender_id: authUser.id,
-        content: filteredContent.slice(0, 2000),
-      })
-      .select("id, content, created_at")
-      .single();
+    // Insert message + update conversation timestamp
+    const now = new Date();
+    const result = await msgs.insertOne({
+      conversation_id: id,
+      sender_id: authUser.id,
+      content: filteredContent.slice(0, 2000),
+      is_read: false,
+      created_at: now,
+    });
 
-    if (insertErr) {
-      console.error("DM INSERT FAILED:", { convId: id, sender: authUser.id, err: insertErr });
-      return NextResponse.json({ error: insertErr.message || "Send failed" }, { status: 500 });
-    }
+    // Update conversation timestamp (fire-and-forget)
+    convs.updateOne({ _id: new ObjectId(id) }, { $set: { updated_at: now } }).catch(() => {});
 
-    // Done — trigger on_dm_message_insert handles updated_at
     return NextResponse.json({
-      message: { id: msg.id, content: msg.content, isMine: true, createdAt: msg.created_at },
+      message: {
+        id: result.insertedId.toString(),
+        content: filteredContent.slice(0, 2000),
+        isMine: true,
+        createdAt: now,
+      },
     });
   } catch (error: any) {
     console.error("DM POST error:", error?.message || error);

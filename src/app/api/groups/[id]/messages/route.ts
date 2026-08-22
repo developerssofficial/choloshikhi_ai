@@ -2,8 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 import { verifyAuthUser } from "@/lib/supabase-auth";
 import { filterProfanity } from "@/lib/profanityFilter";
+import { getDb } from "@/lib/mongodb";
 
-// GET /api/groups/[id]/messages — Fetch group messages
+// GET /api/groups/[id]/messages — Fetch group messages from MongoDB
 export async function GET(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -13,32 +14,30 @@ export async function GET(
     const authUser = await verifyAuthUser(req);
     if (!authUser) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-    // Verify membership
+    // Verify membership via Supabase
     const { error: memErr } = await supabase
       .from("group_members").select("role").eq("group_id", id).eq("user_id", authUser.id).single();
 
     if (memErr) return NextResponse.json({ error: "Access denied" }, { status: 403 });
 
-    // Fetch messages
-    const { data: messages, error: msgErr } = await supabase
-      .from("group_messages").select("id, content, sender_id, created_at")
-      .eq("group_id", id).order("created_at", { ascending: true }).limit(200);
+    // Fetch messages from MongoDB
+    const db = await getDb();
+    const msgs = db.collection("group_messages");
+    const messages = await msgs.find({ group_id: id }).sort({ created_at: 1 }).limit(200).toArray();
 
-    if (msgErr) return NextResponse.json({ error: msgErr.message }, { status: 500 });
-
-    // Get sender profiles (username + nickname)
-    const senderIds = [...new Set((messages || []).map(m => m.sender_id))];
+    // Get sender profiles from Supabase
+    const senderIds = [...new Set(messages.map((m: any) => m.sender_id))];
     const { data: profiles } = senderIds.length > 0
       ? await supabase.from("student_profiles").select("user_id, username, nickname, display_name").in("user_id", senderIds)
       : { data: [] };
 
-    const profileMap = new Map((profiles || []).map(p => [p.user_id, p]));
+    const profileMap = new Map((profiles || []).map((p: any) => [p.user_id, p]));
 
     return NextResponse.json({
-      messages: (messages || []).map(m => {
+      messages: messages.map((m: any) => {
         const prof = profileMap.get(m.sender_id);
         return {
-          id: m.id,
+          id: m._id.toString(),
           content: m.content,
           senderId: m.sender_id,
           senderUsername: prof?.username || "Unknown",
@@ -54,7 +53,7 @@ export async function GET(
   }
 }
 
-// POST /api/groups/[id]/messages — Send message to group
+// POST /api/groups/[id]/messages — Send message to group via MongoDB
 export async function POST(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -64,7 +63,7 @@ export async function POST(
     const authUser = await verifyAuthUser(req);
     if (!authUser) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-    // Verify membership
+    // Verify membership via Supabase
     const { error: memErr } = await supabase
       .from("group_members").select("role").eq("group_id", id).eq("user_id", authUser.id).single();
 
@@ -79,35 +78,30 @@ export async function POST(
     // Profanity filter
     const filteredContent = filterProfanity(content.trim());
 
-    // Insert message
-    const { data: msg, error: insertErr } = await supabase
-      .from("group_messages")
-      .insert({
-        group_id: id,
-        sender_id: authUser.id,
-        content: filteredContent.slice(0, 2000),
-      })
-      .select("id, content, sender_id, created_at")
-      .single();
+    // Insert message into MongoDB
+    const db = await getDb();
+    const msgs = db.collection("group_messages");
+    const now = new Date();
+    const result = await msgs.insertOne({
+      group_id: id,
+      sender_id: authUser.id,
+      content: filteredContent.slice(0, 2000),
+      created_at: now,
+    });
 
-    if (insertErr) {
-      console.error("Group message INSERT FAILED:", { groupId: id, sender: authUser.id, err: insertErr });
-      return NextResponse.json({ error: insertErr.message || "Send failed" }, { status: 500 });
-    }
-
-    // Get sender profile for response
+    // Get sender profile from Supabase
     const { data: prof } = await supabase
       .from("student_profiles").select("username, nickname, display_name").eq("user_id", authUser.id).single();
 
     return NextResponse.json({
       message: {
-        id: msg.id,
-        content: msg.content,
-        senderId: msg.sender_id,
+        id: result.insertedId.toString(),
+        content: filteredContent.slice(0, 2000),
+        senderId: authUser.id,
         senderUsername: prof?.username || "Unknown",
         senderNickname: prof?.nickname || prof?.display_name || null,
         isMine: true,
-        createdAt: msg.created_at,
+        createdAt: now,
       },
     });
   } catch (error: any) {

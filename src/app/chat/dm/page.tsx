@@ -3,16 +3,12 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useAuth } from "@/lib/auth";
 import { useRouter } from "next/navigation";
-import { createClient, SupabaseClient } from "@supabase/supabase-js";
 import EmojiPicker from "@/components/EmojiPicker";
 
 /* ===================================================================
    DM Page — Messenger-style anonymous messaging
-   Single Supabase client, proper Realtime cleanup
+   Simple polling for new messages (no Supabase Realtime)
    =================================================================== */
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
 
 interface Conversation {
   id: string;
@@ -79,42 +75,11 @@ export default function DMPage() {
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const searchDebounceRef = useRef<NodeJS.Timeout | null>(null);
-  const myUserIdRef = useRef<string | null>(null);
-  const sbRef = useRef<SupabaseClient | null>(null);
-  const channelRef = useRef<any>(null);
-  const selectedConvRef = useRef<string | null>(null);
-  const [sbReady, setSbReady] = useState(false);
+  const pollIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const selectedConvIdRef = useRef<string | null>(null);
 
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "auto" }); // instant, not smooth
-  }, []);
-
-  // Create Supabase client ONCE on mount — not on every conversation switch
-  useEffect(() => {
-    if (loading || !user || sbRef.current) return;
-    let cancelled = false;
-    getToken().then(token => {
-      if (cancelled || !token || sbRef.current) return;
-      sbRef.current = createClient(supabaseUrl, supabaseAnonKey, {
-        global: { headers: { Authorization: `Bearer ${token}` } },
-      });
-      if (!cancelled) setSbReady(true);
-    });
-    return () => { cancelled = true; };
-  }, [user, loading]);
-
-  // Cleanup on unmount — disconnect all channels + destroy client
-  useEffect(() => {
-    return () => {
-      if (channelRef.current) {
-        channelRef.current.unsubscribe();
-        channelRef.current = null;
-      }
-      if (sbRef.current) {
-        sbRef.current.removeAllChannels();
-        sbRef.current = null;
-      }
-    };
   }, []);
 
   // Fetch conversations via API — stable callback, no deps
@@ -150,64 +115,52 @@ export default function DMPage() {
     setLoadingMessages(false);
   }, []); // stable — no deps
 
-  // Real-time: subscribe when conversation changes, unsubscribe when it changes away
+  // Keep selectedConvIdRef in sync
   useEffect(() => {
-    selectedConvRef.current = selectedConvId;
+    selectedConvIdRef.current = selectedConvId;
+  }, [selectedConvId]);
 
-    // Clean up old channel
-    if (channelRef.current) {
-      channelRef.current.unsubscribe();
-      channelRef.current = null;
+  // Polling: when a conversation is selected, poll every 3 seconds
+  useEffect(() => {
+    // Clear any existing poll interval
+    if (pollIntervalRef.current) {
+      clearInterval(pollIntervalRef.current);
+      pollIntervalRef.current = null;
     }
 
     if (!selectedConvId || !user) return;
 
-    // Use sbRef directly — no await needed
-    const sb = sbRef.current;
-    if (!sb) return;
-
-    let cancelled = false;
-
-    // Fetch messages
+    // Fetch messages immediately
     fetchMessages(selectedConvId);
 
-    // Subscribe to new messages
-    const channel = sb
-      .channel(`dm-live:${selectedConvId}`)
-      .on(
-        "postgres_changes",
-        {
-          event: "INSERT",
-          schema: "public",
-          table: "dm_messages",
-          filter: `conversation_id=eq.${selectedConvId}`,
-        },
-        (payload) => {
-          if (cancelled) return;
-          const newMsg = payload.new as any;
-          const isMine = newMsg.sender_id === myUserIdRef.current;
-          setMessages((prev) => {
-            if (prev.some((m) => m.id === newMsg.id)) return prev;
-            return [...prev, { id: newMsg.id, content: newMsg.content, isMine, createdAt: newMsg.created_at }];
-          });
+    // Set up polling — only fetch messages, skip the loading indicator for polls
+    const poll = async () => {
+      const convId = selectedConvIdRef.current;
+      if (!convId) return;
+      try {
+        const token = await getToken();
+        const headers: Record<string, string> = {};
+        if (token) headers["Authorization"] = `Bearer ${token}`;
+        const res = await fetch(`/api/dm/${convId}`, { headers });
+        const data = await res.json();
+        if (data.messages) {
+          setMessages(data.messages);
+          setOtherUser(data.otherUser);
+          setMyUsername(data.myUsername);
           scrollToBottom();
         }
-      )
-      .subscribe();
+      } catch (e) { console.error("poll error:", e); }
+    };
 
-    channelRef.current = channel;
+    pollIntervalRef.current = setInterval(poll, 3000);
 
     return () => {
-      cancelled = true;
-      if (channelRef.current) {
-        channelRef.current.unsubscribe();
-        channelRef.current = null;
+      if (pollIntervalRef.current) {
+        clearInterval(pollIntervalRef.current);
+        pollIntervalRef.current = null;
       }
     };
-  }, [selectedConvId, user, sbReady]);
-
-  // Store userId for realtime filter
-  useEffect(() => { if (user) myUserIdRef.current = user.id; }, [user]);
+  }, [selectedConvId, user, fetchMessages]);
 
   // Load conversations
   useEffect(() => { if (user) fetchConversations(); }, [user, fetchConversations]);

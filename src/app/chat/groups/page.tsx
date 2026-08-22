@@ -3,16 +3,12 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useAuth } from "@/lib/auth";
 import { useRouter } from "next/navigation";
-import { createClient, SupabaseClient } from "@supabase/supabase-js";
 import EmojiPicker from "@/components/EmojiPicker";
 
 /* ===================================================================
    Group Chat Page — Private groups, owner-only invite, roles
-   Single Supabase client via ref (no memory leak), proper Realtime cleanup
+   Simple polling every 3 seconds when a group is selected
    =================================================================== */
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
 
 interface Group {
   id: string;
@@ -79,41 +75,8 @@ export default function GroupChatPage() {
 
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
-  // Single Supabase client via REF (not state!) — prevents memory leak
-  const sbRef = useRef<SupabaseClient | null>(null);
-  const channelRef = useRef<any>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const [sbReady, setSbReady] = useState(false);
-
-  // Create Supabase client for Realtime — ONCE per login
-  useEffect(() => {
-    if (loading || !user) return;
-    let cancelled = false;
-    getToken().then(token => {
-      if (cancelled || !token) return;
-      if (!sbRef.current) {
-        sbRef.current = createClient(supabaseUrl, supabaseAnonKey, {
-          global: { headers: { Authorization: `Bearer ${token}` } },
-        });
-      }
-      if (!cancelled) setSbReady(true);
-    });
-    return () => { cancelled = true; };
-  }, [user, loading]);
-
-  // Cleanup on unmount — disconnect all channels + destroy client
-  useEffect(() => {
-    return () => {
-      if (channelRef.current) {
-        channelRef.current.unsubscribe();
-        channelRef.current = null;
-      }
-      if (sbRef.current) {
-        sbRef.current.removeAllChannels();
-        sbRef.current = null;
-      }
-    };
-  }, []);
+  const pollIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   // Fetch groups — stable callback, NO getToken in deps
   const fetchGroups = useCallback(async () => {
@@ -156,48 +119,39 @@ export default function GroupChatPage() {
     if (selectedGroupId) fetchMessages(selectedGroupId);
   }, [selectedGroupId]); // NO fetchMessages in deps (stable)
 
-  // Realtime subscription — waits for sbReady before connecting
+  // Polling — fetch new messages every 3 seconds while a group is selected
   useEffect(() => {
-    // Always clean up old channel first
-    if (channelRef.current) {
-      channelRef.current.unsubscribe();
-      channelRef.current = null;
+    // Clear any existing interval
+    if (pollIntervalRef.current) {
+      clearInterval(pollIntervalRef.current);
+      pollIntervalRef.current = null;
     }
 
-    if (!sbRef.current || !selectedGroupId) return;
+    if (!selectedGroupId) return;
 
-    let cancelled = false;
-    const channel = sbRef.current
-      .channel(`group-msgs-${selectedGroupId}`)
-      .on("postgres_changes",
-        { event: "INSERT", schema: "public", table: "group_messages", filter: `group_id=eq.${selectedGroupId}` },
-        (payload: any) => {
-          if (cancelled) return;
-          const newMsg = payload.new;
-          const myId = user?.id;
-          sbRef.current?.from("student_profiles").select("username, nickname, display_name").eq("user_id", newMsg.sender_id).single()
-            .then(({ data: prof }) => {
-              if (cancelled) return;
-              setMessages(prev => {
-                if (prev.some(m => m.id === newMsg.id)) return prev;
-                return [...prev, {
-                  id: newMsg.id,
-                  content: newMsg.content,
-                  senderId: newMsg.sender_id,
-                  senderUsername: prof?.username || "Unknown",
-                  senderNickname: prof?.nickname || prof?.display_name || null,
-                  isMine: newMsg.sender_id === myId,
-                  createdAt: newMsg.created_at,
-                }];
-              });
-            });
+    pollIntervalRef.current = setInterval(() => {
+      (async () => {
+        try {
+          const token = await getToken();
+          if (!token) return;
+          const res = await fetch(`/api/groups/${selectedGroupId}`, { headers: { Authorization: `Bearer ${token}` } });
+          const data = await res.json();
+          setMessages(data.messages || []);
+          setGroupInfo(data.group ? { name: data.group.name, role: data.myRole } : null);
+          setMembers(data.members || []);
+        } catch {
+          // Silently ignore polling errors
         }
-      )
-      .subscribe();
+      })();
+    }, 3000);
 
-    channelRef.current = channel;
-    return () => { cancelled = true; channel.unsubscribe(); channelRef.current = null; };
-  }, [selectedGroupId, sbReady]);
+    return () => {
+      if (pollIntervalRef.current) {
+        clearInterval(pollIntervalRef.current);
+        pollIntervalRef.current = null;
+      }
+    };
+  }, [selectedGroupId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Scroll to bottom — SINGLE effect, instant
   useEffect(() => {
