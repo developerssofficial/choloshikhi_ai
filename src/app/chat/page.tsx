@@ -7,6 +7,8 @@ import RenderMessage from "@/components/RenderMessage";
 import TaskFlowChart from "@/components/TaskFlowChart";
 import TaskExecutionPanel from "@/components/TaskExecutionPanel";
 import AppSidebar from "@/components/AppSidebar";
+import EmojiPicker from "@/components/EmojiPicker";
+import { parseEmoji } from "@/lib/emoji";
 import type { TaskGraph, TaskClarification, TaskNodeStatus } from "@/lib/taskTypes";
 
 interface Message {
@@ -137,6 +139,7 @@ export default function ChatPage() {
   const [searching, setSearching] = useState(false);
   const [searchComplete, setSearchComplete] = useState<number | null>(null);
   const [searchComplexity, setSearchComplexity] = useState<"simple" | "standard" | "heavy">("standard");
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const searchCompleteRef = useRef<NodeJS.Timeout | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
@@ -724,13 +727,25 @@ export default function ChatPage() {
             )}
 
             {/* Input Box */}
-            <div className="flex items-center bg-[#1a1a24] border border-white/[0.08] rounded-2xl px-4 py-3 focus-within:border-violet-500/30 focus-within:shadow-lg focus-within:shadow-violet-500/5 transition-all">
+            <div className="relative flex items-center bg-[#1a1a24] border border-white/[0.08] rounded-2xl px-4 py-3 focus-within:border-violet-500/30 focus-within:shadow-lg focus-within:shadow-violet-500/5 transition-all">
               <input ref={fileRef} type="file" accept="image/*" onChange={handleImageSelect} className="hidden" />
               <button onClick={() => fileRef.current?.click()} disabled={sending}
                 className="text-gray-500 hover:text-violet-400 transition-colors disabled:opacity-40 mr-2 flex-shrink-0"
                 title="ছবি">
                 <svg className="w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
               </button>
+              {/* Emoji Button */}
+              <button onClick={() => setShowEmojiPicker(!showEmojiPicker)} disabled={sending}
+                className="text-gray-500 hover:text-violet-400 transition-colors disabled:opacity-40 mr-2 flex-shrink-0"
+                title="Emoji">
+                <svg className="w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              </button>
+              {showEmojiPicker && (
+                <EmojiPicker
+                  onSelect={(emoji) => setInput((prev) => prev + emoji)}
+                  onClose={() => setShowEmojiPicker(false)}
+                />
+              )}
               <input ref={inputRef} type="text" value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSend()}

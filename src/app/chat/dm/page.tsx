@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useAuth } from "@/lib/auth";
 import { useRouter } from "next/navigation";
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
+import EmojiPicker from "@/components/EmojiPicker";
 
 /* ===================================================================
    DM Page — Messenger-style anonymous messaging
@@ -72,6 +73,7 @@ export default function DMPage() {
 
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [searchResults, setSearchResults] = useState<{ userId: string; username: string }[]>([]);
   const [searchLoading, setSearchLoading] = useState(false);
 
@@ -417,7 +419,19 @@ export default function DMPage() {
             )}
 
             <div className="px-3 pb-3 shrink-0">
-              <div className="flex items-center bg-[#1a1a24] border border-white/[0.08] rounded-2xl px-3 py-2 focus-within:border-violet-500/30 transition-all">
+              <div className="relative flex items-center bg-[#1a1a24] border border-white/[0.08] rounded-2xl px-3 py-2 focus-within:border-violet-500/30 transition-all">
+                {/* Emoji Button */}
+                <button onClick={() => setShowEmojiPicker(!showEmojiPicker)} disabled={sending}
+                  className="text-gray-500 hover:text-violet-400 transition-colors disabled:opacity-40 mr-1.5 flex-shrink-0"
+                  title="Emoji">
+                  <svg className="w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </button>
+                {showEmojiPicker && (
+                  <EmojiPicker
+                    onSelect={(emoji) => setInput((prev) => prev + emoji)}
+                    onClose={() => setShowEmojiPicker(false)}
+                  />
+                )}
                 <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSend()} placeholder="Type a message..." disabled={sending} maxLength={2000} className="flex-1 bg-transparent text-white text-sm placeholder-gray-500 focus:outline-none disabled:opacity-40" />
                 <button onClick={handleSend} disabled={!input.trim() || sending} className="ml-2 w-8 h-8 rounded-xl bg-violet-600 flex items-center justify-center text-white hover:bg-violet-500 disabled:opacity-20 disabled:cursor-not-allowed transition-all flex-shrink-0">
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
