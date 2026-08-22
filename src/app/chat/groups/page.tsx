@@ -2,12 +2,13 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useAuth } from "@/lib/auth";
+import { getSocket, disconnectSocket } from "@/lib/socket";
 import { useRouter } from "next/navigation";
 import EmojiPicker from "@/components/EmojiPicker";
 
 /* ===================================================================
    Group Chat Page — Private groups, owner-only invite, roles
-   Simple polling every 3 seconds when a group is selected
+   Real-time via Socket.IO
    =================================================================== */
 
 interface Group {
@@ -76,9 +77,82 @@ export default function GroupChatPage() {
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const pollIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const selectedGroupIdRef = useRef<string | null>(null);
+  const currentRoomRef = useRef<string | null>(null);
 
-  // Fetch groups — stable callback, NO getToken in deps
+  // Keep ref in sync with state
+  useEffect(() => {
+    selectedGroupIdRef.current = selectedGroupId;
+  }, [selectedGroupId]);
+
+  // ── Socket.IO setup ──
+  useEffect(() => {
+    if (!user) return;
+
+    let mounted = true;
+
+    (async () => {
+      const token = await getToken();
+      if (!token || !mounted) return;
+
+      const socket = getSocket(token);
+
+      // Listen for incoming group messages
+      socket.on("group:message", (msg: GroupMessage) => {
+        if (!mounted) return;
+        setMessages((prev) => {
+          // Deduplicate: if a temp message exists with same content from the same sender, replace it
+          const tempIdx = prev.findIndex(
+            (m) => m.id.startsWith("temp-") && m.senderId === msg.senderId && m.content === msg.content
+          );
+          if (tempIdx !== -1) {
+            const updated = [...prev];
+            updated[tempIdx] = msg;
+            return updated;
+          }
+          // Avoid duplicates by id
+          if (prev.some((m) => m.id === msg.id)) return prev;
+          return [...prev, msg];
+        });
+      });
+
+      socket.on("connect", () => {
+        // Re-join the room on reconnect if one is selected
+        const groupId = selectedGroupIdRef.current;
+        if (groupId) {
+          socket.emit("group:leave", currentRoomRef.current || groupId);
+          socket.emit("group:join", groupId);
+          currentRoomRef.current = groupId;
+        }
+      });
+    })();
+
+    return () => {
+      mounted = false;
+      disconnectSocket();
+    };
+  }, [user, getToken]);
+
+  // ── Join/leave rooms on group switch ──
+  useEffect(() => {
+    const socket = getSocket(""); // gets existing socket
+    if (!socket?.connected) return;
+
+    const prevRoom = currentRoomRef.current;
+
+    if (prevRoom && prevRoom !== selectedGroupId) {
+      socket.emit("group:leave", prevRoom);
+    }
+
+    if (selectedGroupId) {
+      socket.emit("group:join", selectedGroupId);
+      currentRoomRef.current = selectedGroupId;
+    } else {
+      currentRoomRef.current = null;
+    }
+  }, [selectedGroupId]);
+
+  // Fetch groups — stable callback
   const fetchGroups = useCallback(async () => {
     if (!user) return;
     setLoadingGroups(true);
@@ -93,11 +167,11 @@ export default function GroupChatPage() {
     } finally {
       setLoadingGroups(false);
     }
-  }, [user]); // NO getToken
+  }, [user]);
 
   useEffect(() => { fetchGroups(); }, [fetchGroups]);
 
-  // Fetch messages — stable, NO getToken in deps
+  // Fetch messages — stable callback for initial load
   const fetchMessages = useCallback(async (groupId: string) => {
     setLoadingMessages(true);
     try {
@@ -113,52 +187,18 @@ export default function GroupChatPage() {
     } finally {
       setLoadingMessages(false);
     }
-  }, []); // NO getToken
+  }, []);
 
   useEffect(() => {
     if (selectedGroupId) fetchMessages(selectedGroupId);
-  }, [selectedGroupId]); // NO fetchMessages in deps (stable)
-
-  // Polling — fetch new messages every 3 seconds while a group is selected
-  useEffect(() => {
-    // Clear any existing interval
-    if (pollIntervalRef.current) {
-      clearInterval(pollIntervalRef.current);
-      pollIntervalRef.current = null;
-    }
-
-    if (!selectedGroupId) return;
-
-    pollIntervalRef.current = setInterval(() => {
-      (async () => {
-        try {
-          const token = await getToken();
-          if (!token) return;
-          const res = await fetch(`/api/groups/${selectedGroupId}`, { headers: { Authorization: `Bearer ${token}` } });
-          const data = await res.json();
-          setMessages(data.messages || []);
-          setGroupInfo(data.group ? { name: data.group.name, role: data.myRole } : null);
-          setMembers(data.members || []);
-        } catch {
-          // Silently ignore polling errors
-        }
-      })();
-    }, 3000);
-
-    return () => {
-      if (pollIntervalRef.current) {
-        clearInterval(pollIntervalRef.current);
-        pollIntervalRef.current = null;
-      }
-    };
   }, [selectedGroupId]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Scroll to bottom — SINGLE effect, instant
+  // Scroll to bottom
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "auto" });
   }, [messages]);
 
-  // Send message
+  // Send message via Socket.IO
   const handleSend = async () => {
     if (!input.trim() || !selectedGroupId || sending) return;
     const content = input.trim();
@@ -172,26 +212,32 @@ export default function GroupChatPage() {
       id: tempId, content, senderId: user?.id || "", senderUsername: "You",
       senderNickname: null, isMine: true, createdAt: new Date().toISOString(),
     };
-    setMessages(prev => [...prev, tempMsg]);
+    setMessages((prev) => [...prev, tempMsg]);
 
     try {
-      const token = await getToken();
-      if (!token) throw new Error("Not logged in");
-      const res = await fetch(`/api/groups/${selectedGroupId}/messages`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-        body: JSON.stringify({ content }),
-      });
-      let data: any;
-      try { data = await res.json(); } catch { data = { error: "Server error" }; }
-      if (!res.ok) throw new Error(data.error || "Send failed");
+      const socket = getSocket("");
+      if (!socket?.connected) throw new Error("Not connected");
 
-      setMessages(prev => prev.map(m => m.id === tempId ? data.message : m));
+      socket.emit(
+        "group:send",
+        { groupId: selectedGroupId, content },
+        (ack: { ok: boolean; message?: GroupMessage; error?: string }) => {
+          if (ack.ok && ack.message) {
+            setMessages((prev) =>
+              prev.map((m) => (m.id === tempId ? ack.message! : m))
+            );
+          } else {
+            setMessages((prev) => prev.filter((m) => m.id !== tempId));
+            setInput(content);
+            setSendError(ack.error || "Send failed");
+          }
+          setSending(false);
+        }
+      );
     } catch (err: any) {
-      setMessages(prev => prev.filter(m => m.id !== tempId));
+      setMessages((prev) => prev.filter((m) => m.id !== tempId));
       setInput(content);
       setSendError(err.message || "Failed to send");
-    } finally {
       setSending(false);
     }
   };
@@ -210,7 +256,7 @@ export default function GroupChatPage() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
-      setGroups(prev => [{ ...data.group, lastMessage: null, lastMessageAt: data.group.created_at }, ...prev]);
+      setGroups((prev) => [{ ...data.group, lastMessage: null, lastMessageAt: data.group.created_at }, ...prev]);
       setShowCreateGroup(false);
       setNewGroupName("");
       setSelectedGroupId(data.group.id);
@@ -256,7 +302,13 @@ export default function GroupChatPage() {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (res.ok) {
-        setGroups(prev => prev.filter(g => g.id !== selectedGroupId));
+        // Leave socket room
+        const socket = getSocket("");
+        if (socket?.connected) {
+          socket.emit("group:leave", selectedGroupId);
+        }
+        currentRoomRef.current = null;
+        setGroups((prev) => prev.filter((g) => g.id !== selectedGroupId));
         setSelectedGroupId(null);
         setGroupInfo(null);
       }

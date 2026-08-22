@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 import { verifyAuthUser } from "@/lib/supabase-auth";
+import { getDb } from "@/lib/mongodb";
 
 // GET /api/groups/[id] — Get group details + messages
 export async function GET(
@@ -12,12 +13,11 @@ export async function GET(
     const authUser = await verifyAuthUser(req);
     if (!authUser) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-    // Verify membership + get group + get members + get messages — ALL in parallel
-    const [memResult, groupResult, membersResult, messagesResult] = await Promise.all([
+    // Verify membership + get group + get members — ALL in parallel
+    const [memResult, groupResult, membersResult] = await Promise.all([
       supabase.from("group_members").select("role").eq("group_id", id).eq("user_id", authUser.id).single(),
       supabase.from("groups").select("id, name, description, creator_id, created_at").eq("id", id).single(),
       supabase.from("group_members").select("user_id, role, joined_at").eq("group_id", id),
-      supabase.from("group_messages").select("id, content, sender_id, created_at").eq("group_id", id).order("created_at", { ascending: true }).limit(200),
     ]);
 
     if (memResult.error || !memResult.data) {
@@ -28,9 +28,14 @@ export async function GET(
       return NextResponse.json({ error: "Group not found" }, { status: 404 });
     }
 
-    // Get profiles for all members (in parallel with messages)
+    // Fetch messages from MongoDB
+    const db = await getDb();
+    const msgs = db.collection("group_messages");
+    const mongoMessages = await msgs.find({ group_id: id }).sort({ created_at: 1 }).limit(200).toArray();
+
+    // Get profiles for all members + message senders
     const memberUserIds = (membersResult.data || []).map(m => m.user_id);
-    const senderIds = [...new Set((messagesResult.data || []).map(m => m.sender_id))];
+    const senderIds = [...new Set(mongoMessages.map((m: any) => m.sender_id))];
     const allUniqueIds = [...new Set([...memberUserIds, ...senderIds])];
 
     const profilesResult = allUniqueIds.length > 0
@@ -50,10 +55,10 @@ export async function GET(
       };
     });
 
-    const messages = (messagesResult.data || []).map(m => {
+    const messages = mongoMessages.map((m: any) => {
       const prof = profileMap.get(m.sender_id);
       return {
-        id: m.id,
+        id: m._id.toString(),
         content: m.content,
         senderId: m.sender_id,
         senderUsername: prof?.username || "Unknown",

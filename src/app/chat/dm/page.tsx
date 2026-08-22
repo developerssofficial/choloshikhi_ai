@@ -2,12 +2,13 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useAuth } from "@/lib/auth";
+import { getSocket, disconnectSocket } from "@/lib/socket";
 import { useRouter } from "next/navigation";
 import EmojiPicker from "@/components/EmojiPicker";
 
 /* ===================================================================
    DM Page — Messenger-style anonymous messaging
-   Simple polling for new messages (no Supabase Realtime)
+   Real-time via Socket.IO (no polling)
    =================================================================== */
 
 interface Conversation {
@@ -75,12 +76,47 @@ export default function DMPage() {
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const searchDebounceRef = useRef<NodeJS.Timeout | null>(null);
-  const pollIntervalRef = useRef<NodeJS.Timeout | null>(null);
-  const selectedConvIdRef = useRef<string | null>(null);
+  const socketInitializedRef = useRef(false);
 
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "auto" }); // instant, not smooth
   }, []);
+
+  // Connect socket when user is available
+  useEffect(() => {
+    if (!user) return;
+    if (socketInitializedRef.current) return;
+    socketInitializedRef.current = true;
+
+    let mounted = true;
+
+    const connect = async () => {
+      const token = await getToken();
+      if (!token || !mounted) return;
+
+      const socket = getSocket(token);
+
+      socket.on("dm:message", (msg: Message) => {
+        if (!mounted) return;
+        setMessages((prev) => {
+          if (prev.some((m) => m.id === msg.id)) return prev;
+          return [...prev, msg];
+        });
+        setTimeout(scrollToBottom, 50);
+      });
+
+      socket.on("connect_error", (err: Error) => {
+        console.error("Socket connection error:", err.message);
+      });
+    };
+
+    connect();
+
+    return () => {
+      mounted = false;
+      disconnectSocket();
+    };
+  }, [user, scrollToBottom]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Fetch conversations via API — stable callback, no deps
   const fetchConversations = useCallback(async () => {
@@ -96,7 +132,7 @@ export default function DMPage() {
     setLoadingConvs(false);
   }, []); // stable — no deps
 
-  // Fetch messages for a conversation via API
+  // Fetch messages for a conversation via API (initial load only)
   const fetchMessages = useCallback(async (convId: string) => {
     setLoadingMessages(true);
     try {
@@ -115,50 +151,20 @@ export default function DMPage() {
     setLoadingMessages(false);
   }, []); // stable — no deps
 
-  // Keep selectedConvIdRef in sync
+  // When conversation changes: fetch messages + join/leave socket rooms
   useEffect(() => {
-    selectedConvIdRef.current = selectedConvId;
-  }, [selectedConvId]);
-
-  // Polling: when a conversation is selected, poll every 3 seconds
-  useEffect(() => {
-    // Clear any existing poll interval
-    if (pollIntervalRef.current) {
-      clearInterval(pollIntervalRef.current);
-      pollIntervalRef.current = null;
-    }
-
     if (!selectedConvId || !user) return;
 
-    // Fetch messages immediately
+    // Fetch initial messages
     fetchMessages(selectedConvId);
 
-    // Set up polling — only fetch messages, skip the loading indicator for polls
-    const poll = async () => {
-      const convId = selectedConvIdRef.current;
-      if (!convId) return;
-      try {
-        const token = await getToken();
-        const headers: Record<string, string> = {};
-        if (token) headers["Authorization"] = `Bearer ${token}`;
-        const res = await fetch(`/api/dm/${convId}`, { headers });
-        const data = await res.json();
-        if (data.messages) {
-          setMessages(data.messages);
-          setOtherUser(data.otherUser);
-          setMyUsername(data.myUsername);
-          scrollToBottom();
-        }
-      } catch (e) { console.error("poll error:", e); }
-    };
-
-    pollIntervalRef.current = setInterval(poll, 3000);
+    // Join socket room
+    const socket = getSocket(""); // already connected from mount
+    socket.emit("dm:join", selectedConvId);
 
     return () => {
-      if (pollIntervalRef.current) {
-        clearInterval(pollIntervalRef.current);
-        pollIntervalRef.current = null;
-      }
+      // Leave socket room when switching conversations
+      socket.emit("dm:leave", selectedConvId);
     };
   }, [selectedConvId, user, fetchMessages]);
 
@@ -202,7 +208,7 @@ export default function DMPage() {
     } catch {}
   };
 
-  // Send message
+  // Send message via Socket.IO with optimistic update
   const handleSend = async () => {
     if (!input.trim() || !selectedConvId || sending) return;
     setSending(true);
@@ -216,39 +222,37 @@ export default function DMPage() {
     setTimeout(scrollToBottom, 50);
 
     try {
-      const token = await getToken();
-      if (!token) {
-        setMessages((prev) => prev.filter((m) => m.id !== tempId));
-        setInput(msgContent);
-        setSendError("Not logged in — please refresh");
-        setSending(false);
-        return;
-      }
-      const res = await fetch(`/api/dm/${selectedConvId}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
-        body: JSON.stringify({ content: msgContent }),
-      });
-
-      // Safe JSON parse — server might return HTML on error
-      let data: any;
-      try { data = await res.json(); } catch { data = { error: `HTTP ${res.status}` }; }
-
-      if (!res.ok || data.error) {
-        setMessages((prev) => prev.filter((m) => m.id !== tempId));
-        setInput(msgContent);
-        setSendError(data.error || `Error ${res.status}`);
-      } else if (data.message) {
-        setMessages((prev) => prev.map((m) => m.id === tempId ? data.message : m));
-        // Update conversation's last message in sidebar optimistically
-        setConversations(prev => prev.map(c => c.id === selectedConvId ? { ...c, lastMessage: { content: msgContent, isMine: true, createdAt: new Date().toISOString() }, updatedAt: new Date().toISOString() } : c));
-      }
+      const socket = getSocket("");
+      socket.emit(
+        "dm:send",
+        { conversationId: selectedConvId, content: msgContent },
+        (ack: { ok?: boolean; message?: Message; error?: string }) => {
+          if (ack.ok && ack.message) {
+            // Replace temp message with server-confirmed message
+            setMessages((prev) => prev.map((m) => m.id === tempId ? ack.message! : m));
+            // Update conversation's last message in sidebar optimistically
+            setConversations((prev) =>
+              prev.map((c) =>
+                c.id === selectedConvId
+                  ? { ...c, lastMessage: { content: msgContent, isMine: true, createdAt: new Date().toISOString() }, updatedAt: new Date().toISOString() }
+                  : c
+              )
+            );
+          } else {
+            // Revert optimistic message
+            setMessages((prev) => prev.filter((m) => m.id !== tempId));
+            setInput(msgContent);
+            setSendError(ack.error || "Send failed");
+          }
+          setSending(false);
+        }
+      );
     } catch {
       setMessages((prev) => prev.filter((m) => m.id !== tempId));
       setInput(msgContent);
       setSendError("Network error — try again");
+      setSending(false);
     }
-    setSending(false);
   };
 
   if (loading) {
