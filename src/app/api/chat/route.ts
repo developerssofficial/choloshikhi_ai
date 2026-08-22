@@ -3,6 +3,7 @@ import { supabase } from "@/lib/supabase";
 import { validateTaskGraph } from "@/lib/taskGraphValidator";
 import { verifyAuthUser } from "@/lib/supabase-auth";
 import { canSendMessage, incrementTeacherUsage } from "@/lib/subscription";
+import { filterProfanity } from "@/lib/profanityFilter";
 
 /* ===== CONSTANTS ===== */
 const GEMINI_URL =
@@ -1071,9 +1072,9 @@ function generateHumanReadableMessage(action: string, data: any): string {
 
 export async function POST(req: NextRequest) {
   try {
-    const { message, userId: bodyUserId, image, sessionId, mode, guestMemory } = await req.json();
+    const { message: rawMessage, userId: bodyUserId, image, sessionId, mode, guestMemory } = await req.json();
 
-    if (!message?.trim()) {
+    if (!rawMessage?.trim()) {
       return NextResponse.json({ error: "Message required" }, { status: 400 });
     }
 
@@ -1082,7 +1083,7 @@ export async function POST(req: NextRequest) {
     const userId = authUser?.id || bodyUserId || null;
 
     /* ===== SLASH COMMANDS ===== */
-    const cmd = message.trim().toLowerCase();
+    const cmd = rawMessage.trim().toLowerCase();
 
     if (cmd === "/help") {
       return NextResponse.json({
@@ -1120,6 +1121,9 @@ export async function POST(req: NextRequest) {
         provider: "local",
       });
     }
+
+    /* ===== PROFANITY FILTER: Replace bad words with stars ===== */
+    const message = filterProfanity(rawMessage.trim());
 
     /* ===== SUBSCRIPTION QUOTA CHECK ===== */
     if (userId && mode === "education") {

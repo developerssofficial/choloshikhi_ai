@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 import { verifyAuthUser } from "@/lib/supabase-auth";
+import { filterProfanity } from "@/lib/profanityFilter";
 
 // GET /api/dm/[id] — Fetch messages + mark read
 export async function GET(
@@ -78,13 +79,16 @@ export async function POST(
     const { content } = body;
     if (!content?.trim()) return NextResponse.json({ error: "Empty message" }, { status: 400 });
 
+    // Profanity filter: replace bad words with stars
+    const filteredContent = filterProfanity(content.trim());
+
     // Insert message
     const { data: msg, error: insertErr } = await supabase
       .from("dm_messages")
       .insert({
         conversation_id: id,
         sender_id: authUser.id,
-        content: content.trim().slice(0, 2000),
+        content: filteredContent.slice(0, 2000),
       })
       .select("id, content, created_at")
       .single();
