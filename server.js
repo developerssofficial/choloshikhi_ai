@@ -9,6 +9,7 @@ const http = require("http");
 const { Server } = require("socket.io");
 const mongoose = require("mongoose");
 const dns = require("dns");
+const { filterProfanity } = require("./profanityFilter.cjs");
 
 /* ===== Use Google DNS for MongoDB SRV resolution ===== */
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
@@ -104,6 +105,39 @@ async function verifySocketAuth(token) {
   }
 }
 
+/* ===== Profile Cache ===== */
+const profileCache = new Map();
+
+async function getProfile(userId) {
+  if (profileCache.has(userId)) return profileCache.get(userId);
+
+  const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || "";
+  const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
+
+  if (!SUPABASE_URL || !SUPABASE_KEY) return null;
+
+  try {
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/student_profiles?user_id=eq.${userId}&select=username,nickname,display_name`,
+      {
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: `Bearer ${SUPABASE_KEY}`,
+        },
+      }
+    );
+    const rows = await res.json();
+    const profile = rows.length > 0 ? rows[0] : { username: "Unknown" };
+    profileCache.set(userId, profile);
+    return profile;
+  } catch (err) {
+    console.error("[Profile] Fetch error:", err.message);
+    const fallback = { username: "Unknown" };
+    profileCache.set(userId, fallback);
+    return fallback;
+  }
+}
+
 /* ===== Socket.IO Connection Handler ===== */
 io.on("connection", async (socket) => {
   const token = socket.handshake.auth?.token;
@@ -158,10 +192,15 @@ io.on("connection", async (socket) => {
       // Update conversation timestamp
       await DmConversation.findByIdAndUpdate(conversationId, { updated_at: new Date() });
 
+      // Fetch sender profile for display name
+      const profile = await getProfile(userId);
+
       const messageData = {
         id: msg._id.toString(),
         content: msg.content,
         senderId: msg.sender_id,
+        senderUsername: profile?.username || "Unknown",
+        senderNickname: profile?.nickname || profile?.display_name || null,
         isMine: false, // will be overridden by sender
         createdAt: msg.created_at,
       };
@@ -204,17 +243,25 @@ io.on("connection", async (socket) => {
         return;
       }
 
+      // Filter profanity
+      const filteredContent = filterProfanity(content.trim().slice(0, 2000));
+
       // Save to MongoDB
       const msg = await GroupMessage.create({
         group_id: groupId,
         sender_id: userId,
-        content: content.trim().slice(0, 2000),
+        content: filteredContent,
       });
+
+      // Fetch sender profile for display name
+      const profile = await getProfile(userId);
 
       const messageData = {
         id: msg._id.toString(),
         content: msg.content,
         senderId: msg.sender_id,
+        senderUsername: profile?.username || "Unknown",
+        senderNickname: profile?.nickname || profile?.display_name || null,
         createdAt: msg.created_at,
       };
 
@@ -224,7 +271,7 @@ io.on("connection", async (socket) => {
         groupId,
       });
 
-      // Acknowledge success
+      // Acknowledge success to sender
       ack?.({
         ok: true,
         message: { ...messageData, isMine: true },

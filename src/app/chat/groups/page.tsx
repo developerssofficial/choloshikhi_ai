@@ -45,7 +45,8 @@ function shortTime(dateStr: string): string {
 
 function usernameColor(username: string): string {
   let hash = 0;
-  for (let i = 0; i < username.length; i++) hash = username.charCodeAt(i) + ((hash << 5) - hash);
+  const name = username || "Unknown";
+  for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
   const colors = ["text-violet-400", "text-sky-400", "text-emerald-400", "text-amber-400", "text-rose-400", "text-cyan-400", "text-pink-400", "text-teal-400"];
   return colors[Math.abs(hash) % colors.length];
 }
