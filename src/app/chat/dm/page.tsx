@@ -83,6 +83,7 @@ export default function DMPage() {
   const sbRef = useRef<SupabaseClient | null>(null);
   const channelRef = useRef<any>(null);
   const selectedConvRef = useRef<string | null>(null);
+  const [sbReady, setSbReady] = useState(false);
 
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "auto" }); // instant, not smooth
@@ -97,9 +98,10 @@ export default function DMPage() {
       sbRef.current = createClient(supabaseUrl, supabaseAnonKey, {
         global: { headers: { Authorization: `Bearer ${token}` } },
       });
+      if (!cancelled) setSbReady(true);
     });
     return () => { cancelled = true; };
-  }, [user, loading]); // NO getToken in deps
+  }, [user, loading]);
 
   // Fetch conversations via API — stable callback, no deps
   const fetchConversations = useCallback(async () => {
@@ -188,7 +190,7 @@ export default function DMPage() {
         channelRef.current = null;
       }
     };
-  }, [selectedConvId, user]); // stable deps — sbRef used directly
+  }, [selectedConvId, user, sbReady]);
 
   // Store userId for realtime filter
   useEffect(() => { if (user) myUserIdRef.current = user.id; }, [user]);

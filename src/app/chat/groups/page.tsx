@@ -83,10 +83,7 @@ export default function GroupChatPage() {
   const sbRef = useRef<SupabaseClient | null>(null);
   const channelRef = useRef<any>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const selectedGroupRef = useRef<string | null>(null);
-
-  // Keep ref in sync with state
-  useEffect(() => { selectedGroupRef.current = selectedGroupId; }, [selectedGroupId]);
+  const [sbReady, setSbReady] = useState(false);
 
   // Create Supabase client for Realtime — ONCE per login
   useEffect(() => {
@@ -99,9 +96,10 @@ export default function GroupChatPage() {
           global: { headers: { Authorization: `Bearer ${token}` } },
         });
       }
+      if (!cancelled) setSbReady(true);
     });
     return () => { cancelled = true; };
-  }, [user, loading]); // NO getToken in deps
+  }, [user, loading]);
 
   // Fetch groups — stable callback, NO getToken in deps
   const fetchGroups = useCallback(async () => {
@@ -144,7 +142,7 @@ export default function GroupChatPage() {
     if (selectedGroupId) fetchMessages(selectedGroupId);
   }, [selectedGroupId]); // NO fetchMessages in deps (stable)
 
-  // Realtime subscription — uses sbRef, NO user object in deps
+  // Realtime subscription — waits for sbReady before connecting
   useEffect(() => {
     if (!sbRef.current || !selectedGroupId) return;
 
@@ -179,7 +177,7 @@ export default function GroupChatPage() {
 
     channelRef.current = channel;
     return () => { cancelled = true; channel.unsubscribe(); channelRef.current = null; };
-  }, [selectedGroupId]); // NO sbClient, NO user
+  }, [selectedGroupId, sbReady]);
 
   // Scroll to bottom — SINGLE effect, instant
   useEffect(() => {
