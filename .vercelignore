@@ -5,3 +5,12 @@ dist
 .trae
 .log
 .figma
+.next
+out
+.vercel
+desktop
+desktop/node_modules
+supabase
+scripts
+*.md
+.env.local
