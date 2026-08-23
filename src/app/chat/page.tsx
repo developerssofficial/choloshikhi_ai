@@ -376,9 +376,9 @@ export default function ChatPage() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-[#0f0f14]">
+      <div className="flex items-center justify-center min-h-screen bg-[#0a0a0f]">
         <div className="flex flex-col items-center gap-3">
-          <img src="/logo-source.png" alt="CholoShikhi" className="w-12 h-12 rounded-xl object-contain shadow-lg shadow-violet-500/20" />
+          <img src="/logo-source.png" alt="CholoShikhi" className="w-12 h-12 rounded-xl object-contain shadow-lg shadow-violet-500/25" />
           <div className="w-5 h-5 border-2 border-gray-600 border-t-violet-400 rounded-full animate-spin" />
         </div>
       </div>
@@ -389,7 +389,7 @@ export default function ChatPage() {
 
   return (
     <ViewTransition enter="page-enter" default="none">
-    <div className="flex h-screen bg-[#0f0f14] overflow-hidden">
+    <div className="flex h-screen bg-[#0a0a0f] overflow-hidden">
       {/* ===== SIDEBAR (web/mobile only) ===== */}
       {!isDesktop && (
       <AppSidebar
@@ -407,7 +407,7 @@ export default function ChatPage() {
         {/* Header — Desktop: drag region + logo + window controls */}
         {isDesktop ? (
           <header
-            className="flex items-center justify-between px-4 h-10 border-b border-white/[0.06] shrink-0 bg-[#0f0f14]/80 backdrop-blur-xl select-none"
+            className="flex items-center justify-between px-4 h-12 border-b border-white/[0.04] shrink-0 bg-[#0d0d14]/80 backdrop-blur-xl select-none"
             style={{ WebkitAppRegion: "drag" } as React.CSSProperties}
           >
             {/* Left: logo */}
@@ -467,37 +467,37 @@ export default function ChatPage() {
           </header>
         ) : (
         /* Header — Web/Mobile: mode toggle in center */
-        <header className="flex items-center justify-between px-4 h-12 border-b border-white/[0.06] shrink-0 bg-[#0f0f14]/80 backdrop-blur-xl">
+        <header className="flex items-center justify-between px-4 h-14 border-b border-white/[0.04] shrink-0 bg-[#0d0d14]/80 backdrop-blur-xl">
           {/* Left: mobile spacer for hamburger */}
           <div className="w-9 md:w-0" />
 
           {/* Center: Mode Toggle */}
-          <div className="flex items-center bg-[#1a1a24] border border-white/[0.08] rounded-full p-0.5">
+          <div className="flex items-center bg-[#141420] border border-white/[0.08] rounded-full p-0.5 shadow-inner">
             <button
               onClick={() => setMode("normal")}
-              className={`px-3 py-1 text-[10px] font-medium rounded-full transition-all ${
+              className={`px-4 py-1.5 text-[11px] font-medium rounded-full transition-all ${
                 mode === "normal"
-                  ? "bg-violet-600 text-white shadow-sm"
-                  : "text-gray-500 hover:text-gray-300"
+                  ? "bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-md shadow-violet-500/25"
+                  : "text-gray-500 hover:text-gray-300 hover:bg-white/[0.04]"
               }`}>
               Normal
             </button>
             <button
               onClick={() => setMode("education")}
-              className={`px-3 py-1 text-[10px] font-medium rounded-full transition-all flex items-center gap-1 ${
+              className={`px-4 py-1.5 text-[11px] font-medium rounded-full transition-all flex items-center gap-1.5 ${
                 mode === "education"
-                  ? "bg-emerald-600 text-white shadow-sm"
-                  : "text-gray-500 hover:text-gray-300"
+                  ? "bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md shadow-emerald-500/25"
+                  : "text-gray-500 hover:text-gray-300 hover:bg-white/[0.04]"
               }`}>
               <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
               Shikkhok
             </button>
             <button
               onClick={() => setMode("taskplan")}
-              className={`px-3 py-1 text-[10px] font-medium rounded-full transition-all flex items-center gap-1 ${
+              className={`px-4 py-1.5 text-[11px] font-medium rounded-full transition-all flex items-center gap-1.5 ${
                 mode === "taskplan"
-                  ? "bg-sky-600 text-white shadow-sm"
-                  : "text-gray-500 hover:text-gray-300"
+                  ? "bg-gradient-to-r from-sky-600 to-blue-600 text-white shadow-md shadow-sky-500/25"
+                  : "text-gray-500 hover:text-gray-300 hover:bg-white/[0.04]"
               }`}>
               <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
               Task
@@ -529,8 +529,8 @@ export default function ChatPage() {
                   <div className="relative max-w-[80%]">
                     <div className={`px-4 py-2.5 text-[13px] leading-relaxed whitespace-pre-wrap ${
                       msg.role === "user"
-                        ? "bg-violet-600 text-white rounded-2xl rounded-br-md"
-                        : "text-gray-300 rounded-2xl rounded-bl-md"
+                        ? "bg-gradient-to-br from-violet-600 to-indigo-600 text-white rounded-2xl rounded-br-md shadow-lg shadow-violet-500/10"
+                        : "text-gray-300 rounded-2xl rounded-bl-md bg-white/[0.04] border border-white/[0.04]"
                     }`}>
                       {msg.image && <img src={msg.image} alt="" className="mb-2 rounded-xl max-h-48 object-cover" />}
                     {msg.role === "assistant" ? (
@@ -643,17 +643,17 @@ export default function ChatPage() {
                     {mode === "taskplan" ? (
                       <div className="flex items-center gap-2 text-[11px] text-sky-400/70">
                         <div className="flex gap-0.5">
-                          <div className="w-1 h-1 bg-sky-400 rounded-full animate-bounce" />
-                          <div className="w-1 h-1 bg-sky-400 rounded-full animate-bounce [animation-delay:0.15s]" />
-                          <div className="w-1 h-1 bg-sky-400 rounded-full animate-bounce [animation-delay:0.3s]" />
+                          <div className="w-1.5 h-1.5 bg-sky-400 rounded-full animate-bounce" />
+                          <div className="w-1.5 h-1.5 bg-sky-400 rounded-full animate-bounce [animation-delay:0.15s]" />
+                          <div className="w-1.5 h-1.5 bg-sky-400 rounded-full animate-bounce [animation-delay:0.3s]" />
                         </div>
                         <span>Building your plan...</span>
                       </div>
                     ) : (
                       <div className="flex gap-1">
-                        <div className="w-1.5 h-1.5 bg-gray-500 rounded-full animate-bounce" />
-                        <div className="w-1.5 h-1.5 bg-gray-500 rounded-full animate-bounce [animation-delay:0.1s]" />
-                        <div className="w-1.5 h-1.5 bg-gray-500 rounded-full animate-bounce [animation-delay:0.2s]" />
+                        <div className="w-2 h-2 bg-violet-500 rounded-full animate-bounce" />
+                        <div className="w-2 h-2 bg-violet-500 rounded-full animate-bounce [animation-delay:0.1s]" />
+                        <div className="w-2 h-2 bg-violet-500 rounded-full animate-bounce [animation-delay:0.2s]" />
                       </div>
                     )}
                   </div>
@@ -667,7 +667,7 @@ export default function ChatPage() {
           <div className="flex-1 flex flex-col items-center justify-center px-4">
             <div className="mb-6 relative">
               <img src="/logo-source.png" alt="CholoShikhi" className="w-16 h-16 rounded-2xl object-contain shadow-2xl shadow-violet-500/25" />
-              <div className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-[#0f0f14]" />
+              <div className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-[#0a0a0f] shadow-md" />
             </div>
             <p className="text-gray-200 text-lg font-medium mb-1">{getGreeting()}{user ? `, ${user.name || "বন্ধু"}` : ""}</p>
             {mode === "education" ? (
@@ -690,7 +690,7 @@ export default function ChatPage() {
                   <button
                     key={s.label}
                     onClick={() => handleSend(s.text)}
-                    className="px-3 py-1.5 text-[11px] text-gray-400 bg-white/[0.04] border border-white/[0.08] rounded-full hover:bg-white/[0.08] hover:text-gray-300 transition-all flex items-center gap-1.5"
+                    className="px-3.5 py-1.5 text-[11px] text-gray-400 bg-white/[0.03] border border-white/[0.06] rounded-xl hover:bg-white/[0.06] hover:text-gray-300 hover:border-violet-500/20 transition-all flex items-center gap-1.5 shadow-sm"
                   >
                     <span>{s.icon}</span>
                     {s.label}
@@ -704,15 +704,15 @@ export default function ChatPage() {
               <div className="flex items-center gap-1 mb-2 px-1">
                 <svg className="w-3 h-3 text-gray-600 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" /></svg>
                 <button onClick={() => setMode("normal")}
-                  className={`px-2.5 py-1 text-[9px] font-medium rounded-md transition-all ${mode === "normal" ? "bg-violet-600 text-white" : "text-gray-600 hover:text-gray-400 hover:bg-white/[0.04]"}`}>
+                  className={`px-3 py-1.5 text-[10px] font-medium rounded-xl transition-all ${mode === "normal" ? "bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-md shadow-violet-500/25" : "text-gray-600 hover:text-gray-400 hover:bg-white/[0.04]"}`}>
                   Normal
                 </button>
                 <button onClick={() => setMode("education")}
-                  className={`px-2.5 py-1 text-[9px] font-medium rounded-md transition-all ${mode === "education" ? "bg-emerald-600 text-white" : "text-gray-600 hover:text-gray-400 hover:bg-white/[0.04]"}`}>
+                  className={`px-3 py-1.5 text-[10px] font-medium rounded-xl transition-all ${mode === "education" ? "bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md shadow-emerald-500/25" : "text-gray-600 hover:text-gray-400 hover:bg-white/[0.04]"}`}>
                   Shikkhok
                 </button>
                 <button onClick={() => setMode("taskplan")}
-                  className={`px-2.5 py-1 text-[9px] font-medium rounded-md transition-all ${mode === "taskplan" ? "bg-sky-600 text-white" : "text-gray-600 hover:text-gray-400 hover:bg-white/[0.04]"}`}>
+                  className={`px-3 py-1.5 text-[10px] font-medium rounded-xl transition-all ${mode === "taskplan" ? "bg-gradient-to-r from-sky-600 to-blue-600 text-white shadow-md shadow-sky-500/25" : "text-gray-600 hover:text-gray-400 hover:bg-white/[0.04]"}`}>
                   Task
                 </button>
               </div>
@@ -727,16 +727,16 @@ export default function ChatPage() {
             )}
 
             {/* Input Box */}
-            <div className="relative flex items-center bg-[#1a1a24] border border-white/[0.08] rounded-2xl px-4 py-3 focus-within:border-violet-500/30 focus-within:shadow-lg focus-within:shadow-violet-500/5 transition-all">
+            <div className="relative flex items-center bg-[#141420] border border-white/[0.08] rounded-2xl px-4 py-3 focus-within:border-violet-500/30 focus-within:shadow-lg focus-within:shadow-violet-500/5 transition-all">
               <input ref={fileRef} type="file" accept="image/*" onChange={handleImageSelect} className="hidden" />
               <button onClick={() => fileRef.current?.click()} disabled={sending}
-                className="text-gray-500 hover:text-violet-400 transition-colors disabled:opacity-40 mr-2 flex-shrink-0"
+                className="w-8 h-8 rounded-xl flex items-center justify-center text-gray-500 hover:text-violet-400 hover:bg-white/[0.04] transition-all disabled:opacity-40 mr-1 flex-shrink-0"
                 title="ছবি">
                 <svg className="w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
               </button>
               {/* Emoji Button */}
               <button onClick={() => setShowEmojiPicker(!showEmojiPicker)} disabled={sending}
-                className="text-gray-500 hover:text-violet-400 transition-colors disabled:opacity-40 mr-2 flex-shrink-0"
+                className="w-8 h-8 rounded-xl flex items-center justify-center text-gray-500 hover:text-violet-400 hover:bg-white/[0.04] transition-all disabled:opacity-40 mr-1 flex-shrink-0"
                 title="Emoji">
                 <svg className="w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
               </button>
@@ -754,7 +754,11 @@ export default function ChatPage() {
                 className="flex-1 bg-transparent text-white placeholder-gray-500 focus:outline-none text-sm disabled:opacity-40"
               />
               <button onClick={() => handleSend()} disabled={(!input.trim() && !imagePreview) || sending}
-                className="ml-2 w-8 h-8 rounded-xl bg-violet-600 flex items-center justify-center text-white hover:bg-violet-500 disabled:opacity-20 disabled:cursor-not-allowed transition-all flex-shrink-0">
+                className={`ml-2 w-9 h-9 rounded-xl flex items-center justify-center transition-all flex-shrink-0 ${
+                  (input.trim() || imagePreview) && !sending
+                    ? "bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:scale-105"
+                    : "bg-white/[0.04] text-gray-700 cursor-not-allowed"
+                }`}>
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
               </button>
             </div>
