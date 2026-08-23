@@ -109,7 +109,7 @@ export default function AppSidebar({
       <div className="flex flex-col items-center gap-1 pt-3 pb-2">
         {/* Logo — hidden in Electron (titlebar has it) */}
         {!isElectron && (
-          <img src="/logo-source.png" alt="CholoShikhi" className="w-9 h-9 rounded-xl object-contain shadow-lg shadow-violet-500/20 mb-2" />
+          <img src="/logo-source.png" alt="CholoShikhi" className="w-9 h-9 rounded-xl object-contain shadow-lg shadow-violet-500/25 mb-2" />
         )}
         {isElectron && <div className="mb-2" />}
 
@@ -176,7 +176,7 @@ export default function AppSidebar({
           <div className="relative" ref={accountRef}>
             <button
               onClick={() => setShowAccount((v) => !v)}
-              className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center text-white text-[11px] font-bold hover:shadow-lg hover:shadow-violet-500/25 transition-all"
+              className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center text-white text-[11px] font-bold hover:shadow-lg hover:shadow-violet-500/25 transition-all"
               title="Account"
             >
               {user.name?.[0] || user.email?.[0] || "U"}
@@ -184,10 +184,10 @@ export default function AppSidebar({
             <span className="sidebar-tooltip">Account</span>
 
             {showAccount && (
-              <div className="absolute bottom-full left-full ml-2 mb-0 w-56 bg-[#1a1a24] border border-white/[0.08] rounded-xl shadow-2xl shadow-black/60 overflow-hidden z-50 text-left">
-                <div className="px-4 py-3 border-b border-white/[0.06]">
+              <div className="absolute bottom-full left-full ml-2 mb-0 w-60 bg-[#141420] border border-white/[0.06] rounded-2xl shadow-2xl shadow-black/80 overflow-hidden z-50 text-left backdrop-blur-xl">
+                <div className="px-4 py-3 border-b border-white/[0.04]">
                   <p className="text-xs font-medium text-white truncate">{user.name || "User"}</p>
-                  <p className="text-[10px] text-gray-500 truncate mt-0.5">{user.email}</p>
+                  <p className="text-[10px] text-gray-600 truncate mt-0.5">{user.email}</p>
                   {myUsername && (
                     <div className="flex items-center gap-1.5 mt-1">
                       <p className="text-[10px] text-violet-400/70 font-mono">{myUsername}</p>
@@ -215,7 +215,7 @@ export default function AppSidebar({
                 </div>
                 <button
                   onClick={() => { signOut(); setShowAccount(false); }}
-                  className="w-full flex items-center gap-2.5 px-4 py-2.5 text-[11px] text-gray-400 hover:text-red-400 hover:bg-white/[0.04] transition-colors"
+                  className="w-full flex items-center gap-2.5 px-4 py-2.5 text-[11px] text-gray-400 hover:text-red-400 hover:bg-red-500/[0.05] transition-all"
                 >
                   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
@@ -228,7 +228,7 @@ export default function AppSidebar({
         ) : (
           <button
             onClick={() => setShowLoginModal(true)}
-            className="w-8 h-8 rounded-full bg-white/[0.06] border border-white/[0.08] flex items-center justify-center text-gray-500 hover:text-violet-400 hover:bg-white/[0.1] hover:border-violet-500/30 transition-all"
+            className="w-8 h-8 rounded-xl bg-white/[0.04] border border-white/[0.06] flex items-center justify-center text-gray-500 hover:text-violet-400 hover:bg-white/[0.06] hover:border-violet-500/20 transition-all"
             title="লগইন"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -243,9 +243,9 @@ export default function AppSidebar({
   // ── History panel content ──
   const historyPanel = (
     <div className="flex flex-col h-full">
-      <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.06]">
+      <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.04]">
         <span className="text-xs font-medium text-gray-400">চ্যাট ইতিহাস</span>
-        <button onClick={() => setShowHistory(false)} className="text-gray-600 hover:text-gray-400 text-xs transition-colors">
+        <button onClick={() => setShowHistory(false)} className="w-6 h-6 rounded-lg flex items-center justify-center text-gray-600 hover:text-white hover:bg-white/[0.06] transition-all">
           <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
@@ -261,7 +261,7 @@ export default function AppSidebar({
           </div>
         ) : loadingSessions ? (
           <div className="flex justify-center py-8">
-            <div className="w-5 h-5 border-2 border-gray-600 border-t-violet-400 rounded-full animate-spin" />
+            <div className="w-5 h-5 border-2 border-gray-700 border-t-violet-400 rounded-full animate-spin" />
           </div>
         ) : sessions.length === 0 ? (
           <p className="text-gray-600 text-[11px] p-4 text-center">কোনো চ্যাট নেই</p>
@@ -270,12 +270,13 @@ export default function AppSidebar({
             <button
               key={s.id}
               onClick={() => { onLoadSession(s.id); setMobileOpen(false); }}
-              className={`w-full text-left px-4 py-2.5 border-b border-white/[0.03] hover:bg-white/[0.04] transition-colors group ${
-                activeSessionId === s.id ? "bg-white/[0.06]" : ""
+              className={`w-full text-left px-4 py-3 hover:bg-white/[0.03] transition-all group relative ${
+                activeSessionId === s.id ? "bg-white/[0.04]" : ""
               }`}
             >
+              {activeSessionId === s.id && <div className="absolute left-0 top-2 bottom-2 w-[3px] rounded-r-full bg-gradient-to-b from-violet-500 to-indigo-500" />}
               <div className="flex items-center justify-between">
-                <p className="text-[11px] text-gray-300 truncate flex-1">{s.title}</p>
+                <p className={`text-[12px] truncate flex-1 ${activeSessionId === s.id ? "text-white" : "text-gray-300 group-hover:text-white"} transition-colors`}>{s.title}</p>
                 <button
                   onClick={(e) => deleteSession(s.id, e)}
                   className="text-gray-700 hover:text-red-400 text-[10px] ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -302,7 +303,7 @@ export default function AppSidebar({
       {/* ===== MOBILE HAMBURGER BUTTON ===== */}
       <button
         onClick={() => setMobileOpen(true)}
-        className="md:hidden fixed top-3 left-3 z-50 w-9 h-9 rounded-lg bg-[#1a1a24] border border-white/[0.08] flex items-center justify-center text-gray-400 hover:text-white transition-colors"
+        className="md:hidden fixed top-3 left-3 z-50 w-9 h-9 rounded-xl bg-[#0d0d14] border border-white/[0.06] flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/[0.06] transition-all shadow-lg"
       >
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -313,10 +314,9 @@ export default function AppSidebar({
       {mobileOpen && (
         <div className="md:hidden fixed inset-0 z-40 flex">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
-          <div className="relative w-[260px] bg-[#111118] border-r border-white/[0.06] flex flex-col h-full animate-slide-in-left">
+          <div className="relative w-[260px] bg-[#0d0d14] border-r border-white/[0.04] flex flex-col h-full animate-slide-in-left">
             {sidebarContent}
-            {/* Mobile history section */}
-            <div className="border-t border-white/[0.06] flex-1 overflow-hidden flex flex-col">
+            <div className="border-t border-white/[0.04] flex-1 overflow-hidden flex flex-col">
               {historyPanel}
             </div>
           </div>
@@ -324,13 +324,13 @@ export default function AppSidebar({
       )}
 
       {/* ===== DESKTOP SIDEBAR ===== */}
-      <aside className="hidden md:flex flex-col w-[52px] border-r border-white/[0.06] bg-[#111118] shrink-0">
+      <aside className="hidden md:flex flex-col w-[52px] border-r border-white/[0.04] bg-[#0d0d14] shrink-0">
         {sidebarContent}
       </aside>
 
       {/* ===== DESKTOP HISTORY PANEL ===== */}
       {showHistory && (
-        <div className="hidden md:flex flex-col w-[240px] border-r border-white/[0.06] bg-[#111118] shrink-0 animate-slide-in-left">
+        <div className="hidden md:flex flex-col w-[240px] border-r border-white/[0.04] bg-[#0d0d14] shrink-0 animate-slide-in-left">
           {historyPanel}
         </div>
       )}
