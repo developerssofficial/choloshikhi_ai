@@ -89,6 +89,7 @@ export default function GroupChatPage() {
   const [showAddMember, setShowAddMember] = useState(false);
   const [addMemberUsername, setAddMemberUsername] = useState("");
   const [addingMember, setAddingMember] = useState(false);
+  const [addMemberMsg, setAddMemberMsg] = useState<string | null>(null);
 
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
@@ -218,18 +219,22 @@ export default function GroupChatPage() {
 
   const handleAddMember = async () => {
     if (!addMemberUsername.trim() || !selectedGroupId || addingMember) return;
-    setAddingMember(true);
+    const targetUsername = addMemberUsername.trim().toUpperCase();
+    setAddingMember(true); setAddMemberMsg(null);
     try {
       const token = await getToken(); if (!token) return;
       const res = await fetch(`/api/groups/${selectedGroupId}/members`, {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-        body: JSON.stringify({ username: addMemberUsername.trim().toUpperCase() }),
+        body: JSON.stringify({ username: targetUsername }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error);
-      setAddMemberUsername(""); setShowAddMember(false); fetchMessages(selectedGroupId);
-    } catch (e: any) { alert(e.message || "Failed"); } finally { setAddingMember(false); }
+      if (!res.ok) { setAddMemberMsg(data.error || "Failed"); return; }
+      setAddMemberUsername("");
+      setAddMemberMsg(`${targetUsername} added!`);
+      fetchMessages(selectedGroupId);
+      setTimeout(() => setAddMemberMsg(null), 3000);
+    } catch (e: any) { setAddMemberMsg(e.message || "Failed"); } finally { setAddingMember(false); }
   };
 
   const handleLeave = async () => {
@@ -397,10 +402,13 @@ export default function GroupChatPage() {
                     className="px-4 py-1.5 text-[11px] font-medium bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-xl hover:from-violet-500 hover:to-indigo-500 disabled:opacity-40 shrink-0 transition-all shadow-md shadow-violet-600/20">
                     {addingMember ? "..." : "Add"}
                   </button>
-                  <button onClick={() => { setShowAddMember(false); setAddMemberUsername(""); }} className="w-7 h-7 rounded-lg flex items-center justify-center text-gray-600 hover:text-white hover:bg-white/[0.06] shrink-0 transition-all">
+                  <button onClick={() => { setShowAddMember(false); setAddMemberUsername(""); setAddMemberMsg(null); }} className="w-7 h-7 rounded-lg flex items-center justify-center text-gray-600 hover:text-white hover:bg-white/[0.06] shrink-0 transition-all">
                     <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
                   </button>
                 </div>
+                {addMemberMsg && (
+                  <p className={`text-[11px] mt-1.5 ml-1 ${addMemberMsg.includes("added") ? "text-emerald-400" : "text-red-400"}`}>{addMemberMsg}</p>
+                )}
               </div>
             )}
 
