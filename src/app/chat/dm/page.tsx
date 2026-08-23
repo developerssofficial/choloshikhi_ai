@@ -14,7 +14,7 @@ import EmojiPicker from "@/components/EmojiPicker";
 interface Conversation {
   id: string;
   updatedAt: string;
-  otherUser: { userId: string; username: string } | null;
+  otherUser: { userId: string; username: string; nickname?: string | null } | null;
   lastMessage: { content: string; isMine: boolean; createdAt: string } | null;
   unreadCount: number;
 }
@@ -65,8 +65,13 @@ export default function DMPage() {
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
   const [sendError, setSendError] = useState<string | null>(null);
-  const [otherUser, setOtherUser] = useState<{ userId: string; username: string } | null>(null);
+  const [otherUser, setOtherUser] = useState<{ userId: string; username: string; nickname?: string | null } | null>(null);
   const [myUsername, setMyUsername] = useState<string | null>(null);
+  const [myNickname, setMyNickname] = useState<string | null>(null);
+  const [showNickname, setShowNickname] = useState(false);
+  const [nicknameInput, setNicknameInput] = useState("");
+  const [nicknameLoading, setNicknameLoading] = useState(false);
+  const [nicknameMsg, setNicknameMsg] = useState("");
 
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -170,6 +175,55 @@ export default function DMPage() {
 
   // Load conversations
   useEffect(() => { if (user) fetchConversations(); }, [user, fetchConversations]);
+
+  // Fetch nickname on login
+  useEffect(() => {
+    if (!user) return;
+    (async () => {
+      try {
+        const token = await getToken();
+        if (!token) return;
+        const res = await fetch("/api/profile/nickname", { headers: { Authorization: `Bearer ${token}` } });
+        const data = await res.json();
+        if (data.nickname) {
+          setMyNickname(data.nickname);
+          setNicknameInput(data.nickname);
+        }
+      } catch {}
+    })();
+  }, [user, getToken]);
+
+  // Save nickname
+  const handleSaveNickname = async () => {
+    const val = nicknameInput.trim();
+    if (!val || val.length < 2) {
+      setNicknameMsg("Nickname must be at least 2 characters");
+      return;
+    }
+    setNicknameLoading(true);
+    setNicknameMsg("");
+    try {
+      const token = await getToken();
+      const headers: Record<string, string> = { "Content-Type": "application/json" };
+      if (token) headers["Authorization"] = `Bearer ${token}`;
+      const res = await fetch("/api/profile/nickname", {
+        method: "PATCH",
+        headers,
+        body: JSON.stringify({ nickname: val }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setMyNickname(val);
+        setShowNickname(false);
+        setNicknameMsg("");
+      } else {
+        setNicknameMsg(data.error || "Failed to save");
+      }
+    } catch {
+      setNicknameMsg("Network error");
+    }
+    setNicknameLoading(false);
+  };
 
   // Search users
   const handleSearch = (q: string) => {
@@ -334,7 +388,9 @@ export default function DMPage() {
                 <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${conv.otherUser ? usernameColor(conv.otherUser.username) : "from-gray-600 to-gray-700"} flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0`}>{conv.otherUser?.username.slice(-2) || "??"}</div>
                 <div className="flex-1 min-w-0 text-left">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono text-white truncate">{conv.otherUser?.username || "Unknown"}</span>
+                    <span className="text-xs font-mono text-white truncate">
+                      {conv.otherUser?.nickname || conv.otherUser?.username || "Unknown"}
+                    </span>
                     <span className="text-[10px] text-gray-600 flex-shrink-0 ml-2">{conv.lastMessage ? timeAgo(conv.lastMessage.createdAt) : ""}</span>
                   </div>
                   <div className="flex items-center justify-between mt-0.5">
@@ -361,7 +417,7 @@ export default function DMPage() {
                   <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${usernameColor(otherUser.username)} flex items-center justify-center text-white text-[9px] font-bold`}>{otherUser.username.slice(-2)}</div>
                   <div>
                     <p className="text-xs font-mono text-white">{otherUser.username}</p>
-                    <p className="text-[9px] text-gray-500">Anonymous</p>
+                    <p className="text-[9px] text-gray-500">{otherUser.nickname || "Anonymous"}</p>
                   </div>
                 </div>
               )}
@@ -409,7 +465,47 @@ export default function DMPage() {
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
                 </button>
               </div>
-              {myUsername && <p className="text-[9px] text-gray-600 text-center mt-1">You: {myUsername}</p>}
+              {myUsername && (
+                <div className="mt-1.5">
+                  {!showNickname ? (
+                    <div className="flex items-center justify-center gap-2">
+                      <p className="text-[9px] text-gray-600">You: {myUsername}</p>
+                      {myNickname && <span className="text-[9px] text-violet-400/70">({myNickname})</span>}
+                      <button
+                        onClick={() => { setShowNickname(true); setNicknameMsg(""); setNicknameInput(myNickname || ""); }}
+                        className="text-[9px] text-gray-600 hover:text-violet-400 transition-colors"
+                      >
+                        {myNickname ? "Change Nickname" : "Set Nickname"}
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="flex flex-col items-center">
+                      <div className="flex items-center gap-1.5 w-full max-w-xs">
+                        <input
+                          type="text"
+                          value={nicknameInput}
+                          onChange={(e) => setNicknameInput(e.target.value.replace(/[^a-zA-Z0-9_]/g, ""))}
+                          placeholder="cool_student"
+                          maxLength={20}
+                          autoFocus
+                          className="flex-1 bg-white/[0.04] border border-white/[0.08] rounded-lg px-2.5 py-1 text-[11px] text-white placeholder-gray-600 focus:outline-none focus:border-violet-500/30"
+                          onKeyDown={(e) => e.key === "Enter" && handleSaveNickname()}
+                        />
+                        <button onClick={handleSaveNickname} disabled={nicknameLoading || !nicknameInput.trim()}
+                          className="px-2.5 py-1 text-[10px] bg-violet-600 text-white rounded-lg hover:bg-violet-500 disabled:opacity-40">
+                          {nicknameLoading ? "..." : "Save"}
+                        </button>
+                        <button onClick={() => { setShowNickname(false); setNicknameMsg(""); }}
+                          className="px-2 py-1 text-[10px] text-gray-500 hover:text-gray-300">
+                          ✕
+                        </button>
+                      </div>
+                      <p className="text-[8px] text-gray-600 mt-0.5">2-20 chars, letters/numbers/_</p>
+                      {nicknameMsg && <p className={`text-[10px] mt-0.5 ${nicknameMsg.includes("saved") ? "text-emerald-400" : "text-red-400"}`}>{nicknameMsg}</p>}
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </>
         ) : (

@@ -29,10 +29,14 @@ export async function GET(req: NextRequest) {
       const [lastMsg, unreadCount, profResult] = await Promise.all([
         msgs.findOne({ conversation_id: conv._id.toString() }, { sort: { created_at: -1 } }),
         msgs.countDocuments({ conversation_id: conv._id.toString(), sender_id: { $ne: authUser.id }, is_read: false }),
-        otherId ? supabase.from("student_profiles").select("username").eq("user_id", otherId).single() : null,
+        otherId ? supabase.from("student_profiles").select("username, nickname, display_name").eq("user_id", otherId).single() : null,
       ]);
 
-      const otherUser = profResult?.data ? { userId: otherId, username: profResult.data.username } : null;
+      const otherUser = profResult?.data ? {
+        userId: otherId,
+        username: profResult.data.username,
+        nickname: profResult.data.nickname || profResult.data.display_name || null,
+      } : null;
 
       return {
         id: conv._id.toString(),

@@ -31,7 +31,7 @@ export async function GET(
     const [messages, myProf, otherProf] = await Promise.all([
       msgs.find({ conversation_id: id }).sort({ created_at: 1 }).limit(100).toArray(),
       supabase.from("student_profiles").select("username").eq("user_id", authUser.id).single(),
-      otherId ? supabase.from("student_profiles").select("username").eq("user_id", otherId).single() : null,
+      otherId ? supabase.from("student_profiles").select("username, nickname, display_name").eq("user_id", otherId).single() : null,
     ]);
 
     // Mark unread as read (fire-and-forget)
@@ -39,7 +39,11 @@ export async function GET(
     msgs.updateMany(unreadFilter, { $set: { is_read: true } }).catch(() => {});
 
     return NextResponse.json({
-      otherUser: otherProf?.data && otherId ? { userId: otherId, username: otherProf.data.username } : null,
+      otherUser: otherProf?.data && otherId ? {
+        userId: otherId,
+        username: otherProf.data.username,
+        nickname: otherProf.data.nickname || otherProf.data.display_name || null,
+      } : null,
       myUsername: myProf?.data?.username || null,
       messages: messages.map((m: any) => ({
         id: m._id.toString(),
