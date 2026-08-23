@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import EmojiPicker from "@/components/EmojiPicker";
 
 /* ===================================================================
-   DM Page — Messenger-style anonymous messaging
+   DM Page — Modern messenger-style messaging
    Real-time via Socket.IO (no polling)
    =================================================================== */
 
@@ -40,14 +40,28 @@ function shortTime(dateStr: string): string {
   return new Date(dateStr).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: true });
 }
 
-function usernameColor(username: string): string {
+function usernameGradient(username: string): string {
+  let hash = 0;
+  for (let i = 0; i < username.length; i++) hash = username.charCodeAt(i) + ((hash << 5) - hash);
+  const gradients = [
+    "from-violet-500 via-purple-500 to-indigo-600",
+    "from-emerald-400 via-teal-500 to-cyan-600",
+    "from-sky-400 via-blue-500 to-indigo-600",
+    "from-amber-400 via-orange-500 to-red-500",
+    "from-rose-400 via-pink-500 to-fuchsia-600",
+    "from-cyan-400 via-teal-500 to-emerald-600",
+    "from-fuchsia-400 via-purple-500 to-violet-600",
+    "from-lime-400 via-green-500 to-emerald-600",
+  ];
+  return gradients[Math.abs(hash) % gradients.length];
+}
+
+function usernameTextColor(username: string): string {
   let hash = 0;
   for (let i = 0; i < username.length; i++) hash = username.charCodeAt(i) + ((hash << 5) - hash);
   const colors = [
-    "from-violet-500 to-indigo-600", "from-emerald-500 to-teal-600",
-    "from-sky-500 to-blue-600", "from-amber-500 to-orange-600",
-    "from-rose-500 to-pink-600", "from-cyan-500 to-sky-600",
-    "from-fuchsia-500 to-purple-600", "from-lime-500 to-green-600",
+    "text-violet-400", "text-emerald-400", "text-sky-400", "text-amber-400",
+    "text-rose-400", "text-cyan-400", "text-fuchsia-400", "text-lime-400",
   ];
   return colors[Math.abs(hash) % colors.length];
 }
@@ -84,23 +98,19 @@ export default function DMPage() {
   const socketInitializedRef = useRef(false);
 
   const scrollToBottom = useCallback(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "auto" }); // instant, not smooth
+    messagesEndRef.current?.scrollIntoView({ behavior: "auto" });
   }, []);
 
-  // Connect socket when user is available
+  // Connect socket
   useEffect(() => {
-    if (!user) return;
-    if (socketInitializedRef.current) return;
+    if (!user || socketInitializedRef.current) return;
     socketInitializedRef.current = true;
-
     let mounted = true;
 
     const connect = async () => {
       const token = await getToken();
       if (!token || !mounted) return;
-
       const socket = getSocket(token);
-
       socket.on("dm:message", (msg: Message) => {
         if (!mounted) return;
         setMessages((prev) => {
@@ -109,21 +119,11 @@ export default function DMPage() {
         });
         setTimeout(scrollToBottom, 50);
       });
-
-      socket.on("connect_error", (err: Error) => {
-        console.error("Socket connection error:", err.message);
-      });
     };
-
     connect();
+    return () => { mounted = false; disconnectSocket(); };
+  }, [user, scrollToBottom]);
 
-    return () => {
-      mounted = false;
-      disconnectSocket();
-    };
-  }, [user, scrollToBottom]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // Fetch conversations via API — stable callback, no deps
   const fetchConversations = useCallback(async () => {
     setLoadingConvs(true);
     try {
@@ -133,11 +133,10 @@ export default function DMPage() {
       const res = await fetch("/api/dm", { headers });
       const data = await res.json();
       if (data.conversations) setConversations(data.conversations);
-    } catch (e) { console.error("fetchConversations error:", e); }
+    } catch {}
     setLoadingConvs(false);
-  }, []); // stable — no deps
+  }, []);
 
-  // Fetch messages for a conversation via API (initial load only)
   const fetchMessages = useCallback(async (convId: string) => {
     setLoadingMessages(true);
     try {
@@ -152,31 +151,20 @@ export default function DMPage() {
         setMyUsername(data.myUsername);
         scrollToBottom();
       }
-    } catch (e) { console.error("fetchMessages error:", e); }
+    } catch {}
     setLoadingMessages(false);
-  }, []); // stable — no deps
+  }, []);
 
-  // When conversation changes: fetch messages + join/leave socket rooms
   useEffect(() => {
     if (!selectedConvId || !user) return;
-
-    // Fetch initial messages
     fetchMessages(selectedConvId);
-
-    // Join socket room
-    const socket = getSocket(""); // already connected from mount
+    const socket = getSocket("");
     socket.emit("dm:join", selectedConvId);
-
-    return () => {
-      // Leave socket room when switching conversations
-      socket.emit("dm:leave", selectedConvId);
-    };
+    return () => { socket.emit("dm:leave", selectedConvId); };
   }, [selectedConvId, user, fetchMessages]);
 
-  // Load conversations
   useEffect(() => { if (user) fetchConversations(); }, [user, fetchConversations]);
 
-  // Fetch nickname on login
   useEffect(() => {
     if (!user) return;
     (async () => {
@@ -185,47 +173,27 @@ export default function DMPage() {
         if (!token) return;
         const res = await fetch("/api/profile/nickname", { headers: { Authorization: `Bearer ${token}` } });
         const data = await res.json();
-        if (data.nickname) {
-          setMyNickname(data.nickname);
-          setNicknameInput(data.nickname);
-        }
+        if (data.nickname) { setMyNickname(data.nickname); setNicknameInput(data.nickname); }
       } catch {}
     })();
   }, [user, getToken]);
 
-  // Save nickname
   const handleSaveNickname = async () => {
     const val = nicknameInput.trim();
-    if (!val || val.length < 2) {
-      setNicknameMsg("Nickname must be at least 2 characters");
-      return;
-    }
-    setNicknameLoading(true);
-    setNicknameMsg("");
+    if (!val || val.length < 2) { setNicknameMsg("At least 2 characters"); return; }
+    setNicknameLoading(true); setNicknameMsg("");
     try {
       const token = await getToken();
       const headers: Record<string, string> = { "Content-Type": "application/json" };
       if (token) headers["Authorization"] = `Bearer ${token}`;
-      const res = await fetch("/api/profile/nickname", {
-        method: "PATCH",
-        headers,
-        body: JSON.stringify({ nickname: val }),
-      });
+      const res = await fetch("/api/profile/nickname", { method: "PATCH", headers, body: JSON.stringify({ nickname: val }) });
       const data = await res.json();
-      if (res.ok) {
-        setMyNickname(val);
-        setShowNickname(false);
-        setNicknameMsg("");
-      } else {
-        setNicknameMsg(data.error || "Failed to save");
-      }
-    } catch {
-      setNicknameMsg("Network error");
-    }
+      if (res.ok) { setMyNickname(val); setShowNickname(false); setNicknameMsg(""); }
+      else setNicknameMsg(data.error || "Failed");
+    } catch { setNicknameMsg("Network error"); }
     setNicknameLoading(false);
   };
 
-  // Search users
   const handleSearch = (q: string) => {
     setSearchQuery(q);
     if (searchDebounceRef.current) clearTimeout(searchDebounceRef.current);
@@ -244,7 +212,6 @@ export default function DMPage() {
     }, 400);
   };
 
-  // Start conversation
   const startConversation = async (username: string) => {
     try {
       const token = await getToken();
@@ -253,267 +220,329 @@ export default function DMPage() {
       const res = await fetch("/api/dm", { method: "POST", headers, body: JSON.stringify({ targetUsername: username }) });
       const data = await res.json();
       if (data.conversationId) {
-        setShowSearch(false);
-        setSearchQuery("");
-        setSearchResults([]);
+        setShowSearch(false); setSearchQuery(""); setSearchResults([]);
         setSelectedConvId(data.conversationId);
         fetchConversations();
       }
     } catch {}
   };
 
-  // Send message via Socket.IO with optimistic update
   const handleSend = async () => {
     if (!input.trim() || !selectedConvId || sending) return;
-    setSending(true);
-    setSendError(null);
-    const msgContent = input.trim();
-    setInput("");
-
-    // Optimistic
+    setSending(true); setSendError(null);
+    const msgContent = input.trim(); setInput("");
     const tempId = "temp-" + Date.now();
     setMessages((prev) => [...prev, { id: tempId, content: msgContent, isMine: true, createdAt: new Date().toISOString() }]);
     setTimeout(scrollToBottom, 50);
-
     try {
       const socket = getSocket("");
-      socket.emit(
-        "dm:send",
-        { conversationId: selectedConvId, content: msgContent },
+      socket.emit("dm:send", { conversationId: selectedConvId, content: msgContent },
         (ack: { ok?: boolean; message?: Message; error?: string }) => {
           if (ack.ok && ack.message) {
-            // Replace temp message with server-confirmed message
             setMessages((prev) => prev.map((m) => m.id === tempId ? ack.message! : m));
-            // Update conversation's last message in sidebar optimistically
-            setConversations((prev) =>
-              prev.map((c) =>
-                c.id === selectedConvId
-                  ? { ...c, lastMessage: { content: msgContent, isMine: true, createdAt: new Date().toISOString() }, updatedAt: new Date().toISOString() }
-                  : c
-              )
-            );
+            setConversations((prev) => prev.map((c) =>
+              c.id === selectedConvId
+                ? { ...c, lastMessage: { content: msgContent, isMine: true, createdAt: new Date().toISOString() }, updatedAt: new Date().toISOString() }
+                : c
+            ));
           } else {
-            // Revert optimistic message
             setMessages((prev) => prev.filter((m) => m.id !== tempId));
-            setInput(msgContent);
-            setSendError(ack.error || "Send failed");
+            setInput(msgContent); setSendError(ack.error || "Send failed");
           }
           setSending(false);
         }
       );
     } catch {
       setMessages((prev) => prev.filter((m) => m.id !== tempId));
-      setInput(msgContent);
-      setSendError("Network error — try again");
-      setSending(false);
+      setInput(msgContent); setSendError("Network error"); setSending(false);
     }
   };
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-[#0f0f14]">
-        <div className="w-5 h-5 border-2 border-gray-600 border-t-violet-400 rounded-full animate-spin" />
+      <div className="flex items-center justify-center min-h-screen bg-[#0a0a0f]">
+        <div className="flex gap-1.5">
+          <span className="w-2 h-2 bg-violet-500 rounded-full animate-bounce [animation-delay:-0.3s]" />
+          <span className="w-2 h-2 bg-violet-500 rounded-full animate-bounce [animation-delay:-0.15s]" />
+          <span className="w-2 h-2 bg-violet-500 rounded-full animate-bounce" />
+        </div>
       </div>
     );
   }
 
   if (!user) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-[#0f0f14] text-white px-4">
-        <img src="/icons/icon-192.png" alt="CholoShikhi" className="w-12 h-12 rounded-xl mb-4" />
-        <p className="text-gray-400 text-sm mb-4 text-center">Login to message other students anonymously</p>
-        <button onClick={signInWithGoogle} className="px-6 py-2.5 text-[13px] font-medium bg-violet-600 rounded-full hover:bg-violet-500 transition-colors">Login with Google</button>
+      <div className="flex flex-col items-center justify-center min-h-screen bg-[#0a0a0f] text-white px-4">
+        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center mb-5 shadow-lg shadow-violet-500/25">
+          <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+        </div>
+        <h2 className="text-lg font-semibold text-white mb-1.5">Messages</h2>
+        <p className="text-gray-500 text-sm mb-6 text-center max-w-xs">Login to chat with other students in real-time</p>
+        <button onClick={signInWithGoogle} className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-xl text-sm font-medium hover:from-violet-500 hover:to-indigo-500 transition-all shadow-lg shadow-violet-500/20">
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Sign in with Google
+        </button>
       </div>
     );
   }
 
   return (
-    <div className="flex h-screen bg-[#0f0f14] overflow-hidden">
-      {/* LEFT: Conversations */}
-      <div className={`${selectedConvId ? "hidden md:flex" : "flex"} flex-col w-full md:w-80 border-r border-white/[0.06]`}>
-        <div className="flex items-center justify-between px-4 h-12 border-b border-white/[0.06] shrink-0">
-          <div className="flex items-center gap-2">
-            <button onClick={() => router.push("/chat")} className="text-gray-500 hover:text-white transition-colors">
+    <div className="flex h-screen bg-[#0a0a0f] overflow-hidden">
+      {/* LEFT: Sidebar */}
+      <div className={`${selectedConvId ? "hidden md:flex" : "flex"} flex-col w-full md:w-[340px] border-r border-white/[0.04] bg-[#0d0d14]`}>
+
+        {/* Sidebar Header */}
+        <div className="flex items-center justify-between px-5 h-14 border-b border-white/[0.04] shrink-0">
+          <div className="flex items-center gap-3">
+            <button onClick={() => router.push("/chat")} className="w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:text-white hover:bg-white/[0.06] transition-all">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
             </button>
-            <span className="text-sm font-semibold text-white/90">Messages</span>
+            <div>
+              <h1 className="text-sm font-semibold text-white tracking-tight">Messages</h1>
+              <p className="text-[10px] text-gray-600">{conversations.length} conversation{conversations.length !== 1 ? "s" : ""}</p>
+            </div>
           </div>
-          <button onClick={() => setShowSearch(true)} className="w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 hover:text-violet-400 hover:bg-white/[0.06] transition-all" title="New message">
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
+          <button onClick={() => setShowSearch(true)} className="w-9 h-9 rounded-xl bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center text-white hover:from-violet-500 hover:to-indigo-500 transition-all shadow-lg shadow-violet-600/20" title="New message">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" /></svg>
           </button>
         </div>
 
-        {/* Search */}
+        {/* Search Overlay */}
         {showSearch && (
-          <div className="absolute inset-0 z-50 bg-[#0f0f14] flex flex-col md:w-80 md:relative">
-            <div className="flex items-center gap-2 px-4 h-12 border-b border-white/[0.06] shrink-0">
-              <button onClick={() => { setShowSearch(false); setSearchQuery(""); setSearchResults([]); }} className="text-gray-400 hover:text-white">
+          <div className="absolute inset-0 z-50 bg-[#0d0d14] flex flex-col md:w-[340px] md:relative animate-slide-in-left">
+            <div className="flex items-center gap-2 px-4 h-14 border-b border-white/[0.04] shrink-0">
+              <button onClick={() => { setShowSearch(false); setSearchQuery(""); setSearchResults([]); }} className="w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:text-white hover:bg-white/[0.06] transition-all">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
               </button>
-              <input type="text" value={searchQuery} onChange={(e) => handleSearch(e.target.value)} placeholder="CSH_XXXXXX username..." autoFocus className="flex-1 bg-transparent text-white text-sm placeholder-gray-500 focus:outline-none font-mono" />
+              <div className="flex-1 relative">
+                <svg className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                <input type="text" value={searchQuery} onChange={(e) => handleSearch(e.target.value)} placeholder="Search CSH_XXXXXX..." autoFocus className="w-full bg-white/[0.04] border border-white/[0.06] rounded-xl pl-8 pr-3 py-2 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-violet-500/30 font-mono transition-all" />
+              </div>
             </div>
             <div className="flex-1 overflow-y-auto">
-              {searchLoading && <div className="p-4 text-center text-gray-500 text-xs">Searching...</div>}
-              {!searchLoading && searchResults.length === 0 && searchQuery.length >= 3 && <div className="p-4 text-center text-gray-500 text-xs">No students found</div>}
-              {searchResults.map((r) => (
-                <button key={r.userId} onClick={() => startConversation(r.username)} className="w-full flex items-center gap-3 px-4 py-3 hover:bg-white/[0.04] transition-colors border-b border-white/[0.04]">
-                  <div className={`w-9 h-9 rounded-full bg-gradient-to-br ${usernameColor(r.username)} flex items-center justify-center text-white text-[10px] font-bold`}>{r.username.slice(-2)}</div>
-                  <div className="text-left">
-                    <p className="text-xs font-mono text-white">{r.username}</p>
-                    <p className="text-[10px] text-gray-500">Tap to message</p>
+              {searchLoading && (
+                <div className="flex justify-center py-12">
+                  <div className="w-5 h-5 border-2 border-gray-700 border-t-violet-400 rounded-full animate-spin" />
+                </div>
+              )}
+              {!searchLoading && searchResults.length === 0 && searchQuery.length >= 3 && (
+                <div className="flex flex-col items-center justify-center py-12 px-4">
+                  <div className="w-12 h-12 rounded-full bg-white/[0.04] flex items-center justify-center mb-3">
+                    <svg className="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
                   </div>
+                  <p className="text-gray-500 text-xs">No students found</p>
+                </div>
+              )}
+              {searchResults.map((r) => (
+                <button key={r.userId} onClick={() => startConversation(r.username)} className="w-full flex items-center gap-3 px-4 py-3 hover:bg-white/[0.03] transition-all group">
+                  <div className={`w-11 h-11 rounded-full bg-gradient-to-br ${usernameGradient(r.username)} flex items-center justify-center text-white text-[11px] font-bold shadow-lg group-hover:scale-105 transition-transform`}>
+                    {r.username.slice(-2)}
+                  </div>
+                  <div className="text-left flex-1 min-w-0">
+                    <p className="text-xs font-mono text-white group-hover:text-violet-300 transition-colors">{r.username}</p>
+                    <p className="text-[10px] text-gray-600 mt-0.5">Tap to start chatting</p>
+                  </div>
+                  <svg className="w-4 h-4 text-gray-700 group-hover:text-violet-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                 </button>
               ))}
               {searchQuery.length < 3 && !searchLoading && (
-                <div className="p-6 text-center text-gray-600 text-xs">
-                  Type a CSH_XXXXXX username to find a student
+                <div className="flex flex-col items-center justify-center py-12 px-4">
+                  <div className="w-12 h-12 rounded-full bg-white/[0.04] flex items-center justify-center mb-3">
+                    <svg className="w-6 h-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                  </div>
+                  <p className="text-gray-500 text-xs text-center">Type a CSH_ username<br/>to find a student</p>
                 </div>
               )}
             </div>
           </div>
         )}
 
-        {/* Conversation list */}
+        {/* Conversation List */}
         {!showSearch && (
           <div className="flex-1 overflow-y-auto">
-            {loadingConvs && conversations.length === 0 && <div className="p-4 text-center text-gray-500 text-xs">Loading...</div>}
-            {!loadingConvs && conversations.length === 0 && (
-              <div className="flex flex-col items-center justify-center h-full px-4 text-center">
-                <p className="text-gray-500 text-xs mb-1">No conversations yet</p>
-                <p className="text-gray-600 text-[10px]">Tap + to find a student</p>
+            {loadingConvs && conversations.length === 0 && (
+              <div className="flex justify-center py-12">
+                <div className="flex gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-violet-500 rounded-full animate-bounce [animation-delay:-0.3s]" />
+                  <span className="w-1.5 h-1.5 bg-violet-500 rounded-full animate-bounce [animation-delay:-0.15s]" />
+                  <span className="w-1.5 h-1.5 bg-violet-500 rounded-full animate-bounce" />
+                </div>
               </div>
             )}
-            {conversations.map((conv) => (
-              <button key={conv.id} onClick={() => setSelectedConvId(conv.id)} className={`w-full flex items-center gap-3 px-4 py-3 hover:bg-white/[0.04] transition-colors border-b border-white/[0.04] ${selectedConvId === conv.id ? "bg-white/[0.06]" : ""}`}>
-                <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${conv.otherUser ? usernameColor(conv.otherUser.username) : "from-gray-600 to-gray-700"} flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0`}>{conv.otherUser?.username.slice(-2) || "??"}</div>
-                <div className="flex-1 min-w-0 text-left">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono text-white truncate">
-                      {conv.otherUser?.nickname || conv.otherUser?.username || "Unknown"}
-                    </span>
-                    <span className="text-[10px] text-gray-600 flex-shrink-0 ml-2">{conv.lastMessage ? timeAgo(conv.lastMessage.createdAt) : ""}</span>
-                  </div>
-                  <div className="flex items-center justify-between mt-0.5">
-                    <p className="text-[11px] text-gray-500 truncate">{conv.lastMessage ? `${conv.lastMessage.isMine ? "You: " : ""}${conv.lastMessage.content}` : "No messages yet"}</p>
-                    {conv.unreadCount > 0 && <span className="ml-2 w-4 h-4 rounded-full bg-violet-600 text-white text-[8px] flex items-center justify-center flex-shrink-0">{conv.unreadCount > 9 ? "9+" : conv.unreadCount}</span>}
-                  </div>
+            {!loadingConvs && conversations.length === 0 && (
+              <div className="flex flex-col items-center justify-center h-full px-6 text-center">
+                <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center mb-3">
+                  <svg className="w-7 h-7 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
                 </div>
-              </button>
-            ))}
+                <p className="text-gray-400 text-xs font-medium mb-1">No conversations yet</p>
+                <p className="text-gray-600 text-[10px]">Tap <span className="text-violet-400">+</span> to find a student</p>
+              </div>
+            )}
+            {conversations.map((conv) => {
+              const isActive = selectedConvId === conv.id;
+              return (
+                <button key={conv.id} onClick={() => setSelectedConvId(conv.id)}
+                  className={`w-full flex items-center gap-3 px-4 py-3.5 transition-all group relative ${isActive ? "bg-white/[0.04]" : "hover:bg-white/[0.02]"}`}>
+                  {isActive && <div className="absolute left-0 top-2 bottom-2 w-[3px] rounded-r-full bg-gradient-to-b from-violet-500 to-indigo-500" />}
+                  <div className={`w-11 h-11 rounded-full bg-gradient-to-br ${conv.otherUser ? usernameGradient(conv.otherUser.username) : "from-gray-600 to-gray-700"} flex items-center justify-center text-white text-[11px] font-bold flex-shrink-0 shadow-md`}>
+                    {conv.otherUser?.username.slice(-2) || "??"}
+                  </div>
+                  <div className="flex-1 min-w-0 text-left">
+                    <div className="flex items-center justify-between mb-0.5">
+                      <span className={`text-[13px] font-medium truncate ${isActive ? "text-white" : "text-gray-300 group-hover:text-white"} transition-colors`}>
+                        {conv.otherUser?.nickname || conv.otherUser?.username || "Unknown"}
+                      </span>
+                      <span className="text-[10px] text-gray-600 flex-shrink-0 ml-2">
+                        {conv.lastMessage ? timeAgo(conv.lastMessage.createdAt) : ""}
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <p className={`text-[11px] truncate ${conv.lastMessage ? (conv.unreadCount > 0 ? "text-gray-400" : "text-gray-600") : "text-gray-700"}`}>
+                        {conv.lastMessage ? `${conv.lastMessage.isMine ? "You: " : ""}${conv.lastMessage.content}` : "Start chatting"}
+                      </p>
+                      {conv.unreadCount > 0 && (
+                        <span className="ml-2 min-w-[18px] h-[18px] rounded-full bg-gradient-to-r from-violet-500 to-indigo-500 text-white text-[9px] font-bold flex items-center justify-center flex-shrink-0 px-1 shadow-md shadow-violet-500/30">
+                          {conv.unreadCount > 9 ? "9+" : conv.unreadCount}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </button>
+              );
+            })}
           </div>
         )}
       </div>
 
       {/* RIGHT: Messages */}
-      <div className={`${selectedConvId ? "flex" : "hidden md:flex"} flex-col flex-1 min-w-0`}>
+      <div className={`${selectedConvId ? "flex" : "hidden md:flex"} flex-col flex-1 min-w-0 bg-[#0a0a0f]`}>
         {selectedConvId ? (
           <>
-            <div className="flex items-center gap-3 px-4 h-12 border-b border-white/[0.06] shrink-0">
-              <button onClick={() => setSelectedConvId(null)} className="md:hidden text-gray-400 hover:text-white">
+            {/* Chat Header */}
+            <div className="flex items-center gap-3 px-4 h-14 border-b border-white/[0.04] shrink-0 bg-[#0d0d14]/80 backdrop-blur-xl">
+              <button onClick={() => setSelectedConvId(null)} className="md:hidden w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:text-white hover:bg-white/[0.06] transition-all">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
               </button>
               {otherUser && (
-                <div className="flex items-center gap-2.5 flex-1 min-w-0">
-                  <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${usernameColor(otherUser.username)} flex items-center justify-center text-white text-[9px] font-bold`}>{otherUser.username.slice(-2)}</div>
+                <div className="flex items-center gap-3 flex-1 min-w-0">
+                  <div className={`w-9 h-9 rounded-full bg-gradient-to-br ${usernameGradient(otherUser.username)} flex items-center justify-center text-white text-[10px] font-bold shadow-md`}>
+                    {otherUser.username.slice(-2)}
+                  </div>
                   <div className="min-w-0">
-                    <p className="text-xs font-mono text-white">{otherUser.username}</p>
-                    <p className="text-[9px] text-gray-500">{otherUser.nickname || "Anonymous"}</p>
+                    <p className="text-[13px] font-medium text-white">{otherUser.nickname || otherUser.username}</p>
+                    <p className="text-[10px] text-gray-600 font-mono">{otherUser.username}</p>
                   </div>
                 </div>
               )}
-              {/* Your nickname button */}
-              <button
-                onClick={() => { setShowNickname(!showNickname); setNicknameMsg(""); setNicknameInput(myNickname || ""); }}
-                className="flex items-center gap-1.5 px-2 py-1 rounded-lg hover:bg-white/[0.06] transition-colors shrink-0"
-                title="Set your nickname"
-              >
-                <svg className="w-3.5 h-3.5 text-gray-500 hover:text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-                <span className="text-[10px] text-gray-500 hover:text-violet-400 hidden sm:inline">
-                  {myNickname ? myNickname : "Set Nickname"}
-                </span>
+              <button onClick={() => { setShowNickname(!showNickname); setNicknameMsg(""); setNicknameInput(myNickname || ""); }}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/[0.04] border border-white/[0.06] hover:bg-white/[0.06] hover:border-violet-500/20 transition-all shrink-0" title="Set your nickname">
+                <svg className="w-3.5 h-3.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                <span className="text-[11px] text-gray-400 hidden sm:inline">{myNickname || "Nickname"}</span>
               </button>
             </div>
 
-            {/* Nickname edit panel (slides down from header) */}
+            {/* Nickname Panel */}
             {showNickname && (
-              <div className="px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.02] shrink-0">
+              <div className="px-4 py-3 border-b border-white/[0.04] bg-[#0d0d14]/60 shrink-0 backdrop-blur-sm">
                 <div className="flex items-center gap-2">
-                  <p className="text-[10px] text-gray-500 shrink-0">Your Nickname:</p>
-                  <input
-                    type="text"
-                    value={nicknameInput}
+                  <p className="text-[11px] text-gray-500 shrink-0">Your name:</p>
+                  <input type="text" value={nicknameInput}
                     onChange={(e) => setNicknameInput(e.target.value.replace(/[^a-zA-Z0-9_]/g, ""))}
-                    placeholder="cool_student"
-                    maxLength={20}
-                    autoFocus
-                    className="flex-1 bg-white/[0.04] border border-white/[0.08] rounded-lg px-2.5 py-1 text-[11px] text-white placeholder-gray-600 focus:outline-none focus:border-violet-500/30 min-w-0"
-                    onKeyDown={(e) => e.key === "Enter" && handleSaveNickname()}
-                  />
+                    placeholder="cool_student" maxLength={20} autoFocus
+                    className="flex-1 bg-white/[0.04] border border-white/[0.08] rounded-xl px-3 py-1.5 text-[12px] text-white placeholder-gray-600 focus:outline-none focus:border-violet-500/30 min-w-0 transition-all"
+                    onKeyDown={(e) => e.key === "Enter" && handleSaveNickname()} />
                   <button onClick={handleSaveNickname} disabled={nicknameLoading || !nicknameInput.trim()}
-                    className="px-3 py-1 text-[10px] bg-violet-600 text-white rounded-lg hover:bg-violet-500 disabled:opacity-40 shrink-0">
+                    className="px-4 py-1.5 text-[11px] font-medium bg-gradient-to-r from-violet-600 to-indigo-600 text-white rounded-xl hover:from-violet-500 hover:to-indigo-500 disabled:opacity-40 shrink-0 transition-all shadow-md shadow-violet-600/20">
                     {nicknameLoading ? "..." : "Save"}
                   </button>
-                  <button onClick={() => { setShowNickname(false); setNicknameMsg(""); }}
-                    className="text-gray-600 hover:text-gray-300 shrink-0">
+                  <button onClick={() => { setShowNickname(false); setNicknameMsg(""); }} className="w-7 h-7 rounded-lg flex items-center justify-center text-gray-600 hover:text-white hover:bg-white/[0.06] shrink-0 transition-all">
                     <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
                   </button>
                 </div>
-                <p className="text-[8px] text-gray-600 mt-1">2-20 chars, letters/numbers/_</p>
-                {nicknameMsg && <p className={`text-[10px] mt-1 ${nicknameMsg.includes("saved") ? "text-emerald-400" : "text-red-400"}`}>{nicknameMsg}</p>}
+                <p className="text-[9px] text-gray-700 mt-1.5 ml-1">2-20 characters, letters, numbers, _</p>
+                {nicknameMsg && <p className={`text-[11px] mt-1.5 ml-1 ${nicknameMsg.includes("saved") || !nicknameMsg.includes("Failed") ? "text-emerald-400" : "text-red-400"}`}>{nicknameMsg}</p>}
               </div>
             )}
 
-            <div className="flex-1 overflow-y-auto px-4 py-3 space-y-2">
-              {loadingMessages && messages.length === 0 && <div className="text-center py-8 text-gray-500 text-xs">Loading...</div>}
+            {/* Messages Area */}
+            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
+              {loadingMessages && messages.length === 0 && (
+                <div className="flex justify-center py-12">
+                  <div className="flex gap-1.5">
+                    <span className="w-1.5 h-1.5 bg-violet-500 rounded-full animate-bounce [animation-delay:-0.3s]" />
+                    <span className="w-1.5 h-1.5 bg-violet-500 rounded-full animate-bounce [animation-delay:-0.15s]" />
+                    <span className="w-1.5 h-1.5 bg-violet-500 rounded-full animate-bounce" />
+                  </div>
+                </div>
+              )}
               {!loadingMessages && messages.length === 0 && (
-                <div className="text-center py-8"><p className="text-gray-600 text-xs">No messages yet</p><p className="text-gray-700 text-[10px] mt-1">Send the first message!</p></div>
+                <div className="flex flex-col items-center justify-center py-16">
+                  <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${otherUser ? usernameGradient(otherUser.username) : "from-gray-600 to-gray-700"} flex items-center justify-center text-white text-xl font-bold mb-4 shadow-lg`}>
+                    {otherUser?.username.slice(-2) || "??"}
+                  </div>
+                  <p className="text-gray-400 text-sm font-medium">Say hello!</p>
+                  <p className="text-gray-700 text-[11px] mt-1">Send the first message to {otherUser?.nickname || otherUser?.username}</p>
+                </div>
               )}
               {messages.map((msg) => (
-                <div key={msg.id} className={`flex ${msg.isMine ? "justify-end" : "justify-start"}`}>
-                  <div className={`max-w-[75%] px-3 py-2 rounded-2xl ${msg.isMine ? "bg-violet-600 text-white rounded-br-md" : "bg-white/[0.06] text-gray-300 rounded-bl-md"}`}>
+                <div key={msg.id} className={`flex ${msg.isMine ? "justify-end" : "justify-start"} animate-[fadeUp_0.2s_ease-out]`}>
+                  <div className={`max-w-[75%] px-4 py-2.5 ${
+                    msg.isMine
+                      ? "bg-gradient-to-br from-violet-600 to-indigo-600 text-white rounded-2xl rounded-br-md shadow-lg shadow-violet-500/10"
+                      : "bg-white/[0.06] text-gray-200 rounded-2xl rounded-bl-md border border-white/[0.04]"
+                  }`}>
                     <p className="text-[13px] leading-relaxed whitespace-pre-wrap">{msg.content}</p>
-                    <p className={`text-[9px] mt-0.5 ${msg.isMine ? "text-violet-300" : "text-gray-600"}`}>{shortTime(msg.createdAt)}</p>
+                    <p className={`text-[9px] mt-1 ${msg.isMine ? "text-violet-300/70" : "text-gray-600"}`}>{shortTime(msg.createdAt)}</p>
                   </div>
                 </div>
               ))}
               <div ref={messagesEndRef} />
             </div>
 
+            {/* Error */}
             {sendError && (
-              <div className="mx-3 mb-1 px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-lg text-[10px] text-red-400 flex items-center justify-between">
-                <span>{sendError}</span>
-                <button onClick={() => setSendError(null)} className="text-red-500 hover:text-red-400 ml-2">✕</button>
+              <div className="mx-4 mb-2 px-3 py-2 bg-red-500/10 border border-red-500/20 rounded-xl flex items-center text-[11px] text-red-400">
+                <svg className="w-3.5 h-3.5 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                {sendError}
+                <button onClick={() => setSendError(null)} className="ml-auto text-red-500 hover:text-red-400">
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
               </div>
             )}
 
-            <div className="px-3 pb-3 shrink-0">
-              <div className="relative flex items-center bg-[#1a1a24] border border-white/[0.08] rounded-2xl px-3 py-2 focus-within:border-violet-500/30 transition-all">
-                {/* Emoji Button */}
+            {/* Input Area */}
+            <div className="px-4 pb-4 pt-1 shrink-0">
+              <div className="relative flex items-center bg-[#141420] border border-white/[0.08] rounded-2xl px-3 py-2.5 focus-within:border-violet-500/30 focus-within:shadow-lg focus-within:shadow-violet-500/5 transition-all">
                 <button onClick={() => setShowEmojiPicker(!showEmojiPicker)} disabled={sending}
-                  className="text-gray-500 hover:text-violet-400 transition-colors disabled:opacity-40 mr-1.5 flex-shrink-0"
+                  className="w-8 h-8 rounded-xl flex items-center justify-center text-gray-500 hover:text-violet-400 hover:bg-white/[0.04] transition-all disabled:opacity-40 mr-1 flex-shrink-0"
                   title="Emoji">
                   <svg className="w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 </button>
-                {showEmojiPicker && (
-                  <EmojiPicker
-                    onSelect={(emoji) => setInput((prev) => prev + emoji)}
-                    onClose={() => setShowEmojiPicker(false)}
-                  />
-                )}
-                <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSend()} placeholder="Type a message..." disabled={sending} maxLength={2000} className="flex-1 bg-transparent text-white text-sm placeholder-gray-500 focus:outline-none disabled:opacity-40" />
-                <button onClick={handleSend} disabled={!input.trim() || sending} className="ml-2 w-8 h-8 rounded-xl bg-violet-600 flex items-center justify-center text-white hover:bg-violet-500 disabled:opacity-20 disabled:cursor-not-allowed transition-all flex-shrink-0">
+                {showEmojiPicker && <EmojiPicker onSelect={(emoji) => setInput((prev) => prev + emoji)} onClose={() => setShowEmojiPicker(false)} />}
+                <input type="text" value={input} onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSend()}
+                  placeholder="Type a message..." disabled={sending} maxLength={2000}
+                  className="flex-1 bg-transparent text-white text-[13px] placeholder-gray-600 focus:outline-none disabled:opacity-40" />
+                <button onClick={handleSend} disabled={!input.trim() || sending}
+                  className={`ml-2 w-9 h-9 rounded-xl flex items-center justify-center transition-all flex-shrink-0 ${
+                    input.trim() && !sending
+                      ? "bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:scale-105"
+                      : "bg-white/[0.04] text-gray-700 cursor-not-allowed"
+                  }`}>
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
                 </button>
               </div>
-              {myUsername && <p className="text-[9px] text-gray-600 text-center mt-1">You: {myUsername}</p>}
+              {myUsername && <p className="text-[9px] text-gray-700 text-center mt-1.5">You: <span className="font-mono text-gray-600">{myUsername}</span></p>}
             </div>
           </>
         ) : (
-          <div className="flex-1 flex flex-col items-center justify-center text-center px-4">
-            <p className="text-gray-400 text-sm mb-1">Messages</p>
-            <p className="text-gray-600 text-[11px]">Find a student by CSH_XXXXXX username</p>
+          /* Empty State */
+          <div className="flex-1 flex flex-col items-center justify-center text-center px-6">
+            <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-violet-500/10 to-indigo-500/10 border border-violet-500/10 flex items-center justify-center mb-5">
+              <svg className="w-10 h-10 text-violet-400/50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+            </div>
+            <h2 className="text-lg font-semibold text-gray-300 mb-1">Messages</h2>
+            <p className="text-gray-600 text-[12px] max-w-[200px]">Find a student and start chatting in real-time</p>
           </div>
         )}
       </div>
