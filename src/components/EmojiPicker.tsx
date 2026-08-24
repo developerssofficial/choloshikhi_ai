@@ -203,11 +203,12 @@ export default function EmojiPicker({ onSelect, onClose }: EmojiPickerProps) {
   const [search, setSearch] = useState("");
   const ref = useRef<HTMLDivElement>(null);
 
-  // Close on outside click
+  // Close on outside click (delayed to avoid click-before-mousedown race)
   useEffect(() => {
     function handleClick(e: MouseEvent) {
       if (ref.current && !ref.current.contains(e.target as Node)) {
-        onClose();
+        // Small delay so emoji click can register first
+        setTimeout(() => onClose(), 50);
       }
     }
     document.addEventListener("mousedown", handleClick);
@@ -216,9 +217,9 @@ export default function EmojiPicker({ onSelect, onClose }: EmojiPickerProps) {
 
   const categories = EMOJI_DATA;
 
-  // Filter emojis by search
+  // Filter emojis by search — just show all when searching (emoji search is impractical)
   const filteredEmojis = search
-    ? categories.flatMap((cat) => cat.emojis).filter(() => true) // show all when searching
+    ? categories.flatMap((cat) => cat.emojis)
     : categories[activeCategory]?.emojis || [];
 
   return (

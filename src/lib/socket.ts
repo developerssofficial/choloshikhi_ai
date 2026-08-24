@@ -6,23 +6,36 @@
 import { io, Socket } from "socket.io-client";
 
 let socket: Socket | null = null;
+let storedToken: string = "";
 
 /**
  * Get or create a Socket.IO connection.
  * Uses the Supabase JWT token for authentication.
+ * Empty token reuses the last stored token for the existing connection.
  */
 export function getSocket(token: string): Socket {
-  if (socket?.connected) return socket;
+  if (token) storedToken = token;
+
+  // Return existing socket if connected or connecting
+  if (socket) return socket;
 
   const url = process.env.NEXT_PUBLIC_SOCKET_URL || "http://localhost:3001";
 
   socket = io(url, {
-    auth: { token },
+    auth: { token: token || storedToken },
     transports: ["websocket", "polling"],
     reconnection: true,
     reconnectionAttempts: 10,
     reconnectionDelay: 1000,
     timeout: 10000,
+  });
+
+  socket.on("connect_error", (err) => {
+    console.error("[Socket.IO] Connection error:", err.message);
+  });
+
+  socket.on("disconnect", (reason) => {
+    console.warn("[Socket.IO] Disconnected:", reason);
   });
 
   return socket;
