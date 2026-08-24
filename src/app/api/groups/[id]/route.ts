@@ -1,9 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 import { verifyAuthUser } from "@/lib/supabase-auth";
-import { getDb } from "@/lib/mongodb";
 
-// GET /api/groups/[id] — Get group details + messages
+// GET /api/groups/[id] — Get group details + messages (all Supabase)
 export async function GET(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
@@ -15,8 +14,8 @@ export async function GET(
 
     // Verify membership + get group + get members — ALL in parallel
     const [memResult, groupResult, membersResult] = await Promise.all([
-      supabase.from("group_members").select("role").eq("group_id", id).eq("user_id", authUser.id).single(),
-      supabase.from("groups").select("id, name, description, creator_id, created_at").eq("id", id).single(),
+      supabase.from("group_members").select("role").eq("group_id", id).eq("user_id", authUser.id).maybeSingle(),
+      supabase.from("groups").select("id, name, description, creator_id, created_at").eq("id", id).maybeSingle(),
       supabase.from("group_members").select("user_id, role, joined_at").eq("group_id", id),
     ]);
 
@@ -28,14 +27,17 @@ export async function GET(
       return NextResponse.json({ error: "Group not found" }, { status: 404 });
     }
 
-    // Fetch messages from MongoDB
-    const db = await getDb();
-    const msgs = db.collection("group_messages");
-    const mongoMessages = await msgs.find({ group_id: id }).sort({ created_at: 1 }).limit(200).toArray();
+    // Fetch messages from Supabase
+    const { data: supaMessages } = await supabase
+      .from("group_messages")
+      .select("id, content, sender_id, created_at")
+      .eq("group_id", id)
+      .order("created_at", { ascending: true })
+      .limit(200);
 
     // Get profiles for all members + message senders
     const memberUserIds = (membersResult.data || []).map(m => m.user_id);
-    const senderIds = [...new Set(mongoMessages.map((m: any) => m.sender_id))];
+    const senderIds = [...new Set((supaMessages || []).map(m => m.sender_id))];
     const allUniqueIds = [...new Set([...memberUserIds, ...senderIds])];
 
     const profilesResult = allUniqueIds.length > 0
@@ -55,10 +57,10 @@ export async function GET(
       };
     });
 
-    const messages = mongoMessages.map((m: any) => {
+    const messages = (supaMessages || []).map((m: any) => {
       const prof = profileMap.get(m.sender_id);
       return {
-        id: m._id.toString(),
+        id: m.id,
         content: m.content,
         senderId: m.sender_id,
         senderUsername: prof?.username || "Unknown",
@@ -93,7 +95,7 @@ export async function DELETE(
     if (!authUser) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
     // Verify owner
-    const { data: group } = await supabase.from("groups").select("creator_id").eq("id", id).single();
+    const { data: group } = await supabase.from("groups").select("creator_id").eq("id", id).maybeSingle();
     if (!group || group.creator_id !== authUser.id) {
       return NextResponse.json({ error: "Only creator can delete" }, { status: 403 });
     }

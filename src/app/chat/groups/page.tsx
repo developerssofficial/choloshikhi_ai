@@ -2,13 +2,20 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useAuth } from "@/lib/auth";
-import { getSocket, disconnectSocket } from "@/lib/socket";
+import { createClient } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
 import EmojiPicker from "@/components/EmojiPicker";
 
 /* ===================================================================
-   Group Chat Page — Modern UI, private groups, real-time Socket.IO
+   Group Chat Page — Modern UI, private groups, real-time Supabase
    =================================================================== */
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
+
+function getBrowserClient() {
+  return createClient(supabaseUrl, supabaseAnonKey);
+}
 
 interface Group {
   id: string;
@@ -96,73 +103,117 @@ export default function GroupChatPage() {
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const selectedGroupIdRef = useRef<string | null>(null);
-  const currentRoomRef = useRef<string | null>(null);
   const groupTypingTimeoutRef = useRef<Map<string, NodeJS.Timeout>>(new Map());
   const myGroupUsernameRef = useRef<string | null>(null);
+  const supabaseRef = useRef<ReturnType<typeof getBrowserClient> | null>(null);
+  const realtimeChannelRef = useRef<any>(null);
+  const typingChannelRef = useRef<any>(null);
 
   useEffect(() => { selectedGroupIdRef.current = selectedGroupId; }, [selectedGroupId]);
 
-  // ── Socket.IO setup ──
+  // Initialize browser Supabase client
   useEffect(() => {
-    if (!user) return;
+    supabaseRef.current = getBrowserClient();
+  }, []);
+
+  // ── Supabase Realtime: subscribe to group_messages inserts ──
+  useEffect(() => {
+    if (!user || !supabaseRef.current) return;
     let mounted = true;
+    const supabase = supabaseRef.current;
 
-    (async () => {
-      const token = await getToken();
-      if (!token || !mounted) return;
-      const socket = getSocket(token);
-
-      socket.on("group:message", (msg: GroupMessage) => {
-        if (!mounted) return;
-        setMessages((prev) => {
-          const tempIdx = prev.findIndex(
-            (m) => m.id.startsWith("temp-") && m.senderId === msg.senderId && m.content === msg.content
-          );
-          if (tempIdx !== -1) {
-            const updated = [...prev];
-            updated[tempIdx] = msg;
-            return updated;
-          }
-          if (prev.some((m) => m.id === msg.id)) return prev;
-          return [...prev, msg];
-        });
-      });
-
-      socket.on("connect", () => {
-        const groupId = selectedGroupIdRef.current;
-        if (groupId) {
-          socket.emit("group:leave", currentRoomRef.current || groupId);
-          socket.emit("group:join", groupId);
-          currentRoomRef.current = groupId;
+    const channel = supabase
+      .channel("group-realtime")
+      .on(
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table: "group_messages" },
+        (payload: any) => {
+          if (!mounted) return;
+          const newMsg = payload.new;
+          // Skip messages from the current user (already added optimistically)
+          if (newMsg.sender_id === user.id) return;
+          // Only add messages for the currently selected group
+          if (newMsg.group_id !== selectedGroupIdRef.current) return;
+          setMessages((prev) => {
+            if (prev.some((m) => m.id === newMsg.id)) return prev;
+            // Fetch sender profile for display name
+            const senderProfile = new GroupMessage({
+              id: newMsg.id,
+              content: newMsg.content,
+              senderId: newMsg.sender_id,
+              senderUsername: "Unknown",
+              senderNickname: null,
+              isMine: false,
+              createdAt: newMsg.created_at,
+            } as any);
+            return [...prev, {
+              id: newMsg.id,
+              content: newMsg.content,
+              senderId: newMsg.sender_id,
+              senderUsername: "Unknown",
+              senderNickname: null,
+              isMine: false,
+              createdAt: newMsg.created_at,
+            }];
+          });
         }
-      });
+      )
+      .subscribe();
 
-      // Group typing indicator
-      socket.on("group:typing", (data: { groupId: string; username: string; isTyping: boolean }) => {
-        if (!mounted) return;
-        setTypingUsers((prev) => {
-          const next = new Map(prev);
-          if (data.isTyping) {
-            next.set(data.username, data.username);
-          } else {
-            next.delete(data.username);
-          }
-          return next;
-        });
-      });
-    })();
+    realtimeChannelRef.current = channel;
 
-    return () => { mounted = false; disconnectSocket(); };
-  }, [user, getToken]);
+    return () => {
+      mounted = false;
+      if (realtimeChannelRef.current) {
+        supabase.removeChannel(realtimeChannelRef.current);
+        realtimeChannelRef.current = null;
+      }
+    };
+  }, [user]);
 
+  // ── Subscribe to typing broadcast channel when a group is selected ──
   useEffect(() => {
-    const socket = getSocket("");
-    if (!socket?.connected) return;
-    const prevRoom = currentRoomRef.current;
-    if (prevRoom && prevRoom !== selectedGroupId) socket.emit("group:leave", prevRoom);
-    if (selectedGroupId) { socket.emit("group:join", selectedGroupId); currentRoomRef.current = selectedGroupId; }
-    else currentRoomRef.current = null;
-  }, [selectedGroupId]);
+    if (!user || !selectedGroupId || !supabaseRef.current) return;
+    let mounted = true;
+    const supabase = supabaseRef.current;
+    const channelName = `group-typing-${selectedGroupId}`;
+
+    const channel = supabase.channel(channelName);
+
+    channel
+      .on("broadcast", { event: "typing" }, (payload: any) => {
+        if (!mounted) return;
+        if (payload.payload?.username && payload.payload.username !== myGroupUsernameRef.current) {
+          setTypingUsers((prev) => {
+            const next = new Map(prev);
+            next.set(payload.payload.username, payload.payload.username);
+            return next;
+          });
+        }
+      })
+      .on("broadcast", { event: "stop-typing" }, (payload: any) => {
+        if (!mounted) return;
+        if (payload.payload?.username && payload.payload.username !== myGroupUsernameRef.current) {
+          setTypingUsers((prev) => {
+            const next = new Map(prev);
+            next.delete(payload.payload.username);
+            return next;
+          });
+        }
+      })
+      .subscribe();
+
+    typingChannelRef.current = channel;
+
+    return () => {
+      mounted = false;
+      if (typingChannelRef.current) {
+        supabase.removeChannel(typingChannelRef.current);
+        typingChannelRef.current = null;
+      }
+      setTypingUsers(new Map());
+    };
+  }, [user, selectedGroupId]);
 
   const fetchGroups = useCallback(async () => {
     if (!user) return;
@@ -201,17 +252,26 @@ export default function GroupChatPage() {
   // Group typing input handler
   const handleGroupInput = (val: string) => {
     setInput(val);
-    if (!selectedGroupId || !myGroupUsernameRef.current) return;
-    const socket = getSocket("");
-    if (!socket?.connected) return;
+    if (!selectedGroupId || !myGroupUsernameRef.current || !typingChannelRef.current) return;
 
-    socket.emit("group:typing", { groupId: selectedGroupId, username: myGroupUsernameRef.current });
+    // Broadcast typing
+    typingChannelRef.current.send({
+      type: "broadcast",
+      event: "typing",
+      payload: { username: myGroupUsernameRef.current },
+    });
 
     const existing = groupTypingTimeoutRef.current.get(selectedGroupId);
     if (existing) clearTimeout(existing);
 
     const timeout = setTimeout(() => {
-      socket.emit("group:stop-typing", { groupId: selectedGroupId, username: myGroupUsernameRef.current });
+      if (typingChannelRef.current) {
+        typingChannelRef.current.send({
+          type: "broadcast",
+          event: "stop-typing",
+          payload: { username: myGroupUsernameRef.current },
+        });
+      }
       groupTypingTimeoutRef.current.delete(selectedGroupId);
     }, 2000);
     groupTypingTimeoutRef.current.set(selectedGroupId, timeout);
@@ -222,30 +282,45 @@ export default function GroupChatPage() {
     const content = input.trim(); setInput(""); setSending(true); setSendError(null);
 
     // Stop typing
-    const socket = getSocket("");
-    if (socket?.connected && myGroupUsernameRef.current) {
-      socket.emit("group:stop-typing", { groupId: selectedGroupId, username: myGroupUsernameRef.current });
+    if (typingChannelRef.current && myGroupUsernameRef.current) {
+      typingChannelRef.current.send({
+        type: "broadcast",
+        event: "stop-typing",
+        payload: { username: myGroupUsernameRef.current },
+      });
       const existing = groupTypingTimeoutRef.current.get(selectedGroupId);
       if (existing) clearTimeout(existing);
       groupTypingTimeoutRef.current.delete(selectedGroupId);
     }
+
     const tempId = "temp-" + Date.now();
     const tempMsg: GroupMessage = {
       id: tempId, content, senderId: user?.id || "", senderUsername: "You",
       senderNickname: null, isMine: true, createdAt: new Date().toISOString(),
     };
     setMessages((prev) => [...prev, tempMsg]);
+
+    // Send via HTTP POST
     try {
-      const socket = getSocket("");
-      if (!socket?.connected) throw new Error("Not connected");
-      socket.emit("group:send", { groupId: selectedGroupId, content },
-        (ack: { ok: boolean; message?: GroupMessage; error?: string }) => {
-          if (ack.ok && ack.message) setMessages((prev) => prev.map((m) => (m.id === tempId ? ack.message! : m)));
-          else { setMessages((prev) => prev.filter((m) => m.id !== tempId)); setInput(content); setSendError(ack.error || "Send failed"); }
-          setSending(false);
-        }
-      );
-    } catch (err: any) { setMessages((prev) => prev.filter((m) => m.id !== tempId)); setInput(content); setSendError(err.message || "Failed"); setSending(false); }
+      const token = await getToken();
+      if (!token) throw new Error("Not authenticated");
+      const res = await fetch(`/api/groups/${selectedGroupId}/messages`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ content }),
+      });
+      const data = await res.json();
+      if (data.message) {
+        setMessages((prev) => prev.map((m) => (m.id === tempId ? data.message : m)));
+      } else {
+        setMessages((prev) => prev.filter((m) => m.id !== tempId));
+        setInput(content); setSendError(data.error || "Send failed");
+      }
+    } catch (err: any) {
+      setMessages((prev) => prev.filter((m) => m.id !== tempId));
+      setInput(content); setSendError(err.message || "Failed");
+    }
+    setSending(false);
   };
 
   const handleCreateGroup = async () => {
@@ -291,8 +366,6 @@ export default function GroupChatPage() {
       const token = await getToken(); if (!token) return;
       const res = await fetch(`/api/groups/${selectedGroupId}/members`, { method: "DELETE", headers: { Authorization: `Bearer ${token}` } });
       if (res.ok) {
-        const socket = getSocket(""); if (socket?.connected) socket.emit("group:leave", selectedGroupId);
-        currentRoomRef.current = null;
         setGroups((prev) => prev.filter((g) => g.id !== selectedGroupId));
         setSelectedGroupId(null); setGroupInfo(null);
       }

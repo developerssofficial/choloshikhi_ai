@@ -2,14 +2,21 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useAuth } from "@/lib/auth";
-import { getSocket, disconnectSocket } from "@/lib/socket";
+import { createClient } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
 import EmojiPicker from "@/components/EmojiPicker";
 
 /* ===================================================================
    DM Page — Modern messenger-style messaging
-   Real-time via Socket.IO (no polling)
+   Real-time via Supabase Realtime (no Socket.IO, no MongoDB)
    =================================================================== */
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
+
+function getBrowserClient() {
+  return createClient(supabaseUrl, supabaseAnonKey);
+}
 
 interface Conversation {
   id: string;
@@ -97,59 +104,97 @@ export default function DMPage() {
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const searchDebounceRef = useRef<NodeJS.Timeout | null>(null);
-  const socketInitializedRef = useRef(false);
   const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const myUsernameRef = useRef<string | null>(null);
+  const selectedConvIdRef = useRef<string | null>(null);
+  const supabaseRef = useRef<ReturnType<typeof getBrowserClient> | null>(null);
+  const realtimeChannelRef = useRef<any>(null);
+  const typingChannelRef = useRef<any>(null);
 
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "auto" });
   }, []);
 
-  // Connect socket
+  // Initialize browser Supabase client
   useEffect(() => {
-    if (!user || socketInitializedRef.current) return;
-    socketInitializedRef.current = true;
+    supabaseRef.current = getBrowserClient();
+  }, []);
+
+  // Subscribe to Supabase Realtime for incoming DM messages
+  useEffect(() => {
+    if (!user || !supabaseRef.current) return;
     let mounted = true;
+    const supabase = supabaseRef.current;
 
-    const connect = async () => {
-      const token = await getToken();
-      if (!token || !mounted) return;
-      const socket = getSocket(token);
+    const channel = supabase
+      .channel("dm-realtime")
+      .on(
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table: "dm_messages" },
+        async (payload: any) => {
+          if (!mounted) return;
+          const newMsg = payload.new;
+          // Only show messages for the currently open conversation
+          // Skip my own messages (already added optimistically)
+          if (newMsg.sender_id === user.id) return;
+          // We can't filter by conversation_id in Realtime, so check in state
+          setMessages((prev) => {
+            // Check if we're viewing this conversation
+            if (!selectedConvIdRef.current || newMsg.conversation_id !== selectedConvIdRef.current) return prev;
+            if (prev.some((m) => m.id === newMsg.id)) return prev;
+            setTimeout(scrollToBottom, 50);
+            return [...prev, { id: newMsg.id, content: newMsg.content, isMine: false, isRead: false, createdAt: newMsg.created_at }];
+          });
+        }
+      )
+      .subscribe();
 
-      socket.on("dm:message", (msg: Message) => {
+    realtimeChannelRef.current = channel;
+
+    return () => {
+      mounted = false;
+      if (realtimeChannelRef.current) {
+        supabase.removeChannel(realtimeChannelRef.current);
+        realtimeChannelRef.current = null;
+      }
+    };
+  }, [user]);
+
+  // Subscribe to typing channel for selected conversation
+  useEffect(() => {
+    if (!user || !selectedConvId || !supabaseRef.current) return;
+    let mounted = true;
+    const supabase = supabaseRef.current;
+    const channelName = `dm-typing-${selectedConvId}`;
+
+    const channel = supabase.channel(channelName);
+
+    channel
+      .on("broadcast", { event: "typing" }, (payload: any) => {
         if (!mounted) return;
-        setMessages((prev) => {
-          if (prev.some((m) => m.id === msg.id)) return prev;
-          return [...prev, { ...msg, isRead: false }];
-        });
-        setTimeout(scrollToBottom, 50);
-      });
-
-      // Typing indicator
-      socket.on("dm:typing", (data: { conversationId: string; username: string; isTyping: boolean }) => {
+        if (payload.payload?.username && payload.payload.username !== myUsernameRef.current) {
+          setTypingUser(payload.payload.username);
+        }
+      })
+      .on("broadcast", { event: "stop-typing" }, (payload: any) => {
         if (!mounted) return;
-        if (data.isTyping) {
-          setTypingUser(data.username);
-        } else {
+        if (payload.payload?.username && payload.payload.username !== myUsernameRef.current) {
           setTypingUser(null);
         }
-      });
+      })
+      .subscribe();
 
-      // Seen receipts — when other user sees my messages
-      socket.on("dm:seen", (data: { conversationId: string; seenBy: string }) => {
-        if (!mounted) return;
-        setMessages((prev) =>
-          prev.map((m) =>
-            m.isMine && !m.isRead
-              ? { ...m, isRead: true }
-              : m
-          )
-        );
-      });
+    typingChannelRef.current = channel;
+
+    return () => {
+      mounted = false;
+      if (typingChannelRef.current) {
+        supabase.removeChannel(typingChannelRef.current);
+        typingChannelRef.current = null;
+      }
+      setTypingUser(null);
     };
-    connect();
-    return () => { mounted = false; disconnectSocket(); };
-  }, [user, scrollToBottom]);
+  }, [user, selectedConvId]);
 
   const fetchConversations = useCallback(async () => {
     setLoadingConvs(true);
@@ -184,19 +229,13 @@ export default function DMPage() {
   }, []);
 
   useEffect(() => {
+    selectedConvIdRef.current = selectedConvId;
+  }, [selectedConvId]);
+
+  useEffect(() => {
     if (!selectedConvId || !user) return;
     fetchMessages(selectedConvId);
-    const socket = getSocket("");
-    socket.emit("dm:join", selectedConvId);
-
-    // Mark messages as seen when opening conversation
-    socket.emit("dm:seen", { conversationId: selectedConvId });
     setTypingUser(null);
-
-    return () => {
-      socket.emit("dm:leave", selectedConvId);
-      setTypingUser(null);
-    };
   }, [selectedConvId, user, fetchMessages]);
 
   useEffect(() => { if (user) fetchConversations(); }, [user, fetchConversations]);
@@ -232,19 +271,27 @@ export default function DMPage() {
 
   const handleInput = (val: string) => {
     setInput(val);
-    if (!selectedConvId || !myUsernameRef.current) return;
-    const socket = getSocket("");
-    if (!socket?.connected) return;
+    if (!selectedConvId || !myUsernameRef.current || !typingChannelRef.current) return;
 
-    // Emit typing
-    socket.emit("dm:typing", { conversationId: selectedConvId, username: myUsernameRef.current });
+    // Broadcast typing
+    typingChannelRef.current.send({
+      type: "broadcast",
+      event: "typing",
+      payload: { username: myUsernameRef.current },
+    });
 
     // Clear previous timeout
     if (typingTimeoutRef.current) clearTimeout(typingTimeoutRef.current);
 
     // Stop typing after 2s of inactivity
     typingTimeoutRef.current = setTimeout(() => {
-      socket.emit("dm:stop-typing", { conversationId: selectedConvId, username: myUsernameRef.current });
+      if (typingChannelRef.current) {
+        typingChannelRef.current.send({
+          type: "broadcast",
+          event: "stop-typing",
+          payload: { username: myUsernameRef.current },
+        });
+      }
     }, 2000);
   };
 
@@ -287,67 +334,40 @@ export default function DMPage() {
     const msgContent = input.trim(); setInput("");
 
     // Stop typing immediately
-    const socket = getSocket("");
-    const convId = selectedConvId;
-    if (socket?.connected && myUsernameRef.current) {
-      socket.emit("dm:stop-typing", { conversationId: convId, username: myUsernameRef.current });
-      if (typingTimeoutRef.current) clearTimeout(typingTimeoutRef.current);
+    if (typingTimeoutRef.current) clearTimeout(typingTimeoutRef.current);
+    if (typingChannelRef.current) {
+      typingChannelRef.current.send({
+        type: "broadcast",
+        event: "stop-typing",
+        payload: { username: myUsernameRef.current },
+      });
     }
 
     const tempId = "temp-" + Date.now();
     setMessages((prev) => [...prev, { id: tempId, content: msgContent, isMine: true, createdAt: new Date().toISOString() }]);
     setTimeout(scrollToBottom, 50);
 
-    // Try Socket.IO first, fallback to HTTP
-    let saved = false;
-    if (socket?.connected) {
-      try {
-        await new Promise<void>((resolve, reject) => {
-          const timeout = setTimeout(() => reject(new Error("Timeout")), 8000);
-          socket.emit("dm:send", { conversationId: convId, content: msgContent },
-            (ack: { ok?: boolean; message?: Message; error?: string }) => {
-              clearTimeout(timeout);
-              if (ack.ok && ack.message) {
-                setMessages((prev) => prev.map((m) => m.id === tempId ? ack.message! : m));
-                setConversations((prev) => prev.map((c) =>
-                  c.id === convId
-                    ? { ...c, lastMessage: { content: msgContent, isMine: true, createdAt: new Date().toISOString() }, updatedAt: new Date().toISOString() }
-                    : c
-                ));
-                saved = true;
-                resolve();
-              } else {
-                reject(new Error(ack.error || "Socket.IO failed"));
-              }
-            }
-          );
-        });
-      } catch {
-        saved = false;
+    // Send via HTTP POST
+    try {
+      const token = await getToken();
+      const headers: Record<string, string> = { "Content-Type": "application/json" };
+      if (token) headers["Authorization"] = `Bearer ${token}`;
+      const res = await fetch(`/api/dm/${selectedConvId}`, { method: "POST", headers, body: JSON.stringify({ content: msgContent }) });
+      const data = await res.json();
+      if (data.message) {
+        setMessages((prev) => prev.map((m) => m.id === tempId ? data.message : m));
+        setConversations((prev) => prev.map((c) =>
+          c.id === selectedConvId
+            ? { ...c, lastMessage: { content: msgContent, isMine: true, createdAt: data.message.createdAt }, updatedAt: data.message.createdAt }
+            : c
+        ));
+        // The message will also arrive via Supabase Realtime postgres_changes for the OTHER user
+        // For the sender, we already updated optimistically above
+      } else {
+        setMessages((prev) => prev.filter((m) => m.id !== tempId));
+        setInput(msgContent); setSendError(data.error || "Send failed");
       }
-    }
-
-    // HTTP fallback if Socket.IO failed
-    if (!saved) {
-      try {
-        const token = await getToken();
-        const headers: Record<string, string> = { "Content-Type": "application/json" };
-        if (token) headers["Authorization"] = `Bearer ${token}`;
-        const res = await fetch(`/api/dm/${convId}`, { method: "POST", headers, body: JSON.stringify({ content: msgContent }) });
-        const data = await res.json();
-        if (data.message) {
-          setMessages((prev) => prev.map((m) => m.id === tempId ? data.message : m));
-          setConversations((prev) => prev.map((c) =>
-            c.id === convId
-              ? { ...c, lastMessage: { content: msgContent, isMine: true, createdAt: data.message.createdAt }, updatedAt: data.message.createdAt }
-              : c
-          ));
-          saved = true;
-        }
-      } catch {}
-    }
-
-    if (!saved) {
+    } catch {
       setMessages((prev) => prev.filter((m) => m.id !== tempId));
       setInput(msgContent); setSendError("Send failed — try again");
     }
