@@ -92,10 +92,13 @@ export default function GroupChatPage() {
   const [addMemberMsg, setAddMemberMsg] = useState<string | null>(null);
 
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+  const [typingUsers, setTypingUsers] = useState<Map<string, string>>(new Map());
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const selectedGroupIdRef = useRef<string | null>(null);
   const currentRoomRef = useRef<string | null>(null);
+  const groupTypingTimeoutRef = useRef<Map<string, NodeJS.Timeout>>(new Map());
+  const myGroupUsernameRef = useRef<string | null>(null);
 
   useEffect(() => { selectedGroupIdRef.current = selectedGroupId; }, [selectedGroupId]);
 
@@ -132,6 +135,20 @@ export default function GroupChatPage() {
           socket.emit("group:join", groupId);
           currentRoomRef.current = groupId;
         }
+      });
+
+      // Group typing indicator
+      socket.on("group:typing", (data: { groupId: string; username: string; isTyping: boolean }) => {
+        if (!mounted) return;
+        setTypingUsers((prev) => {
+          const next = new Map(prev);
+          if (data.isTyping) {
+            next.set(data.username, data.username);
+          } else {
+            next.delete(data.username);
+          }
+          return next;
+        });
       });
     })();
 
@@ -171,16 +188,47 @@ export default function GroupChatPage() {
       setMessages(data.messages || []);
       setGroupInfo(data.group ? { name: data.group.name, role: data.myRole } : null);
       setMembers(data.members || []);
+      // Store my username for typing indicator
+      const myMember = (data.members || []).find((m: any) => m.userId === user?.id);
+      if (myMember) myGroupUsernameRef.current = myMember.username;
     } catch {} finally { setLoadingMessages(false); }
-  }, []);
+  }, [user]);
 
   useEffect(() => { if (selectedGroupId) fetchMessages(selectedGroupId); }, [selectedGroupId]);
 
   useEffect(() => { messagesEndRef.current?.scrollIntoView({ behavior: "auto" }); }, [messages]);
 
+  // Group typing input handler
+  const handleGroupInput = (val: string) => {
+    setInput(val);
+    if (!selectedGroupId || !myGroupUsernameRef.current) return;
+    const socket = getSocket("");
+    if (!socket?.connected) return;
+
+    socket.emit("group:typing", { groupId: selectedGroupId, username: myGroupUsernameRef.current });
+
+    const existing = groupTypingTimeoutRef.current.get(selectedGroupId);
+    if (existing) clearTimeout(existing);
+
+    const timeout = setTimeout(() => {
+      socket.emit("group:stop-typing", { groupId: selectedGroupId, username: myGroupUsernameRef.current });
+      groupTypingTimeoutRef.current.delete(selectedGroupId);
+    }, 2000);
+    groupTypingTimeoutRef.current.set(selectedGroupId, timeout);
+  };
+
   const handleSend = async () => {
     if (!input.trim() || !selectedGroupId || sending) return;
     const content = input.trim(); setInput(""); setSending(true); setSendError(null);
+
+    // Stop typing
+    const socket = getSocket("");
+    if (socket?.connected && myGroupUsernameRef.current) {
+      socket.emit("group:stop-typing", { groupId: selectedGroupId, username: myGroupUsernameRef.current });
+      const existing = groupTypingTimeoutRef.current.get(selectedGroupId);
+      if (existing) clearTimeout(existing);
+      groupTypingTimeoutRef.current.delete(selectedGroupId);
+    }
     const tempId = "temp-" + Date.now();
     const tempMsg: GroupMessage = {
       id: tempId, content, senderId: user?.id || "", senderUsername: "You",
@@ -375,7 +423,13 @@ export default function GroupChatPage() {
               </div>
               <div className="min-w-0 flex-1">
                 <p className="text-[13px] font-medium text-white truncate">{groupInfo.name}</p>
-                <p className="text-[10px] text-gray-600">{members.length} member{members.length !== 1 ? "s" : ""}</p>
+                {typingUsers.size > 0 ? (
+                  <p className="text-[10px] text-emerald-400 animate-pulse">
+                    {[...typingUsers.values()].join(", ")} {typingUsers.size === 1 ? "is" : "are"} typing...
+                  </p>
+                ) : (
+                  <p className="text-[10px] text-gray-600">{members.length} member{members.length !== 1 ? "s" : ""}</p>
+                )}
               </div>
               {groupInfo.role === "owner" && (
                 <button onClick={() => setShowAddMember(!showAddMember)}
@@ -484,7 +538,7 @@ export default function GroupChatPage() {
                   <svg className="w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 </button>
                 {showEmojiPicker && <EmojiPicker onSelect={(emoji) => setInput((prev) => prev + emoji)} onClose={() => setShowEmojiPicker(false)} />}
-                <input type="text" value={input} onChange={(e) => setInput(e.target.value)}
+                <input type="text" value={input} onChange={(e) => handleGroupInput(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSend()}
                   placeholder="Type a message..." disabled={sending} maxLength={2000}
                   className="flex-1 bg-transparent text-white text-[13px] placeholder-gray-600 focus:outline-none disabled:opacity-40" />

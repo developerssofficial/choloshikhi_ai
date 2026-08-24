@@ -153,6 +153,8 @@ io.on("connection", async (socket) => {
 
   // Store userId on socket for later use
   socket.userId = userId;
+  // Join user-specific room (for DM seen notifications)
+  socket.join(`user:${userId}`);
 
   /* ----- DM Events ----- */
 
@@ -222,6 +224,56 @@ io.on("connection", async (socket) => {
     }
   });
 
+  /* ----- DM Typing ----- */
+  socket.on("dm:typing", (data) => {
+    const { conversationId, username } = data;
+    if (!conversationId) return;
+    // Broadcast to room except sender
+    socket.to(`dm:${conversationId}`).emit("dm:typing", { conversationId, username, isTyping: true });
+  });
+
+  socket.on("dm:stop-typing", (data) => {
+    const { conversationId, username } = data;
+    if (!conversationId) return;
+    socket.to(`dm:${conversationId}`).emit("dm:typing", { conversationId, username, isTyping: false });
+  });
+
+  /* ----- DM Seen / Read Receipts ----- */
+  socket.on("dm:seen", async (data) => {
+    try {
+      const { conversationId } = data;
+      if (!conversationId) return;
+
+      const conv = await DmConversation.findById(conversationId);
+      if (!conv || !conv.participants.includes(userId)) return;
+
+      // Mark all unread messages from the OTHER user as read
+      await DmMessage.updateMany(
+        { conversation_id: conversationId, sender_id: { $ne: userId }, is_read: false },
+        { $set: { is_read: true } }
+      );
+
+      // Find the other participant to notify them
+      const otherId = conv.participants.find((p) => p !== userId);
+
+      // Notify the other user that messages were seen
+      // Find all sockets for the other user
+      const otherSockets = await io.in(`user:${otherId}`).fetchSockets().catch(() => []);
+      otherSockets.forEach((s) => {
+        s.emit("dm:seen", { conversationId, seenBy: userId });
+      });
+    } catch (err) {
+      console.error("[Socket.IO] DM seen error:", err.message);
+    }
+  });
+
+  /* ----- DM Delivered (receipt) ----- */
+  socket.on("dm:delivered", (data) => {
+    const { conversationId, messageId } = data;
+    if (!conversationId || !messageId) return;
+    socket.to(`dm:${conversationId}`).emit("dm:delivered", { conversationId, messageId });
+  });
+
   /* ----- Group Events ----- */
 
   // Join a group room
@@ -232,6 +284,19 @@ io.on("connection", async (socket) => {
   // Leave a group room
   socket.on("group:leave", (groupId) => {
     socket.leave(`group:${groupId}`);
+  });
+
+  // Group typing
+  socket.on("group:typing", (data) => {
+    const { groupId, username } = data;
+    if (!groupId) return;
+    socket.to(`group:${groupId}`).emit("group:typing", { groupId, username, isTyping: true });
+  });
+
+  socket.on("group:stop-typing", (data) => {
+    const { groupId, username } = data;
+    if (!groupId) return;
+    socket.to(`group:${groupId}`).emit("group:typing", { groupId, username, isTyping: false });
   });
 
   // Send group message

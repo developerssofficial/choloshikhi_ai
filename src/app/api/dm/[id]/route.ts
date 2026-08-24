@@ -49,6 +49,7 @@ export async function GET(
         id: m._id.toString(),
         content: m.content,
         isMine: m.sender_id === authUser.id,
+        isRead: m.is_read || false,
         createdAt: m.created_at,
       })),
     });

@@ -23,6 +23,7 @@ interface Message {
   id: string;
   content: string;
   isMine: boolean;
+  isRead?: boolean;
   createdAt: string;
 }
 
@@ -92,10 +93,13 @@ export default function DMPage() {
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [searchResults, setSearchResults] = useState<{ userId: string; username: string }[]>([]);
   const [searchLoading, setSearchLoading] = useState(false);
+  const [typingUser, setTypingUser] = useState<string | null>(null);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const searchDebounceRef = useRef<NodeJS.Timeout | null>(null);
   const socketInitializedRef = useRef(false);
+  const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const myUsernameRef = useRef<string | null>(null);
 
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "auto" });
@@ -111,13 +115,36 @@ export default function DMPage() {
       const token = await getToken();
       if (!token || !mounted) return;
       const socket = getSocket(token);
+
       socket.on("dm:message", (msg: Message) => {
         if (!mounted) return;
         setMessages((prev) => {
           if (prev.some((m) => m.id === msg.id)) return prev;
-          return [...prev, msg];
+          return [...prev, { ...msg, isRead: false }];
         });
         setTimeout(scrollToBottom, 50);
+      });
+
+      // Typing indicator
+      socket.on("dm:typing", (data: { conversationId: string; username: string; isTyping: boolean }) => {
+        if (!mounted) return;
+        if (data.isTyping) {
+          setTypingUser(data.username);
+        } else {
+          setTypingUser(null);
+        }
+      });
+
+      // Seen receipts — when other user sees my messages
+      socket.on("dm:seen", (data: { conversationId: string; seenBy: string }) => {
+        if (!mounted) return;
+        setMessages((prev) =>
+          prev.map((m) =>
+            m.isMine && !m.isRead
+              ? { ...m, isRead: true }
+              : m
+          )
+        );
       });
     };
     connect();
@@ -149,6 +176,7 @@ export default function DMPage() {
         setMessages(data.messages);
         setOtherUser(data.otherUser);
         setMyUsername(data.myUsername);
+        myUsernameRef.current = data.myUsername;
         scrollToBottom();
       }
     } catch {}
@@ -160,7 +188,15 @@ export default function DMPage() {
     fetchMessages(selectedConvId);
     const socket = getSocket("");
     socket.emit("dm:join", selectedConvId);
-    return () => { socket.emit("dm:leave", selectedConvId); };
+
+    // Mark messages as seen when opening conversation
+    socket.emit("dm:seen", { conversationId: selectedConvId });
+    setTypingUser(null);
+
+    return () => {
+      socket.emit("dm:leave", selectedConvId);
+      setTypingUser(null);
+    };
   }, [selectedConvId, user, fetchMessages]);
 
   useEffect(() => { if (user) fetchConversations(); }, [user, fetchConversations]);
@@ -192,6 +228,24 @@ export default function DMPage() {
       else setNicknameMsg(data.error || "Failed");
     } catch { setNicknameMsg("Network error"); }
     setNicknameLoading(false);
+  };
+
+  const handleInput = (val: string) => {
+    setInput(val);
+    if (!selectedConvId || !myUsernameRef.current) return;
+    const socket = getSocket("");
+    if (!socket?.connected) return;
+
+    // Emit typing
+    socket.emit("dm:typing", { conversationId: selectedConvId, username: myUsernameRef.current });
+
+    // Clear previous timeout
+    if (typingTimeoutRef.current) clearTimeout(typingTimeoutRef.current);
+
+    // Stop typing after 2s of inactivity
+    typingTimeoutRef.current = setTimeout(() => {
+      socket.emit("dm:stop-typing", { conversationId: selectedConvId, username: myUsernameRef.current });
+    }, 2000);
   };
 
   const handleSearch = (q: string) => {
@@ -231,6 +285,14 @@ export default function DMPage() {
     if (!input.trim() || !selectedConvId || sending) return;
     setSending(true); setSendError(null);
     const msgContent = input.trim(); setInput("");
+
+    // Stop typing immediately
+    const socket = getSocket("");
+    if (socket?.connected && myUsernameRef.current) {
+      socket.emit("dm:stop-typing", { conversationId: selectedConvId, username: myUsernameRef.current });
+      if (typingTimeoutRef.current) clearTimeout(typingTimeoutRef.current);
+    }
+
     const tempId = "temp-" + Date.now();
     setMessages((prev) => [...prev, { id: tempId, content: msgContent, isMine: true, createdAt: new Date().toISOString() }]);
     setTimeout(scrollToBottom, 50);
@@ -430,7 +492,11 @@ export default function DMPage() {
                   </div>
                   <div className="min-w-0">
                     <p className="text-[13px] font-medium text-white">{otherUser.nickname || otherUser.username}</p>
-                    <p className="text-[10px] text-gray-600 font-mono">{otherUser.username}</p>
+                    {typingUser ? (
+                      <p className="text-[10px] text-emerald-400 animate-pulse">{typingUser} is typing...</p>
+                    ) : (
+                      <p className="text-[10px] text-gray-600 font-mono">{otherUser.username}</p>
+                    )}
                   </div>
                 </div>
               )}
@@ -484,7 +550,9 @@ export default function DMPage() {
                   <p className="text-gray-700 text-[11px] mt-1">Send the first message to {otherUser?.nickname || otherUser?.username}</p>
                 </div>
               )}
-              {messages.map((msg) => (
+              {messages.map((msg, idx) => {
+                const isLastMyMsg = msg.isMine && idx === messages.length - 1;
+                return (
                 <div key={msg.id} className={`flex ${msg.isMine ? "justify-end" : "justify-start"} animate-[fadeUp_0.2s_ease-out]`}>
                   <div className={`max-w-[75%] px-4 py-2.5 ${
                     msg.isMine
@@ -492,10 +560,18 @@ export default function DMPage() {
                       : "bg-white/[0.06] text-gray-200 rounded-2xl rounded-bl-md border border-white/[0.04]"
                   }`}>
                     <p className="text-[13px] leading-relaxed whitespace-pre-wrap">{msg.content}</p>
-                    <p className={`text-[9px] mt-1 ${msg.isMine ? "text-violet-300/70" : "text-gray-600"}`}>{shortTime(msg.createdAt)}</p>
+                    <div className={`flex items-center gap-1 mt-1 ${msg.isMine ? "justify-end" : ""}`}>
+                      <p className={`text-[9px] ${msg.isMine ? "text-violet-300/70" : "text-gray-600"}`}>{shortTime(msg.createdAt)}</p>
+                      {msg.isMine && (
+                        <span className={`text-[10px] font-bold ${msg.isRead ? "text-sky-300" : "text-violet-300/70"}`}>
+                          {msg.isRead ? "✓✓" : "✓"}
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
-              ))}
+                );
+              })}
               <div ref={messagesEndRef} />
             </div>
 
@@ -519,7 +595,7 @@ export default function DMPage() {
                   <svg className="w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 </button>
                 {showEmojiPicker && <EmojiPicker onSelect={(emoji) => setInput((prev) => prev + emoji)} onClose={() => setShowEmojiPicker(false)} />}
-                <input type="text" value={input} onChange={(e) => setInput(e.target.value)}
+                <input type="text" value={input} onChange={(e) => handleInput(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSend()}
                   placeholder="Type a message..." disabled={sending} maxLength={2000}
                   className="flex-1 bg-transparent text-white text-[13px] placeholder-gray-600 focus:outline-none disabled:opacity-40" />
