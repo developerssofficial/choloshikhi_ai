@@ -9,7 +9,15 @@ const http = require("http");
 const { Server } = require("socket.io");
 const mongoose = require("mongoose");
 const dns = require("dns");
-const { filterProfanity } = require("./profanityFilter.cjs");
+
+// Profanity filter — graceful fallback if require fails
+let filterProfanity = (t) => t;
+try {
+  filterProfanity = require("./profanityFilter.cjs").filterProfanity;
+  console.log("[Socket.IO] profanityFilter loaded OK");
+} catch (e) {
+  console.warn("[Socket.IO] profanityFilter load failed, using passthrough:", e.message);
+}
 
 /* ===== Use Google DNS for MongoDB SRV resolution ===== */
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
@@ -178,24 +186,47 @@ io.on("connection", async (socket) => {
       }
 
       // Verify participant
-      const conv = await DmConversation.findById(conversationId);
+      let conv;
+      try {
+        conv = await DmConversation.findById(conversationId);
+      } catch (e) {
+        console.error("[Socket.IO] DM conv lookup error:", e.message);
+        ack?.({ error: "Invalid conversation" });
+        return;
+      }
       if (!conv || !conv.participants.includes(userId)) {
         ack?.({ error: "Access denied" });
         return;
       }
 
       // Save to MongoDB
-      const msg = await DmMessage.create({
-        conversation_id: conversationId,
-        sender_id: userId,
-        content: content.trim().slice(0, 2000),
-      });
+      let msg;
+      try {
+        msg = await DmMessage.create({
+          conversation_id: conversationId,
+          sender_id: userId,
+          content: content.trim().slice(0, 2000),
+        });
+        console.log(`[Socket.IO] DM saved: ${msg._id}`);
+      } catch (dbErr) {
+        console.error("[Socket.IO] DM save FAILED:", dbErr.message);
+        ack?.({ error: "Database error — message not saved" });
+        return;
+      }
 
-      // Update conversation timestamp
-      await DmConversation.findByIdAndUpdate(conversationId, { updated_at: new Date() });
+      // Update conversation timestamp (fire-and-forget)
+      DmConversation.findByIdAndUpdate(conversationId, { updated_at: new Date() }).catch((e) =>
+        console.error("[Socket.IO] DM conv update error:", e.message)
+      );
 
       // Fetch sender profile for display name
-      const profile = await getProfile(userId);
+      let profile;
+      try {
+        profile = await getProfile(userId);
+      } catch (e) {
+        console.error("[Socket.IO] DM profile fetch error:", e.message);
+        profile = { username: "Unknown" };
+      }
 
       const messageData = {
         id: msg._id.toString(),
@@ -218,9 +249,10 @@ io.on("connection", async (socket) => {
         ok: true,
         message: { ...messageData, isMine: true },
       });
+      console.log(`[Socket.IO] DM ack sent: ${msg._id}`);
     } catch (err) {
-      console.error("[Socket.IO] DM send error:", err.message);
-      ack?.({ error: "Send failed" });
+      console.error("[Socket.IO] DM send FATAL error:", err.message);
+      ack?.({ error: err.message || "Send failed" });
     }
   });
 

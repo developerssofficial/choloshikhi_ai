@@ -288,36 +288,70 @@ export default function DMPage() {
 
     // Stop typing immediately
     const socket = getSocket("");
+    const convId = selectedConvId;
     if (socket?.connected && myUsernameRef.current) {
-      socket.emit("dm:stop-typing", { conversationId: selectedConvId, username: myUsernameRef.current });
+      socket.emit("dm:stop-typing", { conversationId: convId, username: myUsernameRef.current });
       if (typingTimeoutRef.current) clearTimeout(typingTimeoutRef.current);
     }
 
     const tempId = "temp-" + Date.now();
     setMessages((prev) => [...prev, { id: tempId, content: msgContent, isMine: true, createdAt: new Date().toISOString() }]);
     setTimeout(scrollToBottom, 50);
-    try {
-      const socket = getSocket("");
-      socket.emit("dm:send", { conversationId: selectedConvId, content: msgContent },
-        (ack: { ok?: boolean; message?: Message; error?: string }) => {
-          if (ack.ok && ack.message) {
-            setMessages((prev) => prev.map((m) => m.id === tempId ? ack.message! : m));
-            setConversations((prev) => prev.map((c) =>
-              c.id === selectedConvId
-                ? { ...c, lastMessage: { content: msgContent, isMine: true, createdAt: new Date().toISOString() }, updatedAt: new Date().toISOString() }
-                : c
-            ));
-          } else {
-            setMessages((prev) => prev.filter((m) => m.id !== tempId));
-            setInput(msgContent); setSendError(ack.error || "Send failed");
-          }
-          setSending(false);
-        }
-      );
-    } catch {
-      setMessages((prev) => prev.filter((m) => m.id !== tempId));
-      setInput(msgContent); setSendError("Network error"); setSending(false);
+
+    // Try Socket.IO first, fallback to HTTP
+    let saved = false;
+    if (socket?.connected) {
+      try {
+        await new Promise<void>((resolve, reject) => {
+          const timeout = setTimeout(() => reject(new Error("Timeout")), 8000);
+          socket.emit("dm:send", { conversationId: convId, content: msgContent },
+            (ack: { ok?: boolean; message?: Message; error?: string }) => {
+              clearTimeout(timeout);
+              if (ack.ok && ack.message) {
+                setMessages((prev) => prev.map((m) => m.id === tempId ? ack.message! : m));
+                setConversations((prev) => prev.map((c) =>
+                  c.id === convId
+                    ? { ...c, lastMessage: { content: msgContent, isMine: true, createdAt: new Date().toISOString() }, updatedAt: new Date().toISOString() }
+                    : c
+                ));
+                saved = true;
+                resolve();
+              } else {
+                reject(new Error(ack.error || "Socket.IO failed"));
+              }
+            }
+          );
+        });
+      } catch {
+        saved = false;
+      }
     }
+
+    // HTTP fallback if Socket.IO failed
+    if (!saved) {
+      try {
+        const token = await getToken();
+        const headers: Record<string, string> = { "Content-Type": "application/json" };
+        if (token) headers["Authorization"] = `Bearer ${token}`;
+        const res = await fetch(`/api/dm/${convId}`, { method: "POST", headers, body: JSON.stringify({ content: msgContent }) });
+        const data = await res.json();
+        if (data.message) {
+          setMessages((prev) => prev.map((m) => m.id === tempId ? data.message : m));
+          setConversations((prev) => prev.map((c) =>
+            c.id === convId
+              ? { ...c, lastMessage: { content: msgContent, isMine: true, createdAt: data.message.createdAt }, updatedAt: data.message.createdAt }
+              : c
+          ));
+          saved = true;
+        }
+      } catch {}
+    }
+
+    if (!saved) {
+      setMessages((prev) => prev.filter((m) => m.id !== tempId));
+      setInput(msgContent); setSendError("Send failed — try again");
+    }
+    setSending(false);
   };
 
   if (loading) {
