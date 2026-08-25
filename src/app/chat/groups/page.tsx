@@ -136,16 +136,6 @@ export default function GroupChatPage() {
           if (newMsg.group_id !== selectedGroupIdRef.current) return;
           setMessages((prev) => {
             if (prev.some((m) => m.id === newMsg.id)) return prev;
-            // Fetch sender profile for display name
-            const senderProfile = new GroupMessage({
-              id: newMsg.id,
-              content: newMsg.content,
-              senderId: newMsg.sender_id,
-              senderUsername: "Unknown",
-              senderNickname: null,
-              isMine: false,
-              createdAt: newMsg.created_at,
-            } as any);
             return [...prev, {
               id: newMsg.id,
               content: newMsg.content,
