@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { AuthProvider } from "@/lib/auth";
+import StudentProfileSetup from "@/components/StudentProfileSetup";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -40,7 +41,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="bg-[#0f0f14] text-white min-h-screen antialiased" style={{ fontFamily: "'Hind Siliguri', sans-serif" }}>
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          <StudentProfileSetup />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

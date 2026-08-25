@@ -1,7 +1,7 @@
 "use client";
 
-import { createContext, useContext, useEffect, useRef, useState } from "react";
-import { createClient } from "@supabase/supabase-js";
+import { createContext, useContext, useEffect, useRef, useState, useCallback } from "react";
+import { createClient, Session } from "@supabase/supabase-js";
 
 /* ===================================================================
    Auth Provider — Supabase Anonymous Auth + Google OAuth
@@ -44,6 +44,10 @@ interface AuthState {
   /** Get the current JWT access token for API calls */
   getToken: () => Promise<string | null>;
   isElectron: boolean;
+  /** Whether student profile is complete (has full_name, school, etc.) */
+  profileComplete: boolean;
+  /** Refresh profile status after setup */
+  refreshProfile: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthState>({
@@ -55,6 +59,8 @@ const AuthContext = createContext<AuthState>({
   isAnonymous: false,
   getToken: async () => null,
   isElectron: false,
+  profileComplete: false,
+  refreshProfile: async () => {},
 });
 
 /** Parse URL hash string into key-value pairs */
@@ -67,12 +73,37 @@ function parseHashParams(hash: string): Record<string, string> {
   return params;
 }
 
+/** Check if student profile is complete (has required fields) */
+async function checkProfileComplete(userId: string, token: string): Promise<boolean> {
+  try {
+    const res = await fetch("/api/profile", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    if (!res.ok) return false;
+    const data = await res.json();
+    // Profile is complete if it has displayName or username that's not auto-generated
+    return !!(data.displayName && data.displayName !== "Student");
+  } catch {
+    return false;
+  }
+}
+
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<AuthState["user"]>(null);
   const [loading, setLoading] = useState(true);
   const [guestId, setGuestId] = useState<string | null>(null);
   const [isAnonymous, setIsAnonymous] = useState(false);
+  const [profileComplete, setProfileComplete] = useState(false);
   const prevAnonUserIdRef = useRef<string | null>(null);
+  const initDoneRef = useRef(false);
+
+  const refreshProfile = useCallback(async () => {
+    if (!user || !supabase) return;
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session?.access_token) return;
+    const complete = await checkProfileComplete(user.id, session.access_token);
+    setProfileComplete(complete);
+  }, [user]);
 
   useEffect(() => {
     if (!supabase) {
@@ -81,7 +112,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
 
     // ── Check for existing session ──
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
       if (session?.user) {
         // Existing session — anonymous or authenticated
         const anon = (session.user as any).is_anonymous ?? false;
@@ -92,22 +123,30 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         });
         setIsAnonymous(anon);
         setGuestId(anon ? session.user.id : null);
+        prevAnonUserIdRef.current = anon ? session.user.id : null;
+
+        // Check profile completeness
+        if (session?.access_token) {
+          const complete = await checkProfileComplete(session.user.id, session.access_token);
+          setProfileComplete(complete);
+        }
       } else {
-        // No session → create anonymous user (if feature enabled in dashboard)
-        supabase.auth.signInAnonymously().catch((err) => {
-          console.warn(
-            "[Auth] Anonymous sign-in unavailable — enable it in Supabase Dashboard:",
-            err?.message
-          );
-        });
-        // onAuthStateChange will handle the result if successful
+        // No session → create anonymous user (first visit only)
+        try {
+          await supabase.auth.signInAnonymously();
+        } catch (err) {
+          console.warn("[Auth] Anonymous sign-in unavailable:", (err as any)?.message);
+        }
       }
+      initDoneRef.current = true;
       setLoading(false);
     });
 
     // ── Listen for auth state changes ──
     const { data: listener } = supabase.auth.onAuthStateChange(
-      async (_event, session) => {
+      async (event, session) => {
+        if (!initDoneRef.current) return; // Skip events during initialization
+
         if (session?.user) {
           const anon = (session.user as any).is_anonymous ?? false;
           const prevAnonId = prevAnonUserIdRef.current;
@@ -125,12 +164,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             prevAnonUserIdRef.current = session.user.id;
           }
 
-          // Detect: was anonymous, now authenticated (different user ID)
+          // On Google login: detect anonymous → authenticated transition
           if (!anon && prevAnonId && prevAnonId !== session.user.id) {
             try {
               const { data: { session: currentSession } } = await supabase!.auth.getSession();
               const token = currentSession?.access_token;
               if (token) {
+                // Merge guest data into new account
                 await fetch("/api/auth/merge-guest-data", {
                   method: "POST",
                   headers: {
@@ -139,19 +179,34 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
                   },
                   body: JSON.stringify({ anonymousUserId: prevAnonId }),
                 });
+                // Create profile for new Google user
+                await fetch("/api/setup", {
+                  method: "POST",
+                  headers: { "Authorization": `Bearer ${token}` },
+                });
+                // Check profile completeness
+                const complete = await checkProfileComplete(session.user.id, token);
+                setProfileComplete(complete);
               }
             } catch (err) {
               console.error("[Auth] Guest merge failed:", err);
             }
             prevAnonUserIdRef.current = null;
           }
-        } else {
-          // Session ended (sign-out) → create new anonymous session
+
+          // On session refresh, check profile completeness
+          if (event === "TOKEN_REFRESHED" && session?.access_token) {
+            const complete = await checkProfileComplete(session.user.id, session.access_token);
+            setProfileComplete(complete);
+          }
+        } else if (event === "SIGNED_OUT") {
+          // User explicitly signed out — don't auto-recreate anonymous session
+          // Let the page reload handle it, or user clicks login again
           setUser(null);
           setIsAnonymous(false);
           setGuestId(null);
+          setProfileComplete(false);
           prevAnonUserIdRef.current = null;
-          supabase?.auth.signInAnonymously().catch(() => {});
         }
         setLoading(false);
       }
@@ -161,47 +216,28 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   // ── Electron browser auth data listener ──
-  // Preserves the exact existing callback contract with desktop/src/main.js
   useEffect(() => {
     if (!isElectron) return;
     const api = (window as any).electronAPI;
 
     api.onAuthData(async (callbackData: { type: string; data: string }) => {
       if (!supabase) return;
-      console.log("[Auth] Received auth data:", callbackData.type);
-
       try {
         if (callbackData.type === "code") {
-          // PKCE flow — exchange code for session
-          console.log("[Auth] Exchanging PKCE code for session...");
-          const { data, error } = await supabase.auth.exchangeCodeForSession(
-            callbackData.data
-          );
-          if (error) {
-            console.error("[Auth] Code exchange failed:", error.message);
-          } else {
-            console.log("[Auth] PKCE login successful:", data.user?.email);
-          }
+          const { data, error } = await supabase.auth.exchangeCodeForSession(callbackData.data);
+          if (error) console.error("[Auth] Code exchange failed:", error.message);
+          else console.log("[Auth] PKCE login successful:", data.user?.email);
         } else if (callbackData.type === "token") {
-          // Implicit flow — tokens in hash
           const params = parseHashParams(callbackData.data);
           const accessToken = params.access_token;
           const refreshToken = params.refresh_token;
-
           if (accessToken) {
-            console.log("[Auth] Setting session with access token...");
             const { error } = await supabase.auth.setSession({
               access_token: accessToken,
               refresh_token: refreshToken || "",
             });
-            if (error) {
-              console.error("[Auth] setSession failed:", error.message);
-            } else {
-              console.log("[Auth] Token login successful");
-            }
+            if (error) console.error("[Auth] setSession failed:", error.message);
           }
-        } else if (callbackData.type === "error") {
-          console.error("[Auth] Auth error from browser:", callbackData.data);
         }
       } catch (err) {
         console.error("[Auth] Auth data handler error:", err);
@@ -209,8 +245,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     });
   }, []);
 
-  // ── Google sign-in (Web redirect or Electron browser flow) ──
-  // Preserves the exact existing OAuth flow for both platforms
+  // ── Google sign-in ──
   const signInWithGoogle = async () => {
     if (!supabase) return;
     const currentPath =
@@ -218,7 +253,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const redirectUrl = `${window.location.origin}${currentPath}`;
 
     if (isElectron) {
-      // ── Electron: browser flow ──
       const api = (window as any).electronAPI;
       const { data } = await supabase.auth.signInWithOAuth({
         provider: "google",
@@ -231,7 +265,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         await api.electronLogin(data.url);
       }
     } else {
-      // ── Web: redirect flow ──
       await supabase.auth.signInWithOAuth({
         provider: "google",
         options: { redirectTo: redirectUrl },
@@ -245,9 +278,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setUser(null);
     setIsAnonymous(false);
     setGuestId(null);
-    // onAuthStateChange will re-create an anonymous session
+    setProfileComplete(false);
+    prevAnonUserIdRef.current = null;
     if (isElectron) {
       await (window as any).electronAPI.electronLogout();
+    }
+    // Reload page to get fresh anonymous session
+    if (typeof window !== "undefined") {
+      window.location.reload();
     }
   };
 
@@ -268,6 +306,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         isAnonymous,
         getToken,
         isElectron,
+        profileComplete,
+        refreshProfile,
       }}
     >
       {children}
