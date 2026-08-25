@@ -36,6 +36,16 @@ interface AuthState {
   user: { id: string; email: string; name: string } | null;
   loading: boolean;
   signInWithGoogle: () => Promise<void>;
+  /** Student signup: creates account with student details, returns studentId */
+  signUpAsStudent: (data: {
+    fullName: string;
+    school?: string;
+    college?: string;
+    className?: string;
+    password: string;
+  }) => Promise<{ error?: string; studentId?: string }>;
+  /** Student login: signs in with studentId (CSH_XXXXXX) + password */
+  signInAsStudent: (studentId: string, password: string) => Promise<{ error?: string }>;
   signOut: () => Promise<void>;
   /** When anonymous: the real auth.users UUID. When authenticated: null. */
   guestId: string | null;
@@ -54,6 +64,8 @@ const AuthContext = createContext<AuthState>({
   user: null,
   loading: true,
   signInWithGoogle: async () => {},
+  signUpAsStudent: async () => ({}),
+  signInAsStudent: async () => ({}),
   signOut: async () => {},
   guestId: null,
   isAnonymous: false,
@@ -272,6 +284,69 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+  // ── Student sign-up (CSH_XXXXXX + password) ──
+  const signUpAsStudent = async (data: {
+    fullName: string;
+    school?: string;
+    college?: string;
+    className?: string;
+    password: string;
+  }): Promise<{ error?: string; studentId?: string }> => {
+    if (!supabase) return { error: "Supabase not configured" };
+
+    try {
+      // Step 1: Create auth user + profile via API
+      const res = await fetch("/api/student-signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+
+      if (!res.ok || result.error) {
+        return { error: result.error || "অ্যাকাউন্ত তৈরি করা যায়নি" };
+      }
+
+      // Step 2: Sign in with the synthetic email to get a session
+      const syntheticEmail = result.syntheticEmail;
+      const { error: signInError } = await supabase.auth.signInWithPassword({
+        email: syntheticEmail,
+        password: data.password,
+      });
+
+      if (signInError) {
+        return { error: "অ্যাকাউন্ত তৈরি হয়েছে কিন্তু লগইন করা যায়নি। লগইন পেইজ থেকে আবার চেষ্টা করুন।" };
+      }
+
+      setProfileComplete(true);
+      return { studentId: result.studentId };
+    } catch (err) {
+      return { error: "নেটওয়ার্ক সমস্যা" };
+    }
+  };
+
+  // ── Student sign-in (CSH_XXXXXX + password) ──
+  const signInAsStudent = async (studentId: string, password: string): Promise<{ error?: string }> => {
+    if (!supabase) return { error: "Supabase not configured" };
+
+    // Convert student ID to synthetic email
+    const syntheticEmail = `${studentId.toLowerCase()}@choloshikhi.app`;
+
+    const { error } = await supabase.auth.signInWithPassword({
+      email: syntheticEmail,
+      password,
+    });
+
+    if (error) {
+      if (error.message.includes("Invalid login")) {
+        return { error: "Student ID বা পাসওয়ার্ড ভুল। আবার চেষ্টা করুন।" };
+      }
+      return { error: error.message };
+    }
+
+    return {};
+  };
+
   const signOut = async () => {
     if (!supabase) return;
     await supabase.auth.signOut();
@@ -301,6 +376,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         user,
         loading,
         signInWithGoogle,
+        signUpAsStudent,
+        signInAsStudent,
         signOut,
         guestId,
         isAnonymous,

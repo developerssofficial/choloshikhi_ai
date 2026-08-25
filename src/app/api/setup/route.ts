@@ -88,8 +88,27 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: true, action: "exists" });
     }
 
-    // Create profile
-    const username = "USER_" + authUser.id.replace(/-/g, "").slice(0, 6).toUpperCase();
+    // Create profile — generate CSH_XXXXXX username
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let username = "CSH_";
+    for (let i = 0; i < 6; i++) {
+      username += chars[Math.floor(Math.random() * chars.length)];
+    }
+    // Ensure uniqueness
+    let attempts = 0;
+    while (attempts < 10) {
+      const { data: existingUsername } = await supabase
+        .from("student_profiles")
+        .select("username")
+        .eq("username", username)
+        .maybeSingle();
+      if (!existingUsername) break;
+      username = "CSH_";
+      for (let i = 0; i < 6; i++) {
+        username += chars[Math.floor(Math.random() * chars.length)];
+      }
+      attempts++;
+    }
     const { error } = await supabase
       .from("student_profiles")
       .insert({

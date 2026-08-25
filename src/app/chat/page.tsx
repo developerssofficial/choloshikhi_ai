@@ -377,9 +377,13 @@ export default function ChatPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-[#0a0a0f]">
-        <div className="flex flex-col items-center gap-3">
-          <img src="/logo-source.png" alt="CholoShikhi" className="w-12 h-12 rounded-xl object-contain shadow-lg shadow-violet-500/25" />
-          <div className="w-5 h-5 border-2 border-gray-600 border-t-violet-400 rounded-full animate-spin" />
+        <div className="flex flex-col items-center gap-4 animate-apple-fade">
+          <img src="/logo-source.png" alt="CholoShikhi" className="w-14 h-14 rounded-[18px] object-contain shadow-[0_8px_32px_rgba(139,92,246,0.25)]" />
+          <div className="flex gap-1">
+            <div className="w-1.5 h-1.5 bg-violet-400 rounded-full animate-[apple-pulse_1.2s_ease-in-out_infinite]" />
+            <div className="w-1.5 h-1.5 bg-violet-400 rounded-full animate-[apple-pulse_1.2s_ease-in-out_0.2s_infinite]" />
+            <div className="w-1.5 h-1.5 bg-violet-400 rounded-full animate-[apple-pulse_1.2s_ease-in-out_0.4s_infinite]" />
+          </div>
         </div>
       </div>
     );
@@ -467,39 +471,39 @@ export default function ChatPage() {
           </header>
         ) : (
         /* Header — Web/Mobile: mode toggle in center */
-        <header className="flex items-center justify-between px-4 h-14 border-b border-white/[0.04] shrink-0 bg-[#0d0d14]/80 backdrop-blur-xl">
+        <header className="flex items-center justify-between px-5 h-[60px] border-b border-white/[0.06] shrink-0 glass-apple-heavy">
           {/* Left: mobile spacer for hamburger */}
           <div className="w-9 md:w-0" />
 
-          {/* Center: Mode Toggle */}
-          <div className="flex items-center bg-[#141420] border border-white/[0.08] rounded-full p-0.5 shadow-inner">
+          {/* Center: Mode Toggle — Apple Segmented Control */}
+          <div className="flex items-center bg-black/40 border border-white/[0.08] rounded-2xl p-[3px] shadow-[inset_0_1px_2px_rgba(0,0,0,0.3)]">
             <button
               onClick={() => setMode("normal")}
-              className={`px-4 py-1.5 text-[11px] font-medium rounded-full transition-all ${
+              className={`relative px-5 py-2 text-[12px] font-medium rounded-[14px] transition-all duration-300 ${
                 mode === "normal"
-                  ? "bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-md shadow-violet-500/25"
-                  : "text-gray-500 hover:text-gray-300 hover:bg-white/[0.04]"
+                  ? "bg-white/[0.95] text-black shadow-[0_2px_8px_rgba(255,255,255,0.12)]"
+                  : "text-gray-500 hover:text-gray-300"
               }`}>
               Normal
             </button>
             <button
               onClick={() => setMode("education")}
-              className={`px-4 py-1.5 text-[11px] font-medium rounded-full transition-all flex items-center gap-1.5 ${
+              className={`relative px-5 py-2 text-[12px] font-medium rounded-[14px] transition-all duration-300 flex items-center gap-1.5 ${
                 mode === "education"
-                  ? "bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md shadow-emerald-500/25"
-                  : "text-gray-500 hover:text-gray-300 hover:bg-white/[0.04]"
+                  ? "bg-emerald-500/90 text-white shadow-[0_2px_10px_rgba(52,211,153,0.3)]"
+                  : "text-gray-500 hover:text-gray-300"
               }`}>
-              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
               Shikkhok
             </button>
             <button
               onClick={() => setMode("taskplan")}
-              className={`px-4 py-1.5 text-[11px] font-medium rounded-full transition-all flex items-center gap-1.5 ${
+              className={`relative px-5 py-2 text-[12px] font-medium rounded-[14px] transition-all duration-300 flex items-center gap-1.5 ${
                 mode === "taskplan"
-                  ? "bg-gradient-to-r from-sky-600 to-blue-600 text-white shadow-md shadow-sky-500/25"
-                  : "text-gray-500 hover:text-gray-300 hover:bg-white/[0.04]"
+                  ? "bg-sky-500/90 text-white shadow-[0_2px_10px_rgba(56,189,248,0.3)]"
+                  : "text-gray-500 hover:text-gray-300"
               }`}>
-              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
               Task
             </button>
           </div>
@@ -507,7 +511,7 @@ export default function ChatPage() {
           {/* Right: user info */}
           <div className="flex items-center gap-3">
             {user && (
-              <span className="text-[10px] text-gray-500 hidden lg:block">{user.email}</span>
+              <span className="text-[11px] text-gray-500 hidden lg:block">{user.email}</span>
             )}
           </div>
         </header>
@@ -529,8 +533,8 @@ export default function ChatPage() {
                   <div className="relative max-w-[80%]">
                     <div className={`px-4 py-2.5 text-[13px] leading-relaxed whitespace-pre-wrap ${
                       msg.role === "user"
-                        ? "bg-gradient-to-br from-violet-600 to-indigo-600 text-white rounded-2xl rounded-br-md shadow-lg shadow-violet-500/10"
-                        : "text-gray-300 rounded-2xl rounded-bl-md bg-white/[0.04] border border-white/[0.04]"
+                        ? "bg-white/[0.95] text-black rounded-[20px] rounded-br-lg shadow-[0_2px_12px_rgba(255,255,255,0.08)]"
+                        : "text-gray-300 rounded-[20px] rounded-bl-lg bg-white/[0.05] border border-white/[0.06]"
                     }`}>
                       {msg.image && <img src={msg.image} alt="" className="mb-2 rounded-xl max-h-48 object-cover" />}
                     {msg.role === "assistant" ? (
@@ -664,18 +668,19 @@ export default function ChatPage() {
           </div>
         ) : (
           /* ===== WELCOME STATE ===== */
-          <div className="flex-1 flex flex-col items-center justify-center px-4">
-            <div className="mb-6 relative">
-              <img src="/logo-source.png" alt="CholoShikhi" className="w-16 h-16 rounded-2xl object-contain shadow-2xl shadow-violet-500/25" />
-              <div className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-[#0a0a0f] shadow-md" />
+          <div className="flex-1 flex flex-col items-center justify-center px-4 animate-apple-fade">
+            <div className="mb-8 relative animate-apple-float">
+              <div className="absolute inset-0 bg-violet-500/20 rounded-3xl blur-2xl" />
+              <img src="/logo-source.png" alt="CholoShikhi" className="relative w-[72px] h-[72px] rounded-[22px] object-contain shadow-[0_8px_32px_rgba(139,92,246,0.3)]" />
+              <div className="absolute -bottom-1 -right-1 w-4.5 h-4.5 rounded-full bg-emerald-500 border-[2.5px] border-[#0a0a0f] shadow-[0_0_8px_rgba(52,211,153,0.4)]" />
             </div>
-            <p className="text-gray-200 text-lg font-medium mb-1">{getGreeting()}{user ? `, ${user.name || "বন্ধু"}` : ""}</p>
+            <p className="text-white text-[22px] font-semibold mb-1.5 tracking-[-0.01em]">{getGreeting()}{user ? `, ${user.name || "বন্ধু"}` : ""}</p>
             {mode === "education" ? (
-              <p className="text-emerald-400/70 text-xs mb-6">Education Mode — আমি তোমার ব্যক্তিগত শিক্ষক</p>
+              <p className="text-emerald-400/80 text-[13px] mb-8 font-medium">Education Mode — আমি তোমার ব্যক্তিগত শিক্ষক</p>
             ) : mode === "taskplan" ? (
-              <p className="text-sky-400/70 text-xs mb-6">Task Mode — জটিল কাজ বুঝি, গবেষণা করি, পরিকল্পনা তৈরি করি</p>
+              <p className="text-sky-400/80 text-[13px] mb-8 font-medium">Task Mode — জটিল কাজ বুঝি, গবেষণা করি, পরিকল্পনা তৈরি করি</p>
             ) : (
-              <p className="text-gray-500 text-xs mb-6">আমি CholoShikhi — তোমার AI সহকারী</p>
+              <p className="text-gray-500 text-[13px] mb-8 font-medium">আমি CholoShikhi — তোমার AI সহকারী</p>
             )}
           </div>
         )}
@@ -683,16 +688,17 @@ export default function ChatPage() {
         {/* ===== INPUT AREA ===== */}
         <div className="px-4 pb-4 md:pb-6 shrink-0">
           <div className="max-w-2xl mx-auto">
-            {/* Suggestions */}
+            {/* Suggestions — Apple-style chips */}
             {!chatActive && (
-              <div className="flex items-center justify-center gap-2 mb-3 flex-wrap">
-                {SUGGESTIONS.map((s) => (
+              <div className="flex items-center justify-center gap-2.5 mb-4 flex-wrap animate-apple-fade">
+                {SUGGESTIONS.map((s, i) => (
                   <button
                     key={s.label}
                     onClick={() => handleSend(s.text)}
-                    className="px-3.5 py-1.5 text-[11px] text-gray-400 bg-white/[0.03] border border-white/[0.06] rounded-xl hover:bg-white/[0.06] hover:text-gray-300 hover:border-violet-500/20 transition-all flex items-center gap-1.5 shadow-sm"
+                    className="px-4 py-2 text-[12px] font-medium text-gray-400 bg-white/[0.04] border border-white/[0.08] rounded-2xl hover:bg-white/[0.08] hover:text-white hover:border-white/[0.12] hover:shadow-[0_4px_16px_rgba(0,0,0,0.2)] transition-all duration-300 flex items-center gap-2"
+                    style={{ animationDelay: `${i * 50}ms` }}
                   >
-                    <span>{s.icon}</span>
+                    <span className="text-[13px]">{s.icon}</span>
                     {s.label}
                   </button>
                 ))}
@@ -726,17 +732,17 @@ export default function ChatPage() {
               </div>
             )}
 
-            {/* Input Box */}
-            <div className="relative flex items-center bg-[#141420] border border-white/[0.08] rounded-2xl px-4 py-3 focus-within:border-violet-500/30 focus-within:shadow-lg focus-within:shadow-violet-500/5 transition-all">
+            {/* Input Box — Apple frosted glass */}
+            <div className="relative flex items-center bg-white/[0.04] border border-white/[0.08] rounded-3xl px-4 py-3 focus-within:border-violet-500/30 focus-within:shadow-[0_0_0_4px_rgba(139,92,246,0.08)] focus-within:bg-white/[0.06] transition-all duration-300">
               <input ref={fileRef} type="file" accept="image/*" onChange={handleImageSelect} className="hidden" />
               <button onClick={() => fileRef.current?.click()} disabled={sending}
-                className="w-8 h-8 rounded-xl flex items-center justify-center text-gray-500 hover:text-violet-400 hover:bg-white/[0.04] transition-all disabled:opacity-40 mr-1 flex-shrink-0"
+                className="w-9 h-9 rounded-2xl flex items-center justify-center text-gray-500 hover:text-violet-400 hover:bg-violet-500/10 transition-all duration-200 disabled:opacity-40 mr-1.5 flex-shrink-0"
                 title="ছবি">
                 <svg className="w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
               </button>
               {/* Emoji Button */}
               <button onClick={() => setShowEmojiPicker(!showEmojiPicker)} disabled={sending}
-                className="w-8 h-8 rounded-xl flex items-center justify-center text-gray-500 hover:text-violet-400 hover:bg-white/[0.04] transition-all disabled:opacity-40 mr-1 flex-shrink-0"
+                className="w-9 h-9 rounded-2xl flex items-center justify-center text-gray-500 hover:text-violet-400 hover:bg-violet-500/10 transition-all duration-200 disabled:opacity-40 mr-1.5 flex-shrink-0"
                 title="Emoji">
                 <svg className="w-[18px] h-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
               </button>
@@ -751,22 +757,22 @@ export default function ChatPage() {
                 onKeyDown={(e) => e.key === "Enter" && handleSend()}
                 placeholder={mode === "education" ? "কোনো বিষয় শিখতে চাও? প্রশ্ন করো..." : mode === "taskplan" ? "কোনো বড় কাজ আছে? বিস্তারিত লিখো..." : "কিছু জিজ্ঞাসা করো..."}
                 disabled={sending}
-                className="flex-1 bg-transparent text-white placeholder-gray-500 focus:outline-none text-sm disabled:opacity-40"
+                className="flex-1 bg-transparent text-white placeholder-gray-500/80 focus:outline-none text-[14px] disabled:opacity-40 tracking-[-0.01em]"
               />
               <button onClick={() => handleSend()} disabled={(!input.trim() && !imagePreview) || sending}
-                className={`ml-2 w-9 h-9 rounded-xl flex items-center justify-center transition-all flex-shrink-0 ${
+                className={`ml-2 w-10 h-10 rounded-2xl flex items-center justify-center transition-all duration-300 flex-shrink-0 ${
                   (input.trim() || imagePreview) && !sending
-                    ? "bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-500/25 hover:shadow-violet-500/40 hover:scale-105"
-                    : "bg-white/[0.04] text-gray-700 cursor-not-allowed"
+                    ? "bg-white text-black shadow-[0_2px_12px_rgba(255,255,255,0.15)] hover:shadow-[0_4px_20px_rgba(255,255,255,0.25)] hover:scale-[1.05] active:scale-95"
+                    : "bg-white/[0.06] text-gray-700 cursor-not-allowed"
                 }`}>
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
+                <svg className="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 19V5m0 0l-7 7m7-7l7 7" /></svg>
               </button>
             </div>
 
-            {/* Model badge */}
-            <div className="flex items-center justify-center mt-2">
-              <div className="flex items-center gap-1.5 text-[10px] text-gray-600">
-                <span className={`w-1.5 h-1.5 rounded-full ${mode === "education" ? "bg-emerald-500" : mode === "taskplan" ? "bg-sky-500" : "bg-violet-500"}`} />
+            {/* Model badge — Apple-style */}
+            <div className="flex items-center justify-center mt-2.5">
+              <div className="flex items-center gap-1.5 text-[11px] text-gray-600 font-medium tracking-wide">
+                <span className={`w-1.5 h-1.5 rounded-full ${mode === "education" ? "bg-emerald-500 shadow-[0_0_6px_rgba(52,211,153,0.4)]" : mode === "taskplan" ? "bg-sky-500 shadow-[0_0_6px_rgba(56,189,248,0.4)]" : "bg-violet-500 shadow-[0_0_6px_rgba(139,92,246,0.4)]"}`} />
                 {mode === "education" ? "CholoShikhi Shikkhok" : mode === "taskplan" ? "CholoShikhi Task Planner" : "CholoShikhi 1.0"}
               </div>
             </div>
