@@ -43,9 +43,10 @@ export async function getSubscriptionStatus(userId: string): Promise<Subscriptio
 
   // Auto-create profile row if missing
   if (!profile) {
+    const username = "USER_" + userId.replace(/-/g, "").slice(0, 6).toUpperCase();
     const { data: newProfile } = await supabase
       .from("student_profiles")
-      .insert({ user_id: userId, is_anonymous: false })
+      .insert({ user_id: userId, username, display_name: "Student", is_anonymous: false })
       .select("username, display_name")
       .single();
     profile = newProfile;
