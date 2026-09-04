@@ -150,7 +150,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="bg-[#09090e] text-slate-100 min-h-[100dvh] antialiased selection:bg-violet-500/25 selection:text-white font-sans">
         <AuthProvider>
-          <StudentProfileSetup />
           {children}
         </AuthProvider>
       </body>
