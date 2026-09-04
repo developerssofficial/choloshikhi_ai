@@ -1,0 +1,62 @@
+{
+  "id": "2026-primary-class-1-english",
+  "academic_year": 2026,
+  "level": "primary",
+  "class_number": 1,
+  "class_name": "প্রথম শ্রেণি",
+  "book_name": "English for Today",
+  "normalized_book_name": "English for Today",
+  "subject": "English for Today",
+  "subject_code": "english",
+  "language": "bn",
+  "version": "bangla",
+  "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b9adec4774958d7b708cd",
+  "download_links": {
+    "link_1": "https://drive.google.com/file/d/1UX9fbOBUKrf3mMh6E0I-Gw2emoQV-XWy/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/CW6nYiJRMJE8trb",
+    "resolved_pdf_url": "https://drive.google.com/file/d/1UX9fbOBUKrf3mMh6E0I-Gw2emoQV-XWy/view?usp=drive_link"
+  },
+  "english_version": {
+    "official_book_name": "English for Today",
+    "download_links": {
+      "link_1": "https://drive.google.com/file/d/1UX9fbOBUKrf3mMh6E0I-Gw2emoQV-XWy/view?usp=drive_link",
+      "link_2": "https://drive.egovcloud.gov.bd/index.php/s/CW6nYiJRMJE8trb",
+      "resolved_pdf_url": "https://drive.google.com/file/d/1UX9fbOBUKrf3mMh6E0I-Gw2emoQV-XWy/view?usp=drive_link"
+    }
+  },
+  "pdf": {
+    "local_path": "data/2026/primary/class-1/class-1-english/source/original.pdf",
+    "file_name": "class-1-english.pdf",
+    "file_size": 0,
+    "total_pages": 64,
+    "sha256": ""
+  },
+  "publication": {
+    "publisher": "National Curriculum and Textbook Board (NCTB), Bangladesh",
+    "authors": [
+      "Prof. M S Hoque",
+      "Prof. Md. Abdur Razzaque"
+    ],
+    "editors": [
+      "Prof. Rebecca Haque"
+    ],
+    "illustrators": [
+      "এনসিটিবি চিত্রাঙ্কন পর্ষদ"
+    ],
+    "isbn": "978-984-36-1506-0"
+  },
+  "table_of_contents": [
+    "1. Greetings and Farewells (Unit 1) (পৃষ্ঠা 1-4)",
+    "2. Alphabet A-E (Unit 2) (পৃষ্ঠা 5-10)",
+    "3. Numbers 1-10 (Unit 3) (পৃষ্ঠা 11-16)",
+    "4. Rhyme: Two Little Blackbirds (Unit 4) (পৃষ্ঠা 17-18)"
+  ],
+  "total_chapters": 4,
+  "validation": {
+    "download_verified": true,
+    "page_count_verified": true,
+    "toc_verified": true,
+    "questions_verified": true,
+    "needs_review": false
+  }
+}

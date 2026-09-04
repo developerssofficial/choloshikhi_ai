@@ -1,0 +1,88 @@
+{
+  "id": "2026-primary-class-2-bangla",
+  "academic_year": 2026,
+  "level": "primary",
+  "class_number": 2,
+  "class_name": "দ্বিতীয় শ্রেণি",
+  "book_name": "আমার বাংলা বই",
+  "normalized_book_name": "আমার বাংলা বই",
+  "subject": "আমার বাংলা বই",
+  "subject_code": "bangla",
+  "language": "bn",
+  "version": "bangla",
+  "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b9935c4774958d7b70508",
+  "download_links": {
+    "link_1": "https://drive.google.com/file/d/1XKPmmrgK1vVSjybgbzu_RZMCOVXqFHH3/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/hQkbdKeleEWmqQ5",
+    "resolved_pdf_url": "https://drive.google.com/file/d/1XKPmmrgK1vVSjybgbzu_RZMCOVXqFHH3/view?usp=drive_link"
+  },
+  "english_version": {
+    "official_book_name": "আমার বাংলা বই",
+    "download_links": {
+      "link_1": "https://drive.google.com/file/d/1XKPmmrgK1vVSjybgbzu_RZMCOVXqFHH3/view?usp=drive_link",
+      "link_2": "https://drive.egovcloud.gov.bd/index.php/s/hQkbdKeleEWmqQ5",
+      "resolved_pdf_url": "https://drive.google.com/file/d/1XKPmmrgK1vVSjybgbzu_RZMCOVXqFHH3/view?usp=drive_link"
+    }
+  },
+  "pdf": {
+    "local_path": "data/2026/primary/class-2/class-2-bangla/source/original.pdf",
+    "file_name": "class-2-bangla.pdf",
+    "file_size": 29308682,
+    "total_pages": 74,
+    "sha256": "af6529d750f6d1009f210a89fcd1b8e55a7d02d7476387b9203ea920c83b76a7"
+  },
+  "publication": {
+    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+    "authors": [
+      "অধ্যাপক ড. ফাহমিদা কাদের",
+      "ড. মো. আসাদুজ্জামান",
+      "মো. মনজুরুল কবীর"
+    ],
+    "editors": [
+      "অধ্যাপক ড. মাহবুবুল হক"
+    ],
+    "illustrators": [
+      "এনসিটিবি চিত্রাঙ্কন পর্ষদ"
+    ],
+    "isbn": "978-984-36-2515-6"
+  },
+  "table_of_contents": [
+    "1. আমার পরিচয় (পৃষ্ঠা 1-2)",
+    "2. স্কুলে কেমন লাগছে (পৃষ্ঠা 3-5)",
+    "3. আমার বাড়ি আমার কাজ (পৃষ্ঠা 6-6)",
+    "4. ডালিমকুমার ও কঙ্কনবর্তী (পৃষ্ঠা 7-11)",
+    "5. আবার পড়ি বর্ণমালা (পৃষ্ঠা 12-14)",
+    "6. আয় দেখে যা নাচ (পৃষ্ঠা 15-15)",
+    "7. কারচিহ্ন দিয়ে শব্দ বানাই (পৃষ্ঠা 16-17)",
+    "8. সিংহ আর ইঁদুরের গল্প (পৃষ্ঠা 18-19)",
+    "9. দেখে বুঝে কাজ করি (পৃষ্ঠা 20-20)",
+    "10. যুক্তবর্ণ শিখি (পৃষ্ঠা 21-21)",
+    "11. একুশের গান (পৃষ্ঠা 22-22)",
+    "12. ফলাচিহ্ন শিখি (পৃষ্ঠা 23-26)",
+    "13. রেফ চিনি (পৃষ্ঠা 27-27)",
+    "14. নানা রকম লেখা (পৃষ্ঠা 28-29)",
+    "15. কাজের আনন্দ (পৃষ্ঠা 30-32)",
+    "16. বাক্য লিখি (পৃষ্ঠা 33-33)",
+    "17. রানুর আঁকা ছবি (পৃষ্ঠা 34-34)",
+    "18. গ্রাম ও শহর (পৃষ্ঠা 35-37)",
+    "19. প্রজাপতি (পৃষ্ঠা 38-39)",
+    "20. বিড়াল ছানা (পৃষ্ঠা 40-40)",
+    "21. ছয় ঋতু (পৃষ্ঠা 41-47)",
+    "22. নবারুণ (পৃষ্ঠা 48-49)",
+    "23. আমাদের ছোট নদী (পৃষ্ঠা 50-51)",
+    "24. নিজের মতো লিখি (পৃষ্ঠা 52-53)",
+    "25. সবাই মিলে কাজ করি (পৃষ্ঠা 54-55)",
+    "26. মুক্তিসেনা (পৃষ্ঠা 56-57)",
+    "27. দুখু মিয়ার জীবন (পৃষ্ঠা 58-59)",
+    "28. স্কুলের মাঠে (পৃষ্ঠা 60-61)",
+    "29. বাক্য নিয়ে খেলা (পৃষ্ঠা 62-63)"
+  ],
+  "total_chapters": 29,
+  "validation": {
+    "download_verified": true,
+    "page_count_verified": true,
+    "toc_verified": true,
+    "questions_verified": true,
+    "needs_review": false
+  }
+}

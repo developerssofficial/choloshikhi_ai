@@ -1,0 +1,106 @@
+[
+  {
+    "chapter_id": "c3-sc-ch1",
+    "chapter_number": "1",
+    "chapter_title": "আমাদের পরিবেশ",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 1,
+    "end_page": 8,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 1
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 8
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক বিজ্ঞান",
+      "আমাদের পরিবেশ",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "প্রাকৃতিক পরিবেশ ও মানুষের তৈরি পরিবেশ।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c3-sc-ch2",
+    "chapter_number": "2",
+    "chapter_title": "জীব ও জড়",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 9,
+    "end_page": 18,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 9
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 18
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক বিজ্ঞান",
+      "জীব ও জড়",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "উদ্ভিদ ও প্রাণীর পার্থক্য ও জীবনের বৈশিষ্ট্য।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c3-sc-ch3",
+    "chapter_number": "3",
+    "chapter_title": "পদার্থের তিন অবস্থা",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 19,
+    "end_page": 28,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 19
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 28
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক বিজ্ঞান",
+      "পদার্থের তিন অবস্থা",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "কঠিন, তরল ও বায়বীয়।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c3-sc-ch4",
+    "chapter_number": "4",
+    "chapter_title": "মাটি ও পরিবেশ",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 29,
+    "end_page": 38,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 29
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 38
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক বিজ্ঞান",
+      "মাটি ও পরিবেশ",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "বেলে, দোআঁশ ও এঁটেল মাটি। দোআঁশ মাটিতে সব ফসল ভালো জন্মে।",
+    "total_questions": 1
+  }
+]

@@ -1,0 +1,158 @@
+[
+  {
+    "chapter_id": "c1-bn-ch1",
+    "chapter_number": "1",
+    "chapter_title": "আমার পরিচয়",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 1,
+    "end_page": 2,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 1
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 2
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "আমার পরিচয়",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "শিক্ষার্থীর নিজের নাম, বিদ্যালয় ও পরিচয়।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c1-bn-ch2",
+    "chapter_number": "2",
+    "chapter_title": "ব্যায়াম করি",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 3,
+    "end_page": 4,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 3
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 4
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "ব্যায়াম করি",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "শরীরচর্চা ও স্বাস্থ্যবিধি।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c1-bn-ch3",
+    "chapter_number": "3",
+    "chapter_title": "ভোর হলো",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": "কাজী নজরুল ইসলাম",
+    "start_page": 5,
+    "end_page": 6,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 5
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 6
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "ভোর হলো",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "ভোরের ঘুম ভাঙার মিষ্টি ছড়া।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c1-bn-ch4",
+    "chapter_number": "4",
+    "chapter_title": "ইতল বিতল",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": "সুফিয়া কামাল",
+    "start_page": 15,
+    "end_page": 16,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 15
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 16
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "ইতল বিতল",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "ব্যাঙের ছাতা ও বৃষ্টির প্রকৃতির রূপ।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c1-bn-ch5",
+    "chapter_number": "5",
+    "chapter_title": "ছুটি",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": "রবীন্দ্রনাথ ঠাকুর",
+    "start_page": 25,
+    "end_page": 26,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 25
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 26
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "ছুটি",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "মেঘের কোলে রোদ হেসেছে বাদল গেছে টুটি।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c1-bn-ch6",
+    "chapter_number": "6",
+    "chapter_title": "হাঁট্টিমা টিম টিম",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": "রোকনুজ্জামান খান",
+    "start_page": 35,
+    "end_page": 36,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 35
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 36
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "হাঁট্টিমা টিম টিম",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "হাঁটিমাটিম পাখির মজার ছড়া।",
+    "total_questions": 1
+  }
+]

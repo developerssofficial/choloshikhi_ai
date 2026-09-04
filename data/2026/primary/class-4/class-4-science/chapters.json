@@ -1,0 +1,80 @@
+[
+  {
+    "chapter_id": "c4-sc-ch1",
+    "chapter_number": "1",
+    "chapter_title": "জীব ও পরিবেশ (খাদ্যশৃঙ্খল ও বাস্তুসংস্থান)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 1,
+    "end_page": 12,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 1
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 12
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক বিজ্ঞান",
+      "জীব ও পরিবেশ (খাদ্যশৃঙ্খল ও বাস্তুসংস্থান)",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "ঘাস -> ঘাসফড়িং -> ব্যাঙ -> সাপ -> ঈগল। শক্তির প্রধান উৎস সূর্য।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c4-sc-ch2",
+    "chapter_number": "2",
+    "chapter_title": "খাদ্য ও পুষ্টি উপাদান",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 13,
+    "end_page": 24,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 13
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 24
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক বিজ্ঞান",
+      "খাদ্য ও পুষ্টি উপাদান",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "শর্করা, আমিষ, স্নেহ, ভিটামিন, খনিজ লবণ, পানি। ভিটামিনের অভাবজনিত রোগ।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c4-sc-ch3",
+    "chapter_number": "3",
+    "chapter_title": "মহাবিশ্ব ও সৌরজগৎ",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 25,
+    "end_page": 38,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 25
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 38
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক বিজ্ঞান",
+      "মহাবিশ্ব ও সৌরজগৎ",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "সূর্য ও ৮টি গ্রহ। আহ্নিক গতি (দিন-রাত) ও বার্ষিক গতি (ঋতু পরিবর্তন)।",
+    "total_questions": 1
+  }
+]

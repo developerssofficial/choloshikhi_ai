@@ -1,0 +1,25 @@
+[
+  {
+    "question_id": "class-3-buddha-ch1-q1",
+    "chapter_id": "class-3-buddha-ch1",
+    "class_number": 3,
+    "book_name": "বৌদ্ধধর্ম শিক্ষা",
+    "chapter_title": "অধ্যায় ১: প্রাথমিক পাঠ ও ভূমিকা",
+    "page_number": 10,
+    "question_number": "১",
+    "sub_question_number": "",
+    "parent_question_id": null,
+    "instruction": "অনুশীলনী ১",
+    "original_text": "বৌদ্ধধর্ম শিক্ষা বিষয়ের প্রথম অধ্যায়ের মূল বিষয় কী?",
+    "normalized_text": "বৌদ্ধধর্ম শিক্ষা বিষয়ের প্রথম অধ্যায়ের মূল বিষয় কী",
+    "question_type": "সংক্ষিপ্ত প্রশ্ন",
+    "options": [],
+    "marks": 2,
+    "answer": null,
+    "image_references": [],
+    "table_references": [],
+    "duplicate_of": null,
+    "ocr_confidence": 1,
+    "needs_manual_review": false
+  }
+]

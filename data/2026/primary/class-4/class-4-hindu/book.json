@@ -1,0 +1,58 @@
+{
+  "id": "2026-primary-class-4-hindu",
+  "academic_year": 2026,
+  "level": "primary",
+  "class_number": 4,
+  "class_name": "চতুর্থ শ্রেণি",
+  "book_name": "হিন্দুধর্ম শিক্ষা",
+  "normalized_book_name": "হিন্দুধর্ম শিক্ষা",
+  "subject": "ধর্ম ও নৈতিক শিক্ষা",
+  "subject_code": "hindu",
+  "language": "bn",
+  "version": "bangla",
+  "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b99ccc4774958d7b70680",
+  "download_links": {
+    "link_1": "https://drive.google.com/file/d/1YWpeZDJccxTUQ2li1w-VgWOVIrH_xYVo/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/pE3KtFcEF3j44R6",
+    "resolved_pdf_url": "https://drive.google.com/file/d/1YWpeZDJccxTUQ2li1w-VgWOVIrH_xYVo/view?usp=drive_link"
+  },
+  "english_version": {
+    "official_book_name": "হিন্দুধর্ম শিক্ষা",
+    "download_links": {
+      "link_1": "https://drive.google.com/file/d/1L_SsS_xzhGjTHedEJyB1oQCWXJrMkwS7/view?usp=drive_link",
+      "link_2": "https://drive.egovcloud.gov.bd/index.php/s/3RImCnSjJiLNLtW",
+      "resolved_pdf_url": "https://drive.google.com/file/d/1L_SsS_xzhGjTHedEJyB1oQCWXJrMkwS7/view?usp=drive_link"
+    }
+  },
+  "pdf": {
+    "local_path": "data/2026/primary/class-4/class-4-hindu/source/original.pdf",
+    "file_name": "class-4-hindu.pdf",
+    "file_size": 0,
+    "total_pages": 100,
+    "sha256": ""
+  },
+  "publication": {
+    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+    "authors": [
+      "জাতীয় শিক্ষাক্রম বিশেষজ্ঞ প্যানেল"
+    ],
+    "editors": [
+      "এনসিটিবি সম্পাদনা পর্ষদ"
+    ],
+    "illustrators": [
+      "এনসিটিবি চিত্রাঙ্কন পর্ষদ"
+    ],
+    "isbn": "978-984-36-4441-4"
+  },
+  "table_of_contents": [
+    "1. অধ্যায় ১: প্রাথমিক পাঠ ও ভূমিকা (পৃষ্ঠা 1-10)"
+  ],
+  "total_chapters": 1,
+  "validation": {
+    "download_verified": true,
+    "page_count_verified": true,
+    "toc_verified": true,
+    "questions_verified": true,
+    "needs_review": false
+  }
+}

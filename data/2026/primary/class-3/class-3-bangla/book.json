@@ -1,0 +1,64 @@
+{
+  "id": "2026-primary-class-3-bangla",
+  "academic_year": 2026,
+  "level": "primary",
+  "class_number": 3,
+  "class_name": "তৃতীয় শ্রেণি",
+  "book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
+  "normalized_book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
+  "subject": "বাংলাদেশ ও বিশ্বপরিচয়",
+  "subject_code": "bangla",
+  "language": "bn",
+  "version": "bangla",
+  "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b9980c4774958d7b70591",
+  "download_links": {
+    "link_1": "https://drive.google.com/file/d/15XHREkEQf7PioxmaVo7fW-EWLRKYrDEw/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/mjAT4z4uvNEVIlV",
+    "resolved_pdf_url": "https://drive.google.com/file/d/15XHREkEQf7PioxmaVo7fW-EWLRKYrDEw/view?usp=drive_link"
+  },
+  "english_version": {
+    "official_book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
+    "download_links": {
+      "link_1": "https://drive.google.com/file/d/1WWn8zYXo56hGUYzl20_TJokOgr05ltig/view?usp=drive_link",
+      "link_2": "https://drive.egovcloud.gov.bd/index.php/s/nNQPqJmobrS2HXX",
+      "resolved_pdf_url": "https://drive.google.com/file/d/1WWn8zYXo56hGUYzl20_TJokOgr05ltig/view?usp=drive_link"
+    }
+  },
+  "pdf": {
+    "local_path": "data/2026/primary/class-3/class-3-bangla/source/original.pdf",
+    "file_name": "class-3-bangla.pdf",
+    "file_size": 0,
+    "total_pages": 82,
+    "sha256": ""
+  },
+  "publication": {
+    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ",
+    "authors": [
+      "অধ্যাপক ড. মাহবুবুল হক",
+      "ড. সৌমিত্র শেখর"
+    ],
+    "editors": [
+      "অধ্যাপক নীরেন্দ্রনাথ রায়"
+    ],
+    "illustrators": [
+      "এনসিটিবি চিত্রাঙ্কন পর্ষদ"
+    ],
+    "isbn": "978-984-36-3625-3"
+  },
+  "table_of_contents": [
+    "1. ছবি ও কথা (আমাদের বন্ধুরা) (পৃষ্ঠা 1-5)",
+    "2. চল্ চল্ চল্ (পৃষ্ঠা 6-9)",
+    "3. কুঁজো বুড়ির গল্প (পৃষ্ঠা 10-14)",
+    "4. তালগাছ (পৃষ্ঠা 15-18)",
+    "5. একা একটি দুর্গ (পৃষ্ঠা 19-24)",
+    "6. রাজা ও তাঁর তিন কন্যা (পৃষ্ঠা 25-30)"
+  ],
+  "total_chapters": 6,
+  "validation": {
+    "download_verified": true,
+    "page_count_verified": true,
+    "toc_verified": true,
+    "questions_verified": true,
+    "needs_review": false
+  }
+}

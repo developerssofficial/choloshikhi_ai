@@ -1,0 +1,80 @@
+[
+  {
+    "chapter_id": "c5-is-ch1",
+    "chapter_number": "1",
+    "chapter_title": "আকাইদ (বিশ্বাস)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 1,
+    "end_page": 18,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 1
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 18
+      }
+    ],
+    "keywords": [
+      "ধর্ম ও নৈতিক শিক্ষা",
+      "আকাইদ (বিশ্বাস)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "তাওহিদ, রিসালাত ও আখিরাত।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c5-is-ch2",
+    "chapter_number": "2",
+    "chapter_title": "ইবাদত (সালাত, সাওম, জাকাত, হজ)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 19,
+    "end_page": 40,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 19
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 40
+      }
+    ],
+    "keywords": [
+      "ধর্ম ও নৈতিক শিক্ষা",
+      "ইবাদত (সালাত, সাওম, জাকাত, হজ)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "৫ ওয়াক্ত নামাজ ও নিসাব পরিমাণ সম্পদে ২.৫% জাকাত।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c5-is-ch3",
+    "chapter_number": "3",
+    "chapter_title": "আখলাক ও নবিদের জীবনাদর্শ",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 41,
+    "end_page": 65,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 41
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 65
+      }
+    ],
+    "keywords": [
+      "ধর্ম ও নৈতিক শিক্ষা",
+      "আখলাক ও নবিদের জীবনাদর্শ",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "সততা, পরোপকার ও বিদায় হজের ঐতিহাসিক ভাষণ।",
+    "total_questions": 1
+  }
+]

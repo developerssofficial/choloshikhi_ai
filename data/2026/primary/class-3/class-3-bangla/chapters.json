@@ -1,0 +1,158 @@
+[
+  {
+    "chapter_id": "c3-bn-ch1",
+    "chapter_number": "1",
+    "chapter_title": "ছবি ও কথা (আমাদের বন্ধুরা)",
+    "chapter_type": "গল্প/গদ্য",
+    "author": null,
+    "start_page": 1,
+    "end_page": 5,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 1
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 5
+      }
+    ],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "ছবি ও কথা (আমাদের বন্ধুরা)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "প্রকৃতি ও পশুপাখি।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c3-bn-ch2",
+    "chapter_number": "2",
+    "chapter_title": "চল্ চল্ চল্",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": "কাজী নজরুল ইসলাম",
+    "start_page": 6,
+    "end_page": 9,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 6
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 9
+      }
+    ],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "চল্ চল্ চল্",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "জাতীয় রণসংগীত।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-bn-ch3",
+    "chapter_number": "3",
+    "chapter_title": "কুঁজো বুড়ির গল্প",
+    "chapter_type": "গল্প/গদ্য",
+    "author": null,
+    "start_page": 10,
+    "end_page": 14,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 10
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 14
+      }
+    ],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "কুঁজো বুড়ির গল্প",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "লাউয়ের খোলে ঢুকে গান গেয়ে বুদ্ধির জোরে বাঘ ও শেয়ালের হাত থেকে কুঁজো বুড়ির বেঁচে ফেরা।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c3-bn-ch4",
+    "chapter_number": "4",
+    "chapter_title": "তালগাছ",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": "রবীন্দ্রনাথ ঠাকুর",
+    "start_page": 15,
+    "end_page": 18,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 15
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 18
+      }
+    ],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "তালগাছ",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "তালগাছ এক পায়ে দাঁড়িয়ে সব গাছ ছাড়িয়ে আকাশে ওড়ার স্বপ্ন দেখে।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c3-bn-ch5",
+    "chapter_number": "5",
+    "chapter_title": "একা একটি দুর্গ",
+    "chapter_type": "গল্প/গদ্য",
+    "author": null,
+    "start_page": 19,
+    "end_page": 24,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 19
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 24
+      }
+    ],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "একা একটি দুর্গ",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "বীরশ্রেষ্ঠ সিপাহী মোস্তফা কামালের একাই মেশিনগান চালিয়ে সহযোদ্ধাদের বাঁচিয়ে শহীদ হওয়ার বীরত্ব।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c3-bn-ch6",
+    "chapter_number": "6",
+    "chapter_title": "রাজা ও তাঁর তিন কন্যা",
+    "chapter_type": "গল্প/গদ্য",
+    "author": null,
+    "start_page": 25,
+    "end_page": 30,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 25
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 30
+      }
+    ],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "রাজা ও তাঁর তিন কন্যা",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "পারুল, শিমুল ও বকুল। নুনের মতো ভালোবাসার গভীর উপলব্ধি।",
+    "total_questions": 1
+  }
+]

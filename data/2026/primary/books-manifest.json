@@ -1,0 +1,1698 @@
+{
+  "generated_at": "2026-09-04T13:42:35.099Z",
+  "academic_year": 2026,
+  "education_level": "primary",
+  "total_books": 33,
+  "books_by_class": {
+    "class-1": 3,
+    "class-2": 3,
+    "class-3": 9,
+    "class-4": 9,
+    "class-5": 9
+  },
+  "books": [
+    {
+      "id": "2026-primary-class-1-bangla",
+      "slug": "class-1-bangla",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 1,
+      "class_name": "প্রথম শ্রেণি",
+      "official_book_name": "আমার বাংলা বই",
+      "normalized_book_name": "আমার বাংলা বই",
+      "subject": "আমার বাংলা বই",
+      "subject_code": "bangla",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9adec4774958d7b708cd",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1hf-W5GVlAy3cHstFlozNBuE2oz7u9YXy/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/j2OipTMp0QihpIR",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1hf-W5GVlAy3cHstFlozNBuE2oz7u9YXy/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "আমার বাংলা বই",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1hf-W5GVlAy3cHstFlozNBuE2oz7u9YXy/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/j2OipTMp0QihpIR",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1hf-W5GVlAy3cHstFlozNBuE2oz7u9YXy/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-1/class-1-bangla/source/original.pdf",
+        "file_name": "class-1-bangla.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-1-english",
+      "slug": "class-1-english",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 1,
+      "class_name": "প্রথম শ্রেণি",
+      "official_book_name": "English for Today",
+      "normalized_book_name": "English for Today",
+      "subject": "English for Today",
+      "subject_code": "english",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9adec4774958d7b708cd",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1UX9fbOBUKrf3mMh6E0I-Gw2emoQV-XWy/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/CW6nYiJRMJE8trb",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1UX9fbOBUKrf3mMh6E0I-Gw2emoQV-XWy/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "English for Today",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1UX9fbOBUKrf3mMh6E0I-Gw2emoQV-XWy/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/CW6nYiJRMJE8trb",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1UX9fbOBUKrf3mMh6E0I-Gw2emoQV-XWy/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-1/class-1-english/source/original.pdf",
+        "file_name": "class-1-english.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-1-math",
+      "slug": "class-1-math",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 1,
+      "class_name": "প্রথম শ্রেণি",
+      "official_book_name": "প্রাথমিক গণিত",
+      "normalized_book_name": "প্রাথমিক গণিত",
+      "subject": "প্রাথমিক গণিত",
+      "subject_code": "math",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9adec4774958d7b708cd",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1V5eBwsQYrG-6qajVZUwwetml5Oezl10r/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/UhraLRRxdBynh1U",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1V5eBwsQYrG-6qajVZUwwetml5Oezl10r/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "প্রাথমিক গণিত",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1D8QeLW7SZ2d7oPJM3TmQei9_bOEet2i5/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/lp11ImNTfh7T9Xh",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1D8QeLW7SZ2d7oPJM3TmQei9_bOEet2i5/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-1/class-1-math/source/original.pdf",
+        "file_name": "class-1-math.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-2-bangla",
+      "slug": "class-2-bangla",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 2,
+      "class_name": "দ্বিতীয় শ্রেণি",
+      "official_book_name": "আমার বাংলা বই",
+      "normalized_book_name": "আমার বাংলা বই",
+      "subject": "আমার বাংলা বই",
+      "subject_code": "bangla",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9935c4774958d7b70508",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1XKPmmrgK1vVSjybgbzu_RZMCOVXqFHH3/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/hQkbdKeleEWmqQ5",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1XKPmmrgK1vVSjybgbzu_RZMCOVXqFHH3/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "আমার বাংলা বই",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1XKPmmrgK1vVSjybgbzu_RZMCOVXqFHH3/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/hQkbdKeleEWmqQ5",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1XKPmmrgK1vVSjybgbzu_RZMCOVXqFHH3/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-2/class-2-bangla/source/original.pdf",
+        "file_name": "class-2-bangla.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-2-english",
+      "slug": "class-2-english",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 2,
+      "class_name": "দ্বিতীয় শ্রেণি",
+      "official_book_name": "English for Today",
+      "normalized_book_name": "English for Today",
+      "subject": "English for Today",
+      "subject_code": "english",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9935c4774958d7b70508",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1timM9_-X87oqE-C5yCsV5kYf2JKydzEK/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/Qg7pzPPvzl1AnPS",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1timM9_-X87oqE-C5yCsV5kYf2JKydzEK/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "English for Today",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1timM9_-X87oqE-C5yCsV5kYf2JKydzEK/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/Qg7pzPPvzl1AnPS",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1timM9_-X87oqE-C5yCsV5kYf2JKydzEK/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-2/class-2-english/source/original.pdf",
+        "file_name": "class-2-english.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-2-math",
+      "slug": "class-2-math",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 2,
+      "class_name": "দ্বিতীয় শ্রেণি",
+      "official_book_name": "প্রাথমিক গণিত",
+      "normalized_book_name": "প্রাথমিক গণিত",
+      "subject": "প্রাথমিক গণিত",
+      "subject_code": "math",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9935c4774958d7b70508",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1QY1URkKhpoAqVTuPRaLHgBJZ7_3lGpyq/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/VeBQB1ZuzSZPRBJ",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1QY1URkKhpoAqVTuPRaLHgBJZ7_3lGpyq/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "প্রাথমিক গণিত",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1yofkAU1FjyoYcx2nZGEqhlnH4xbE9YHJ/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/Kw56TUvE7YsvdcL",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1yofkAU1FjyoYcx2nZGEqhlnH4xbE9YHJ/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-2/class-2-math/source/original.pdf",
+        "file_name": "class-2-math.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-3-bangla",
+      "slug": "class-3-bangla",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 3,
+      "class_name": "তৃতীয় শ্রেণি",
+      "official_book_name": "আমার বাংলা বই",
+      "normalized_book_name": "আমার বাংলা বই",
+      "subject": "আমার বাংলা বই",
+      "subject_code": "bangla",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9980c4774958d7b70591",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1Je1KylPoJBiYt-lW5qqaH8BszIk0VJVz/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/09v2RIHbjCIHV8g",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1Je1KylPoJBiYt-lW5qqaH8BszIk0VJVz/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "আমার বাংলা বই",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1Je1KylPoJBiYt-lW5qqaH8BszIk0VJVz/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/09v2RIHbjCIHV8g",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1Je1KylPoJBiYt-lW5qqaH8BszIk0VJVz/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-3/class-3-bangla/source/original.pdf",
+        "file_name": "class-3-bangla.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-3-english",
+      "slug": "class-3-english",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 3,
+      "class_name": "তৃতীয় শ্রেণি",
+      "official_book_name": "English For Today",
+      "normalized_book_name": "English For Today",
+      "subject": "English For Today",
+      "subject_code": "english",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9980c4774958d7b70591",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1gy7q4njDpOKGULXzGQVvhq2ZGpZMOfif/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/uBJQBKhwhLdCGSp",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1gy7q4njDpOKGULXzGQVvhq2ZGpZMOfif/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "English For Today",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1gy7q4njDpOKGULXzGQVvhq2ZGpZMOfif/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/uBJQBKhwhLdCGSp",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1gy7q4njDpOKGULXzGQVvhq2ZGpZMOfif/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-3/class-3-english/source/original.pdf",
+        "file_name": "class-3-english.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-3-math",
+      "slug": "class-3-math",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 3,
+      "class_name": "তৃতীয় শ্রেণি",
+      "official_book_name": "প্রাথমিক গণিত",
+      "normalized_book_name": "প্রাথমিক গণিত",
+      "subject": "প্রাথমিক গণিত",
+      "subject_code": "math",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9980c4774958d7b70591",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1sd7ebdMkuU6Wv0BUgccqYV4UxpwUmTyC/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/c97udcl4dlxev8s",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1sd7ebdMkuU6Wv0BUgccqYV4UxpwUmTyC/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "প্রাথমিক গণিত",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/115wNAy7MFdjmux9UvW7YzCwTYe8-tF-n/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/fZkF0x9uyNGcGmg",
+          "resolved_pdf_url": "https://drive.google.com/file/d/115wNAy7MFdjmux9UvW7YzCwTYe8-tF-n/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-3/class-3-math/source/original.pdf",
+        "file_name": "class-3-math.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-3-science",
+      "slug": "class-3-science",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 3,
+      "class_name": "তৃতীয় শ্রেণি",
+      "official_book_name": "প্রাথমিক বিজ্ঞান",
+      "normalized_book_name": "প্রাথমিক বিজ্ঞান",
+      "subject": "প্রাথমিক বিজ্ঞান",
+      "subject_code": "science",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9980c4774958d7b70591",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1jn-X5lOgECnoypp29eYtYAw_DHZ9qhm6/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/7eXICQ394KDIGr9",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1jn-X5lOgECnoypp29eYtYAw_DHZ9qhm6/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "প্রাথমিক বিজ্ঞান",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1Z_dMhkriUM96PjEHDbuWoZ6J6wHmzXFk/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/hsFCqLJvlJYoTou",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1Z_dMhkriUM96PjEHDbuWoZ6J6wHmzXFk/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-3/class-3-science/source/original.pdf",
+        "file_name": "class-3-science.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-3-bangla",
+      "slug": "class-3-bangla",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 3,
+      "class_name": "তৃতীয় শ্রেণি",
+      "official_book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
+      "normalized_book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
+      "subject": "বাংলাদেশ ও বিশ্বপরিচয়",
+      "subject_code": "bangla",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9980c4774958d7b70591",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/15XHREkEQf7PioxmaVo7fW-EWLRKYrDEw/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/mjAT4z4uvNEVIlV",
+        "resolved_pdf_url": "https://drive.google.com/file/d/15XHREkEQf7PioxmaVo7fW-EWLRKYrDEw/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1WWn8zYXo56hGUYzl20_TJokOgr05ltig/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/nNQPqJmobrS2HXX",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1WWn8zYXo56hGUYzl20_TJokOgr05ltig/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-3/class-3-bangla/source/original.pdf",
+        "file_name": "class-3-bangla.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-3-islam",
+      "slug": "class-3-islam",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 3,
+      "class_name": "তৃতীয় শ্রেণি",
+      "official_book_name": "ইসলাম শিক্ষা",
+      "normalized_book_name": "ইসলাম শিক্ষা",
+      "subject": "ধর্ম ও নৈতিক শিক্ষা",
+      "subject_code": "islam",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9980c4774958d7b70591",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1KSegBPjHNygGuJJE77byNjBAv-HNvz9y/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/PBXZ0gAlYL9JBGN",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1KSegBPjHNygGuJJE77byNjBAv-HNvz9y/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "ইসলাম শিক্ষা",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1_guOxSH27DQo8TWnoe5d0oeoF69jROfT/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/wjuY0V2AJWu0qWn",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1_guOxSH27DQo8TWnoe5d0oeoF69jROfT/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-3/class-3-islam/source/original.pdf",
+        "file_name": "class-3-islam.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-3-hindu",
+      "slug": "class-3-hindu",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 3,
+      "class_name": "তৃতীয় শ্রেণি",
+      "official_book_name": "হিন্দুধর্ম শিক্ষা",
+      "normalized_book_name": "হিন্দুধর্ম শিক্ষা",
+      "subject": "ধর্ম ও নৈতিক শিক্ষা",
+      "subject_code": "hindu",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9980c4774958d7b70591",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1MnUeQUpgNz83fslF3lCT-ttuWaPkrRs0/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/1IZRkMQBIhWbJ9o",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1MnUeQUpgNz83fslF3lCT-ttuWaPkrRs0/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "হিন্দুধর্ম শিক্ষা",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1xSpVBi0VNZEqb1N1prIjqC945StT8Jvm/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/2srvY69AxKDas4i",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1xSpVBi0VNZEqb1N1prIjqC945StT8Jvm/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-3/class-3-hindu/source/original.pdf",
+        "file_name": "class-3-hindu.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-3-buddha",
+      "slug": "class-3-buddha",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 3,
+      "class_name": "তৃতীয় শ্রেণি",
+      "official_book_name": "বৌদ্ধধর্ম শিক্ষা",
+      "normalized_book_name": "বৌদ্ধধর্ম শিক্ষা",
+      "subject": "ধর্ম ও নৈতিক শিক্ষা",
+      "subject_code": "buddha",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9980c4774958d7b70591",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1hStfhnRzkyVi-LIJ65Z2XNn-Ul-2wfC2/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/KU1IupjxdIIVIYf",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1hStfhnRzkyVi-LIJ65Z2XNn-Ul-2wfC2/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "বৌদ্ধধর্ম শিক্ষা",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1hPTTEmTG2XqcwYNAkEOq6PG13ulQC6in/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/qiP7ZgeOIPpLkJc",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1hPTTEmTG2XqcwYNAkEOq6PG13ulQC6in/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-3/class-3-buddha/source/original.pdf",
+        "file_name": "class-3-buddha.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-3-christian",
+      "slug": "class-3-christian",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 3,
+      "class_name": "তৃতীয় শ্রেণি",
+      "official_book_name": "খ্রিষ্টধর্ম শিক্ষা",
+      "normalized_book_name": "খ্রিষ্টধর্ম শিক্ষা",
+      "subject": "ধর্ম ও নৈতিক শিক্ষা",
+      "subject_code": "christian",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9980c4774958d7b70591",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1g5celNzNGe0pLzfT28PWxCIEg1pmOg_Y/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/s5iZa5K3QvSzMl4",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1g5celNzNGe0pLzfT28PWxCIEg1pmOg_Y/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "খ্রিষ্টধর্ম শিক্ষা",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1FoJO18h0TmwupjFBoLjAJlJW1gwYdoRn/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/UVqZlG7K4BaRVrK",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1FoJO18h0TmwupjFBoLjAJlJW1gwYdoRn/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-3/class-3-christian/source/original.pdf",
+        "file_name": "class-3-christian.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-4-bangla",
+      "slug": "class-4-bangla",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 4,
+      "class_name": "চতুর্থ শ্রেণি",
+      "official_book_name": "আমার বাংলা বই",
+      "normalized_book_name": "আমার বাংলা বই",
+      "subject": "আমার বাংলা বই",
+      "subject_code": "bangla",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b99ccc4774958d7b70680",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1X5GZzzBUU7bPZU6k9cdY3FyPf7wkZgOI/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/MBny2ZiG5TBOtdc",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1X5GZzzBUU7bPZU6k9cdY3FyPf7wkZgOI/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "আমার বাংলা বই",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1X5GZzzBUU7bPZU6k9cdY3FyPf7wkZgOI/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/MBny2ZiG5TBOtdc",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1X5GZzzBUU7bPZU6k9cdY3FyPf7wkZgOI/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-4/class-4-bangla/source/original.pdf",
+        "file_name": "class-4-bangla.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-4-english",
+      "slug": "class-4-english",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 4,
+      "class_name": "চতুর্থ শ্রেণি",
+      "official_book_name": "English For Today",
+      "normalized_book_name": "English For Today",
+      "subject": "English For Today",
+      "subject_code": "english",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b99ccc4774958d7b70680",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1uDrBEoEo2DNbVnTIrMTTqr4pTsaGml-4/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/5UGmR1vSkxM0dU0",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1uDrBEoEo2DNbVnTIrMTTqr4pTsaGml-4/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "English For Today",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1uDrBEoEo2DNbVnTIrMTTqr4pTsaGml-4/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/5UGmR1vSkxM0dU0",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1uDrBEoEo2DNbVnTIrMTTqr4pTsaGml-4/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-4/class-4-english/source/original.pdf",
+        "file_name": "class-4-english.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-4-math",
+      "slug": "class-4-math",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 4,
+      "class_name": "চতুর্থ শ্রেণি",
+      "official_book_name": "প্রাথমিক গণিত",
+      "normalized_book_name": "প্রাথমিক গণিত",
+      "subject": "প্রাথমিক গণিত",
+      "subject_code": "math",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b99ccc4774958d7b70680",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1xF9mIw5rJce8_5D-lC6kepBms-ZwLxp6/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/UNNwYpHO9KeZiCU",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1xF9mIw5rJce8_5D-lC6kepBms-ZwLxp6/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "প্রাথমিক গণিত",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1ACMCZw6qi8cC-K8n7Q7Na7jiFEKHzmiY/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/TzwHt2gGa8i7Tuc",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1ACMCZw6qi8cC-K8n7Q7Na7jiFEKHzmiY/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-4/class-4-math/source/original.pdf",
+        "file_name": "class-4-math.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-4-science",
+      "slug": "class-4-science",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 4,
+      "class_name": "চতুর্থ শ্রেণি",
+      "official_book_name": "প্রাথমিক বিজ্ঞান",
+      "normalized_book_name": "প্রাথমিক বিজ্ঞান",
+      "subject": "প্রাথমিক বিজ্ঞান",
+      "subject_code": "science",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b99ccc4774958d7b70680",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1c4IxTVZLnNXnI1t2aCWSKWuHCxT988NL/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/DzEKA84BZVNmPLN",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1c4IxTVZLnNXnI1t2aCWSKWuHCxT988NL/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "প্রাথমিক বিজ্ঞান",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1ZZW1CKVkRWykvMTDeaVa5BP_PXbbOoHf/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/3pQob61MhopSRMM",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1ZZW1CKVkRWykvMTDeaVa5BP_PXbbOoHf/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-4/class-4-science/source/original.pdf",
+        "file_name": "class-4-science.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-4-bangla",
+      "slug": "class-4-bangla",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 4,
+      "class_name": "চতুর্থ শ্রেণি",
+      "official_book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
+      "normalized_book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
+      "subject": "বাংলাদেশ ও বিশ্বপরিচয়",
+      "subject_code": "bangla",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b99ccc4774958d7b70680",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1WwAgcX-CxgYEZv9kmjDDW5M-qzSJFxa3/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/I9DhBWDI8i1dKFR",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1WwAgcX-CxgYEZv9kmjDDW5M-qzSJFxa3/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1vy3VXo5sKbdgsnsXBcJKIm3vOi0XpR5w/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/w58QzVKoKqkDhpw",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1vy3VXo5sKbdgsnsXBcJKIm3vOi0XpR5w/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-4/class-4-bangla/source/original.pdf",
+        "file_name": "class-4-bangla.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-4-islam",
+      "slug": "class-4-islam",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 4,
+      "class_name": "চতুর্থ শ্রেণি",
+      "official_book_name": "ইসলাম শিক্ষা",
+      "normalized_book_name": "ইসলাম শিক্ষা",
+      "subject": "ধর্ম ও নৈতিক শিক্ষা",
+      "subject_code": "islam",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b99ccc4774958d7b70680",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1sZupwNI7-P5rWtUlA0CYy28TxmHJXpZ2/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/6ehJfVfdQPEmG9f",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1sZupwNI7-P5rWtUlA0CYy28TxmHJXpZ2/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "ইসলাম শিক্ষা",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1xmARvGHyEiEr7GQtnyrVqhXVDfb_Y7mc/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/qu3c488U3P7ivmo",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1xmARvGHyEiEr7GQtnyrVqhXVDfb_Y7mc/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-4/class-4-islam/source/original.pdf",
+        "file_name": "class-4-islam.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-4-hindu",
+      "slug": "class-4-hindu",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 4,
+      "class_name": "চতুর্থ শ্রেণি",
+      "official_book_name": "হিন্দুধর্ম শিক্ষা",
+      "normalized_book_name": "হিন্দুধর্ম শিক্ষা",
+      "subject": "ধর্ম ও নৈতিক শিক্ষা",
+      "subject_code": "hindu",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b99ccc4774958d7b70680",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1YWpeZDJccxTUQ2li1w-VgWOVIrH_xYVo/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/pE3KtFcEF3j44R6",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1YWpeZDJccxTUQ2li1w-VgWOVIrH_xYVo/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "হিন্দুধর্ম শিক্ষা",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1L_SsS_xzhGjTHedEJyB1oQCWXJrMkwS7/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/3RImCnSjJiLNLtW",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1L_SsS_xzhGjTHedEJyB1oQCWXJrMkwS7/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-4/class-4-hindu/source/original.pdf",
+        "file_name": "class-4-hindu.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-4-buddha",
+      "slug": "class-4-buddha",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 4,
+      "class_name": "চতুর্থ শ্রেণি",
+      "official_book_name": "বৌদ্ধধর্ম শিক্ষা",
+      "normalized_book_name": "বৌদ্ধধর্ম শিক্ষা",
+      "subject": "ধর্ম ও নৈতিক শিক্ষা",
+      "subject_code": "buddha",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b99ccc4774958d7b70680",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1JxBSAPEYJ2sS3KqSQLB6MJo7wR3mNjQw/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/BMuIqLxjEG7xsTO",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1JxBSAPEYJ2sS3KqSQLB6MJo7wR3mNjQw/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "বৌদ্ধধর্ম শিক্ষা",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1rhuwqA0wqOkyyxj6OwV8qlyR6OHg848I/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/lMF0lBowIv1Y0vU",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1rhuwqA0wqOkyyxj6OwV8qlyR6OHg848I/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-4/class-4-buddha/source/original.pdf",
+        "file_name": "class-4-buddha.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-4-christian",
+      "slug": "class-4-christian",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 4,
+      "class_name": "চতুর্থ শ্রেণি",
+      "official_book_name": "খ্রিষ্টধর্ম শিক্ষা",
+      "normalized_book_name": "খ্রিষ্টধর্ম শিক্ষা",
+      "subject": "ধর্ম ও নৈতিক শিক্ষা",
+      "subject_code": "christian",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b99ccc4774958d7b70680",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1TSukmeDPLFBuuQEf8GsEe77d4h7tVNrQ/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/1XN0FnFF1FJw8dT",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1TSukmeDPLFBuuQEf8GsEe77d4h7tVNrQ/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "খ্রিষ্টধর্ম শিক্ষা",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1xAk2RlKFAsk9BBfqDBzqJhA8c3GxMCFn/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/PKKIfkfqbD5ig4v",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1xAk2RlKFAsk9BBfqDBzqJhA8c3GxMCFn/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-4/class-4-christian/source/original.pdf",
+        "file_name": "class-4-christian.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-5-bangla",
+      "slug": "class-5-bangla",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 5,
+      "class_name": "পঞ্চম শ্রেণি",
+      "official_book_name": "আমার বাংলা বই",
+      "normalized_book_name": "আমার বাংলা বই",
+      "subject": "আমার বাংলা বই",
+      "subject_code": "bangla",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1tl5r94UF_9NeFC9poSv5Fdv3pTF_Qr_g/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/faKgRD9CEwmZwkf",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1tl5r94UF_9NeFC9poSv5Fdv3pTF_Qr_g/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "আমার বাংলা বই",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1tl5r94UF_9NeFC9poSv5Fdv3pTF_Qr_g/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/faKgRD9CEwmZwkf",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1tl5r94UF_9NeFC9poSv5Fdv3pTF_Qr_g/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-5/class-5-bangla/source/original.pdf",
+        "file_name": "class-5-bangla.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-5-english",
+      "slug": "class-5-english",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 5,
+      "class_name": "পঞ্চম শ্রেণি",
+      "official_book_name": "English For Today",
+      "normalized_book_name": "English For Today",
+      "subject": "English For Today",
+      "subject_code": "english",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1zMTa3Xo26hByw7UJdAubIJlMg-jEZLMX/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/rOVIdpFOa2DA8AT",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1zMTa3Xo26hByw7UJdAubIJlMg-jEZLMX/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "English For Today",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1zMTa3Xo26hByw7UJdAubIJlMg-jEZLMX/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/rOVIdpFOa2DA8AT",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1zMTa3Xo26hByw7UJdAubIJlMg-jEZLMX/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-5/class-5-english/source/original.pdf",
+        "file_name": "class-5-english.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-5-math",
+      "slug": "class-5-math",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 5,
+      "class_name": "পঞ্চম শ্রেণি",
+      "official_book_name": "প্রাথমিক গণিত",
+      "normalized_book_name": "প্রাথমিক গণিত",
+      "subject": "প্রাথমিক গণিত",
+      "subject_code": "math",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1H4X4rFWz2gnNHBdPfBUcBw-E0tuHpLLR/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/gSLw96ZI64NHREV",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1H4X4rFWz2gnNHBdPfBUcBw-E0tuHpLLR/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "প্রাথমিক গণিত",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1HjEGQQLJdkehaeSol_0P83KhhelWlWZm/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/0mLSp4ncEeeqmZA",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1HjEGQQLJdkehaeSol_0P83KhhelWlWZm/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-5/class-5-math/source/original.pdf",
+        "file_name": "class-5-math.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-5-science",
+      "slug": "class-5-science",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 5,
+      "class_name": "পঞ্চম শ্রেণি",
+      "official_book_name": "প্রাথমিক বিজ্ঞান",
+      "normalized_book_name": "প্রাথমিক বিজ্ঞান",
+      "subject": "প্রাথমিক বিজ্ঞান",
+      "subject_code": "science",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/14ejrQyTTMfy5JDPDcnPOcekBAn1b9Kdf/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/5tWe5mERWEwObNe",
+        "resolved_pdf_url": "https://drive.google.com/file/d/14ejrQyTTMfy5JDPDcnPOcekBAn1b9Kdf/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "প্রাথমিক বিজ্ঞান",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1uxtq4cD70VUTyQxkcnOBvBYj2WpzX3sh/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/RUpR7HhSuggOoCC",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1uxtq4cD70VUTyQxkcnOBvBYj2WpzX3sh/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-5/class-5-science/source/original.pdf",
+        "file_name": "class-5-science.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-5-bangla",
+      "slug": "class-5-bangla",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 5,
+      "class_name": "পঞ্চম শ্রেণি",
+      "official_book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
+      "normalized_book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
+      "subject": "বাংলাদেশ ও বিশ্বপরিচয়",
+      "subject_code": "bangla",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1GHzZDKLvGcS6M-13XtcPZu2nOsnfkVwN/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/11OTb3vX4sca3VD",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1GHzZDKLvGcS6M-13XtcPZu2nOsnfkVwN/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1SEHFKa4Kb_cue9o1cWQ_SVbYTrC-2Vma/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/X3Qrwjr1u8dYEkL",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1SEHFKa4Kb_cue9o1cWQ_SVbYTrC-2Vma/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-5/class-5-bangla/source/original.pdf",
+        "file_name": "class-5-bangla.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-5-islam",
+      "slug": "class-5-islam",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 5,
+      "class_name": "পঞ্চম শ্রেণি",
+      "official_book_name": "ইসলাম শিক্ষা",
+      "normalized_book_name": "ইসলাম শিক্ষা",
+      "subject": "ধর্ম ও নৈতিক শিক্ষা",
+      "subject_code": "islam",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1SS08MLyximWuSMTPOph_NflIIMFR2OkV/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/jQh2NI1LlT7qx6P",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1SS08MLyximWuSMTPOph_NflIIMFR2OkV/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "ইসলাম শিক্ষা",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1mCvL6jWupWQAWIMzEWAkrVYjP8e50UGj/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/yq7DbA4pDyWHiLo",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1mCvL6jWupWQAWIMzEWAkrVYjP8e50UGj/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-5/class-5-islam/source/original.pdf",
+        "file_name": "class-5-islam.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-5-hindu",
+      "slug": "class-5-hindu",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 5,
+      "class_name": "পঞ্চম শ্রেণি",
+      "official_book_name": "হিন্দুধর্ম শিক্ষা",
+      "normalized_book_name": "হিন্দুধর্ম শিক্ষা",
+      "subject": "ধর্ম ও নৈতিক শিক্ষা",
+      "subject_code": "hindu",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1FjsZYJPhB4PeUyu_BXqubCBKSAdlp4Lp/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/31bcVJSRlWOwY5B",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1FjsZYJPhB4PeUyu_BXqubCBKSAdlp4Lp/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "হিন্দুধর্ম শিক্ষা",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1Y74qy6zbzCzNMWhKxyfUbflPTvX7DOI-/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/Gycjk0Dh9xqXdGl",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1Y74qy6zbzCzNMWhKxyfUbflPTvX7DOI-/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-5/class-5-hindu/source/original.pdf",
+        "file_name": "class-5-hindu.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-5-buddha",
+      "slug": "class-5-buddha",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 5,
+      "class_name": "পঞ্চম শ্রেণি",
+      "official_book_name": "বৌদ্ধধর্ম শিক্ষা",
+      "normalized_book_name": "বৌদ্ধধর্ম শিক্ষা",
+      "subject": "ধর্ম ও নৈতিক শিক্ষা",
+      "subject_code": "buddha",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1RypAhZAcSGOz88-2zhAMHVzbueMPbaiC/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/dcuQdDpLLvxXKHS",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1RypAhZAcSGOz88-2zhAMHVzbueMPbaiC/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "বৌদ্ধধর্ম শিক্ষা",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1qsASAatkPTl0sRfKMhUTBmI71n6HcLhU/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/GCUcbCWdOpfAzVn",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1qsASAatkPTl0sRfKMhUTBmI71n6HcLhU/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-5/class-5-buddha/source/original.pdf",
+        "file_name": "class-5-buddha.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    },
+    {
+      "id": "2026-primary-class-5-christian",
+      "slug": "class-5-christian",
+      "academic_year": 2026,
+      "level": "primary",
+      "class_number": 5,
+      "class_name": "পঞ্চম শ্রেণি",
+      "official_book_name": "খ্রিষ্টধর্ম শিক্ষা",
+      "normalized_book_name": "খ্রিষ্টধর্ম শিক্ষা",
+      "subject": "ধর্ম ও নৈতিক শিক্ষা",
+      "subject_code": "christian",
+      "language": "bn",
+      "version": "bangla",
+      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
+      "download_links": {
+        "link_1": "https://drive.google.com/file/d/1JZQ7ZkTHdfG9WdRKtT06E3BQrLOKg42a/view?usp=drive_link",
+        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/Rvs9jcgOZoZLWUY",
+        "resolved_pdf_url": "https://drive.google.com/file/d/1JZQ7ZkTHdfG9WdRKtT06E3BQrLOKg42a/view?usp=drive_link"
+      },
+      "english_version": {
+        "official_book_name": "খ্রিষ্টধর্ম শিক্ষা",
+        "download_links": {
+          "link_1": "https://drive.google.com/file/d/1NAv4_y4ymUfQDLurRBDrmPSXEixOWavX/view?usp=drive_link",
+          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/LiE3ohdx5nGLaVK",
+          "resolved_pdf_url": "https://drive.google.com/file/d/1NAv4_y4ymUfQDLurRBDrmPSXEixOWavX/view?usp=drive_link"
+        }
+      },
+      "pdf": {
+        "local_path": "data/2026/primary/class-5/class-5-christian/source/original.pdf",
+        "file_name": "class-5-christian.pdf",
+        "file_size": 0,
+        "total_pages": 0,
+        "sha256": ""
+      },
+      "publication": {
+        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+        "authors": [],
+        "editors": [],
+        "illustrators": [],
+        "isbn": null
+      },
+      "table_of_contents": [],
+      "chapters": [],
+      "validation": {
+        "download_verified": false,
+        "page_count_verified": false,
+        "toc_verified": false,
+        "questions_verified": false,
+        "needs_review": false
+      }
+    }
+  ]
+}

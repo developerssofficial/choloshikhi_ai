@@ -1,0 +1,68 @@
+{
+  "id": "2026-primary-class-5-bangla",
+  "academic_year": 2026,
+  "level": "primary",
+  "class_number": 5,
+  "class_name": "পঞ্চম শ্রেণি",
+  "book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
+  "normalized_book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
+  "subject": "বাংলাদেশ ও বিশ্বপরিচয়",
+  "subject_code": "bangla",
+  "language": "bn",
+  "version": "bangla",
+  "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
+  "download_links": {
+    "link_1": "https://drive.google.com/file/d/1GHzZDKLvGcS6M-13XtcPZu2nOsnfkVwN/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/11OTb3vX4sca3VD",
+    "resolved_pdf_url": "https://drive.google.com/file/d/1GHzZDKLvGcS6M-13XtcPZu2nOsnfkVwN/view?usp=drive_link"
+  },
+  "english_version": {
+    "official_book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
+    "download_links": {
+      "link_1": "https://drive.google.com/file/d/1SEHFKa4Kb_cue9o1cWQ_SVbYTrC-2Vma/view?usp=drive_link",
+      "link_2": "https://drive.egovcloud.gov.bd/index.php/s/X3Qrwjr1u8dYEkL",
+      "resolved_pdf_url": "https://drive.google.com/file/d/1SEHFKa4Kb_cue9o1cWQ_SVbYTrC-2Vma/view?usp=drive_link"
+    }
+  },
+  "pdf": {
+    "local_path": "data/2026/primary/class-5/class-5-bangla/source/original.pdf",
+    "file_name": "class-5-bangla.pdf",
+    "file_size": 0,
+    "total_pages": 112,
+    "sha256": ""
+  },
+  "publication": {
+    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ",
+    "authors": [
+      "অধ্যাপক ড. মাহবুবুল হক",
+      "ড. সৌমিত্র শেখর",
+      "অধ্যাপক ড. ফাহমিদা কাদের"
+    ],
+    "editors": [
+      "অধ্যাপক নীরেন্দ্রনাথ রায়"
+    ],
+    "illustrators": [
+      "এনসিটিবি চিত্রাঙ্কন পর্ষদ"
+    ],
+    "isbn": "978-984-36-5652-8"
+  },
+  "table_of_contents": [
+    "1. এই দেশ এই মানুষ (পৃষ্ঠা 1-5)",
+    "2. সংকল্প (পৃষ্ঠা 6-9)",
+    "3. সুন্দরবনের প্রাণী (পৃষ্ঠা 10-14)",
+    "4. হাতি আর শিয়ালের গল্প (পৃষ্ঠা 15-20)",
+    "5. বীরের রক্তে স্বাধীন এ দেশ (পৃষ্ঠা 21-27)",
+    "6. ঘাসফুল (পৃষ্ঠা 28-31)",
+    "7. শখের মৃৎশিল্প (পৃষ্ঠা 32-38)",
+    "8. রৌদ্র লেখে জয় (পৃষ্ঠা 39-43)",
+    "9. স্মরণীয় যাঁরা চিরদিন (পৃষ্ঠা 44-50)"
+  ],
+  "total_chapters": 9,
+  "validation": {
+    "download_verified": true,
+    "page_count_verified": true,
+    "toc_verified": true,
+    "questions_verified": true,
+    "needs_review": false
+  }
+}

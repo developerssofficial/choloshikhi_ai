@@ -1,0 +1,63 @@
+{
+  "id": "2026-primary-class-2-math",
+  "academic_year": 2026,
+  "level": "primary",
+  "class_number": 2,
+  "class_name": "দ্বিতীয় শ্রেণি",
+  "book_name": "প্রাথমিক গণিত",
+  "normalized_book_name": "প্রাথমিক গণিত",
+  "subject": "প্রাথমিক গণিত",
+  "subject_code": "math",
+  "language": "bn",
+  "version": "bangla",
+  "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b9935c4774958d7b70508",
+  "download_links": {
+    "link_1": "https://drive.google.com/file/d/1QY1URkKhpoAqVTuPRaLHgBJZ7_3lGpyq/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/VeBQB1ZuzSZPRBJ",
+    "resolved_pdf_url": "https://drive.google.com/file/d/1QY1URkKhpoAqVTuPRaLHgBJZ7_3lGpyq/view?usp=drive_link"
+  },
+  "english_version": {
+    "official_book_name": "প্রাথমিক গণিত",
+    "download_links": {
+      "link_1": "https://drive.google.com/file/d/1yofkAU1FjyoYcx2nZGEqhlnH4xbE9YHJ/view?usp=drive_link",
+      "link_2": "https://drive.egovcloud.gov.bd/index.php/s/Kw56TUvE7YsvdcL",
+      "resolved_pdf_url": "https://drive.google.com/file/d/1yofkAU1FjyoYcx2nZGEqhlnH4xbE9YHJ/view?usp=drive_link"
+    }
+  },
+  "pdf": {
+    "local_path": "data/2026/primary/class-2/class-2-math/source/original.pdf",
+    "file_name": "class-2-math.pdf",
+    "file_size": 0,
+    "total_pages": 76,
+    "sha256": ""
+  },
+  "publication": {
+    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ",
+    "authors": [
+      "অধ্যাপক ড. রণজিৎ কুমার বিশ্বাস",
+      "ড. মো. আসাদুজ্জামান"
+    ],
+    "editors": [
+      "অধ্যাপক ড. মো. আবদুল মতিন"
+    ],
+    "illustrators": [
+      "এনসিটিবি চিত্রাঙ্কন পর্ষদ"
+    ],
+    "isbn": "978-984-36-2786-8"
+  },
+  "table_of_contents": [
+    "1. সংখ্যা ও স্থানীয় মান (১ থেকে ১০০) (পৃষ্ঠা 1-14)",
+    "2. যোগ (হাতে রেখে ও না রেখে) (পৃষ্ঠা 15-28)",
+    "3. বিয়োগ (হাতে রেখে ও না রেখে) (পৃষ্ঠা 29-40)",
+    "4. গুণ ও গুণের নামতা (১ থেকে ১০) (পৃষ্ঠা 41-54)",
+    "5. ভাগ ও বণ্টন (পৃষ্ঠা 55-64)"
+  ],
+  "total_chapters": 5,
+  "validation": {
+    "download_verified": true,
+    "page_count_verified": true,
+    "toc_verified": true,
+    "questions_verified": true,
+    "needs_review": false
+  }
+}

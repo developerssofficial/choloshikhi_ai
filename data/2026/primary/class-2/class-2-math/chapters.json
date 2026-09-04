@@ -1,0 +1,132 @@
+[
+  {
+    "chapter_id": "c2-ma-ch1",
+    "chapter_number": "1",
+    "chapter_title": "সংখ্যা ও স্থানীয় মান (১ থেকে ১০০)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 1,
+    "end_page": 14,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 1
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 14
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "সংখ্যা ও স্থানীয় মান (১ থেকে ১০০)",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "একক ও দশকের স্থানীয় মান।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-ma-ch2",
+    "chapter_number": "2",
+    "chapter_title": "যোগ (হাতে রেখে ও না রেখে)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 15,
+    "end_page": 28,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 15
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 28
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "যোগ (হাতে রেখে ও না রেখে)",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "দুই অঙ্কের যোগ।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-ma-ch3",
+    "chapter_number": "3",
+    "chapter_title": "বিয়োগ (হাতে রেখে ও না রেখে)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 29,
+    "end_page": 40,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 29
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 40
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "বিয়োগ (হাতে রেখে ও না রেখে)",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "দুই অঙ্কের বিয়োগ।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-ma-ch4",
+    "chapter_number": "4",
+    "chapter_title": "গুণ ও গুণের নামতা (১ থেকে ১০)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 41,
+    "end_page": 54,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 41
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 54
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "গুণ ও গুণের নামতা (১ থেকে ১০)",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "পুনরাবৃত্তিমূলক যোগ হলো গুণ।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-ma-ch5",
+    "chapter_number": "5",
+    "chapter_title": "ভাগ ও বণ্টন",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 55,
+    "end_page": 64,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 55
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 64
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "ভাগ ও বণ্টন",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "সমানভাবে ভাগ করে দেওয়া।",
+    "total_questions": 1
+  }
+]

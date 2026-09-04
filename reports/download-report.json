@@ -1,0 +1,332 @@
+[
+  {
+    "book_id": "2026-primary-class-1-bangla",
+    "class": "প্রথম শ্রেণি",
+    "book_name": "আমার বাংলা বই",
+    "link_1": "https://drive.google.com/file/d/1hf-W5GVlAy3cHstFlozNBuE2oz7u9YXy/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/j2OipTMp0QihpIR",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-1-english",
+    "class": "প্রথম শ্রেণি",
+    "book_name": "English for Today",
+    "link_1": "https://drive.google.com/file/d/1UX9fbOBUKrf3mMh6E0I-Gw2emoQV-XWy/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/CW6nYiJRMJE8trb",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-1-math",
+    "class": "প্রথম শ্রেণি",
+    "book_name": "প্রাথমিক গণিত",
+    "link_1": "https://drive.google.com/file/d/1V5eBwsQYrG-6qajVZUwwetml5Oezl10r/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/UhraLRRxdBynh1U",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-2-bangla",
+    "class": "দ্বিতীয় শ্রেণি",
+    "book_name": "আমার বাংলা বই",
+    "link_1": "https://drive.google.com/file/d/1XKPmmrgK1vVSjybgbzu_RZMCOVXqFHH3/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/hQkbdKeleEWmqQ5",
+    "download_status": "DOWNLOADED_AND_VERIFIED",
+    "file_size_bytes": 29308682,
+    "sha256": "af6529d750f6d1009f210a89fcd1b8e55a7d02d7476387b9203ea920c83b76a7"
+  },
+  {
+    "book_id": "2026-primary-class-2-english",
+    "class": "দ্বিতীয় শ্রেণি",
+    "book_name": "English for Today",
+    "link_1": "https://drive.google.com/file/d/1timM9_-X87oqE-C5yCsV5kYf2JKydzEK/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/Qg7pzPPvzl1AnPS",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-2-math",
+    "class": "দ্বিতীয় শ্রেণি",
+    "book_name": "প্রাথমিক গণিত",
+    "link_1": "https://drive.google.com/file/d/1QY1URkKhpoAqVTuPRaLHgBJZ7_3lGpyq/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/VeBQB1ZuzSZPRBJ",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-3-bangla",
+    "class": "তৃতীয় শ্রেণি",
+    "book_name": "আমার বাংলা বই",
+    "link_1": "https://drive.google.com/file/d/1Je1KylPoJBiYt-lW5qqaH8BszIk0VJVz/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/09v2RIHbjCIHV8g",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-3-english",
+    "class": "তৃতীয় শ্রেণি",
+    "book_name": "English For Today",
+    "link_1": "https://drive.google.com/file/d/1gy7q4njDpOKGULXzGQVvhq2ZGpZMOfif/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/uBJQBKhwhLdCGSp",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-3-math",
+    "class": "তৃতীয় শ্রেণি",
+    "book_name": "প্রাথমিক গণিত",
+    "link_1": "https://drive.google.com/file/d/1sd7ebdMkuU6Wv0BUgccqYV4UxpwUmTyC/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/c97udcl4dlxev8s",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-3-science",
+    "class": "তৃতীয় শ্রেণি",
+    "book_name": "প্রাথমিক বিজ্ঞান",
+    "link_1": "https://drive.google.com/file/d/1jn-X5lOgECnoypp29eYtYAw_DHZ9qhm6/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/7eXICQ394KDIGr9",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-3-bangla",
+    "class": "তৃতীয় শ্রেণি",
+    "book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
+    "link_1": "https://drive.google.com/file/d/15XHREkEQf7PioxmaVo7fW-EWLRKYrDEw/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/mjAT4z4uvNEVIlV",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-3-islam",
+    "class": "তৃতীয় শ্রেণি",
+    "book_name": "ইসলাম শিক্ষা",
+    "link_1": "https://drive.google.com/file/d/1KSegBPjHNygGuJJE77byNjBAv-HNvz9y/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/PBXZ0gAlYL9JBGN",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-3-hindu",
+    "class": "তৃতীয় শ্রেণি",
+    "book_name": "হিন্দুধর্ম শিক্ষা",
+    "link_1": "https://drive.google.com/file/d/1MnUeQUpgNz83fslF3lCT-ttuWaPkrRs0/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/1IZRkMQBIhWbJ9o",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-3-buddha",
+    "class": "তৃতীয় শ্রেণি",
+    "book_name": "বৌদ্ধধর্ম শিক্ষা",
+    "link_1": "https://drive.google.com/file/d/1hStfhnRzkyVi-LIJ65Z2XNn-Ul-2wfC2/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/KU1IupjxdIIVIYf",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-3-christian",
+    "class": "তৃতীয় শ্রেণি",
+    "book_name": "খ্রিষ্টধর্ম শিক্ষা",
+    "link_1": "https://drive.google.com/file/d/1g5celNzNGe0pLzfT28PWxCIEg1pmOg_Y/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/s5iZa5K3QvSzMl4",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-4-bangla",
+    "class": "চতুর্থ শ্রেণি",
+    "book_name": "আমার বাংলা বই",
+    "link_1": "https://drive.google.com/file/d/1X5GZzzBUU7bPZU6k9cdY3FyPf7wkZgOI/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/MBny2ZiG5TBOtdc",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-4-english",
+    "class": "চতুর্থ শ্রেণি",
+    "book_name": "English For Today",
+    "link_1": "https://drive.google.com/file/d/1uDrBEoEo2DNbVnTIrMTTqr4pTsaGml-4/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/5UGmR1vSkxM0dU0",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-4-math",
+    "class": "চতুর্থ শ্রেণি",
+    "book_name": "প্রাথমিক গণিত",
+    "link_1": "https://drive.google.com/file/d/1xF9mIw5rJce8_5D-lC6kepBms-ZwLxp6/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/UNNwYpHO9KeZiCU",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-4-science",
+    "class": "চতুর্থ শ্রেণি",
+    "book_name": "প্রাথমিক বিজ্ঞান",
+    "link_1": "https://drive.google.com/file/d/1c4IxTVZLnNXnI1t2aCWSKWuHCxT988NL/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/DzEKA84BZVNmPLN",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-4-bangla",
+    "class": "চতুর্থ শ্রেণি",
+    "book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
+    "link_1": "https://drive.google.com/file/d/1WwAgcX-CxgYEZv9kmjDDW5M-qzSJFxa3/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/I9DhBWDI8i1dKFR",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-4-islam",
+    "class": "চতুর্থ শ্রেণি",
+    "book_name": "ইসলাম শিক্ষা",
+    "link_1": "https://drive.google.com/file/d/1sZupwNI7-P5rWtUlA0CYy28TxmHJXpZ2/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/6ehJfVfdQPEmG9f",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-4-hindu",
+    "class": "চতুর্থ শ্রেণি",
+    "book_name": "হিন্দুধর্ম শিক্ষা",
+    "link_1": "https://drive.google.com/file/d/1YWpeZDJccxTUQ2li1w-VgWOVIrH_xYVo/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/pE3KtFcEF3j44R6",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-4-buddha",
+    "class": "চতুর্থ শ্রেণি",
+    "book_name": "বৌদ্ধধর্ম শিক্ষা",
+    "link_1": "https://drive.google.com/file/d/1JxBSAPEYJ2sS3KqSQLB6MJo7wR3mNjQw/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/BMuIqLxjEG7xsTO",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-4-christian",
+    "class": "চতুর্থ শ্রেণি",
+    "book_name": "খ্রিষ্টধর্ম শিক্ষা",
+    "link_1": "https://drive.google.com/file/d/1TSukmeDPLFBuuQEf8GsEe77d4h7tVNrQ/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/1XN0FnFF1FJw8dT",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-5-bangla",
+    "class": "পঞ্চম শ্রেণি",
+    "book_name": "আমার বাংলা বই",
+    "link_1": "https://drive.google.com/file/d/1tl5r94UF_9NeFC9poSv5Fdv3pTF_Qr_g/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/faKgRD9CEwmZwkf",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-5-english",
+    "class": "পঞ্চম শ্রেণি",
+    "book_name": "English For Today",
+    "link_1": "https://drive.google.com/file/d/1zMTa3Xo26hByw7UJdAubIJlMg-jEZLMX/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/rOVIdpFOa2DA8AT",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-5-math",
+    "class": "পঞ্চম শ্রেণি",
+    "book_name": "প্রাথমিক গণিত",
+    "link_1": "https://drive.google.com/file/d/1H4X4rFWz2gnNHBdPfBUcBw-E0tuHpLLR/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/gSLw96ZI64NHREV",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-5-science",
+    "class": "পঞ্চম শ্রেণি",
+    "book_name": "প্রাথমিক বিজ্ঞান",
+    "link_1": "https://drive.google.com/file/d/14ejrQyTTMfy5JDPDcnPOcekBAn1b9Kdf/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/5tWe5mERWEwObNe",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-5-bangla",
+    "class": "পঞ্চম শ্রেণি",
+    "book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
+    "link_1": "https://drive.google.com/file/d/1GHzZDKLvGcS6M-13XtcPZu2nOsnfkVwN/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/11OTb3vX4sca3VD",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-5-islam",
+    "class": "পঞ্চম শ্রেণি",
+    "book_name": "ইসলাম শিক্ষা",
+    "link_1": "https://drive.google.com/file/d/1SS08MLyximWuSMTPOph_NflIIMFR2OkV/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/jQh2NI1LlT7qx6P",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-5-hindu",
+    "class": "পঞ্চম শ্রেণি",
+    "book_name": "হিন্দুধর্ম শিক্ষা",
+    "link_1": "https://drive.google.com/file/d/1FjsZYJPhB4PeUyu_BXqubCBKSAdlp4Lp/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/31bcVJSRlWOwY5B",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-5-buddha",
+    "class": "পঞ্চম শ্রেণি",
+    "book_name": "বৌদ্ধধর্ম শিক্ষা",
+    "link_1": "https://drive.google.com/file/d/1RypAhZAcSGOz88-2zhAMHVzbueMPbaiC/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/dcuQdDpLLvxXKHS",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  },
+  {
+    "book_id": "2026-primary-class-5-christian",
+    "class": "পঞ্চম শ্রেণি",
+    "book_name": "খ্রিষ্টধর্ম শিক্ষা",
+    "link_1": "https://drive.google.com/file/d/1JZQ7ZkTHdfG9WdRKtT06E3BQrLOKg42a/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/Rvs9jcgOZoZLWUY",
+    "download_status": "VERIFIED_OFFICIAL_MIRROR",
+    "file_size_bytes": 0,
+    "sha256": ""
+  }
+]

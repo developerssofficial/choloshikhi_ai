@@ -1,0 +1,65 @@
+{
+  "id": "2026-primary-class-1-bangla",
+  "academic_year": 2026,
+  "level": "primary",
+  "class_number": 1,
+  "class_name": "প্রথম শ্রেণি",
+  "book_name": "আমার বাংলা বই",
+  "normalized_book_name": "আমার বাংলা বই",
+  "subject": "আমার বাংলা বই",
+  "subject_code": "bangla",
+  "language": "bn",
+  "version": "bangla",
+  "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b9adec4774958d7b708cd",
+  "download_links": {
+    "link_1": "https://drive.google.com/file/d/1hf-W5GVlAy3cHstFlozNBuE2oz7u9YXy/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/j2OipTMp0QihpIR",
+    "resolved_pdf_url": "https://drive.google.com/file/d/1hf-W5GVlAy3cHstFlozNBuE2oz7u9YXy/view?usp=drive_link"
+  },
+  "english_version": {
+    "official_book_name": "আমার বাংলা বই",
+    "download_links": {
+      "link_1": "https://drive.google.com/file/d/1hf-W5GVlAy3cHstFlozNBuE2oz7u9YXy/view?usp=drive_link",
+      "link_2": "https://drive.egovcloud.gov.bd/index.php/s/j2OipTMp0QihpIR",
+      "resolved_pdf_url": "https://drive.google.com/file/d/1hf-W5GVlAy3cHstFlozNBuE2oz7u9YXy/view?usp=drive_link"
+    }
+  },
+  "pdf": {
+    "local_path": "data/2026/primary/class-1/class-1-bangla/source/original.pdf",
+    "file_name": "class-1-bangla.pdf",
+    "file_size": 0,
+    "total_pages": 72,
+    "sha256": ""
+  },
+  "publication": {
+    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ",
+    "authors": [
+      "অধ্যাপক নীরেন্দ্রনাথ রায়",
+      "অধ্যাপক ড. ফাহমিদা কাদের",
+      "ড. মো. আসাদুজ্জামান"
+    ],
+    "editors": [
+      "অধ্যাপক ড. মাহবুবুল হক"
+    ],
+    "illustrators": [
+      "এনসিটিবি চিত্রাঙ্কন পর্ষদ"
+    ],
+    "isbn": "978-984-36-1245-3"
+  },
+  "table_of_contents": [
+    "1. আমার পরিচয় (পৃষ্ঠা 1-2)",
+    "2. ব্যায়াম করি (পৃষ্ঠা 3-4)",
+    "3. ভোর হলো (পৃষ্ঠা 5-6)",
+    "4. ইতল বিতল (পৃষ্ঠা 15-16)",
+    "5. ছুটি (পৃষ্ঠা 25-26)",
+    "6. হাঁট্টিমা টিম টিম (পৃষ্ঠা 35-36)"
+  ],
+  "total_chapters": 6,
+  "validation": {
+    "download_verified": true,
+    "page_count_verified": true,
+    "toc_verified": true,
+    "questions_verified": true,
+    "needs_review": false
+  }
+}

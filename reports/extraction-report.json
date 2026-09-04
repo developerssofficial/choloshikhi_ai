@@ -1,0 +1,233 @@
+[
+  {
+    "book_id": "2026-primary-class-1-bangla",
+    "book_name": "আমার বাংলা বই",
+    "total_chapters": 6,
+    "total_questions": 6,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-1-english",
+    "book_name": "English for Today",
+    "total_chapters": 4,
+    "total_questions": 4,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-1-math",
+    "book_name": "প্রাথমিক গণিত",
+    "total_chapters": 4,
+    "total_questions": 4,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-2-bangla",
+    "book_name": "আমার বাংলা বই",
+    "total_chapters": 29,
+    "total_questions": 33,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-2-english",
+    "book_name": "English for Today",
+    "total_chapters": 3,
+    "total_questions": 3,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-2-math",
+    "book_name": "প্রাথমিক গণিত",
+    "total_chapters": 5,
+    "total_questions": 5,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-3-bangla",
+    "book_name": "আমার বাংলা বই",
+    "total_chapters": 6,
+    "total_questions": 7,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-3-english",
+    "book_name": "English For Today",
+    "total_chapters": 1,
+    "total_questions": 1,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-3-math",
+    "book_name": "প্রাথমিক গণিত",
+    "total_chapters": 4,
+    "total_questions": 4,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-3-science",
+    "book_name": "প্রাথমিক বিজ্ঞান",
+    "total_chapters": 4,
+    "total_questions": 4,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-3-bangla",
+    "book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
+    "total_chapters": 6,
+    "total_questions": 7,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-3-islam",
+    "book_name": "ইসলাম শিক্ষা",
+    "total_chapters": 1,
+    "total_questions": 1,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-3-hindu",
+    "book_name": "হিন্দুধর্ম শিক্ষা",
+    "total_chapters": 1,
+    "total_questions": 1,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-3-buddha",
+    "book_name": "বৌদ্ধধর্ম শিক্ষা",
+    "total_chapters": 1,
+    "total_questions": 1,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-3-christian",
+    "book_name": "খ্রিষ্টধর্ম শিক্ষা",
+    "total_chapters": 1,
+    "total_questions": 1,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-4-bangla",
+    "book_name": "আমার বাংলা বই",
+    "total_chapters": 5,
+    "total_questions": 5,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-4-english",
+    "book_name": "English For Today",
+    "total_chapters": 1,
+    "total_questions": 1,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-4-math",
+    "book_name": "প্রাথমিক গণিত",
+    "total_chapters": 4,
+    "total_questions": 4,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-4-science",
+    "book_name": "প্রাথমিক বিজ্ঞান",
+    "total_chapters": 3,
+    "total_questions": 3,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-4-bangla",
+    "book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
+    "total_chapters": 5,
+    "total_questions": 5,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-4-islam",
+    "book_name": "ইসলাম শিক্ষা",
+    "total_chapters": 1,
+    "total_questions": 1,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-4-hindu",
+    "book_name": "হিন্দুধর্ম শিক্ষা",
+    "total_chapters": 1,
+    "total_questions": 1,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-4-buddha",
+    "book_name": "বৌদ্ধধর্ম শিক্ষা",
+    "total_chapters": 1,
+    "total_questions": 1,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-4-christian",
+    "book_name": "খ্রিষ্টধর্ম শিক্ষা",
+    "total_chapters": 1,
+    "total_questions": 1,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-5-bangla",
+    "book_name": "আমার বাংলা বই",
+    "total_chapters": 9,
+    "total_questions": 9,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-5-english",
+    "book_name": "English For Today",
+    "total_chapters": 1,
+    "total_questions": 1,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-5-math",
+    "book_name": "প্রাথমিক গণিত",
+    "total_chapters": 7,
+    "total_questions": 7,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-5-science",
+    "book_name": "প্রাথমিক বিজ্ঞান",
+    "total_chapters": 5,
+    "total_questions": 5,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-5-bangla",
+    "book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
+    "total_chapters": 9,
+    "total_questions": 9,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-5-islam",
+    "book_name": "ইসলাম শিক্ষা",
+    "total_chapters": 3,
+    "total_questions": 3,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-5-hindu",
+    "book_name": "হিন্দুধর্ম শিক্ষা",
+    "total_chapters": 1,
+    "total_questions": 1,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-5-buddha",
+    "book_name": "বৌদ্ধধর্ম শিক্ষা",
+    "total_chapters": 1,
+    "total_questions": 1,
+    "status": "EXTRACTED"
+  },
+  {
+    "book_id": "2026-primary-class-5-christian",
+    "book_name": "খ্রিষ্টধর্ম শিক্ষা",
+    "total_chapters": 1,
+    "total_questions": 1,
+    "status": "EXTRACTED"
+  }
+]

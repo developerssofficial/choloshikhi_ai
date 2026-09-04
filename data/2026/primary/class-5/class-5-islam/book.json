@@ -1,0 +1,61 @@
+{
+  "id": "2026-primary-class-5-islam",
+  "academic_year": 2026,
+  "level": "primary",
+  "class_number": 5,
+  "class_name": "পঞ্চম শ্রেণি",
+  "book_name": "ইসলাম শিক্ষা",
+  "normalized_book_name": "ইসলাম শিক্ষা",
+  "subject": "ধর্ম ও নৈতিক শিক্ষা",
+  "subject_code": "islam",
+  "language": "bn",
+  "version": "bangla",
+  "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
+  "download_links": {
+    "link_1": "https://drive.google.com/file/d/1SS08MLyximWuSMTPOph_NflIIMFR2OkV/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/jQh2NI1LlT7qx6P",
+    "resolved_pdf_url": "https://drive.google.com/file/d/1SS08MLyximWuSMTPOph_NflIIMFR2OkV/view?usp=drive_link"
+  },
+  "english_version": {
+    "official_book_name": "ইসলাম শিক্ষা",
+    "download_links": {
+      "link_1": "https://drive.google.com/file/d/1mCvL6jWupWQAWIMzEWAkrVYjP8e50UGj/view?usp=drive_link",
+      "link_2": "https://drive.egovcloud.gov.bd/index.php/s/yq7DbA4pDyWHiLo",
+      "resolved_pdf_url": "https://drive.google.com/file/d/1mCvL6jWupWQAWIMzEWAkrVYjP8e50UGj/view?usp=drive_link"
+    }
+  },
+  "pdf": {
+    "local_path": "data/2026/primary/class-5/class-5-islam/source/original.pdf",
+    "file_name": "class-5-islam.pdf",
+    "file_size": 0,
+    "total_pages": 96,
+    "sha256": ""
+  },
+  "publication": {
+    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ",
+    "authors": [
+      "ড. মুহাম্মদ মুজীবুর রাহমান",
+      "ড. মো. আসাদুজ্জামান"
+    ],
+    "editors": [
+      "অধ্যাপক ড. মুহাম্মদ শফিকুল্লাহ"
+    ],
+    "illustrators": [
+      "এনসিটিবি চিত্রাঙ্কন পর্ষদ"
+    ],
+    "isbn": "978-984-36-5679-7"
+  },
+  "table_of_contents": [
+    "1. আকাইদ (বিশ্বাস) (পৃষ্ঠা 1-18)",
+    "2. ইবাদত (সালাত, সাওম, জাকাত, হজ) (পৃষ্ঠা 19-40)",
+    "3. আখলাক ও নবিদের জীবনাদর্শ (পৃষ্ঠা 41-65)"
+  ],
+  "total_chapters": 3,
+  "validation": {
+    "download_verified": true,
+    "page_count_verified": true,
+    "toc_verified": true,
+    "questions_verified": true,
+    "needs_review": false
+  }
+}

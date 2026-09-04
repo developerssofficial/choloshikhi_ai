@@ -1,0 +1,106 @@
+[
+  {
+    "chapter_id": "c1-en-u1",
+    "chapter_number": "1",
+    "chapter_title": "Greetings and Farewells (Unit 1)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 1,
+    "end_page": 4,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 1
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 4
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Greetings and Farewells (Unit 1)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Hello, Good morning, Goodbye.",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c1-en-u2",
+    "chapter_number": "2",
+    "chapter_title": "Alphabet A-E (Unit 2)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 5,
+    "end_page": 10,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 5
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 10
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Alphabet A-E (Unit 2)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Letter sounds and words: Apple, Ball, Cat, Dog, Egg.",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c1-en-u3",
+    "chapter_number": "3",
+    "chapter_title": "Numbers 1-10 (Unit 3)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 11,
+    "end_page": 16,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 11
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 16
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Numbers 1-10 (Unit 3)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Counting 1 to 10 with objects.",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c1-en-u4",
+    "chapter_number": "4",
+    "chapter_title": "Rhyme: Two Little Blackbirds (Unit 4)",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": null,
+    "start_page": 17,
+    "end_page": 18,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 17
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 18
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Rhyme: Two Little Blackbirds (Unit 4)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Two little blackbirds sitting on a wall.",
+    "total_questions": 1
+  }
+]

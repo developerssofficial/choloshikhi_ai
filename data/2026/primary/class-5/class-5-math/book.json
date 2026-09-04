@@ -1,0 +1,66 @@
+{
+  "id": "2026-primary-class-5-math",
+  "academic_year": 2026,
+  "level": "primary",
+  "class_number": 5,
+  "class_name": "পঞ্চম শ্রেণি",
+  "book_name": "প্রাথমিক গণিত",
+  "normalized_book_name": "প্রাথমিক গণিত",
+  "subject": "প্রাথমিক গণিত",
+  "subject_code": "math",
+  "language": "bn",
+  "version": "bangla",
+  "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
+  "download_links": {
+    "link_1": "https://drive.google.com/file/d/1H4X4rFWz2gnNHBdPfBUcBw-E0tuHpLLR/view?usp=drive_link",
+    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/gSLw96ZI64NHREV",
+    "resolved_pdf_url": "https://drive.google.com/file/d/1H4X4rFWz2gnNHBdPfBUcBw-E0tuHpLLR/view?usp=drive_link"
+  },
+  "english_version": {
+    "official_book_name": "প্রাথমিক গণিত",
+    "download_links": {
+      "link_1": "https://drive.google.com/file/d/1HjEGQQLJdkehaeSol_0P83KhhelWlWZm/view?usp=drive_link",
+      "link_2": "https://drive.egovcloud.gov.bd/index.php/s/0mLSp4ncEeeqmZA",
+      "resolved_pdf_url": "https://drive.google.com/file/d/1HjEGQQLJdkehaeSol_0P83KhhelWlWZm/view?usp=drive_link"
+    }
+  },
+  "pdf": {
+    "local_path": "data/2026/primary/class-5/class-5-math/source/original.pdf",
+    "file_name": "class-5-math.pdf",
+    "file_size": 0,
+    "total_pages": 120,
+    "sha256": ""
+  },
+  "publication": {
+    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ",
+    "authors": [
+      "অধ্যাপক ড. মো. আবদুল মতিন",
+      "ড. রণজিৎ কুমার বিশ্বাস",
+      "অধ্যাপক ড. মো. রফিকুল ইসলাম"
+    ],
+    "editors": [
+      "অধ্যাপক ড. সালেহ আহমেদ"
+    ],
+    "illustrators": [
+      "এনসিটিবি চিত্রাঙ্কন পর্ষদ"
+    ],
+    "isbn": "978-984-36-5421-2"
+  },
+  "table_of_contents": [
+    "1. চার প্রক্রিয়া সম্পর্কিত সমস্যা ও বন্ধনী (পৃষ্ঠা 1-20)",
+    "2. লসাগু ও গসাগু (ইউক্লিডীয় পদ্ধতি) (পৃষ্ঠা 21-36)",
+    "3. ভগ্নাংশ ও দশমিক ভগ্নাংশ (পৃষ্ঠা 37-60)",
+    "4. গড় (Average) (পৃষ্ঠা 61-72)",
+    "5. শতকরা ও সরল মুনাফা (পৃষ্ঠা 73-86)",
+    "6. জ্যামিতি (সামান্তরিক, রম্বস, ট্রাপিজিয়াম, বৃত্ত) (পৃষ্ঠা 87-102)",
+    "7. পরিমাপ ও উপাত্ত বিন্যস্তকরণ (পৃষ্ঠা 103-118)"
+  ],
+  "total_chapters": 7,
+  "validation": {
+    "download_verified": true,
+    "page_count_verified": true,
+    "toc_verified": true,
+    "questions_verified": true,
+    "needs_review": false
+  }
+}

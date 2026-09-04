@@ -1,0 +1,132 @@
+[
+  {
+    "chapter_id": "c4-bn-ch1",
+    "chapter_number": "1",
+    "chapter_title": "বাংলাদেশের প্রকৃতি",
+    "chapter_type": "গল্প/গদ্য",
+    "author": null,
+    "start_page": 1,
+    "end_page": 6,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 1
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 6
+      }
+    ],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "বাংলাদেশের প্রকৃতি",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "গ্রীষ্ম, বর্ষা, শরৎ, হেমন্ত, শীত ও বসন্ত — ষড়ঋতুর বৈচিত্র্য।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c4-bn-ch2",
+    "chapter_number": "2",
+    "chapter_title": "পালকির গান",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": "সত্যেন্দ্রনাথ দত্ত",
+    "start_page": 7,
+    "end_page": 10,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 7
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 10
+      }
+    ],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "পালকির গান",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "পালকি চলে পালকি চলে, গগন তলে আগুন জ্বলে।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c4-bn-ch3",
+    "chapter_number": "3",
+    "chapter_title": "বাওয়ালিদের গল্প",
+    "chapter_type": "গল্প/গদ্য",
+    "author": null,
+    "start_page": 11,
+    "end_page": 16,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 11
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 16
+      }
+    ],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "বাওয়ালিদের গল্প",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "সুন্দরবনের গোলপাতা ও মধু সংগ্রাহক বাওয়ালি ও মৌয়ালদের ঝুঁকিপূর্ণ জীবন।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c4-bn-ch4",
+    "chapter_number": "4",
+    "chapter_title": "বীরশ্রেষ্ঠদের বীরত্বগাথা",
+    "chapter_type": "গল্প/গদ্য",
+    "author": null,
+    "start_page": 17,
+    "end_page": 24,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 17
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 24
+      }
+    ],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "বীরশ্রেষ্ঠদের বীরত্বগাথা",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "মুক্তিযুদ্ধের সাত বীরশ্রেষ্ঠের চরম আত্মত্যাগ ও দেশপ্রেম।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c4-bn-ch5",
+    "chapter_number": "5",
+    "chapter_title": "পাহাড়পুর",
+    "chapter_type": "গল্প/গদ্য",
+    "author": null,
+    "start_page": 25,
+    "end_page": 30,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 25
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 30
+      }
+    ],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "পাহাড়পুর",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "নওগাঁর পাহাড়পুরে রাজা ধর্মপাল নির্মিত সোমপুর মহাবিহার।",
+    "total_questions": 1
+  }
+]

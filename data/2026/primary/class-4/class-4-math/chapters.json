@@ -1,0 +1,106 @@
+[
+  {
+    "chapter_id": "c4-ma-ch1",
+    "chapter_number": "1",
+    "chapter_title": "বড় সংখ্যা ও স্থানীয় মান (কোটি পর্যন্ত)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 1,
+    "end_page": 22,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 1
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 22
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "বড় সংখ্যা ও স্থানীয় মান (কোটি পর্যন্ত)",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "১ কোটি = ১০০ লক্ষ, ১ নিযুত = ১০ লক্ষ = ১ মিলিয়ন।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c4-ma-ch2",
+    "chapter_number": "2",
+    "chapter_title": "গুণিতক ও গুণনীয়ক (লসাগু ও গসাগু)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 23,
+    "end_page": 48,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 23
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 48
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "গুণিতক ও গুণনীয়ক (লসাগু ও গসাগু)",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "গ.সা.গু = গরিষ্ঠ সাধারণ গুণনীয়ক, ল.সা.গু = লঘিষ্ঠ সাধারণ গুণিতক।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c4-ma-ch3",
+    "chapter_number": "3",
+    "chapter_title": "ভগ্নাংশ ও দশমিক ভগ্নাংশ",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 49,
+    "end_page": 76,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 49
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 76
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "ভগ্নাংশ ও দশমিক ভগ্নাংশ",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "প্রকৃত, অপ্রকৃত ও মিশ্র ভগ্নাংশ। দশমিক যোগ-বিয়োগ।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c4-ma-ch4",
+    "chapter_number": "4",
+    "chapter_title": "পরিমাপ, ক্ষেত্রফল ও জ্যামিতি",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 77,
+    "end_page": 98,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 77
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 98
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "পরিমাপ, ক্ষেত্রফল ও জ্যামিতি",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "আয়তক্ষেত্রের ক্ষেত্রফল = দৈর্ঘ্য × প্রস্থ। ত্রিভুজের তিন কোণের সমষ্টি = ১৮০°।",
+    "total_questions": 1
+  }
+]

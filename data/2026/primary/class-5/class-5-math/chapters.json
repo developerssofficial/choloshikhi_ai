@@ -1,0 +1,184 @@
+[
+  {
+    "chapter_id": "c5-ma-ch1",
+    "chapter_number": "1",
+    "chapter_title": "চার প্রক্রিয়া সম্পর্কিত সমস্যা ও বন্ধনী",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 1,
+    "end_page": 20,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 1
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 20
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "চার প্রক্রিয়া সম্পর্কিত সমস্যা ও বন্ধনী",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "BODMAS নিয়ম। কাজের ক্রম: বন্ধনী -> 'এর' -> ভাগ -> গুণ -> যোগ -> বিয়োগ।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c5-ma-ch2",
+    "chapter_number": "2",
+    "chapter_title": "লসাগু ও গসাগু (ইউক্লিডীয় পদ্ধতি)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 21,
+    "end_page": 36,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 21
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 36
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "লসাগু ও গসাগু (ইউক্লিডীয় পদ্ধতি)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "ঘণ্টা একসাথে বাজার অঙ্ক = লসাগু। সর্বাধিক কতজনের মাঝে বণ্টন = গসাগু।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c5-ma-ch3",
+    "chapter_number": "3",
+    "chapter_title": "ভগ্নাংশ ও দশমিক ভগ্নাংশ",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 37,
+    "end_page": 60,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 37
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 60
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "ভগ্নাংশ ও দশমিক ভগ্নাংশ",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "বিপরীত ভগ্নাংশ দিয়ে গুণ। দশমিকের গুণ ও ভাগ।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c5-ma-ch4",
+    "chapter_number": "4",
+    "chapter_title": "গড় (Average)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 61,
+    "end_page": 72,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 61
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 72
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "গড় (Average)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "গড় = রাশিগুলোর যোগফল ÷ রাশির সংখ্যা।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c5-ma-ch5",
+    "chapter_number": "5",
+    "chapter_title": "শতকরা ও সরল মুনাফা",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 73,
+    "end_page": 86,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 73
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 86
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "শতকরা ও সরল মুনাফা",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "মুনাফা = (আসল × হার × সময়) / ১০০। লাভ = বিক্রয়মূল্য - ক্রয়মূল্য।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c5-ma-ch6",
+    "chapter_number": "6",
+    "chapter_title": "জ্যামিতি (সামান্তরিক, রম্বস, ট্রাপিজিয়াম, বৃত্ত)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 87,
+    "end_page": 102,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 87
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 102
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "জ্যামিতি (সামান্তরিক, রম্বস, ট্রাপিজিয়াম, বৃত্ত)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "সামান্তরিকের ক্ষেত্রফল = ভূমি × উচ্চতা। বৃত্তের ব্যাস = ২ × ব্যাসার্ধ। পরিধি।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c5-ma-ch7",
+    "chapter_number": "7",
+    "chapter_title": "পরিমাপ ও উপাত্ত বিন্যস্তকরণ",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 103,
+    "end_page": 118,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 103
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 118
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "পরিমাপ ও উপাত্ত বিন্যস্তকরণ",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "১ হেক্টর = ১০,০০০ বর্গমিটার। জনসংখ্যার ঘনত্ব = মোট জনসংখ্যা ÷ ক্ষেত্রফল।",
+    "total_questions": 1
+  }
+]

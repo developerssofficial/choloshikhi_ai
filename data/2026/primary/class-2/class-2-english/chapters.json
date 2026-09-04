@@ -1,0 +1,80 @@
+[
+  {
+    "chapter_id": "c2-en-u1",
+    "chapter_number": "1",
+    "chapter_title": "Greetings and Introductions (Unit 1)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 1,
+    "end_page": 6,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 1
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 6
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Greetings and Introductions (Unit 1)",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "How old are you? I'm 7 years old.",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-en-u2",
+    "chapter_number": "2",
+    "chapter_title": "Days of the Week (Unit 6)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 12,
+    "end_page": 16,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 12
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 16
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Days of the Week (Unit 6)",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "Saturday to Friday - 7 days of the week.",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-en-u3",
+    "chapter_number": "3",
+    "chapter_title": "Rhyme: Rain, Rain, Go Away",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": null,
+    "start_page": 22,
+    "end_page": 23,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 22
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 23
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Rhyme: Rain, Rain, Go Away",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "Rain rain go away, come again another day.",
+    "total_questions": 1
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "chapter_id": "c3-ma-ch1",
+    "chapter_number": "1",
+    "chapter_title": "সংখ্যা ও স্থানীয় মান (১০,০০০ পর্যন্ত)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 1,
+    "end_page": 18,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 1
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 18
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "সংখ্যা ও স্থানীয় মান (১০,০০০ পর্যন্ত)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "একক, দশক, শতক, হাজার।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c3-ma-ch2",
+    "chapter_number": "2",
+    "chapter_title": "চার প্রক্রিয়া (যোগ, বিয়োগ, গুণ, ভাগ)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 19,
+    "end_page": 45,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 19
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 45
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "চার প্রক্রিয়া (যোগ, বিয়োগ, গুণ, ভাগ)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "ভাজ্য = ভাজক × ভাগফল + ভাগশেষ।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c3-ma-ch3",
+    "chapter_number": "3",
+    "chapter_title": "ভগ্নাংশ (প্রকৃত ও সমহর ভগ্নাংশ)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 46,
+    "end_page": 60,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 46
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 60
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "ভগ্নাংশ (প্রকৃত ও সমহর ভগ্নাংশ)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "লব ও হর। সমহর ভগ্নাংশের যোগ-বিয়োগ।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c3-ma-ch4",
+    "chapter_number": "4",
+    "chapter_title": "পরিমাপ ও জ্যামিতি",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 61,
+    "end_page": 80,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 61
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 80
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "পরিমাপ ও জ্যামিতি",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "১ মিটার = ১০০ সেমি, ১ কেজি = ১০০০ গ্রাম। সমকোণ (৯০°)।",
+    "total_questions": 1
+  }
+]

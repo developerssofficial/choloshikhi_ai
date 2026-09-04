@@ -1,0 +1,132 @@
+[
+  {
+    "chapter_id": "c5-sc-ch1",
+    "chapter_number": "1",
+    "chapter_title": "আমাদের পরিবেশ ও বাস্তুসংস্থান",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 1,
+    "end_page": 8,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 1
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 8
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক বিজ্ঞান",
+      "আমাদের পরিবেশ ও বাস্তুসংস্থান",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "উদ্ভিদ ও প্রাণীর পারস্পরিক নির্ভরশীলতা। সালোকসংশ্লেষণ ও পরাগায়ন।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c5-sc-ch2",
+    "chapter_number": "2",
+    "chapter_title": "পরিবেশ দূষণ ও সংরক্ষণ",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 9,
+    "end_page": 16,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 9
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 16
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক বিজ্ঞান",
+      "পরিবেশ দূষণ ও সংরক্ষণ",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "বায়ু, মাটি, পানি ও শব্দ দূষণ। ৩R নীতি (Reduce, Reuse, Recycle)।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c5-sc-ch3",
+    "chapter_number": "3",
+    "chapter_title": "জীবনের জন্য পানি ও পানিচক্র",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 17,
+    "end_page": 26,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 17
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 26
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক বিজ্ঞান",
+      "জীবনের জন্য পানি ও পানিচক্র",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "বাষ্পীভবন -> ঘনীভবন -> বৃষ্টিপাত। পানি ২০ মিনিট ফোটালে নিরাপদ হয়।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c5-sc-ch4",
+    "chapter_number": "4",
+    "chapter_title": "পদার্থ ও শক্তি (তাপ সঞ্চালন)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 27,
+    "end_page": 38,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 27
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 38
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক বিজ্ঞান",
+      "পদার্থ ও শক্তি (তাপ সঞ্চালন)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "তাপ সঞ্চালনের ৩টি পদ্ধতি: পরিবহন (কঠিন), পরিচলন (তরল/বায়বীয়), বিকিরণ (মাধ্যমহীন)।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c5-sc-ch5",
+    "chapter_number": "5",
+    "chapter_title": "সংক্রামক রোগ ও প্রতিরোধ",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 39,
+    "end_page": 48,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 39
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 48
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক বিজ্ঞান",
+      "সংক্রামক রোগ ও প্রতিরোধ",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "বায়ুবাহিত, পানিবাহিত, ডেঙ্গু (এডিশ মশা), ডায়রিয়া ও ওআরএস স্যালাইন।",
+    "total_questions": 1
+  }
+]

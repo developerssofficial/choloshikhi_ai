@@ -1,0 +1,756 @@
+[
+  {
+    "chapter_id": "c2-bn-p1",
+    "chapter_number": "1",
+    "chapter_title": "আমার পরিচয়",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 1,
+    "end_page": 2,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 1
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 2
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "আমার পরিচয়",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "শিক্ষার্থীর পরিচয় ও বন্ধুদের সাথে ভাব জমানো।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p2",
+    "chapter_number": "2",
+    "chapter_title": "স্কুলে কেমন লাগছে",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 3,
+    "end_page": 5,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 3
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 5
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "স্কুলে কেমন লাগছে",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "নতুন ক্লাসের আনন্দ।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p3",
+    "chapter_number": "3",
+    "chapter_title": "আমার বাড়ি আমার কাজ",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 6,
+    "end_page": 6,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 6
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 6
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "আমার বাড়ি আমার কাজ",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "পরিবারের কাজে সহায়তা ও দায়িত্ববোধ।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p4",
+    "chapter_number": "4",
+    "chapter_title": "ডালিমকুমার ও কঙ্কনবর্তী",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 7,
+    "end_page": 11,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 7
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 11
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "ডালিমকুমার ও কঙ্কনবর্তী",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "রাজকুমার ডালিমকুমার ও রাজকন্যা কঙ্কনবতীর রূপকথা।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p5",
+    "chapter_number": "5",
+    "chapter_title": "আবার পড়ি বর্ণমালা",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 12,
+    "end_page": 14,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 12
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 14
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "আবার পড়ি বর্ণমালা",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "স্বরবর্ণ ও ব্যঞ্জনবর্ণের সঠিক উচ্চারণ।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p6",
+    "chapter_number": "6",
+    "chapter_title": "আয় দেখে যা নাচ",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": null,
+    "start_page": 15,
+    "end_page": 15,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 15
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 15
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "আয় দেখে যা নাচ",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "ময়ূরের নাচ ও প্রকৃতির সৌন্দর্য।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p7",
+    "chapter_number": "7",
+    "chapter_title": "কারচিহ্ন দিয়ে শব্দ বানাই",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 16,
+    "end_page": 17,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 16
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 17
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "কারচিহ্ন দিয়ে শব্দ বানাই",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "১০টি কারচিহ্নের প্রয়োগ।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p8",
+    "chapter_number": "8",
+    "chapter_title": "সিংহ আর ইঁদুরের গল্প",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 18,
+    "end_page": 19,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 18
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 19
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "সিংহ আর ইঁদুরের গল্প",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "উপকার করলে উপকার পাওয়া যায় — সিংহ ও ইঁদুরের বন্ধুত্বের নীতিকথা।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c2-bn-p9",
+    "chapter_number": "9",
+    "chapter_title": "দেখে বুঝে কাজ করি",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 20,
+    "end_page": 20,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 20
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 20
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "দেখে বুঝে কাজ করি",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "রাস্তায় নিরাপত্তা ও ট্রাফিক সংকেত।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p10",
+    "chapter_number": "10",
+    "chapter_title": "যুক্তবর্ণ শিখি",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 21,
+    "end_page": 21,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 21
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 21
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "যুক্তবর্ণ শিখি",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "যুক্তবর্ণ বিভাজন ও নতুন শব্দ গঠন।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p11",
+    "chapter_number": "11",
+    "chapter_title": "একুশের গান",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": "আবদুল গাফফার চৌধুরী",
+    "start_page": 22,
+    "end_page": 22,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 22
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 22
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "একুশের গান",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "আমার ভাইয়ের রক্তে রাঙানো একুশে ফেব্রুয়ারি।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p12",
+    "chapter_number": "12",
+    "chapter_title": "ফলাচিহ্ন শিখি",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 23,
+    "end_page": 26,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 23
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 26
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "ফলাচিহ্ন শিখি",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "য-ফলা, র-ফলা, ল-ফলা, ব-ফলা, ম-ফলা, ন-ফলা।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p13",
+    "chapter_number": "13",
+    "chapter_title": "রেফ চিনি",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 27,
+    "end_page": 27,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 27
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 27
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "রেফ চিনি",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "রেফ যুক্ত শব্দ।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p14",
+    "chapter_number": "14",
+    "chapter_title": "নানা রকম লেখা",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 28,
+    "end_page": 29,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 28
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 29
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "নানা রকম লেখা",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "পড়ে বোঝার দক্ষতা।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p15",
+    "chapter_number": "15",
+    "chapter_title": "কাজের আনন্দ",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": "নবকৃষ্ণ ভট্টাচার্য",
+    "start_page": 30,
+    "end_page": 32,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 30
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 32
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "কাজের আনন্দ",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "মৌমাছি, পিঁপড়ে ও পাখির পরিশ্রম ও কাজের আনন্দ।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c2-bn-p16",
+    "chapter_number": "16",
+    "chapter_title": "বাক্য লিখি",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 33,
+    "end_page": 33,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 33
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 33
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "বাক্য লিখি",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "যতিচিহ্ন (দাঁড়ি, কমা, প্রশ্নচিহ্ন)।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p17",
+    "chapter_number": "17",
+    "chapter_title": "রানুর আঁকা ছবি",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 34,
+    "end_page": 34,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 34
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 34
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "রানুর আঁকা ছবি",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "চিত্রকলা ও রঙের শখ।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p18",
+    "chapter_number": "18",
+    "chapter_title": "গ্রাম ও শহর",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 35,
+    "end_page": 37,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 35
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 37
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "গ্রাম ও শহর",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "গ্রাম ও শহরের প্রাকৃতিক ও সামাজিক ভিন্নতা।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p19",
+    "chapter_number": "19",
+    "chapter_title": "প্রজাপতি",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": "কাজী নজরুল ইসলাম",
+    "start_page": 38,
+    "end_page": 39,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 38
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 39
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "প্রজাপতি",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "প্রজাপতি প্রজাপতি কোথায় পেলে ভাই এমন রঙিন পাখা।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p20",
+    "chapter_number": "20",
+    "chapter_title": "বিড়াল ছানা",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 40,
+    "end_page": 40,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 40
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 40
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "বিড়াল ছানা",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "পোষা প্রাণীর প্রতি যত্ন ও মায়া।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p21",
+    "chapter_number": "21",
+    "chapter_title": "ছয় ঋতু",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 41,
+    "end_page": 47,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 41
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 47
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "ছয় ঋতু",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "গ্রীষ্ম, বর্ষা, শরৎ, হেমন্ত, শীত ও বসন্ত।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p22",
+    "chapter_number": "22",
+    "chapter_title": "নবারুণ",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 48,
+    "end_page": 49,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 48
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 49
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "নবারুণ",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "ভোরের নতুন আলোর প্রভাত।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p23",
+    "chapter_number": "23",
+    "chapter_title": "আমাদের ছোট নদী",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": "রবীন্দ্রনাথ ঠাকুর",
+    "start_page": 50,
+    "end_page": 51,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 50
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 51
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "আমাদের ছোট নদী",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "আমাদের ছোট নদী চলে বাঁকে বাঁকে, বৈশাখ মাসে তার হাঁটু জল থাকে।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c2-bn-p24",
+    "chapter_number": "24",
+    "chapter_title": "নিজের মতো লিখি",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 52,
+    "end_page": 53,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 52
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 53
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "নিজের মতো লিখি",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "ছবি দেখে সৃজনশীল অনুচ্ছেদ লিখন।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p25",
+    "chapter_number": "25",
+    "chapter_title": "সবাই মিলে কাজ করি",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 54,
+    "end_page": 55,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 54
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 55
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "সবাই মিলে কাজ করি",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "একতা ও সহযোগিতার শক্তি।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p26",
+    "chapter_number": "26",
+    "chapter_title": "মুক্তিসেনা",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 56,
+    "end_page": 57,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 56
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 57
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "মুক্তিসেনা",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "১৯৭১ সালের মহান মুক্তিযুদ্ধে বীর মুক্তিযোদ্ধাদের বীরত্ব।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p27",
+    "chapter_number": "27",
+    "chapter_title": "দুখু মিয়ার জীবন",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 58,
+    "end_page": 59,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 58
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 59
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "দুখু মিয়ার জীবন",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "জাতীয় কবি কাজী নজরুল ইসলামের শৈশব ও লেটো দলের গান।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c2-bn-p28",
+    "chapter_number": "28",
+    "chapter_title": "স্কুলের মাঠে",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 60,
+    "end_page": 61,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 60
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 61
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "স্কুলের মাঠে",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "টিফিনের খেলাধুলা ও বন্ধুদের আনন্দ।",
+    "total_questions": 1
+  },
+  {
+    "chapter_id": "c2-bn-p29",
+    "chapter_number": "29",
+    "chapter_title": "বাক্য নিয়ে খেলা",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 62,
+    "end_page": 63,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 62
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 63
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "বাক্য নিয়ে খেলা",
+      "দ্বিতীয় শ্রেণি"
+    ],
+    "summary": "শব্দ ধাঁধা ও মজাদার বাক্য তৈরি।",
+    "total_questions": 1
+  }
+]
