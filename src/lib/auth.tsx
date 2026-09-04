@@ -325,26 +325,44 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  // ── Student sign-in (CSH_XXXXXX + password) ──
-  const signInAsStudent = async (studentId: string, password: string): Promise<{ error?: string }> => {
+  // ── Student sign-in (Name OR CSH_XXXXXX + password) ──
+  const signInAsStudent = async (identifier: string, password: string): Promise<{ error?: string }> => {
     if (!supabase) return { error: "Supabase not configured" };
 
-    // Convert student ID to synthetic email
-    const syntheticEmail = `${studentId.toLowerCase()}@choloshikhi.app`;
+    try {
+      const res = await fetch("/api/auth/student-login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ identifier, password }),
+      });
 
-    const { error } = await supabase.auth.signInWithPassword({
-      email: syntheticEmail,
-      password,
-    });
-
-    if (error) {
-      if (error.message.includes("Invalid login")) {
-        return { error: "Student ID বা পাসওয়ার্ড ভুল। আবার চেষ্টা করুন।" };
+      const result = await res.json();
+      if (!res.ok || result.error) {
+        return { error: result.error || "লগইন করা যায়নি। নাম/আইডি ও পাসওয়ার্ড চেক করুন।" };
       }
-      return { error: error.message };
-    }
 
-    return {};
+      if (result.session) {
+        const { error: sessionError } = await supabase.auth.setSession({
+          access_token: result.session.access_token,
+          refresh_token: result.session.refresh_token,
+        });
+
+        if (sessionError) {
+          return { error: "সেশন সেভ করা যায়নি। আবার চেষ্টা করুন।" };
+        }
+
+        setUser({
+          id: result.user.id,
+          email: result.user.email,
+          name: result.user.name || result.studentId,
+        });
+        setProfileComplete(true);
+      }
+
+      return {};
+    } catch {
+      return { error: "নেটওয়ার্ক সমস্যা। আবার চেষ্টা করুন।" };
+    }
   };
 
   const signOut = async () => {

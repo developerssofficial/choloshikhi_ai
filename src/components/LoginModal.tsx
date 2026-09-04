@@ -87,7 +87,7 @@ export default function LoginModal({ open, onClose }: Props) {
   // ── Student Login ──
   const handleStudentLogin = async () => {
     if (!studentId.trim()) {
-      setError("Student ID দিন (CSH_XXXXXX)");
+      setError("আপনার পুরো নাম অথবা Student ID দিন");
       return;
     }
     if (!loginPassword.trim()) {
@@ -98,12 +98,12 @@ export default function LoginModal({ open, onClose }: Props) {
     setLoading(true);
     setError("");
 
-    const result = await signInAsStudent(studentId.trim().toUpperCase(), loginPassword);
+    const result = await signInAsStudent(studentId.trim(), loginPassword);
 
     if (result.error) {
       setError(result.error);
     } else {
-      setSuccess("লগইন হচ্ছে...");
+      setSuccess("লগইন সফল হয়েছে...");
       setTimeout(() => onClose(), 800);
     }
     setLoading(false);
@@ -371,22 +371,21 @@ export default function LoginModal({ open, onClose }: Props) {
               </button>
 
               <h2 className="text-white text-[18px] font-semibold mb-1.5 tracking-[-0.01em]">
-                Student ID দিয়ে লগইন
+                নাম / Student ID দিয়ে লগইন
               </h2>
               <p className="text-gray-500 text-[13px] text-center mb-6 leading-relaxed">
-                তোমার Student ID ও পাসওয়ার্ড দিয়ে লগইন করো
+                তোমার পুরো নাম অথবা Student ID ও পাসওয়ার্ড দিয়ে সহজে লগইন করো
               </p>
 
-              {/* Student ID field */}
+              {/* Identifier field */}
               <div className="w-full mb-3">
-                <label className="text-[12px] text-gray-400 mb-1.5 block font-medium">Student ID</label>
+                <label className="text-[12px] text-gray-400 mb-1.5 block font-medium">নাম অথবা Student ID</label>
                 <input
                   type="text"
                   value={studentId}
-                  onChange={(e) => setStudentId(e.target.value.toUpperCase())}
-                  placeholder="CSH_XXXXXX"
-                  maxLength={10}
-                  className="w-full bg-white/[0.05] border border-white/[0.08] rounded-2xl px-4 py-3 text-[14px] text-white font-mono placeholder-gray-600 focus:outline-none focus:border-violet-500/40 focus:shadow-[0_0_0_4px_rgba(139,92,246,0.08)] focus:bg-white/[0.07] transition-all duration-300 tracking-[0.1em]"
+                  onChange={(e) => setStudentId(e.target.value)}
+                  placeholder="যেমন: আহমেদ রাফি অথবা CSH_XXXXXX"
+                  className="w-full bg-white/[0.05] border border-white/[0.08] rounded-2xl px-4 py-3 text-[14px] text-white placeholder-gray-600 focus:outline-none focus:border-violet-500/40 focus:shadow-[0_0_0_4px_rgba(139,92,246,0.08)] focus:bg-white/[0.07] transition-all duration-300 tracking-[-0.01em]"
                 />
               </div>
 
