@@ -265,7 +265,7 @@ export default function AppSidebar({
       ),
       action: () => {
         onNewChat();
-        if (pathname !== "/chat") router.push("/chat");
+        if (!pathname.startsWith("/chat")) router.push("/chat");
         setMobileOpen(false);
       },
       active: false,
