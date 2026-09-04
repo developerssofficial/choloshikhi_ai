@@ -1,17 +1,27 @@
 import type { Metadata, Viewport } from "next";
+import { Hind_Siliguri } from "next/font/google";
 import { AuthProvider } from "@/lib/auth";
 import StudentProfileSetup from "@/components/StudentProfileSetup";
 import "./globals.css";
 
+const hindSiliguri = Hind_Siliguri({
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["bengali", "latin"],
+  display: "swap",
+  variable: "--font-hind-siliguri",
+});
+
 export const viewport: Viewport = {
-  themeColor: "#0f0f14",
+  themeColor: "#09090e",
   width: "device-width",
   initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
 };
 
 export const metadata: Metadata = {
-  title: "চলো শিখি Ai",
-  description: "তোমার AI সহকারী — বিনামূল্যে চ্যাট করো, শেখো",
+  title: "চলো শিখি Ai — তোমার বুদ্ধিমত্তা সহকারী",
+  description: "বাংলায় কৃত্রিম বুদ্ধিমত্তা চালিত শিক্ষামূলক ও সার্বিক AI সহকারী — সম্পূর্ণ বিনামূল্যে চ্যাট ও শিখুন।",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
@@ -22,25 +32,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="bn">
+    <html lang="bn" className={hindSiliguri.variable}>
       <head>
         <link rel="manifest" href="/manifest.webmanifest" />
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/icons/icon-192.png" />
-        <meta name="theme-color" content="#0f0f14" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
+        <meta name="theme-color" content="#09090e" />
         <script
           dangerouslySetInnerHTML={{
-            __html: `if(typeof window!=='undefined'&&'serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(function(err){console.warn('SW registration failed',err);});}`,
+            __html: `if(typeof window!=='undefined'&&'serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(err){console.warn('SW registration failed',err);});});}`,
           }}
         />
       </head>
-      <body className="bg-[#0f0f14] text-white min-h-screen antialiased" style={{ fontFamily: "'Hind Siliguri', sans-serif" }}>
+      <body className="bg-[#09090e] text-slate-100 min-h-[100dvh] antialiased selection:bg-violet-500/25 selection:text-white font-sans">
         <AuthProvider>
           <StudentProfileSetup />
           {children}
