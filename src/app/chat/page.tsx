@@ -7,6 +7,7 @@ import TaskFlowChart from "@/components/TaskFlowChart";
 import TaskExecutionPanel from "@/components/TaskExecutionPanel";
 import AppSidebar from "@/components/AppSidebar";
 import EmojiPicker from "@/components/EmojiPicker";
+import ContextInspectorModal from "@/components/ContextInspectorModal";
 import type { TaskGraph, TaskClarification, TaskNodeStatus } from "@/lib/taskTypes";
 
 interface Message {
@@ -161,6 +162,7 @@ export default function ChatPage() {
   const [searchComplete, setSearchComplete] = useState<number | null>(null);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [showPromptModifiers, setShowPromptModifiers] = useState(false);
+  const [showContextInspector, setShowContextInspector] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [speechSupported, setSpeechSupported] = useState(false);
   const recognitionRef = useRef<any>(null);
@@ -573,6 +575,36 @@ export default function ChatPage() {
           </div>
 
           <div className="flex items-center gap-2">
+            {/* Live Context & Memory Capacity HUD Button */}
+            <button
+              onClick={() => setShowContextInspector(true)}
+              className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.04] hover:bg-violet-600/20 border border-violet-500/20 hover:border-violet-500/40 text-xs font-medium text-slate-300 hover:text-white transition-all shadow-sm group"
+              title="AI মেমোরি ও রিয়েল-টাইম কনটেক্সট ক্যাপাসিটি দেখুন"
+            >
+              <div className="flex items-center gap-1.5">
+                <span className="flex h-2 w-2 relative">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span className="text-[11px] text-slate-300 font-semibold flex items-center gap-1">
+                  🧠 মেমোরি: <span className="font-mono text-violet-300">{messages.length}/50</span>
+                </span>
+              </div>
+
+              {/* Mini Context Capacity Bar */}
+              <div className="hidden sm:flex items-center gap-1.5 pl-1.5 border-l border-white/10">
+                <div className="w-12 h-1.5 bg-white/10 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-gradient-to-r from-violet-500 to-emerald-400 rounded-full transition-all duration-300"
+                    style={{ width: `${Math.min(100, Math.max(8, (messages.length / 50) * 100))}%` }}
+                  />
+                </div>
+                <span className="text-[9px] text-emerald-400 font-mono font-medium">
+                  {messages.length === 0 ? "স্মার্ট" : `${Math.min(100, Math.round((messages.length / 50) * 100))}%`}
+                </span>
+              </div>
+            </button>
+
             {user ? (
               <span className="text-xs text-slate-400 hidden lg:inline font-mono">{user.email?.split("@")[0]}</span>
             ) : (
@@ -966,14 +998,42 @@ export default function ChatPage() {
               </button>
             </div>
 
-            {/* Engine & Model Indicator */}
-            <div className="flex items-center justify-center gap-2 mt-2 text-[11px] text-slate-500 font-medium">
-              <span className={`w-1.5 h-1.5 rounded-full ${mode === "education" ? "bg-emerald-400" : mode === "taskplan" ? "bg-sky-400" : "bg-violet-400"}`} />
-              <span>{mode === "education" ? "CholoShikhi Shikkhok (AI শিক্ষক)" : mode === "taskplan" ? "CholoShikhi Task Planner (স্মার্ট প্ল্যানার)" : "CholoShikhi AI 1.0 (Advanced)"}</span>
+            {/* Engine & Live Context Memory Indicator */}
+            <div className="flex flex-wrap items-center justify-between gap-2 mt-2 px-1 text-[11px] text-slate-500 font-medium">
+              <div className="flex items-center gap-1.5">
+                <span className={`w-1.5 h-1.5 rounded-full ${mode === "education" ? "bg-emerald-400" : mode === "taskplan" ? "bg-sky-400" : "bg-violet-400"}`} />
+                <span>{mode === "education" ? "CholoShikhi Shikkhok (AI শিক্ষক)" : mode === "taskplan" ? "CholoShikhi Task Planner (স্মার্ট প্ল্যানার)" : "CholoShikhi AI 1.0 (Advanced)"}</span>
+              </div>
+
+              {/* Clickable Live Context Memory Tracker Pill */}
+              <button
+                onClick={() => setShowContextInspector(true)}
+                className="flex items-center gap-1.5 text-[11px] text-slate-400 hover:text-violet-200 bg-white/[0.03] hover:bg-violet-600/15 px-2.5 py-0.5 rounded-full border border-white/[0.07] hover:border-violet-500/30 transition-all group"
+                title="AI এর মেমোরি ও কনটেক্সট বিস্তারিত দেখুন"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-slate-400 group-hover:text-slate-300">🧠 লাইভ মেমোরি:</span>
+                <span className="text-violet-300 font-mono font-semibold">{messages.length}টি মেসেজ সক্রিয়</span>
+                <span className="text-slate-500 hidden sm:inline">| (১০০% ক্যাপাসিটি)</span>
+              </button>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Context & Memory Inspector Modal */}
+      <ContextInspectorModal
+        isOpen={showContextInspector}
+        onClose={() => setShowContextInspector(false)}
+        sessionMessagesCount={messages.length}
+        totalWordsInSession={messages.reduce(
+          (acc, m) => acc + (m.content ? m.content.trim().split(/\s+/).filter(Boolean).length : 0),
+          0
+        )}
+        isLoggedIn={!!user}
+        getToken={getToken}
+        activeMode={mode}
+      />
     </div>
   );
 }
