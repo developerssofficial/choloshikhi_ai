@@ -94,9 +94,21 @@ function loadDataset() {
   const allQuestions: QuestionRecord[] = [];
 
   for (const book of cachedBooks!) {
+    book.book_name = book.book_name || (book as any).official_book_name || (book as any).normalized_book_name || "";
+    book.official_page_url = book.official_page_url || (book as any).official_class_page_url || "";
+
     const classDir = path.resolve(process.cwd(), `data/2026/primary/class-${book.class_number}/${book.slug}`);
+    const bookPath = path.join(classDir, "book.json");
     const chaptersPath = path.join(classDir, "chapters.json");
     const questionsPath = path.join(classDir, "questions.json");
+
+    if (fs.existsSync(bookPath)) {
+      try {
+        const fullBook = JSON.parse(fs.readFileSync(bookPath, "utf-8"));
+        Object.assign(book, fullBook);
+        book.book_name = fullBook.book_name || book.book_name;
+      } catch {}
+    }
 
     if (fs.existsSync(chaptersPath)) {
       const chapters: ChapterRecord[] = JSON.parse(fs.readFileSync(chaptersPath, "utf-8"));
