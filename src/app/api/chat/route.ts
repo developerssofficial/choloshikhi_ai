@@ -4,6 +4,7 @@ import { validateTaskGraph } from "@/lib/taskGraphValidator";
 import { verifyAuthUser } from "@/lib/supabase-auth";
 import { canSendMessage, incrementTeacherUsage } from "@/lib/subscription";
 import { filterProfanity } from "@/lib/profanityFilter";
+import { findSaptabarnaContext } from "@/lib/knowledge/saptabarna";
 
 /* ===== CONSTANTS ===== */
 const GEMINI_URL =
@@ -1147,6 +1148,12 @@ export async function POST(req: NextRequest) {
     // Inject user knowledge into system prompt
     if (userKnowledge) {
       activeSystemPrompt += userKnowledge;
+    }
+
+    // Grounded NCTB Textbook Knowledge Base (সপ্তবর্ণা — সপ্তম শ্রেণি বাংলা)
+    const saptabarnaContext = findSaptabarnaContext(message);
+    if (saptabarnaContext) {
+      activeSystemPrompt += saptabarnaContext;
     }
 
     /* ===== WEB SEARCH (Normal Mode only) ===== */
