@@ -5,6 +5,7 @@ import { verifyAuthUser } from "@/lib/supabase-auth";
 import { canSendMessage, incrementTeacherUsage } from "@/lib/subscription";
 import { filterProfanity } from "@/lib/profanityFilter";
 import { findSaptabarnaContext } from "@/lib/knowledge/saptabarna";
+import { findPrimaryTextbookContext } from "@/lib/knowledge/primaryTextbooks";
 
 /* ===== CONSTANTS ===== */
 const GEMINI_URL =
@@ -1154,6 +1155,12 @@ export async function POST(req: NextRequest) {
     const saptabarnaContext = findSaptabarnaContext(message);
     if (saptabarnaContext) {
       activeSystemPrompt += saptabarnaContext;
+    }
+
+    // Grounded NCTB Primary Textbooks Knowledge Base (১ম থেকে ৫ম শ্রেণি)
+    const primaryContext = findPrimaryTextbookContext(message);
+    if (primaryContext) {
+      activeSystemPrompt += primaryContext;
     }
 
     /* ===== WEB SEARCH (Normal Mode only) ===== */
