@@ -186,9 +186,26 @@ export default function ChatPage() {
     if (user) fetchSessions();
   }, [user, fetchSessions]);
 
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const userScrolledUpRef = useRef(false);
+
+  const handleScrollEvent = useCallback(() => {
+    if (!scrollContainerRef.current) return;
+    const { scrollTop, scrollHeight, clientHeight } = scrollContainerRef.current;
+    // If user is more than 150px away from bottom, they have scrolled up intentionally
+    const isNearBottom = scrollHeight - scrollTop - clientHeight < 150;
+    userScrolledUpRef.current = !isNearBottom;
+  }, []);
+
+  // Scroll to bottom only when user sends a message or when response finishes, without fighting user scroll
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages.length, typingText]);
+    if (!userScrolledUpRef.current && scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({
+        top: scrollContainerRef.current.scrollHeight,
+        behavior: "smooth",
+      });
+    }
+  }, [messages.length]);
 
   // Optimized Typewriter Effect for Gemini 3.1 Flash Lite
   useEffect(() => {
@@ -489,8 +506,12 @@ export default function ChatPage() {
 
         {/* Message Stream or Empty Welcome State */}
         {chatActive ? (
-          <div className="flex-1 overflow-y-auto px-3 sm:px-6 py-5">
-            <div className="max-w-3xl mx-auto space-y-4">
+          <div
+            ref={scrollContainerRef}
+            onScroll={handleScrollEvent}
+            className="flex-1 overflow-y-auto px-4 sm:px-8 pt-8 pb-12 scroll-smooth"
+          >
+            <div className="max-w-3xl mx-auto space-y-6">
               {messages.map((msg, i) => {
                 const isTyping = typingIdx === i;
                 const rawText = isTyping ? typingText : msg.content;
