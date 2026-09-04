@@ -124,7 +124,7 @@ export default function LoginModal({ open, onClose }: Props) {
           {/* Logo */}
           <div className="mb-5 relative">
             <div className="absolute inset-0 bg-violet-500/20 rounded-[20px] blur-xl" />
-            <img src="/logo-source.png" alt="CholoShikhi" className="relative w-[60px] h-[60px] rounded-[18px] object-contain shadow-[0_8px_32px_rgba(139,92,246,0.25)]" />
+            <img src="/logo.png" alt="CholoShikhi" className="relative w-[60px] h-[60px] rounded-[18px] object-contain shadow-[0_8px_32px_rgba(139,92,246,0.25)]" />
           </div>
 
           {/* ═══════════ MAIN VIEW ═══════════ */}

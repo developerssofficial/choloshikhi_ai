@@ -32,10 +32,18 @@ function getGreeting(): string {
   return "শুভ সন্ধ্যা";
 }
 
+const PROMPT_MODIFIERS = [
+  { label: "⚡ সহজ ভাষায়", prefix: "সহজ ও প্রাঞ্জল ভাষায় ছোট করে বুঝিয়ে দাও: " },
+  { label: "🔍 বিস্তারিত ব্যাখ্যা", prefix: "বাস্তব উদাহরণ ও গভীর বিশ্লেষণসহ সম্পূর্ণ বুঝিয়ে দাও: " },
+  { label: "📐 স্টেপ-বাই-স্টেপ", prefix: "প্রতিটি ধাপ ও সূত্র স্পষ্টভাবে উল্লেখ করে স্টেপ-বাই-স্টেপ সমাধান করো: " },
+  { label: "📝 সারাংশ", prefix: "এর মূল বিষয়বস্তু ও সারাংশ বুলেট পয়েন্ট আকারে দাও: " },
+  { label: "💡 পরীক্ষার জন্য গুরুত্বপূর্ণ", prefix: "পরীক্ষায় ভালো নম্বর পাওয়ার উপযোগী উত্তর ও গুরুত্বপূর্ণ পয়েন্টগুলো তুলে ধরো: " },
+];
+
 const SUGGESTIONS = [
   { icon: "💡", label: "ধারণা শেখো", text: "আমাকে সহজ ভাষায় কোয়ান্টাম ফিজিক্সের মূল ধারণা বোঝাও" },
   { icon: "📐", label: "গণিত সমাধান", text: "দ্বিঘাত সমীকরণ কীভাবে সমাধান করতে হয় উদাহরণসহ দেখাও" },
-  { icon: "✍️", label: "বাংলা রচনা/চিঠি", text: "একটি আনুষ্ঠানিক ছুটির আবেদনের ড্রাফট তৈরি করো" },
+  { icon: "✍️", label: "বাংলা রচনা/আবেদন", text: "একটি আনুষ্ঠানিক ছুটির আবেদনের সঠিক ফরম্যাট তৈরি করো" },
   { icon: "📋", label: "পড়ার রুটিন", text: "আমার আসন্ন পরীক্ষার জন্য একটি ভারসাম্যপূর্ণ সাপ্তাহিক পড়ার প্ল্যান বানাও" },
 ];
 
@@ -47,7 +55,6 @@ function getDomain(url: string): string {
   }
 }
 
-// Guest memory: localStorage-based conversation memory
 const GUEST_MEMORY_KEY = "choloshikhi_guest_memory";
 const GUEST_MEMORY_LIMIT = 50;
 
@@ -122,7 +129,7 @@ function sanitizeDisplayText(text: string): string {
 }
 
 export default function ChatPage() {
-  const { user, loading, signInWithGoogle, signOut, getToken, isElectron } = useAuth();
+  const { user, loading, signInWithGoogle, getToken, isElectron } = useAuth();
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
@@ -134,9 +141,9 @@ export default function ChatPage() {
   const [loadingSessions, setLoadingSessions] = useState(false);
   const [copiedIdx, setCopiedIdx] = useState<number | null>(null);
   const [mode, setMode] = useState<"normal" | "education" | "taskplan">("normal");
-  const [searching, setSearching] = useState(false);
   const [searchComplete, setSearchComplete] = useState<number | null>(null);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+  const [showPromptModifiers, setShowPromptModifiers] = useState(false);
 
   const searchCompleteRef = useRef<NodeJS.Timeout | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -179,18 +186,16 @@ export default function ChatPage() {
     if (user) fetchSessions();
   }, [user, fetchSessions]);
 
-  // Smooth scroll
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages.length, typingText]);
 
-  // Optimized Typewriter Effect with Chunking
+  // Optimized Typewriter Effect for Gemini 3.1 Flash Lite
   useEffect(() => {
     if (typingIdx === null) return;
     const fullText = messages[typingIdx]?.content;
     if (!fullText) return;
 
-    // Instant render for formulas, short text or structured data to avoid layout jumping
     if (
       fullText.length < 15 ||
       fullText.includes("$$") ||
@@ -208,7 +213,6 @@ export default function ChatPage() {
     setTypingText("");
     let currentLength = 0;
     const totalLength = fullText.length;
-    // Chunk dynamically based on total length to ensure smooth 60fps render
     const chunkSize = totalLength > 400 ? 6 : totalLength > 150 ? 3 : 2;
 
     const streamChunk = () => {
@@ -286,6 +290,8 @@ export default function ChatPage() {
     const imageToSend = imagePreview;
     setInput("");
     setImagePreview(null);
+    setShowPromptModifiers(false);
+
     setMessages((prev) => [
       ...prev,
       {
@@ -378,11 +384,21 @@ export default function ChatPage() {
     e.target.value = "";
   };
 
+  const applyModifier = (modifier: typeof PROMPT_MODIFIERS[0]) => {
+    if (input.trim()) {
+      setInput(modifier.prefix + input.trim());
+    } else {
+      setInput(modifier.prefix);
+    }
+    setShowPromptModifiers(false);
+    inputRef.current?.focus();
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[100dvh] bg-[#09090e]">
         <div className="flex flex-col items-center gap-4 animate-fade-in">
-          <img src="/logo-source.png" alt="CholoShikhi" className="w-14 h-14 rounded-2xl object-contain shadow-[0_0_30px_rgba(139,92,246,0.35)]" />
+          <img src="/logo.png" alt="CholoShikhi" className="w-14 h-14 rounded-2xl object-contain shadow-[0_0_30px_rgba(139,92,246,0.35)]" />
           <div className="flex gap-1.5 items-center">
             <div className="w-2 h-2 bg-violet-400 rounded-full animate-bounce" />
             <div className="w-2 h-2 bg-violet-400 rounded-full animate-bounce [animation-delay:0.15s]" />
@@ -427,7 +443,7 @@ export default function ChatPage() {
                   : "text-slate-400 hover:text-slate-200"
               }`}
             >
-              Normal
+              সাধারণ
             </button>
             <button
               onClick={() => setMode("education")}
@@ -453,7 +469,7 @@ export default function ChatPage() {
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
               </svg>
-              টাস্ক
+              টাস্ক প্ল্যানার
             </button>
           </div>
 
@@ -488,8 +504,8 @@ export default function ChatPage() {
                     }`}
                   >
                     {msg.role === "assistant" && (
-                      <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-600 to-indigo-700 flex items-center justify-center p-1.5 shadow-md shadow-violet-500/20 shrink-0 mt-0.5">
-                        <img src="/icons/icon-192.png" alt="AI" className="w-full h-full object-contain rounded-lg" />
+                      <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-600 to-indigo-700 flex items-center justify-center p-1 shadow-md shadow-violet-500/20 shrink-0 mt-0.5">
+                        <img src="/logo.png" alt="AI" className="w-full h-full object-contain rounded-lg" />
                       </div>
                     )}
 
@@ -622,8 +638,8 @@ export default function ChatPage() {
 
               {sending && (
                 <div className="flex items-center gap-3 animate-fade-in">
-                  <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-600 to-indigo-700 flex items-center justify-center p-1.5 shrink-0 shadow-md shadow-violet-500/20">
-                    <img src="/icons/icon-192.png" alt="AI" className="w-full h-full object-contain rounded-lg" />
+                  <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-violet-600 to-indigo-700 flex items-center justify-center p-1 shrink-0 shadow-md shadow-violet-500/20">
+                    <img src="/logo.png" alt="AI" className="w-full h-full object-contain rounded-lg" />
                   </div>
                   <div className="glass-panel px-4 py-3 rounded-2xl rounded-tl-sm flex items-center gap-2 text-xs text-slate-400">
                     <div className="flex gap-1">
@@ -644,7 +660,7 @@ export default function ChatPage() {
             <div className="mb-6 relative">
               <div className="absolute inset-0 bg-violet-600/30 rounded-3xl blur-2xl animate-pulse-subtle" />
               <img
-                src="/logo-source.png"
+                src="/logo.png"
                 alt="CholoShikhi"
                 className="relative w-20 h-20 rounded-3xl object-contain shadow-[0_0_40px_rgba(139,92,246,0.35)]"
               />
@@ -652,12 +668,12 @@ export default function ChatPage() {
             <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-2">
               {getGreeting()}{user ? `, ${user.name || "শিক্ষার্থী"}` : ""}
             </h1>
-            <p className="text-slate-400 text-sm max-w-md mb-8">
+            <p className="text-slate-400 text-sm max-w-md mb-6">
               {mode === "education"
                 ? "শিক্ষক মোড সক্রিয় — যে কোনো জটিল বিষয় স্টেপ-বাই-স্টেপ সহজে শেখো।"
                 : mode === "taskplan"
-                ? "টাস্ক প্ল্যানার সক্রিয় — যে কোনো জটিল কাজের জন্য স্বয়ংক্রিয় পরিকল্পনা তৈরি করো।"
-                : "আমি চলো শিখি AI — তোমার যে কোনো প্রশ্নের নির্ভুল ও সহজ বাংলা উত্তর পেতে সাহায্য করি।"}
+                ? "টাস্ক প্ল্যানার সক্রিয় — যে কোনো বড় কাজ স্বয়ংক্রিয় পরিকল্পনায় রূপান্তর করো।"
+                : "আমি চলো শিখি AI (Gemini 3.1 Flash Lite) — তোমার যে কোনো পড়াশোনা ও প্রশ্নের বিশ্বস্ত সমাধানকারী।"}
             </p>
           </div>
         )}
@@ -665,9 +681,9 @@ export default function ChatPage() {
         {/* ===== INPUT DOCK ===== */}
         <div className="px-3 sm:px-6 pb-4 sm:pb-6 shrink-0">
           <div className="max-w-3xl mx-auto">
-            {/* Suggestion Chips */}
+            {/* Quick Suggestion Cards on Welcome Screen */}
             {!chatActive && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4 animate-fade-in">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3.5 animate-fade-in">
                 {SUGGESTIONS.map((s, i) => (
                   <button
                     key={i}
@@ -679,6 +695,44 @@ export default function ChatPage() {
                       <span>{s.label}</span>
                     </div>
                     <p className="text-xs text-slate-400 group-hover:text-slate-200 mt-1 line-clamp-1">{s.text}</p>
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {/* Prompt Enhancer Presets Toggle Bar */}
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none">
+              <button
+                onClick={() => setShowPromptModifiers(!showPromptModifiers)}
+                className="px-2.5 py-1 text-[11px] font-medium rounded-lg glass-panel text-violet-300 hover:text-white border border-violet-500/30 flex items-center gap-1 shrink-0 transition-colors"
+                title="প্রম্পট মডিফায়ার"
+              >
+                <span>✨ প্রম্পট সহকারী</span>
+                <span className="text-[10px]">{showPromptModifiers ? "▲" : "▼"}</span>
+              </button>
+
+              {PROMPT_MODIFIERS.map((m, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => applyModifier(m)}
+                  className="px-2.5 py-1 text-[11px] rounded-lg glass-panel-subtle text-slate-400 hover:text-white hover:border-white/20 shrink-0 transition-all"
+                >
+                  {m.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Expanded Modifier Helper */}
+            {showPromptModifiers && (
+              <div className="mb-2 p-3 glass-dock rounded-2xl border border-violet-500/30 grid grid-cols-1 sm:grid-cols-2 gap-2 animate-scale-up text-left">
+                {PROMPT_MODIFIERS.map((m, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => applyModifier(m)}
+                    className="p-2 rounded-xl bg-white/[0.03] hover:bg-violet-600/20 border border-white/[0.06] text-left transition-colors"
+                  >
+                    <p className="text-xs font-semibold text-violet-300">{m.label}</p>
+                    <p className="text-[10px] text-slate-400 mt-0.5 line-clamp-1">{m.prefix}</p>
                   </button>
                 ))}
               </div>
@@ -763,10 +817,10 @@ export default function ChatPage() {
               </button>
             </div>
 
-            {/* Model & Status Indicator */}
+            {/* Engine & Model Indicator */}
             <div className="flex items-center justify-center gap-2 mt-2 text-[11px] text-slate-500 font-medium">
               <span className={`w-1.5 h-1.5 rounded-full ${mode === "education" ? "bg-emerald-400" : mode === "taskplan" ? "bg-sky-400" : "bg-violet-400"}`} />
-              <span>{mode === "education" ? "CholoShikhi Shikkhok 1.0" : mode === "taskplan" ? "CholoShikhi Task Planner" : "CholoShikhi 1.0"}</span>
+              <span>{mode === "education" ? "CholoShikhi Shikkhok (Gemini 3.1 Flash Lite)" : mode === "taskplan" ? "CholoShikhi Task Planner (Gemini 3.1 Flash Lite)" : "CholoShikhi 1.0 (Gemini 3.1 Flash Lite)"}</span>
             </div>
           </div>
         </div>

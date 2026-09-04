@@ -1310,36 +1310,13 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    /* ===== STRIP MARKDOWN (clean text for frontend, preserve LaTeX) ===== */
+    /* ===== CLEAN RESPONSE: PRESERVE RICH MARKDOWN & KATEX, STRIP ONLY LEAKED JSON ===== */
     if (response) {
-      const latexBlocks: string[] = [];
-      response = response.replace(/\$\$([\s\S]+?)\$\$/g, (_, m) => { latexBlocks.push(m); return `§§BLK${latexBlocks.length - 1}§§`; });
-      response = response.replace(/\\\[([\s\S]+?)\\\]/g, (_, m) => { latexBlocks.push(m); return `§§BLK${latexBlocks.length - 1}§§`; });
-      response = response.replace(/\\\((.+?)\\\)/g, (_, m) => { latexBlocks.push(m); return `§§INL${latexBlocks.length - 1}§§`; });
-      response = response.replace(/\$([^\$\n]+?)\$/g, (_, m) => { latexBlocks.push(m); return `§§INL${latexBlocks.length - 1}§§`; });
-
-      response = response
-        .replace(/\*\*(.+?)\*\*/g, "$1")
-        .replace(/\*(.+?)\*/g, "$1")
-        .replace(/__(.+?)__/g, "$1")
-        .replace(/~~(.+?)~~/g, "$1")
-        .replace(/`{3}[\s\S]*?`{3}/g, (m) => m.replace(/`{3}\w*\n?/g, "").replace(/`{3}/g, ""))
-        .replace(/`(.+?)`/g, "$1")
-        .replace(/^#{1,6}\s+/gm, "")
-        .replace(/^[-*+]\s+/gm, "• ")
-        .replace(/^>\s+/gm, "")
-        .replace(/---+/g, "")
-        .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
-        .trim();
-
-      // Restore LaTeX
-      for (let i = latexBlocks.length - 1; i >= 0; i--) {
-        response = response.replace(`§§BLK${i}§§`, `$$${latexBlocks[i]}$$`);
-        response = response.replace(`§§INL${i}§§`, `$${latexBlocks[i]}$`);
-      }
-
-      // Final safety: strip any remaining JSON-like content that might leak
+      // Strip any raw JSON codeblocks or leaked JSON objects
       response = response.replace(/```json[\s\S]*?```/g, "").trim();
+      if (/^\{[\s\S]*\}$/.test(response) && response.includes('"action"')) {
+        response = "আমি আপনার অনুরোধটি প্রসেস করেছি।";
+      }
     }
 
     /* ===== CACHE ===== */
