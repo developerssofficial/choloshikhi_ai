@@ -932,7 +932,11 @@ async function callGemini(
     if (img) {
       parts.push({ inlineData: { mimeType: img.mimeType, data: img.data } });
     }
-    parts.push({ text: "এই ছবিটি দেখো এবং বাংলায় বর্ণনা করো। পরীক্ষার প্রশ্ন হলে উত্তর বাংলায় দাও। অ্যানিমে/ছবি হলে বাংলায় বর্ণনা করো।\n\nUser asked: " + message });
+    const isPdf = img?.mimeType === "application/pdf";
+    const promptText = isPdf
+      ? "এই PDF ডকুমেন্টটি মনোযোগ দিয়ে বিশ্লেষণ করো এবং ব্যবহারকারীর প্রশ্নের যথাযথ উত্তর বাংলায় দাও। সামারি, গুরুত্বপূর্ণ পয়েন্ট বা পরীক্ষার প্রশ্ন চাইলে সুন্দর ও প্রাঞ্জলভাবে ব্যাখ্যা করো।\n\nUser asked: " + message
+      : "এই ছবিটি দেখো এবং বাংলায় বর্ণনা করো। পরীক্ষার প্রশ্ন হলে উত্তর বাংলায় দাও। অ্যানিমে/ছবি হলে বাংলায় বর্ণনা করো।\n\nUser asked: " + message;
+    parts.push({ text: promptText });
   } else {
     parts.push({ text: message });
   }

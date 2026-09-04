@@ -152,6 +152,7 @@ export default function ChatPage() {
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [attachmentName, setAttachmentName] = useState<string | null>(null);
   const [typingIdx, setTypingIdx] = useState<number | null>(null);
   const [typingText, setTypingText] = useState("");
   const [sessionId, setSessionId] = useState<string | null>(null);
@@ -387,18 +388,19 @@ export default function ChatPage() {
     setTypingIdx(null);
     setTypingText("");
 
-    const userMsg = msg || "এই ছবিটি দেখে বুঝাও";
-    const imageToSend = imagePreview;
+    const fileToSend = imagePreview;
+    const userMsg = msg || (fileToSend?.startsWith("data:application/pdf") ? "এই PDF ফাইলটি দেখে সামারি ও বিস্তারিত বুঝিয়ে দাও" : "এই ছবিটি দেখে বুঝাও");
     setInput("");
     setImagePreview(null);
+    setAttachmentName(null);
     setShowPromptModifiers(false);
 
     setMessages((prev) => [
       ...prev,
       {
         role: "user",
-        content: msg || "🖼️ ছবি পাঠানো হয়েছে",
-        ...(imageToSend ? { image: imageToSend } : {}),
+        content: msg || (fileToSend?.startsWith("data:application/pdf") ? "📄 PDF ফাইল পাঠানো হয়েছে" : "🖼️ ছবি পাঠানো হয়েছে"),
+        ...(fileToSend ? { image: fileToSend } : {}),
       },
     ]);
     setSending(true);
@@ -408,7 +410,7 @@ export default function ChatPage() {
     let activeSessionId = sessionId;
     if (user && !activeSessionId && !sessionCreatedRef.current) {
       sessionCreatedRef.current = true;
-      const title = (msg || "Image chat").slice(0, 45);
+      const title = (msg || (fileToSend?.startsWith("data:application/pdf") ? "PDF Chat" : "Image chat")).slice(0, 45);
       activeSessionId = await createSession(title);
       if (activeSessionId) setSessionId(activeSessionId);
     }
@@ -425,7 +427,7 @@ export default function ChatPage() {
           message: userMsg,
           sessionId: activeSessionId,
           mode,
-          image: imageToSend || null,
+          image: fileToSend || null,
           guestMemory: !user ? loadGuestMemory() : undefined,
         }),
       });
@@ -472,13 +474,14 @@ export default function ChatPage() {
     }
   };
 
-  const handleImageSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    if (file.size > 5 * 1024 * 1024) {
-      alert("ছবির সাইজ ৫MB এর বেশি হতে পারবে না।");
+    if (file.size > 20 * 1024 * 1024) {
+      alert("ফাইলের সাইজ ২০MB এর বেশি হতে পারবে না।");
       return;
     }
+    setAttachmentName(file.name);
     const reader = new FileReader();
     reader.onload = () => setImagePreview(reader.result as string);
     reader.readAsDataURL(file);
@@ -657,11 +660,21 @@ export default function ChatPage() {
                         }`}
                       >
                         {msg.image && (
-                          <img
-                            src={msg.image}
-                            alt="Uploaded attachment"
-                            className="mb-2.5 rounded-xl max-h-56 w-auto object-cover border border-white/10"
-                          />
+                          msg.image.startsWith("data:application/pdf") ? (
+                            <div className="mb-2.5 flex items-center gap-2.5 px-3 py-2 rounded-xl bg-black/40 border border-violet-500/30 text-xs text-violet-200">
+                              <span className="text-xl">📄</span>
+                              <div>
+                                <p className="font-semibold text-violet-200">সংযুক্ত PDF ডকুমেন্ট</p>
+                                <p className="text-[10px] text-slate-400">PDF ফাইল সফলভাবে প্রসেস করা হয়েছে</p>
+                              </div>
+                            </div>
+                          ) : (
+                            <img
+                              src={msg.image}
+                              alt="Uploaded attachment"
+                              className="mb-2.5 rounded-xl max-h-56 w-auto object-cover border border-white/10"
+                            />
+                          )
                         )}
 
                         {msg.role === "assistant" ? (
@@ -821,28 +834,44 @@ export default function ChatPage() {
         {/* ===== INPUT DOCK ===== */}
         <div className="px-3 sm:px-6 pb-4 sm:pb-6 shrink-0">
           <div className="max-w-3xl mx-auto">
-            {/* Image Preview Chip */}
+            {/* Image & PDF Preview Chip */}
             {imagePreview && (
-              <div className="mb-2.5 inline-flex items-center gap-2 px-3 py-1.5 glass-panel rounded-xl border border-violet-500/30 animate-fade-in">
-                <img src={imagePreview} alt="Preview" className="h-8 w-8 rounded-md object-cover" />
-                <span className="text-xs text-slate-300">ছবি যুক্ত হয়েছে</span>
-                <button onClick={() => setImagePreview(null)} className="text-slate-400 hover:text-rose-400 text-xs ml-1">✕</button>
+              <div className="mb-2.5 inline-flex items-center gap-2 px-3 py-1.5 glass-panel rounded-xl border border-violet-500/30 animate-fade-in shadow-lg">
+                {imagePreview.startsWith("data:application/pdf") ? (
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-base">📄</span>
+                    <span className="text-xs text-violet-200 font-medium truncate max-w-[200px] sm:max-w-[320px]">
+                      {attachmentName || "PDF ফাইল"}
+                    </span>
+                  </div>
+                ) : (
+                  <img src={imagePreview} alt="Preview" className="h-8 w-8 rounded-md object-cover" />
+                )}
+                <button
+                  onClick={() => {
+                    setImagePreview(null);
+                    setAttachmentName(null);
+                  }}
+                  className="text-slate-400 hover:text-rose-400 text-xs ml-1"
+                >
+                  ✕
+                </button>
               </div>
             )}
 
             {/* Floating Glass Input Container */}
             <div className="relative glass-dock rounded-2xl sm:rounded-3xl p-2 flex items-center gap-2 border border-white/[0.1] shadow-2xl focus-within:border-violet-500/50 focus-within:shadow-[0_0_25px_rgba(139,92,246,0.15)] transition-all">
-              <input ref={fileRef} type="file" accept="image/*" onChange={handleImageSelect} className="hidden" />
+              <input ref={fileRef} type="file" accept="image/*,application/pdf" onChange={handleFileSelect} className="hidden" />
 
-              {/* Upload image */}
+              {/* Upload image / PDF */}
               <button
                 onClick={() => fileRef.current?.click()}
                 disabled={sending}
                 className="w-9 h-9 rounded-xl flex items-center justify-center text-slate-400 hover:text-violet-400 hover:bg-violet-500/10 transition-colors disabled:opacity-40 shrink-0"
-                title="ছবি আপলোড"
+                title="ছবি বা PDF আপলোড করুন"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
                 </svg>
               </button>
 
