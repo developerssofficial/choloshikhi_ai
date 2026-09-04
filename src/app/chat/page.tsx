@@ -144,6 +144,9 @@ export default function ChatPage() {
   const [searchComplete, setSearchComplete] = useState<number | null>(null);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [showPromptModifiers, setShowPromptModifiers] = useState(false);
+  const [isListening, setIsListening] = useState(false);
+  const [speechSupported, setSpeechSupported] = useState(false);
+  const recognitionRef = useRef<any>(null);
 
   const searchCompleteRef = useRef<NodeJS.Timeout | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -151,6 +154,68 @@ export default function ChatPage() {
   const inputRef = useRef<HTMLInputElement>(null);
   const animationFrameRef = useRef<number | null>(null);
   const sessionCreatedRef = useRef(false);
+
+  // Initialize Web Speech API for 100% Free Voice-to-Text
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+      if (SpeechRecognition) {
+        setSpeechSupported(true);
+        const recognition = new SpeechRecognition();
+        recognition.continuous = true;
+        recognition.interimResults = true;
+        recognition.lang = "bn-BD"; // Bengali (Bangladesh) with natural English support
+
+        recognition.onresult = (event: any) => {
+          let currentTranscript = "";
+          for (let i = event.resultIndex; i < event.results.length; i++) {
+            currentTranscript += event.results[i][0].transcript;
+          }
+          if (currentTranscript) {
+            setInput((prev) => {
+              const trimmed = currentTranscript.trim();
+              if (!prev) return trimmed;
+              if (prev.endsWith(trimmed)) return prev;
+              return `${prev} ${trimmed}`;
+            });
+          }
+        };
+
+        recognition.onerror = (event: any) => {
+          console.warn("[Voice] Speech recognition error:", event.error);
+          setIsListening(false);
+        };
+
+        recognition.onend = () => {
+          setIsListening(false);
+        };
+
+        recognitionRef.current = recognition;
+      }
+    }
+  }, []);
+
+  const toggleVoiceInput = () => {
+    if (!speechSupported) {
+      alert("আপনার ব্রাউজারে Voice-to-Text সাপোর্ট করে না। দয়া করে Chrome বা Edge ব্রাউজার ব্যবহার করুন।");
+      return;
+    }
+
+    if (isListening) {
+      try {
+        recognitionRef.current?.stop();
+      } catch {}
+      setIsListening(false);
+    } else {
+      try {
+        recognitionRef.current?.start();
+        setIsListening(true);
+      } catch (err) {
+        console.warn("[Voice] Start failed:", err);
+        setIsListening(false);
+      }
+    }
+  };
 
   // ── Task Execution State ──────────────────────────────────────
   const [executionId, setExecutionId] = useState<string | null>(null);
@@ -803,6 +868,26 @@ export default function ChatPage() {
                 />
               )}
 
+              {/* Voice to Text (Mic) Button */}
+              <button
+                onClick={toggleVoiceInput}
+                disabled={sending}
+                className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200 shrink-0 ${
+                  isListening
+                    ? "bg-rose-500 text-white shadow-[0_0_15px_rgba(244,63,94,0.6)] animate-pulse scale-105"
+                    : "text-slate-400 hover:text-violet-400 hover:bg-violet-500/10"
+                }`}
+                title={isListening ? "ভয়েস রেকর্ড বন্ধ করুন" : "মুখে বলে লিখুন (Voice-to-Text)"}
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  {isListening ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                  )}
+                </svg>
+              </button>
+
               {/* Text Input */}
               <input
                 ref={inputRef}
@@ -811,14 +896,18 @@ export default function ChatPage() {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSend()}
                 placeholder={
-                  mode === "education"
+                  isListening
+                    ? "🎤 মুখে বলুন... (বাংলা বা ইংরেজিতে)"
+                    : mode === "education"
                     ? "কী শিখতে চাও? যেকোনো প্রশ্ন করো..."
                     : mode === "taskplan"
                     ? "কোন কাজটি সম্পন্ন করতে চাও লিখো..."
                     : "চলো শিখি AI কে কিছু জিজ্ঞাসা করো..."
                 }
                 disabled={sending}
-                className="flex-1 bg-transparent text-white placeholder-slate-500 focus:outline-none text-sm disabled:opacity-40 px-1"
+                className={`flex-1 bg-transparent text-white focus:outline-none text-sm disabled:opacity-40 px-1 ${
+                  isListening ? "placeholder-rose-300 animate-pulse font-medium" : "placeholder-slate-500"
+                }`}
               />
 
               {/* Send Button */}
