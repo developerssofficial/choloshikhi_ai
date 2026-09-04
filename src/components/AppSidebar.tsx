@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useAuth } from "@/lib/auth";
 import { useRouter, usePathname } from "next/navigation";
 import LoginModal from "@/components/LoginModal";
@@ -30,6 +30,114 @@ function formatDate(d: string): string {
   }
 }
 
+export const STUDY_PROMPTS = [
+  {
+    icon: "⚡",
+    label: "সহজ ভাষায়",
+    desc: "জটিল বিষয় ছোট ও সহজ বাংলায় ব্যাখ্যা",
+    prefix: "সহজ ও প্রাঞ্জল ভাষায় ছোট করে বুঝিয়ে দাও: ",
+  },
+  {
+    icon: "🔍",
+    label: "বিস্তারিত ব্যাখ্যা",
+    desc: "বাস্তব উদাহরণ ও গভীর বিশ্লেষণসহ সম্পূর্ণ উত্তর",
+    prefix: "বাস্তব উদাহরণ ও গভীর বিশ্লেষণসহ সম্পূর্ণ বুঝিয়ে দাও: ",
+  },
+  {
+    icon: "📐",
+    label: "স্টেপ-বাই-স্টেপ সমাধান",
+    desc: "প্রতিটি ধাপ ও সূত্র স্পষ্টভাবে বুঝিয়ে সমাধান",
+    prefix: "প্রতিটি ধাপ ও সূত্র স্পষ্টভাবে উল্লেখ করে স্টেপ-বাই-স্টেপ সমাধান করো: ",
+  },
+  {
+    icon: "📝",
+    label: "সারাংশ ও রিভিশন",
+    desc: "মূল বিষয়বস্তু বুলেট পয়েন্ট আকারে দ্রুত রিভিশন",
+    prefix: "এর মূল বিষয়বস্তু ও সারাংশ বুলেট পয়েন্ট আকারে দাও: ",
+  },
+  {
+    icon: "💡",
+    label: "পরীক্ষার জন্য গুরুত্বপূর্ণ",
+    desc: "পরীক্ষায় ভালো নম্বর পাওয়ার টেকনিক ও টিপস",
+    prefix: "পরীক্ষায় ভালো নম্বর পাওয়ার উপযোগী উত্তর ও গুরুত্বপূর্ণ পয়েন্টগুলো তুলে ধরো: ",
+  },
+  {
+    icon: "🎯",
+    label: "MCQ কুইজ টেস্ট",
+    desc: "৫টি বোর্ড স্ট্যান্ডার্ড MCQ প্রশ্ন ও সমাধান",
+    prefix: "এই বিষয়ের উপর ৫টি গুরুত্বপূর্ণ MCQ প্রশ্ন তৈরি করো এবং নিচে সঠিক উত্তর ও ব্যাখ্যা দাও: ",
+  },
+  {
+    icon: "✍️",
+    label: "CQ সৃজনশীল প্রশ্ন",
+    desc: "জ্ঞান, অনুধাবন, প্রয়োগ ও উচ্চতর দক্ষতা প্রশ্ন",
+    prefix: "জ্ঞান, অনুধাবন, প্রয়োগ ও উচ্চতর দক্ষতা অনুযায়ী ১টি আদর্শ সৃজনশীল প্রশ্ন ও উত্তর লেখো: ",
+  },
+  {
+    icon: "📊",
+    label: "সূত্রাবলি তালিকা",
+    desc: "অধ্যায়ের সকল সূত্র, একক ও প্রতীক এক নজরে",
+    prefix: "এই অধ্যায়ের সকল প্রয়োজনীয় সূত্র, একক ও প্রতীক এক নজরে তালিকাভুক্ত করো: ",
+  },
+  {
+    icon: "🇬🇧",
+    label: "গ্রামার ও বাক্য চেক",
+    desc: "ইংরেজি বা বাংলা লেখার ভুল সংশোধন",
+    prefix: "নিচের লেখার গ্রামার ও বানান নির্ভুল করে উন্নত বাক্য গঠন দেখাও: ",
+  },
+];
+
+export const SUBJECT_PRESETS = [
+  {
+    icon: "📐",
+    subject: "গণিত",
+    desc: "বীজগণিত, জ্যামিতি, ত্রিকোণমিতি ও ক্যালকুলাস",
+    prompt: "গণিতের এই সমস্যাটি প্রতিটি ধাপ ও সূত্রের বিবরণসহ সহজ ভাষায় সমাধান করে দাও: ",
+  },
+  {
+    icon: "⚡",
+    subject: "পদার্থবিজ্ঞান",
+    desc: "গতিবিদ্যা, কাজ-ক্ষমতা, বিদ্যুৎ ও আধুনিক পদার্থবিজ্ঞান",
+    prompt: "পদার্থবিজ্ঞানের এই সূত্র ও গাণিতিক সমস্যাটি বাস্তব উদাহরণসহ বুঝিয়ে দাও: ",
+  },
+  {
+    icon: "🧪",
+    subject: "রসায়ন",
+    desc: "রাসায়নিক বিক্রিয়া, পর্যায় সারণি ও সমতাকরণ",
+    prompt: "এই রাসায়নিক বিক্রিয়া, সমীকরণ সমতাকরণ ও বিক্রিয়ার কারণ বুঝিয়ে দাও: ",
+  },
+  {
+    icon: "🧬",
+    subject: "জীববিজ্ঞান",
+    desc: "কোষ, বংশগতিবিদ্যা, শারীরতত্ত্ব ও চিত্রভিত্তিক নোট",
+    prompt: "জীববিজ্ঞানের এই প্রক্রিয়া ও গুরুত্বপূর্ণ টার্মগুলো সুন্দর পয়েন্ট আকারে ব্যাখ্যা করো: ",
+  },
+  {
+    icon: "🇬🇧",
+    subject: "English Grammar",
+    desc: "Tense, Modifiers, Right Forms of Verbs & Rules",
+    prompt: "Help me with English grammar, rules, and example sentences for: ",
+  },
+  {
+    icon: "🇧🇩",
+    subject: "বাংলা ব্যাকরণ",
+    desc: "কারক, সমাস, সন্ধি, উপসর্গ ও বাক্য রূপান্তর",
+    prompt: "বাংলা ২য় পত্রের ব্যাকরণ নিয়ম ও উদাহরণসহ বুঝিয়ে দাও: ",
+  },
+  {
+    icon: "💻",
+    subject: "ICT ও কোডিং",
+    desc: "লজিক গেট, বাইনারি রূপান্তর, HTML ও C প্রোগ্রামিং",
+    prompt: "এইচএসসি ICT এর লজিক গেট, বাইনারি রূপান্তর বা সি প্রোগ্রামিং বুঝিয়ে দাও: ",
+  },
+  {
+    icon: "🎯",
+    subject: "BCS ও চাকরি প্রস্তুতি",
+    desc: "বিগত বছরের প্রশ্ন ব্যাংক ও শর্টকাট টেকনিক",
+    prompt: "বিসিএস ও সরকারি চাকরির বিগত বছরের গুরুত্বপূর্ণ প্রশ্ন ও টেকনিক: ",
+  },
+];
+
 interface Props {
   onNewChat: () => void;
   onLoadSession: (id: string) => void;
@@ -37,6 +145,7 @@ interface Props {
   sessions: ChatSession[];
   loadingSessions: boolean;
   onFetchSessions: () => void;
+  onSelectPrompt?: (prompt: string) => void;
 }
 
 export default function AppSidebar({
@@ -46,11 +155,14 @@ export default function AppSidebar({
   sessions,
   loadingSessions,
   onFetchSessions,
+  onSelectPrompt,
 }: Props) {
   const { user, signOut, isElectron, getToken } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
   const [showHistory, setShowHistory] = useState(false);
+  const [showStudyHub, setShowStudyHub] = useState(false);
+  const [studyTab, setStudyTab] = useState<"tools" | "subjects">("tools");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showAccount, setShowAccount] = useState(false);
@@ -78,7 +190,18 @@ export default function AppSidebar({
   const toggleHistory = () => {
     const next = !showHistory;
     setShowHistory(next);
-    if (next && user) onFetchSessions();
+    if (next) {
+      setShowStudyHub(false);
+      if (user) onFetchSessions();
+    }
+  };
+
+  const toggleStudyHub = () => {
+    const next = !showStudyHub;
+    setShowStudyHub(next);
+    if (next) {
+      setShowHistory(false);
+    }
   };
 
   useEffect(() => {
@@ -108,6 +231,18 @@ export default function AppSidebar({
     } catch {}
   };
 
+  const handleApplyPrompt = (text: string) => {
+    if (onSelectPrompt) {
+      onSelectPrompt(text);
+    }
+    if (pathname !== "/chat") {
+      router.push("/chat");
+    }
+    if (window.innerWidth < 768) {
+      setMobileOpen(false);
+    }
+  };
+
   const navItems = [
     {
       title: "নতুন চ্যাট",
@@ -122,6 +257,16 @@ export default function AppSidebar({
         setMobileOpen(false);
       },
       active: false,
+    },
+    {
+      title: "বিষয় ও পড়ার টুলস",
+      icon: (
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg>
+      ),
+      action: toggleStudyHub,
+      active: showStudyHub,
     },
     {
       title: "চ্যাট ইতিহাস",
@@ -259,6 +404,102 @@ export default function AppSidebar({
     </>
   );
 
+  const studyHubPanel = (
+    <div className="flex flex-col h-full bg-[#0d0d16] text-slate-100">
+      <div className="flex items-center justify-between px-4 py-3.5 border-b border-white/[0.06]">
+        <div className="flex items-center gap-2">
+          <span className="text-base">📚</span>
+          <span className="text-xs font-semibold text-white">বিষয় ও পড়ার টুলস</span>
+        </div>
+        <button
+          onClick={() => setShowStudyHub(false)}
+          className="w-6 h-6 rounded-lg flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/[0.06] transition-all"
+        >
+          ✕
+        </button>
+      </div>
+
+      {/* Switch Tabs between Tools and Subjects */}
+      <div className="flex items-center p-1.5 mx-3 my-2 bg-black/40 rounded-xl border border-white/[0.06]">
+        <button
+          onClick={() => setStudyTab("tools")}
+          className={`flex-1 py-1 text-[11px] font-medium rounded-lg transition-all ${
+            studyTab === "tools"
+              ? "bg-violet-600 text-white shadow-sm"
+              : "text-slate-400 hover:text-slate-200"
+          }`}
+        >
+          ⚡ পড়ার টুলস
+        </button>
+        <button
+          onClick={() => setStudyTab("subjects")}
+          className={`flex-1 py-1 text-[11px] font-medium rounded-lg transition-all ${
+            studyTab === "subjects"
+              ? "bg-violet-600 text-white shadow-sm"
+              : "text-slate-400 hover:text-slate-200"
+          }`}
+        >
+          📖 বিষয়ভিত্তিক
+        </button>
+      </div>
+
+      {/* Content List */}
+      <div className="flex-1 overflow-y-auto px-3 pb-4 space-y-2">
+        {studyTab === "tools" ? (
+          <div className="space-y-1.5">
+            <p className="text-[10px] text-slate-500 font-medium px-1 uppercase tracking-wider mb-1">
+              প্রম্পটের কাজ ও ধরন অনুযায়ী বেছে নাও:
+            </p>
+            {STUDY_PROMPTS.map((tool, idx) => (
+              <button
+                key={idx}
+                onClick={() => handleApplyPrompt(tool.prefix)}
+                className="w-full text-left p-2.5 rounded-xl bg-white/[0.02] hover:bg-violet-600/15 border border-white/[0.05] hover:border-violet-500/30 transition-all group flex items-start gap-2.5"
+              >
+                <span className="text-base shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
+                  {tool.icon}
+                </span>
+                <div className="min-w-0 flex-1">
+                  <p className="text-xs font-semibold text-slate-200 group-hover:text-violet-200 truncate">
+                    {tool.label}
+                  </p>
+                  <p className="text-[10.5px] text-slate-400 leading-tight mt-0.5 line-clamp-2">
+                    {tool.desc}
+                  </p>
+                </div>
+              </button>
+            ))}
+          </div>
+        ) : (
+          <div className="space-y-1.5">
+            <p className="text-[10px] text-slate-500 font-medium px-1 uppercase tracking-wider mb-1">
+              যে বিষয়ে সাহায্য প্রয়োজন:
+            </p>
+            {SUBJECT_PRESETS.map((sub, idx) => (
+              <button
+                key={idx}
+                onClick={() => handleApplyPrompt(sub.prompt)}
+                className="w-full text-left p-2.5 rounded-xl bg-white/[0.02] hover:bg-violet-600/15 border border-white/[0.05] hover:border-violet-500/30 transition-all group flex items-start gap-2.5"
+              >
+                <span className="text-base shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
+                  {sub.icon}
+                </span>
+                <div className="min-w-0 flex-1">
+                  <p className="text-xs font-semibold text-slate-200 group-hover:text-violet-200 truncate">
+                    {sub.subject}
+                  </p>
+                  <p className="text-[10.5px] text-slate-400 leading-tight mt-0.5 line-clamp-2">
+                    {sub.desc}
+                  </p>
+                </div>
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+
   const historyPanel = (
     <div className="flex flex-col h-full bg-[#0d0d16]">
       <div className="flex items-center justify-between px-4 py-3.5 border-b border-white/[0.06]">
@@ -336,7 +577,7 @@ export default function AppSidebar({
       {mobileOpen && (
         <div className="md:hidden fixed inset-0 z-50 flex animate-fade-in">
           <div className="absolute inset-0 bg-black/70 backdrop-blur-md" onClick={() => setMobileOpen(false)} />
-          <div className="relative w-[280px] bg-[#0c0c14] border-r border-white/[0.08] flex flex-col h-full shadow-2xl">
+          <div className="relative w-[300px] bg-[#0c0c14] border-r border-white/[0.08] flex flex-col h-full shadow-2xl">
             <div className="flex items-center justify-between p-3 border-b border-white/[0.06]">
               <div className="flex items-center gap-2">
                 <img src="/logo.png" alt="CholoShikhi" className="w-7 h-7 rounded-lg object-contain" />
@@ -345,7 +586,9 @@ export default function AppSidebar({
               <button onClick={() => setMobileOpen(false)} className="text-slate-400 hover:text-white p-1">✕</button>
             </div>
             <div className="py-2">{sidebarContent}</div>
-            <div className="flex-1 border-t border-white/[0.06] overflow-hidden">{historyPanel}</div>
+            <div className="flex-1 border-t border-white/[0.06] overflow-hidden">
+              {showStudyHub ? studyHubPanel : historyPanel}
+            </div>
           </div>
         </div>
       )}
@@ -355,10 +598,10 @@ export default function AppSidebar({
         {sidebarContent}
       </aside>
 
-      {/* Desktop History Slideout Panel */}
-      {showHistory && (
-        <div className="hidden md:flex flex-col w-64 border-r border-white/[0.06] bg-[#0c0c14]/95 backdrop-blur-2xl shrink-0 z-20 animate-fade-in">
-          {historyPanel}
+      {/* Desktop Slideout Panel (History or Study Hub) */}
+      {(showHistory || showStudyHub) && (
+        <div className="hidden md:flex flex-col w-72 border-r border-white/[0.06] bg-[#0c0c14]/95 backdrop-blur-2xl shrink-0 z-20 animate-fade-in">
+          {showStudyHub ? studyHubPanel : historyPanel}
         </div>
       )}
     </>

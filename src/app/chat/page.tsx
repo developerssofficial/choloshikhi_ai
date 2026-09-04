@@ -525,6 +525,10 @@ export default function ChatPage() {
           sessions={sessions}
           loadingSessions={loadingSessions}
           onFetchSessions={fetchSessions}
+          onSelectPrompt={(prompt) => {
+            setInput(prompt);
+            inputRef.current?.focus();
+          }}
         />
       )}
 
@@ -811,27 +815,6 @@ export default function ChatPage() {
                 : "আমি চলো শিখি AI — তোমার যে কোনো বিষয় ও পড়াশোনার বিশ্বস্ত সমাধানকারী।"}
             </p>
 
-            {/* Subject Quick Selector for Students */}
-            <div className="w-full mb-4">
-              <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-2 text-center">
-                📚 তোমার বিষয় বেছে নাও:
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-1.5">
-                {STUDENT_SUBJECTS.map((sub, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => {
-                      setInput(sub.prompt);
-                      inputRef.current?.focus();
-                    }}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-xl glass-panel-subtle hover:glass-panel text-slate-300 hover:text-white border border-white/[0.08] hover:border-violet-500/40 hover:scale-105 active:scale-95 transition-all shadow-sm"
-                  >
-                    <span>{sub.icon}</span>
-                    <span>{sub.label}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
           </div>
         )}
 
@@ -840,56 +823,18 @@ export default function ChatPage() {
           <div className="max-w-3xl mx-auto">
             {/* Quick Suggestion Cards on Welcome Screen */}
             {!chatActive && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3.5 animate-fade-in">
-                {SUGGESTIONS.map((s, i) => (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-3.5 animate-fade-in">
+                {SUGGESTIONS.slice(0, 4).map((s, i) => (
                   <button
                     key={i}
                     onClick={() => handleSend(s.text)}
-                    className="p-3 text-left glass-panel-subtle hover:glass-panel rounded-xl hover:border-violet-500/30 hover:scale-[1.01] active:scale-[0.99] transition-all duration-200 group"
+                    className="p-3.5 text-left glass-panel-subtle hover:glass-panel rounded-2xl hover:border-violet-500/30 hover:scale-[1.01] active:scale-[0.99] transition-all duration-200 group border border-white/[0.06]"
                   >
                     <div className="flex items-center gap-2 text-xs font-semibold text-violet-300 group-hover:text-violet-200">
                       <span>{s.icon}</span>
                       <span>{s.label}</span>
                     </div>
                     <p className="text-xs text-slate-400 group-hover:text-slate-200 mt-1 line-clamp-1">{s.text}</p>
-                  </button>
-                ))}
-              </div>
-            )}
-
-            {/* Prompt Enhancer Presets Toggle Bar */}
-            <div className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none">
-              <button
-                onClick={() => setShowPromptModifiers(!showPromptModifiers)}
-                className="px-2.5 py-1 text-[11px] font-medium rounded-lg glass-panel text-violet-300 hover:text-white border border-violet-500/30 flex items-center gap-1 shrink-0 transition-colors"
-                title="প্রম্পট সহকারী"
-              >
-                <span>✨ পড়ার টুলস ও প্রম্পট</span>
-                <span className="text-[10px]">{showPromptModifiers ? "▲" : "▼"}</span>
-              </button>
-
-              {PROMPT_MODIFIERS.slice(0, 5).map((m, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => applyModifier(m)}
-                  className="px-2.5 py-1 text-[11px] rounded-lg glass-panel-subtle text-slate-400 hover:text-white hover:border-white/20 shrink-0 transition-all"
-                >
-                  {m.label}
-                </button>
-              ))}
-            </div>
-
-            {/* Expanded Modifier Helper */}
-            {showPromptModifiers && (
-              <div className="mb-2 p-3 glass-dock rounded-2xl border border-violet-500/30 grid grid-cols-1 sm:grid-cols-2 gap-2 animate-scale-up text-left">
-                {PROMPT_MODIFIERS.map((m, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => applyModifier(m)}
-                    className="p-2 rounded-xl bg-white/[0.03] hover:bg-violet-600/20 border border-white/[0.06] text-left transition-colors"
-                  >
-                    <p className="text-xs font-semibold text-violet-300">{m.label}</p>
-                    <p className="text-[10px] text-slate-400 mt-0.5 line-clamp-1">{m.prefix}</p>
                   </button>
                 ))}
               </div>
