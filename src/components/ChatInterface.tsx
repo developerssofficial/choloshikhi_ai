@@ -537,10 +537,6 @@ export default function ChatInterface({ initialMode = "normal" }: { initialMode?
 
   return (
     <div className="flex h-[100dvh] bg-[#09090e] text-slate-100 overflow-hidden relative selection:bg-violet-500/30 selection:text-white">
-      {/* Subtle ambient lighting */}
-      <div className="ambient-glow-violet top-[-80px] left-[15%]" />
-      <div className="ambient-glow-cyan bottom-[-100px] right-[10%]" />
-
       {/* ===== SIDEBAR ===== */}
       {!isElectron && (
         <AppSidebar

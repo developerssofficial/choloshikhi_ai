@@ -58,8 +58,8 @@ const PRIMARY_CLASSES_DATA: Array<{
         name: "আমার বাংলা বই",
         subject: "বাংলা",
         icon: "📖",
-        totalLessons: 46,
-        sampleLessons: ["ইতল বিতল (ছড়া)", "ভোর হলো (ছড়া)", "ছুটি (ছড়া)", "হাঁট্টিমা টিম টিম"],
+        totalLessons: 54,
+        sampleLessons: ["পাঠ ৯: বাঘ ও রাখাল", "পাঠ ১৭: ইতল বিতল", "পাঠ ২৫: ট্রেন", "পাঠ ৪২: ভোর হলো", "পাঠ ৪৬: পিঁপড়া ও পায়রার গল্প", "পাঠ ৪৮: ছুটি"],
       },
       {
         id: "2026-primary-class-1-english",
@@ -152,49 +152,49 @@ const PRIMARY_CLASSES_DATA: Array<{
       {
         id: "2026-primary-class-3-bgs",
         name: "বাংলাদেশ ও বিশ্বপরিচয়",
-        subject: "বিজিএস",
+        subject: "বাংলাদেশ ও বিশ্বপরিচয়",
         icon: "🇧🇩",
         totalLessons: 4,
-        sampleLessons: ["প্রাকৃতিক ও সামাজিক পরিবেশ", "আমাদের সমাজ ও পরিবার", "যানবাহন ও যোগাযোগ", "বাংলাদেশের রূপ"],
+        sampleLessons: ["প্রাকৃতিক ও সামাজিক পরিবেশ", "আমাদের বাড়ি ও বিদ্যালয়", "আমাদের অধিকার ও দায়িত্ব", "যানবাহন ও যোগাযোগ"],
       },
       {
         id: "2026-primary-class-3-islam",
-        name: "ইসলাম শিক্ষা",
-        subject: "ইসলাম শিক্ষা",
-        icon: "🌙",
-        totalLessons: 4,
-        sampleLessons: ["আকাইদ ও ঈমান", "ইবাদত ও সালাত", "আখলাক বা চরিত্র", "কুরআন মাজিদ শিক্ষা"],
+        name: "ইসলাম ও নৈতিক শিক্ষা",
+        subject: "ধর্ম",
+        icon: "🕌",
+        totalLessons: 5,
+        sampleLessons: ["ঈমান ও আকাইদ", "ইবাদত ও সালাত", "আখলাক বা চরিত্র", "কুরআন মাজিদ শিক্ষা", "নবী-রাসূলগণের জীবন"],
       },
       {
         id: "2026-primary-class-3-hindu",
-        name: "হিন্দুধর্ম শিক্ষা",
-        subject: "হিন্দুধর্ম",
+        name: "হিন্দুধর্ম ও নৈতিক শিক্ষা",
+        subject: "ধর্ম",
         icon: "🕉️",
-        totalLessons: 4,
-        sampleLessons: ["ঈশ্বর ও সৃষ্টি", "দেব-দেবী ও পূজা", "সদাচার ও নৈতিকতা", "ধর্মগ্রন্থের কাহিনি"],
+        totalLessons: 5,
+        sampleLessons: ["ঈশ্বরের স্বরূপ", "দেবী-দেবতা ও পূজা", "ধর্মগ্রন্থ ও নীতিশিক্ষা", "সদাচার ও সেবা", "মহাপুরুষ ও মহীয়সী"],
       },
       {
         id: "2026-primary-class-3-buddhist",
-        name: "বৌদ্ধধর্ম শিক্ষা",
-        subject: "বৌদ্ধধর্ম",
+        name: "বৌদ্ধধর্ম ও নৈতিক শিক্ষা",
+        subject: "ধর্ম",
         icon: "☸️",
-        totalLessons: 4,
-        sampleLessons: ["গৌতম বুদ্ধের জীবন", "ত্রিরত্ন বন্দনা", "পঞ্চশীল", "জাতকের গল্প"],
+        totalLessons: 5,
+        sampleLessons: ["গৌতম বুদ্ধের জীবন", "ত্রিরত্ন বন্দনা", "শীল ও নীতিশিক্ষা", "জাতকের গল্প", "বৌদ্ধ তীর্থস্থান"],
       },
       {
         id: "2026-primary-class-3-christian",
-        name: "খ্রিষ্টধর্ম শিক্ষা",
-        subject: "খ্রিষ্টধর্ম",
+        name: "খ্রিষ্টধর্ম ও নৈতিক শিক্ষা",
+        subject: "ধর্ম",
         icon: "✝️",
-        totalLessons: 4,
-        sampleLessons: ["ঈশ্বর ও সৃষ্টি", "যিশু খ্রিষ্টের জীবন", "প্রার্থনা ও আদেশ", "সততা ও সেবা"],
+        totalLessons: 5,
+        sampleLessons: ["ঈশ্বর ও সৃষ্টি", "যীশু খ্রিষ্টের জীবন", "প্রার্থনা ও সৎকর্ম", "দশ আজ্ঞা", "ভালোবাসা ও ক্ষমা"],
       },
     ],
   },
   {
     classNumber: 4,
     className: "৪র্থ শ্রেণি (Class 4)",
-    icon: "📚",
+    icon: "🎓",
     desc: "৯টি অফিশিয়াল পাঠ্যবই",
     books: [
       {
@@ -202,16 +202,16 @@ const PRIMARY_CLASSES_DATA: Array<{
         name: "আমার বাংলা বই",
         subject: "বাংলা",
         icon: "📖",
-        totalLessons: 18,
-        sampleLessons: ["বাংলাদেশের প্রকৃতি", "পালকির গান (কবিতা)", "বড় রাজা ছোট রাজা", "বীরপুরুষ (কবিতা)"],
+        totalLessons: 20,
+        sampleLessons: ["বাংলাদেশের প্রকৃতি", "পালকির গান", "বড় রাজা ছোট রাজা", "মুক্তির ছড়া", "বীরশ্রেষ্ঠদের বীরগাথা"],
       },
       {
         id: "2026-primary-class-4-english",
         name: "English For Today",
         subject: "ইংরেজি",
         icon: "🇬🇧",
-        totalLessons: 24,
-        sampleLessons: ["Unit 1: About Me", "Unit 7: Traffic Rules", "Unit 12: Days in a Calendar", "Unit 20: Food & Habits"],
+        totalLessons: 28,
+        sampleLessons: ["Unit 1: About Me", "Unit 4: Family", "Unit 9: Traffic Rules", "Unit 14: Story: The Hen and Her Chicks"],
       },
       {
         id: "2026-primary-class-4-math",
@@ -219,62 +219,62 @@ const PRIMARY_CLASSES_DATA: Array<{
         subject: "গণিত",
         icon: "📐",
         totalLessons: 14,
-        sampleLessons: ["বড় সংখ্যা ও স্থানীয় মান", "যোগ, বিয়োগ, গুণ ও ভাগ", "গাণিতিক প্রতীক", "গুণিতক ও গুণনীয়ক (লসাগু-গসাগু)"],
+        sampleLessons: ["বড় সংখ্যা ও স্থানীয় মান", "চার প্রক্রিয়া (যোগ-বিয়োগ-গুণ-ভাগ)", "গাণিতিক প্রতীক", "গুণনীয়ক ও গুণিতক", "ভগ্নাংশ ও দশমিক"],
       },
       {
         id: "2026-primary-class-4-science",
         name: "প্রাথমিক বিজ্ঞান",
         subject: "বিজ্ঞান",
         icon: "🔬",
-        totalLessons: 4,
-        sampleLessons: ["জীব ও পরিবেশ", "উদ্ভিদ ও প্রাণীর খাদ্যশৃঙ্খল", "মাটি ও পানি দূষণ", "পদার্থ ও শক্তির রূপান্তর"],
+        totalLessons: 11,
+        sampleLessons: ["জীব ও পরিবেশ", "উদ্ভিদ ও প্রাণী", "মাটি ও পানি দূষণ", "খাদ্য ও পুষ্টি", "পদার্থ ও শক্তি", "আমাদের জীবনে তথ্য"],
       },
       {
         id: "2026-primary-class-4-bgs",
         name: "বাংলাদেশ ও বিশ্বপরিচয়",
-        subject: "বিজিএস",
+        subject: "বাংলাদেশ ও বিশ্বপরিচয়",
         icon: "🇧🇩",
-        totalLessons: 4,
-        sampleLessons: ["আমাদের পরিবেশ ও সমাজ", "সমাজে পরস্পরের সহযোগিতা", "বাংলাদেশের ভৌগোলিক রূপ", "নাগরিক অধিকার ও কর্তব্য"],
+        totalLessons: 16,
+        sampleLessons: ["আমাদের পরিবেশ ও সমাজ", "সমাজ ও সমাজের নানা পেশা", "নাগরিক অধিকার ও দায়িত্ব", "বাংলাদেশের ভৌগোলিক অঞ্চল"],
       },
       {
         id: "2026-primary-class-4-islam",
-        name: "ইসলাম শিক্ষা",
-        subject: "ইসলাম শিক্ষা",
-        icon: "🌙",
-        totalLessons: 4,
-        sampleLessons: ["ঈমান ও তাওহিদ", "পবিত্রতা ও সালাত", "আখলাকে হামিদা", "নবী-রাসুলগণের জীবনী"],
+        name: "ইসলাম ও নৈতিক শিক্ষা",
+        subject: "ধর্ম",
+        icon: "🕌",
+        totalLessons: 5,
+        sampleLessons: ["আকাইদ ও তাওহিদ", "ইবাদত ও তাহরাত", "আখলাক ও শিষ্টাচার", "কুরআন মাজিদ শিক্ষা", "মহানবী (সা.)-এর মক্কী জীবন"],
       },
       {
         id: "2026-primary-class-4-hindu",
-        name: "হিন্দুধর্ম শিক্ষা",
-        subject: "হিন্দুধর্ম",
+        name: "হিন্দুধর্ম ও নৈতিক শিক্ষা",
+        subject: "ধর্ম",
         icon: "🕉️",
-        totalLessons: 4,
-        sampleLessons: ["ঈশ্বরের রূপ", "ধর্মগ্রন্থ গীতা ও রামায়ণ", "মহাপুরুষদের জীবনী", "সত্যবাদিতা"],
+        totalLessons: 5,
+        sampleLessons: ["ঈশ্বর ও সৃষ্টি", "দেবদেবী ও পূজা-পার্বণ", "ধর্মগ্রন্থ ও সারসংক্ষেপ", "সদাচার ও আত্মশুদ্ধি", "মহাপুরুষদের জীবনী"],
       },
       {
         id: "2026-primary-class-4-buddhist",
-        name: "বৌদ্ধধর্ম শিক্ষা",
-        subject: "বৌদ্ধধর্ম",
+        name: "বৌদ্ধধর্ম ও নৈতিক শিক্ষা",
+        subject: "ধর্ম",
         icon: "☸️",
-        totalLessons: 4,
-        sampleLessons: ["বুদ্ধের ধর্মোপদেশ", "অষ্টশীল", "বৌদ্ধ তীর্থস্থান", "অহিংসা পরম ধর্ম"],
+        totalLessons: 5,
+        sampleLessons: ["বুদ্ধের ধর্মোপদেশ", "চতুরার্য সত্য", "শীল ও সমাধি", "জাতক ও নীতিগল্প", "বৌদ্ধ উৎসব"],
       },
       {
         id: "2026-primary-class-4-christian",
-        name: "খ্রিষ্টধর্ম শিক্ষা",
-        subject: "খ্রিষ্টধর্ম",
+        name: "খ্রিষ্টধর্ম ও নৈতিক শিক্ষা",
+        subject: "ধর্ম",
         icon: "✝️",
-        totalLessons: 4,
-        sampleLessons: ["বাইবেল পরিচিতি", "যিশুর অলৌকিক কাজ", "দশ আদেশ", "প্রতিবেশীর প্রতি ভালোবাসা"],
+        totalLessons: 5,
+        sampleLessons: ["সৃষ্টিকর্তা ঈশ্বর", "যীশু খ্রিষ্টের শিক্ষা", "পাপ ও পরিত্রাণ", "দশ আজ্ঞা ও পালন", "সেবা ও ভ্রাতৃত্ব"],
       },
     ],
   },
   {
     classNumber: 5,
     className: "৫ম শ্রেণি (Class 5)",
-    icon: "🎓",
+    icon: "🏆",
     desc: "৯টি অফিশিয়াল পাঠ্যবই",
     books: [
       {
@@ -282,8 +282,8 @@ const PRIMARY_CLASSES_DATA: Array<{
         name: "আমার বাংলা বই",
         subject: "বাংলা",
         icon: "📖",
-        totalLessons: 18,
-        sampleLessons: ["এই দেশ এই মানুষ", "সংকল্প (কবিতা - কাজী নজরুল ইসলাম)", "সুন্দরবনের প্রাণী", "হাতি আর শিয়ালের গল্প", "বীরের রক্তে স্বাধীন এ দেশ"],
+        totalLessons: 22,
+        sampleLessons: ["এই দেশ এই মানুষ", "সংকল্প (কবিতা)", "সুন্দরবনের প্রাণী", "হাতি আর শিয়ালের গল্প", "ঘাসফুল", "স্মরণীয় যাঁরা চিরদিন"],
       },
       {
         id: "2026-primary-class-5-english",
@@ -291,7 +291,7 @@ const PRIMARY_CLASSES_DATA: Array<{
         subject: "ইংরেজি",
         icon: "🇬🇧",
         totalLessons: 25,
-        sampleLessons: ["Unit 1: Hello!", "Unit 3: Saikat's Family", "Unit 6: Eat Healthy", "Unit 9: Occupations", "Unit 19: The Liberation War Museum"],
+        sampleLessons: ["Unit 1: Hello!", "Unit 3: Saikat's Family", "Unit 6: Eat Healthy", "Unit 10: My Home District", "Unit 19: The Liberation War Museum"],
       },
       {
         id: "2026-primary-class-5-math",
@@ -299,7 +299,7 @@ const PRIMARY_CLASSES_DATA: Array<{
         subject: "গণিত",
         icon: "📐",
         totalLessons: 14,
-        sampleLessons: ["চার প্রক্রিয়া সম্পর্কিত সমস্যাবলি", "লসাগু ও গসাগু", "ভগ্নাংশ ও দশমিক", "গড় ও শতকরা", "জ্যামিতি ও পরিমাপ"],
+        sampleLessons: ["গুণ ও ভাগ প্রক্রিয়া", "চার প্রক্রিয়া সম্পর্কিত সমস্যা", "লসাগু ও গসাগু", "ভগ্নাংশ ও দশমিক", "গড়", "শতকরা", "পরিমাপ ও সময়"],
       },
       {
         id: "2026-primary-class-5-science",
@@ -307,47 +307,47 @@ const PRIMARY_CLASSES_DATA: Array<{
         subject: "বিজ্ঞান",
         icon: "🔬",
         totalLessons: 14,
-        sampleLessons: ["আমাদের পরিবেশ ও বাস্তুসংস্থান", "পানিচক্র ও পানি বিশুদ্ধকরণ", "পদার্থ ও শক্তি", "মহাবিশ্ব ও আবহাওয়া-জলবায়ু"],
+        sampleLessons: ["আমাদের পরিবেশ ও খাদ্যজাল", "পরিবেশ দূষণ", "জীবনের জন্য পানি", "বায়ু ও আবহাওয়া", "পদার্থ ও শক্তি", "মহাবিশ্ব", "আমাদের জীবনে তথ্যপ্রযুক্তি"],
       },
       {
         id: "2026-primary-class-5-bgs",
         name: "বাংলাদেশ ও বিশ্বপরিচয়",
-        subject: "বিজিএস",
+        subject: "বাংলাদেশ ও বিশ্বপরিচয়",
         icon: "🇧🇩",
         totalLessons: 12,
-        sampleLessons: ["আমাদের মুক্তিযুদ্ধ (১৯৭১)", "ব্রিটিশ শাসন", "বাংলাদেশের ঐতিহাসিক নিদর্শন", "মানবাধিকার ও নারী-পুরুষ সমতা"],
+        sampleLessons: ["আমাদের মুক্তিযুদ্ধ (১৯৭১)", "ব্রিটিশ শাসন", "বাংলাদেশের ঐতিহাসিক স্থান", "আমাদের অর্থনীতি: কৃষি ও শিল্প", "জনসংখ্যা", "জলবায়ু ও দুর্যোগ"],
       },
       {
         id: "2026-primary-class-5-islam",
-        name: "ইসলাম শিক্ষা",
-        subject: "ইসলাম শিক্ষা",
-        icon: "🌙",
+        name: "ইসলাম ও নৈতিক শিক্ষা",
+        subject: "ধর্ম",
+        icon: "🕌",
         totalLessons: 5,
-        sampleLessons: ["আকাইদ ও বিশ্বাস", "ইবাদত (সালাত, সাওম, জাকাত)", "আখলাক ও নৈতিকতা", "কুরআন তিলাওয়াত ও তাজবিদ"],
+        sampleLessons: ["আকাইদ ও বিশ্বাস", "ইবাদত ও দৈনন্দিন জীবনে সালাত", "আখলাক ও উত্তম চরিত্র", "কুরআন মাজিদ তিলাওয়াত ও শিক্ষা", "নবী-রাসূল ও খলিফাগণের আদর্শ"],
       },
       {
         id: "2026-primary-class-5-hindu",
-        name: "হিন্দুধর্ম শিক্ষা",
-        subject: "হিন্দুধর্ম",
+        name: "হিন্দুধর্ম ও নৈতিক শিক্ষা",
+        subject: "ধর্ম",
         icon: "🕉️",
         totalLessons: 5,
-        sampleLessons: ["ঈশ্বরের মহিমা", "ধর্মীয় অনুশাসন ও উৎসব", "শ্রীমদ্ভগবদ্গীতা", "মহাপুরুষদের জীবনী"],
+        sampleLessons: ["ঈশ্বরের মহিমা ও ভক্তি", "দেবদেবী ও পূজা-বিধি", "গীতা ও নীতিশিক্ষা", "সততা ও অহিংসা", "মহাপুরুষ ও সনাতন ধর্ম"],
       },
       {
         id: "2026-primary-class-5-buddhist",
-        name: "বৌদ্ধধর্ম শিক্ষা",
-        subject: "বৌদ্ধধর্ম",
+        name: "বৌদ্ধধর্ম ও নৈতিক শিক্ষা",
+        subject: "ধর্ম",
         icon: "☸️",
         totalLessons: 5,
-        sampleLessons: ["বুদ্ধের মহাপরিনির্বাণ", "চার আর্যসত্য ও অষ্টাঙ্গিক মার্গ", "ধর্মপদ", "শান্তি ও মৈত্রী"],
+        sampleLessons: ["গৌতম বুদ্ধের বোধিজ্ঞান", "আর্য অষ্টাঙ্গিক মার্গ", "শীল ও ধ্যান", "জাতকের নীতিশিক্ষা", "আন্তর্জাতিক বৌদ্ধ ঐতিহ্য"],
       },
       {
         id: "2026-primary-class-5-christian",
-        name: "খ্রিষ্টধর্ম শিক্ষা",
-        subject: "খ্রিষ্টধর্ম",
+        name: "খ্রিষ্টধর্ম ও নৈতিক শিক্ষা",
+        subject: "ধর্ম",
         icon: "✝️",
         totalLessons: 5,
-        sampleLessons: ["ঈশ্বরের উদ্ধার পরিকল্পনা", "যিশু খ্রিষ্টের ক্রুশারোহণ ও পুনরুত্থান", "খ্রিষ্টীয় মণ্ডলী", "ক্ষমা ও পুনর্মিলন"],
+        sampleLessons: ["ঈশ্বরের পিতা-সুলভ ভালোবাসা", "যীশু খ্রিষ্টের অলৌকিক কাজ", "মথি লিখিত সুসমাচার", "খ্রিষ্টীয় সেবা ও সমাজকর্ম", "শান্তি ও পরোপকার"],
       },
     ],
   },
@@ -356,55 +356,88 @@ const PRIMARY_CLASSES_DATA: Array<{
 interface TeacherCurriculumStudioProps {
   isOpen: boolean;
   onClose: () => void;
-  currentSelected: SelectedTeacherLesson | null;
-  onSelectLesson: (selected: SelectedTeacherLesson, autoPrompt?: string) => void;
+  onSelectLesson: (lesson: SelectedTeacherLesson, autoPrompt?: string) => void;
+  currentSelected?: SelectedTeacherLesson | null;
 }
 
 export default function TeacherCurriculumStudio({
   isOpen,
   onClose,
-  currentSelected,
   onSelectLesson,
+  currentSelected,
 }: TeacherCurriculumStudioProps) {
   const [selectedClassNum, setSelectedClassNum] = useState<number>(
-    currentSelected?.classNumber || 2
+    currentSelected?.classNumber || 1
   );
   const [selectedBook, setSelectedBook] = useState<BookItem | null>(null);
   const [chapters, setChapters] = useState<ChapterItem[]>([]);
-  const [loadingChapters, setLoadingChapters] = useState(false);
-  const [searchFilter, setSearchFilter] = useState("");
+  const [loadingChapters, setLoadingChapters] = useState<boolean>(false);
+  const [searchFilter, setSearchFilter] = useState<string>("");
 
   const currentClassData =
     PRIMARY_CLASSES_DATA.find((c) => c.classNumber === selectedClassNum) ||
-    PRIMARY_CLASSES_DATA[1];
+    PRIMARY_CLASSES_DATA[0];
 
-  // Set default selected book
   useEffect(() => {
     if (currentSelected?.bookId) {
-      const b = currentClassData.books.find((x) => x.id === currentSelected.bookId);
-      if (b) setSelectedBook(b);
-      else setSelectedBook(currentClassData.books[0]);
-    } else {
-      setSelectedBook(currentClassData.books[0]);
+      const foundBook = currentClassData.books.find(
+        (b) => b.id === currentSelected.bookId
+      );
+      if (foundBook) {
+        setSelectedBook(foundBook);
+        return;
+      }
     }
-  }, [selectedClassNum, currentSelected?.bookId, currentClassData.books]);
+    setSelectedBook(currentClassData.books[0]);
+  }, [selectedClassNum, currentClassData]);
 
-  // Fetch real chapters for selected book
   useEffect(() => {
-    if (!selectedBook?.id) return;
+    if (!selectedBook) return;
+
+    let isMounted = true;
     setLoadingChapters(true);
+
     fetch(`/api/books/${selectedBook.id}/chapters`)
       .then((res) => res.json())
       .then((data) => {
-        if (data.success && data.chapters) {
+        if (!isMounted) return;
+        if (data.chapters && Array.isArray(data.chapters) && data.chapters.length > 0) {
           setChapters(data.chapters);
         } else {
-          setChapters([]);
+          // Fallback sample chapters if API has none
+          const fallback = selectedBook.sampleLessons.map((lesson, idx) => ({
+            chapter_id: `${selectedBook.id}-ch${idx + 1}`,
+            chapter_number: String(idx + 1),
+            chapter_title: lesson.replace(/^পাঠ \d+:\s*/, ""),
+            chapter_type: "পাঠ",
+            start_page: idx * 4 + 1,
+            end_page: idx * 4 + 4,
+            summary: `${selectedBook.name}-এর ${lesson}। বিষয়বস্তু ও অনুশীলন।`,
+          }));
+          setChapters(fallback);
         }
       })
-      .catch(() => setChapters([]))
-      .finally(() => setLoadingChapters(false));
-  }, [selectedBook?.id]);
+      .catch(() => {
+        if (!isMounted) return;
+        const fallback = selectedBook.sampleLessons.map((lesson, idx) => ({
+          chapter_id: `${selectedBook.id}-ch${idx + 1}`,
+          chapter_number: String(idx + 1),
+          chapter_title: lesson.replace(/^পাঠ \d+:\s*/, ""),
+          chapter_type: "পাঠ",
+          start_page: idx * 4 + 1,
+          end_page: idx * 4 + 4,
+          summary: `${selectedBook.name}-এর ${lesson}। বিষয়বস্তু ও অনুশীলন।`,
+        }));
+        setChapters(fallback);
+      })
+      .finally(() => {
+        if (isMounted) setLoadingChapters(false);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [selectedBook]);
 
   if (!isOpen) return null;
 
@@ -418,7 +451,7 @@ export default function TeacherCurriculumStudio({
         bookName: selectedBook.name,
         subject: selectedBook.subject,
         icon: selectedBook.icon,
-        totalLessons: selectedBook.totalLessons,
+        totalLessons: chapters.length || selectedBook.totalLessons,
         chapterId: ch.chapter_id,
         chapterNumber: ch.chapter_number,
         chapterTitle: ch.chapter_title,
@@ -436,75 +469,73 @@ export default function TeacherCurriculumStudio({
     (c) =>
       c.chapter_title.toLowerCase().includes(searchFilter.toLowerCase()) ||
       c.chapter_number.includes(searchFilter) ||
-      c.summary.toLowerCase().includes(searchFilter.toLowerCase())
+      (c.summary && c.summary.toLowerCase().includes(searchFilter.toLowerCase()))
   );
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/80 backdrop-blur-xl animate-fade-in">
-      <div className="bg-[#0e0f17] border border-emerald-500/30 rounded-3xl w-full max-w-5xl h-[92vh] max-h-[850px] overflow-hidden shadow-2xl shadow-emerald-500/15 flex flex-col relative">
-        {/* Glow Effects */}
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
-
-        {/* Studio Header */}
-        <div className="px-6 py-4 border-b border-white/[0.08] flex items-center justify-between bg-white/[0.02] backdrop-blur-md shrink-0 relative z-10">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/85">
+      <div className="bg-[#0b0f17] border border-slate-700/80 rounded-2xl w-full max-w-5xl h-[92vh] max-h-[850px] shadow-2xl flex flex-col relative overflow-hidden text-slate-100">
+        
+        {/* Studio Header (Snappy & Clean) */}
+        <div className="px-5 py-3.5 border-b border-slate-800 flex items-center justify-between bg-[#111622] shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-2xl shadow-lg shadow-emerald-500/25">
+            <div className="w-9 h-9 rounded-xl bg-emerald-600/30 border border-emerald-500/40 flex items-center justify-center text-xl shrink-0">
               👨‍🏫
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h2 className="text-lg font-bold text-white tracking-tight">
-                  শিক্ষক পাঠশালা ও কারিকুলাম স্টুডিও
+                <h2 className="text-base font-bold text-white tracking-tight">
+                  শিক্ষক পাঠশালা ও সূচিপত্র স্টুডিও
                 </h2>
-                <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono font-semibold border border-emerald-500/30">
-                  NCTB 2026 OFFICIAL
+                <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono font-bold border border-emerald-500/30">
+                  NCTB 2026
                 </span>
               </div>
-              <p className="text-xs text-slate-400">
-                শ্রেণি, বিষয় ও নির্দিষ্ট পাঠ/অধ্যায় নির্বাচন করো — শিক্ষক সরাসরি সেই পাঠটি ধরে ধরে বোঝাবেন
+              <p className="text-[11px] text-slate-400">
+                শ্রেণি, বই ও নির্দিষ্ট পাঠ নির্বাচন করুন — শিক্ষক সরাসরি সেই পাঠের আলোকে উত্তর দেবেন
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="w-9 h-9 rounded-2xl bg-white/[0.05] hover:bg-white/[0.1] text-slate-400 hover:text-white flex items-center justify-center transition-all"
+            className="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors text-sm font-bold"
+            title="বন্ধ করো"
           >
             ✕
           </button>
         </div>
 
-        {/* Studio Body: Split View (Left: Class & Book Explorer, Right: Chapters & Actions) */}
-        <div className="flex-1 min-h-0 flex flex-col md:flex-row overflow-hidden relative z-10">
-          {/* Left Column: Step 1 (Class Selector) & Step 2 (Subjects) */}
-          <div className="w-full md:w-80 border-r border-white/[0.08] flex flex-col bg-black/30 p-4 space-y-4 overflow-y-auto shrink-0">
+        {/* Studio Body: Split View (Left: Classes & Books, Right: Chapter Table) */}
+        <div className="flex-1 min-h-0 flex flex-col md:flex-row overflow-hidden">
+          
+          {/* Left Column: Classes & Subjects */}
+          <div className="w-full md:w-72 border-r border-slate-800 flex flex-col bg-[#0e131d] p-3.5 space-y-3.5 overflow-y-auto shrink-0">
             {/* Step 1: Class Tabs */}
             <div>
-              <label className="text-[11px] font-bold text-emerald-400 uppercase tracking-wider block mb-2">
-                ১. শ্রেণি নির্বাচন করো:
-              </label>
-              <div className="grid grid-cols-5 md:grid-cols-1 gap-1.5">
+              <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block mb-1.5">
+                ১. শ্রেণি নির্বাচন:
+              </span>
+              <div className="grid grid-cols-5 md:grid-cols-1 gap-1">
                 {PRIMARY_CLASSES_DATA.map((c) => {
                   const isSelected = c.classNumber === selectedClassNum;
                   return (
                     <button
                       key={c.classNumber}
                       onClick={() => setSelectedClassNum(c.classNumber)}
-                      className={`p-2.5 rounded-2xl border transition-all flex items-center justify-between gap-2 text-left ${
+                      className={`p-2 rounded-xl border text-left transition-colors flex items-center justify-between ${
                         isSelected
-                          ? "bg-gradient-to-r from-emerald-600/30 to-teal-600/20 border-emerald-400/80 text-white shadow-lg shadow-emerald-500/15"
-                          : "bg-white/[0.02] hover:bg-white/[0.06] border-white/[0.06] text-slate-300"
+                          ? "bg-emerald-900/40 border-emerald-500 text-white font-semibold shadow-sm"
+                          : "bg-slate-900/60 hover:bg-slate-800 border-slate-800 text-slate-300"
                       }`}
                     >
                       <div className="flex items-center gap-2 min-w-0">
-                        <span className="text-xl shrink-0">{c.icon}</span>
+                        <span className="text-base shrink-0">{c.icon}</span>
                         <div className="min-w-0">
-                          <p className="text-xs font-bold truncate">{c.className.split(" ")[0]}</p>
-                          <p className="text-[10px] text-slate-400 truncate hidden md:block">{c.desc}</p>
+                          <p className="text-xs truncate">{c.className.split(" ")[0]}</p>
                         </div>
                       </div>
                       {isSelected && (
-                        <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0 hidden md:block" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0 hidden md:block" />
                       )}
                     </button>
                   );
@@ -512,38 +543,36 @@ export default function TeacherCurriculumStudio({
               </div>
             </div>
 
-            {/* Step 2: Subject Cards for Selected Class */}
+            {/* Step 2: Books in Class */}
             <div className="flex-1">
-              <label className="text-[11px] font-bold text-emerald-400 uppercase tracking-wider block mb-2">
-                ২. বিষয় নির্বাচন করো ({currentClassData.books.length}টি বই):
-              </label>
-              <div className="space-y-1.5">
+              <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block mb-1.5">
+                ২. পাঠ্যবই ({currentClassData.books.length}টি):
+              </span>
+              <div className="space-y-1">
                 {currentClassData.books.map((book) => {
                   const isSelected = selectedBook?.id === book.id;
                   return (
                     <button
                       key={book.id}
                       onClick={() => setSelectedBook(book)}
-                      className={`w-full p-3 rounded-2xl border transition-all flex items-center justify-between text-left group ${
+                      className={`w-full p-2.5 rounded-xl border text-left transition-colors flex items-center justify-between group ${
                         isSelected
-                          ? "bg-gradient-to-r from-emerald-600/40 via-teal-600/20 to-emerald-700/20 border-emerald-400 text-white shadow-xl shadow-emerald-500/20 scale-[1.01]"
-                          : "bg-white/[0.03] hover:bg-white/[0.07] border-white/[0.06] hover:border-white/[0.15] text-slate-300"
+                          ? "bg-emerald-950/70 border-emerald-500/80 text-white shadow-sm"
+                          : "bg-slate-900/50 hover:bg-slate-800/80 border-slate-800/80 text-slate-300"
                       }`}
                     >
-                      <div className="flex items-center gap-2.5 min-w-0">
-                        <div className="w-9 h-9 rounded-xl bg-white/[0.06] flex items-center justify-center text-xl shrink-0">
-                          {book.icon}
-                        </div>
+                      <div className="flex items-center gap-2 min-w-0">
+                        <span className="text-lg shrink-0">{book.icon}</span>
                         <div className="min-w-0">
-                          <h4 className="text-xs font-bold text-white group-hover:text-emerald-300 transition-colors truncate">
+                          <h4 className="text-xs font-bold text-white group-hover:text-emerald-300 truncate">
                             {book.name}
                           </h4>
-                          <span className="text-[10px] text-emerald-400/90 font-mono">
-                            {book.totalLessons}টি পাঠ
+                          <span className="text-[10px] text-emerald-400 font-mono">
+                            {book.id === "2026-primary-class-1-bangla" ? "৫৪টি পাঠ" : `${book.totalLessons}টি পাঠ`}
                           </span>
                         </div>
                       </div>
-                      <span className="text-xs text-slate-400 group-hover:text-white">→</span>
+                      <span className="text-xs text-slate-500 group-hover:text-white">→</span>
                     </button>
                   );
                 })}
@@ -551,42 +580,39 @@ export default function TeacherCurriculumStudio({
             </div>
           </div>
 
-          {/* Right Column: Step 3 (Interactive Table of Contents & Chapter Actions) */}
-          <div className="flex-1 flex flex-col min-w-0 bg-[#0c0d14] overflow-hidden">
+          {/* Right Column: Complete Official Chapter Stream */}
+          <div className="flex-1 flex flex-col min-w-0 bg-[#090d14] overflow-hidden">
             {/* Top Bar for Right Column */}
-            <div className="px-6 py-3.5 border-b border-white/[0.08] flex items-center justify-between gap-4 bg-white/[0.01]">
+            <div className="px-4 sm:px-5 py-3 border-b border-slate-800 flex items-center justify-between gap-3 bg-[#0d121c] shrink-0">
               <div className="min-w-0">
                 <div className="flex items-center gap-2">
-                  <span className="text-lg">{selectedBook?.icon}</span>
-                  <h3 className="text-sm font-bold text-white truncate">
+                  <span className="text-base">{selectedBook?.icon}</span>
+                  <h3 className="text-xs sm:text-sm font-bold text-white truncate">
                     {currentClassData.className} — {selectedBook?.name}
                   </h3>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono">
-                    {chapters.length || selectedBook?.totalLessons}টি পাঠ
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono font-bold">
+                    {chapters.length}টি পাঠ
                   </span>
                 </div>
-                <p className="text-[11px] text-slate-400">
-                  নিচের যেকোনো পাঠে ক্লিক করে সরাসরি পড়া শুরু করতে পারো:
-                </p>
               </div>
 
-              {/* Search in Chapters */}
-              <div className="w-48 sm:w-64">
+              {/* Search Filter */}
+              <div className="w-40 sm:w-56">
                 <input
                   type="text"
                   value={searchFilter}
                   onChange={(e) => setSearchFilter(e.target.value)}
-                  placeholder="পাঠ বা বিষয় সার্চ করো..."
-                  className="w-full bg-white/[0.04] border border-white/[0.08] focus:border-emerald-500/50 rounded-xl px-3 py-1.5 text-xs text-slate-100 placeholder:text-slate-500 focus:outline-none"
+                  placeholder="পাঠ বা বিষয় খুঁজুন..."
+                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1 text-xs text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-emerald-500"
                 />
               </div>
             </div>
 
-            {/* Chapters Stream */}
-            <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-3">
+            {/* Chapters Stream (Super Snappy & Clean) */}
+            <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-2">
               {loadingChapters ? (
-                <div className="flex flex-col items-center justify-center py-20 text-slate-400 gap-3">
-                  <div className="w-7 h-7 border-2 border-emerald-400/30 border-t-emerald-400 rounded-full animate-spin" />
+                <div className="flex flex-col items-center justify-center py-20 text-slate-400 gap-2">
+                  <div className="w-6 h-6 border-2 border-emerald-400/30 border-t-emerald-400 rounded-full animate-spin" />
                   <span className="text-xs">অফিশিয়াল সূচিপত্র লোড হচ্ছে...</span>
                 </div>
               ) : filteredChapters.length > 0 ? (
@@ -599,81 +625,67 @@ export default function TeacherCurriculumStudio({
                   return (
                     <div
                       key={ch.chapter_id}
-                      className={`p-4 rounded-2xl border transition-all relative overflow-hidden group ${
+                      className={`p-3 rounded-xl border transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${
                         isCurrentActive
-                          ? "bg-gradient-to-r from-emerald-900/30 via-emerald-800/15 to-transparent border-emerald-400 text-white shadow-xl shadow-emerald-500/10"
-                          : "bg-white/[0.02] hover:bg-white/[0.05] border-white/[0.06] hover:border-emerald-500/40 text-slate-200"
+                          ? "bg-emerald-950/40 border-emerald-500 text-white"
+                          : "bg-slate-900/70 hover:bg-slate-800/80 border-slate-800 text-slate-200"
                       }`}
                     >
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                        <div className="min-w-0 flex-1">
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <span className="px-2.5 py-0.5 rounded-lg bg-emerald-500/15 text-emerald-300 font-mono text-xs font-bold">
-                              পাঠ {ch.chapter_number}
-                            </span>
-                            <h4 className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">
-                              {ch.chapter_title}
-                            </h4>
-                            <span className="text-[10px] text-slate-400 bg-white/[0.04] px-2 py-0.5 rounded-md">
-                              {ch.chapter_type}
-                            </span>
-                            <span className="text-[10px] text-slate-400 bg-white/[0.04] px-2 py-0.5 rounded-md font-mono">
-                              পৃষ্ঠা: {ch.start_page}–{ch.end_page}
-                            </span>
-                          </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-xs font-bold shrink-0">
+                            পাঠ {ch.chapter_number}
+                          </span>
+                          <h4 className="text-xs sm:text-sm font-bold text-white">
+                            {ch.chapter_title}
+                          </h4>
+                          <span className="text-[10px] text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded">
+                            {ch.chapter_type}
+                          </span>
+                          <span className="text-[10px] text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded font-mono">
+                            পৃষ্ঠা {ch.start_page}
+                          </span>
+                        </div>
 
-                          <p className="text-xs text-slate-400 mt-2 leading-relaxed line-clamp-2">
+                        {ch.summary && (
+                          <p className="text-[11px] text-slate-400 mt-1 line-clamp-1">
                             {ch.summary}
                           </p>
+                        )}
+                      </div>
 
-                          {ch.sections && ch.sections.length > 0 && (
-                            <div className="flex items-center gap-1.5 mt-2 flex-wrap text-[11px] text-slate-500">
-                              <span>সেকশন:</span>
-                              {ch.sections.map((sec, sIdx) => (
-                                <span
-                                  key={sIdx}
-                                  className="text-slate-400 bg-white/[0.03] px-1.5 py-0.5 rounded text-[10px]"
-                                >
-                                  {sec.title} (পৃষ্ঠা {sec.page})
-                                </span>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Quick 1-Click Action Buttons for this Chapter */}
-                        <div className="flex items-center gap-2 shrink-0 pt-2 sm:pt-0">
-                          <button
-                            onClick={() =>
-                              handleChapterClick(
-                                ch,
-                                `${currentClassData.className}-এর '${selectedBook?.name}' বইয়ের "পাঠ ${ch.chapter_number}: ${ch.chapter_title}" পাঠে কী কী বিষয় আছে এবং এর মূল গল্প/বিষয়বস্তু সহজ ও প্রাঞ্জল ভাষায় সুন্দর করে বুঝিয়ে দাও।`
-                              )
-                            }
-                            className="px-3 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:opacity-90 text-white text-xs font-semibold shadow-md shadow-emerald-500/20 transition-all flex items-center gap-1.5"
-                          >
-                            <span>📖 পাঠটি বুঝিয়ে দাও</span>
-                          </button>
-                          <button
-                            onClick={() =>
-                              handleChapterClick(
-                                ch,
-                                `${currentClassData.className}-এর '${selectedBook?.name}' বইয়ের "পাঠ ${ch.chapter_number}: ${ch.chapter_title}"-এর সকল অনুশীলনী ও প্রশ্নোত্তর ধাপে ধাপে সমাধান করে দাও।`
-                              )
-                            }
-                            className="px-3 py-2 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-slate-200 hover:text-white text-xs font-medium transition-all"
-                            title="অনুশীলনীর প্রশ্ন সমাধান করো"
-                          >
-                            ❓ প্রশ্ন সমাধান
-                          </button>
-                        </div>
+                      {/* 1-Click Action Buttons */}
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        <button
+                          onClick={() =>
+                            handleChapterClick(
+                              ch,
+                              `${currentClassData.className}-এর '${selectedBook?.name}' বইয়ের "পাঠ ${ch.chapter_number}: ${ch.chapter_title}" পাঠে কী কী বিষয় আছে এবং এর মূল গল্প/বিষয়বস্তু সহজ ও প্রাঞ্জল ভাষায় সুন্দর করে বুঝিয়ে দাও।`
+                            )
+                          }
+                          className="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold shadow-sm transition-colors flex items-center gap-1"
+                        >
+                          <span>📖 পাঠটি বুঝিয়ে দাও</span>
+                        </button>
+                        <button
+                          onClick={() =>
+                            handleChapterClick(
+                              ch,
+                              `${currentClassData.className}-এর '${selectedBook?.name}' বইয়ের "পাঠ ${ch.chapter_number}: ${ch.chapter_title}"-এর সকল অনুশীলনী ও প্রশ্নোত্তর সমাধান করে দাও।`
+                            )
+                          }
+                          className="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-medium transition-colors"
+                          title="অনুশীলনীর প্রশ্ন সমাধান করো"
+                        >
+                          ❓ প্রশ্ন সমাধান
+                        </button>
                       </div>
                     </div>
                   );
                 })
               ) : (
                 <div className="text-center py-20 text-slate-400 text-xs">
-                  কোনো পাঠ পাওয়া যায়নি। সার্চ ফিল্টার পরিবর্তন করো।
+                  কোনো পাঠ পাওয়া যায়নি। সার্চ ফিল্টার পরিবর্তন করুন।
                 </div>
               )}
             </div>
@@ -681,16 +693,16 @@ export default function TeacherCurriculumStudio({
         </div>
 
         {/* Studio Footer */}
-        <div className="px-6 py-3.5 border-t border-white/[0.08] flex items-center justify-between bg-black/50 text-xs text-slate-400 shrink-0 relative z-10">
+        <div className="px-5 py-2.5 border-t border-slate-800 flex items-center justify-between bg-[#111622] text-xs text-slate-400 shrink-0">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <span>
-              নির্বাচিত: <strong className="text-white">{currentClassData.className} • {selectedBook?.name}</strong>
+              বর্তমান নির্বাচিত: <strong className="text-white">{currentClassData.className} • {selectedBook?.name} ({chapters.length}টি পাঠ)</strong>
             </span>
           </div>
           <button
             onClick={onClose}
-            className="px-4 py-1.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.1] text-slate-200 hover:text-white transition-colors text-xs font-medium"
+            className="px-3.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors text-xs font-semibold"
           >
             বন্ধ করো
           </button>

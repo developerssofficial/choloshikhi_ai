@@ -1,158 +1,56 @@
 [
-  {
-    "chapter_id": "c1-bn-ch1",
-    "chapter_number": "1",
-    "chapter_title": "আমার পরিচয়",
-    "chapter_type": "পাঠ",
-    "author": null,
-    "start_page": 1,
-    "end_page": 2,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 1
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 2
-      }
-    ],
-    "keywords": [
-      "আমার বাংলা বই",
-      "আমার পরিচয়",
-      "প্রথম শ্রেণি"
-    ],
-    "summary": "শিক্ষার্থীর নিজের নাম, বিদ্যালয় ও পরিচয়।",
-    "total_questions": 1
-  },
-  {
-    "chapter_id": "c1-bn-ch2",
-    "chapter_number": "2",
-    "chapter_title": "ব্যায়াম করি",
-    "chapter_type": "পাঠ",
-    "author": null,
-    "start_page": 3,
-    "end_page": 4,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 3
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 4
-      }
-    ],
-    "keywords": [
-      "আমার বাংলা বই",
-      "ব্যায়াম করি",
-      "প্রথম শ্রেণি"
-    ],
-    "summary": "শরীরচর্চা ও স্বাস্থ্যবিধি।",
-    "total_questions": 1
-  },
-  {
-    "chapter_id": "c1-bn-ch3",
-    "chapter_number": "3",
-    "chapter_title": "ভোর হলো",
-    "chapter_type": "ছড়া/কবিতা",
-    "author": "কাজী নজরুল ইসলাম",
-    "start_page": 5,
-    "end_page": 6,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 5
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 6
-      }
-    ],
-    "keywords": [
-      "আমার বাংলা বই",
-      "ভোর হলো",
-      "প্রথম শ্রেণি"
-    ],
-    "summary": "ভোরের ঘুম ভাঙার মিষ্টি ছড়া।",
-    "total_questions": 1
-  },
-  {
-    "chapter_id": "c1-bn-ch4",
-    "chapter_number": "4",
-    "chapter_title": "ইতল বিতল",
-    "chapter_type": "ছড়া/কবিতা",
-    "author": "সুফিয়া কামাল",
-    "start_page": 15,
-    "end_page": 16,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 15
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 16
-      }
-    ],
-    "keywords": [
-      "আমার বাংলা বই",
-      "ইতল বিতল",
-      "প্রথম শ্রেণি"
-    ],
-    "summary": "ব্যাঙের ছাতা ও বৃষ্টির প্রকৃতির রূপ।",
-    "total_questions": 1
-  },
-  {
-    "chapter_id": "c1-bn-ch5",
-    "chapter_number": "5",
-    "chapter_title": "ছুটি",
-    "chapter_type": "ছড়া/কবিতা",
-    "author": "রবীন্দ্রনাথ ঠাকুর",
-    "start_page": 25,
-    "end_page": 26,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 25
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 26
-      }
-    ],
-    "keywords": [
-      "আমার বাংলা বই",
-      "ছুটি",
-      "প্রথম শ্রেণি"
-    ],
-    "summary": "মেঘের কোলে রোদ হেসেছে বাদল গেছে টুটি।",
-    "total_questions": 1
-  },
-  {
-    "chapter_id": "c1-bn-ch6",
-    "chapter_number": "6",
-    "chapter_title": "হাঁট্টিমা টিম টিম",
-    "chapter_type": "ছড়া/কবিতা",
-    "author": "রোকনুজ্জামান খান",
-    "start_page": 35,
-    "end_page": 36,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 35
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 36
-      }
-    ],
-    "keywords": [
-      "আমার বাংলা বই",
-      "হাঁট্টিমা টিম টিম",
-      "প্রথম শ্রেণি"
-    ],
-    "summary": "হাঁটিমাটিম পাখির মজার ছড়া।",
-    "total_questions": 1
-  }
+  { "chapter_id": "c1-bn-ch1", "chapter_number": "1", "chapter_title": "আমার পরিচয়", "chapter_type": "পাঠ", "author": null, "start_page": 1, "end_page": 1, "sections": [{ "title": "মূল পাঠ", "page": 1 }, { "title": "পরিচয় অনুশীলন", "page": 1 }], "keywords": ["আমার বাংলা বই", "আমার পরিচয়", "প্রথম শ্রেণি"], "summary": "শিক্ষার্থীর নিজের নাম, পিতা-মাতার নাম, বিদ্যালয়ের নাম ও পরিচয় প্রকাশ।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch2", "chapter_number": "2", "chapter_title": "এসো রং করি ও আঁকি", "chapter_type": "পাঠ", "author": null, "start_page": 2, "end_page": 2, "sections": [{ "title": "রং করার পাঠ", "page": 2 }], "keywords": ["রং করা", "ছবি আঁকা"], "summary": "রং চেনা এবং ছবির বিভিন্ন অংশে রং করার আনন্দঘন অনুশীলন।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch3", "chapter_number": "3", "chapter_title": "আমি ও আমার বিদ্যালয়", "chapter_type": "পাঠ", "author": null, "start_page": 3, "end_page": 3, "sections": [{ "title": "বিদ্যালয় চেনা", "page": 3 }], "keywords": ["বিদ্যালয়", "শ্রেণিকক্ষ"], "summary": "বিদ্যালয়ের পরিবেশ ও শ্রেণিকক্ষ সম্পর্কে জানা ও বলা।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch4", "chapter_number": "4", "chapter_title": "আমি ও আমার সহপাঠীরা", "chapter_type": "পাঠ", "author": null, "start_page": 4, "end_page": 4, "sections": [{ "title": "সহপাঠী আলাপ", "page": 4 }], "keywords": ["সহপাঠী", "বন্ধু"], "summary": "সহপাঠীদের সাথে বন্ধুত্বপূর্ণ সম্পর্ক ও পরিচয় আদান-প্রদান।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch5", "chapter_number": "5", "chapter_title": "আঁকাঝাঁকি", "chapter_type": "পাঠ", "author": null, "start_page": 5, "end_page": 7, "sections": [{ "title": "দাগ টেনে আঁকা", "page": 5 }], "keywords": ["আঁকাঝাঁকি", "রেখা টানা"], "summary": "সোজা, বাঁকা ও গোল রেখা টেনে আঁকার প্রাথমিক দক্ষতা।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch6", "chapter_number": "6", "chapter_title": "আমরা কী কী করি", "chapter_type": "পাঠ", "author": null, "start_page": 8, "end_page": 8, "sections": [{ "title": "দৈনন্দিন কাজ", "page": 8 }], "keywords": ["দৈনন্দিন কাজ", "অভ্যাস"], "summary": "প্রতিদিনের নিয়মমাফিক কাজ ও স্বাস্থ্যকর অভ্যাস অনুশীলন।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch7", "chapter_number": "7", "chapter_title": "আঁকাঝাঁকি", "chapter_type": "পাঠ", "author": null, "start_page": 9, "end_page": 10, "sections": [{ "title": "হাতের লেখা ও আঁকা", "page": 9 }], "keywords": ["আঁকাঝাঁকি"], "summary": "বর্ণ লেখার প্রস্তুতি হিসেবে বিভিন্ন প্যাটার্ন আঁকা।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch8", "chapter_number": "8", "chapter_title": "ছড়া", "chapter_type": "ছড়া", "author": null, "start_page": 11, "end_page": 11, "sections": [{ "title": "ছড়া পাঠ ও আবৃত্তি", "page": 11 }], "keywords": ["ছড়া", "আনন্দ"], "summary": "মজার ছড়া সুর করে পড়া ও আনন্দের সাথে আবৃত্তি।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch9", "chapter_number": "9", "chapter_title": "বাঘ ও রাখাল", "chapter_type": "গল্প", "author": "লোককথা", "start_page": 12, "end_page": 14, "sections": [{ "title": "রাখালের গল্প", "page": 12 }, { "title": "শিক্ষা ও অনুশীলন", "page": 14 }], "keywords": ["বাঘ ও রাখাল", "মিথ্যা কথা না বলা"], "summary": "মিথ্যাবাদী রাখালের গল্প ও সত্য বলার শিক্ষণীয় গল্প।", "total_questions": 2 },
+  { "chapter_id": "c1-bn-ch10", "chapter_number": "10", "chapter_title": "বর্ণ শিখি : অ আ", "chapter_type": "বর্ণমালা", "author": null, "start_page": 15, "end_page": 16, "sections": [{ "title": "অ আ চেনা ও লেখা", "page": 15 }], "keywords": ["অ", "আ", "স্বরবর্ণ"], "summary": "স্বরবর্ণ 'অ' এবং 'আ' চেনা, উচ্চারণ ও সঠিক নিয়মে লেখা।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch11", "chapter_number": "11", "chapter_title": "বর্ণ শিখি : ই ঈ", "chapter_type": "বর্ণমালা", "author": null, "start_page": 17, "end_page": 17, "sections": [{ "title": "ই ঈ চেনা ও লেখা", "page": 17 }], "keywords": ["ই", "ঈ", "স্বরবর্ণ"], "summary": "স্বরবর্ণ 'ই' এবং 'ঈ' চেনা, শব্দ গঠন ও লেখা।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch12", "chapter_number": "12", "chapter_title": "বর্ণ শিখি : উ ঊ", "chapter_type": "বর্ণমালা", "author": null, "start_page": 18, "end_page": 19, "sections": [{ "title": "উ ঊ চেনা ও লেখা", "page": 18 }], "keywords": ["উ", "ঊ", "স্বরবর্ণ"], "summary": "স্বরবর্ণ 'উ' এবং 'ঊ' চেনা, উচ্চারণ ও শব্দ তৈরি।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch13", "chapter_number": "13", "chapter_title": "বর্ণ শিখি : ঋ", "chapter_type": "বর্ণমালা", "author": null, "start_page": 20, "end_page": 20, "sections": [{ "title": "ঋ চেনা ও লেখা", "page": 20 }], "keywords": ["ঋ", "স্বরবর্ণ"], "summary": "স্বরবর্ণ 'ঋ' চেনা এবং ঋতু/ঋষি সম্পর্কিত শব্দ শেখা।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch14", "chapter_number": "14", "chapter_title": "বর্ণ শিখি : এ ঐ", "chapter_type": "বর্ণমালা", "author": null, "start_page": 21, "end_page": 21, "sections": [{ "title": "এ ঐ চেনা ও লেখা", "page": 21 }], "keywords": ["এ", "ঐ", "স্বরবর্ণ"], "summary": "স্বরবর্ণ 'এ' এবং 'ঐ' চেনা, একতারা ও ঐরাবত শব্দ চেনা।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch15", "chapter_number": "15", "chapter_title": "বর্ণ শিখি : ও ঔ", "chapter_type": "বর্ণমালা", "author": null, "start_page": 22, "end_page": 22, "sections": [{ "title": "ও ঔ চেনা ও লেখা", "page": 22 }], "keywords": ["ও", "ঔ", "স্বরবর্ণ"], "summary": "স্বরবর্ণ 'ও' এবং 'ঔ' চেনা, ওজন ও ঔষধ শব্দ শেখা।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch16", "chapter_number": "16", "chapter_title": "স্বরবর্ণ", "chapter_type": "বর্ণমালা", "author": null, "start_page": 23, "end_page": 23, "sections": [{ "title": "সকল স্বরবর্ণ চার্ট", "page": 23 }], "keywords": ["১১টি স্বরবর্ণ", "চার্ট"], "summary": "১১টি স্বরবর্ণ (অ থেকে ঔ) একসাথে পড়া, সাজানো ও পুনরাবৃত্তি।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch17", "chapter_number": "17", "chapter_title": "ইতল বিতল", "chapter_type": "ছড়া", "author": "সুফিয়া কামাল", "start_page": 24, "end_page": 25, "sections": [{ "title": "ছড়া পাঠ", "page": 24 }, { "title": "অনুশীলনী", "page": 25 }], "keywords": ["ইতল বিতল", "সুফিয়া কামাল", "ব্যাঙের ছাতা"], "summary": "কবি সুফিয়া কামালের জনপ্রিয় ছড়া 'ইতল বিতল গাছের পাতা'।", "total_questions": 2 },
+  { "chapter_id": "c1-bn-ch18", "chapter_number": "18", "chapter_title": "কতকিছু দেখি", "chapter_type": "পাঠ", "author": null, "start_page": 26, "end_page": 27, "sections": [{ "title": "ছবি দেখে বলা", "page": 26 }], "keywords": ["পরিবেশ পর্যবেক্ষণ", "ছবি দেখা"], "summary": "চারপাশের পরিবেশ, গাছপালা ও পশু-পাখি দেখে নাম বলা।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch19", "chapter_number": "19", "chapter_title": "বর্ণ শিখি : ক খ গ ঘ ঙ", "chapter_type": "বর্ণমালা", "author": null, "start_page": 28, "end_page": 31, "sections": [{ "title": "কণ্ঠ্য বর্ণমালা", "page": 28 }], "keywords": ["ক", "খ", "গ", "ঘ", "ঙ"], "summary": "ব্যঞ্জনবর্ণের প্রথম বর্গ ক খ গ ঘ ঙ চেনা, শব্দ তৈরি ও অনুশীলন।", "total_questions": 2 },
+  { "chapter_id": "c1-bn-ch20", "chapter_number": "20", "chapter_title": "বর্ণ শিখি : চ ছ জ ঝ ঞ", "chapter_type": "বর্ণমালা", "author": null, "start_page": 32, "end_page": 35, "sections": [{ "title": "তালব্য বর্ণমালা", "page": 32 }], "keywords": ["চ", "ছ", "জ", "ঝ", "ঞ"], "summary": "ব্যঞ্জনবর্ণ চ ছ জ ঝ ঞ চেনা ও শব্দ গঠন।", "total_questions": 2 },
+  { "chapter_id": "c1-bn-ch21", "chapter_number": "21", "chapter_title": "আ-কার শিখি", "chapter_type": "কারচিহ্ন", "author": null, "start_page": 36, "end_page": 37, "sections": [{ "title": "আ-কার ( া )", "page": 36 }], "keywords": ["আ-কার", "কারচিহ্ন"], "summary": "আ-কার ( া ) চেনা এবং আ-কার যুক্ত সহজ শব্দ যেমন মামা, বাবা, ছাতা পড়া ও লেখা।", "total_questions": 2 },
+  { "chapter_id": "c1-bn-ch22", "chapter_number": "22", "chapter_title": "ই-কার ঈ-কার শিখি", "chapter_type": "কারচিহ্ন", "author": null, "start_page": 38, "end_page": 39, "sections": [{ "title": "ই-কার ( ি ) ও ঈ-কার ( ী )", "page": 38 }], "keywords": ["ই-কার", "ঈ-কার"], "summary": "হ্রস্ব ই-কার ( ি ) এবং দীর্ঘ ঈ-কার ( ী ) দিয়ে শব্দ গঠন।", "total_questions": 2 },
+  { "chapter_id": "c1-bn-ch23", "chapter_number": "23", "chapter_title": "বর্ণ শিখি : ট ঠ ড ঢ ণ", "chapter_type": "বর্ণমালা", "author": null, "start_page": 40, "end_page": 43, "sections": [{ "title": "মূর্ধন্য বর্ণমালা", "page": 40 }], "keywords": ["ট", "ঠ", "ড", "ঢ", "ণ"], "summary": "ব্যঞ্জনবর্ণ ট ঠ ড ঢ ণ চেনা, ছবি দেখে শব্দ বলা ও লেখা।", "total_questions": 2 },
+  { "chapter_id": "c1-bn-ch24", "chapter_number": "24", "chapter_title": "বর্ণ শিখি : ত থ দ ধ ন", "chapter_type": "বর্ণমালা", "author": null, "start_page": 44, "end_page": 47, "sections": [{ "title": "দন্ত্য বর্ণমালা", "page": 44 }], "keywords": ["ত", "থ", "দ", "ধ", "ন"], "summary": "ব্যঞ্জনবর্ণ ত থ দ ধ ন দিয়ে শব্দ গঠন ও বাক্য পাঠ।", "total_questions": 2 },
+  { "chapter_id": "c1-bn-ch25", "chapter_number": "25", "chapter_title": "ট্রেন", "chapter_type": "ছড়া", "author": "শামসুর রাহমান", "start_page": 48, "end_page": 51, "sections": [{ "title": "ট্রেন ছড়া", "page": 48 }, { "title": "অনুশীলনী", "page": 50 }], "keywords": ["ট্রেন", "শামসুর রাহমান", "ঝকঝকাঝক"], "summary": "কবি শামসুর রাহমানের বিখ্যাত ছড়া 'ঝকঝকাঝক ট্রেন চলেছে'।", "total_questions": 2 },
+  { "chapter_id": "c1-bn-ch26", "chapter_number": "26", "chapter_title": "বর্ণ শিখি : প ফ ব ভ ম", "chapter_type": "বর্ণমালা", "author": null, "start_page": 52, "end_page": 55, "sections": [{ "title": "ওষ্ঠ্য বর্ণমালা", "page": 52 }], "keywords": ["প", "ফ", "ব", "ভ", "ম"], "summary": "ব্যঞ্জনবর্ণ প ফ ব ভ ম চেনা ও সুন্দর করে লেখা।", "total_questions": 2 },
+  { "chapter_id": "c1-bn-ch27", "chapter_number": "27", "chapter_title": "উ-কার ঊ-কার শিখি", "chapter_type": "কারচিহ্ন", "author": null, "start_page": 56, "end_page": 59, "sections": [{ "title": "উ-কার ( ু ) ও ঊ-কার ( ূ )", "page": 56 }], "keywords": ["উ-কার", "ঊ-কার"], "summary": "উ-কার ( ু ) ও ঊ-কার ( ূ ) দিয়ে শব্দ তৈরি যেমন ফুল, মূল, খুকু ইত্যাদি।", "total_questions": 2 },
+  { "chapter_id": "c1-bn-ch28", "chapter_number": "28", "chapter_title": "ঋ-কার শিখি", "chapter_type": "কারচিহ্ন", "author": null, "start_page": 60, "end_page": 60, "sections": [{ "title": "ঋ-কার ( ৃ )", "page": 60 }], "keywords": ["ঋ-কার", "মৃগ", "তৃণ"], "summary": "ঋ-কার ( ৃ ) চিহ্ন চেনা এবং মৃগ, তৃণ, গৃহ ইত্যাদি শব্দ শেখা।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch29", "chapter_number": "29", "chapter_title": "এ-কার ঐ-কার শিখি", "chapter_type": "কারচিহ্ন", "author": null, "start_page": 61, "end_page": 61, "sections": [{ "title": "এ-কার ( ে ) ও ঐ-কার ( ৈ )", "page": 61 }], "keywords": ["এ-কার", "ঐ-কার"], "summary": "এ-কার ( ে ) ও ঐ-কার ( ৈ ) যুক্ত শব্দের পরিচিতি ও পড়া।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch30", "chapter_number": "30", "chapter_title": "বর্ণ শিখি : য র ল", "chapter_type": "বর্ণমালা", "author": null, "start_page": 62, "end_page": 63, "sections": [{ "title": "অন্তঃস্থ বর্ণমালা", "page": 62 }], "keywords": ["য", "র", "ল"], "summary": "ব্যঞ্জনবর্ণ য র ল চেনা, ছবি মেলা ও শব্দ তৈরি।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch31", "chapter_number": "31", "chapter_title": "ও-কার ঔ-কার শিখি", "chapter_type": "কারচিহ্ন", "author": null, "start_page": 64, "end_page": 65, "sections": [{ "title": "ও-কার ( ো ) ও ঔ-কার ( ৌ )", "page": 64 }], "keywords": ["ও-কার", "ঔ-কার"], "summary": "ও-কার ( ো ) ও ঔ-কার ( ৌ ) দিয়ে শব্দ তৈরি যেমন ঢোল, নৌকা ইত্যাদি।", "total_questions": 2 },
+  { "chapter_id": "c1-bn-ch32", "chapter_number": "32", "chapter_title": "বর্ণ শিখি : শ ষ স হ", "chapter_type": "বর্ণমালা", "author": null, "start_page": 66, "end_page": 66, "sections": [{ "title": "ঊষ্ম বর্ণমালা", "page": 66 }], "keywords": ["শ", "ষ", "স", "হ"], "summary": "ব্যঞ্জনবর্ণ শ ষ স হ চেনা ও তাদের সঠিক উচ্চারণ ও লেখা।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch33", "chapter_number": "33", "chapter_title": "বর্ণ শিখি : ড় ঢ় য় ৎ", "chapter_type": "বর্ণমালা", "author": null, "start_page": 67, "end_page": 68, "sections": [{ "title": "তাড়নজাত ও খণ্ড-ত বর্ণ", "page": 67 }], "keywords": ["ড়", "ঢ়", "য়", "ৎ"], "summary": "ব্যঞ্জনবর্ণ ড় ঢ় য় ৎ দিয়ে শব্দ চেনা যেমন গাড়ি, আষাঢ়, ময়ূর, শরৎ।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch34", "chapter_number": "34", "chapter_title": "বর্ণ শিখি : ং ঃ ঁ", "chapter_type": "বর্ণমালা", "author": null, "start_page": 69, "end_page": 69, "sections": [{ "title": "পরাশ্রয়ী বর্ণমালা", "page": 69 }], "keywords": ["অনুস্বার", "বিসর্গ", "চন্দ্রবিন্দু"], "summary": "পরাশ্রয়ী বর্ণ অনুস্বার (ং), বিসর্গ (ঃ), চন্দ্রবিন্দু (ঁ) এর সঠিক ব্যবহার।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch35", "chapter_number": "35", "chapter_title": "ছবি দেখি শব্দ বানাই", "chapter_type": "অনুশীলন", "author": null, "start_page": 70, "end_page": 71, "sections": [{ "title": "শব্দ গঠন খেলা", "page": 70 }], "keywords": ["ছবি দেখে শব্দ", "শব্দ তৈরি"], "summary": "ছবির দিকে তাকিয়ে উপযুক্ত বর্ণ বসিয়ে শব্দ তৈরির মজাদার খেলা।", "total_questions": 2 },
+  { "chapter_id": "c1-bn-ch36", "chapter_number": "36", "chapter_title": "এসো পড়ি ও লিখি", "chapter_type": "অনুশীলন", "author": null, "start_page": 72, "end_page": 72, "sections": [{ "title": "রিডিং ও রাইটিং", "page": 72 }], "keywords": ["পড়া ও লেখা"], "summary": "সহজ বাক্য ও শব্দ পড়ে খাতায় লেখার সুন্দর অনুশীলন।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch37", "chapter_number": "37", "chapter_title": "এসো পড়ি ও লিখি", "chapter_type": "অনুশীলন", "author": null, "start_page": 73, "end_page": 73, "sections": [{ "title": "বাক্য গঠন", "page": 73 }], "keywords": ["বাক্য গঠন"], "summary": "ছোট ছোট অর্থপূর্ণ বাক্য নিজে নিজে পড়া ও সাজিয়ে লেখা।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch38", "chapter_number": "38", "chapter_title": "এসো পড়ি ও লিখি", "chapter_type": "অনুশীলন", "author": null, "start_page": 74, "end_page": 74, "sections": [{ "title": "রিডিং প্র্যাকটিস", "page": 74 }], "keywords": ["অনুশীলন"], "summary": "ধারাবাহিক বাক্য পাঠ ও বানান নির্ভুল করার পাঠ।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch39", "chapter_number": "39", "chapter_title": "ব্যঞ্জনবর্ণ", "chapter_type": "বর্ণমালা", "author": null, "start_page": 75, "end_page": 76, "sections": [{ "title": "৩৯টি ব্যঞ্জনবর্ণ চার্ট", "page": 75 }], "keywords": ["৩৯টি ব্যঞ্জনবর্ণ", "সম্পূর্ণ চার্ট"], "summary": "বাংলা ভাষার ৩৯টি ব্যঞ্জনবর্ণ (ক থেকে ঁ) একসাথে একনজরে চার্ট ও রিভিশন।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch40", "chapter_number": "40", "chapter_title": "মামার বাড়ি", "chapter_type": "ছড়া", "author": "জসীমউদ্দীন", "start_page": 77, "end_page": 58, "sections": [{ "title": "মামার বাড়ি কবিতা", "page": 77 }], "keywords": ["মামার বাড়ি", "জসীমউদ্দীন", "ঝড়ের দিনে"], "summary": "পল্লিকবি জসীমউদ্দীনের বিখ্যাত ছড়া 'আয় ছেলেরা আয় মেয়েরা ফুল তুলিতে যাই'।", "total_questions": 2 },
+  { "chapter_id": "c1-bn-ch41", "chapter_number": "41", "chapter_title": "পাখির গান", "chapter_type": "ছড়া", "author": null, "start_page": 59, "end_page": 59, "sections": [{ "title": "পাখিদের পরিচয়", "page": 59 }], "keywords": ["পাখির গান", "দোয়েল কোকিল"], "summary": "বাংলাদেশের বিভিন্ন পরিচিত পাখি ও তাদের মিষ্টি সুরের গান।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch42", "chapter_number": "42", "chapter_title": "ভোর হলো", "chapter_type": "ছড়া", "author": "কাজী নজরুল ইসলাম", "start_page": 60, "end_page": 60, "sections": [{ "title": "ভোর হলো কবিতা", "page": 60 }], "keywords": ["ভোর হলো", "কাজী নজরুল ইসলাম", "খুকুমণি"], "summary": "জাতীয় কবি কাজী নজরুল ইসলামের অমর ছড়া 'ভোর হলো দোর খোলো খুকুমণি ওঠো রে'।", "total_questions": 2 },
+  { "chapter_id": "c1-bn-ch43", "chapter_number": "43", "chapter_title": "পড়ি ও লিখি", "chapter_type": "অনুশীলন", "author": null, "start_page": 61, "end_page": 62, "sections": [{ "title": "পড়ার দক্ষতা", "page": 61 }], "keywords": ["পড়ি ও লিখি"], "summary": "সহজ গল্প ও ছোট বাক্য সাবলীলভাবে পড়ার অনুশীলন।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch44", "chapter_number": "44", "chapter_title": "মেতে মেতে পড়ি", "chapter_type": "পাঠ", "author": null, "start_page": 63, "end_page": 64, "sections": [{ "title": "ছন্দে ছন্দে পড়া", "page": 63 }], "keywords": ["মেতে মেতে পড়ি"], "summary": "ছন্দ ও তাল বজায় রেখে আনন্দে দলগত রিডিং পড়া।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch45", "chapter_number": "45", "chapter_title": "সাত দিনের কথা", "chapter_type": "পাঠ", "author": null, "start_page": 65, "end_page": 65, "sections": [{ "title": "সপ্তাহের ৭ দিন", "page": 65 }], "keywords": ["শনিবার", "রবিবার", "৭ দিন"], "summary": "সপ্তাহের সাতটি দিনের নাম (শনি, রবি, সোম, মঙ্গল, বুধ, বৃহস্পতি, শুক্র) মুখস্থ ও চেনা।", "total_questions": 2 },
+  { "chapter_id": "c1-bn-ch46", "chapter_number": "46", "chapter_title": "পিঁপড়া ও পায়রার গল্প", "chapter_type": "গল্প", "author": "ঈশপের গল্প", "start_page": 66, "end_page": 66, "sections": [{ "title": "গল্প পাঠ", "page": 66 }], "keywords": ["পিঁপড়া ও পায়রা", "উপকার"], "summary": "উপকারী বন্ধুত্বের নীতিশিক্ষা মূলক গল্প 'পিঁপড়া ও পায়রা'।", "total_questions": 2 },
+  { "chapter_id": "c1-bn-ch47", "chapter_number": "47", "chapter_title": "আতঙ্কের দিন", "chapter_type": "গল্প", "author": null, "start_page": 67, "end_page": 69, "sections": [{ "title": "সচেতনতামূলক গল্প", "page": 67 }], "keywords": ["আতঙ্কের দিন", "সচেতনতা"], "summary": "ভয় কাটিয়ে কীভাবে বুদ্ধিমত্তার সাথে বিপদ মোকাবেলা করতে হয়।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch48", "chapter_number": "48", "chapter_title": "ছুটি", "chapter_type": "ছড়া", "author": "রবীন্দ্রনাথ ঠাকুর", "start_page": 70, "end_page": 70, "sections": [{ "title": "ছুটি কবিতা", "page": 70 }], "keywords": ["ছুটি", "রবীন্দ্রনাথ ঠাকুর", "মেঘের কোলে রোদ"], "summary": "বিশ্বকবি রবীন্দ্রনাথ ঠাকুরের কালজয়ী ছড়া 'মেঘের কোলে রোদ হেসেছে বাদল গেছে টুটি'।", "total_questions": 2 },
+  { "chapter_id": "c1-bn-ch49", "chapter_number": "49", "chapter_title": "আমাদের দেশ", "chapter_type": "ছড়া", "author": "আ. ন. ম. বযলুর রশীদ", "start_page": 71, "end_page": 72, "sections": [{ "title": "আমাদের দেশ কবিতা", "page": 71 }], "keywords": ["আমাদের দেশ", "স্বদেশ প্রেম"], "summary": "মাতৃভূমি বাংলাদেশের অপরূপ প্রাকৃতিক রূপ ও মানুষের ভালোবাসার ছড়া।", "total_questions": 2 },
+  { "chapter_id": "c1-bn-ch50", "chapter_number": "50", "chapter_title": "মাছের রাজা", "chapter_type": "পাঠ", "author": null, "start_page": 73, "end_page": 73, "sections": [{ "title": "ইলিশ মাছ", "page": 73 }], "keywords": ["মাছের রাজা", "জাতীয় মাছ ইলিশ"], "summary": "বাংলাদেশের জাতীয় মাছ ইলিশ এবং অন্যান্য দেশি মাছের পরিচয়।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch51", "chapter_number": "51", "chapter_title": "সংখ্যা শিখি", "chapter_type": "গণিত/ভাষা", "author": null, "start_page": 74, "end_page": 75, "sections": [{ "title": "১ থেকে ১০ সংখ্যা", "page": 74 }], "keywords": ["সংখ্যা শিখি", "১-১০"], "summary": "বাংলা সংখ্যা ১ থেকে ১০ কথায় ও অঙ্কে গণনা এবং লেখা।", "total_questions": 2 },
+  { "chapter_id": "c1-bn-ch52", "chapter_number": "52", "chapter_title": "আমাদের মুক্তিযুদ্ধ", "chapter_type": "ইতিহাস", "author": null, "start_page": 76, "end_page": 76, "sections": [{ "title": "১৯৭১ মুক্তিযুদ্ধ", "page": 76 }], "keywords": ["আমাদের মুক্তিযুদ্ধ", "বীর মুক্তিযোদ্ধা", "১৯৭১"], "summary": "১৯৭১ সালের মহান মুক্তিযুদ্ধ ও জাতির বীর মুক্তিযোদ্ধাদের গৌরবগাথা।", "total_questions": 2 },
+  { "chapter_id": "c1-bn-ch53", "chapter_number": "53", "chapter_title": "শব্দ দিয়ে খেলা", "chapter_type": "খেলা", "author": null, "start_page": 77, "end_page": 79, "sections": [{ "title": "শব্দ ছক ও খেলা", "page": 77 }], "keywords": ["শব্দ খেলা", "শব্দ তৈরি"], "summary": "নতুন নতুন শব্দ তৈরি ও মিলিয়ে পড়ার আনন্দময় খেলা।", "total_questions": 1 },
+  { "chapter_id": "c1-bn-ch54", "chapter_number": "54", "chapter_title": "আমার ঠিকানা", "chapter_type": "পাঠ", "author": null, "start_page": 80, "end_page": 80, "sections": [{ "title": "ঠিকানা লেখা", "page": 80 }], "keywords": ["আমার ঠিকানা", "গ্রাম/শহর"], "summary": "নিজের গ্রাম, ডাকঘর, থানা ও জেলার নাম বলা ও লেখার সমাপ্তি পাঠ।", "total_questions": 2 }
 ]
