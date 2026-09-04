@@ -75,7 +75,8 @@ export async function POST(req: NextRequest) {
 
         if (!error && data.session) {
           successSession = data.session;
-          matchedStudentId = email.split("@")[0].toUpperCase();
+          const foundCand = candidates?.find(c => c.username?.toLowerCase() === email.split("@")[0].toLowerCase());
+          matchedStudentId = foundCand?.username || email.split("@")[0];
           break;
         }
       } catch {

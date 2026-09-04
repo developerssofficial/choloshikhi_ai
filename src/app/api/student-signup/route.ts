@@ -3,20 +3,76 @@ import { supabase } from "@/lib/supabase";
 
 /* ===================================================================
    POST /api/student-signup
-   Student fills: name, school, class, password
-   → Generates CSH_XXXXXX ID
-   → Creates Supabase auth user (synthetic email)
+   Creates a unique personalized Student ID based on Name + Number (e.g. ayan_382)
+   → Creates Supabase auth user with synthetic email (ayan_382@choloshikhi.app)
    → Creates student_profiles + user_subscriptions rows
-   → Returns studentId + auth tokens
+   → Returns personalized studentId & login credentials
    =================================================================== */
 
-function generateStudentId(): string {
-  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-  let id = "CSH_";
-  for (let i = 0; i < 6; i++) {
-    id += chars[Math.floor(Math.random() * chars.length)];
+/** Convert any name (English or Bengali) into a clean, memorable English slug prefix */
+function cleanNamePrefix(name: string): string {
+  // First check if there are English characters in name
+  const englishMatches = name.toLowerCase().replace(/[^a-z0-9]/g, "");
+  if (englishMatches.length >= 3) {
+    return englishMatches.slice(0, 10);
   }
-  return id;
+
+  // Common Bengali phonetic mappings for student names
+  const bengaliMap: Record<string, string> = {
+    "আ": "a", "অ": "o", "ই": "i", "ঈ": "i", "উ": "u", "ঊ": "u", "ঋ": "ri",
+    "এ": "e", "ঐ": "oi", "ও": "o", "ঔ": "ou",
+    "ক": "k", "খ": "kh", "গ": "g", "ঘ": "gh", "ঙ": "ng",
+    "চ": "ch", "ছ": "chh", "জ": "j", "ঝ": "jh", "ঞ": "n",
+    "ট": "t", "ঠ": "th", "ড": "d", "ঢ": "dh", "ণ": "n",
+    "ত": "t", "থ": "th", "দ": "d", "ধ": "dh", "ন": "n",
+    "প": "p", "ফ": "f", "ব": "b", "ভ": "bh", "ম": "m",
+    "য": "j", "র": "r", "ল": "l", "শ": "sh", "ষ": "sh", "স": "s", "হ": "h",
+    "ড়": "r", "ঢ়": "rh", "য়": "y", "ৎ": "t",
+    "া": "a", "ি": "i", "ী": "i", "ু": "u", "ূ": "u", "ৃ": "ri",
+    "ে": "e", "ৈ": "oi", "ো": "o", "ৌ": "ou", "্": "",
+    "ং": "ng", "ঃ": "h", "ঁ": "",
+  };
+
+  let transliterated = "";
+  for (const char of name) {
+    if (bengaliMap[char] !== undefined) {
+      transliterated += bengaliMap[char];
+    } else if (/[a-zA-Z0-9]/.test(char)) {
+      transliterated += char.toLowerCase();
+    }
+  }
+
+  const clean = transliterated.replace(/[^a-z0-9]/g, "").slice(0, 10);
+  if (clean.length >= 3) {
+    return clean;
+  }
+
+  return "student";
+}
+
+/** Generate a unique personalized student ID like 'ayan_382' or 'shikhi_109' */
+async function generateUniqueStudentId(fullName: string): Promise<string> {
+  const prefix = cleanNamePrefix(fullName);
+
+  // Try generating with 3-digit random number first, then 4-digit
+  for (let attempt = 0; attempt < 50; attempt++) {
+    const randomNum = Math.floor(100 + Math.random() * 900); // 100 - 999
+    const candidateId = `${prefix}_${randomNum}`;
+
+    const { data: existing } = await supabase
+      .from("student_profiles")
+      .select("username")
+      .eq("username", candidateId)
+      .maybeSingle();
+
+    if (!existing) {
+      return candidateId;
+    }
+  }
+
+  // Fallback with timestamp suffix
+  const tsSuffix = Date.now().toString().slice(-4);
+  return `${prefix}_${tsSuffix}`;
 }
 
 export async function POST(req: NextRequest) {
@@ -31,23 +87,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "পাসওয়ার্ড কমপক্ষে ৬ অক্ষর হতে হবে" }, { status: 400 });
     }
 
-    // Generate unique CSH_XXXXXX
-    let studentId = "";
-    let attempts = 0;
-    do {
-      studentId = generateStudentId();
-      const { data: existing } = await supabase
-        .from("student_profiles")
-        .select("username")
-        .eq("username", studentId)
-        .maybeSingle();
-      if (!existing) break;
-      attempts++;
-    } while (attempts < 50);
+    const trimmedName = fullName.trim();
 
-    if (attempts >= 50) {
-      return NextResponse.json({ error: "Try again — could not generate unique ID" }, { status: 500 });
-    }
+    // Generate unique personalized student ID (e.g. ayan_382)
+    const studentId = await generateUniqueStudentId(trimmedName);
 
     // Synthetic email for Supabase auth
     const syntheticEmail = `${studentId.toLowerCase()}@choloshikhi.app`;
@@ -58,26 +101,29 @@ export async function POST(req: NextRequest) {
       password: password,
       email_confirm: true, // Skip email verification
       user_metadata: {
-        full_name: fullName.trim(),
+        full_name: trimmedName,
         student_id: studentId,
       },
     });
 
     if (authError) {
       console.error("[StudentSignup] Auth user create error:", authError);
-      return NextResponse.json({ error: "অ্যাকাউন্ট তৈরি করা যায়নি। আবার চেষ্টা করুন।" }, { status: 500 });
+      return NextResponse.json(
+        { error: "অ্যাকাউন্ট তৈরি করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।" },
+        { status: 500 }
+      );
     }
 
     const userId = authData.user.id;
 
-    // Create student_profiles row
+    // Create student_profiles row with strictly isolated user_id
     const { error: profileError } = await supabase
       .from("student_profiles")
       .insert({
         user_id: userId,
         username: studentId,
-        display_name: fullName.trim(),
-        full_name: fullName.trim(),
+        display_name: trimmedName,
+        full_name: trimmedName,
         school: school?.trim() || null,
         college: college?.trim() || null,
         class_name: className?.trim() || null,
@@ -86,36 +132,24 @@ export async function POST(req: NextRequest) {
 
     if (profileError) {
       console.error("[StudentSignup] Profile create error:", profileError);
-      // Try to clean up auth user
       await supabase.auth.admin.deleteUser(userId);
-      return NextResponse.json({ error: "প্রোফাইল তৈরি করা যায়নি" }, { status: 500 });
+      return NextResponse.json({ error: "প্রোফাইল তৈরি করা যায়নি" }, { status: 500 });
     }
 
-    // Create subscription row
+    // Create default subscription quota
     await supabase
       .from("user_subscriptions")
       .insert({ user_id: userId, plan: "free", teacher_mode_enabled: true });
-
-    // Generate tokens for the client by signing in with the synthetic credentials
-    // We use the service role to create a session
-    const { data: sessionData, error: sessionError } = await supabase.auth.admin.generateLink({
-      type: "magiclink",
-      email: syntheticEmail,
-    });
-
-    // Actually, admin.generateLink doesn't work well for password login.
-    // Instead, return the studentId so the client can sign in with signInWithPassword.
-    // But the client needs the synthetic email... let's return that too.
 
     return NextResponse.json({
       ok: true,
       studentId,
       syntheticEmail,
       userId,
-      message: "অ্যাকাউন্ত তৈরি হয়েছে",
+      message: "অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে",
     });
   } catch (error: any) {
     console.error("[StudentSignup] Error:", error);
-    return NextResponse.json({ error: "সার্ভার সমস্যা" }, { status: 500 });
+    return NextResponse.json({ error: "সার্ভারে সমস্যা হয়েছে" }, { status: 500 });
   }
 }
