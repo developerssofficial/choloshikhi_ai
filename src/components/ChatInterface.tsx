@@ -9,6 +9,7 @@ import TaskExecutionPanel from "@/components/TaskExecutionPanel";
 import AppSidebar from "@/components/AppSidebar";
 import EmojiPicker from "@/components/EmojiPicker";
 import ContextInspectorModal from "@/components/ContextInspectorModal";
+import TeacherClassSelectorModal, { SelectedTeacherSubject } from "@/components/TeacherClassSelectorModal";
 import type { TaskGraph, TaskClarification, TaskNodeStatus } from "@/lib/taskTypes";
 
 interface Message {
@@ -109,6 +110,8 @@ export default function ChatInterface({ initialMode = "normal" }: { initialMode?
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [showPromptModifiers, setShowPromptModifiers] = useState(false);
   const [showContextInspector, setShowContextInspector] = useState(false);
+  const [showClassSelector, setShowClassSelector] = useState(false);
+  const [selectedTeacherSubject, setSelectedTeacherSubject] = useState<SelectedTeacherSubject | null>(null);
   const [isListening, setIsListening] = useState(false);
   const [speechSupported, setSpeechSupported] = useState(false);
   const recognitionRef = useRef<any>(null);
@@ -393,6 +396,13 @@ export default function ChatInterface({ initialMode = "normal" }: { initialMode?
           mode: initialMode,
           image: fileToSend || null,
           guestMemory: !user ? loadGuestMemory() : undefined,
+          ...(initialMode === "education" && selectedTeacherSubject
+            ? {
+                selectedClass: selectedTeacherSubject.classNumber,
+                selectedSubject: selectedTeacherSubject.subject,
+                selectedBookId: selectedTeacherSubject.bookId,
+              }
+            : {}),
         }),
       });
 
@@ -462,10 +472,16 @@ export default function ChatInterface({ initialMode = "normal" }: { initialMode?
     inputRef.current?.focus();
   };
 
-  // Select suggestions list based on mode
+  // Select suggestions list based on mode & selected teacher subject
   const currentSuggestions =
     initialMode === "education"
-      ? TEACHER_SUGGESTIONS
+      ? selectedTeacherSubject && selectedTeacherSubject.sampleLessons?.length > 0
+        ? selectedTeacherSubject.sampleLessons.map((lesson) => ({
+            icon: selectedTeacherSubject.icon,
+            label: lesson,
+            text: `${selectedTeacherSubject.className}-এর '${selectedTeacherSubject.bookName}' বইয়ের "${lesson}" পাঠটি আমাকে সহজ ও সুন্দরভাবে বুঝিয়ে দাও।`,
+          }))
+        : TEACHER_SUGGESTIONS
       : initialMode === "taskplan"
       ? PLANNER_SUGGESTIONS
       : NORMAL_SUGGESTIONS;
@@ -511,7 +527,31 @@ export default function ChatInterface({ initialMode = "normal" }: { initialMode?
       <div className="flex-1 flex flex-col min-w-0 z-10 relative">
         {/* Top Header */}
         <header className="flex items-center justify-between px-4 sm:px-6 h-14 border-b border-white/[0.07] shrink-0 glass-dock backdrop-blur-2xl">
-          <div className="w-8 md:hidden" />
+          <div className="flex items-center gap-2">
+            {/* Class & Subject Selector Button (Exclusively in Teacher Mode) */}
+            {initialMode === "education" ? (
+              <button
+                onClick={() => setShowClassSelector(true)}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/35 text-xs font-semibold text-emerald-300 hover:text-white transition-all shadow-sm group"
+                title="শ্রেণি ও বিষয় নির্বাচন করুন"
+              >
+                <span className="text-base group-hover:scale-110 transition-transform">
+                  {selectedTeacherSubject ? selectedTeacherSubject.icon : "🏫"}
+                </span>
+                <span className="hidden sm:inline">
+                  {selectedTeacherSubject
+                    ? `${selectedTeacherSubject.className.split(" ")[0]} • ${selectedTeacherSubject.subject}`
+                    : "শ্রেণি ও বিষয় নির্বাচন"}
+                </span>
+                <span className="sm:hidden">
+                  {selectedTeacherSubject ? selectedTeacherSubject.subject : "শ্রেণি"}
+                </span>
+                <span className="text-[10px] text-emerald-400">▼</span>
+              </button>
+            ) : (
+              <div className="w-4 md:hidden" />
+            )}
+          </div>
 
           {/* Mode Switcher Tabs (Navigates to dedicated page) */}
           <div className="flex items-center bg-black/40 border border-white/[0.08] rounded-full p-1 shadow-inner">
@@ -583,6 +623,28 @@ export default function ChatInterface({ initialMode = "normal" }: { initialMode?
             )}
           </div>
         </header>
+
+        {/* Teacher Mode Active Class & Subject Lock Banner */}
+        {initialMode === "education" && selectedTeacherSubject && (
+          <div className="bg-gradient-to-r from-emerald-950/60 via-emerald-900/30 to-teal-950/60 border-b border-emerald-500/25 px-4 sm:px-6 py-2 flex items-center justify-between text-xs backdrop-blur-md shrink-0 animate-fade-in">
+            <div className="flex items-center gap-2 text-emerald-300 min-w-0">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+              <span className="font-bold text-white shrink-0">{selectedTeacherSubject.className}</span>
+              <span className="text-emerald-500 shrink-0">•</span>
+              <span className="font-semibold text-emerald-200 truncate">{selectedTeacherSubject.bookName}</span>
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono shrink-0 hidden sm:inline">
+                {selectedTeacherSubject.totalLessons}টি পাঠ
+              </span>
+            </div>
+            <button
+              onClick={() => setShowClassSelector(true)}
+              className="text-emerald-400 hover:text-emerald-200 hover:underline text-[11px] font-semibold shrink-0 ml-2 transition-colors flex items-center gap-1"
+            >
+              <span>পরিবর্তন করুন</span>
+              <span>✎</span>
+            </button>
+          </div>
+        )}
 
         {/* Message Stream or Empty Welcome State */}
         {chatActive ? (
@@ -873,6 +935,18 @@ export default function ChatInterface({ initialMode = "normal" }: { initialMode?
           isLoggedIn={!!user}
           getToken={getToken}
           activeMode={initialMode}
+        />
+      )}
+
+      {/* Teacher Class & Subject Selector Modal (Exclusively for Teacher Mode) */}
+      {initialMode === "education" && (
+        <TeacherClassSelectorModal
+          isOpen={showClassSelector}
+          onClose={() => setShowClassSelector(false)}
+          currentSelected={selectedTeacherSubject}
+          onSelectSubject={(subj) => {
+            setSelectedTeacherSubject(subj);
+          }}
         />
       )}
     </div>

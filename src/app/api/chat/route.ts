@@ -6,6 +6,7 @@ import { canSendMessage, incrementTeacherUsage } from "@/lib/subscription";
 import { filterProfanity } from "@/lib/profanityFilter";
 import { findSaptabarnaContext } from "@/lib/knowledge/saptabarna";
 import { findPrimaryTextbookContext } from "@/lib/knowledge/primaryTextbooks";
+import { getBookById, getBooksByClass, getChaptersByBookId } from "@/lib/nctbDb";
 
 /* ===== CONSTANTS ===== */
 const GEMINI_URL =
@@ -1015,7 +1016,17 @@ function generateHumanReadableMessage(action: string, data: any): string {
 
 export async function POST(req: NextRequest) {
   try {
-    const { message: rawMessage, userId: bodyUserId, image, sessionId, mode, guestMemory } = await req.json();
+    const {
+      message: rawMessage,
+      userId: bodyUserId,
+      image,
+      sessionId,
+      mode,
+      guestMemory,
+      selectedClass,
+      selectedSubject,
+      selectedBookId,
+    } = await req.json();
 
     if (!rawMessage?.trim()) {
       return NextResponse.json({ error: "Message required" }, { status: 400 });
@@ -1161,6 +1172,31 @@ export async function POST(req: NextRequest) {
     const primaryContext = findPrimaryTextbookContext(message, memory);
     if (primaryContext) {
       activeSystemPrompt += primaryContext;
+    }
+
+    // Teacher Mode Locked Class & Subject Scope
+    if (isEducation && (selectedClass || selectedSubject || selectedBookId)) {
+      const classNum = selectedClass || 2;
+      const classBooks = getBooksByClass(classNum);
+      const book = selectedBookId
+        ? getBookById(selectedBookId) || classBooks.find((b) => b.id === selectedBookId)
+        : selectedSubject
+        ? classBooks.find((b) => b.subject.includes(selectedSubject) || b.book_name.includes(selectedSubject))
+        : classBooks[0];
+
+      if (book) {
+        const chapters = getChaptersByBookId(book.id);
+        const totalLessons = book.total_chapters || book.table_of_contents?.length || chapters.length;
+        activeSystemPrompt +=
+          `\n\n═══ [TEACHER LOCKED SCOPE: ${book.class_name} — ${book.book_name}] ═══\n` +
+          `[CRITICAL TEACHER INSTRUCTION:
+1. You are the dedicated personal tutor exclusively for ${book.class_name} — "${book.book_name}".
+2. The student has selected this specific subject. You MUST ONLY discuss, teach, explain, and solve problems from this specific book (${book.book_name}).
+3. Total official lessons in 2026 NCTB curriculum: ঠিক ${totalLessons}টি পাঠ।
+4. Official Table of Contents:
+${book.table_of_contents?.map((t: string) => `- ${t}`).join("\n") || chapters.map((c: any) => `- পাঠ ${c.chapter_number}: ${c.chapter_title}`).join("\n")}
+5. Teach using interactive, encouraging Bengali, step-by-step math/science explanations, ask check questions, and give small hints before revealing full answers!]\n`;
+      }
     }
 
     /* ===== WEB SEARCH (Normal Mode only) ===== */
