@@ -6,7 +6,7 @@ import { canSendMessage, incrementTeacherUsage } from "@/lib/subscription";
 import { filterProfanity } from "@/lib/profanityFilter";
 import { findSaptabarnaContext } from "@/lib/knowledge/saptabarna";
 import { findPrimaryTextbookContext } from "@/lib/knowledge/primaryTextbooks";
-import { getBookById, getBooksByClass, getChaptersByBookId } from "@/lib/nctbDb";
+import { getBookById, getBooksByClass, getChaptersByBookId, getQuestionsByChapterId } from "@/lib/nctbDb";
 
 /* ===== CONSTANTS ===== */
 const GEMINI_URL =
@@ -1026,6 +1026,9 @@ export async function POST(req: NextRequest) {
       selectedClass,
       selectedSubject,
       selectedBookId,
+      selectedChapterId,
+      selectedChapterNumber,
+      selectedChapterTitle,
     } = await req.json();
 
     if (!rawMessage?.trim()) {
@@ -1196,6 +1199,29 @@ export async function POST(req: NextRequest) {
 4. Official Table of Contents:
 ${book.table_of_contents?.map((t: string) => `- ${t}`).join("\n") || chapters.map((c: any) => `- পাঠ ${c.chapter_number}: ${c.chapter_title}`).join("\n")}
 5. Teach using interactive, encouraging Bengali, step-by-step math/science explanations, ask check questions, and give small hints before revealing full answers!]\n`;
+
+        // Specific Chapter Lock
+        if (selectedChapterId || selectedChapterTitle || selectedChapterNumber) {
+          const selectedCh = chapters.find(
+            (c) =>
+              c.chapter_id === selectedChapterId ||
+              (selectedChapterTitle && c.chapter_title.toLowerCase().includes(selectedChapterTitle.toLowerCase())) ||
+              c.chapter_number === selectedChapterNumber
+          );
+
+          if (selectedCh) {
+            const chQuestions = getQuestionsByChapterId(selectedCh.chapter_id);
+            activeSystemPrompt +=
+              `\n\n🎯 [CURRENT LOCKED CHAPTER FOCUS: পাঠ ${selectedCh.chapter_number} — ${selectedCh.chapter_title}]\n` +
+              `[STRICT CHAPTER INSTRUCTION:
+- The student is specifically studying: "পাঠ ${selectedCh.chapter_number}: ${selectedCh.chapter_title}" (পৃষ্ঠা ${selectedCh.start_page}-${selectedCh.end_page}).
+- Chapter Type: ${selectedCh.chapter_type}${selectedCh.author ? ` | লেখক: ${selectedCh.author}` : ""}
+- Official Summary & Core Topic: ${selectedCh.summary}
+${selectedCh.sections && selectedCh.sections.length > 0 ? `- Sections: ${selectedCh.sections.map((s) => `${s.title} (পৃষ্ঠা ${s.page})`).join(", ")}` : ""}
+${chQuestions.length > 0 ? `- Official Exercises/Questions in PDF:\n${chQuestions.map((q, qIdx) => `  ${qIdx + 1}. [${q.question_type}] ${q.original_text || q.instruction} (পৃষ্ঠা: ${q.page_number})`).join("\n")}` : ""}
+- STRICT PEDAGOGY RULE: When the student asks "এই চাপ্টার এ কি কি আছে সুন্দর করে বুঝাও" or any question about this lesson, you MUST explain THIS EXACT LESSON (${selectedCh.chapter_title}), its exact storyline/concepts, characters, new words, and exercises. Do NOT drift to other chapters or make up generic content.]\n`;
+          }
+        }
       }
     }
 

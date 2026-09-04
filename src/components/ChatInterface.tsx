@@ -9,7 +9,7 @@ import TaskExecutionPanel from "@/components/TaskExecutionPanel";
 import AppSidebar from "@/components/AppSidebar";
 import EmojiPicker from "@/components/EmojiPicker";
 import ContextInspectorModal from "@/components/ContextInspectorModal";
-import TeacherClassSelectorModal, { SelectedTeacherSubject } from "@/components/TeacherClassSelectorModal";
+import TeacherCurriculumStudio, { SelectedTeacherLesson } from "@/components/TeacherCurriculumStudio";
 import type { TaskGraph, TaskClarification, TaskNodeStatus } from "@/lib/taskTypes";
 
 interface Message {
@@ -110,8 +110,8 @@ export default function ChatInterface({ initialMode = "normal" }: { initialMode?
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [showPromptModifiers, setShowPromptModifiers] = useState(false);
   const [showContextInspector, setShowContextInspector] = useState(false);
-  const [showClassSelector, setShowClassSelector] = useState(false);
-  const [selectedTeacherSubject, setSelectedTeacherSubject] = useState<SelectedTeacherSubject | null>(null);
+  const [showCurriculumStudio, setShowCurriculumStudio] = useState(false);
+  const [selectedTeacherLesson, setSelectedTeacherLesson] = useState<SelectedTeacherLesson | null>(null);
   const [isListening, setIsListening] = useState(false);
   const [speechSupported, setSpeechSupported] = useState(false);
   const recognitionRef = useRef<any>(null);
@@ -396,11 +396,14 @@ export default function ChatInterface({ initialMode = "normal" }: { initialMode?
           mode: initialMode,
           image: fileToSend || null,
           guestMemory: !user ? loadGuestMemory() : undefined,
-          ...(initialMode === "education" && selectedTeacherSubject
+          ...(initialMode === "education" && selectedTeacherLesson
             ? {
-                selectedClass: selectedTeacherSubject.classNumber,
-                selectedSubject: selectedTeacherSubject.subject,
-                selectedBookId: selectedTeacherSubject.bookId,
+                selectedClass: selectedTeacherLesson.classNumber,
+                selectedSubject: selectedTeacherLesson.subject,
+                selectedBookId: selectedTeacherLesson.bookId,
+                selectedChapterId: selectedTeacherLesson.chapterId,
+                selectedChapterNumber: selectedTeacherLesson.chapterNumber,
+                selectedChapterTitle: selectedTeacherLesson.chapterTitle,
               }
             : {}),
         }),
@@ -472,15 +475,46 @@ export default function ChatInterface({ initialMode = "normal" }: { initialMode?
     inputRef.current?.focus();
   };
 
-  // Select suggestions list based on mode & selected teacher subject
+  // Select suggestions list based on mode & selected teacher lesson
   const currentSuggestions =
     initialMode === "education"
-      ? selectedTeacherSubject && selectedTeacherSubject.sampleLessons?.length > 0
-        ? selectedTeacherSubject.sampleLessons.map((lesson) => ({
-            icon: selectedTeacherSubject.icon,
-            label: lesson,
-            text: `${selectedTeacherSubject.className}-এর '${selectedTeacherSubject.bookName}' বইয়ের "${lesson}" পাঠটি আমাকে সহজ ও সুন্দরভাবে বুঝিয়ে দাও।`,
-          }))
+      ? selectedTeacherLesson
+        ? selectedTeacherLesson.chapterTitle
+          ? [
+              {
+                icon: "📖",
+                label: "পাঠটি বুঝিয়ে দাও",
+                text: `${selectedTeacherLesson.className}-এর '${selectedTeacherLesson.bookName}' বইয়ের "${selectedTeacherLesson.chapterNumber ? `পাঠ ${selectedTeacherLesson.chapterNumber}: ` : ""}${selectedTeacherLesson.chapterTitle}" পাঠে কী কী বিষয় আছে এবং এর মূল গল্প/বিষয়বস্তু সহজ ও প্রাঞ্জল ভাষায় সুন্দর করে বুঝিয়ে দাও।`,
+              },
+              {
+                icon: "❓",
+                label: "অনুশীলনী সমাধান",
+                text: `${selectedTeacherLesson.className}-এর '${selectedTeacherLesson.bookName}' বইয়ের "${selectedTeacherLesson.chapterNumber ? `পাঠ ${selectedTeacherLesson.chapterNumber}: ` : ""}${selectedTeacherLesson.chapterTitle}"-এর সকল অনুশীলনী প্রশ্ন ও সঠিক উত্তর সমাধান করে দাও।`,
+              },
+              {
+                icon: "📝",
+                label: "মূল ভাব ও সারসংক্ষেপ",
+                text: `এই পাঠটির মূল বিষয়বস্তু, প্রয়োজনীয় ধারণা এবং গুরুত্বপূর্ণ পয়েন্ট বুলেট পয়েন্ট আকারে সাজিয়ে দাও।`,
+              },
+              {
+                icon: "🎯",
+                label: "কুইজ দিয়ে পড়া যাচাই",
+                text: `এই পাঠের উপর আমাকে ৩টি গুরুত্বপূর্ণ প্রশ্ন জিজ্ঞেস করে আমার পড়া যাচাই করো।`,
+              },
+            ]
+          : [
+              {
+                icon: selectedTeacherLesson.icon,
+                label: `${selectedTeacherLesson.bookName} সূচিপত্র`,
+                text: `${selectedTeacherLesson.className}-এর '${selectedTeacherLesson.bookName}' বইয়ের সম্পূর্ণ সূচিপত্র ও পাঠগুলোর তালিকা দাও।`,
+              },
+              {
+                icon: "💡",
+                label: "গুরুত্বপূর্ণ অধ্যায়গুলো",
+                text: `${selectedTeacherLesson.className}-এর '${selectedTeacherLesson.bookName}' বইয়ের সবচেয়ে গুরুত্বপূর্ণ অধ্যায়গুলো কী কী এবং কেন?`,
+              },
+              ...TEACHER_SUGGESTIONS.slice(0, 2),
+            ]
         : TEACHER_SUGGESTIONS
       : initialMode === "taskplan"
       ? PLANNER_SUGGESTIONS
@@ -531,20 +565,22 @@ export default function ChatInterface({ initialMode = "normal" }: { initialMode?
             {/* Class & Subject Selector Button (Exclusively in Teacher Mode) */}
             {initialMode === "education" ? (
               <button
-                onClick={() => setShowClassSelector(true)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/35 text-xs font-semibold text-emerald-300 hover:text-white transition-all shadow-sm group"
-                title="শ্রেণি ও বিষয় নির্বাচন করুন"
+                onClick={() => setShowCurriculumStudio(true)}
+                className="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-xs font-semibold text-emerald-300 hover:text-white transition-all shadow-sm group hover:scale-[1.02]"
+                title="শ্রেণি, বিষয় ও সূচিপত্র/পাঠ নির্বাচন করুন"
               >
-                <span className="text-base group-hover:scale-110 transition-transform">
-                  {selectedTeacherSubject ? selectedTeacherSubject.icon : "🏫"}
+                <span className="text-base group-hover:rotate-12 transition-transform">
+                  {selectedTeacherLesson ? selectedTeacherLesson.icon : "📚"}
                 </span>
                 <span className="hidden sm:inline">
-                  {selectedTeacherSubject
-                    ? `${selectedTeacherSubject.className.split(" ")[0]} • ${selectedTeacherSubject.subject}`
-                    : "শ্রেণি ও বিষয় নির্বাচন"}
+                  {selectedTeacherLesson
+                    ? `${selectedTeacherLesson.className.split(" ")[0]} • ${selectedTeacherLesson.subject}${
+                        selectedTeacherLesson.chapterNumber ? ` (পাঠ ${selectedTeacherLesson.chapterNumber})` : ""
+                      }`
+                    : "পাঠ ও সূচিপত্র স্টুডিও"}
                 </span>
                 <span className="sm:hidden">
-                  {selectedTeacherSubject ? selectedTeacherSubject.subject : "শ্রেণি"}
+                  {selectedTeacherLesson ? selectedTeacherLesson.subject : "পাঠ সূচি"}
                 </span>
                 <span className="text-[10px] text-emerald-400">▼</span>
               </button>
@@ -624,25 +660,39 @@ export default function ChatInterface({ initialMode = "normal" }: { initialMode?
           </div>
         </header>
 
-        {/* Teacher Mode Active Class & Subject Lock Banner */}
-        {initialMode === "education" && selectedTeacherSubject && (
-          <div className="bg-gradient-to-r from-emerald-950/60 via-emerald-900/30 to-teal-950/60 border-b border-emerald-500/25 px-4 sm:px-6 py-2 flex items-center justify-between text-xs backdrop-blur-md shrink-0 animate-fade-in">
-            <div className="flex items-center gap-2 text-emerald-300 min-w-0">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-              <span className="font-bold text-white shrink-0">{selectedTeacherSubject.className}</span>
-              <span className="text-emerald-500 shrink-0">•</span>
-              <span className="font-semibold text-emerald-200 truncate">{selectedTeacherSubject.bookName}</span>
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono shrink-0 hidden sm:inline">
-                {selectedTeacherSubject.totalLessons}টি পাঠ
+        {/* Teacher Mode Active Class, Book & Chapter Breadcrumb Bar */}
+        {initialMode === "education" && selectedTeacherLesson && (
+          <div className="bg-gradient-to-r from-emerald-950/80 via-emerald-900/50 to-teal-950/80 border-b border-emerald-500/30 px-4 sm:px-6 py-2 flex items-center justify-between text-xs backdrop-blur-xl shrink-0 animate-fade-in shadow-lg">
+            <div className="flex items-center gap-2 text-emerald-300 min-w-0 flex-wrap">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+              <span className="font-bold text-white shrink-0 bg-emerald-800/50 px-2 py-0.5 rounded-md border border-emerald-500/30">
+                {selectedTeacherLesson.className.split(" ")[0]}
               </span>
+              <span className="text-emerald-500 shrink-0">›</span>
+              <span className="font-semibold text-emerald-100 shrink-0">{selectedTeacherLesson.bookName}</span>
+              {selectedTeacherLesson.chapterTitle && (
+                <>
+                  <span className="text-emerald-500 shrink-0">›</span>
+                  <span className="font-bold text-teal-200 bg-teal-900/70 px-2.5 py-0.5 rounded-md border border-teal-500/40 truncate max-w-[280px]">
+                    📑 {selectedTeacherLesson.chapterNumber ? `পাঠ ${selectedTeacherLesson.chapterNumber}: ` : ""}{selectedTeacherLesson.chapterTitle}
+                  </span>
+                </>
+              )}
+              {selectedTeacherLesson.startPage && (
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono shrink-0 hidden md:inline">
+                  পৃষ্ঠা {selectedTeacherLesson.startPage}–{selectedTeacherLesson.endPage}
+                </span>
+              )}
             </div>
-            <button
-              onClick={() => setShowClassSelector(true)}
-              className="text-emerald-400 hover:text-emerald-200 hover:underline text-[11px] font-semibold shrink-0 ml-2 transition-colors flex items-center gap-1"
-            >
-              <span>পরিবর্তন করুন</span>
-              <span>✎</span>
-            </button>
+            <div className="flex items-center gap-2 shrink-0 ml-3">
+              <button
+                onClick={() => setShowCurriculumStudio(true)}
+                className="px-3 py-1 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-200 hover:text-white text-[11px] font-semibold transition-all flex items-center gap-1.5 shadow-sm"
+              >
+                <span>পাঠ পরিবর্তন</span>
+                <span>📑</span>
+              </button>
+            </div>
           </div>
         )}
 
@@ -758,55 +808,147 @@ export default function ChatInterface({ initialMode = "normal" }: { initialMode?
           </div>
         ) : (
           /* Empty Welcome State */
-          <div className="flex-1 overflow-y-auto px-4 sm:px-8 py-10 flex flex-col items-center justify-center text-center">
-            <div className="max-w-2xl mx-auto space-y-6 animate-fade-in">
+          <div className="flex-1 overflow-y-auto px-4 sm:px-8 py-8 flex flex-col items-center justify-center text-center">
+            <div className="max-w-2xl mx-auto space-y-6 animate-fade-in w-full">
               <div className="relative inline-block">
-                <div className={`w-20 h-20 rounded-3xl p-3.5 shadow-2xl flex items-center justify-center mx-auto ${
-                  initialMode === "education"
-                    ? "bg-gradient-to-br from-emerald-500 to-teal-700 shadow-emerald-500/30"
-                    : initialMode === "taskplan"
-                    ? "bg-gradient-to-br from-sky-500 to-blue-700 shadow-sky-500/30"
-                    : "bg-gradient-to-br from-violet-500 to-indigo-700 shadow-violet-500/30"
-                }`}>
+                <div
+                  className={`w-16 h-16 sm:w-20 sm:h-20 rounded-3xl p-3 sm:p-3.5 shadow-2xl flex items-center justify-center mx-auto ${
+                    initialMode === "education"
+                      ? "bg-gradient-to-br from-emerald-500 to-teal-700 shadow-emerald-500/30"
+                      : initialMode === "taskplan"
+                      ? "bg-gradient-to-br from-sky-500 to-blue-700 shadow-sky-500/30"
+                      : "bg-gradient-to-br from-violet-500 to-indigo-700 shadow-violet-500/30"
+                  }`}
+                >
                   <img src="/logo.png" alt="CholoShikhi" className="w-full h-full object-contain rounded-2xl" />
                 </div>
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
                   {getGreeting()}, {user?.name ? user.name.split(" ")[0] : "বন্ধু"}! 👋
                 </h1>
-                <p className="text-slate-400 text-sm sm:text-base max-w-lg mx-auto">
+                <p className="text-slate-400 text-xs sm:text-sm max-w-lg mx-auto">
                   {initialMode === "education"
-                    ? "চলো শিখি শিক্ষক — তোমার ব্যক্তিগত গৃহশিক্ষক। যে কোনো কঠিন পড়া বা অংক ধাপে ধাপে বুঝে নাও।"
+                    ? "চলো শিখি শিক্ষক — NCTB ২০২৬ শিক্ষাক্রমের অধ্যায়ভিত্তিক ব্যক্তিগত গৃহশিক্ষক।"
                     : initialMode === "taskplan"
                     ? "টাস্ক প্ল্যানার ও রিসার্চ ইঞ্জিন — যে কোনো বড় কাজ বা পড়ার লক্ষ্যকে ইন্টারেক্টিভ রোডম্যাপে সাজাও।"
                     : "চলো শিখি এআই — ১ম-৫ম শ্রেণির NCTB ২০২৬ বইয়ের সম্পূর্ণ সূচিপত্র ও তথ্যসমৃদ্ধ স্মার্ট সহকারী।"}
                 </p>
               </div>
 
-              {/* Suggestions Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-4 text-left">
-                {currentSuggestions.map((s, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => handleSend(s.text)}
-                    className="p-3.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.06] hover:border-violet-500/30 transition-all flex items-start gap-3 group"
-                  >
-                    <span className="text-xl shrink-0 p-1 rounded-lg bg-white/[0.04] group-hover:scale-110 transition-transform">
-                      {s.icon}
-                    </span>
-                    <div className="min-w-0">
-                      <h3 className="text-xs font-semibold text-slate-200 group-hover:text-violet-300 transition-colors">
-                        {s.label}
-                      </h3>
-                      <p className="text-[11px] text-slate-400 line-clamp-2 mt-0.5 leading-relaxed">
-                        {s.text}
-                      </p>
+              {/* Special Teacher Mode Chapter Focus Card */}
+              {initialMode === "education" && (
+                <div className="w-full bg-gradient-to-b from-emerald-950/40 via-teal-950/20 to-black/60 border border-emerald-500/30 rounded-3xl p-4 sm:p-6 backdrop-blur-xl shadow-2xl text-left relative overflow-hidden group">
+                  <div className="absolute -top-16 -right-16 w-36 h-36 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
+                  
+                  {selectedTeacherLesson ? (
+                    <div className="space-y-4">
+                      <div className="flex items-start justify-between gap-3 flex-wrap">
+                        <div>
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                            <span className="text-[11px] font-semibold uppercase tracking-wider text-emerald-400">
+                              বর্তমান নির্বাচিত পাঠ
+                            </span>
+                          </div>
+                          <h2 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+                            <span>{selectedTeacherLesson.icon}</span>
+                            <span>
+                              {selectedTeacherLesson.chapterTitle
+                                ? `${selectedTeacherLesson.chapterNumber ? `পাঠ ${selectedTeacherLesson.chapterNumber}: ` : ""}${selectedTeacherLesson.chapterTitle}`
+                                : selectedTeacherLesson.bookName}
+                            </span>
+                          </h2>
+                          <p className="text-xs text-emerald-300/80 mt-0.5">
+                            {selectedTeacherLesson.className} • {selectedTeacherLesson.bookName}
+                            {selectedTeacherLesson.startPage && (
+                              <span className="ml-1 text-slate-400 font-mono">
+                                (পৃষ্ঠা {selectedTeacherLesson.startPage}–{selectedTeacherLesson.endPage})
+                              </span>
+                            )}
+                          </p>
+                        </div>
+
+                        <button
+                          onClick={() => setShowCurriculumStudio(true)}
+                          className="px-3.5 py-1.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-200 hover:text-white text-xs font-semibold transition-all flex items-center gap-1.5 shadow-sm"
+                        >
+                          <span>সূচিপত্র খুলুন</span>
+                          <span>📑</span>
+                        </button>
+                      </div>
+
+                      {/* Quick 1-Click Action Buttons */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                        {currentSuggestions.map((s, idx) => (
+                          <button
+                            key={idx}
+                            onClick={() => handleSend(s.text)}
+                            className="p-3 rounded-2xl bg-white/[0.04] hover:bg-emerald-500/15 border border-white/[0.08] hover:border-emerald-500/40 transition-all flex items-start gap-2.5 text-left group/btn"
+                          >
+                            <span className="text-lg shrink-0 group-hover/btn:scale-110 transition-transform">
+                              {s.icon}
+                            </span>
+                            <div className="min-w-0">
+                              <h3 className="text-xs font-semibold text-slate-200 group-hover/btn:text-emerald-300 transition-colors">
+                                {s.label}
+                              </h3>
+                              <p className="text-[11px] text-slate-400 line-clamp-1 mt-0.5">
+                                {s.text}
+                              </p>
+                            </div>
+                          </button>
+                        ))}
+                      </div>
                     </div>
-                  </button>
-                ))}
-              </div>
+                  ) : (
+                    <div className="text-center py-4 sm:py-6 space-y-3">
+                      <div className="text-3xl">📚</div>
+                      <h3 className="text-sm sm:text-base font-bold text-white">
+                        কোনো শ্রেণি ও পাঠ্যবই নির্বাচন করা হয়নি
+                      </h3>
+                      <p className="text-xs text-slate-400 max-w-md mx-auto">
+                        ১ম থেকে ৫ম শ্রেণির যেকোনো পাঠ্যবই ও অধ্যায় নির্বাচন করুন। শিক্ষক নির্দিষ্ট পাঠের আলোকে পাঠদান করবেন।
+                      </p>
+                      <div>
+                        <button
+                          onClick={() => setShowCurriculumStudio(true)}
+                          className="px-5 py-2.5 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:opacity-90 text-white text-xs sm:text-sm font-semibold shadow-lg shadow-emerald-500/25 transition-all inline-flex items-center gap-2"
+                        >
+                          <span>📖 শ্রেণি ও সূচিপত্র স্টুডিও খুলুন</span>
+                          <span>→</span>
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Suggestions Grid (Normal & Task Planner modes) */}
+              {initialMode !== "education" && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2 text-left">
+                  {currentSuggestions.map((s, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => handleSend(s.text)}
+                      className="p-3.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.06] hover:border-violet-500/30 transition-all flex items-start gap-3 group"
+                    >
+                      <span className="text-xl shrink-0 p-1 rounded-lg bg-white/[0.04] group-hover:scale-110 transition-transform">
+                        {s.icon}
+                      </span>
+                      <div className="min-w-0">
+                        <h3 className="text-xs font-semibold text-slate-200 group-hover:text-violet-300 transition-colors">
+                          {s.label}
+                        </h3>
+                        <p className="text-[11px] text-slate-400 line-clamp-2 mt-0.5 leading-relaxed">
+                          {s.text}
+                        </p>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -851,7 +993,7 @@ export default function ChatInterface({ initialMode = "normal" }: { initialMode?
               e.preventDefault();
               handleSend();
             }}
-            className="relative flex items-center bg-white/[0.04] border border-white/[0.1] focus-within:border-violet-500/50 rounded-2xl p-1.5 shadow-2xl backdrop-blur-2xl transition-all"
+            className="relative flex items-center bg-white/[0.04] border border-white/[0.1] focus-within:border-emerald-500/50 rounded-2xl p-1.5 shadow-2xl backdrop-blur-2xl transition-all"
           >
             {/* Attachment Button */}
             <input
@@ -892,7 +1034,9 @@ export default function ChatInterface({ initialMode = "normal" }: { initialMode?
               onChange={(e) => setInput(e.target.value)}
               placeholder={
                 initialMode === "education"
-                  ? "শিক্ষককে যেকোনো বিষয়ে প্রশ্ন করো বা সমাধান চাও..."
+                  ? selectedTeacherLesson?.chapterTitle
+                    ? `পাঠ ${selectedTeacherLesson.chapterNumber || ""}: "${selectedTeacherLesson.chapterTitle}" সম্পর্কে যা জানতে চাও লেখো...`
+                    : "শিক্ষককে যেকোনো বিষয়ে প্রশ্ন করো বা সমাধান চাও..."
                   : initialMode === "taskplan"
                   ? "যে কাজটির পরিকল্পনা বা রিসার্চ করতে চাও তা বিস্তারিত লেখো..."
                   : "NCTB বইয়ের তথ্য বা যেকোনো প্রশ্ন লিখুন..."
@@ -938,14 +1082,17 @@ export default function ChatInterface({ initialMode = "normal" }: { initialMode?
         />
       )}
 
-      {/* Teacher Class & Subject Selector Modal (Exclusively for Teacher Mode) */}
+      {/* Teacher Curriculum Studio Modal (Class -> Subject -> Chapter & Table of Contents) */}
       {initialMode === "education" && (
-        <TeacherClassSelectorModal
-          isOpen={showClassSelector}
-          onClose={() => setShowClassSelector(false)}
-          currentSelected={selectedTeacherSubject}
-          onSelectSubject={(subj) => {
-            setSelectedTeacherSubject(subj);
+        <TeacherCurriculumStudio
+          isOpen={showCurriculumStudio}
+          onClose={() => setShowCurriculumStudio(false)}
+          currentSelected={selectedTeacherLesson}
+          onSelectLesson={(lesson, autoPrompt) => {
+            setSelectedTeacherLesson(lesson);
+            if (autoPrompt) {
+              handleSend(autoPrompt);
+            }
           }}
         />
       )}
