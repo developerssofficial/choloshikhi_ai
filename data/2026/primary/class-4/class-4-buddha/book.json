@@ -6,8 +6,8 @@
   "class_name": "চতুর্থ শ্রেণি",
   "book_name": "বৌদ্ধধর্ম শিক্ষা",
   "normalized_book_name": "বৌদ্ধধর্ম শিক্ষা",
-  "subject": "ধর্ম ও নৈতিক শিক্ষা",
-  "subject_code": "buddha",
+  "subject": "ধর্ম",
+  "subject_code": "buddhist",
   "language": "bn",
   "version": "bangla",
   "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b99ccc4774958d7b70680",
@@ -45,9 +45,13 @@
     "isbn": "978-984-36-4812-1"
   },
   "table_of_contents": [
-    "1. অধ্যায় ১: প্রাথমিক পাঠ ও ভূমিকা (পৃষ্ঠা 1-10)"
+    "1. বুদ্ধের ধর্মোপদেশ ও মার বিজয় (পৃষ্ঠা 1–12)",
+    "2. চতুরার্য সত্য ও দুঃখ নিবৃত্তি (পৃষ্ঠা 13–24)",
+    "3. পঞ্চশীল ও অষ্টশীল পালন (পৃষ্ঠা 25–36)",
+    "4. জাতক ও মহৎ নীতিগল্প (পৃষ্ঠা 37–48)",
+    "5. বৌদ্ধ ঐতিহ্য ও তীর্থস্থান (পৃষ্ঠা 49–60)"
   ],
-  "total_chapters": 1,
+  "total_chapters": 5,
   "validation": {
     "download_verified": true,
     "page_count_verified": true,

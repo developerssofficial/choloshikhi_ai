@@ -1,12 +1,12 @@
 [
   {
-    "chapter_id": "class-4-buddha-ch1",
+    "chapter_id": "c4-buddhist-ch1",
     "chapter_number": "1",
-    "chapter_title": "অধ্যায় ১: প্রাথমিক পাঠ ও ভূমিকা",
+    "chapter_title": "বুদ্ধের ধর্মোপদেশ ও মার বিজয়",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 1,
-    "end_page": 10,
+    "end_page": 12,
     "sections": [
       {
         "title": "মূল পাঠ",
@@ -14,15 +14,119 @@
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 10
+        "page": 12
       }
     ],
     "keywords": [
-      "ধর্ম ও নৈতিক শিক্ষা",
-      "অধ্যায় ১: প্রাথমিক পাঠ ও ভূমিকা",
+      "বৌদ্ধধর্ম শিক্ষা",
+      "বুদ্ধের ধর্মোপদেশ ও মার বিজয়",
       "চতুর্থ শ্রেণি"
     ],
-    "summary": "বৌদ্ধধর্ম শিক্ষা বিষয়ের প্রথম অধ্যায়ের মূল আলোচনা ও ধারণা।",
-    "total_questions": 1
+    "summary": "বোধিবৃক্ষতলে সত্যের উপলব্ধি ও আত্মজয়ী হওয়া।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c4-buddhist-ch2",
+    "chapter_number": "2",
+    "chapter_title": "চতুরার্য সত্য ও দুঃখ নিবৃত্তি",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 13,
+    "end_page": 24,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 13
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 24
+      }
+    ],
+    "keywords": [
+      "বৌদ্ধধর্ম শিক্ষা",
+      "চতুরার্য সত্য ও দুঃখ নিবৃত্তি",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "দুঃখ, দুঃখের কারণ, দুঃখ নিরোধ ও নিরোধের পথ।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c4-buddhist-ch3",
+    "chapter_number": "3",
+    "chapter_title": "পঞ্চশীল ও অষ্টশীল পালন",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 25,
+    "end_page": 36,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 25
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 36
+      }
+    ],
+    "keywords": [
+      "বৌদ্ধধর্ম শিক্ষা",
+      "পঞ্চশীল ও অষ্টশীল পালন",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "উপোসথ শীল পালনের মাধ্যমে আত্মশুদ্ধি।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c4-buddhist-ch4",
+    "chapter_number": "4",
+    "chapter_title": "জাতক ও মহৎ নীতিগল্প",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 37,
+    "end_page": 48,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 37
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 48
+      }
+    ],
+    "keywords": [
+      "বৌদ্ধধর্ম শিক্ষা",
+      "জাতক ও মহৎ নীতিগল্প",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "মহামৈত্রী ও পরার্থে জীবন উৎসর্গের গল্প।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c4-buddhist-ch5",
+    "chapter_number": "5",
+    "chapter_title": "বৌদ্ধ ঐতিহ্য ও তীর্থস্থান",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 49,
+    "end_page": 60,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 49
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 60
+      }
+    ],
+    "keywords": [
+      "বৌদ্ধধর্ম শিক্ষা",
+      "বৌদ্ধ ঐতিহ্য ও তীর্থস্থান",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "লুম্বিনী, বুদ্ধগয়া, সারনাথ ও কুশীনগর।",
+    "total_questions": 2
   }
 ]

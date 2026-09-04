@@ -1,8 +1,8 @@
 [
   {
-    "chapter_id": "c3-sc-ch1",
+    "chapter_id": "c3-science-ch1",
     "chapter_number": "1",
-    "chapter_title": "আমাদের পরিবেশ",
+    "chapter_title": "আমাদের পরিবেশ (প্রাকৃতিক ও মানুষের তৈরি পরিবেশ)",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 1,
@@ -19,16 +19,16 @@
     ],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "আমাদের পরিবেশ",
+      "আমাদের পরিবেশ (প্রাকৃতিক ও মানুষের তৈরি পরিবেশ)",
       "তৃতীয় শ্রেণি"
     ],
-    "summary": "প্রাকৃতিক পরিবেশ ও মানুষের তৈরি পরিবেশ।",
-    "total_questions": 1
+    "summary": "পরিবেশের বিভিন্ন উপাদান এবং পরিবেশের ভারসাম্য রক্ষা।",
+    "total_questions": 2
   },
   {
-    "chapter_id": "c3-sc-ch2",
+    "chapter_id": "c3-science-ch2",
     "chapter_number": "2",
-    "chapter_title": "জীব ও জড়",
+    "chapter_title": "জীব ও জড় (উদ্ভিদ ও প্রাণীর বৈশিষ্ট্য ও পার্থক্য)",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 9,
@@ -45,20 +45,20 @@
     ],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "জীব ও জড়",
+      "জীব ও জড় (উদ্ভিদ ও প্রাণীর বৈশিষ্ট্য ও পার্থক্য)",
       "তৃতীয় শ্রেণি"
     ],
-    "summary": "উদ্ভিদ ও প্রাণীর পার্থক্য ও জীবনের বৈশিষ্ট্য।",
-    "total_questions": 1
+    "summary": "উদ্ভিদ ও প্রাণীর খাদ্য গ্রহণ, বংশবৃদ্ধি ও বেঁচে থাকার উপায়।",
+    "total_questions": 2
   },
   {
-    "chapter_id": "c3-sc-ch3",
+    "chapter_id": "c3-science-ch3",
     "chapter_number": "3",
-    "chapter_title": "পদার্থের তিন অবস্থা",
+    "chapter_title": "বিভিন্ন ধরনের পদার্থ (কঠিন, তরল ও বায়বীয়)",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 19,
-    "end_page": 28,
+    "end_page": 26,
     "sections": [
       {
         "title": "মূল পাঠ",
@@ -66,41 +66,119 @@
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 28
+        "page": 26
       }
     ],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "পদার্থের তিন অবস্থা",
+      "বিভিন্ন ধরনের পদার্থ (কঠিন, তরল ও বায়বীয়)",
       "তৃতীয় শ্রেণি"
     ],
-    "summary": "কঠিন, তরল ও বায়বীয়।",
-    "total_questions": 1
+    "summary": "পদার্থের ভর, ওজন ও তিন অবস্থার বৈশিষ্ট্য।",
+    "total_questions": 2
   },
   {
-    "chapter_id": "c3-sc-ch4",
+    "chapter_id": "c3-science-ch4",
     "chapter_number": "4",
-    "chapter_title": "মাটি ও পরিবেশ",
+    "chapter_title": "জীবনের জন্য পানি (পানির উৎস ও পানি দূষণ প্রতিরোধ)",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 29,
-    "end_page": 38,
+    "start_page": 27,
+    "end_page": 36,
     "sections": [
       {
         "title": "মূল পাঠ",
-        "page": 29
+        "page": 27
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 38
+        "page": 36
       }
     ],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "মাটি ও পরিবেশ",
+      "জীবনের জন্য পানি (পানির উৎস ও পানি দূষণ প্রতিরোধ)",
       "তৃতীয় শ্রেণি"
     ],
-    "summary": "বেলে, দোআঁশ ও এঁটেল মাটি। দোআঁশ মাটিতে সব ফসল ভালো জন্মে।",
-    "total_questions": 1
+    "summary": "নিরাপদ পানি, ফুটানো ও ফিল্টারিং এবং পানিবাহিত রোগ প্রতিরোধ।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-science-ch5",
+    "chapter_number": "5",
+    "chapter_title": "মাটি (বেলে, এঁটেল ও দোআঁশ মাটির বৈশিষ্ট্য)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 37,
+    "end_page": 44,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 37
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 44
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক বিজ্ঞান",
+      "মাটি (বেলে, এঁটেল ও দোআঁশ মাটির বৈশিষ্ট্য)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "মাটির উপাদান ও ফসলের জন্য উপযোগী মাটির গুণাগুণ।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-science-ch6",
+    "chapter_number": "6",
+    "chapter_title": "বায়ু (বায়ুর উপাদান ও বায়ু দূষণ)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 45,
+    "end_page": 52,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 45
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 52
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক বিজ্ঞান",
+      "বায়ু (বায়ুর উপাদান ও বায়ু দূষণ)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "অক্সিজেন, নাইট্রোজেন, কার্বন ডাই-অক্সাইড এবং দূষণমুক্ত বায়ু।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-science-ch7",
+    "chapter_number": "7",
+    "chapter_title": "স্বাস্থ্যবিধি ও পুষ্টিকর খাদ্য",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 53,
+    "end_page": 62,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 53
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 62
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক বিজ্ঞান",
+      "স্বাস্থ্যবিধি ও পুষ্টিকর খাদ্য",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "ভিটামিন ও খনিজের প্রয়োজনীয়তা এবং সুষম খাদ্যের তালিকা।",
+    "total_questions": 2
   }
 ]

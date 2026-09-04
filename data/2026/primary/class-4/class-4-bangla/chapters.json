@@ -1,12 +1,12 @@
 [
   {
-    "chapter_id": "c4-bn-ch1",
+    "chapter_id": "c4-bangla-ch1",
     "chapter_number": "1",
     "chapter_title": "বাংলাদেশের প্রকৃতি",
-    "chapter_type": "গল্প/গদ্য",
+    "chapter_type": "প্রবন্ধ",
     "author": null,
     "start_page": 1,
-    "end_page": 6,
+    "end_page": 5,
     "sections": [
       {
         "title": "মূল পাঠ",
@@ -14,81 +14,107 @@
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 6
+        "page": 5
       }
     ],
     "keywords": [
-      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "আমার বাংলা বই",
       "বাংলাদেশের প্রকৃতি",
       "চতুর্থ শ্রেণি"
     ],
-    "summary": "গ্রীষ্ম, বর্ষা, শরৎ, হেমন্ত, শীত ও বসন্ত — ষড়ঋতুর বৈচিত্র্য।",
-    "total_questions": 1
+    "summary": "ষড়ঋতুর দেশ বাংলাদেশের অপরূপ প্রাকৃতিক রূপবৈচিত্র্য।",
+    "total_questions": 2
   },
   {
-    "chapter_id": "c4-bn-ch2",
+    "chapter_id": "c4-bangla-ch2",
     "chapter_number": "2",
-    "chapter_title": "পালকির গান",
+    "chapter_title": "পালকির গান (কবিতা - সত্যেন্দ্রনাথ দত্ত)",
     "chapter_type": "ছড়া/কবিতা",
-    "author": "সত্যেন্দ্রনাথ দত্ত",
-    "start_page": 7,
-    "end_page": 10,
+    "author": null,
+    "start_page": 6,
+    "end_page": 8,
     "sections": [
       {
         "title": "মূল পাঠ",
-        "page": 7
+        "page": 6
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 10
+        "page": 8
       }
     ],
     "keywords": [
-      "বাংলাদেশ ও বিশ্বপরিচয়",
-      "পালকির গান",
+      "আমার বাংলা বই",
+      "পালকির গান (কবিতা - সত্যেন্দ্রনাথ দত্ত)",
       "চতুর্থ শ্রেণি"
     ],
-    "summary": "পালকি চলে পালকি চলে, গগন তলে আগুন জ্বলে।",
-    "total_questions": 1
+    "summary": "পালকি চলে রে অঙ্গ দোলে রে — ছন্দ ও প্রকৃতির নিখুঁত রূপ।",
+    "total_questions": 2
   },
   {
-    "chapter_id": "c4-bn-ch3",
+    "chapter_id": "c4-bangla-ch3",
     "chapter_number": "3",
-    "chapter_title": "বাওয়ালিদের গল্প",
-    "chapter_type": "গল্প/গদ্য",
+    "chapter_title": "বড় রাজা ছোট রাজা",
+    "chapter_type": "গল্প",
     "author": null,
-    "start_page": 11,
-    "end_page": 16,
+    "start_page": 9,
+    "end_page": 14,
     "sections": [
       {
         "title": "মূল পাঠ",
-        "page": 11
+        "page": 9
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 16
+        "page": 14
       }
     ],
     "keywords": [
-      "বাংলাদেশ ও বিশ্বপরিচয়",
-      "বাওয়ালিদের গল্প",
+      "আমার বাংলা বই",
+      "বড় রাজা ছোট রাজা",
       "চতুর্থ শ্রেণি"
     ],
-    "summary": "সুন্দরবনের গোলপাতা ও মধু সংগ্রাহক বাওয়ালি ও মৌয়ালদের ঝুঁকিপূর্ণ জীবন।",
-    "total_questions": 1
+    "summary": "ছোটর মহিমা ও অহংকারের অসারতা নিয়ে শিক্ষণীয় রূপকথা।",
+    "total_questions": 2
   },
   {
-    "chapter_id": "c4-bn-ch4",
+    "chapter_id": "c4-bangla-ch4",
     "chapter_number": "4",
-    "chapter_title": "বীরশ্রেষ্ঠদের বীরত্বগাথা",
-    "chapter_type": "গল্প/গদ্য",
+    "chapter_title": "মুক্তির ছড়া (কবিতা - সানাউল হক)",
+    "chapter_type": "ছড়া/কবিতা",
     "author": null,
-    "start_page": 17,
+    "start_page": 15,
+    "end_page": 17,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 15
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 17
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "মুক্তির ছড়া (কবিতা - সানাউল হক)",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "আমার বাংলা তোমার বাংলা সবুজ সোনালী ছাওয়া।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c4-bangla-ch5",
+    "chapter_number": "5",
+    "chapter_title": "বীরশ্রেষ্ঠদের বীরগাথা (৭ জন বীরশ্রেষ্ঠ)",
+    "chapter_type": "ইতিহাস",
+    "author": null,
+    "start_page": 18,
     "end_page": 24,
     "sections": [
       {
         "title": "মূল পাঠ",
-        "page": 17
+        "page": 18
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
@@ -96,21 +122,21 @@
       }
     ],
     "keywords": [
-      "বাংলাদেশ ও বিশ্বপরিচয়",
-      "বীরশ্রেষ্ঠদের বীরত্বগাথা",
+      "আমার বাংলা বই",
+      "বীরশ্রেষ্ঠদের বীরগাথা (৭ জন বীরশ্রেষ্ঠ)",
       "চতুর্থ শ্রেণি"
     ],
-    "summary": "মুক্তিযুদ্ধের সাত বীরশ্রেষ্ঠের চরম আত্মত্যাগ ও দেশপ্রেম।",
-    "total_questions": 1
+    "summary": "১৯৭১ সালের মুক্তিযুদ্ধে সর্বোচ্চ আত্মত্যাগকারী সাত বীরশ্রেষ্ঠের বীরত্বগাথা।",
+    "total_questions": 2
   },
   {
-    "chapter_id": "c4-bn-ch5",
-    "chapter_number": "5",
-    "chapter_title": "পাহাড়পুর",
-    "chapter_type": "গল্প/গদ্য",
+    "chapter_id": "c4-bangla-ch6",
+    "chapter_number": "6",
+    "chapter_title": "মা (কবিতা - কাজী নজরুল ইসলাম)",
+    "chapter_type": "ছড়া/কবিতা",
     "author": null,
     "start_page": 25,
-    "end_page": 30,
+    "end_page": 27,
     "sections": [
       {
         "title": "মূল পাঠ",
@@ -118,15 +144,379 @@
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 30
+        "page": 27
       }
     ],
     "keywords": [
-      "বাংলাদেশ ও বিশ্বপরিচয়",
-      "পাহাড়পুর",
+      "আমার বাংলা বই",
+      "মা (কবিতা - কাজী নজরুল ইসলাম)",
       "চতুর্থ শ্রেণি"
     ],
-    "summary": "নওগাঁর পাহাড়পুরে রাজা ধর্মপাল নির্মিত সোমপুর মহাবিহার।",
-    "total_questions": 1
+    "summary": "মায়ের স্নেহ, মমতা ও ভালোবাসার চিরন্তন রূপ।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c4-bangla-ch7",
+    "chapter_number": "7",
+    "chapter_title": "মহীয়সী রোকেয়া (বেগম রোকেয়া সাখাওয়াত হোসেন)",
+    "chapter_type": "জীবনী",
+    "author": null,
+    "start_page": 28,
+    "end_page": 33,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 28
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 33
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "মহীয়সী রোকেয়া (বেগম রোকেয়া সাখাওয়াত হোসেন)",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "নারী শিক্ষার অগ্রদূত বেগম রোকেয়ার জীবন সংগ্রাম ও অবদান।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c4-bangla-ch8",
+    "chapter_number": "8",
+    "chapter_title": "নেমন্তন্ন (কবিতা - অন্নদাশঙ্কর রায়)",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": null,
+    "start_page": 34,
+    "end_page": 36,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 34
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 36
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "নেমন্তন্ন (কবিতা - অন্নদাশঙ্কর রায়)",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "খাবারের লোভ ও মজাদার সংলাপের হাসির কবিতা।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c4-bangla-ch9",
+    "chapter_number": "9",
+    "chapter_title": "হাত ধুয়ে নাও",
+    "chapter_type": "স্বাস্থ্যকথা",
+    "author": null,
+    "start_page": 37,
+    "end_page": 41,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 37
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 41
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "হাত ধুয়ে নাও",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "খাওয়ার আগে ও শৌচাগার ব্যবহারের পর সঠিক নিয়মে হাত ধোয়ার গুরুত্ব।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c4-bangla-ch10",
+    "chapter_number": "10",
+    "chapter_title": "মোদের গরব মোদের আশা (কবিতা - অতুলপ্রসাদ সেন)",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": null,
+    "start_page": 42,
+    "end_page": 44,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 42
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 44
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "মোদের গরব মোদের আশা (কবিতা - অতুলপ্রসাদ সেন)",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "বাংলা ভাষার গৌরব ও ভালোবাসার অমর গান।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c4-bangla-ch11",
+    "chapter_number": "11",
+    "chapter_title": "কাঞ্চনমালা আর কাঁকনমালা",
+    "chapter_type": "রূপকথা",
+    "author": null,
+    "start_page": 45,
+    "end_page": 52,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 45
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 52
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "কাঞ্চনমালা আর কাঁকনমালা",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "সূচ রাজার কষ্ট ও সৎ রাণীর আত্মত্যাগের রূপকথা।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c4-bangla-ch12",
+    "chapter_number": "12",
+    "chapter_title": "কাজলা দিদি (কবিতা - যতীন্দ্রমোহন বাগচী)",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": null,
+    "start_page": 53,
+    "end_page": 56,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 53
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 56
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "কাজলা দিদি (কবিতা - যতীন্দ্রমোহন বাগচী)",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "বাঁশবাগানের মাথার উপর চাঁদ উঠেছে ওই — দিদি হারানোর মায়াবী শোক।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c4-bangla-ch13",
+    "chapter_number": "13",
+    "chapter_title": "বাংলার খোকা (বঙ্গবন্ধু শেখ মুজিবুর রহমান)",
+    "chapter_type": "জীবনী",
+    "author": null,
+    "start_page": 57,
+    "end_page": 62,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 57
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 62
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "বাংলার খোকা (বঙ্গবন্ধু শেখ মুজিবুর রহমান)",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "জাতির জনক বঙ্গবন্ধু শেখ মুজিবুর রহমানের শৈশব ও মানবপ্রেম।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c4-bangla-ch14",
+    "chapter_number": "14",
+    "chapter_title": "দূরের পাল্লা (কবিতা - সত্যেন্দ্রনাথ দত্ত)",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": null,
+    "start_page": 63,
+    "end_page": 65,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 63
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 65
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "দূরের পাল্লা (কবিতা - সত্যেন্দ্রনাথ দত্ত)",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "ছিপখান তিনদাঁড় তিনজন মাল্লা — মাঝিদের গানের সুরে নদীপথের দৃশ্য।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c4-bangla-ch15",
+    "chapter_number": "15",
+    "chapter_title": "লিপির গল্প (লিপিমালার আবিষ্কার)",
+    "chapter_type": "ইতিহাস",
+    "author": null,
+    "start_page": 66,
+    "end_page": 71,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 66
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 71
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "লিপির গল্প (লিপিমালার আবিষ্কার)",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "মানুষের কথা লিখে রাখার সূচনা ও বর্ণমালার বিবর্তন।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c4-bangla-ch16",
+    "chapter_number": "16",
+    "chapter_title": "বীরপুরুষ (কবিতা - রবীন্দ্রনাথ ঠাকুর)",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": null,
+    "start_page": 72,
+    "end_page": 75,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 72
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 75
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "বীরপুরুষ (কবিতা - রবীন্দ্রনাথ ঠাকুর)",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "মনে করো যেন বিদেশ ঘুরে মাকে নিয়ে বীরের মতো বাড়ি ফেরার কল্পনা।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c4-bangla-ch17",
+    "chapter_number": "17",
+    "chapter_title": "মোবাইল ফোন (বিজ্ঞান ও যোগাযোগ প্রযুক্তি)",
+    "chapter_type": "বিজ্ঞান",
+    "author": null,
+    "start_page": 76,
+    "end_page": 80,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 76
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 80
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "মোবাইল ফোন (বিজ্ঞান ও যোগাযোগ প্রযুক্তি)",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "মোবাইল ফোন কীভাবে কাজ করে এবং আধুনিক জীবনে এর ব্যবহার।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c4-bangla-ch18",
+    "chapter_number": "18",
+    "chapter_title": "বাওয়ালিদের গল্প (সুন্দরবনের মধু ও গোলপাতা সংগ্রাহক)",
+    "chapter_type": "প্রবন্ধ",
+    "author": null,
+    "start_page": 81,
+    "end_page": 86,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 81
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 86
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "বাওয়ালিদের গল্প (সুন্দরবনের মধু ও গোলপাতা সংগ্রাহক)",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "সুন্দরবনের ভয়ংকর বাঘের মুখে জীবন বাজি রেখে বাওয়ালিদের শ্রম।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c4-bangla-ch19",
+    "chapter_number": "19",
+    "chapter_title": "খলিফা হযরত ওমর (রা.)",
+    "chapter_type": "জীবনী",
+    "author": null,
+    "start_page": 87,
+    "end_page": 92,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 87
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 92
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "খলিফা হযরত ওমর (রা.)",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "ইসলামের দ্বিতীয় খলিফার ন্যায়পরায়ণতা, প্রজাবাৎসল্য ও সাধারণ জীবন।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c4-bangla-ch20",
+    "chapter_number": "20",
+    "chapter_title": "যুক্তবর্ণ, শব্দার্থ, বাক্য সংকোচন ও ব্যাকরণ",
+    "chapter_type": "ব্যাকরণ",
+    "author": null,
+    "start_page": 93,
+    "end_page": 100,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 93
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 100
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "যুক্তবর্ণ, শব্দার্থ, বাক্য সংকোচন ও ব্যাকরণ",
+      "চতুর্থ শ্রেণি"
+    ],
+    "summary": "ভাষা ব্যবহারের শুদ্ধ নিয়মাবলী ও অনুশীলন।",
+    "total_questions": 2
   }
 ]

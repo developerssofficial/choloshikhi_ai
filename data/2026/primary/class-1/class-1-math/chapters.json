@@ -1,8 +1,8 @@
 [
   {
-    "chapter_id": "c1-ma-ch1",
+    "chapter_id": "c1-math-ch1",
     "chapter_number": "1",
-    "chapter_title": "তুলনা করি (কম-বেশি, বড়-ছোট)",
+    "chapter_title": "তুলনা করি (কম-বেশি, বড়-ছোট, কাছে-দূরে, ভারি-হালকা)",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 1,
@@ -19,20 +19,20 @@
     ],
     "keywords": [
       "প্রাথমিক গণিত",
-      "তুলনা করি (কম-বেশি, বড়-ছোট)",
+      "তুলনা করি (কম-বেশি, বড়-ছোট, কাছে-দূরে, ভারি-হালকা)",
       "প্রথম শ্রেণি"
     ],
-    "summary": "বস্তুর তুলনা ও আকৃতি।",
-    "total_questions": 1
+    "summary": "বস্তুর আকার, অবস্থান ও পরিমাণের তুলনামূলক প্রাথমিক ধারণা।",
+    "total_questions": 2
   },
   {
-    "chapter_id": "c1-ma-ch2",
+    "chapter_id": "c1-math-ch2",
     "chapter_number": "2",
-    "chapter_title": "গণনা করি (১ থেকে ১০)",
+    "chapter_title": "গণনা করি (১ থেকে ৫ পর্যন্ত সংখ্যা গণনা ও লেখা)",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 7,
-    "end_page": 16,
+    "end_page": 12,
     "sections": [
       {
         "title": "মূল পাঠ",
@@ -40,29 +40,81 @@
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 16
+        "page": 12
       }
     ],
     "keywords": [
       "প্রাথমিক গণিত",
-      "গণনা করি (১ থেকে ১০)",
+      "গণনা করি (১ থেকে ৫ পর্যন্ত সংখ্যা গণনা ও লেখা)",
       "প্রথম শ্রেণি"
     ],
-    "summary": "সংখ্যা গণনা ও লেখা।",
-    "total_questions": 1
+    "summary": "ছবি ও বাস্তব উপকরণ দেখে ১ থেকে ৫ পর্যন্ত সংখ্যা পড়া ও লেখা।",
+    "total_questions": 2
   },
   {
-    "chapter_id": "c1-ma-ch3",
+    "chapter_id": "c1-math-ch3",
     "chapter_number": "3",
-    "chapter_title": "যোগের ধারণা (১ থেকে ১০)",
+    "chapter_title": "সংখ্যা ৬ থেকে ১০ গণনা ও লেখা",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 17,
+    "start_page": 13,
+    "end_page": 18,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 13
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 18
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "সংখ্যা ৬ থেকে ১০ গণনা ও লেখা",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "৬ থেকে ১০ পর্যন্ত সংখ্যা গণনা, পড়া ও লেখার কৌশল।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-math-ch4",
+    "chapter_number": "4",
+    "chapter_title": "শূন্য (০)-এর ধারণা",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 19,
+    "end_page": 22,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 19
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 22
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "শূন্য (০)-এর ধারণা",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "কিছু না থাকার প্রতীক হিসেবে শূন্য (০)-এর ধারণা ও অনুশীলন।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-math-ch5",
+    "chapter_number": "5",
+    "chapter_title": "সংখ্যা তুলনা ও ক্রমানুসারে সাজানো (ছোট থেকে বড় ও বড় থেকে ছোট)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 23,
     "end_page": 26,
     "sections": [
       {
         "title": "মূল পাঠ",
-        "page": 17
+        "page": 23
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
@@ -71,20 +123,20 @@
     ],
     "keywords": [
       "প্রাথমিক গণিত",
-      "যোগের ধারণা (১ থেকে ১০)",
+      "সংখ্যা তুলনা ও ক্রমানুসারে সাজানো (ছোট থেকে বড় ও বড় থেকে ছোট)",
       "প্রথম শ্রেণি"
     ],
-    "summary": "একত্র করার নাম যোগ।",
-    "total_questions": 1
+    "summary": "১ থেকে ১০ পর্যন্ত সংখ্যার মান তুলনা ও ক্রম সাজানো।",
+    "total_questions": 2
   },
   {
-    "chapter_id": "c1-ma-ch4",
-    "chapter_number": "4",
-    "chapter_title": "বিয়োগের ধারণা (১ থেকে ১০)",
+    "chapter_id": "c1-math-ch6",
+    "chapter_number": "6",
+    "chapter_title": "যোগের প্রাথমিক ধারণা (১ থেকে ১০)",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 27,
-    "end_page": 36,
+    "end_page": 34,
     "sections": [
       {
         "title": "মূল পাঠ",
@@ -92,15 +144,327 @@
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 36
+        "page": 34
       }
     ],
     "keywords": [
       "প্রাথমিক গণিত",
-      "বিয়োগের ধারণা (১ থেকে ১০)",
+      "যোগের প্রাথমিক ধারণা (১ থেকে ১০)",
       "প্রথম শ্রেণি"
     ],
-    "summary": "বাদ দেওয়ার নাম বিয়োগ।",
-    "total_questions": 1
+    "summary": "একত্র করার প্রক্রিয়াই যোগ — ছবির মাধ্যমে সহজ যোগ সমাধান।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-math-ch7",
+    "chapter_number": "7",
+    "chapter_title": "বিয়োগের প্রাথমিক ধারণা (১ থেকে ১০)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 35,
+    "end_page": 42,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 35
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 42
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "বিয়োগের প্রাথমিক ধারণা (১ থেকে ১০)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "বাদ দেওয়ার প্রক্রিয়াই বিয়োগ — বাস্তব উদাহরণে বিয়োগ অনুশীলন।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-math-ch8",
+    "chapter_number": "8",
+    "chapter_title": "সংখ্যা ১১ থেকে ২০ গণনা ও স্থানীয় মান",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 43,
+    "end_page": 48,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 43
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 48
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "সংখ্যা ১১ থেকে ২০ গণনা ও স্থানীয় মান",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "দশকের ধারণা ও ১১ থেকে ২০ পর্যন্ত সংখ্যা পড়া ও লেখা।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-math-ch9",
+    "chapter_number": "9",
+    "chapter_title": "সংখ্যা ২১ থেকে ৫০ গণনা ও তালিকা",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 49,
+    "end_page": 54,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 49
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 54
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "সংখ্যা ২১ থেকে ৫০ গণনা ও তালিকা",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "২১ থেকে ৫০ পর্যন্ত সংখ্যা গঠন ও ধারাবাহিক গণনা।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-math-ch10",
+    "chapter_number": "10",
+    "chapter_title": "সংখ্যা ৫১ থেকে ১০০ গণনা ও পাঠ",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 55,
+    "end_page": 60,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 55
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 60
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "সংখ্যা ৫১ থেকে ১০০ গণনা ও পাঠ",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "৫১ থেকে ১০০ পর্যন্ত শতকের ঘরের সংখ্যার পরিচয়।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-math-ch11",
+    "chapter_number": "11",
+    "chapter_title": "জোড় ও বিজোড় সংখ্যা চেনা",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 61,
+    "end_page": 64,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 61
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 64
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "জোড় ও বিজোড় সংখ্যা চেনা",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "জোড়ায় জোড়ায় গণনা ও জোড়-বিজোড় সংখ্যা পার্থক্যকরণ।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-math-ch12",
+    "chapter_number": "12",
+    "chapter_title": "যোগ (হাতে না রেখে দুই অঙ্ক)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 65,
+    "end_page": 70,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 65
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 70
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "যোগ (হাতে না রেখে দুই অঙ্ক)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "দুই অঙ্কের সহজ যোগ ও ভাষার গাণিতিক সমস্যা।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-math-ch13",
+    "chapter_number": "13",
+    "chapter_title": "বিয়োগ (হাতে না রেখে দুই অঙ্ক)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 71,
+    "end_page": 76,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 71
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 76
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "বিয়োগ (হাতে না রেখে দুই অঙ্ক)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "দুই অঙ্কের সহজ বিয়োগ ও দৈনন্দিন হিসাব।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-math-ch14",
+    "chapter_number": "14",
+    "chapter_title": "জ্যামিতিক আকৃতি (গোল, গোলক, চারকোনা, তিনকোনা)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 77,
+    "end_page": 80,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 77
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 80
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "জ্যামিতিক আকৃতি (গোল, গোলক, চারকোনা, তিনকোনা)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "চারপাশের বিভিন্ন বস্তুর আকৃতি দেখে জ্যামিতিক রূপ চেনা।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-math-ch15",
+    "chapter_number": "15",
+    "chapter_title": "টাকা ও পয়সার পরিচিতি (১, ২, ৫ টাকার নোট ও কয়েন)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 81,
+    "end_page": 84,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 81
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 84
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "টাকা ও পয়সার পরিচিতি (১, ২, ৫ টাকার নোট ও কয়েন)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "বাংলাদেশের মুদ্রা ও নোটের পরিচয় এবং কেনাবেচার হিসাব।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-math-ch16",
+    "chapter_number": "16",
+    "chapter_title": "পরিমাপ ও দৈর্ঘ্য-ওজন",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 85,
+    "end_page": 88,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 85
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 88
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "পরিমাপ ও দৈর্ঘ্য-ওজন",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "হাতের বিঘত, ফিতা ও বাটখারায় সহজ পরিমাপের ধারণা।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-math-ch17",
+    "chapter_number": "17",
+    "chapter_title": "সময় ও ঘড়ি (সকাল, দুপুর, রাত ও দিনপঞ্জি)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 89,
+    "end_page": 92,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 89
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 92
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "সময় ও ঘড়ি (সকাল, দুপুর, রাত ও দিনপঞ্জি)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "ঘড়ির কাঁটা ও সকাল-সন্ধ্যা সময়ের বোধ।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-math-ch18",
+    "chapter_number": "18",
+    "chapter_title": "সহজ গাণিতিক সমস্যা ও ধাঁধা",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 93,
+    "end_page": 96,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 93
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 96
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "সহজ গাণিতিক সমস্যা ও ধাঁধা",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "আনন্দময় গাণিতিক ধাঁধা ও সামগ্রিক রিভিশন।",
+    "total_questions": 2
   }
 ]

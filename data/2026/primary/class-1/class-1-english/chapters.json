@@ -1,12 +1,12 @@
 [
   {
-    "chapter_id": "c1-en-u1",
+    "chapter_id": "c1-english-ch1",
     "chapter_number": "1",
-    "chapter_title": "Greetings and Farewells (Unit 1)",
+    "chapter_title": "Greetings and Farewells (Hello, Good Morning, Goodbye)",
     "chapter_type": "Unit",
     "author": null,
     "start_page": 1,
-    "end_page": 4,
+    "end_page": 3,
     "sections": [
       {
         "title": "মূল পাঠ",
@@ -14,55 +14,133 @@
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 4
+        "page": 3
       }
     ],
     "keywords": [
       "English for Today",
-      "Greetings and Farewells (Unit 1)",
+      "Greetings and Farewells (Hello, Good Morning, Goodbye)",
       "প্রথম শ্রেণি"
     ],
-    "summary": "Hello, Good morning, Goodbye.",
-    "total_questions": 1
+    "summary": "Greetings, saying hello, good morning and goodbye to teachers and friends.",
+    "total_questions": 2
   },
   {
-    "chapter_id": "c1-en-u2",
+    "chapter_id": "c1-english-ch2",
     "chapter_number": "2",
-    "chapter_title": "Alphabet A-E (Unit 2)",
+    "chapter_title": "Self-Introduction (What is your name? I am...)",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 5,
-    "end_page": 10,
+    "start_page": 4,
+    "end_page": 5,
     "sections": [
       {
         "title": "মূল পাঠ",
-        "page": 5
+        "page": 4
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 10
+        "page": 5
       }
     ],
     "keywords": [
       "English for Today",
-      "Alphabet A-E (Unit 2)",
+      "Self-Introduction (What is your name? I am...)",
       "প্রথম শ্রেণি"
     ],
-    "summary": "Letter sounds and words: Apple, Ball, Cat, Dog, Egg.",
-    "total_questions": 1
+    "summary": "Asking and telling one's name and exchanging friendly introduction.",
+    "total_questions": 2
   },
   {
-    "chapter_id": "c1-en-u3",
+    "chapter_id": "c1-english-ch3",
     "chapter_number": "3",
-    "chapter_title": "Numbers 1-10 (Unit 3)",
+    "chapter_title": "Alphabet A, B, C (Apple, Ball, Cap)",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 11,
+    "start_page": 6,
+    "end_page": 8,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 6
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 8
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Alphabet A, B, C (Apple, Ball, Cap)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Learning letters A, B, C with phonics and everyday words.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch4",
+    "chapter_number": "4",
+    "chapter_title": "Numbers 1, 2, 3 (Counting Objects)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 9,
+    "end_page": 11,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 9
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 11
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Numbers 1, 2, 3 (Counting Objects)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Counting 1 to 3 with fun illustrations and fingers.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch5",
+    "chapter_number": "5",
+    "chapter_title": "Rhyme: Two Little Blackbirds",
+    "chapter_type": "Rhyme",
+    "author": null,
+    "start_page": 12,
+    "end_page": 13,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 12
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 13
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Rhyme: Two Little Blackbirds",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Classic nursery rhyme: Two little blackbirds sitting on a wall.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch6",
+    "chapter_number": "6",
+    "chapter_title": "Alphabet D, E, F (Dog, Egg, Fish)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 14,
     "end_page": 16,
     "sections": [
       {
         "title": "মূল পাঠ",
-        "page": 11
+        "page": 14
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
@@ -71,20 +149,20 @@
     ],
     "keywords": [
       "English for Today",
-      "Numbers 1-10 (Unit 3)",
+      "Alphabet D, E, F (Dog, Egg, Fish)",
       "প্রথম শ্রেণি"
     ],
-    "summary": "Counting 1 to 10 with objects.",
-    "total_questions": 1
+    "summary": "Letter sounds and words for D, E, F.",
+    "total_questions": 2
   },
   {
-    "chapter_id": "c1-en-u4",
-    "chapter_number": "4",
-    "chapter_title": "Rhyme: Two Little Blackbirds (Unit 4)",
-    "chapter_type": "ছড়া/কবিতা",
+    "chapter_id": "c1-english-ch7",
+    "chapter_number": "7",
+    "chapter_title": "Numbers 4, 5, 6",
+    "chapter_type": "Unit",
     "author": null,
     "start_page": 17,
-    "end_page": 18,
+    "end_page": 19,
     "sections": [
       {
         "title": "মূল পাঠ",
@@ -92,15 +170,613 @@
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 18
+        "page": 19
       }
     ],
     "keywords": [
       "English for Today",
-      "Rhyme: Two Little Blackbirds (Unit 4)",
+      "Numbers 4, 5, 6",
       "প্রথম শ্রেণি"
     ],
-    "summary": "Two little blackbirds sitting on a wall.",
-    "total_questions": 1
+    "summary": "Counting numbers 4, 5, 6 with pencils, balls and fruits.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch8",
+    "chapter_number": "8",
+    "chapter_title": "Classroom Commands (Stand up, Sit down, Open your book)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 20,
+    "end_page": 21,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 20
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 21
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Classroom Commands (Stand up, Sit down, Open your book)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Listening and responding to daily classroom instructions.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch9",
+    "chapter_number": "9",
+    "chapter_title": "Alphabet G, H, I (Girl, Hut, Igloo)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 22,
+    "end_page": 24,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 22
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 24
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Alphabet G, H, I (Girl, Hut, Igloo)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Letter tracing, phonics and words for G, H, I.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch10",
+    "chapter_number": "10",
+    "chapter_title": "Numbers 7, 8, 9, 10",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 25,
+    "end_page": 27,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 25
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 27
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Numbers 7, 8, 9, 10",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Counting up to 10 with interactive picture exercises.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch11",
+    "chapter_number": "11",
+    "chapter_title": "Colors & Shapes (Red, Blue, Green, Circle, Square)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 28,
+    "end_page": 30,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 28
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 30
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Colors & Shapes (Red, Blue, Green, Circle, Square)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Recognizing basic colors and geometric shapes in daily life.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch12",
+    "chapter_number": "12",
+    "chapter_title": "Alphabet J, K, L (Jar, Kite, Lion)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 31,
+    "end_page": 33,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 31
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 33
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Alphabet J, K, L (Jar, Kite, Lion)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Letter sounds and words for J, K, L.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch13",
+    "chapter_number": "13",
+    "chapter_title": "Rhyme: Ring a Ring o' Roses",
+    "chapter_type": "Rhyme",
+    "author": null,
+    "start_page": 34,
+    "end_page": 35,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 34
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 35
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Rhyme: Ring a Ring o' Roses",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Playful group rhyme with actions and singing.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch14",
+    "chapter_number": "14",
+    "chapter_title": "Alphabet M, N, O (Moon, Net, Orange)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 36,
+    "end_page": 38,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 36
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 38
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Alphabet M, N, O (Moon, Net, Orange)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Tracing and vocabulary for M, N, O.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch15",
+    "chapter_number": "15",
+    "chapter_title": "Parts of the Body (Head, Eyes, Nose, Hands, Legs)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 39,
+    "end_page": 41,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 39
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 41
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Parts of the Body (Head, Eyes, Nose, Hands, Legs)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Identifying human body parts and personal hygiene.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch16",
+    "chapter_number": "16",
+    "chapter_title": "Alphabet P, Q, R (Pen, Queen, Rose)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 42,
+    "end_page": 44,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 42
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 44
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Alphabet P, Q, R (Pen, Queen, Rose)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Phonics and vocabulary for P, Q, R.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch17",
+    "chapter_number": "17",
+    "chapter_title": "Animals Around Us (Cat, Cow, Dog, Duck, Bird)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 45,
+    "end_page": 47,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 45
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 47
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Animals Around Us (Cat, Cow, Dog, Duck, Bird)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Names of common domestic and wild animals in English.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch18",
+    "chapter_number": "18",
+    "chapter_title": "Alphabet S, T, U (Sun, Tiger, Umbrella)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 48,
+    "end_page": 50,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 48
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 50
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Alphabet S, T, U (Sun, Tiger, Umbrella)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Letter writing and words for S, T, U.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch19",
+    "chapter_number": "19",
+    "chapter_title": "My Family Members (Father, Mother, Brother, Sister)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 51,
+    "end_page": 53,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 51
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 53
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "My Family Members (Father, Mother, Brother, Sister)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Talking about family members with warmth and love.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch20",
+    "chapter_number": "20",
+    "chapter_title": "Alphabet V, W, X (Van, Window, X-ray)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 54,
+    "end_page": 56,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 54
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 56
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Alphabet V, W, X (Van, Window, X-ray)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Letter recognition and words for V, W, X.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch21",
+    "chapter_number": "21",
+    "chapter_title": "Alphabet Y, Z (Yo-yo, Zebra)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 57,
+    "end_page": 58,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 57
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 58
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Alphabet Y, Z (Yo-yo, Zebra)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Completing alphabet series with Y and Z.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch22",
+    "chapter_number": "22",
+    "chapter_title": "Rhyme: Alphabet Song (A B C D E F G...)",
+    "chapter_type": "Rhyme",
+    "author": null,
+    "start_page": 59,
+    "end_page": 60,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 59
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 60
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Rhyme: Alphabet Song (A B C D E F G...)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Singing full 26-letter alphabet song in tune.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch23",
+    "chapter_number": "23",
+    "chapter_title": "Food & Drinks (Milk, Rice, Water, Banana, Bread)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 61,
+    "end_page": 62,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 61
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 62
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Food & Drinks (Milk, Rice, Water, Banana, Bread)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Healthy food items and breakfast vocabulary.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch24",
+    "chapter_number": "24",
+    "chapter_title": "Action Words (Clap, Jump, Run, Sing, Draw)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 63,
+    "end_page": 64,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 63
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 64
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Action Words (Clap, Jump, Run, Sing, Draw)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Action verbs and playful physical response.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch25",
+    "chapter_number": "25",
+    "chapter_title": "Days of the Week (Saturday to Friday)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 65,
+    "end_page": 66,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 65
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 66
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Days of the Week (Saturday to Friday)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Learning names of seven days of the week in sequence.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch26",
+    "chapter_number": "26",
+    "chapter_title": "Story: The Golden Goose",
+    "chapter_type": "Story",
+    "author": null,
+    "start_page": 67,
+    "end_page": 68,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 67
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 68
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Story: The Golden Goose",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Moral story teaching against greed.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch27",
+    "chapter_number": "27",
+    "chapter_title": "Our Senses (See, Hear, Smell, Taste, Touch)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 69,
+    "end_page": 70,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 69
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 70
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Our Senses (See, Hear, Smell, Taste, Touch)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Five senses and their functions.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch28",
+    "chapter_number": "28",
+    "chapter_title": "Seasons & Weather (Sunny, Rainy, Cold)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 71,
+    "end_page": 72,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 71
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 72
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Seasons & Weather (Sunny, Rainy, Cold)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Describing simple weather conditions.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch29",
+    "chapter_number": "29",
+    "chapter_title": "Simple Dialogue Practice (How are you? Fine, thank you)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 73,
+    "end_page": 74,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 73
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 74
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Simple Dialogue Practice (How are you? Fine, thank you)",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Daily conversational dialogue between classmates.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c1-english-ch30",
+    "chapter_number": "30",
+    "chapter_title": "Story: The Ant and the Dove",
+    "chapter_type": "Story",
+    "author": null,
+    "start_page": 75,
+    "end_page": 76,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 75
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 76
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Story: The Ant and the Dove",
+      "প্রথম শ্রেণি"
+    ],
+    "summary": "Heartwarming story about kindness and helping friends in need.",
+    "total_questions": 2
   }
 ]

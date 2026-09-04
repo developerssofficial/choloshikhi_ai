@@ -1,8 +1,8 @@
 [
   {
-    "chapter_id": "c3-ma-ch1",
+    "chapter_id": "c3-math-ch1",
     "chapter_number": "1",
-    "chapter_title": "সংখ্যা ও স্থানীয় মান (১০,০০০ পর্যন্ত)",
+    "chapter_title": "সংখ্যা (১ থেকে ১০০০০ পর্যন্ত স্থানীয় মান ও তুলনা)",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 1,
@@ -19,20 +19,20 @@
     ],
     "keywords": [
       "প্রাথমিক গণিত",
-      "সংখ্যা ও স্থানীয় মান (১০,০০০ পর্যন্ত)",
+      "সংখ্যা (১ থেকে ১০০০০ পর্যন্ত স্থানীয় মান ও তুলনা)",
       "তৃতীয় শ্রেণি"
     ],
-    "summary": "একক, দশক, শতক, হাজার।",
-    "total_questions": 1
+    "summary": "চার অঙ্কের সংখ্যার একক, দশক, শতক ও হাজারের স্থানীয় মান নির্ণয়।",
+    "total_questions": 2
   },
   {
-    "chapter_id": "c3-ma-ch2",
+    "chapter_id": "c3-math-ch2",
     "chapter_number": "2",
-    "chapter_title": "চার প্রক্রিয়া (যোগ, বিয়োগ, গুণ, ভাগ)",
+    "chapter_title": "যোগ (চার অঙ্ক পর্যন্ত হাতে রেখে যোগ)",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 19,
-    "end_page": 45,
+    "end_page": 32,
     "sections": [
       {
         "title": "মূল পাঠ",
@@ -40,29 +40,55 @@
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 45
+        "page": 32
       }
     ],
     "keywords": [
       "প্রাথমিক গণিত",
-      "চার প্রক্রিয়া (যোগ, বিয়োগ, গুণ, ভাগ)",
+      "যোগ (চার অঙ্ক পর্যন্ত হাতে রেখে যোগ)",
       "তৃতীয় শ্রেণি"
     ],
-    "summary": "ভাজ্য = ভাজক × ভাগফল + ভাগশেষ।",
-    "total_questions": 1
+    "summary": "চার অঙ্কের সংখ্যার পাশাপাশি ও স্তম্ভ যোগ এবং বাস্তব জীবনের সমস্যা।",
+    "total_questions": 2
   },
   {
-    "chapter_id": "c3-ma-ch3",
+    "chapter_id": "c3-math-ch3",
     "chapter_number": "3",
-    "chapter_title": "ভগ্নাংশ (প্রকৃত ও সমহর ভগ্নাংশ)",
+    "chapter_title": "বিয়োগ (চার অঙ্ক পর্যন্ত হাতে রেখে বিয়োগ)",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 46,
+    "start_page": 33,
+    "end_page": 46,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 33
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 46
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "বিয়োগ (চার অঙ্ক পর্যন্ত হাতে রেখে বিয়োগ)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "ধার করে বিয়োগের সহজ কৌশল ও ভাষার গাণিতিক সমাধান।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-math-ch4",
+    "chapter_number": "4",
+    "chapter_title": "গুণ (তিন অঙ্কের সংখ্যাকে দুই অঙ্কের সংখ্যা দ্বারা গুণ)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 47,
     "end_page": 60,
     "sections": [
       {
         "title": "মূল পাঠ",
-        "page": 46
+        "page": 47
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
@@ -71,20 +97,20 @@
     ],
     "keywords": [
       "প্রাথমিক গণিত",
-      "ভগ্নাংশ (প্রকৃত ও সমহর ভগ্নাংশ)",
+      "গুণ (তিন অঙ্কের সংখ্যাকে দুই অঙ্কের সংখ্যা দ্বারা গুণ)",
       "তৃতীয় শ্রেণি"
     ],
-    "summary": "লব ও হর। সমহর ভগ্নাংশের যোগ-বিয়োগ।",
-    "total_questions": 1
+    "summary": "গুণ্য, গুণক ও গুণফলের সম্পর্ক এবং গুণের বাস্তব সমস্যা।",
+    "total_questions": 2
   },
   {
-    "chapter_id": "c3-ma-ch4",
-    "chapter_number": "4",
-    "chapter_title": "পরিমাপ ও জ্যামিতি",
+    "chapter_id": "c3-math-ch5",
+    "chapter_number": "5",
+    "chapter_title": "ভাগ (ভাগফল ও ভাগশেষ নির্ণয়)",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 61,
-    "end_page": 80,
+    "end_page": 72,
     "sections": [
       {
         "title": "মূল পাঠ",
@@ -92,15 +118,145 @@
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 80
+        "page": 72
       }
     ],
     "keywords": [
       "প্রাথমিক গণিত",
-      "পরিমাপ ও জ্যামিতি",
+      "ভাগ (ভাগফল ও ভাগশেষ নির্ণয়)",
       "তৃতীয় শ্রেণি"
     ],
-    "summary": "১ মিটার = ১০০ সেমি, ১ কেজি = ১০০০ গ্রাম। সমকোণ (৯০°)।",
-    "total_questions": 1
+    "summary": "ভাজ্য, ভাজক, ভাগফল ও ভাগশেষের নিয়ম এবং পরীক্ষা পদ্ধতি।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-math-ch6",
+    "chapter_number": "6",
+    "chapter_title": "চার প্রক্রিয়া সম্পর্কিত সমস্যাবলি (যোগ, বিয়োগ, গুণ, ভাগ)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 73,
+    "end_page": 84,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 73
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 84
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "চার প্রক্রিয়া সম্পর্কিত সমস্যাবলি (যোগ, বিয়োগ, গুণ, ভাগ)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "দৈনন্দিন জীবনে চার প্রক্রিয়ার সমন্বিত সমাধান।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-math-ch7",
+    "chapter_number": "7",
+    "chapter_title": "বাংলাদেশি মুদ্রা ও নোটের হিসাব",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 85,
+    "end_page": 94,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 85
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 94
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "বাংলাদেশি মুদ্রা ও নোটের হিসাব",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "টাকা-পয়সার রূপান্তর, যোগ, বিয়োগ ও বাজার খরচের হিসাব।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-math-ch8",
+    "chapter_number": "8",
+    "chapter_title": "ভগ্নাংশ (প্রকৃত, সমহর ও তুলনা)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 95,
+    "end_page": 106,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 95
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 106
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "ভগ্নাংশ (প্রকৃত, সমহর ও তুলনা)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "ভগ্নাংশের ধারণা, ছবির সাহায্যে সমতুল ভগ্নাংশ ও যোগ-বিয়োগ।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-math-ch9",
+    "chapter_number": "9",
+    "chapter_title": "পরিমাপ (দৈর্ঘ্য, ওজন, তরল ও সময়)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 107,
+    "end_page": 120,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 107
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 120
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "পরিমাপ (দৈর্ঘ্য, ওজন, তরল ও সময়)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "কিলোমিটার-মিটার, কিলোগ্রাম-গ্রাম, লিটার ও ঘণ্টার হিসাব।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-math-ch10",
+    "chapter_number": "10",
+    "chapter_title": "জ্যামিতি (কোণ, ত্রিভুজ, চতুর্ভুজ ও বৃত্ত)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 121,
+    "end_page": 132,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 121
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 132
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "জ্যামিতি (কোণ, ত্রিভুজ, চতুর্ভুজ ও বৃত্ত)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "সমকোণ, সূক্ষ্মকোণ, বাহুভেদে ত্রিভুজ ও বৃত্তের কেন্দ্র-পরিধি।",
+    "total_questions": 2
   }
 ]

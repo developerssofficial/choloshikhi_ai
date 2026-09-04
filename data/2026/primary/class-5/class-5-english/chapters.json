@@ -1,12 +1,12 @@
 [
   {
-    "chapter_id": "class-5-english-ch1",
+    "chapter_id": "c5-english-ch1",
     "chapter_number": "1",
-    "chapter_title": "অধ্যায় ১: প্রাথমিক পাঠ ও ভূমিকা",
-    "chapter_type": "অধ্যায়",
+    "chapter_title": "Hello! Introducing Oneself at Railway Station (Unit 1)",
+    "chapter_type": "Unit",
     "author": null,
     "start_page": 1,
-    "end_page": 10,
+    "end_page": 4,
     "sections": [
       {
         "title": "মূল পাঠ",
@@ -14,15 +14,639 @@
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 10
+        "page": 4
       }
     ],
     "keywords": [
-      "English For Today",
-      "অধ্যায় ১: প্রাথমিক পাঠ ও ভূমিকা",
+      "English for Today",
+      "Hello! Introducing Oneself at Railway Station (Unit 1)",
       "পঞ্চম শ্রেণি"
     ],
-    "summary": "English For Today বিষয়ের প্রথম অধ্যায়ের মূল আলোচনা ও ধারণা।",
-    "total_questions": 1
+    "summary": "Dialogue between Sima and Jessica going to Chattogram and Sylhet.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch2",
+    "chapter_number": "2",
+    "chapter_title": "See You! Greetings and Partings (Unit 2)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 5,
+    "end_page": 8,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 5
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 8
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "See You! Greetings and Partings (Unit 2)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "Expressions for saying goodbye and polite parting.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch3",
+    "chapter_number": "3",
+    "chapter_title": "Saikat's Family (Unit 3)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 9,
+    "end_page": 12,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 9
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 12
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Saikat's Family (Unit 3)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "Daily routines of Saikat, his banker father and seamstress mother.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch4",
+    "chapter_number": "4",
+    "chapter_title": "Leisure Time & Hobbies (Unit 4)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 13,
+    "end_page": 16,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 13
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 16
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Leisure Time & Hobbies (Unit 4)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "Reading books, swimming, drawing and collecting stamps.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch5",
+    "chapter_number": "5",
+    "chapter_title": "Days in a Calendar & Time (Unit 5)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 17,
+    "end_page": 20,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 17
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 20
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Days in a Calendar & Time (Unit 5)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "Finding days, leap years and recording birthdates.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch6",
+    "chapter_number": "6",
+    "chapter_title": "Eat Healthy: The Food Pyramid (Unit 6)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 21,
+    "end_page": 24,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 21
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 24
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Eat Healthy: The Food Pyramid (Unit 6)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "Understanding the four tiers of the food pyramid for balanced nutrition.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch7",
+    "chapter_number": "7",
+    "chapter_title": "Be Healthy! Physical Fitness & Diet (Unit 7)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 25,
+    "end_page": 28,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 25
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 28
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Be Healthy! Physical Fitness & Diet (Unit 7)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "Exercise, drinking water and avoiding illness.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch8",
+    "chapter_number": "8",
+    "chapter_title": "Write to Me Soon! Letter Writing Format (Unit 8)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 29,
+    "end_page": 32,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 29
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 32
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Write to Me Soon! Letter Writing Format (Unit 8)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "Informal letter writing parts: date, greeting, body, closing and envelope.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch9",
+    "chapter_number": "9",
+    "chapter_title": "Occupational Safety: Raju the Firefighter (Unit 9)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 33,
+    "end_page": 36,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 33
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 36
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Occupational Safety: Raju the Firefighter (Unit 9)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "Inspiring story of volunteer firefighter Raju and fire safety in school.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch10",
+    "chapter_number": "10",
+    "chapter_title": "My Home District: Kishoreganj (Unit 10)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 37,
+    "end_page": 40,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 37
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 40
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "My Home District: Kishoreganj (Unit 10)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "Solakia Eid ground, Pagla Mosque, Sukumar Ray and Syed Nazrul Islam.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch11",
+    "chapter_number": "11",
+    "chapter_title": "Life is Beautiful: Maria (Unit 11)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 41,
+    "end_page": 44,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 41
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 44
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Life is Beautiful: Maria (Unit 11)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "Inspirational story of visually impaired Maria using Braille.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch12",
+    "chapter_number": "12",
+    "chapter_title": "How Far is Saint Martin's? (Unit 12)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 45,
+    "end_page": 48,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 45
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 48
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "How Far is Saint Martin's? (Unit 12)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "Coral island Saint Martin's, Cox's Bazar and scenic Bangladesh.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch13",
+    "chapter_number": "13",
+    "chapter_title": "Telling the Story (Unit 13)",
+    "chapter_type": "Story",
+    "author": null,
+    "start_page": 49,
+    "end_page": 52,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 49
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 52
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Telling the Story (Unit 13)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "Techniques of narrating fables with linking words.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch14",
+    "chapter_number": "14",
+    "chapter_title": "Story: The Hare and the Tortoise (Unit 14)",
+    "chapter_type": "Story",
+    "author": null,
+    "start_page": 53,
+    "end_page": 56,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 53
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 56
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Story: The Hare and the Tortoise (Unit 14)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "Classic race fable between overconfident hare and persistent tortoise.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch15",
+    "chapter_number": "15",
+    "chapter_title": "Happy Birthday! Celebrations & Customs (Unit 15)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 57,
+    "end_page": 60,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 57
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 60
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Happy Birthday! Celebrations & Customs (Unit 15)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "Birthday songs, candles and celebrating with friends.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch16",
+    "chapter_number": "16",
+    "chapter_title": "May I Come In? Polite Permissions (Unit 16)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 61,
+    "end_page": 64,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 61
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 64
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "May I Come In? Polite Permissions (Unit 16)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "Modal verbs can, may, could for polite asking.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch17",
+    "chapter_number": "17",
+    "chapter_title": "Sports and the Olympic Games (Unit 17)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 65,
+    "end_page": 68,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 65
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 68
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Sports and the Olympic Games (Unit 17)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "History of the Olympics and different sporting events.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch18",
+    "chapter_number": "18",
+    "chapter_title": "City Life and Country Life (Unit 18)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 69,
+    "end_page": 72,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 69
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 72
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "City Life and Country Life (Unit 18)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "Comparative study between urban and rural lifestyle.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch19",
+    "chapter_number": "19",
+    "chapter_title": "The Liberation War Museum (Unit 19)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 73,
+    "end_page": 76,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 73
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 76
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "The Liberation War Museum (Unit 19)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "School trip to the Liberation War Museum in Agargaon, Dhaka.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch20",
+    "chapter_number": "20",
+    "chapter_title": "Life is Beautiful (Part 2) (Unit 20)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 77,
+    "end_page": 80,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 77
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 80
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Life is Beautiful (Part 2) (Unit 20)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "Maria's dreams of going to university and becoming a teacher.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch21",
+    "chapter_number": "21",
+    "chapter_title": "It Was a Great Day! Scout Camporee (Unit 21)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 81,
+    "end_page": 84,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 81
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 84
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "It Was a Great Day! Scout Camporee (Unit 21)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "Cub Scout gathering in Sreemangal and tent life.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch22",
+    "chapter_number": "22",
+    "chapter_title": "What Sports Do You Like? (Unit 22)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 85,
+    "end_page": 88,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 85
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 88
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "What Sports Do You Like? (Unit 22)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "Kabaddi, cricket, football and chess dialogues.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch23",
+    "chapter_number": "23",
+    "chapter_title": "Stay Safe! Disaster Preparedness (Unit 23)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 89,
+    "end_page": 92,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 89
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 92
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Stay Safe! Disaster Preparedness (Unit 23)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "Earthquake and emergency safety measures.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch24",
+    "chapter_number": "24",
+    "chapter_title": "Cyclones in Bangladesh: Cyclone Aila (Unit 24)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 93,
+    "end_page": 96,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 93
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 96
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Cyclones in Bangladesh: Cyclone Aila (Unit 24)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "Babul's family facing Cyclone Aila in Dublar Char.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-english-ch25",
+    "chapter_number": "25",
+    "chapter_title": "Comprehensive Review & Exam Readiness (Unit 25)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 97,
+    "end_page": 102,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 97
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 102
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Comprehensive Review & Exam Readiness (Unit 25)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "Grammar, WH-questions, letter writing and comprehension.",
+    "total_questions": 2
   }
 ]

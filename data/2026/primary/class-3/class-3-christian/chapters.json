@@ -1,8 +1,8 @@
 [
   {
-    "chapter_id": "class-3-christian-ch1",
+    "chapter_id": "c3-christian-ch1",
     "chapter_number": "1",
-    "chapter_title": "অধ্যায় ১: প্রাথমিক পাঠ ও ভূমিকা",
+    "chapter_title": "ঈশ্বর সর্বশক্তিমান সৃষ্টিকর্তা",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 1,
@@ -18,11 +18,115 @@
       }
     ],
     "keywords": [
-      "ধর্ম ও নৈতিক শিক্ষা",
-      "অধ্যায় ১: প্রাথমিক পাঠ ও ভূমিকা",
+      "খ্রিষ্টধর্ম শিক্ষা",
+      "ঈশ্বর সর্বশক্তিমান সৃষ্টিকর্তা",
       "তৃতীয় শ্রেণি"
     ],
-    "summary": "খ্রিষ্টধর্ম শিক্ষা বিষয়ের প্রথম অধ্যায়ের মূল আলোচনা ও ধারণা।",
-    "total_questions": 1
+    "summary": "বিশ্বব্রহ্মাণ্ড সৃষ্টিতে ঈশ্বরের অসীম ভালোবাসা।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-christian-ch2",
+    "chapter_number": "2",
+    "chapter_title": "প্রভু যীশু খ্রিষ্টের জন্ম ও বাল্যকাল",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 11,
+    "end_page": 20,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 11
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 20
+      }
+    ],
+    "keywords": [
+      "খ্রিষ্টধর্ম শিক্ষা",
+      "প্রভু যীশু খ্রিষ্টের জন্ম ও বাল্যকাল",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "বেথলেহেমে জন্ম ও বড়দিনের আনন্দবার্তা।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-christian-ch3",
+    "chapter_number": "3",
+    "chapter_title": "প্রার্থনা ও সৎকর্ম",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 21,
+    "end_page": 30,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 21
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 30
+      }
+    ],
+    "keywords": [
+      "খ্রিষ্টধর্ম শিক্ষা",
+      "প্রার্থনা ও সৎকর্ম",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "প্রভুর প্রার্থনা এবং পরোপকার ও দয়ার অনুশীলন।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-christian-ch4",
+    "chapter_number": "4",
+    "chapter_title": "দশ আজ্ঞা ও অনুশাসন",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 31,
+    "end_page": 40,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 31
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 40
+      }
+    ],
+    "keywords": [
+      "খ্রিষ্টধর্ম শিক্ষা",
+      "দশ আজ্ঞা ও অনুশাসন",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "ঈশ্বরের নির্দেশ মেনে সৎপথে চলার নিয়ম।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-christian-ch5",
+    "chapter_number": "5",
+    "chapter_title": "খ্রিষ্টীয় ভালোবাসা ও সেবা",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 41,
+    "end_page": 50,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 41
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 50
+      }
+    ],
+    "keywords": [
+      "খ্রিষ্টধর্ম শিক্ষা",
+      "খ্রিষ্টীয় ভালোবাসা ও সেবা",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "দীন-দুঃখী ও প্রতিবেশীকে ভালোবাসার আদর্শ।",
+    "total_questions": 2
   }
 ]

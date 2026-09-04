@@ -1,12 +1,12 @@
 [
   {
-    "chapter_id": "class-3-english-ch1",
+    "chapter_id": "c3-english-ch1",
     "chapter_number": "1",
-    "chapter_title": "অধ্যায় ১: প্রাথমিক পাঠ ও ভূমিকা",
-    "chapter_type": "অধ্যায়",
+    "chapter_title": "Introducing a Student & Teacher (Unit 1)",
+    "chapter_type": "Unit",
     "author": null,
     "start_page": 1,
-    "end_page": 10,
+    "end_page": 3,
     "sections": [
       {
         "title": "মূল পাঠ",
@@ -14,15 +14,639 @@
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 10
+        "page": 3
       }
     ],
     "keywords": [
-      "English For Today",
-      "অধ্যায় ১: প্রাথমিক পাঠ ও ভূমিকা",
+      "English for Today",
+      "Introducing a Student & Teacher (Unit 1)",
       "তৃতীয় শ্রেণি"
     ],
-    "summary": "English For Today বিষয়ের প্রথম অধ্যায়ের মূল আলোচনা ও ধারণা।",
-    "total_questions": 1
+    "summary": "Dialogue introducing self and asking others politely.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch2",
+    "chapter_number": "2",
+    "chapter_title": "Introducing Others (Unit 2)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 4,
+    "end_page": 6,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 4
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 6
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Introducing Others (Unit 2)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "Introducing friends and family to guests.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch3",
+    "chapter_number": "3",
+    "chapter_title": "Dialogue: Greetings Around the Clock (Unit 3)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 7,
+    "end_page": 9,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 7
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 9
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Dialogue: Greetings Around the Clock (Unit 3)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "Good morning, good afternoon, good evening and good night.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch4",
+    "chapter_number": "4",
+    "chapter_title": "Numbers 1-50 (Unit 4)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 10,
+    "end_page": 12,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 10
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 12
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Numbers 1-50 (Unit 4)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "Writing numbers, words and basic word problems in English.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch5",
+    "chapter_number": "5",
+    "chapter_title": "Commands, Instructions & Requests (Unit 5)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 13,
+    "end_page": 15,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 13
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 15
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Commands, Instructions & Requests (Unit 5)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "Please give me, stand in a line, listen carefully.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch6",
+    "chapter_number": "6",
+    "chapter_title": "What Food Should We Eat? (Unit 6)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 16,
+    "end_page": 18,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 16
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 18
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "What Food Should We Eat? (Unit 6)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "Healthy versus unhealthy foods and dietary balance.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch7",
+    "chapter_number": "7",
+    "chapter_title": "Commands at Home & School (Unit 7)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 19,
+    "end_page": 21,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 19
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 21
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Commands at Home & School (Unit 7)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "Daily routines and respecting house and school rules.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch8",
+    "chapter_number": "8",
+    "chapter_title": "Telling the Time (Unit 8)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 22,
+    "end_page": 24,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 22
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 24
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Telling the Time (Unit 8)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "What time is it? It is 8 o'clock / half past eight.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch9",
+    "chapter_number": "9",
+    "chapter_title": "Occupations & Community Helpers (Unit 9)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 25,
+    "end_page": 27,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 25
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 27
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Occupations & Community Helpers (Unit 9)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "Farmer, doctor, pilot, tailor, nurse, teacher.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch10",
+    "chapter_number": "10",
+    "chapter_title": "My Family & Daily Routine (Unit 10)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 28,
+    "end_page": 30,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 28
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 30
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "My Family & Daily Routine (Unit 10)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "Reading comprehension about family life and chores.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch11",
+    "chapter_number": "11",
+    "chapter_title": "Food We Eat (Unit 11)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 31,
+    "end_page": 33,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 31
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 33
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Food We Eat (Unit 11)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "Rice, fish, lentils, vegetables and fruits.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch12",
+    "chapter_number": "12",
+    "chapter_title": "Numbers 51-100 (Unit 12)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 34,
+    "end_page": 36,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 34
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 36
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Numbers 51-100 (Unit 12)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "Spelling, counting and writing numbers 51 to 100.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch13",
+    "chapter_number": "13",
+    "chapter_title": "Months and Days of the Year (Unit 13)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 37,
+    "end_page": 39,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 37
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 39
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Months and Days of the Year (Unit 13)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "Calendar reading and seasonal weather.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch14",
+    "chapter_number": "14",
+    "chapter_title": "Story: The Crow and the Pitcher (Unit 14)",
+    "chapter_type": "Story",
+    "author": null,
+    "start_page": 40,
+    "end_page": 42,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 40
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 42
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Story: The Crow and the Pitcher (Unit 14)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "Clever crow dropping pebbles to drink water.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch15",
+    "chapter_number": "15",
+    "chapter_title": "Names of Months & Calendar Reading (Unit 15)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 43,
+    "end_page": 45,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 43
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 45
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Names of Months & Calendar Reading (Unit 15)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "How many days in February, April, June, November?",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch16",
+    "chapter_number": "16",
+    "chapter_title": "Clothes and Sizes (Unit 16)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 46,
+    "end_page": 48,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 46
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 48
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Clothes and Sizes (Unit 16)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "Small, medium, large sizes and seasonal dressing.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch17",
+    "chapter_number": "17",
+    "chapter_title": "Cleanliness & Healthy Habits (Unit 17)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 49,
+    "end_page": 51,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 49
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 51
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Cleanliness & Healthy Habits (Unit 17)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "Hand washing, nail clipping and personal care.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch18",
+    "chapter_number": "18",
+    "chapter_title": "Story: Rima and the Seed (Unit 18)",
+    "chapter_type": "Story",
+    "author": null,
+    "start_page": 52,
+    "end_page": 54,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 52
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 54
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Story: Rima and the Seed (Unit 18)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "Planting a seed, watering it and watching it grow.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch19",
+    "chapter_number": "19",
+    "chapter_title": "Animals & Their Habitats (Unit 19)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 55,
+    "end_page": 57,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 55
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 57
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Animals & Their Habitats (Unit 19)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "Birds in trees, fish in water, tigers in forest.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch20",
+    "chapter_number": "20",
+    "chapter_title": "Prepositions of Place (In, On, Under, In Front of) (Unit 20)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 58,
+    "end_page": 60,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 58
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 60
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Prepositions of Place (In, On, Under, In Front of) (Unit 20)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "Grammar exercises with visual spatial prepositions.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch21",
+    "chapter_number": "21",
+    "chapter_title": "Rhyme: Teddy Bear, Teddy Bear (Unit 21)",
+    "chapter_type": "Rhyme",
+    "author": null,
+    "start_page": 61,
+    "end_page": 62,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 61
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 62
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Rhyme: Teddy Bear, Teddy Bear (Unit 21)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "Recitation rhyme with energetic movements.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch22",
+    "chapter_number": "22",
+    "chapter_title": "What Are They Doing? Present Continuous (Unit 22)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 63,
+    "end_page": 65,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 63
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 65
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "What Are They Doing? Present Continuous (Unit 22)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "Reading, writing, playing, singing action verbs.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch23",
+    "chapter_number": "23",
+    "chapter_title": "Story: The Farmer and His Sons (Unit 23)",
+    "chapter_type": "Story",
+    "author": null,
+    "start_page": 66,
+    "end_page": 68,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 66
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 68
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Story: The Farmer and His Sons (Unit 23)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "Unity is strength fable with sticks bundle.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch24",
+    "chapter_number": "24",
+    "chapter_title": "My Hometown & Country (Unit 24)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 69,
+    "end_page": 71,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 69
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 71
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "My Hometown & Country (Unit 24)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "Describing rivers, green fields and heritage of Bangladesh.",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-english-ch25",
+    "chapter_number": "25",
+    "chapter_title": "Year-End Dialogue and Revision (Unit 25)",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 72,
+    "end_page": 76,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 72
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 76
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "Year-End Dialogue and Revision (Unit 25)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "Comprehensive vocabulary, grammar and comprehension revision.",
+    "total_questions": 2
   }
 ]

@@ -1,0 +1,28 @@
+{
+  "id": "2026-primary-class-3-bgs",
+  "academic_year": 2026,
+  "level": "primary",
+  "class_number": 3,
+  "class_name": "তৃতীয় শ্রেণি",
+  "book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
+  "normalized_book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
+  "subject": "বাংলাদেশ ও বিশ্বপরিচয়",
+  "subject_code": "bgs",
+  "language": "bn",
+  "table_of_contents": [
+    "1. প্রাকৃতিক ও সামাজিক পরিবেশ (পৃষ্ঠা 1–8)",
+    "2. মিলেমিশে থাকা (সমতা ও সৌহার্দ্য) (পৃষ্ঠা 9–16)",
+    "3. আমাদের অধিকার ও দায়িত্ব (পৃষ্ঠা 17–24)",
+    "4. বিভিন্ন পেশার মানুষ (পৃষ্ঠা 25–34)",
+    "5. মানুষের গুণ (সততা ও পরোপকার) (পৃষ্ঠা 35–42)",
+    "6. আমাদের জাতীয় ইতিহাস ও ঐতিহ্য (পৃষ্ঠা 43–54)"
+  ],
+  "total_chapters": 6,
+  "validation": {
+    "download_verified": true,
+    "page_count_verified": true,
+    "toc_verified": true,
+    "questions_verified": true,
+    "needs_review": false
+  }
+}

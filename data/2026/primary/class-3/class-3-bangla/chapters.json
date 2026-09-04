@@ -1,12 +1,12 @@
 [
   {
-    "chapter_id": "c3-bn-ch1",
+    "chapter_id": "c3-bangla-ch1",
     "chapter_number": "1",
     "chapter_title": "ছবি ও কথা (আমাদের বন্ধুরা)",
-    "chapter_type": "গল্প/গদ্য",
+    "chapter_type": "পাঠ",
     "author": null,
     "start_page": 1,
-    "end_page": 5,
+    "end_page": 4,
     "sections": [
       {
         "title": "মূল পাঠ",
@@ -14,107 +14,133 @@
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 5
+        "page": 4
       }
     ],
     "keywords": [
-      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "আমার বাংলা বই",
       "ছবি ও কথা (আমাদের বন্ধুরা)",
       "তৃতীয় শ্রেণি"
     ],
-    "summary": "প্রকৃতি ও পশুপাখি।",
-    "total_questions": 1
-  },
-  {
-    "chapter_id": "c3-bn-ch2",
-    "chapter_number": "2",
-    "chapter_title": "চল্ চল্ চল্",
-    "chapter_type": "ছড়া/কবিতা",
-    "author": "কাজী নজরুল ইসলাম",
-    "start_page": 6,
-    "end_page": 9,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 6
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 9
-      }
-    ],
-    "keywords": [
-      "বাংলাদেশ ও বিশ্বপরিচয়",
-      "চল্ চল্ চল্",
-      "তৃতীয় শ্রেণি"
-    ],
-    "summary": "জাতীয় রণসংগীত।",
+    "summary": "শ্রেণিকক্ষের সহপাঠী ও বন্ধুদের সৌহার্দ্য।",
     "total_questions": 2
   },
   {
-    "chapter_id": "c3-bn-ch3",
-    "chapter_number": "3",
-    "chapter_title": "কুঁজো বুড়ির গল্প",
-    "chapter_type": "গল্প/গদ্য",
+    "chapter_id": "c3-bangla-ch2",
+    "chapter_number": "2",
+    "chapter_title": "চল্ চল্ চল্ (রণসংগীত - কাজী নজরুল ইসলাম)",
+    "chapter_type": "ছড়া/কবিতা",
     "author": null,
-    "start_page": 10,
-    "end_page": 14,
+    "start_page": 5,
+    "end_page": 7,
     "sections": [
       {
         "title": "মূল পাঠ",
-        "page": 10
+        "page": 5
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 14
+        "page": 7
       }
     ],
     "keywords": [
-      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "আমার বাংলা বই",
+      "চল্ চল্ চল্ (রণসংগীত - কাজী নজরুল ইসলাম)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "জাতীয় কবির উদ্বুদ্ধকারী রণসংগীত ও মূলভাব।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-bangla-ch3",
+    "chapter_number": "3",
+    "chapter_title": "কুঁজো বুড়ির গল্প",
+    "chapter_type": "গল্প",
+    "author": null,
+    "start_page": 8,
+    "end_page": 12,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 8
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 12
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
       "কুঁজো বুড়ির গল্প",
       "তৃতীয় শ্রেণি"
     ],
-    "summary": "লাউয়ের খোলে ঢুকে গান গেয়ে বুদ্ধির জোরে বাঘ ও শেয়ালের হাত থেকে কুঁজো বুড়ির বেঁচে ফেরা।",
-    "total_questions": 1
+    "summary": "বুদ্ধিমতী কুঁজো বুড়ি ও শিয়াল-বাঘের মজার কাহিনী।",
+    "total_questions": 2
   },
   {
-    "chapter_id": "c3-bn-ch4",
+    "chapter_id": "c3-bangla-ch4",
     "chapter_number": "4",
-    "chapter_title": "তালগাছ",
+    "chapter_title": "তালগাছ (কবিতা - রবীন্দ্রনাথ ঠাকুর)",
     "chapter_type": "ছড়া/কবিতা",
-    "author": "রবীন্দ্রনাথ ঠাকুর",
-    "start_page": 15,
-    "end_page": 18,
+    "author": null,
+    "start_page": 13,
+    "end_page": 15,
     "sections": [
       {
         "title": "মূল পাঠ",
-        "page": 15
+        "page": 13
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 18
+        "page": 15
       }
     ],
     "keywords": [
-      "বাংলাদেশ ও বিশ্বপরিচয়",
-      "তালগাছ",
+      "আমার বাংলা বই",
+      "তালগাছ (কবিতা - রবীন্দ্রনাথ ঠাকুর)",
       "তৃতীয় শ্রেণি"
     ],
-    "summary": "তালগাছ এক পায়ে দাঁড়িয়ে সব গাছ ছাড়িয়ে আকাশে ওড়ার স্বপ্ন দেখে।",
-    "total_questions": 1
+    "summary": "তালগাছ এক পায়ে দাঁড়িয়ে সব গাছ ছাড়িয়ে উঁকি মারে আকাশে।",
+    "total_questions": 2
   },
   {
-    "chapter_id": "c3-bn-ch5",
+    "chapter_id": "c3-bangla-ch5",
     "chapter_number": "5",
-    "chapter_title": "একা একটি দুর্গ",
-    "chapter_type": "গল্প/গদ্য",
+    "chapter_title": "রাজা ও তার তিন কন্যা",
+    "chapter_type": "গল্প",
     "author": null,
-    "start_page": 19,
+    "start_page": 16,
+    "end_page": 21,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 16
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 21
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "রাজা ও তার তিন কন্যা",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "নুনের মতো ভালোবাসার খাঁটি নীতিকথা ও ছোট রাজকন্যার গল্প।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-bangla-ch6",
+    "chapter_number": "6",
+    "chapter_title": "হাটে যাব (কবিতা - আহসান হাবীব)",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": null,
+    "start_page": 22,
     "end_page": 24,
     "sections": [
       {
         "title": "মূল পাঠ",
-        "page": 19
+        "page": 22
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
@@ -122,18 +148,18 @@
       }
     ],
     "keywords": [
-      "বাংলাদেশ ও বিশ্বপরিচয়",
-      "একা একটি দুর্গ",
+      "আমার বাংলা বই",
+      "হাটে যাব (কবিতা - আহসান হাবীব)",
       "তৃতীয় শ্রেণি"
     ],
-    "summary": "বীরশ্রেষ্ঠ সিপাহী মোস্তফা কামালের একাই মেশিনগান চালিয়ে সহযোদ্ধাদের বাঁচিয়ে শহীদ হওয়ার বীরত্ব।",
-    "total_questions": 1
+    "summary": "নদীর ঘাটে মাঝি নেই, হাটে যাওয়ার মিষ্টি ছড়া।",
+    "total_questions": 2
   },
   {
-    "chapter_id": "c3-bn-ch6",
-    "chapter_number": "6",
-    "chapter_title": "রাজা ও তাঁর তিন কন্যা",
-    "chapter_type": "গল্প/গদ্য",
+    "chapter_id": "c3-bangla-ch7",
+    "chapter_number": "7",
+    "chapter_title": "একাই একটি দুর্গ (বীরশ্রেষ্ঠ মোস্তফা কামাল)",
+    "chapter_type": "ইতিহাস",
     "author": null,
     "start_page": 25,
     "end_page": 30,
@@ -148,11 +174,297 @@
       }
     ],
     "keywords": [
-      "বাংলাদেশ ও বিশ্বপরিচয়",
-      "রাজা ও তাঁর তিন কন্যা",
+      "আমার বাংলা বই",
+      "একাই একটি দুর্গ (বীরশ্রেষ্ঠ মোস্তফা কামাল)",
       "তৃতীয় শ্রেণি"
     ],
-    "summary": "পারুল, শিমুল ও বকুল। নুনের মতো ভালোবাসার গভীর উপলব্ধি।",
-    "total_questions": 1
+    "summary": "১৯৭১ সালের মুক্তিযুদ্ধে বীরশ্রেষ্ঠ মোস্তফা কামালের আত্মত্যাগ।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-bangla-ch8",
+    "chapter_number": "8",
+    "chapter_title": "আমাদের গ্রাম (কবিতা - বন্দে আলী মিয়া)",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": null,
+    "start_page": 31,
+    "end_page": 33,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 31
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 33
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "আমাদের গ্রাম (কবিতা - বন্দে আলী মিয়া)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "আমাদের ছোট গাঁয়ে ছোট ছোট ঘর, থাকি সেথা সবে মিলে কেহ নাহি পর।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-bangla-ch9",
+    "chapter_number": "9",
+    "chapter_title": "কানামাছি ভোঁ ভোঁ",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 34,
+    "end_page": 37,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 34
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 37
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "কানামাছি ভোঁ ভোঁ",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "গ্রামবাংলার ঐতিহ্যবাহী কানামাছি খেলার আনন্দ।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-bangla-ch10",
+    "chapter_number": "10",
+    "chapter_title": "আদর্শ ছেলে (কবিতা - কুসুমকুমারী দাশ)",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": null,
+    "start_page": 38,
+    "end_page": 40,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 38
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 40
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "আদর্শ ছেলে (কবিতা - কুসুমকুমারী দাশ)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "আমাদের দেশে হবে সেই ছেলে কবে, কথায় না বড় হয়ে কাজে বড় হবে।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-bangla-ch11",
+    "chapter_number": "11",
+    "chapter_title": "স্টিমারের সিটি",
+    "chapter_type": "ভ্রমণকাহিনী",
+    "author": null,
+    "start_page": 41,
+    "end_page": 46,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 41
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 46
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "স্টিমারের সিটি",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "নদীমাতৃক বাংলাদেশে স্টিমারে নদীভ্রমণের রোমাঞ্চকর অভিজ্ঞতা।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-bangla-ch12",
+    "chapter_number": "12",
+    "chapter_title": "ঘুড়ি (কবিতা - আবুল হোসেন)",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": null,
+    "start_page": 47,
+    "end_page": 49,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 47
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 49
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "ঘুড়ি (কবিতা - আবুল হোসেন)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "আকাশে রঙিন ঘুড়ি ওড়ানোর আনন্দ ও ছন্দের দোলা।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-bangla-ch13",
+    "chapter_number": "13",
+    "chapter_title": "পাখিদের কথা",
+    "chapter_type": "প্রবন্ধ",
+    "author": null,
+    "start_page": 50,
+    "end_page": 55,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 50
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 55
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "পাখিদের কথা",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "দোয়েল, চড়ুই, কাক, টিয়া, কোকিল ও ময়নার স্বভাব ও বৈশিষ্ট্য।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-bangla-ch14",
+    "chapter_number": "14",
+    "chapter_title": "স্বাধীনতা দিবস ও জাতীয় দিবস",
+    "chapter_type": "ইতিহাস",
+    "author": null,
+    "start_page": 56,
+    "end_page": 60,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 56
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 60
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "স্বাধীনতা দিবস ও জাতীয় দিবস",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "২৬শে মার্চের ঐতিহাসিক গুরুত্ব ও শহীদদের প্রতি শ্রদ্ধা।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-bangla-ch15",
+    "chapter_number": "15",
+    "chapter_title": "পালকির গান (কবিতা - সত্যেন্দ্রনাথ দত্ত)",
+    "chapter_type": "ছড়া/কবিতা",
+    "author": null,
+    "start_page": 61,
+    "end_page": 63,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 61
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 63
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "পালকির গান (কবিতা - সত্যেন্দ্রনাথ দত্ত)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "পালকি চলে রে অঙ্গ দোলে রে — ছন্দের জাদুকরের অমর কবিতা।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-bangla-ch16",
+    "chapter_number": "16",
+    "chapter_title": "খলিফা হযরত আবু বকর (রা.)",
+    "chapter_type": "জীবনী",
+    "author": null,
+    "start_page": 64,
+    "end_page": 68,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 64
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 68
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "খলিফা হযরত আবু বকর (রা.)",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "ইসলামের প্রথম খলিফার সততা, দানশীলতা ও মানবসেবা।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-bangla-ch17",
+    "chapter_number": "17",
+    "chapter_title": "নিরাপদ সড়ক ও ট্রাফিক নিয়ম",
+    "chapter_type": "সচেতনতা",
+    "author": null,
+    "start_page": 69,
+    "end_page": 72,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 69
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 72
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "নিরাপদ সড়ক ও ট্রাফিক নিয়ম",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "জেব্রা ক্রসিং ও পথ চলার প্রয়োজনীয় ট্রাফিক সংকেত।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c3-bangla-ch18",
+    "chapter_number": "18",
+    "chapter_title": "ব্যাকরণ, বিপরীত শব্দ ও বাক্য গঠন",
+    "chapter_type": "ব্যাকরণ",
+    "author": null,
+    "start_page": 73,
+    "end_page": 78,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 73
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 78
+      }
+    ],
+    "keywords": [
+      "আমার বাংলা বই",
+      "ব্যাকরণ, বিপরীত শব্দ ও বাক্য গঠন",
+      "তৃতীয় শ্রেণি"
+    ],
+    "summary": "যুক্তবর্ণ ভাঙা, সমার্থক শব্দ, বিপরীত শব্দ ও বিরামচিহ্ন।",
+    "total_questions": 2
   }
 ]

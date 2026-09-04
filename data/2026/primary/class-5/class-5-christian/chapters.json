@@ -1,12 +1,12 @@
 [
   {
-    "chapter_id": "class-5-christian-ch1",
+    "chapter_id": "c5-christian-ch1",
     "chapter_number": "1",
-    "chapter_title": "অধ্যায় ১: প্রাথমিক পাঠ ও ভূমিকা",
+    "chapter_title": "পরমপিতা ঈশ্বরের অসীম প্রেম ও সৃষ্টি",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 1,
-    "end_page": 10,
+    "end_page": 14,
     "sections": [
       {
         "title": "মূল পাঠ",
@@ -14,15 +14,119 @@
       },
       {
         "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 10
+        "page": 14
       }
     ],
     "keywords": [
-      "ধর্ম ও নৈতিক শিক্ষা",
-      "অধ্যায় ১: প্রাথমিক পাঠ ও ভূমিকা",
+      "খ্রিষ্টধর্ম শিক্ষা",
+      "পরমপিতা ঈশ্বরের অসীম প্রেম ও সৃষ্টি",
       "পঞ্চম শ্রেণি"
     ],
-    "summary": "খ্রিষ্টধর্ম শিক্ষা বিষয়ের প্রথম অধ্যায়ের মূল আলোচনা ও ধারণা।",
-    "total_questions": 1
+    "summary": "জগতে ঈশ্বরের করুণা ও সার্বজনীন ভালোবাসা।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-christian-ch2",
+    "chapter_number": "2",
+    "chapter_title": "প্রভু যীশু খ্রিষ্টের ক্রুশমৃত্যু ও পুনরুত্থান (ইস্টার)",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 15,
+    "end_page": 28,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 15
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 28
+      }
+    ],
+    "keywords": [
+      "খ্রিষ্টধর্ম শিক্ষা",
+      "প্রভু যীশু খ্রিষ্টের ক্রুশমৃত্যু ও পুনরুত্থান (ইস্টার)",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "পাপমুক্তি ও নবজীবনের শুভবার্তা।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-christian-ch3",
+    "chapter_number": "3",
+    "chapter_title": "দশ আজ্ঞা ও পবিত্র বাইবেল শিক্ষা",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 29,
+    "end_page": 42,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 29
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 42
+      }
+    ],
+    "keywords": [
+      "খ্রিষ্টধর্ম শিক্ষা",
+      "দশ আজ্ঞা ও পবিত্র বাইবেল শিক্ষা",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "পবিত্র সুসমাচার ও খ্রিষ্টীয় অনুশাসন।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-christian-ch4",
+    "chapter_number": "4",
+    "chapter_title": "ক্ষমা, শান্তি ও বিশ্বমানবকল্যাণ",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 43,
+    "end_page": 56,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 43
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 56
+      }
+    ],
+    "keywords": [
+      "খ্রিষ্টধর্ম শিক্ষা",
+      "ক্ষমা, শান্তি ও বিশ্বমানবকল্যাণ",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "শত্রুকেও ভালোবাসার মহান খ্রিষ্টীয় আদর্শ।",
+    "total_questions": 2
+  },
+  {
+    "chapter_id": "c5-christian-ch5",
+    "chapter_number": "5",
+    "chapter_title": "খ্রিষ্টীয় মণ্ডলি ও সমাজকল্যাণমূলক সেবা",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 57,
+    "end_page": 70,
+    "sections": [
+      {
+        "title": "মূল পাঠ",
+        "page": 57
+      },
+      {
+        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "page": 70
+      }
+    ],
+    "keywords": [
+      "খ্রিষ্টধর্ম শিক্ষা",
+      "খ্রিষ্টীয় মণ্ডলি ও সমাজকল্যাণমূলক সেবা",
+      "পঞ্চম শ্রেণি"
+    ],
+    "summary": "শিক্ষা, স্বাস্থ্য ও সেবামূলক কাজের ইতিহাস।",
+    "total_questions": 2
   }
 ]

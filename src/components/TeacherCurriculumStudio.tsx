@@ -146,7 +146,7 @@ const PRIMARY_CLASSES_DATA: Array<{
         name: "প্রাথমিক বিজ্ঞান",
         subject: "বিজ্ঞান",
         icon: "🔬",
-        totalLessons: 4,
+        totalLessons: 7,
         sampleLessons: ["আমাদের পরিবেশ ও জীব-জড়", "জীব ও জড়ের পার্থক্য", "উদ্ভিদ ও প্রাণী", "স্বাস্থ্যবিধি ও পানি"],
       },
       {
@@ -154,7 +154,7 @@ const PRIMARY_CLASSES_DATA: Array<{
         name: "বাংলাদেশ ও বিশ্বপরিচয়",
         subject: "বাংলাদেশ ও বিশ্বপরিচয়",
         icon: "🇧🇩",
-        totalLessons: 4,
+        totalLessons: 6,
         sampleLessons: ["প্রাকৃতিক ও সামাজিক পরিবেশ", "আমাদের বাড়ি ও বিদ্যালয়", "আমাদের অধিকার ও দায়িত্ব", "যানবাহন ও যোগাযোগ"],
       },
       {
@@ -174,7 +174,7 @@ const PRIMARY_CLASSES_DATA: Array<{
         sampleLessons: ["ঈশ্বরের স্বরূপ", "দেবী-দেবতা ও পূজা", "ধর্মগ্রন্থ ও নীতিশিক্ষা", "সদাচার ও সেবা", "মহাপুরুষ ও মহীয়সী"],
       },
       {
-        id: "2026-primary-class-3-buddhist",
+        id: "2026-primary-class-3-buddha",
         name: "বৌদ্ধধর্ম ও নৈতিক শিক্ষা",
         subject: "ধর্ম",
         icon: "☸️",
@@ -254,7 +254,7 @@ const PRIMARY_CLASSES_DATA: Array<{
         sampleLessons: ["ঈশ্বর ও সৃষ্টি", "দেবদেবী ও পূজা-পার্বণ", "ধর্মগ্রন্থ ও সারসংক্ষেপ", "সদাচার ও আত্মশুদ্ধি", "মহাপুরুষদের জীবনী"],
       },
       {
-        id: "2026-primary-class-4-buddhist",
+        id: "2026-primary-class-4-buddha",
         name: "বৌদ্ধধর্ম ও নৈতিক শিক্ষা",
         subject: "ধর্ম",
         icon: "☸️",
@@ -334,7 +334,7 @@ const PRIMARY_CLASSES_DATA: Array<{
         sampleLessons: ["ঈশ্বরের মহিমা ও ভক্তি", "দেবদেবী ও পূজা-বিধি", "গীতা ও নীতিশিক্ষা", "সততা ও অহিংসা", "মহাপুরুষ ও সনাতন ধর্ম"],
       },
       {
-        id: "2026-primary-class-5-buddhist",
+        id: "2026-primary-class-5-buddha",
         name: "বৌদ্ধধর্ম ও নৈতিক শিক্ষা",
         subject: "ধর্ম",
         icon: "☸️",

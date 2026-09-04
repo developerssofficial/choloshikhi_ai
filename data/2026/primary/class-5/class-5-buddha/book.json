@@ -6,8 +6,8 @@
   "class_name": "পঞ্চম শ্রেণি",
   "book_name": "বৌদ্ধধর্ম শিক্ষা",
   "normalized_book_name": "বৌদ্ধধর্ম শিক্ষা",
-  "subject": "ধর্ম ও নৈতিক শিক্ষা",
-  "subject_code": "buddha",
+  "subject": "ধর্ম",
+  "subject_code": "buddhist",
   "language": "bn",
   "version": "bangla",
   "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
@@ -45,9 +45,13 @@
     "isbn": "978-984-36-5888-6"
   },
   "table_of_contents": [
-    "1. অধ্যায় ১: প্রাথমিক পাঠ ও ভূমিকা (পৃষ্ঠা 1-10)"
+    "1. গৌতম বুদ্ধের মহাপরিনির্বাণ ও ধর্মদেশনা (পৃষ্ঠা 1–14)",
+    "2. ত্রিরত্ন ও বৌদ্ধ ত্রিপিটক (বিনয়, সূত্র ও অভিধর্ম পিটক) (পৃষ্ঠা 15–28)",
+    "3. আর্য অষ্টাঙ্গিক মার্গ ও নির্বাণ (পৃষ্ঠা 29–42)",
+    "4. জাতক ও বৌদ্ধ নৈতিক কাহিনী (পৃষ্ঠা 43–56)",
+    "5. আন্তর্জাতিক বৌদ্ধ সংস্কৃতি ও শান্তি মিশন (পৃষ্ঠা 57–70)"
   ],
-  "total_chapters": 1,
+  "total_chapters": 5,
   "validation": {
     "download_verified": true,
     "page_count_verified": true,
