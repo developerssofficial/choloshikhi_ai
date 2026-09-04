@@ -821,25 +821,6 @@ export default function ChatPage() {
         {/* ===== INPUT DOCK ===== */}
         <div className="px-3 sm:px-6 pb-4 sm:pb-6 shrink-0">
           <div className="max-w-3xl mx-auto">
-            {/* Quick Suggestion Cards on Welcome Screen */}
-            {!chatActive && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-3.5 animate-fade-in">
-                {SUGGESTIONS.slice(0, 4).map((s, i) => (
-                  <button
-                    key={i}
-                    onClick={() => handleSend(s.text)}
-                    className="p-3.5 text-left glass-panel-subtle hover:glass-panel rounded-2xl hover:border-violet-500/30 hover:scale-[1.01] active:scale-[0.99] transition-all duration-200 group border border-white/[0.06]"
-                  >
-                    <div className="flex items-center gap-2 text-xs font-semibold text-violet-300 group-hover:text-violet-200">
-                      <span>{s.icon}</span>
-                      <span>{s.label}</span>
-                    </div>
-                    <p className="text-xs text-slate-400 group-hover:text-slate-200 mt-1 line-clamp-1">{s.text}</p>
-                  </button>
-                ))}
-              </div>
-            )}
-
             {/* Image Preview Chip */}
             {imagePreview && (
               <div className="mb-2.5 inline-flex items-center gap-2 px-3 py-1.5 glass-panel rounded-xl border border-violet-500/30 animate-fade-in">
