@@ -1158,7 +1158,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Grounded NCTB Primary Textbooks Knowledge Base (১ম থেকে ৫ম শ্রেণি)
-    const primaryContext = findPrimaryTextbookContext(message);
+    const primaryContext = findPrimaryTextbookContext(message, memory);
     if (primaryContext) {
       activeSystemPrompt += primaryContext;
     }
