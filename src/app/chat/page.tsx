@@ -38,13 +38,30 @@ const PROMPT_MODIFIERS = [
   { label: "📐 স্টেপ-বাই-স্টেপ", prefix: "প্রতিটি ধাপ ও সূত্র স্পষ্টভাবে উল্লেখ করে স্টেপ-বাই-স্টেপ সমাধান করো: " },
   { label: "📝 সারাংশ", prefix: "এর মূল বিষয়বস্তু ও সারাংশ বুলেট পয়েন্ট আকারে দাও: " },
   { label: "💡 পরীক্ষার জন্য গুরুত্বপূর্ণ", prefix: "পরীক্ষায় ভালো নম্বর পাওয়ার উপযোগী উত্তর ও গুরুত্বপূর্ণ পয়েন্টগুলো তুলে ধরো: " },
+  { label: "🎯 MCQ কুইজ তৈরি", prefix: "এই বিষয়ের উপর ৫টি গুরুত্বপূর্ণ MCQ প্রশ্ন তৈরি করো এবং নিচে সঠিক উত্তর ও ব্যাখ্যা দাও: " },
+  { label: "✍️ CQ সৃজনশীল প্রশ্ন", prefix: "জ্ঞান, অনুধাবন, প্রয়োগ ও উচ্চতর দক্ষতা অনুযায়ী ১টি আদর্শ সৃজনশীল প্রশ্ন ও উত্তর লেখো: " },
+  { label: "📊 সূত্রাবলি তালিকা", prefix: "এই অধ্যায়ের সকল প্রয়োজনীয় সূত্র, একক ও প্রতীক এক নজরে তালিকাভুক্ত করো: " },
+  { label: "🇬🇧 ব্যাকরণ ও বানান চেক", prefix: "নিচের লেখার গ্রামার ও বানান নির্ভুল করে উন্নত বাক্য গঠন দেখাও: " },
+];
+
+const STUDENT_SUBJECTS = [
+  { icon: "📐", label: "গণিত", prompt: "গণিতের এই সমস্যাটি প্রতিটি ধাপ ও সূত্রের বিবরণসহ সহজ ভাষায় সমাধান করে দাও: " },
+  { icon: "⚡", label: "পদার্থবিজ্ঞান", prompt: "পদার্থবিজ্ঞানের এই সূত্র ও গাণিতিক সমস্যাটি বাস্তব উদাহরণসহ বুঝিয়ে দাও: " },
+  { icon: "🧪", label: "রসায়ন", prompt: "এই রাসায়নিক বিক্রিয়া, সমীকরণ সমতাকরণ ও বিক্রিয়ার কারণ বুঝিয়ে দাও: " },
+  { icon: "🧬", label: "জীববিজ্ঞান", prompt: "জীববিজ্ঞানের এই প্রক্রিয়া ও গুরুত্বপূর্ণ টার্মগুলো সুন্দর পয়েন্ট আকারে ব্যাখ্যা করো: " },
+  { icon: "🇬🇧", label: "English Grammar", prompt: "Help me with English grammar, rules, and example sentences for: " },
+  { icon: "🇧🇩", label: "বাংলা ব্যাকরণ", prompt: "বাংলা ২য় পত্রের ব্যাকরণ নিয়ম ও উদাহরণসহ বুঝিয়ে দাও: " },
+  { icon: "💻", label: "ICT", prompt: "এইচএসসি ICT এর লজিক গেট, বাইনারি রূপান্তর বা সি প্রোগ্রামিং বুঝিয়ে দাও: " },
+  { icon: "🎯", label: "BCS ও জব প্রস্তুতি", prompt: "বিসিএস ও সরকারি চাকরির বিগত বছরের গুরুত্বপূর্ণ প্রশ্ন ও টেকনিক: " },
 ];
 
 const SUGGESTIONS = [
-  { icon: "💡", label: "ধারণা শেখো", text: "আমাকে সহজ ভাষায় কোয়ান্টাম ফিজিক্সের মূল ধারণা বোঝাও" },
-  { icon: "📐", label: "গণিত সমাধান", text: "দ্বিঘাত সমীকরণ কীভাবে সমাধান করতে হয় উদাহরণসহ দেখাও" },
-  { icon: "✍️", label: "বাংলা রচনা/আবেদন", text: "একটি আনুষ্ঠানিক ছুটির আবেদনের সঠিক ফরম্যাট তৈরি করো" },
-  { icon: "📋", label: "পড়ার রুটিন", text: "আমার আসন্ন পরীক্ষার জন্য একটি ভারসাম্যপূর্ণ সাপ্তাহিক পড়ার প্ল্যান বানাও" },
+  { icon: "📐", label: "গণিত সমাধান", text: "দ্বিঘাত সমীকরণ ax² + bx + c = 0 কীভাবে সমাধান করতে হয় উদাহরণসহ দেখাও" },
+  { icon: "⚡", label: "পদার্থবিজ্ঞান", text: "নিউটনের গতিসূত্র এবং ভরবেগের সংরক্ষণ সূত্র বাস্তব উদাহরণসহ বুঝিয়ে দাও" },
+  { icon: "🧪", label: "রসায়ন বিক্রিয়া", text: "জারণ-বিজারণ বিক্রিয়া ইলেকট্রন স্থানান্তরের মাধ্যমে সহজ ভাষায় ব্যাখ্যা করো" },
+  { icon: "🇬🇧", label: "English Grammar", text: "Right form of verbs এবং Modifiers এর নিয়মগুলো সহজ উদাহরণ দিয়ে শেখাও" },
+  { icon: "💻", label: "ICT প্রোগ্রামিং", text: "NAND ও NOR গেট দিয়ে কীভাবে মৌলিক গেটগুলো বাস্তবায়ন করা যায়?" },
+  { icon: "🎯", label: "MCQ কুইজ টেস্ট", text: "পর্যায় সারণি অধ্যায়ের উপর ৫টি গুরুত্বপূর্ণ বোর্ড স্ট্যান্ডার্ড MCQ কুইজ দাও" },
 ];
 
 function getDomain(url: string): string {
@@ -272,7 +289,7 @@ export default function ChatPage() {
     }
   }, [messages.length]);
 
-  // Optimized Typewriter Effect for Gemini 3.1 Flash Lite
+  // High Performance Stream Typewriter Effect for CholoShikhi AI
   useEffect(() => {
     if (typingIdx === null) return;
     const fullText = messages[typingIdx]?.content;
@@ -742,25 +759,47 @@ export default function ChatPage() {
           </div>
         ) : (
           /* Welcome State */
-          <div className="flex-1 flex flex-col items-center justify-center px-4 animate-fade-in text-center">
-            <div className="mb-6 relative">
+          <div className="flex-1 flex flex-col items-center justify-center px-4 animate-fade-in text-center max-w-2xl mx-auto">
+            <div className="mb-4 relative">
               <div className="absolute inset-0 bg-violet-600/30 rounded-3xl blur-2xl animate-pulse-subtle" />
               <img
                 src="/logo.png"
                 alt="CholoShikhi"
-                className="relative w-20 h-20 rounded-3xl object-contain shadow-[0_0_40px_rgba(139,92,246,0.35)]"
+                className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-3xl object-contain shadow-[0_0_40px_rgba(139,92,246,0.35)]"
               />
             </div>
-            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-2">
+            <h1 className="text-xl sm:text-3xl font-bold tracking-tight text-white mb-2">
               {getGreeting()}{user ? `, ${user.name || "শিক্ষার্থী"}` : ""}
             </h1>
-            <p className="text-slate-400 text-sm max-w-md mb-6">
+            <p className="text-slate-400 text-xs sm:text-sm max-w-md mb-5 leading-relaxed">
               {mode === "education"
                 ? "শিক্ষক মোড সক্রিয় — যে কোনো জটিল বিষয় স্টেপ-বাই-স্টেপ সহজে শেখো।"
                 : mode === "taskplan"
                 ? "টাস্ক প্ল্যানার সক্রিয় — যে কোনো বড় কাজ স্বয়ংক্রিয় পরিকল্পনায় রূপান্তর করো।"
-                : "আমি চলো শিখি AI (Gemini 3.1 Flash Lite) — তোমার যে কোনো পড়াশোনা ও প্রশ্নের বিশ্বস্ত সমাধানকারী।"}
+                : "আমি চলো শিখি AI — তোমার যে কোনো বিষয় ও পড়াশোনার বিশ্বস্ত সমাধানকারী।"}
             </p>
+
+            {/* Subject Quick Selector for Students */}
+            <div className="w-full mb-4">
+              <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-2 text-center">
+                📚 তোমার বিষয় বেছে নাও:
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-1.5">
+                {STUDENT_SUBJECTS.map((sub, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => {
+                      setInput(sub.prompt);
+                      inputRef.current?.focus();
+                    }}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-xl glass-panel-subtle hover:glass-panel text-slate-300 hover:text-white border border-white/[0.08] hover:border-violet-500/40 hover:scale-105 active:scale-95 transition-all shadow-sm"
+                  >
+                    <span>{sub.icon}</span>
+                    <span>{sub.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         )}
 
@@ -791,13 +830,13 @@ export default function ChatPage() {
               <button
                 onClick={() => setShowPromptModifiers(!showPromptModifiers)}
                 className="px-2.5 py-1 text-[11px] font-medium rounded-lg glass-panel text-violet-300 hover:text-white border border-violet-500/30 flex items-center gap-1 shrink-0 transition-colors"
-                title="প্রম্পট মডিফায়ার"
+                title="প্রম্পট সহকারী"
               >
-                <span>✨ প্রম্পট সহকারী</span>
+                <span>✨ পড়ার টুলস ও প্রম্পট</span>
                 <span className="text-[10px]">{showPromptModifiers ? "▲" : "▼"}</span>
               </button>
 
-              {PROMPT_MODIFIERS.map((m, idx) => (
+              {PROMPT_MODIFIERS.slice(0, 5).map((m, idx) => (
                 <button
                   key={idx}
                   onClick={() => applyModifier(m)}
@@ -930,7 +969,7 @@ export default function ChatPage() {
             {/* Engine & Model Indicator */}
             <div className="flex items-center justify-center gap-2 mt-2 text-[11px] text-slate-500 font-medium">
               <span className={`w-1.5 h-1.5 rounded-full ${mode === "education" ? "bg-emerald-400" : mode === "taskplan" ? "bg-sky-400" : "bg-violet-400"}`} />
-              <span>{mode === "education" ? "CholoShikhi Shikkhok (Gemini 3.1 Flash Lite)" : mode === "taskplan" ? "CholoShikhi Task Planner (Gemini 3.1 Flash Lite)" : "CholoShikhi 1.0 (Gemini 3.1 Flash Lite)"}</span>
+              <span>{mode === "education" ? "CholoShikhi Shikkhok (AI শিক্ষক)" : mode === "taskplan" ? "CholoShikhi Task Planner (স্মার্ট প্ল্যানার)" : "CholoShikhi AI 1.0 (Advanced)"}</span>
             </div>
           </div>
         </div>

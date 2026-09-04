@@ -108,7 +108,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
             <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-violet-600 to-indigo-700 p-1 shadow-lg shadow-violet-500/25 group-hover:scale-105 transition-transform">
-              <img src="/logo-source.png" alt="CholoShikhi" className="w-full h-full object-contain rounded-lg" />
+              <img src="/logo.png" alt="CholoShikhi" className="w-full h-full object-contain rounded-lg" />
             </div>
             <span className="text-base font-bold tracking-tight text-white">চলো শিখি AI</span>
           </Link>
@@ -256,6 +256,57 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ===== ACADEMIC CURRICULUM & SUBJECTS (SEO POWERHOUSE) ===== */}
+      <section id="shikkhok" className="py-20 px-5 max-w-6xl mx-auto relative z-10 border-t border-white/[0.06]">
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 text-xs font-semibold mb-3">
+            📚 বাংলাদেশের জাতীয় পাঠ্যক্রম ও প্রস্তুতি
+          </div>
+          <h2 className="text-2xl sm:text-4xl font-bold text-white mb-3">সকল ক্লাসের বিষয় ও পরীক্ষার সমাধান</h2>
+          <p className="text-slate-400 text-xs sm:text-sm">
+            ৬ষ্ঠ শ্রেণি থেকে শুরু করে এসএসসি, এইচএসসি, বিশ্ববিদ্যালয় ভর্তি ও বিসিএস পরীক্ষার পূর্ণাঙ্গ প্রস্তুতি এক জায়গায়।
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="p-5 rounded-2xl glass-panel border border-violet-500/20 hover:border-violet-500/40 transition-all">
+            <div className="text-2xl mb-2">🎯</div>
+            <h3 className="text-sm font-bold text-white mb-1">SSC ও দাখিল প্রস্তুতি</h3>
+            <p className="text-xs text-slate-400 leading-relaxed mb-3">
+              পদার্থ, রসায়ন, সাধারণ ও উচ্চতর গণিত, জীববিজ্ঞানের প্রতিটি অধ্যায়ের সৃজনশীল (CQ) ও বহুনির্বাচনী (MCQ) সমাধান।
+            </p>
+            <span className="text-[10px] font-semibold text-violet-400">Class 9 & 10 · NCTB সিলেবাস</span>
+          </div>
+
+          <div className="p-5 rounded-2xl glass-panel border border-emerald-500/20 hover:border-emerald-500/40 transition-all">
+            <div className="text-2xl mb-2">⚡</div>
+            <h3 className="text-sm font-bold text-white mb-1">HSC ও আলিম কোর্স</h3>
+            <p className="text-xs text-slate-400 leading-relaxed mb-3">
+              উচ্চতর গণিত, পদার্থবিজ্ঞান, রসায়ন, ICT এর লজিক গেট, সি প্রোগ্রামিং ও এইচএসসি ইংলিশ গ্রামারের পূর্ণাঙ্গ গাইড।
+            </p>
+            <span className="text-[10px] font-semibold text-emerald-400">Class 11 & 12 · বোর্ড এক্সাম</span>
+          </div>
+
+          <div className="p-5 rounded-2xl glass-panel border border-sky-500/20 hover:border-sky-500/40 transition-all">
+            <div className="text-2xl mb-2">🏛️</div>
+            <h3 className="text-sm font-bold text-white mb-1">ভার্সিটি ও ইঞ্জিনিয়ারিং এডমিশন</h3>
+            <p className="text-xs text-slate-400 leading-relaxed mb-3">
+              BUET, DU, মেডিকেল ও গুচ্ছ ভর্তি পরীক্ষার বিগত বছরের প্রশ্নব্যাংক, কনসেপ্ট ক্লিয়ারিং ও দ্রুত সমাধান টেকনিক।
+            </p>
+            <span className="text-[10px] font-semibold text-sky-400">মেডিকেল · বুয়েট · ঢাবি ভর্তি</span>
+          </div>
+
+          <div className="p-5 rounded-2xl glass-panel border border-amber-500/20 hover:border-amber-500/40 transition-all">
+            <div className="text-2xl mb-2">🏆</div>
+            <h3 className="text-sm font-bold text-white mb-1">BCS ও সরকারি চাকরি</h3>
+            <p className="text-xs text-slate-400 leading-relaxed mb-3">
+              বিসিএস প্রিলিমিনারি ও লিখিত পরীক্ষার বাংলা ব্যাকরণ, সাহিত্য, আন্তর্জাতিক বিষয়াবলি ও মানসিক দক্ষতার শর্টকাট।
+            </p>
+            <span className="text-[10px] font-semibold text-amber-400">BCS, Bank & Govt Job</span>
+          </div>
+        </div>
+      </section>
+
       {/* ===== FAQ SECTION ===== */}
       <section id="faq" className="py-20 px-5 max-w-3xl mx-auto relative z-10">
         <div className="text-center mb-12">
@@ -287,7 +338,7 @@ export default function HomePage() {
       <footer className="border-t border-white/[0.06] py-8 px-5 text-center text-xs text-slate-500 relative z-10">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <img src="/logo-source.png" alt="Logo" className="w-5 h-5 rounded-md" />
+            <img src="/logo.png" alt="Logo" className="w-5 h-5 rounded-md object-contain" />
             <span className="font-semibold text-slate-300">চলো শিখি AI</span>
           </div>
           <p>© {new Date().getFullYear()} CholoShikhi AI. সর্বস্বত্ব সংরক্ষিত।</p>

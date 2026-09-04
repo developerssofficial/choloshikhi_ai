@@ -172,7 +172,7 @@ export default function AppSidebar({
             className="w-10 h-10 rounded-2xl p-1 hover:scale-105 transition-transform mb-2"
             title="হোমপেজ"
           >
-            <img src="/logo-source.png" alt="CholoShikhi" className="w-full h-full object-contain rounded-xl shadow-md shadow-violet-500/25" />
+            <img src="/logo.png" alt="CholoShikhi" className="w-full h-full object-contain rounded-xl shadow-md shadow-violet-500/25" />
           </button>
         )}
 
@@ -339,7 +339,7 @@ export default function AppSidebar({
           <div className="relative w-[280px] bg-[#0c0c14] border-r border-white/[0.08] flex flex-col h-full shadow-2xl">
             <div className="flex items-center justify-between p-3 border-b border-white/[0.06]">
               <div className="flex items-center gap-2">
-                <img src="/logo-source.png" alt="CholoShikhi" className="w-7 h-7 rounded-lg" />
+                <img src="/logo.png" alt="CholoShikhi" className="w-7 h-7 rounded-lg object-contain" />
                 <span className="text-xs font-semibold text-white">চলো শিখি AI</span>
               </div>
               <button onClick={() => setMobileOpen(false)} className="text-slate-400 hover:text-white p-1">✕</button>
