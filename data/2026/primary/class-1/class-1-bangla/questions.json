@@ -1,1 +1,56 @@
-[]
+[
+  {
+    "question_id": "2026-c1-bn-ch9-q1",
+    "chapter_id": "2026-primary-class-1-bangla-ch-9",
+    "class_number": 1,
+    "book_name": "আমার বাংলা বই",
+    "chapter_title": "বাঘ ও রাখাল",
+    "page_number": 14,
+    "question_number": "১",
+    "instruction": "১. ছবি দেখে বলি ও প্রশ্নের উত্তর দিই",
+    "original_text": "রাখাল ছেলেটি মাঠে কী করত?",
+    "normalized_text": "রাখাল ছেলেটি মাঠে কী করত?",
+    "question_type": "মৌখিক ও সংক্ষিপ্ত প্রশ্ন",
+    "options": [
+      "গরু চরাত"
+    ],
+    "ocr_confidence": 1.0,
+    "needs_manual_review": false
+  },
+  {
+    "question_id": "2026-c1-bn-ch9-q2",
+    "chapter_id": "2026-primary-class-1-bangla-ch-9",
+    "class_number": 1,
+    "book_name": "আমার বাংলা বই",
+    "chapter_title": "বাঘ ও রাখাল",
+    "page_number": 14,
+    "question_number": "২",
+    "instruction": "২. ছবি দেখে বলি ও প্রশ্নের উত্তর দিই",
+    "original_text": "রাখাল কীভাবে গ্রামবাসীদের বোকা বানাত?",
+    "normalized_text": "রাখাল কীভাবে গ্রামবাসীদের বোকা বানাত?",
+    "question_type": "সংক্ষিপ্ত প্রশ্ন",
+    "options": [
+      "মিথ্যা 'বাঘ এসেছে বাঘ এসেছে' বলে চিৎকার করত"
+    ],
+    "ocr_confidence": 1.0,
+    "needs_manual_review": false
+  },
+  {
+    "question_id": "2026-c1-bn-ch9-q3",
+    "chapter_id": "2026-primary-class-1-bangla-ch-9",
+    "class_number": 1,
+    "book_name": "আমার বাংলা বই",
+    "chapter_title": "বাঘ ও রাখাল",
+    "page_number": 14,
+    "question_number": "৩",
+    "instruction": "৩. নীতিশিক্ষা বলি",
+    "original_text": "গল্পের মাধ্যমে আমরা কী শিখলাম?",
+    "normalized_text": "গল্পের মাধ্যমে আমরা কী শিখলাম?",
+    "question_type": "নীতিশিক্ষা প্রশ্ন",
+    "options": [
+      "কখনো দুষ্টুমি করে মিথ্যা কথা বলতে নেই"
+    ],
+    "ocr_confidence": 1.0,
+    "needs_manual_review": false
+  }
+]

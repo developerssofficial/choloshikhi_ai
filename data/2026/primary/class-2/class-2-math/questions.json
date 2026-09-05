@@ -1,1 +1,54 @@
-[]
+[
+  {
+    "question_id": "2026-c2-math-ch1-q1",
+    "chapter_id": "2026-primary-class-2-math-ch-1",
+    "class_number": 2,
+    "book_name": "প্রাথমিক গণিত",
+    "chapter_title": "সংখ্যা ও স্থানীয় মান",
+    "page_number": 15,
+    "question_number": "১",
+    "instruction": "১. কথায় ও অঙ্কে লিখি",
+    "original_text": "পঁচিশ (২৫), সাতচল্লিশ (৪৭), উনসত্তর (৬৯), পঁচানব্বই (৯৫)",
+    "normalized_text": "পঁচিশ (২৫), সাতচল্লিশ (৪৭), উনসত্তর (৬৯), পঁচানব্বই (৯৫)",
+    "question_type": "অঙ্কে ও কথায় লেখা",
+    "options": [],
+    "ocr_confidence": 1.0,
+    "needs_manual_review": false
+  },
+  {
+    "question_id": "2026-c2-math-ch1-q2",
+    "chapter_id": "2026-primary-class-2-math-ch-1",
+    "class_number": 2,
+    "book_name": "প্রাথমিক গণিত",
+    "chapter_title": "সংখ্যা ও স্থানীয় মান",
+    "page_number": 15,
+    "question_number": "২ (ক)",
+    "instruction": "২. স্থানীয় মান নির্ণয় করি",
+    "original_text": "৪৮ সংখ্যাটিতে ৪ এর স্থানীয় মান কত এবং ৮ এর স্থানীয় মান কত?",
+    "normalized_text": "৪৮ সংখ্যাটিতে ৪ এর স্থানীয় মান কত এবং ৮ এর স্থানীয় মান কত?",
+    "question_type": "স্থানীয় মান সমস্যা",
+    "options": [
+      "৪ দশ = ৪০, ৮ একক = ৮"
+    ],
+    "ocr_confidence": 1.0,
+    "needs_manual_review": false
+  },
+  {
+    "question_id": "2026-c2-math-ch1-q3",
+    "chapter_id": "2026-primary-class-2-math-ch-1",
+    "class_number": 2,
+    "book_name": "প্রাথমিক গণিত",
+    "chapter_title": "সংখ্যা ও স্থানীয় মান",
+    "page_number": 15,
+    "question_number": "৩",
+    "instruction": "৩. ছোট থেকে বড় সাজাই",
+    "original_text": "৩৫, ২৯, ৮৪, ৫১, ১২ সংখ্যাগুলোকে ছোট থেকে বড় ক্রমে সাজাও।",
+    "normalized_text": "৩৫, ২৯, ৮৪, ৫১, ১২ সংখ্যাগুলোকে ছোট থেকে বড় ক্রমে সাজাও।",
+    "question_type": "ক্রমবিন্যাস",
+    "options": [
+      "১২, ২৯, ৩৫, ৫১, ৮৪"
+    ],
+    "ocr_confidence": 1.0,
+    "needs_manual_review": false
+  }
+]

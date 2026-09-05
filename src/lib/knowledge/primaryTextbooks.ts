@@ -190,9 +190,9 @@ ${matchedBook.table_of_contents?.map((t) => `- ${t}`).join("\n") || chapters.map
             ctx += `- সেকশনসমূহ: ${ch.sections.map((s) => `${s.title} (পৃষ্ঠা ${s.page})`).join(", ")}\n`;
           }
           if (questions.length > 0) {
-            ctx += `- অনুশীলনী ও প্রশ্নাবলী:\n`;
+            ctx += `- 📋 অফিশিয়াল অনুশীলনী ও প্রশ্নাবলী:\n`;
             questions.forEach((qItem, qIdx) => {
-              ctx += `  ${qIdx + 1}. [${qItem.question_type}] ${qItem.original_text || qItem.instruction} (পৃষ্ঠা: ${qItem.page_number})\n`;
+              ctx += `  ${qIdx + 1}. [${qItem.question_type}] ${qItem.question_number ? `${qItem.question_number} ` : ""}${qItem.original_text || qItem.instruction} (পৃষ্ঠা: ${qItem.page_number})${qItem.options && qItem.options.length > 0 ? ` [বিকল্প: ${qItem.options.join(" | ")}]` : ""}\n`;
             });
           }
         }

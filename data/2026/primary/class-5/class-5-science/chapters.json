@@ -16,7 +16,9 @@
       "অধ্যায় ১"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ১: জীবের আবাসস্থল (পৃষ্ঠা 1–10)।",
-    "total_questions": 0
+    "total_questions": 4,
+    "class_number": 5,
+    "book_name": "প্রাথমিক বিজ্ঞান"
   },
   {
     "chapter_id": "2026-primary-class-5-science-ch-2",
@@ -35,7 +37,9 @@
       "অধ্যায় ২"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ২: জীব ও পরিবেশের পারস্পরিক নির্ভরশীলতা (পৃষ্ঠা 11–21)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "প্রাথমিক বিজ্ঞান"
   },
   {
     "chapter_id": "2026-primary-class-5-science-ch-3",
@@ -54,7 +58,9 @@
       "অধ্যায় ৩"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৩: খাদ্য (পৃষ্ঠা 22–30)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "প্রাথমিক বিজ্ঞান"
   },
   {
     "chapter_id": "2026-primary-class-5-science-ch-4",
@@ -73,7 +79,9 @@
       "অধ্যায় ৪"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৪: বয়ঃসন্ধিকাল (পৃষ্ঠা 31–39)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "প্রাথমিক বিজ্ঞান"
   },
   {
     "chapter_id": "2026-primary-class-5-science-ch-5",
@@ -92,7 +100,9 @@
       "অধ্যায় ৫"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৫: পদার্থের গঠন (পৃষ্ঠা 40–47)।",
-    "total_questions": 0
+    "total_questions": 14,
+    "class_number": 5,
+    "book_name": "প্রাথমিক বিজ্ঞান"
   },
   {
     "chapter_id": "2026-primary-class-5-science-ch-6",
@@ -111,7 +121,9 @@
       "অধ্যায় ৬"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৬: শক্তির রূপান্তর (পৃষ্ঠা 48–60)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "প্রাথমিক বিজ্ঞান"
   },
   {
     "chapter_id": "2026-primary-class-5-science-ch-7",
@@ -130,7 +142,9 @@
       "অধ্যায় ৭"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৭: বলের ধারণা (পৃষ্ঠা 61–71)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "প্রাথমিক বিজ্ঞান"
   },
   {
     "chapter_id": "2026-primary-class-5-science-ch-8",
@@ -149,7 +163,9 @@
       "অধ্যায় ৮"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৮: ভূমিরূপ (পৃষ্ঠা 72–84)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "প্রাথমিক বিজ্ঞান"
   },
   {
     "chapter_id": "2026-primary-class-5-science-ch-9",
@@ -168,7 +184,9 @@
       "অধ্যায় ৯"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৯: পরিবেশ সংরক্ষণ (পৃষ্ঠা 85–90)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "প্রাথমিক বিজ্ঞান"
   },
   {
     "chapter_id": "2026-primary-class-5-science-ch-10",
@@ -187,7 +205,9 @@
       "অধ্যায় ১০"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ১০: পৃথিবীর গতি (পৃষ্ঠা 91–101)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "প্রাথমিক বিজ্ঞান"
   },
   {
     "chapter_id": "2026-primary-class-5-science-ch-11",
@@ -206,7 +226,9 @@
       "অধ্যায় ১১"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ১১: জলবায়ু পরিবর্তন (পৃষ্ঠা 102–117)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "প্রাথমিক বিজ্ঞান"
   },
   {
     "chapter_id": "2026-primary-class-5-science-ch-12",
@@ -225,7 +247,9 @@
       "অধ্যায় ১২"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ১২: আমাদের জীবনে প্রযুক্তি (পৃষ্ঠা 118–128)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "প্রাথমিক বিজ্ঞান"
   },
   {
     "chapter_id": "2026-primary-class-5-science-ch-13",
@@ -244,7 +268,9 @@
       "অধ্যায় ১৩"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ১৩: সমস্যা সমাধানে তথ্য ও যোগাযোগ প্রযুক্তি (পৃষ্ঠা 129–155)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "প্রাথমিক বিজ্ঞান"
   },
   {
     "chapter_id": "2026-primary-class-5-science-ch-14",
@@ -263,6 +289,8 @@
       "শব্দকোষ ১৪"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের শব্দকোষ ১৪: শব্দকোষ (পৃষ্ঠা 156–159)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "প্রাথমিক বিজ্ঞান"
   }
 ]

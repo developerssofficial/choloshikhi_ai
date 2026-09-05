@@ -1218,8 +1218,10 @@ ${book.table_of_contents?.map((t: string) => `- ${t}`).join("\n") || chapters.ma
 - Chapter Type: ${selectedCh.chapter_type}${selectedCh.author ? ` | লেখক: ${selectedCh.author}` : ""}
 - Official Summary & Core Topic: ${selectedCh.summary}
 ${selectedCh.sections && selectedCh.sections.length > 0 ? `- Sections: ${selectedCh.sections.map((s) => `${s.title} (পৃষ্ঠা ${s.page})`).join(", ")}` : ""}
-${chQuestions.length > 0 ? `- Official Exercises/Questions in PDF:\n${chQuestions.map((q, qIdx) => `  ${qIdx + 1}. [${q.question_type}] ${q.original_text || q.instruction} (পৃষ্ঠা: ${q.page_number})`).join("\n")}` : ""}
-- STRICT PEDAGOGY RULE: When the student asks "এই চাপ্টার এ কি কি আছে সুন্দর করে বুঝাও" or any question about this lesson, you MUST explain THIS EXACT LESSON (${selectedCh.chapter_title}), its exact storyline/concepts, characters, new words, and exercises. Do NOT drift to other chapters or make up generic content.]\n`;
+${chQuestions.length > 0 ? `- 📋 অফিশিয়াল অনুশীলনী ও প্রশ্নাবলী (মোট ${chQuestions.length}টি প্রশ্ন):\n${chQuestions.map((q, qIdx) => `  ${qIdx + 1}. [${q.question_type}] ${q.question_number ? `${q.question_number} ` : ""}${q.original_text || q.instruction} (পৃষ্ঠা ${q.page_number})${q.options && q.options.length > 0 ? `\n     বিকল্পসমূহ: ${q.options.join(" | ")}` : ""}`).join("\n")}` : ""}
+- STRICT PEDAGOGY & QUESTION RULE: 
+1. When the student asks "এই অধ্যায়ে কি কি প্রশ্ন আছে", "অনুশীলনী বের করে শোনাও", "প্রশ্নগুলো বলো", or asks for exercises/MCQs/questions, you MUST ONLY list the EXACT questions above under their respective sections (১. সঠিক উত্তর নির্বাচন, ২. শূন্যস্থান পূরণ, ৩. সংক্ষিপ্ত উত্তর প্রশ্ন, ৪. বর্ণনামূলক প্রশ্ন). DO NOT make up fake, generic, or hallucinated questions!
+2. When the student asks "এই চাপ্টার এ কি কি আছে সুন্দর করে বুঝাও", explain THIS EXACT LESSON (${selectedCh.chapter_title}), its core topics, concepts, illustrations, and exact questions.]\n`;
           }
         }
       }
