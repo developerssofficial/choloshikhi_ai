@@ -103,17 +103,28 @@ export default function InteractiveTextbookStudio({
     setIsSending(true);
 
     try {
+      const pageInfo = `১ম শ্রেণির 'আমার বাংলা বই'-এর পৃষ্ঠা ${currentPage} ${
+        activeChapter ? `(পাঠ ${activeChapter.chapter_number}: ${activeChapter.chapter_title})` : ""
+      }`;
+      const messageToApi =
+        textToSend.includes("পৃষ্ঠা") || textToSend.includes("বাংলা বই")
+          ? textToSend
+          : `${pageInfo} প্রসঙ্গে: ${textToSend}`;
+
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          message: textToSend,
-          role: "teacher",
+          message: messageToApi,
+          mode: "education",
           memory: chatMessages.slice(-4),
           selectedBookId: BOOK_ID,
-          selectedClassNumber: 1,
+          selectedClass: 1,
+          selectedSubject: "বাংলা",
+          selectedPage: currentPage,
           selectedChapterId: activeChapter?.chapter_id,
           selectedChapterNumber: activeChapter?.chapter_number,
+          selectedChapterTitle: activeChapter?.chapter_title,
         }),
       });
 

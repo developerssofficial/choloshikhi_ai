@@ -1049,6 +1049,7 @@ export async function POST(req: NextRequest) {
       selectedChapterId,
       selectedChapterNumber,
       selectedChapterTitle,
+      selectedPage,
     } = await req.json();
 
     if (!rawMessage?.trim()) {
@@ -1192,7 +1193,13 @@ export async function POST(req: NextRequest) {
     }
 
     // Grounded NCTB Primary Textbooks Knowledge Base (১ম থেকে ৫ম শ্রেণি)
-    const primaryContext = findPrimaryTextbookContext(message, memory);
+    const primaryContext = findPrimaryTextbookContext(
+      message,
+      memory,
+      selectedBookId,
+      selectedClass ? Number(selectedClass) : undefined,
+      selectedPage !== undefined && selectedPage !== null ? Number(selectedPage) : undefined
+    );
     if (primaryContext) {
       activeSystemPrompt += primaryContext;
     }
@@ -1307,7 +1314,15 @@ ${chQuestions.length > 0 ? `- 📋 অফিশিয়াল অনুশীল�
         }
       }
       if (!response) {
-        const fallbackContext = primaryContext || findPrimaryTextbookContext(message, memory);
+        const fallbackContext =
+          primaryContext ||
+          findPrimaryTextbookContext(
+            message,
+            memory,
+            selectedBookId,
+            selectedClass ? Number(selectedClass) : undefined,
+            selectedPage !== undefined && selectedPage !== null ? Number(selectedPage) : undefined
+          );
         if (fallbackContext) {
           response = `📚 **NCTB পাঠ্যবই তথ্যভাণ্ডার থেকে সরাসরি:**\n\n` +
             fallbackContext

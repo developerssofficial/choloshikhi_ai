@@ -233,7 +233,10 @@ export function detectPedagogyIntent(text: string): boolean {
  */
 export function findPrimaryTextbookContext(
   query: string,
-  history?: Array<{ role: string; content: string }>
+  history?: Array<{ role: string; content: string }>,
+  explicitBookId?: string,
+  explicitClass?: number,
+  explicitPage?: number
 ): string | null {
   const normQuery = normalizeQuery(query);
 
@@ -242,9 +245,9 @@ export function findPrimaryTextbookContext(
   const historyText = recentHistory.map((m) => m.content).join(" ");
 
   // 1. Detect Target Class, Subject, Page Number, and Pedagogy Intent
-  const targetClass = detectClassNumber(query) || detectClassNumber(historyText);
+  const targetClass = explicitClass || detectClassNumber(query) || detectClassNumber(historyText) || (explicitBookId?.includes("class-1") ? 1 : undefined);
   const targetSubject = detectSubject(query) || detectSubject(historyText);
-  const targetPage = detectPageNumber(query);
+  const targetPage = explicitPage !== undefined && explicitPage !== null ? explicitPage : detectPageNumber(query);
   const isPedagogy = detectPedagogyIntent(query) || detectPedagogyIntent(historyText);
 
   // Intent Flags
@@ -264,7 +267,7 @@ export function findPrimaryTextbookContext(
     );
 
   // If asking about all books in primary or specific class
-  if (isAskingGeneralBooks && !targetSubject && !targetPage) {
+  if (isAskingGeneralBooks && !targetSubject && !targetPage && !explicitBookId) {
     const classNum = targetClass || 2;
     const books = getBooksByClass(classNum);
     if (books.length > 0) {
@@ -279,14 +282,17 @@ export function findPrimaryTextbookContext(
     }
   }
 
-  // If specific class and/or subject is detected
-  if (targetClass || targetSubject || targetPage) {
+  // If specific class, subject, or explicit book/page is detected
+  if (targetClass || targetSubject || targetPage !== null || explicitBookId) {
     const classNum = targetClass || 1;
     const classBooks = getBooksByClass(classNum);
 
     // Find matched book
     let matchedBook: BookRecord | undefined;
-    if (targetSubject) {
+    if (explicitBookId) {
+      matchedBook = getBookById(explicitBookId) || classBooks.find((b) => b.id === explicitBookId);
+    }
+    if (!matchedBook && targetSubject) {
       matchedBook = classBooks.find(
         (b) =>
           b.subject.includes(targetSubject) ||
@@ -318,9 +324,17 @@ export function findPrimaryTextbookContext(
 
       // ─── SPECIFIC PAGE QUERY (পৃষ্ঠা অনুযায়ী হুবহু তথ্য ও পাঠদান) ───
       if (targetPage !== null) {
-        const pageChapters = chapters.filter(
+        // Find matching chapter: check both printed page and PDF page offset
+        let pageChapters = chapters.filter(
           (c) => c.start_page <= targetPage && targetPage <= c.end_page
         );
+        // If not found and targetPage is > 9 (likely PDF page index for Class 1 Bangla), try printed page mapping
+        if (pageChapters.length === 0 && matchedBook.id === "2026-primary-class-1-bangla" && targetPage >= 10) {
+          const printedPage = targetPage - 9;
+          pageChapters = chapters.filter(
+            (c) => c.start_page <= printedPage && printedPage <= c.end_page
+          );
+        }
 
         ctx += `\n🎯 **[পৃষ্ঠা ${targetPage} এর অফিশিয়াল বিস্তারিত তথ্য ও পাঠ পরিচিতি]:**\n`;
         if (pageChapters.length > 0) {
