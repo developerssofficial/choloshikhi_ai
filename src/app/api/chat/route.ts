@@ -1293,16 +1293,10 @@ ${chQuestions.length > 0 ? `- 📋 অফিশিয়াল অনুশীল�
       if (hasGemini) {
         try {
           response = await callGemini(message, memory, image, activeSystemPrompt);
-          usedProvider = "gemini";
+          usedProvider = "gemini-vision";
         } catch (err: any) {
           if (err.message === "RATE_LIMITED") markKeyRateLimited(getGeminiKeys()[geminiKeyState.idx] || "");
         }
-      }
-      if (!response) {
-        return NextResponse.json(
-          { error: "ছবি বিশ্লেষণে সমস্যা। আবার চেষ্টা করো।" },
-          { status: 503 }
-        );
       }
     } else {
       const hasGemini = !!getNextGeminiKey();
@@ -1316,46 +1310,47 @@ ${chQuestions.length > 0 ? `- 📋 অফিশিয়াল অনুশীল�
           if (err.message === "RATE_LIMITED") markKeyRateLimited(getGeminiKeys()[geminiKeyState.idx] || "");
         }
       }
-      if (!response) {
-        const fallbackContext =
-          primaryContext ||
-          findPrimaryTextbookContext(
-            message,
-            memory,
-            selectedBookId,
-            selectedClass ? Number(selectedClass) : undefined,
-            selectedPage !== undefined && selectedPage !== null ? Number(selectedPage) : undefined
-          );
-        if (fallbackContext) {
-          response = `📚 **NCTB পাঠ্যবই তথ্যভাণ্ডার থেকে সরাসরি:**\n\n` +
-            fallbackContext
-              .replace(/═══[^═]+═══/g, "")
-              .replace(/\[CRITICAL[\s\S]*?\]/g, "")
-              .replace(/\n{3,}/g, "\n\n")
-              .trim();
+    }
+
+    if (!response) {
+      const fallbackContext =
+        primaryContext ||
+        findPrimaryTextbookContext(
+          message,
+          memory,
+          selectedBookId,
+          selectedClass ? Number(selectedClass) : undefined,
+          selectedPage !== undefined && selectedPage !== null ? Number(selectedPage) : undefined
+        );
+      if (fallbackContext) {
+        response = `📚 **NCTB পাঠ্যবই তথ্যভাণ্ডার থেকে সরাসরি:**\n\n` +
+          fallbackContext
+            .replace(/═══[^═]+═══/g, "")
+            .replace(/\[CRITICAL[\s\S]*?\]/g, "")
+            .replace(/\n{3,}/g, "\n\n")
+            .trim();
+        usedProvider = "nctb-kb";
+      } else {
+        // Dynamic intelligent fallback for educational queries
+        const sRes = searchDataset(message);
+        if (sRes.matched_chapters.length > 0 || sRes.matched_questions.length > 0) {
+          let fb = `📖 **পাঠ্যবই থেকে প্রাসঙ্গিক তথ্য:**\n\n`;
+          if (sRes.matched_chapters.length > 0) {
+            const ch = sRes.matched_chapters[0];
+            fb += `**অধ্যায়/পাঠ:** ${ch.chapter_title} (পৃষ্ঠা ${ch.start_page} থেকে ${ch.end_page})\n`;
+            if (ch.summary) fb += `• ${ch.summary}\n\n`;
+          }
+          if (sRes.matched_questions.length > 0) {
+            fb += `📝 **অনুশীলনীর প্রশ্নাবলী:**\n`;
+            sRes.matched_questions.slice(0, 5).forEach((q, idx) => {
+              fb += `${idx + 1}. [${q.question_type}] ${q.original_text || q.instruction} (পৃষ্ঠা ${q.page_number})\n`;
+            });
+          }
+          response = fb;
           usedProvider = "nctb-kb";
         } else {
-          // Dynamic intelligent fallback for educational queries
-          const sRes = searchDataset(message);
-          if (sRes.matched_chapters.length > 0 || sRes.matched_questions.length > 0) {
-            let fb = `📖 **পাঠ্যবই থেকে প্রাসঙ্গিক তথ্য:**\n\n`;
-            if (sRes.matched_chapters.length > 0) {
-              const ch = sRes.matched_chapters[0];
-              fb += `**অধ্যায়/পাঠ:** ${ch.chapter_title} (পৃষ্ঠা ${ch.start_page} থেকে ${ch.end_page})\n`;
-              if (ch.summary) fb += `• ${ch.summary}\n\n`;
-            }
-            if (sRes.matched_questions.length > 0) {
-              fb += `📝 **অনুশীলনীর প্রশ্নাবলী:**\n`;
-              sRes.matched_questions.slice(0, 5).forEach((q, idx) => {
-                fb += `${idx + 1}. [${q.question_type}] ${q.original_text || q.instruction} (পৃষ্ঠা ${q.page_number})\n`;
-              });
-            }
-            response = fb;
-            usedProvider = "nctb-kb";
-          } else {
-            response = `আপনার প্রশ্নের উত্তর খুঁজতে পেরেছি। অনুগ্রহ করে ক্লাসের নাম বা বইয়ের নাম উল্লেখ করে আবার জিজ্ঞাসা করুন (যেমন: '৫ম শ্রেণির বিজ্ঞান' বা '২য় শ্রেণির বাংলা')।`;
-            usedProvider = "system";
-          }
+          response = `আপনার প্রশ্নের উত্তর খুঁজতে পেরেছি। অনুগ্রহ করে ক্লাসের নাম বা বইয়ের নাম উল্লেখ করে আবার জিজ্ঞাসা করুন (যেমন: '৫ম শ্রেণির বিজ্ঞান' বা '২য় শ্রেণির বাংলা')।`;
+          usedProvider = "system";
         }
       }
     }
