@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "question_id": "2026-primary-class-5-english-ch-11-p60-1",
+    "chapter_id": "2026-primary-class-5-english-ch-11",
+    "class_number": 5,
+    "book_name": "English for Today",
+    "chapter_title": "Making Requests",
+    "page_number": 60,
+    "question_number": "1.",
+    "instruction": "অনুশীলনী",
+    "original_text": "1 Look at the picture of a grocery shop Write down the names of the food items Then share your list with your friends Names of the food items উাই; ডাই; স্টোর",
+    "normalized_text": "1 Look at the picture of a grocery shop Write down the names of the food items Then share your list with your friends Names of the food items উাই; ডাই; স্টোর",
+    "question_type": "অনুশীলনী",
+    "options": [],
+    "ocr_confidence": 0.96,
+    "needs_manual_review": false
+  },
+  {
+    "question_id": "2026-primary-class-5-english-ch-11-p60-2",
+    "chapter_id": "2026-primary-class-5-english-ch-11",
+    "class_number": 5,
+    "book_name": "English for Today",
+    "chapter_title": "Making Requests",
+    "page_number": 60,
+    "question_number": "1.",
+    "instruction": "অনুশীলনী",
+    "original_text": "2 Read the following conversation: Shihab: It's tiffin time  Let s eat together Sarah: Sure. Who else like to join us? Let's sit over there to enjoy our tiffin Sarah: Noodles _ wish TO have ১ chicken burger for tiffin every Mong: If you eat them regularly , get fat and sick. Shihab: Mong is reasonable TYou shouldnr eat them too ofren, Sarah. [ have bread and banana   today My mother sometimes prepares new items for me 61 Mong: again! day. you']] quite Mong:",
+    "normalized_text": "2 Read the following conversation: Shihab: It's tiffin time  Let s eat together Sarah: Sure. Who else like to join us? Let's sit over there to enjoy our tiffin Sarah: Noodles _ wish TO have ১ chicken burger for tiffin every Mong: If you eat them regularly , get fat and sick. Shihab: Mong is reasonable TYou shouldnr eat them too ofren, Sarah. [ have bread and banana   today My mother sometimes prepares new items for me 61 Mong: again! day. you']] quite Mong:",
+    "question_type": "অনুশীলনী",
+    "options": [],
+    "ocr_confidence": 0.96,
+    "needs_manual_review": false
+  }
+]

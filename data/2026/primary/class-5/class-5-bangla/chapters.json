@@ -16,7 +16,9 @@
       "পাঠ ১"
     ],
     "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের পাঠ ১: বৈচিত্র্যময় বাংলাদেশ (পৃষ্ঠা 1–5)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "আমার বাংলা বই"
   },
   {
     "chapter_id": "2026-primary-class-5-bangla-ch-2",
@@ -35,7 +37,9 @@
       "জীবনী ২"
     ],
     "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের জীবনী ২: তিতুমীর (পৃষ্ঠা 6–18)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "আমার বাংলা বই"
   },
   {
     "chapter_id": "2026-primary-class-5-bangla-ch-3",
@@ -54,7 +58,9 @@
       "কবিতা ৩"
     ],
     "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের কবিতা ৩: দূরের পাল্লা (পৃষ্ঠা 19–23)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "আমার বাংলা বই"
   },
   {
     "chapter_id": "2026-primary-class-5-bangla-ch-4",
@@ -73,7 +79,9 @@
       "পাঠ ৪"
     ],
     "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের পাঠ ৪: পত্র লিখি (পৃষ্ঠা 24–27)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "আমার বাংলা বই"
   },
   {
     "chapter_id": "2026-primary-class-5-bangla-ch-5",
@@ -92,7 +100,9 @@
       "গল্প ৫"
     ],
     "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের গল্প ৫: ঠিক আছে (পৃষ্ঠা 28–31)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "আমার বাংলা বই"
   },
   {
     "chapter_id": "2026-primary-class-5-bangla-ch-6",
@@ -111,7 +121,9 @@
       "গল্প ৬"
     ],
     "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের গল্প ৬: সুখ আর দুখু (পৃষ্ঠা 32–37)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "আমার বাংলা বই"
   },
   {
     "chapter_id": "2026-primary-class-5-bangla-ch-7",
@@ -130,7 +142,9 @@
       "পাঠ ৭"
     ],
     "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের পাঠ ৭: সাইক্লোন (পৃষ্ঠা 38–41)।",
-    "total_questions": 0
+    "total_questions": 3,
+    "class_number": 5,
+    "book_name": "আমার বাংলা বই"
   },
   {
     "chapter_id": "2026-primary-class-5-bangla-ch-8",
@@ -149,7 +163,9 @@
       "পাঠ ৮"
     ],
     "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের পাঠ ৮: রয়েল বেঙ্গল টাইগার (পৃষ্ঠা 42–46)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "আমার বাংলা বই"
   },
   {
     "chapter_id": "2026-primary-class-5-bangla-ch-9",
@@ -168,7 +184,9 @@
       "গল্প ৯"
     ],
     "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের গল্প ৯: টুকটুক ও চিকু (পৃষ্ঠা 47–52)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "আমার বাংলা বই"
   },
   {
     "chapter_id": "2026-primary-class-5-bangla-ch-10",
@@ -187,7 +205,9 @@
       "কবিতা ১০"
     ],
     "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের কবিতা ১০: রাখাল ছেলে (পৃষ্ঠা 53–56)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "আমার বাংলা বই"
   },
   {
     "chapter_id": "2026-primary-class-5-bangla-ch-11",
@@ -206,7 +226,9 @@
       "পাঠ ১১"
     ],
     "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের পাঠ ১১: কুটির শিল্প (পৃষ্ঠা 57–62)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "আমার বাংলা বই"
   },
   {
     "chapter_id": "2026-primary-class-5-bangla-ch-12",
@@ -225,7 +247,9 @@
       "গল্প ১২"
     ],
     "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের গল্প ১২: শিষ্যের সাধনা (পৃষ্ঠা 63–68)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "আমার বাংলা বই"
   },
   {
     "chapter_id": "2026-primary-class-5-bangla-ch-13",
@@ -244,7 +268,9 @@
       "কবিতা ১৩"
     ],
     "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের কবিতা ১৩: পাখির মতো (পৃষ্ঠা 69–73)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "আমার বাংলা বই"
   },
   {
     "chapter_id": "2026-primary-class-5-bangla-ch-14",
@@ -263,7 +289,9 @@
       "গল্প ১৪"
     ],
     "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের গল্প ১৪: কুপোকাত (পৃষ্ঠা 74–83)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "আমার বাংলা বই"
   },
   {
     "chapter_id": "2026-primary-class-5-bangla-ch-15",
@@ -282,7 +310,9 @@
       "কবিতা ১৫"
     ],
     "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের কবিতা ১৫: সংকল্প (পৃষ্ঠা 84–89)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "আমার বাংলা বই"
   },
   {
     "chapter_id": "2026-primary-class-5-bangla-ch-16",
@@ -301,7 +331,9 @@
       "জীবনী ১৬"
     ],
     "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের জীবনী ১৬: স্মরণীয় যাঁরা বরণীয় যাঁরা (পৃষ্ঠা 90–97)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "আমার বাংলা বই"
   },
   {
     "chapter_id": "2026-primary-class-5-bangla-ch-17",
@@ -320,7 +352,9 @@
       "ইতিহাস ১৭"
     ],
     "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের ইতিহাস ১৭: মাটির নিচে পুরানো নগর (পৃষ্ঠা 98–101)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "আমার বাংলা বই"
   },
   {
     "chapter_id": "2026-primary-class-5-bangla-ch-18",
@@ -339,7 +373,9 @@
       "কবিতা ১৮"
     ],
     "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের কবিতা ১৮: ইচ্ছামতী (পৃষ্ঠা 102–106)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "আমার বাংলা বই"
   },
   {
     "chapter_id": "2026-primary-class-5-bangla-ch-19",
@@ -358,7 +394,9 @@
       "পাঠ ১৯"
     ],
     "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের পাঠ ১৯: ভাষার খেলা (পৃষ্ঠা 107–111)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "আমার বাংলা বই"
   },
   {
     "chapter_id": "2026-primary-class-5-bangla-ch-20",
@@ -377,7 +415,9 @@
       "কবিতা ২০"
     ],
     "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের কবিতা ২০: শিক্ষাগুরুর মর্যাদা (পৃষ্ঠা 112–118)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "আমার বাংলা বই"
   },
   {
     "chapter_id": "2026-primary-class-5-bangla-ch-21",
@@ -396,7 +436,9 @@
       "ইতিহাস ২১"
     ],
     "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের ইতিহাস ২১: বিদায় হজের ভাষণ (পৃষ্ঠা 119–123)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "আমার বাংলা বই"
   },
   {
     "chapter_id": "2026-primary-class-5-bangla-ch-22",
@@ -415,7 +457,9 @@
       "মুক্তিযুদ্ধ ২২"
     ],
     "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের মুক্তিযুদ্ধ ২২: আমরা তোমাদের ভুলব না (পৃষ্ঠা 124–129)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "আমার বাংলা বই"
   },
   {
     "chapter_id": "2026-primary-class-5-bangla-ch-23",
@@ -434,6 +478,8 @@
       "পাঠ ২৩"
     ],
     "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের পাঠ ২৩: পোস্টার লিখি, প্ল্যাকার্ড লিখি (পৃষ্ঠা 130–136)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "আমার বাংলা বই"
   }
 ]

@@ -16,7 +16,9 @@
       "অধ্যায় ১"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ১: গুণ ও ভাগ (পৃষ্ঠা 1–16)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-5-math-ch-2",
@@ -35,7 +37,9 @@
       "অধ্যায় ২"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ২: গাণিতিক বাক্য (পৃষ্ঠা 17–30)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-5-math-ch-3",
@@ -54,7 +58,9 @@
       "অধ্যায় ৩"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ৩: গুণিতক ও গুণনীয়ক (পৃষ্ঠা 31–48)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-5-math-ch-4",
@@ -73,7 +79,9 @@
       "অধ্যায় ৪"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ৪: সাধারণ ভগ্নাংশ (পৃষ্ঠা 49–62)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-5-math-ch-5",
@@ -92,7 +100,9 @@
       "অধ্যায় ৫"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ৫: দশমিক ভগ্নাংশ (পৃষ্ঠা 63–90)।",
-    "total_questions": 0
+    "total_questions": 1,
+    "class_number": 5,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-5-math-ch-6",
@@ -111,7 +121,9 @@
       "অধ্যায় ৬"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ৬: শতকরা (পৃষ্ঠা 91–104)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-5-math-ch-7",
@@ -130,7 +142,9 @@
       "অধ্যায় ৭"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ৭: গড় (পৃষ্ঠা 105–114)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-5-math-ch-8",
@@ -149,7 +163,9 @@
       "অধ্যায় ৮"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ৮: পরিমাপ (পৃষ্ঠা 115–148)।",
-    "total_questions": 0
+    "total_questions": 5,
+    "class_number": 5,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-5-math-ch-9",
@@ -168,7 +184,9 @@
       "অধ্যায় ৯"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ৯: জ্যামিতি (পৃষ্ঠা 149–170)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-5-math-ch-10",
@@ -187,6 +205,8 @@
       "অধ্যায় ১০"
     ],
     "summary": "পঞ্চম শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ১০: উপাত্ত বিন্যস্তকরণ (পৃষ্ঠা 171–184)।",
-    "total_questions": 0
+    "total_questions": 0,
+    "class_number": 5,
+    "book_name": "প্রাথমিক গণিত"
   }
 ]

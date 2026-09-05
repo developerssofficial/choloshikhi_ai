@@ -1217,11 +1217,13 @@ ${book.table_of_contents?.map((t: string) => `- ${t}`).join("\n") || chapters.ma
 - The student is specifically studying: "পাঠ ${selectedCh.chapter_number}: ${selectedCh.chapter_title}" (পৃষ্ঠা ${selectedCh.start_page}-${selectedCh.end_page}).
 - Chapter Type: ${selectedCh.chapter_type}${selectedCh.author ? ` | লেখক: ${selectedCh.author}` : ""}
 - Official Summary & Core Topic: ${selectedCh.summary}
-${selectedCh.sections && selectedCh.sections.length > 0 ? `- Sections: ${selectedCh.sections.map((s) => `${s.title} (পৃষ্ঠা ${s.page})`).join(", ")}` : ""}
+${selectedCh.sections && selectedCh.sections.length > 0 ? `- 📑 পাঠের উপ-বিষয়বস্তু (Sections):\n${selectedCh.sections.map((s) => `  • [পৃষ্ঠা ${s.page}] ${s.title}`).join("\n")}` : ""}
+${(selectedCh as any).illustrations && (selectedCh as any).illustrations.length > 0 ? `- 🖼️ পাঠ্যবইয়ের অফিসিয়াল চিত্রসমূহ (Illustrations):\n${(selectedCh as any).illustrations.map((img: any) => `  • [পৃষ্ঠা ${img.page}] ${img.title}`).join("\n")}` : ""}
 ${chQuestions.length > 0 ? `- 📋 অফিশিয়াল অনুশীলনী ও প্রশ্নাবলী (মোট ${chQuestions.length}টি প্রশ্ন):\n${chQuestions.map((q, qIdx) => `  ${qIdx + 1}. [${q.question_type}] ${q.question_number ? `${q.question_number} ` : ""}${q.original_text || q.instruction} (পৃষ্ঠা ${q.page_number})${q.options && q.options.length > 0 ? `\n     বিকল্পসমূহ: ${q.options.join(" | ")}` : ""}`).join("\n")}` : ""}
 - STRICT PEDAGOGY & QUESTION RULE: 
-1. When the student asks "এই অধ্যায়ে কি কি প্রশ্ন আছে", "অনুশীলনী বের করে শোনাও", "প্রশ্নগুলো বলো", or asks for exercises/MCQs/questions, you MUST ONLY list the EXACT questions above under their respective sections (১. সঠিক উত্তর নির্বাচন, ২. শূন্যস্থান পূরণ, ৩. সংক্ষিপ্ত উত্তর প্রশ্ন, ৪. বর্ণনামূলক প্রশ্ন). DO NOT make up fake, generic, or hallucinated questions!
-2. When the student asks "এই চাপ্টার এ কি কি আছে সুন্দর করে বুঝাও", explain THIS EXACT LESSON (${selectedCh.chapter_title}), its core topics, concepts, illustrations, and exact questions.]\n`;
+1. When the student asks "এই অধ্যায়ে কি কি চিত্র আছে", "চিত্রগুলো কি কি", "ছবি কি কি দেওয়া আছে", you MUST detail the EXACT illustrations above with page numbers.
+2. When the student asks "এই অধ্যায়ে কি কি প্রশ্ন আছে", "অনুশীলনী বের করে শোনাও", "প্রশ্নগুলো বলো", or asks for exercises/MCQs/questions, you MUST ONLY list the EXACT questions above under their respective sections (১. সঠিক উত্তর নির্বাচন, ২. শূন্যস্থান পূরণ, ৩. সংক্ষিপ্ত উত্তর প্রশ্ন, ৪. বর্ণনামূলক প্রশ্ন). DO NOT make up fake, generic, or old outdated curriculum questions!
+3. When the student asks "এই চাপ্টার এ কি কি আছে সুন্দর করে বুঝাও", explain THIS EXACT LESSON (${selectedCh.chapter_title}), its core topics, concepts, authentic illustrations, and exact questions.]\n`;
           }
         }
       }
