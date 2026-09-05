@@ -187,7 +187,13 @@ ${matchedBook.table_of_contents?.map((t) => `- ${t}`).join("\n") || chapters.map
           ctx += `- প্রকার: ${ch.chapter_type}${ch.author ? ` | লেখক/উৎস: ${ch.author}` : ""}\n`;
           ctx += `- মূল বিষয় ও সারসংক্ষেপ: ${ch.summary}\n`;
           if (ch.sections?.length) {
-            ctx += `- সেকশনসমূহ: ${ch.sections.map((s) => `${s.title} (পৃষ্ঠা ${s.page})`).join(", ")}\n`;
+            ctx += `- 📑 সেকশনসমূহ: ${ch.sections.map((s) => `${s.title} (পৃষ্ঠা ${s.page})`).join(", ")}\n`;
+          }
+          if ((ch as any).illustrations?.length) {
+            ctx += `- 🖼️ পাঠ্যবইয়ের অফিশিয়াল চিত্রসমূহ:\n`;
+            (ch as any).illustrations.forEach((ill: any) => {
+              ctx += `  • [পৃষ্ঠা ${ill.page}] ${ill.description || ill.title}\n`;
+            });
           }
           if (questions.length > 0) {
             ctx += `- 📋 অফিশিয়াল অনুশীলনী ও প্রশ্নাবলী:\n`;

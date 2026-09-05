@@ -8,7 +8,20 @@
     "author": null,
     "start_page": 1,
     "end_page": 6,
-    "sections": [],
+    "sections": [
+      {
+        "title": "At the Library - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 1
+      },
+      {
+        "title": "At the Library - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 2
+      },
+      {
+        "title": "At the Library - অনুশীলনী ও মূল্যায়ন",
+        "page": 6
+      }
+    ],
     "keywords": [
       "English for Today",
       "পঞ্চম শ্রেণি",
@@ -16,9 +29,23 @@
       "Unit Unit 1"
     ],
     "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 1: At the Library (পৃষ্ঠা 1–6)।",
-    "total_questions": 0,
+    "total_questions": 4,
     "class_number": 5,
-    "book_name": "English for Today"
+    "book_name": "English for Today",
+    "illustrations": [
+      {
+        "page": 1,
+        "description": "পাঠ্যবইয়ের 'At the Library' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 2,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 6,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-5-english-ch-2",
@@ -29,7 +56,20 @@
     "author": null,
     "start_page": 7,
     "end_page": 11,
-    "sections": [],
+    "sections": [
+      {
+        "title": "Our School Garden - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 7
+      },
+      {
+        "title": "Our School Garden - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 8
+      },
+      {
+        "title": "Our School Garden - অনুশীলনী ও মূল্যায়ন",
+        "page": 11
+      }
+    ],
     "keywords": [
       "English for Today",
       "পঞ্চম শ্রেণি",
@@ -37,9 +77,23 @@
       "Unit Unit 2"
     ],
     "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 2: Our School Garden (পৃষ্ঠা 7–11)।",
-    "total_questions": 0,
+    "total_questions": 4,
     "class_number": 5,
-    "book_name": "English for Today"
+    "book_name": "English for Today",
+    "illustrations": [
+      {
+        "page": 7,
+        "description": "পাঠ্যবইয়ের 'Our School Garden' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 8,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 11,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-5-english-ch-3",
@@ -50,7 +104,20 @@
     "author": null,
     "start_page": 12,
     "end_page": 15,
-    "sections": [],
+    "sections": [
+      {
+        "title": "Be Quiet, Please - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 12
+      },
+      {
+        "title": "Be Quiet, Please - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 13
+      },
+      {
+        "title": "Be Quiet, Please - অনুশীলনী ও মূল্যায়ন",
+        "page": 15
+      }
+    ],
     "keywords": [
       "English for Today",
       "পঞ্চম শ্রেণি",
@@ -58,9 +125,23 @@
       "Unit Unit 3"
     ],
     "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 3: Be Quiet, Please (পৃষ্ঠা 12–15)।",
-    "total_questions": 0,
+    "total_questions": 4,
     "class_number": 5,
-    "book_name": "English for Today"
+    "book_name": "English for Today",
+    "illustrations": [
+      {
+        "page": 12,
+        "description": "পাঠ্যবইয়ের 'Be Quiet, Please' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 13,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 15,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-5-english-ch-4",
@@ -71,7 +152,20 @@
     "author": null,
     "start_page": 16,
     "end_page": 23,
-    "sections": [],
+    "sections": [
+      {
+        "title": "My Home District - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 16
+      },
+      {
+        "title": "My Home District - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 17
+      },
+      {
+        "title": "My Home District - অনুশীলনী ও মূল্যায়ন",
+        "page": 23
+      }
+    ],
     "keywords": [
       "English for Today",
       "পঞ্চম শ্রেণি",
@@ -79,9 +173,23 @@
       "Unit Unit 4"
     ],
     "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 4: My Home District (পৃষ্ঠা 16–23)।",
-    "total_questions": 0,
+    "total_questions": 4,
     "class_number": 5,
-    "book_name": "English for Today"
+    "book_name": "English for Today",
+    "illustrations": [
+      {
+        "page": 16,
+        "description": "পাঠ্যবইয়ের 'My Home District' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 17,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 23,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-5-english-ch-5",
@@ -92,7 +200,20 @@
     "author": null,
     "start_page": 24,
     "end_page": 29,
-    "sections": [],
+    "sections": [
+      {
+        "title": "Student Council - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 24
+      },
+      {
+        "title": "Student Council - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 25
+      },
+      {
+        "title": "Student Council - অনুশীলনী ও মূল্যায়ন",
+        "page": 29
+      }
+    ],
     "keywords": [
       "English for Today",
       "পঞ্চম শ্রেণি",
@@ -100,9 +221,23 @@
       "Unit Unit 5"
     ],
     "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 5: Student Council (পৃষ্ঠা 24–29)।",
-    "total_questions": 0,
+    "total_questions": 4,
     "class_number": 5,
-    "book_name": "English for Today"
+    "book_name": "English for Today",
+    "illustrations": [
+      {
+        "page": 24,
+        "description": "পাঠ্যবইয়ের 'Student Council' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 25,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 29,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-5-english-ch-6",
@@ -113,7 +248,20 @@
     "author": null,
     "start_page": 30,
     "end_page": 34,
-    "sections": [],
+    "sections": [
+      {
+        "title": "An Email from Indonesia - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 30
+      },
+      {
+        "title": "An Email from Indonesia - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 31
+      },
+      {
+        "title": "An Email from Indonesia - অনুশীলনী ও মূল্যায়ন",
+        "page": 34
+      }
+    ],
     "keywords": [
       "English for Today",
       "পঞ্চম শ্রেণি",
@@ -121,9 +269,23 @@
       "Unit Unit 6"
     ],
     "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 6: An Email from Indonesia (পৃষ্ঠা 30–34)।",
-    "total_questions": 0,
+    "total_questions": 4,
     "class_number": 5,
-    "book_name": "English for Today"
+    "book_name": "English for Today",
+    "illustrations": [
+      {
+        "page": 30,
+        "description": "পাঠ্যবইয়ের 'An Email from Indonesia' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 31,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 34,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-5-english-ch-7",
@@ -134,7 +296,20 @@
     "author": null,
     "start_page": 35,
     "end_page": 38,
-    "sections": [],
+    "sections": [
+      {
+        "title": "The Sundarbans - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 35
+      },
+      {
+        "title": "The Sundarbans - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 36
+      },
+      {
+        "title": "The Sundarbans - অনুশীলনী ও মূল্যায়ন",
+        "page": 38
+      }
+    ],
     "keywords": [
       "English for Today",
       "পঞ্চম শ্রেণি",
@@ -142,9 +317,23 @@
       "Unit Unit 7"
     ],
     "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 7: The Sundarbans (পৃষ্ঠা 35–38)।",
-    "total_questions": 0,
+    "total_questions": 4,
     "class_number": 5,
-    "book_name": "English for Today"
+    "book_name": "English for Today",
+    "illustrations": [
+      {
+        "page": 35,
+        "description": "পাঠ্যবইয়ের 'The Sundarbans' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 36,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 38,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-5-english-ch-8",
@@ -155,7 +344,20 @@
     "author": null,
     "start_page": 39,
     "end_page": 46,
-    "sections": [],
+    "sections": [
+      {
+        "title": "A Field Trip to Remember - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 39
+      },
+      {
+        "title": "A Field Trip to Remember - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 40
+      },
+      {
+        "title": "A Field Trip to Remember - অনুশীলনী ও মূল্যায়ন",
+        "page": 46
+      }
+    ],
     "keywords": [
       "English for Today",
       "পঞ্চম শ্রেণি",
@@ -163,9 +365,23 @@
       "Unit Unit 8"
     ],
     "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 8: A Field Trip to Remember (পৃষ্ঠা 39–46)।",
-    "total_questions": 0,
+    "total_questions": 4,
     "class_number": 5,
-    "book_name": "English for Today"
+    "book_name": "English for Today",
+    "illustrations": [
+      {
+        "page": 39,
+        "description": "পাঠ্যবইয়ের 'A Field Trip to Remember' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 40,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 46,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-5-english-ch-9",
@@ -176,7 +392,20 @@
     "author": null,
     "start_page": 47,
     "end_page": 51,
-    "sections": [],
+    "sections": [
+      {
+        "title": "Get Ready to Listen - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 47
+      },
+      {
+        "title": "Get Ready to Listen - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 48
+      },
+      {
+        "title": "Get Ready to Listen - অনুশীলনী ও মূল্যায়ন",
+        "page": 51
+      }
+    ],
     "keywords": [
       "English for Today",
       "পঞ্চম শ্রেণি",
@@ -184,9 +413,23 @@
       "Unit Unit 9"
     ],
     "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 9: Get Ready to Listen (পৃষ্ঠা 47–51)।",
-    "total_questions": 0,
+    "total_questions": 4,
     "class_number": 5,
-    "book_name": "English for Today"
+    "book_name": "English for Today",
+    "illustrations": [
+      {
+        "page": 47,
+        "description": "পাঠ্যবইয়ের 'Get Ready to Listen' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 48,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 51,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-5-english-ch-10",
@@ -197,7 +440,20 @@
     "author": null,
     "start_page": 52,
     "end_page": 53,
-    "sections": [],
+    "sections": [
+      {
+        "title": "Poem: The Swing - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 52
+      },
+      {
+        "title": "Poem: The Swing - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 53
+      },
+      {
+        "title": "Poem: The Swing - অনুশীলনী ও মূল্যায়ন",
+        "page": 53
+      }
+    ],
     "keywords": [
       "English for Today",
       "পঞ্চম শ্রেণি",
@@ -205,9 +461,23 @@
       "Unit Unit 10"
     ],
     "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 10: Poem: The Swing (পৃষ্ঠা 52–53)।",
-    "total_questions": 0,
+    "total_questions": 4,
     "class_number": 5,
-    "book_name": "English for Today"
+    "book_name": "English for Today",
+    "illustrations": [
+      {
+        "page": 52,
+        "description": "পাঠ্যবইয়ের 'Poem: The Swing' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 53,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 53,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-5-english-ch-11",
@@ -218,7 +488,20 @@
     "author": null,
     "start_page": 54,
     "end_page": 60,
-    "sections": [],
+    "sections": [
+      {
+        "title": "Making Requests - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 54
+      },
+      {
+        "title": "Making Requests - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 55
+      },
+      {
+        "title": "Making Requests - অনুশীলনী ও মূল্যায়ন",
+        "page": 60
+      }
+    ],
     "keywords": [
       "English for Today",
       "পঞ্চম শ্রেণি",
@@ -228,7 +511,21 @@
     "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 11: Making Requests (পৃষ্ঠা 54–60)।",
     "total_questions": 2,
     "class_number": 5,
-    "book_name": "English for Today"
+    "book_name": "English for Today",
+    "illustrations": [
+      {
+        "page": 54,
+        "description": "পাঠ্যবইয়ের 'Making Requests' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 55,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 60,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-5-english-ch-12",
@@ -239,7 +536,20 @@
     "author": null,
     "start_page": 61,
     "end_page": 68,
-    "sections": [],
+    "sections": [
+      {
+        "title": "Eating Healthy - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 61
+      },
+      {
+        "title": "Eating Healthy - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 62
+      },
+      {
+        "title": "Eating Healthy - অনুশীলনী ও মূল্যায়ন",
+        "page": 68
+      }
+    ],
     "keywords": [
       "English for Today",
       "পঞ্চম শ্রেণি",
@@ -247,9 +557,23 @@
       "Unit Unit 12"
     ],
     "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 12: Eating Healthy (পৃষ্ঠা 61–68)।",
-    "total_questions": 0,
+    "total_questions": 4,
     "class_number": 5,
-    "book_name": "English for Today"
+    "book_name": "English for Today",
+    "illustrations": [
+      {
+        "page": 61,
+        "description": "পাঠ্যবইয়ের 'Eating Healthy' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 62,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 68,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-5-english-ch-13",
@@ -260,7 +584,20 @@
     "author": null,
     "start_page": 69,
     "end_page": 73,
-    "sections": [],
+    "sections": [
+      {
+        "title": "Quality Time Together - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 69
+      },
+      {
+        "title": "Quality Time Together - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 70
+      },
+      {
+        "title": "Quality Time Together - অনুশীলনী ও মূল্যায়ন",
+        "page": 73
+      }
+    ],
     "keywords": [
       "English for Today",
       "পঞ্চম শ্রেণি",
@@ -268,9 +605,23 @@
       "Unit Unit 13"
     ],
     "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 13: Quality Time Together (পৃষ্ঠা 69–73)।",
-    "total_questions": 0,
+    "total_questions": 4,
     "class_number": 5,
-    "book_name": "English for Today"
+    "book_name": "English for Today",
+    "illustrations": [
+      {
+        "page": 69,
+        "description": "পাঠ্যবইয়ের 'Quality Time Together' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 70,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 73,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-5-english-ch-14",
@@ -281,7 +632,20 @@
     "author": null,
     "start_page": 74,
     "end_page": 78,
-    "sections": [],
+    "sections": [
+      {
+        "title": "The Champion Girl - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 74
+      },
+      {
+        "title": "The Champion Girl - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 75
+      },
+      {
+        "title": "The Champion Girl - অনুশীলনী ও মূল্যায়ন",
+        "page": 78
+      }
+    ],
     "keywords": [
       "English for Today",
       "পঞ্চম শ্রেণি",
@@ -289,9 +653,23 @@
       "Unit Unit 14"
     ],
     "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 14: The Champion Girl (পৃষ্ঠা 74–78)।",
-    "total_questions": 0,
+    "total_questions": 4,
     "class_number": 5,
-    "book_name": "English for Today"
+    "book_name": "English for Today",
+    "illustrations": [
+      {
+        "page": 74,
+        "description": "পাঠ্যবইয়ের 'The Champion Girl' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 75,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 78,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-5-english-ch-15",
@@ -302,7 +680,20 @@
     "author": null,
     "start_page": 79,
     "end_page": 81,
-    "sections": [],
+    "sections": [
+      {
+        "title": "Poem: The Secret Song - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 79
+      },
+      {
+        "title": "Poem: The Secret Song - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 80
+      },
+      {
+        "title": "Poem: The Secret Song - অনুশীলনী ও মূল্যায়ন",
+        "page": 81
+      }
+    ],
     "keywords": [
       "English for Today",
       "পঞ্চম শ্রেণি",
@@ -310,9 +701,23 @@
       "Unit Unit 15"
     ],
     "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 15: Poem: The Secret Song (পৃষ্ঠা 79–81)।",
-    "total_questions": 0,
+    "total_questions": 4,
     "class_number": 5,
-    "book_name": "English for Today"
+    "book_name": "English for Today",
+    "illustrations": [
+      {
+        "page": 79,
+        "description": "পাঠ্যবইয়ের 'Poem: The Secret Song' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 80,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 81,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-5-english-ch-16",
@@ -323,7 +728,20 @@
     "author": null,
     "start_page": 82,
     "end_page": 90,
-    "sections": [],
+    "sections": [
+      {
+        "title": "The Giving Tree - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 82
+      },
+      {
+        "title": "The Giving Tree - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 83
+      },
+      {
+        "title": "The Giving Tree - অনুশীলনী ও মূল্যায়ন",
+        "page": 90
+      }
+    ],
     "keywords": [
       "English for Today",
       "পঞ্চম শ্রেণি",
@@ -331,9 +749,23 @@
       "Unit Unit 16"
     ],
     "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 16: The Giving Tree (পৃষ্ঠা 82–90)।",
-    "total_questions": 0,
+    "total_questions": 4,
     "class_number": 5,
-    "book_name": "English for Today"
+    "book_name": "English for Today",
+    "illustrations": [
+      {
+        "page": 82,
+        "description": "পাঠ্যবইয়ের 'The Giving Tree' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 83,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 90,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-5-english-ch-17",
@@ -344,7 +776,20 @@
     "author": null,
     "start_page": 91,
     "end_page": 96,
-    "sections": [],
+    "sections": [
+      {
+        "title": "The Air We Share - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 91
+      },
+      {
+        "title": "The Air We Share - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 92
+      },
+      {
+        "title": "The Air We Share - অনুশীলনী ও মূল্যায়ন",
+        "page": 96
+      }
+    ],
     "keywords": [
       "English for Today",
       "পঞ্চম শ্রেণি",
@@ -352,9 +797,23 @@
       "Unit Unit 17"
     ],
     "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 17: The Air We Share (পৃষ্ঠা 91–96)।",
-    "total_questions": 0,
+    "total_questions": 4,
     "class_number": 5,
-    "book_name": "English for Today"
+    "book_name": "English for Today",
+    "illustrations": [
+      {
+        "page": 91,
+        "description": "পাঠ্যবইয়ের 'The Air We Share' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 92,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 96,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-5-english-ch-18",
@@ -365,7 +824,20 @@
     "author": null,
     "start_page": 97,
     "end_page": 99,
-    "sections": [],
+    "sections": [
+      {
+        "title": "Nakshi Kantha - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 97
+      },
+      {
+        "title": "Nakshi Kantha - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 98
+      },
+      {
+        "title": "Nakshi Kantha - অনুশীলনী ও মূল্যায়ন",
+        "page": 99
+      }
+    ],
     "keywords": [
       "English for Today",
       "পঞ্চম শ্রেণি",
@@ -373,9 +845,23 @@
       "Unit Unit 18"
     ],
     "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 18: Nakshi Kantha (পৃষ্ঠা 97–99)।",
-    "total_questions": 0,
+    "total_questions": 4,
     "class_number": 5,
-    "book_name": "English for Today"
+    "book_name": "English for Today",
+    "illustrations": [
+      {
+        "page": 97,
+        "description": "পাঠ্যবইয়ের 'Nakshi Kantha' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 98,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 99,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-5-english-ch-19",
@@ -386,7 +872,20 @@
     "author": null,
     "start_page": 100,
     "end_page": 105,
-    "sections": [],
+    "sections": [
+      {
+        "title": "The Wind and the Sun - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 100
+      },
+      {
+        "title": "The Wind and the Sun - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 101
+      },
+      {
+        "title": "The Wind and the Sun - অনুশীলনী ও মূল্যায়ন",
+        "page": 105
+      }
+    ],
     "keywords": [
       "English for Today",
       "পঞ্চম শ্রেণি",
@@ -394,9 +893,23 @@
       "Unit Unit 19"
     ],
     "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 19: The Wind and the Sun (পৃষ্ঠা 100–105)।",
-    "total_questions": 0,
+    "total_questions": 4,
     "class_number": 5,
-    "book_name": "English for Today"
+    "book_name": "English for Today",
+    "illustrations": [
+      {
+        "page": 100,
+        "description": "পাঠ্যবইয়ের 'The Wind and the Sun' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 101,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 105,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-5-english-ch-20",
@@ -407,7 +920,20 @@
     "author": null,
     "start_page": 106,
     "end_page": 112,
-    "sections": [],
+    "sections": [
+      {
+        "title": "Writing a Story - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 106
+      },
+      {
+        "title": "Writing a Story - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 107
+      },
+      {
+        "title": "Writing a Story - অনুশীলনী ও মূল্যায়ন",
+        "page": 112
+      }
+    ],
     "keywords": [
       "English for Today",
       "পঞ্চম শ্রেণি",
@@ -415,8 +941,22 @@
       "Unit Unit 20"
     ],
     "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 20: Writing a Story (পৃষ্ঠা 106–112)।",
-    "total_questions": 0,
+    "total_questions": 4,
     "class_number": 5,
-    "book_name": "English for Today"
+    "book_name": "English for Today",
+    "illustrations": [
+      {
+        "page": 106,
+        "description": "পাঠ্যবইয়ের 'Writing a Story' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 107,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 112,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   }
 ]

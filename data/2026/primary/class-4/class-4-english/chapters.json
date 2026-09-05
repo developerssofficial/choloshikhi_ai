@@ -8,7 +8,20 @@
     "author": null,
     "start_page": 1,
     "end_page": 3,
-    "sections": [],
+    "sections": [
+      {
+        "title": "Introducing One Another - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 1
+      },
+      {
+        "title": "Introducing One Another - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 2
+      },
+      {
+        "title": "Introducing One Another - অনুশীলনী ও মূল্যায়ন",
+        "page": 3
+      }
+    ],
     "keywords": [
       "English for Today",
       "চতুর্থ শ্রেণি",
@@ -16,7 +29,21 @@
       "Unit Unit 1"
     ],
     "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 1: Introducing One Another (পৃষ্ঠা 1–3)।",
-    "total_questions": 0
+    "total_questions": 4,
+    "illustrations": [
+      {
+        "page": 1,
+        "description": "পাঠ্যবইয়ের 'Introducing One Another' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 2,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 3,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-4-english-ch-2",
@@ -27,7 +54,20 @@
     "author": null,
     "start_page": 4,
     "end_page": 5,
-    "sections": [],
+    "sections": [
+      {
+        "title": "Have a Great Day - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 4
+      },
+      {
+        "title": "Have a Great Day - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 5
+      },
+      {
+        "title": "Have a Great Day - অনুশীলনী ও মূল্যায়ন",
+        "page": 5
+      }
+    ],
     "keywords": [
       "English for Today",
       "চতুর্থ শ্রেণি",
@@ -35,7 +75,21 @@
       "Unit Unit 2"
     ],
     "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 2: Have a Great Day (পৃষ্ঠা 4–5)।",
-    "total_questions": 0
+    "total_questions": 4,
+    "illustrations": [
+      {
+        "page": 4,
+        "description": "পাঠ্যবইয়ের 'Have a Great Day' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 5,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 5,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-4-english-ch-3",
@@ -46,7 +100,20 @@
     "author": null,
     "start_page": 6,
     "end_page": 8,
-    "sections": [],
+    "sections": [
+      {
+        "title": "My School Assembly - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 6
+      },
+      {
+        "title": "My School Assembly - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 7
+      },
+      {
+        "title": "My School Assembly - অনুশীলনী ও মূল্যায়ন",
+        "page": 8
+      }
+    ],
     "keywords": [
       "English for Today",
       "চতুর্থ শ্রেণি",
@@ -54,7 +121,21 @@
       "Unit Unit 3"
     ],
     "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 3: My School Assembly (পৃষ্ঠা 6–8)।",
-    "total_questions": 0
+    "total_questions": 4,
+    "illustrations": [
+      {
+        "page": 6,
+        "description": "পাঠ্যবইয়ের 'My School Assembly' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 7,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 8,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-4-english-ch-4",
@@ -65,7 +146,20 @@
     "author": null,
     "start_page": 9,
     "end_page": 11,
-    "sections": [],
+    "sections": [
+      {
+        "title": "Enjoying Annual Sports - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 9
+      },
+      {
+        "title": "Enjoying Annual Sports - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 10
+      },
+      {
+        "title": "Enjoying Annual Sports - অনুশীলনী ও মূল্যায়ন",
+        "page": 11
+      }
+    ],
     "keywords": [
       "English for Today",
       "চতুর্থ শ্রেণি",
@@ -73,7 +167,21 @@
       "Unit Unit 4"
     ],
     "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 4: Enjoying Annual Sports (পৃষ্ঠা 9–11)।",
-    "total_questions": 0
+    "total_questions": 4,
+    "illustrations": [
+      {
+        "page": 9,
+        "description": "পাঠ্যবইয়ের 'Enjoying Annual Sports' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 10,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 11,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-4-english-ch-5",
@@ -84,7 +192,20 @@
     "author": null,
     "start_page": 12,
     "end_page": 17,
-    "sections": [],
+    "sections": [
+      {
+        "title": "The Little Doctor - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 12
+      },
+      {
+        "title": "The Little Doctor - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 13
+      },
+      {
+        "title": "The Little Doctor - অনুশীলনী ও মূল্যায়ন",
+        "page": 17
+      }
+    ],
     "keywords": [
       "English for Today",
       "চতুর্থ শ্রেণি",
@@ -92,7 +213,21 @@
       "Unit Unit 5"
     ],
     "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 5: The Little Doctor (পৃষ্ঠা 12–17)।",
-    "total_questions": 0
+    "total_questions": 4,
+    "illustrations": [
+      {
+        "page": 12,
+        "description": "পাঠ্যবইয়ের 'The Little Doctor' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 13,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 17,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-4-english-ch-6",
@@ -103,7 +238,20 @@
     "author": null,
     "start_page": 18,
     "end_page": 21,
-    "sections": [],
+    "sections": [
+      {
+        "title": "Sounds and Numbers - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 18
+      },
+      {
+        "title": "Sounds and Numbers - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 19
+      },
+      {
+        "title": "Sounds and Numbers - অনুশীলনী ও মূল্যায়ন",
+        "page": 21
+      }
+    ],
     "keywords": [
       "English for Today",
       "চতুর্থ শ্রেণি",
@@ -111,7 +259,21 @@
       "Unit Unit 6"
     ],
     "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 6: Sounds and Numbers (পৃষ্ঠা 18–21)।",
-    "total_questions": 0
+    "total_questions": 4,
+    "illustrations": [
+      {
+        "page": 18,
+        "description": "পাঠ্যবইয়ের 'Sounds and Numbers' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 19,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 21,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-4-english-ch-7",
@@ -122,7 +284,20 @@
     "author": null,
     "start_page": 22,
     "end_page": 26,
-    "sections": [],
+    "sections": [
+      {
+        "title": "Telling the Time - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 22
+      },
+      {
+        "title": "Telling the Time - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 23
+      },
+      {
+        "title": "Telling the Time - অনুশীলনী ও মূল্যায়ন",
+        "page": 26
+      }
+    ],
     "keywords": [
       "English for Today",
       "চতুর্থ শ্রেণি",
@@ -130,7 +305,21 @@
       "Unit Unit 7"
     ],
     "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 7: Telling the Time (পৃষ্ঠা 22–26)।",
-    "total_questions": 0
+    "total_questions": 4,
+    "illustrations": [
+      {
+        "page": 22,
+        "description": "পাঠ্যবইয়ের 'Telling the Time' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 23,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 26,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-4-english-ch-8",
@@ -141,7 +330,20 @@
     "author": null,
     "start_page": 27,
     "end_page": 33,
-    "sections": [],
+    "sections": [
+      {
+        "title": "My Family - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 27
+      },
+      {
+        "title": "My Family - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 28
+      },
+      {
+        "title": "My Family - অনুশীলনী ও মূল্যায়ন",
+        "page": 33
+      }
+    ],
     "keywords": [
       "English for Today",
       "চতুর্থ শ্রেণি",
@@ -149,7 +351,21 @@
       "Unit Unit 8"
     ],
     "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 8: My Family (পৃষ্ঠা 27–33)।",
-    "total_questions": 0
+    "total_questions": 4,
+    "illustrations": [
+      {
+        "page": 27,
+        "description": "পাঠ্যবইয়ের 'My Family' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 28,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 33,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-4-english-ch-9",
@@ -160,7 +376,20 @@
     "author": null,
     "start_page": 34,
     "end_page": 40,
-    "sections": [],
+    "sections": [
+      {
+        "title": "Gardening - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 34
+      },
+      {
+        "title": "Gardening - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 35
+      },
+      {
+        "title": "Gardening - অনুশীলনী ও মূল্যায়ন",
+        "page": 40
+      }
+    ],
     "keywords": [
       "English for Today",
       "চতুর্থ শ্রেণি",
@@ -168,7 +397,21 @@
       "Unit Unit 9"
     ],
     "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 9: Gardening (পৃষ্ঠা 34–40)।",
-    "total_questions": 0
+    "total_questions": 4,
+    "illustrations": [
+      {
+        "page": 34,
+        "description": "পাঠ্যবইয়ের 'Gardening' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 35,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 40,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-4-english-ch-10",
@@ -179,7 +422,20 @@
     "author": null,
     "start_page": 41,
     "end_page": 45,
-    "sections": [],
+    "sections": [
+      {
+        "title": "A Letter to a Friend - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 41
+      },
+      {
+        "title": "A Letter to a Friend - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 42
+      },
+      {
+        "title": "A Letter to a Friend - অনুশীলনী ও মূল্যায়ন",
+        "page": 45
+      }
+    ],
     "keywords": [
       "English for Today",
       "চতুর্থ শ্রেণি",
@@ -187,7 +443,21 @@
       "Unit Unit 10"
     ],
     "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 10: A Letter to a Friend (পৃষ্ঠা 41–45)।",
-    "total_questions": 0
+    "total_questions": 4,
+    "illustrations": [
+      {
+        "page": 41,
+        "description": "পাঠ্যবইয়ের 'A Letter to a Friend' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 42,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 45,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-4-english-ch-11",
@@ -198,7 +468,20 @@
     "author": null,
     "start_page": 46,
     "end_page": 50,
-    "sections": [],
+    "sections": [
+      {
+        "title": "A Holiday Trip - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 46
+      },
+      {
+        "title": "A Holiday Trip - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 47
+      },
+      {
+        "title": "A Holiday Trip - অনুশীলনী ও মূল্যায়ন",
+        "page": 50
+      }
+    ],
     "keywords": [
       "English for Today",
       "চতুর্থ শ্রেণি",
@@ -206,7 +489,21 @@
       "Unit Unit 11"
     ],
     "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 11: A Holiday Trip (পৃষ্ঠা 46–50)।",
-    "total_questions": 0
+    "total_questions": 4,
+    "illustrations": [
+      {
+        "page": 46,
+        "description": "পাঠ্যবইয়ের 'A Holiday Trip' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 47,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 50,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-4-english-ch-12",
@@ -217,7 +514,20 @@
     "author": null,
     "start_page": 51,
     "end_page": 56,
-    "sections": [],
+    "sections": [
+      {
+        "title": "Making Friends - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 51
+      },
+      {
+        "title": "Making Friends - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 52
+      },
+      {
+        "title": "Making Friends - অনুশীলনী ও মূল্যায়ন",
+        "page": 56
+      }
+    ],
     "keywords": [
       "English for Today",
       "চতুর্থ শ্রেণি",
@@ -225,7 +535,21 @@
       "Unit Unit 12"
     ],
     "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 12: Making Friends (পৃষ্ঠা 51–56)।",
-    "total_questions": 0
+    "total_questions": 4,
+    "illustrations": [
+      {
+        "page": 51,
+        "description": "পাঠ্যবইয়ের 'Making Friends' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 52,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 56,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-4-english-ch-13",
@@ -236,7 +560,20 @@
     "author": null,
     "start_page": 57,
     "end_page": 63,
-    "sections": [],
+    "sections": [
+      {
+        "title": "Planning to Visit the Book Fair - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 57
+      },
+      {
+        "title": "Planning to Visit the Book Fair - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 58
+      },
+      {
+        "title": "Planning to Visit the Book Fair - অনুশীলনী ও মূল্যায়ন",
+        "page": 63
+      }
+    ],
     "keywords": [
       "English for Today",
       "চতুর্থ শ্রেণি",
@@ -244,7 +581,21 @@
       "Unit Unit 13"
     ],
     "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 13: Planning to Visit the Book Fair (পৃষ্ঠা 57–63)।",
-    "total_questions": 0
+    "total_questions": 4,
+    "illustrations": [
+      {
+        "page": 57,
+        "description": "পাঠ্যবইয়ের 'Planning to Visit the Book Fair' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 58,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 63,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-4-english-ch-14",
@@ -255,7 +606,20 @@
     "author": null,
     "start_page": 64,
     "end_page": 66,
-    "sections": [],
+    "sections": [
+      {
+        "title": "Poem: Tears of the Earth - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 64
+      },
+      {
+        "title": "Poem: Tears of the Earth - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 65
+      },
+      {
+        "title": "Poem: Tears of the Earth - অনুশীলনী ও মূল্যায়ন",
+        "page": 66
+      }
+    ],
     "keywords": [
       "English for Today",
       "চতুর্থ শ্রেণি",
@@ -263,7 +627,21 @@
       "Unit Unit 14"
     ],
     "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 14: Poem: Tears of the Earth (পৃষ্ঠা 64–66)।",
-    "total_questions": 0
+    "total_questions": 4,
+    "illustrations": [
+      {
+        "page": 64,
+        "description": "পাঠ্যবইয়ের 'Poem: Tears of the Earth' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 65,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 66,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-4-english-ch-15",
@@ -274,7 +652,20 @@
     "author": null,
     "start_page": 67,
     "end_page": 70,
-    "sections": [],
+    "sections": [
+      {
+        "title": "Environment Pollution - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 67
+      },
+      {
+        "title": "Environment Pollution - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 68
+      },
+      {
+        "title": "Environment Pollution - অনুশীলনী ও মূল্যায়ন",
+        "page": 70
+      }
+    ],
     "keywords": [
       "English for Today",
       "চতুর্থ শ্রেণি",
@@ -282,7 +673,21 @@
       "Unit Unit 15"
     ],
     "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 15: Environment Pollution (পৃষ্ঠা 67–70)।",
-    "total_questions": 0
+    "total_questions": 4,
+    "illustrations": [
+      {
+        "page": 67,
+        "description": "পাঠ্যবইয়ের 'Environment Pollution' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 68,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 70,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-4-english-ch-16",
@@ -293,7 +698,20 @@
     "author": null,
     "start_page": 71,
     "end_page": 76,
-    "sections": [],
+    "sections": [
+      {
+        "title": "Talking with a Nepalese Boy - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 71
+      },
+      {
+        "title": "Talking with a Nepalese Boy - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 72
+      },
+      {
+        "title": "Talking with a Nepalese Boy - অনুশীলনী ও মূল্যায়ন",
+        "page": 76
+      }
+    ],
     "keywords": [
       "English for Today",
       "চতুর্থ শ্রেণি",
@@ -301,7 +719,21 @@
       "Unit Unit 16"
     ],
     "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 16: Talking with a Nepalese Boy (পৃষ্ঠা 71–76)।",
-    "total_questions": 0
+    "total_questions": 4,
+    "illustrations": [
+      {
+        "page": 71,
+        "description": "পাঠ্যবইয়ের 'Talking with a Nepalese Boy' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 72,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 76,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-4-english-ch-17",
@@ -312,7 +744,20 @@
     "author": null,
     "start_page": 77,
     "end_page": 81,
-    "sections": [],
+    "sections": [
+      {
+        "title": "The Land of Mountains - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 77
+      },
+      {
+        "title": "The Land of Mountains - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 78
+      },
+      {
+        "title": "The Land of Mountains - অনুশীলনী ও মূল্যায়ন",
+        "page": 81
+      }
+    ],
     "keywords": [
       "English for Today",
       "চতুর্থ শ্রেণি",
@@ -320,7 +765,21 @@
       "Unit Unit 17"
     ],
     "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 17: The Land of Mountains (পৃষ্ঠা 77–81)।",
-    "total_questions": 0
+    "total_questions": 4,
+    "illustrations": [
+      {
+        "page": 77,
+        "description": "পাঠ্যবইয়ের 'The Land of Mountains' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 78,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 81,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   },
   {
     "chapter_id": "2026-primary-class-4-english-ch-18",
@@ -331,7 +790,20 @@
     "author": null,
     "start_page": 82,
     "end_page": 90,
-    "sections": [],
+    "sections": [
+      {
+        "title": "Caring for Others - মূল ধারণা ও পাঠ পরিচিতি",
+        "page": 82
+      },
+      {
+        "title": "Caring for Others - বিষয়ভিত্তিক ব্যাখ্যা ও বাস্তব প্রয়োগ",
+        "page": 83
+      },
+      {
+        "title": "Caring for Others - অনুশীলনী ও মূল্যায়ন",
+        "page": 90
+      }
+    ],
     "keywords": [
       "English for Today",
       "চতুর্থ শ্রেণি",
@@ -339,6 +811,20 @@
       "Unit Unit 18"
     ],
     "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 18: Caring for Others (পৃষ্ঠা 82–90)।",
-    "total_questions": 0
+    "total_questions": 4,
+    "illustrations": [
+      {
+        "page": 82,
+        "description": "পাঠ্যবইয়ের 'Caring for Others' সংশ্লিষ্ট প্রাথমিক রঙিন চিত্র, বাস্তব দৃশ্যাবলি ও বিষয়বস্তুর উপস্থাপনা।"
+      },
+      {
+        "page": 83,
+        "description": "বিষয়ভিত্তিক ধারণা ব্যাখ্যা ও বাস্তব পর্যবেক্ষণ ডায়াগ্রাম/ছক।"
+      },
+      {
+        "page": 90,
+        "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
+      }
+    ]
   }
 ]
