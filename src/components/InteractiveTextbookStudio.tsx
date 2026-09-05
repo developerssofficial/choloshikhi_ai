@@ -63,10 +63,13 @@ export default function InteractiveTextbookStudio({
     }
   }, [isOpen]);
 
-  // Find current active chapter based on page
-  const activeChapter = chapters.find(
-    (c) => currentPage >= c.start_page && currentPage <= c.end_page
-  );
+  // PDF Page 10 is Printed Page 1 in Class 1 Bangla
+  const printedPage = currentPage >= 10 ? currentPage - 9 : null;
+
+  // Find current active chapter based on printed page
+  const activeChapter = printedPage !== null
+    ? chapters.find((c) => printedPage >= c.start_page && printedPage <= c.end_page)
+    : chapters.find((c) => currentPage >= c.start_page && currentPage <= c.end_page);
 
   // Auto scroll filmstrip thumbnail into view
   useEffect(() => {
@@ -103,13 +106,15 @@ export default function InteractiveTextbookStudio({
     setIsSending(true);
 
     try {
-      const pageInfo = `১ম শ্রেণির 'আমার বাংলা বই'-এর পৃষ্ঠা ${currentPage} ${
-        activeChapter ? `(পাঠ ${activeChapter.chapter_number}: ${activeChapter.chapter_title})` : ""
-      }`;
+      const chapterLabel = activeChapter
+        ? `পাঠ ${activeChapter.chapter_number}: ${activeChapter.chapter_title}`
+        : "আমার বাংলা বই";
+      const pageNumStr = printedPage !== null ? `পৃষ্ঠা ${printedPage}` : `পৃষ্ঠা ${currentPage}`;
+
       const messageToApi =
-        textToSend.includes("পৃষ্ঠা") || textToSend.includes("বাংলা বই")
+        textToSend.includes("পাঠ") || textToSend.includes("বাংলা বই")
           ? textToSend
-          : `${pageInfo} প্রসঙ্গে: ${textToSend}`;
+          : `১ম শ্রেণির বাংলা বইয়ের "${chapterLabel}" (${pageNumStr}) প্রসঙ্গে: ${textToSend}`;
 
       const res = await fetch("/api/chat", {
         method: "POST",
@@ -121,7 +126,7 @@ export default function InteractiveTextbookStudio({
           selectedBookId: BOOK_ID,
           selectedClass: 1,
           selectedSubject: "বাংলা",
-          selectedPage: currentPage,
+          selectedPage: printedPage !== null ? printedPage : currentPage,
           selectedChapterId: activeChapter?.chapter_id,
           selectedChapterNumber: activeChapter?.chapter_number,
           selectedChapterTitle: activeChapter?.chapter_title,
@@ -458,12 +463,16 @@ export default function InteractiveTextbookStudio({
               </div>
               <div className="flex-1 overflow-y-auto space-y-1.5 pr-1">
                 {chapters.map((ch) => {
-                  const isActive = currentPage >= ch.start_page && currentPage <= ch.end_page;
+                  const targetPdfPage = ch.start_page + 9;
+                  const isActive =
+                    printedPage !== null
+                      ? printedPage >= ch.start_page && printedPage <= ch.end_page
+                      : currentPage === targetPdfPage;
                   return (
                     <button
                       key={ch.chapter_id}
                       onClick={() => {
-                        setCurrentPage(ch.start_page);
+                        setCurrentPage(targetPdfPage);
                         setShowChaptersDrawer(false);
                       }}
                       className={`w-full p-2.5 rounded-xl border text-left text-xs transition-colors flex items-center justify-between ${
