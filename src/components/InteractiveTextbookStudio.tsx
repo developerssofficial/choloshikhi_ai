@@ -13,24 +13,69 @@ interface Chapter {
   summary: string;
 }
 
+interface BookConfig {
+  id: string;
+  name: string;
+  subject: string;
+  folder: string;
+  icon: string;
+  totalPages: number;
+  offset: number; // PDF page - offset = printed page
+  desc: string;
+}
+
+const CLASS_1_BOOKS: BookConfig[] = [
+  {
+    id: "2026-primary-class-1-bangla",
+    name: "আমার বাংলা বই",
+    subject: "বাংলা",
+    folder: "class-1-bangla",
+    icon: "📖",
+    totalPages: 90,
+    offset: 9,
+    desc: "৫৪টি পাঠ • ৯০ পৃষ্ঠা",
+  },
+  {
+    id: "2026-primary-class-1-english",
+    name: "English for Today",
+    subject: "ইংরেজি",
+    folder: "class-1-english",
+    icon: "🇬🇧",
+    totalPages: 98,
+    offset: 8,
+    desc: "Units 1–7 • ৯৮ পৃষ্ঠা",
+  },
+  {
+    id: "2026-primary-class-1-math",
+    name: "প্রাথমিক গণিত",
+    subject: "গণিত",
+    folder: "class-1-math",
+    icon: "📐",
+    totalPages: 122,
+    offset: 10,
+    desc: "১৮টি অধ্যায় • ১২২ পৃষ্ঠা",
+  },
+];
+
 interface InteractiveTextbookStudioProps {
   isOpen: boolean;
   onClose: () => void;
   initialPage?: number;
+  initialBookId?: string;
   initialChapter?: string;
   onSendMessageToChat?: (message: string) => void;
 }
-
-const TOTAL_PAGES = 90;
-const BOOK_NAME = "আমার বাংলা বই (১ম শ্রেণি)";
-const BOOK_ID = "2026-primary-class-1-bangla";
 
 export default function InteractiveTextbookStudio({
   isOpen,
   onClose,
   initialPage = 1,
+  initialBookId = "2026-primary-class-1-bangla",
   onSendMessageToChat,
 }: InteractiveTextbookStudioProps) {
+  const [selectedBook, setSelectedBook] = useState<BookConfig>(
+    CLASS_1_BOOKS.find((b) => b.id === initialBookId) || CLASS_1_BOOKS[0]
+  );
   const [currentPage, setCurrentPage] = useState<number>(initialPage);
   const [zoomLevel, setZoomLevel] = useState<number>(100);
   const [chapters, setChapters] = useState<Chapter[]>([]);
@@ -39,15 +84,17 @@ export default function InteractiveTextbookStudio({
   const [chatInput, setChatInput] = useState<string>("");
   const [isSending, setIsSending] = useState<boolean>(false);
   const [showChaptersDrawer, setShowChaptersDrawer] = useState<boolean>(false);
+  const [sendImageVision, setSendImageVision] = useState<boolean>(true);
+  
   const chatEndRef = useRef<HTMLDivElement>(null);
   const filmstripRef = useRef<HTMLDivElement>(null);
 
-  // Fetch chapters for Class 1 Bangla
+  // Fetch chapters when selected book changes
   useEffect(() => {
     async function loadChapters() {
       try {
         setLoadingChapters(true);
-        const res = await fetch(`/api/books/${BOOK_ID}/chapters`);
+        const res = await fetch(`/api/books/${selectedBook.id}/chapters`);
         if (res.ok) {
           const data = await res.json();
           setChapters(data.chapters || []);
@@ -61,14 +108,19 @@ export default function InteractiveTextbookStudio({
     if (isOpen) {
       loadChapters();
     }
-  }, [isOpen]);
+  }, [isOpen, selectedBook.id]);
 
-  const [sendImageVision, setSendImageVision] = useState<boolean>(true);
+  // Handle switching books
+  const handleSelectBook = (book: BookConfig) => {
+    setSelectedBook(book);
+    setCurrentPage(1);
+    setChatMessages([]);
+  };
 
   // Helper to load current page image as base64 for direct Vision AI processing
   const getPageImageBase64 = async (pageNumber: number): Promise<string | null> => {
     try {
-      const res = await fetch(`/textbooks/class-1-bangla/page_${pageNumber}.png`);
+      const res = await fetch(`/textbooks/${selectedBook.folder}/page_${pageNumber}.png`);
       if (!res.ok) return null;
       const blob = await res.blob();
       return new Promise((resolve) => {
@@ -83,8 +135,8 @@ export default function InteractiveTextbookStudio({
     }
   };
 
-  // PDF Page 10 is Printed Page 1 in Class 1 Bangla
-  const printedPage = currentPage >= 10 ? currentPage - 9 : null;
+  // Printed page calculation
+  const printedPage = currentPage > selectedBook.offset ? currentPage - selectedBook.offset : null;
 
   // Find current active chapter based on printed page
   const activeChapter = printedPage !== null
@@ -113,7 +165,7 @@ export default function InteractiveTextbookStudio({
   };
 
   const handleNextPage = () => {
-    if (currentPage < TOTAL_PAGES) setCurrentPage((p) => p + 1);
+    if (currentPage < selectedBook.totalPages) setCurrentPage((p) => p + 1);
   };
 
   const handleSendQuery = async (queryText?: string) => {
@@ -132,14 +184,14 @@ export default function InteractiveTextbookStudio({
       }
 
       const chapterLabel = activeChapter
-        ? `পাঠ ${activeChapter.chapter_number}: ${activeChapter.chapter_title}`
-        : "আমার বাংলা বই";
+        ? `${activeChapter.chapter_type} ${activeChapter.chapter_number}: ${activeChapter.chapter_title}`
+        : selectedBook.name;
       const pageNumStr = printedPage !== null ? `পৃষ্ঠা ${printedPage}` : `পৃষ্ঠা ${currentPage}`;
 
       const messageToApi =
-        textToSend.includes("পাঠ") || textToSend.includes("বাংলা বই")
+        textToSend.includes("পাঠ") || textToSend.includes("বই") || textToSend.includes("Unit")
           ? textToSend
-          : `১ম শ্রেণির বাংলা বইয়ের "${chapterLabel}" (${pageNumStr}) প্রসঙ্গে: ${textToSend}`;
+          : `১ম শ্রেণির ${selectedBook.name} বইয়ের "${chapterLabel}" (${pageNumStr}) প্রসঙ্গে: ${textToSend}`;
 
       const res = await fetch("/api/chat", {
         method: "POST",
@@ -149,9 +201,9 @@ export default function InteractiveTextbookStudio({
           image: pageImageBase64 || undefined,
           mode: "education",
           memory: chatMessages.slice(-4),
-          selectedBookId: BOOK_ID,
+          selectedBookId: selectedBook.id,
           selectedClass: 1,
-          selectedSubject: "বাংলা",
+          selectedSubject: selectedBook.subject,
           selectedPage: printedPage !== null ? printedPage : currentPage,
           selectedChapterId: activeChapter?.chapter_id,
           selectedChapterNumber: activeChapter?.chapter_number,
@@ -194,33 +246,38 @@ export default function InteractiveTextbookStudio({
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-2 sm:p-4">
       <div className="bg-[#090d16] border border-slate-700/80 rounded-2xl w-full max-w-7xl h-[95vh] shadow-2xl flex flex-col overflow-hidden text-slate-100">
         
-        {/* Top Master Header */}
-        <div className="px-4 py-3 bg-[#0f1422] border-b border-slate-800 flex items-center justify-between shrink-0">
-          <div className="flex items-center gap-3 min-w-0">
-            <div className="w-9 h-9 rounded-xl bg-emerald-600/30 border border-emerald-500/40 flex items-center justify-center text-xl shrink-0">
-              📖
-            </div>
-            <div className="min-w-0">
-              <div className="flex items-center gap-2">
-                <h2 className="text-sm sm:text-base font-bold text-white truncate">
-                  {BOOK_NAME} — লাইভ ইন্টারেক্টিভ পাঠ্যবই ও শিক্ষক
-                </h2>
-                <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono font-bold border border-emerald-500/30 shrink-0">
-                  NCTB ২০২৬ অফিশিয়াল
-                </span>
-              </div>
-              <p className="text-[11px] text-slate-400 truncate">
-                বাম পাশে বইয়ের আসল রঙিন পাতা দেখুন • ডান পাশে এআই শিক্ষকের সাথে প্রশ্ন-উত্তর ও ফ্লো-চার্ট শিখুন
-              </p>
-            </div>
+        {/* Top Master Header: Book Tabs & Controls */}
+        <div className="px-4 py-3 bg-[#0f1422] border-b border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-3 shrink-0">
+          
+          {/* Left: Book Switcher Tabs */}
+          <div className="flex items-center gap-2 overflow-x-auto">
+            <span className="text-[11px] font-bold text-slate-400 shrink-0 hidden sm:inline">১ম শ্রেণি বই:</span>
+            {CLASS_1_BOOKS.map((book) => {
+              const isSelected = selectedBook.id === book.id;
+              return (
+                <button
+                  key={book.id}
+                  onClick={() => handleSelectBook(book)}
+                  className={`px-3 py-1.5 rounded-xl border text-xs font-bold transition-all flex items-center gap-1.5 shrink-0 ${
+                    isSelected
+                      ? "bg-emerald-600 border-emerald-400 text-white shadow-md scale-105"
+                      : "bg-slate-900 hover:bg-slate-800 border-slate-800 text-slate-300"
+                  }`}
+                >
+                  <span className="text-sm">{book.icon}</span>
+                  <span>{book.name}</span>
+                </button>
+              );
+            })}
           </div>
 
+          {/* Right: Actions (TOC Drawer & Close) */}
           <div className="flex items-center gap-2 shrink-0">
             <button
               onClick={() => setShowChaptersDrawer(!showChaptersDrawer)}
               className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 flex items-center gap-1.5 transition-colors"
             >
-              📑 সূচিপত্র ({chapters.length}টি পাঠ)
+              📑 সূচিপত্র ({chapters.length}টি অধ্যায়)
             </button>
             <button
               onClick={onClose}
@@ -250,11 +307,11 @@ export default function InteractiveTextbookStudio({
                   ◀ পূর্বের পৃষ্ঠা
                 </button>
                 <span className="text-xs font-mono font-bold text-emerald-400 bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-700">
-                  পৃষ্ঠা {currentPage} / {TOTAL_PAGES}
+                  পৃষ্ঠা {currentPage} / {selectedBook.totalPages}
                 </span>
                 <button
                   onClick={handleNextPage}
-                  disabled={currentPage >= TOTAL_PAGES}
+                  disabled={currentPage >= selectedBook.totalPages}
                   className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 disabled:opacity-30 disabled:cursor-not-allowed text-xs font-bold text-white transition-colors"
                   title="পরবর্তী পৃষ্ঠা"
                 >
@@ -288,7 +345,7 @@ export default function InteractiveTextbookStudio({
             {activeChapter && (
               <div className="px-4 py-1.5 bg-emerald-950/40 border-b border-emerald-500/30 flex items-center justify-between text-xs text-emerald-300">
                 <span className="font-semibold truncate">
-                  🎯 পাঠ {activeChapter.chapter_number}: {activeChapter.chapter_title} ({activeChapter.chapter_type})
+                  🎯 {activeChapter.chapter_type} {activeChapter.chapter_number}: {activeChapter.chapter_title}
                 </span>
                 <span className="text-[10px] text-emerald-400/80 font-mono shrink-0">
                   পৃষ্ঠা {activeChapter.start_page}–{activeChapter.end_page}
@@ -303,12 +360,11 @@ export default function InteractiveTextbookStudio({
                 style={{ transform: `scale(${zoomLevel / 100})` }}
               >
                 <img
-                  src={`/textbooks/class-1-bangla/page_${currentPage}.png`}
-                  alt={`পৃষ্ঠা ${currentPage} - ${BOOK_NAME}`}
+                  src={`/textbooks/${selectedBook.folder}/page_${currentPage}.png`}
+                  alt={`পৃষ্ঠা ${currentPage} - ${selectedBook.name}`}
                   className="max-h-[65vh] w-auto object-contain block select-none pointer-events-auto"
                   loading="eager"
                   onError={(e) => {
-                    // Fallback placeholder if image not loaded
                     (e.target as HTMLElement).style.display = "none";
                   }}
                 />
@@ -320,7 +376,7 @@ export default function InteractiveTextbookStudio({
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider pl-2 shrink-0">
                 পৃষ্ঠা তালিকা:
               </span>
-              {Array.from({ length: TOTAL_PAGES }, (_, i) => i + 1).map((pgNum) => {
+              {Array.from({ length: selectedBook.totalPages }, (_, i) => i + 1).map((pgNum) => {
                 const isSelected = pgNum === currentPage;
                 return (
                   <button
@@ -348,7 +404,7 @@ export default function InteractiveTextbookStudio({
               <div className="flex items-center gap-2 min-w-0">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
                 <span className="text-xs font-bold text-white truncate">
-                  👨‍🏫 এআই গৃহশিক্ষক — পৃষ্ঠা {currentPage} {printedPage !== null ? `(বইয়ের মূল পৃষ্ঠা ${printedPage})` : ""}
+                  👨‍🏫 এআই শিক্ষক — {selectedBook.name} • পৃষ্ঠা {currentPage} {printedPage !== null ? `(মূল পৃষ্ঠা ${printedPage})` : ""}
                 </span>
               </div>
               <button
@@ -360,7 +416,7 @@ export default function InteractiveTextbookStudio({
                 }`}
                 title="পৃষ্ঠাটির আসল ছবি সরাসরি এআইকে পাঠানো নিয়ন্ত্রণ করুন"
               >
-                <span>{sendImageVision ? "👁️ ছবি দেখে পাঠদান (Vision On)" : "📷 ছবি পাঠানো বন্ধ"}</span>
+                <span>{sendImageVision ? "👁️ Vision Active" : "📷 Vision Off"}</span>
               </button>
             </div>
 
@@ -379,12 +435,12 @@ export default function InteractiveTextbookStudio({
               <button
                 onClick={() =>
                   handleSendQuery(
-                    `এই পৃষ্ঠার মূল গল্প বা ছড়াটি সুন্দর ও সুর করে পড়িয়ে বুঝিয়ে দিন।`
+                    `এই পৃষ্ঠার মূল বিষয়বস্তু বা গল্প/ছড়া/অংকটি সুন্দর করে বুঝিয়ে সমাধান করে দিন।`
                   )
                 }
                 className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-emerald-950/80 hover:border-emerald-500 border border-slate-700 text-slate-200 text-[11px] font-medium shrink-0 transition-colors flex items-center gap-1"
               >
-                <span>📖 গল্প/ছড়া পড়াও</span>
+                <span>📖 বিষয়বস্তু পড়াও</span>
               </button>
               <button
                 onClick={() =>
@@ -413,14 +469,14 @@ export default function InteractiveTextbookStudio({
               {chatMessages.length === 0 ? (
                 <div className="h-full flex flex-col items-center justify-center text-center p-6 text-slate-400 space-y-3">
                   <div className="w-12 h-12 rounded-2xl bg-emerald-600/20 border border-emerald-500/30 flex items-center justify-center text-2xl">
-                    🌱
+                    {selectedBook.icon}
                   </div>
                   <div>
                     <h3 className="text-sm font-bold text-white mb-1">
-                      পৃষ্ঠা {currentPage} এ আপনাকে স্বাগতম!
+                      {selectedBook.name} — পৃষ্ঠা {currentPage} এ স্বাগতম!
                     </h3>
                     <p className="text-xs text-slate-400 max-w-xs leading-relaxed">
-                      বামের পাতায় চোখ রাখুন এবং নিচের যেকোনো বোতাম চেপে বা মেসেজ পাঠিয়ে এআই শিক্ষকের কাছ থেকে পড়া বুঝে নিন।
+                      বামের আসল পাতায় চোখ রাখুন এবং নিচের বোতাম চেপে বা মেসেজ পাঠিয়ে এআই শিক্ষকের কাছ থেকে পড়া বুঝে নিন।
                     </p>
                   </div>
                 </div>
@@ -450,7 +506,7 @@ export default function InteractiveTextbookStudio({
               {isSending && (
                 <div className="flex items-center gap-2 text-xs text-emerald-400 py-2">
                   <div className="w-4 h-4 border-2 border-emerald-400/30 border-t-emerald-400 rounded-full animate-spin" />
-                  <span>শিক্ষক পৃষ্ঠা {currentPage} এর তথ্য বিশ্লেষণ করে উত্তর প্রস্তুত করছেন...</span>
+                  <span>শিক্ষক {selectedBook.name} পৃষ্ঠা {currentPage} এর তথ্য ও ছবি বিশ্লেষণ করে উত্তর তৈরি করছেন...</span>
                 </div>
               )}
               <div ref={chatEndRef} />
@@ -487,7 +543,7 @@ export default function InteractiveTextbookStudio({
           {showChaptersDrawer && (
             <div className="absolute inset-y-0 right-0 w-80 bg-[#0e1422] border-l border-slate-700 z-30 shadow-2xl flex flex-col p-4 overflow-hidden">
               <div className="flex items-center justify-between pb-3 border-b border-slate-800 mb-2 shrink-0">
-                <h3 className="text-xs font-bold text-white">📑 সকল পাঠের তালিকা ({chapters.length}টি)</h3>
+                <h3 className="text-xs font-bold text-white">📑 {selectedBook.name} ({chapters.length}টি অধ্যায়)</h3>
                 <button
                   onClick={() => setShowChaptersDrawer(false)}
                   className="text-slate-400 hover:text-white text-xs font-bold"
@@ -497,7 +553,7 @@ export default function InteractiveTextbookStudio({
               </div>
               <div className="flex-1 overflow-y-auto space-y-1.5 pr-1">
                 {chapters.map((ch) => {
-                  const targetPdfPage = ch.start_page + 9;
+                  const targetPdfPage = ch.start_page + selectedBook.offset;
                   const isActive =
                     printedPage !== null
                       ? printedPage >= ch.start_page && printedPage <= ch.end_page
@@ -506,7 +562,7 @@ export default function InteractiveTextbookStudio({
                     <button
                       key={ch.chapter_id}
                       onClick={() => {
-                        setCurrentPage(targetPdfPage);
+                        setCurrentPage(targetPdfPage <= selectedBook.totalPages ? targetPdfPage : ch.start_page);
                         setShowChaptersDrawer(false);
                       }}
                       className={`w-full p-2.5 rounded-xl border text-left text-xs transition-colors flex items-center justify-between ${
@@ -517,9 +573,9 @@ export default function InteractiveTextbookStudio({
                     >
                       <div className="min-w-0 pr-2">
                         <div className="font-semibold truncate">
-                          পাঠ {ch.chapter_number}: {ch.chapter_title}
+                          {ch.chapter_type} {ch.chapter_number}: {ch.chapter_title}
                         </div>
-                        <div className="text-[10px] text-slate-400 mt-0.5">{ch.chapter_type}</div>
+                        <div className="text-[10px] text-slate-400 mt-0.5 line-clamp-1">{ch.summary}</div>
                       </div>
                       <span className="text-[10px] px-2 py-0.5 rounded bg-slate-800 font-mono text-emerald-400 shrink-0">
                         পৃ. {ch.start_page}
