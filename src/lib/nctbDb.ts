@@ -239,29 +239,73 @@ export function filterQuestions(filters: {
 }
 
 /**
- * Search books, chapters, and questions by keyword
+ * Search books, chapters, and questions by keyword & token matching
  */
 export function searchDataset(query: string) {
   loadDataset();
   const q = (query || "").trim().toLowerCase();
-  if (!q) return { query: "", matched_books: [], matched_chapters: [], matched_questions: [] };
+  if (!q) return { query: "", total_matches: 0, matched_books: [], matched_chapters: [], matched_questions: [] };
 
-  const matched_books = (cachedBooks || []).filter(
-    b => b.book_name.toLowerCase().includes(q) || b.subject.toLowerCase().includes(q) || b.class_name.toLowerCase().includes(q)
-  );
+  const stopWords = new Set([
+    "কি", "কী", "কি কি", "আছে", "গল্পে", "গল্প", "দাও", "আমাকে", "সব", "বল", "বলো", "পাঠ", "অধ্যায়", "অধ্যায়", "এর", "নিয়ে", "সম্পর্কে", "সম্পর্কেও", "বই", "বইয়ের", "পৃষ্ঠা", "অনুশীলনী", "প্রশ্ন", "the", "in", "what", "is", "of", "and", "tell", "me", "show", "how", "many"
+  ]);
 
-  const matched_chapters: ChapterRecord[] = [];
+  // Extract meaningful tokens
+  const tokens = q
+    .split(/[\s,?!.:;()"\'-]+/)
+    .map(t => t.trim().toLowerCase())
+    .filter(t => t.length > 1 && !stopWords.has(t));
+
+  const matchScore = (text: string): number => {
+    if (!text) return 0;
+    const lower = text.toLowerCase();
+    if (lower.includes(q)) return 100;
+    let score = 0;
+    for (const tok of tokens) {
+      if (lower.includes(tok)) score += 10;
+      // Also check sub-strings like 'দুখু' in 'দুখুর' or 'সুখু' in 'সুখ'
+      if (tok.startsWith("সুখ") && lower.includes("সুখ")) score += 8;
+      if (tok.startsWith("দুখ") && lower.includes("দুখ")) score += 8;
+    }
+    return score;
+  };
+
+  const matched_books = (cachedBooks || [])
+    .map(b => ({ item: b, score: Math.max(matchScore(b.book_name), matchScore(b.subject), matchScore(b.class_name)) }))
+    .filter(x => x.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .map(x => x.item);
+
+  const matched_chapters_scored: Array<{ item: ChapterRecord; score: number }> = [];
   for (const chapters of cachedChapters.values()) {
     for (const c of chapters) {
-      if (c.chapter_title.toLowerCase().includes(q) || c.summary.toLowerCase().includes(q) || (c.author && c.author.toLowerCase().includes(q))) {
-        matched_chapters.push(c);
+      const score = Math.max(
+        matchScore(c.chapter_title) * 2,
+        matchScore(c.summary),
+        c.author ? matchScore(c.author) * 2 : 0
+      );
+      if (score > 0) {
+        matched_chapters_scored.push({ item: c, score });
       }
     }
   }
+  matched_chapters_scored.sort((a, b) => b.score - a.score);
+  const matched_chapters = matched_chapters_scored.map(x => x.item);
 
-  const matched_questions = (allQuestionsList || []).filter(
-    qItem => qItem.original_text.toLowerCase().includes(q) || qItem.normalized_text.toLowerCase().includes(q) || qItem.instruction.toLowerCase().includes(q)
-  );
+  const matched_questions_scored: Array<{ item: QuestionRecord; score: number }> = [];
+  for (const qItem of (allQuestionsList || [])) {
+    const score = Math.max(
+      matchScore(qItem.chapter_title) * 2,
+      matchScore(qItem.original_text),
+      matchScore(qItem.normalized_text),
+      matchScore(qItem.instruction)
+    );
+    if (score > 0) {
+      matched_questions_scored.push({ item: qItem, score });
+    }
+  }
+  matched_questions_scored.sort((a, b) => b.score - a.score);
+  const matched_questions = matched_questions_scored.map(x => x.item);
 
   return {
     query,

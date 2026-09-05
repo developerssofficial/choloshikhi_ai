@@ -39,7 +39,9 @@
         "page": 13,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 4,
+    "book_name": "হিন্দুধর্ম শিক্ষা"
   },
   {
     "chapter_id": "2026-primary-class-4-hindu-ch-2",
@@ -85,7 +87,9 @@
         "page": 33,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 4,
+    "book_name": "হিন্দুধর্ম শিক্ষা"
   },
   {
     "chapter_id": "2026-primary-class-4-hindu-ch-3",
@@ -135,7 +139,9 @@
         "page": 55,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 4,
+    "book_name": "হিন্দুধর্ম শিক্ষা"
   },
   {
     "chapter_id": "2026-primary-class-4-hindu-ch-4",
@@ -189,7 +195,9 @@
         "page": 86,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 4,
+    "book_name": "হিন্দুধর্ম শিক্ষা"
   },
   {
     "chapter_id": "2026-primary-class-4-hindu-ch-5",
@@ -235,6 +243,8 @@
         "page": 103,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 4,
+    "book_name": "হিন্দুধর্ম শিক্ষা"
   }
 ]

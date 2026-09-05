@@ -67,7 +67,9 @@
         "page": 20,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 3,
+    "book_name": "English for Today"
   },
   {
     "chapter_id": "2026-primary-class-3-english-ch-2",
@@ -125,7 +127,9 @@
         "page": 33,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 3,
+    "book_name": "English for Today"
   },
   {
     "chapter_id": "2026-primary-class-3-english-ch-3",
@@ -183,7 +187,9 @@
         "page": 47,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 3,
+    "book_name": "English for Today"
   },
   {
     "chapter_id": "2026-primary-class-3-english-ch-4",
@@ -241,7 +247,9 @@
         "page": 64,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 3,
+    "book_name": "English for Today"
   },
   {
     "chapter_id": "2026-primary-class-3-english-ch-5",
@@ -295,7 +303,9 @@
         "page": 82,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 3,
+    "book_name": "English for Today"
   },
   {
     "chapter_id": "2026-primary-class-3-english-ch-6",
@@ -341,7 +351,9 @@
         "page": 96,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 3,
+    "book_name": "English for Today"
   },
   {
     "chapter_id": "2026-primary-class-3-english-ch-7",
@@ -391,7 +403,9 @@
         "page": 108,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 3,
+    "book_name": "English for Today"
   },
   {
     "chapter_id": "2026-primary-class-3-english-ch-8",
@@ -433,6 +447,8 @@
         "page": 122,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 3,
+    "book_name": "English for Today"
   }
 ]

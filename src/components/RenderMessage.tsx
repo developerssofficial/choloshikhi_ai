@@ -25,6 +25,95 @@ function escapeHtml(str: string): string {
     .replace(/'/g, "&#039;");
 }
 
+const FLOWCHART_PALETTE = [
+  { bg: "bg-[#3e3f44]", border: "border-[#585961]/80", shadow: "shadow-black/40" }, // 1. Dark Charcoal
+  { bg: "bg-[#353673]", border: "border-[#4c4e9c]/80", shadow: "shadow-indigo-950/40" }, // 2. Indigo
+  { bg: "bg-[#45377d]", border: "border-[#5d4ea8]/80", shadow: "shadow-purple-950/40" }, // 3. Royal Purple
+  { bg: "bg-[#0e5241]", border: "border-[#18755d]/80", shadow: "shadow-emerald-950/40" }, // 4. Emerald Teal
+  { bg: "bg-[#0d5947]", border: "border-[#137860]/80", shadow: "shadow-teal-950/40" }, // 5. Forest Teal
+  { bg: "bg-[#7a3219]", border: "border-[#9f4526]/80", shadow: "shadow-orange-950/40" }, // 6. Rust Terracotta
+  { bg: "bg-[#78350f]", border: "border-[#92400e]/80", shadow: "shadow-amber-950/40" }, // 7. Warm Bronze
+];
+
+function renderFlowchartCards(raw: string): string | null {
+  const cleaned = raw.trim();
+  let items: string[] = [];
+
+  // Check if it's separated by arrow
+  if (cleaned.includes("➔") || cleaned.includes("->") || cleaned.includes("-->")) {
+    items = cleaned
+      .split(/(?:➔|->|-->)/g)
+      .map((s) => s.trim())
+      .filter(Boolean);
+  } else {
+    items = cleaned
+      .split(/\n+/)
+      .map((s) => s.trim())
+      .filter((s) => s.length > 0 && !s.startsWith("#") && !s.startsWith("//"));
+  }
+
+  if (items.length < 2) return null;
+
+  const nodes: Array<{ title: string; desc: string }> = [];
+
+  for (const item of items) {
+    let clean = item.replace(/^\[+|\]+$/g, "").trim();
+    if (!clean) continue;
+
+    let title = clean;
+    let desc = "";
+
+    if (clean.includes("|")) {
+      const parts = clean.split("|");
+      title = parts[0].trim();
+      desc = parts.slice(1).join("|").trim();
+    } else if (clean.includes(" : ") || clean.includes(" - ")) {
+      const parts = clean.split(/\s*(?::|-)\s*/);
+      title = parts[0].trim();
+      desc = parts.slice(1).join(" - ").trim();
+    }
+
+    nodes.push({ title, desc });
+  }
+
+  if (nodes.length < 2) return null;
+
+  let html = `<div class="my-4 py-3 px-2 flex flex-col items-center justify-center w-full max-w-sm sm:max-w-md mx-auto">`;
+
+  nodes.forEach((node, idx) => {
+    const color = FLOWCHART_PALETTE[idx % FLOWCHART_PALETTE.length];
+    
+    // Add connector arrow before card (except first)
+    if (idx > 0) {
+      html += `
+        <div class="flex items-center justify-center py-1.5 text-white/50">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </div>
+      `;
+    }
+
+    html += `
+      <div class="w-full ${color.bg} ${color.border} border rounded-2xl py-3 px-4 shadow-lg ${color.shadow} transition-all duration-200 hover:scale-[1.02] flex flex-col items-center justify-center text-center">
+        <div class="font-bold text-[14.5px] leading-tight text-white tracking-wide drop-shadow-sm">
+          ${escapeHtml(node.title)}
+        </div>
+        ${
+          node.desc
+            ? `<div class="text-[12px] leading-relaxed text-white/80 font-normal mt-1 text-center">
+                ${escapeHtml(node.desc)}
+              </div>`
+            : ""
+        }
+      </div>
+    `;
+  });
+
+  html += `</div>`;
+  return html;
+}
+
 function parseMarkdownAndMath(rawText: string): string {
   if (!rawText) return "";
 
@@ -38,12 +127,21 @@ function parseMarkdownAndMath(rawText: string): string {
 
   // 1. Code blocks ```lang\ncode\n```
   text = text.replace(/```([a-zA-Z0-9_\-#+]*)\n([\s\S]*?)```/g, (_, lang, code) => {
-    const cleanLang = lang?.trim() || "code";
+    const cleanLang = (lang || "").trim().toLowerCase();
+
+    // Check if flowchart or roadmap format
+    if (cleanLang === "flowchart" || cleanLang === "roadmap" || code.includes("➔") || code.includes("[১.")) {
+      const fcHtml = renderFlowchartCards(code);
+      if (fcHtml) {
+        return pushToken(fcHtml);
+      }
+    }
+
     const escapedCode = escapeHtml(code.replace(/\n$/, ""));
     const blockHtml = `
       <div class="my-3 rounded-xl border border-white/[0.08] bg-[#0c0c14] overflow-hidden shadow-lg group/code">
         <div class="flex items-center justify-between px-3.5 py-1.5 bg-white/[0.03] border-b border-white/[0.05] text-[11px] font-mono text-slate-400">
-          <span class="uppercase font-semibold tracking-wider text-violet-400/90">${escapeHtml(cleanLang)}</span>
+          <span class="uppercase font-semibold tracking-wider text-violet-400/90">${escapeHtml(cleanLang || "code")}</span>
           <button
             onclick="navigator.clipboard.writeText(decodeURIComponent('${encodeURIComponent(code.replace(/\n$/, ""))}')); this.innerText='কপি হয়েছে!'; setTimeout(() => this.innerText='কপি করুন', 2000)"
             class="text-[10px] text-slate-400 hover:text-white px-2 py-0.5 rounded bg-white/[0.04] hover:bg-white/[0.08] transition-colors"

@@ -59,7 +59,9 @@
         "page": 39,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 2,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-2-math-ch-2",
@@ -117,7 +119,9 @@
         "page": 72,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 2,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-2-math-ch-3",
@@ -163,7 +167,9 @@
         "page": 101,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 2,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-2-math-ch-4",
@@ -205,7 +211,9 @@
         "page": 106,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 2,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-2-math-ch-5",
@@ -255,7 +263,9 @@
         "page": 120,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 2,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-2-math-ch-6",
@@ -301,7 +311,9 @@
         "page": 124,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 2,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-2-math-ch-7",
@@ -347,6 +359,8 @@
         "page": 130,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 2,
+    "book_name": "প্রাথমিক গণিত"
   }
 ]

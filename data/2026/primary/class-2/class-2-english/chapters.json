@@ -43,7 +43,9 @@
         "page": 5,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 2,
+    "book_name": "English for Today"
   },
   {
     "chapter_id": "2026-primary-class-2-english-ch-2",
@@ -129,7 +131,9 @@
         "page": 30,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 2,
+    "book_name": "English for Today"
   },
   {
     "chapter_id": "2026-primary-class-2-english-ch-3",
@@ -175,7 +179,9 @@
         "page": 35,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 2,
+    "book_name": "English for Today"
   },
   {
     "chapter_id": "2026-primary-class-2-english-ch-4",
@@ -229,7 +235,9 @@
         "page": 41,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 2,
+    "book_name": "English for Today"
   },
   {
     "chapter_id": "2026-primary-class-2-english-ch-5",
@@ -287,7 +295,9 @@
         "page": 54,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 2,
+    "book_name": "English for Today"
   },
   {
     "chapter_id": "2026-primary-class-2-english-ch-6",
@@ -337,7 +347,9 @@
         "page": 62,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 2,
+    "book_name": "English for Today"
   },
   {
     "chapter_id": "2026-primary-class-2-english-ch-7",
@@ -395,7 +407,9 @@
         "page": 74,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 2,
+    "book_name": "English for Today"
   },
   {
     "chapter_id": "2026-primary-class-2-english-ch-8",
@@ -449,7 +463,9 @@
         "page": 83,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 2,
+    "book_name": "English for Today"
   },
   {
     "chapter_id": "2026-primary-class-2-english-ch-9",
@@ -499,7 +515,9 @@
         "page": 92,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 2,
+    "book_name": "English for Today"
   },
   {
     "chapter_id": "2026-primary-class-2-english-ch-10",
@@ -541,6 +559,8 @@
         "page": 98,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 2,
+    "book_name": "English for Today"
   }
 ]

@@ -10,6 +10,7 @@ import AppSidebar from "@/components/AppSidebar";
 import EmojiPicker from "@/components/EmojiPicker";
 import ContextInspectorModal from "@/components/ContextInspectorModal";
 import TeacherCurriculumStudio, { SelectedTeacherLesson } from "@/components/TeacherCurriculumStudio";
+import InteractiveTextbookStudio from "@/components/InteractiveTextbookStudio";
 import type { TaskGraph, TaskClarification, TaskNodeStatus } from "@/lib/taskTypes";
 
 interface Message {
@@ -111,6 +112,7 @@ export default function ChatInterface({ initialMode = "normal" }: { initialMode?
   const [showPromptModifiers, setShowPromptModifiers] = useState(false);
   const [showContextInspector, setShowContextInspector] = useState(false);
   const [showCurriculumStudio, setShowCurriculumStudio] = useState(false);
+  const [showInteractiveTextbookStudio, setShowInteractiveTextbookStudio] = useState(false);
   const [selectedTeacherLesson, setSelectedTeacherLesson] = useState<SelectedTeacherLesson | null>(null);
   const [isListening, setIsListening] = useState(false);
   const [speechSupported, setSpeechSupported] = useState(false);
@@ -560,26 +562,39 @@ export default function ChatInterface({ initialMode = "normal" }: { initialMode?
           <div className="flex items-center gap-2">
             {/* Class & Subject Selector Button (Exclusively in Teacher Mode) */}
             {initialMode === "education" ? (
-              <button
-                onClick={() => setShowCurriculumStudio(true)}
-                className="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-xs font-semibold text-emerald-300 hover:text-white transition-all shadow-sm group hover:scale-[1.02]"
-                title="শ্রেণি, বিষয় ও সূচিপত্র/পাঠ নির্বাচন করুন"
-              >
-                <span className="text-base group-hover:rotate-12 transition-transform">
-                  {selectedTeacherLesson ? selectedTeacherLesson.icon : "📚"}
-                </span>
-                <span className="hidden sm:inline">
-                  {selectedTeacherLesson
-                    ? `${selectedTeacherLesson.className.split(" ")[0]} • ${selectedTeacherLesson.subject}${
-                        selectedTeacherLesson.chapterNumber ? ` (পাঠ ${selectedTeacherLesson.chapterNumber})` : ""
-                      }`
-                    : "পাঠ ও সূচিপত্র স্টুডিও"}
-                </span>
-                <span className="sm:hidden">
-                  {selectedTeacherLesson ? selectedTeacherLesson.subject : "পাঠ সূচি"}
-                </span>
-                <span className="text-[10px] text-emerald-400">▼</span>
-              </button>
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <button
+                  onClick={() => setShowCurriculumStudio(true)}
+                  className="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-xs font-semibold text-emerald-300 hover:text-white transition-all shadow-sm group hover:scale-[1.02]"
+                  title="শ্রেণি, বিষয় ও সূচিপত্র/পাঠ নির্বাচন করুন"
+                >
+                  <span className="text-base group-hover:rotate-12 transition-transform">
+                    {selectedTeacherLesson ? selectedTeacherLesson.icon : "📚"}
+                  </span>
+                  <span className="hidden sm:inline">
+                    {selectedTeacherLesson
+                      ? `${selectedTeacherLesson.className.split(" ")[0]} • ${selectedTeacherLesson.subject}${
+                          selectedTeacherLesson.chapterNumber ? ` (পাঠ ${selectedTeacherLesson.chapterNumber})` : ""
+                        }`
+                      : "পাঠ ও সূচিপত্র স্টুডিও"}
+                  </span>
+                  <span className="sm:hidden">
+                    {selectedTeacherLesson ? selectedTeacherLesson.subject : "পাঠ সূচি"}
+                  </span>
+                  <span className="text-[10px] text-emerald-400">▼</span>
+                </button>
+
+                {/* Live Interactive Textbook Reader Button */}
+                <button
+                  onClick={() => setShowInteractiveTextbookStudio(true)}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-600/25 hover:bg-emerald-600/40 border border-emerald-400/60 text-xs font-bold text-white transition-all shadow-md hover:scale-[1.02] animate-pulse"
+                  title="বইয়ের আসল পেজ ভিউয়ার ও এআই শিক্ষক স্প্লিট-স্ক্রিন"
+                >
+                  <span>📖</span>
+                  <span className="hidden md:inline">লাইভ পাঠ্যবই রিডার</span>
+                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500 text-slate-950 font-black font-mono">LIVE</span>
+                </button>
+              </div>
             ) : (
               <div className="w-4 md:hidden" />
             )}
@@ -1080,17 +1095,26 @@ export default function ChatInterface({ initialMode = "normal" }: { initialMode?
 
       {/* Teacher Curriculum Studio Modal (Class -> Subject -> Chapter & Table of Contents) */}
       {initialMode === "education" && (
-        <TeacherCurriculumStudio
-          isOpen={showCurriculumStudio}
-          onClose={() => setShowCurriculumStudio(false)}
-          currentSelected={selectedTeacherLesson}
-          onSelectLesson={(lesson, autoPrompt) => {
-            setSelectedTeacherLesson(lesson);
-            if (autoPrompt) {
-              handleSend(autoPrompt);
-            }
-          }}
-        />
+        <>
+          <TeacherCurriculumStudio
+            isOpen={showCurriculumStudio}
+            onClose={() => setShowCurriculumStudio(false)}
+            currentSelected={selectedTeacherLesson}
+            onSelectLesson={(lesson, autoPrompt) => {
+              setSelectedTeacherLesson(lesson);
+              if (autoPrompt) {
+                handleSend(autoPrompt);
+              }
+            }}
+          />
+
+          {/* Interactive Textbook Split-Screen Studio Modal */}
+          <InteractiveTextbookStudio
+            isOpen={showInteractiveTextbookStudio}
+            onClose={() => setShowInteractiveTextbookStudio(false)}
+            initialPage={selectedTeacherLesson?.startPage || 1}
+          />
+        </>
       )}
     </div>
   );

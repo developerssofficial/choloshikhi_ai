@@ -63,7 +63,9 @@
         "page": 27,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 4,
+    "book_name": "ইসলাম ও নৈতিক শিক্ষা"
   },
   {
     "chapter_id": "2026-primary-class-4-islam-ch-2",
@@ -121,7 +123,9 @@
         "page": 46,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 4,
+    "book_name": "ইসলাম ও নৈতিক শিক্ষা"
   },
   {
     "chapter_id": "2026-primary-class-4-islam-ch-3",
@@ -161,7 +165,7 @@
       "অধ্যায় ৩"
     ],
     "summary": "চতুর্থ শ্রেণি এর ইসলাম ও নৈতিক শিক্ষা বিষয়ের অধ্যায় ৩: নৈতিক ও মানবিক গুণাবলি অর্জন (পৃষ্ঠা 47–60)।",
-    "total_questions": 4,
+    "total_questions": 2,
     "illustrations": [
       {
         "page": 47,
@@ -175,7 +179,9 @@
         "page": 60,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 4,
+    "book_name": "ইসলাম ও নৈতিক শিক্ষা"
   },
   {
     "chapter_id": "2026-primary-class-4-islam-ch-4",
@@ -225,7 +231,9 @@
         "page": 68,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 4,
+    "book_name": "ইসলাম ও নৈতিক শিক্ষা"
   },
   {
     "chapter_id": "2026-primary-class-4-islam-ch-5",
@@ -271,6 +279,8 @@
         "page": 76,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 4,
+    "book_name": "ইসলাম ও নৈতিক শিক্ষা"
   }
 ]

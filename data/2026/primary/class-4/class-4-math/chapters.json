@@ -43,7 +43,9 @@
         "page": 22,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 4,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-4-math-ch-2",
@@ -89,7 +91,9 @@
         "page": 40,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 4,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-4-math-ch-3",
@@ -135,7 +139,9 @@
         "page": 48,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 4,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-4-math-ch-4",
@@ -181,7 +187,9 @@
         "page": 66,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 4,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-4-math-ch-5",
@@ -227,7 +235,9 @@
         "page": 80,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 4,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-4-math-ch-6",
@@ -259,7 +269,7 @@
       "অধ্যায় ৬"
     ],
     "summary": "চতুর্থ শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ৬: গুণিতক ও গুণনীয়ক (পৃষ্ঠা 81–96)।",
-    "total_questions": 4,
+    "total_questions": 15,
     "illustrations": [
       {
         "page": 81,
@@ -273,7 +283,9 @@
         "page": 96,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 4,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-4-math-ch-7",
@@ -319,7 +331,9 @@
         "page": 110,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 4,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-4-math-ch-8",
@@ -351,7 +365,7 @@
       "অধ্যায় ৮"
     ],
     "summary": "চতুর্থ শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ৮: দশমিক ভগ্নাংশ (পৃষ্ঠা 111–120)।",
-    "total_questions": 4,
+    "total_questions": 14,
     "illustrations": [
       {
         "page": 111,
@@ -365,7 +379,9 @@
         "page": 120,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 4,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-4-math-ch-9",
@@ -411,7 +427,9 @@
         "page": 142,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 4,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-4-math-ch-10",
@@ -457,7 +475,9 @@
         "page": 168,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 4,
+    "book_name": "প্রাথমিক গণিত"
   },
   {
     "chapter_id": "2026-primary-class-4-math-ch-11",
@@ -503,6 +523,8 @@
         "page": 176,
         "description": "অধ্যায়ের মূল্যায়ন, অনুশীলনী ছক ও সমাপ্তি চিত্র।"
       }
-    ]
+    ],
+    "class_number": 4,
+    "book_name": "প্রাথমিক গণিত"
   }
 ]
