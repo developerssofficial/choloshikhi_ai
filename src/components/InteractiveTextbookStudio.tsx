@@ -63,6 +63,26 @@ export default function InteractiveTextbookStudio({
     }
   }, [isOpen]);
 
+  const [sendImageVision, setSendImageVision] = useState<boolean>(true);
+
+  // Helper to load current page image as base64 for direct Vision AI processing
+  const getPageImageBase64 = async (pageNumber: number): Promise<string | null> => {
+    try {
+      const res = await fetch(`/textbooks/class-1-bangla/page_${pageNumber}.png`);
+      if (!res.ok) return null;
+      const blob = await res.blob();
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result as string);
+        reader.onerror = () => resolve(null);
+        reader.readAsDataURL(blob);
+      });
+    } catch (err) {
+      console.error("Failed to load page image as base64:", err);
+      return null;
+    }
+  };
+
   // PDF Page 10 is Printed Page 1 in Class 1 Bangla
   const printedPage = currentPage >= 10 ? currentPage - 9 : null;
 
@@ -106,6 +126,11 @@ export default function InteractiveTextbookStudio({
     setIsSending(true);
 
     try {
+      let pageImageBase64: string | null = null;
+      if (sendImageVision) {
+        pageImageBase64 = await getPageImageBase64(currentPage);
+      }
+
       const chapterLabel = activeChapter
         ? `পাঠ ${activeChapter.chapter_number}: ${activeChapter.chapter_title}`
         : "আমার বাংলা বই";
@@ -121,6 +146,7 @@ export default function InteractiveTextbookStudio({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           message: messageToApi,
+          image: pageImageBase64 || undefined,
           mode: "education",
           memory: chatMessages.slice(-4),
           selectedBookId: BOOK_ID,
@@ -317,17 +343,25 @@ export default function InteractiveTextbookStudio({
           {/* RIGHT PANEL: AI Tutor Chat & Page Learning (45% width) */}
           <div className="w-full md:w-[45%] flex flex-col bg-[#090d16] overflow-hidden">
             
-            {/* AI Tutor Page Lock Header */}
+            {/* AI Tutor Page Lock Header & Vision Status */}
             <div className="px-4 py-2.5 bg-[#101625] border-b border-slate-800 flex items-center justify-between shrink-0">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 min-w-0">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-                <span className="text-xs font-bold text-white">
-                  👨‍🏫 এআই গৃহশিক্ষক — পৃষ্ঠা {currentPage} লকড
+                <span className="text-xs font-bold text-white truncate">
+                  👨‍🏫 এআই গৃহশিক্ষক — পৃষ্ঠা {currentPage} {printedPage !== null ? `(বইয়ের মূল পৃষ্ঠা ${printedPage})` : ""}
                 </span>
               </div>
-              <span className="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">
-                ১০০% নির্ভুল NCTB ডাটা
-              </span>
+              <button
+                onClick={() => setSendImageVision(!sendImageVision)}
+                className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold border flex items-center gap-1.5 transition-all shrink-0 ${
+                  sendImageVision
+                    ? "bg-emerald-950/80 border-emerald-500 text-emerald-300 shadow-sm"
+                    : "bg-slate-800 border-slate-700 text-slate-400"
+                }`}
+                title="পৃষ্ঠাটির আসল ছবি সরাসরি এআইকে পাঠানো নিয়ন্ত্রণ করুন"
+              >
+                <span>{sendImageVision ? "👁️ ছবি দেখে পাঠদান (Vision On)" : "📷 ছবি পাঠানো বন্ধ"}</span>
+              </button>
             </div>
 
             {/* Quick Action Chips for This Page */}
@@ -335,7 +369,7 @@ export default function InteractiveTextbookStudio({
               <button
                 onClick={() =>
                   handleSendQuery(
-                    `১ম শ্রেণির বাংলা বইয়ের পৃষ্ঠা ${currentPage} (${activeChapter?.chapter_title || "আমার বাংলা বই"}) এর ছবিগুলোতে কী কী আঁকা আছে সহজ ভাষায় বর্ণনা করে বুঝিয়ে দিন।`
+                    `এই পৃষ্ঠার ছবিটিতে কী কী আঁকা বা লেখা আছে তা দেখে সহজ ও সুন্দর ভাষায় বুঝিয়ে দিন।`
                   )
                 }
                 className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-emerald-950/80 hover:border-emerald-500 border border-slate-700 text-slate-200 text-[11px] font-medium shrink-0 transition-colors flex items-center gap-1"
@@ -345,7 +379,7 @@ export default function InteractiveTextbookStudio({
               <button
                 onClick={() =>
                   handleSendQuery(
-                    `১ম শ্রেণির বাংলা বইয়ের পৃষ্ঠা ${currentPage} (${activeChapter?.chapter_title || "আমার বাংলা বই"}) এর মূল গল্প বা ছড়াটি সুন্দর ও সুর করে পড়িয়ে বুঝিয়ে দিন।`
+                    `এই পৃষ্ঠার মূল গল্প বা ছড়াটি সুন্দর ও সুর করে পড়িয়ে বুঝিয়ে দিন।`
                   )
                 }
                 className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-emerald-950/80 hover:border-emerald-500 border border-slate-700 text-slate-200 text-[11px] font-medium shrink-0 transition-colors flex items-center gap-1"
@@ -355,7 +389,7 @@ export default function InteractiveTextbookStudio({
               <button
                 onClick={() =>
                   handleSendQuery(
-                    `১ম শ্রেণির বাংলা বইয়ের পৃষ্ঠা ${currentPage} (${activeChapter?.chapter_title || "আমার বাংলা বই"}) এর জন্য একটি সুন্দর ভিজ্যুয়াল ফ্লো-চার্ট বানিয়ে ধাপে ধাপে বুঝিয়ে দিন।`
+                    `এই পৃষ্ঠার পাঠের জন্য একটি সুন্দর ভিজ্যুয়াল ফ্লো-চার্ট বানিয়ে ধাপে ধাপে বুঝিয়ে দিন।`
                   )
                 }
                 className="px-2.5 py-1 rounded-lg bg-emerald-900/60 hover:bg-emerald-800 border border-emerald-500 text-emerald-200 text-[11px] font-semibold shrink-0 transition-colors flex items-center gap-1"
@@ -365,7 +399,7 @@ export default function InteractiveTextbookStudio({
               <button
                 onClick={() =>
                   handleSendQuery(
-                    `১ম শ্রেণির বাংলা বইয়ের পৃষ্ঠা ${currentPage} এর বিষয়বস্তু থেকে আমাকে ১টি ছোট প্রশ্ন জিজ্ঞেস করুন তো!`
+                    `এই পৃষ্ঠার বিষয়বস্তু ও ছবি থেকে আমাকে ১টি ছোট প্রশ্ন জিজ্ঞেস করুন তো!`
                   )
                 }
                 className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-purple-950/80 hover:border-purple-500 border border-slate-700 text-purple-200 text-[11px] font-medium shrink-0 transition-colors flex items-center gap-1"
