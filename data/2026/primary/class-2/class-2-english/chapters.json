@@ -1,730 +1,406 @@
 [
   {
-    "chapter_id": "c2-english-ch1",
-    "chapter_number": "1",
-    "chapter_title": "Greetings and Introductions (Unit 1)",
+    "chapter_id": "2026-primary-class-2-english-ch-1",
+    "book_id": "2026-primary-class-2-english",
+    "chapter_number": "Unit 1",
+    "chapter_title": "Greetings, Introductions, and Farewells",
     "chapter_type": "Unit",
     "author": null,
     "start_page": 1,
-    "end_page": 3,
+    "end_page": 5,
     "sections": [
       {
-        "title": "মূল পাঠ",
+        "title": "Lesson 1: Greetings",
         "page": 1
       },
       {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "title": "Lesson 2: Introductions",
         "page": 3
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Greetings and Introductions (Unit 1)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "Self introduction and greeting friends politely.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-english-ch2",
-    "chapter_number": "2",
-    "chapter_title": "Numbers & Counting 1-20 (Unit 2)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 4,
-    "end_page": 6,
-    "sections": [
+      },
       {
-        "title": "মূল পাঠ",
+        "title": "Lesson 3: Farewells",
         "page": 4
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 6
       }
     ],
     "keywords": [
       "English for Today",
-      "Numbers & Counting 1-20 (Unit 2)",
-      "দ্বিতীয় শ্রেণি"
+      "দ্বিতীয় শ্রেণি",
+      "Greetings, Introductions, and Farewells",
+      "Unit Unit 1"
     ],
-    "summary": "Reading, writing and spelling numbers 1 to 20.",
-    "total_questions": 2
+    "summary": "দ্বিতীয় শ্রেণি এর English for Today বিষয়ের Unit Unit 1: Greetings, Introductions, and Farewells (পৃষ্ঠা 1–5)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c2-english-ch3",
-    "chapter_number": "3",
-    "chapter_title": "Alphabet Revision & Phonics (Unit 3)",
+    "chapter_id": "2026-primary-class-2-english-ch-2",
+    "book_id": "2026-primary-class-2-english",
+    "chapter_number": "Unit 2",
+    "chapter_title": "The Alphabet, Words and Numbers",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 7,
-    "end_page": 9,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 7
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 9
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Alphabet Revision & Phonics (Unit 3)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "Capital and small letters revision with sound drills.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-english-ch4",
-    "chapter_number": "4",
-    "chapter_title": "Classroom Objects & Instructions (Unit 4)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 10,
-    "end_page": 12,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 10
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 12
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Classroom Objects & Instructions (Unit 4)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "Board, duster, bench, pen and classroom rules.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-english-ch5",
-    "chapter_number": "5",
-    "chapter_title": "Shapes and Colors (Unit 5)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 13,
-    "end_page": 15,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 13
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 15
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Shapes and Colors (Unit 5)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "Triangle, rectangle, oval and primary colors.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-english-ch6",
-    "chapter_number": "6",
-    "chapter_title": "Days of the Week (Unit 6)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 16,
-    "end_page": 18,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 16
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 18
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Days of the Week (Unit 6)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "Seven days of the week in Bengali and English.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-english-ch7",
-    "chapter_number": "7",
-    "chapter_title": "Months of the Year (Unit 7)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 19,
-    "end_page": 21,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 19
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 21
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Months of the Year (Unit 7)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "Twelve months from January to December.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-english-ch8",
-    "chapter_number": "8",
-    "chapter_title": "My Family & Home (Unit 8)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 22,
-    "end_page": 24,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 22
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 24
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "My Family & Home (Unit 8)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "Describing family members, occupations and household.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-english-ch9",
-    "chapter_number": "9",
-    "chapter_title": "Animals & Their Homes (Unit 9)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 25,
-    "end_page": 27,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 25
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 27
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Animals & Their Homes (Unit 9)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "Where do animals live? Nest, shed, pond, forest.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-english-ch10",
-    "chapter_number": "10",
-    "chapter_title": "Fruits and Vegetables (Unit 10)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 28,
+    "start_page": 6,
     "end_page": 30,
     "sections": [
       {
-        "title": "মূল পাঠ",
+        "title": "Lesson 1: Words with aA - eE",
+        "page": 6
+      },
+      {
+        "title": "Lesson 2: Numbers 1-5",
+        "page": 9
+      },
+      {
+        "title": "Lesson 3: Words for f F—j J",
+        "page": 11
+      },
+      {
+        "title": "Lesson 4: Numbers 6-10",
+        "page": 14
+      },
+      {
+        "title": "Lesson 5: Rhyme- Little seed",
+        "page": 16
+      },
+      {
+        "title": "Lesson 6: Words for k K—o O",
+        "page": 17
+      },
+      {
+        "title": "Lesson 7: Numbers 11-15",
+        "page": 20
+      },
+      {
+        "title": "Lesson 8: Words for p P—t T",
+        "page": 21
+      },
+      {
+        "title": "Lesson 9: Numbers 16-20",
+        "page": 24
+      },
+      {
+        "title": "Lesson 10: Words for u U—z Z",
+        "page": 25
+      },
+      {
+        "title": "Lesson 11: Numbers 21-25",
         "page": 28
       },
       {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "title": "Lesson 12: Eating vegetables",
+        "page": 29
+      },
+      {
+        "title": "Lesson 13: Numbers 26-30",
         "page": 30
       }
     ],
     "keywords": [
       "English for Today",
-      "Fruits and Vegetables (Unit 10)",
-      "দ্বিতীয় শ্রেণি"
+      "দ্বিতীয় শ্রেণি",
+      "The Alphabet, Words and Numbers",
+      "Unit Unit 2"
     ],
-    "summary": "Mango, jackfruit, papaya, carrot and healthy diet.",
-    "total_questions": 2
+    "summary": "দ্বিতীয় শ্রেণি এর English for Today বিষয়ের Unit Unit 2: The Alphabet, Words and Numbers (পৃষ্ঠা 6–30)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c2-english-ch11",
-    "chapter_number": "11",
-    "chapter_title": "Food and Meals: Breakfast, Lunch, Dinner (Unit 11)",
+    "chapter_id": "2026-primary-class-2-english-ch-3",
+    "book_id": "2026-primary-class-2-english",
+    "chapter_number": "Unit 3",
+    "chapter_title": "Commands, Instructions, and Requests",
     "chapter_type": "Unit",
     "author": null,
     "start_page": 31,
-    "end_page": 33,
+    "end_page": 35,
     "sections": [
       {
-        "title": "মূল পাঠ",
+        "title": "Lesson 1: Classroom commands",
         "page": 31
       },
       {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "title": "Lesson 2: Instructions",
         "page": 33
+      },
+      {
+        "title": "Lesson 3: Making requests",
+        "page": 35
       }
     ],
     "keywords": [
       "English for Today",
-      "Food and Meals: Breakfast, Lunch, Dinner (Unit 11)",
-      "দ্বিতীয় শ্রেণি"
+      "দ্বিতীয় শ্রেণি",
+      "Commands, Instructions, and Requests",
+      "Unit Unit 3"
     ],
-    "summary": "Daily meals and healthy eating habits.",
-    "total_questions": 2
+    "summary": "দ্বিতীয় শ্রেণি এর English for Today বিষয়ের Unit Unit 3: Commands, Instructions, and Requests (পৃষ্ঠা 31–35)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c2-english-ch12",
-    "chapter_number": "12",
-    "chapter_title": "Story: The Golden Goose (Unit 12)",
-    "chapter_type": "Story",
+    "chapter_id": "2026-primary-class-2-english-ch-4",
+    "book_id": "2026-primary-class-2-english",
+    "chapter_number": "Unit 4",
+    "chapter_title": "Asking and Answering Questions",
+    "chapter_type": "Unit",
     "author": null,
-    "start_page": 34,
-    "end_page": 36,
+    "start_page": 36,
+    "end_page": 41,
     "sections": [
       {
-        "title": "মূল পাঠ",
-        "page": 34
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "title": "Lesson 1: Good and bad habits 1",
         "page": 36
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Story: The Golden Goose (Unit 12)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "The famous fable about patience and avoiding greed.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-english-ch13",
-    "chapter_number": "13",
-    "chapter_title": "Parts of the Body & Personal Hygiene (Unit 13)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 37,
-    "end_page": 39,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 37
       },
       {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 39
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Parts of the Body & Personal Hygiene (Unit 13)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "Clean hands, brushing teeth and physical hygiene.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-english-ch14",
-    "chapter_number": "14",
-    "chapter_title": "Action Verbs & Daily Routine (Unit 14)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 40,
-    "end_page": 42,
-    "sections": [
+        "title": "Lesson 2: What do you like? 1",
+        "page": 38
+      },
       {
-        "title": "মূল পাঠ",
+        "title": "Lesson 3: What do you like? 2",
+        "page": 39
+      },
+      {
+        "title": "Lesson 4: Good and bad habits 2",
         "page": 40
       },
       {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "title": "Lesson 5: Living place",
+        "page": 41
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "দ্বিতীয় শ্রেণি",
+      "Asking and Answering Questions",
+      "Unit Unit 4"
+    ],
+    "summary": "দ্বিতীয় শ্রেণি এর English for Today বিষয়ের Unit Unit 4: Asking and Answering Questions (পৃষ্ঠা 36–41)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-2-english-ch-5",
+    "book_id": "2026-primary-class-2-english",
+    "chapter_number": "Unit 5",
+    "chapter_title": "Days of The Week",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 42,
+    "end_page": 54,
+    "sections": [
+      {
+        "title": "Lesson 1: Days",
         "page": 42
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Action Verbs & Daily Routine (Unit 14)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "Wake up, wash, eat, study, play and sleep.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-english-ch15",
-    "chapter_number": "15",
-    "chapter_title": "Rhyme: Rain, Rain, Go Away (Unit 15)",
-    "chapter_type": "Rhyme",
-    "author": null,
-    "start_page": 43,
-    "end_page": 44,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 43
       },
       {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "title": "Lesson 2: Seven days in a week",
         "page": 44
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Rhyme: Rain, Rain, Go Away (Unit 15)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "Playful rainy day rhyme with rhythm.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-english-ch16",
-    "chapter_number": "16",
-    "chapter_title": "Clothes We Wear (Unit 16)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 45,
-    "end_page": 47,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 45
       },
       {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 47
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Clothes We Wear (Unit 16)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "Shirt, frock, shoes, cap and winter clothes.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-english-ch17",
-    "chapter_number": "17",
-    "chapter_title": "Professions in Our Community (Unit 17)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 48,
-    "end_page": 50,
-    "sections": [
+        "title": "Lesson 3: What day is today?",
+        "page": 46
+      },
       {
-        "title": "মূল পাঠ",
+        "title": "Lesson 4: Rima and the seed",
         "page": 48
       },
       {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 50
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Professions in Our Community (Unit 17)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "Teacher, doctor, farmer, driver, blacksmith.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-english-ch18",
-    "chapter_number": "18",
-    "chapter_title": "Story: The Fox and the Crow (Unit 18)",
-    "chapter_type": "Story",
-    "author": null,
-    "start_page": 51,
-    "end_page": 53,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 51
+        "title": "Lesson 5: How does a plant grow?",
+        "page": 49
       },
       {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 53
+        "title": "Lesson 6: Two little birds",
+        "page": 52
       }
     ],
     "keywords": [
       "English for Today",
-      "Story: The Fox and the Crow (Unit 18)",
-      "দ্বিতীয় শ্রেণি"
+      "দ্বিতীয় শ্রেণি",
+      "Days of The Week",
+      "Unit Unit 5"
     ],
-    "summary": "Aesop's fable about flattering and cleverness.",
-    "total_questions": 2
+    "summary": "দ্বিতীয় শ্রেণি এর English for Today বিষয়ের Unit Unit 5: Days of The Week (পৃষ্ঠা 42–54)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c2-english-ch19",
-    "chapter_number": "19",
-    "chapter_title": "Traffic Rules & Safety Signs (Unit 19)",
+    "chapter_id": "2026-primary-class-2-english-ch-6",
+    "book_id": "2026-primary-class-2-english",
+    "chapter_number": "Unit 6",
+    "chapter_title": "Let's Play with Sounds",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 54,
-    "end_page": 55,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 54
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 55
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Traffic Rules & Safety Signs (Unit 19)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "Red, yellow, green lights and zebra crossing.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-english-ch20",
-    "chapter_number": "20",
-    "chapter_title": "Prepositions: In, On, Under, Beside (Unit 20)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 56,
-    "end_page": 58,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 56
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 58
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Prepositions: In, On, Under, Beside (Unit 20)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "Using prepositions to describe positions of objects.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-english-ch21",
-    "chapter_number": "21",
-    "chapter_title": "Rhyme: Baa Baa Black Sheep (Unit 21)",
-    "chapter_type": "Rhyme",
-    "author": null,
-    "start_page": 59,
-    "end_page": 60,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 59
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 60
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Rhyme: Baa Baa Black Sheep (Unit 21)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "Classic nursery rhyme recitation and vocabulary.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-english-ch22",
-    "chapter_number": "22",
-    "chapter_title": "Feelings & Emotions (Happy, Sad, Tired) (Unit 22)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 61,
+    "start_page": 55,
     "end_page": 62,
     "sections": [
       {
-        "title": "মূল পাঠ",
-        "page": 61
+        "title": "Lesson 1: Say the initial sounds 1",
+        "page": 55
       },
       {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 62
+        "title": "Lesson 2: Say the initial sounds 2",
+        "page": 57
+      },
+      {
+        "title": "Lesson 3: Say the final sounds 1",
+        "page": 59
+      },
+      {
+        "title": "Lesson 4: Say the final sounds 2",
+        "page": 61
       }
     ],
     "keywords": [
       "English for Today",
-      "Feelings & Emotions (Happy, Sad, Tired) (Unit 22)",
-      "দ্বিতীয় শ্রেণি"
+      "দ্বিতীয় শ্রেণি",
+      "Let's Play with Sounds",
+      "Unit Unit 6"
     ],
-    "summary": "Expressing how we feel in English.",
-    "total_questions": 2
+    "summary": "দ্বিতীয় শ্রেণি এর English for Today বিষয়ের Unit Unit 6: Let's Play with Sounds (পৃষ্ঠা 55–62)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c2-english-ch23",
-    "chapter_number": "23",
-    "chapter_title": "Story: The Hare and the Tortoise (Unit 23)",
-    "chapter_type": "Story",
+    "chapter_id": "2026-primary-class-2-english-ch-7",
+    "book_id": "2026-primary-class-2-english",
+    "chapter_number": "Unit 7",
+    "chapter_title": "Colours, Shapes, and Signs",
+    "chapter_type": "Unit",
     "author": null,
     "start_page": 63,
-    "end_page": 65,
+    "end_page": 74,
     "sections": [
       {
-        "title": "মূল পাঠ",
+        "title": "Lesson 1: Colours",
         "page": 63
       },
       {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "title": "Lesson 2: Rainbow",
         "page": 65
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Story: The Hare and the Tortoise (Unit 23)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "Slow and steady wins the race moral fable.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-english-ch24",
-    "chapter_number": "24",
-    "chapter_title": "Seasons in Bangladesh (Unit 24)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 66,
-    "end_page": 68,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 66
       },
       {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 68
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Seasons in Bangladesh (Unit 24)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "Summer, rainy season, autumn, winter and spring.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-english-ch25",
-    "chapter_number": "25",
-    "chapter_title": "Simple Wh- Questions: Who, What, Where (Unit 25)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 69,
-    "end_page": 70,
-    "sections": [
+        "title": "Lesson 3: Shapes and sizes",
+        "page": 67
+      },
       {
-        "title": "মূল পাঠ",
+        "title": "Lesson 4: More about shapes",
         "page": 69
       },
       {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "title": "Lesson 5: Sizes",
         "page": 70
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Simple Wh- Questions: Who, What, Where (Unit 25)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "Asking and answering simple everyday questions.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-english-ch26",
-    "chapter_number": "26",
-    "chapter_title": "Our Environment & Cleanliness (Unit 26)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 71,
-    "end_page": 72,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 71
       },
       {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "title": "Lesson 6: Road signs",
         "page": 72
       }
     ],
     "keywords": [
       "English for Today",
-      "Our Environment & Cleanliness (Unit 26)",
-      "দ্বিতীয় শ্রেণি"
+      "দ্বিতীয় শ্রেণি",
+      "Colours, Shapes, and Signs",
+      "Unit Unit 7"
     ],
-    "summary": "Keeping school and surroundings clean.",
-    "total_questions": 2
+    "summary": "দ্বিতীয় শ্রেণি এর English for Today বিষয়ের Unit Unit 7: Colours, Shapes, and Signs (পৃষ্ঠা 63–74)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c2-english-ch27",
-    "chapter_number": "27",
-    "chapter_title": "Rhyme: Twinkle, Twinkle, Little Star (Unit 27)",
-    "chapter_type": "Rhyme",
-    "author": null,
-    "start_page": 73,
-    "end_page": 74,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 73
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 74
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Rhyme: Twinkle, Twinkle, Little Star (Unit 27)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "Starry night rhyme with musical rhythm.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-english-ch28",
-    "chapter_number": "28",
-    "chapter_title": "Story: The Honest Woodcutter (Unit 28)",
-    "chapter_type": "Story",
+    "chapter_id": "2026-primary-class-2-english-ch-8",
+    "book_id": "2026-primary-class-2-english",
+    "chapter_number": "Unit 8",
+    "chapter_title": "My Family, friends and I",
+    "chapter_type": "Unit",
     "author": null,
     "start_page": 75,
-    "end_page": 76,
+    "end_page": 83,
     "sections": [
       {
-        "title": "মূল পাঠ",
+        "title": "Lesson 1: Myself",
         "page": 75
       },
       {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 76
+        "title": "Lesson 2: My mother",
+        "page": 77
+      },
+      {
+        "title": "Lesson 3: My father",
+        "page": 79
+      },
+      {
+        "title": "Lesson 4: My brother",
+        "page": 81
+      },
+      {
+        "title": "Lesson 5: A rhyme- Family",
+        "page": 83
       }
     ],
     "keywords": [
       "English for Today",
-      "Story: The Honest Woodcutter (Unit 28)",
-      "দ্বিতীয় শ্রেণি"
+      "দ্বিতীয় শ্রেণি",
+      "My Family, friends and I",
+      "Unit Unit 8"
     ],
-    "summary": "The golden axe and the value of honesty.",
-    "total_questions": 2
+    "summary": "দ্বিতীয় শ্রেণি এর English for Today বিষয়ের Unit Unit 8: My Family, friends and I (পৃষ্ঠা 75–83)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-2-english-ch-9",
+    "book_id": "2026-primary-class-2-english",
+    "chapter_number": "Unit 9",
+    "chapter_title": "Animals and Birds",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 84,
+    "end_page": 92,
+    "sections": [
+      {
+        "title": "Lesson 1: Their living places",
+        "page": 84
+      },
+      {
+        "title": "Lesson 2: Their food",
+        "page": 87
+      },
+      {
+        "title": "Lesson 3: Domestic animals and birds",
+        "page": 89
+      },
+      {
+        "title": "Lesson 4: A rhyme",
+        "page": 91
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "দ্বিতীয় শ্রেণি",
+      "Animals and Birds",
+      "Unit Unit 9"
+    ],
+    "summary": "দ্বিতীয় শ্রেণি এর English for Today বিষয়ের Unit Unit 9: Animals and Birds (পৃষ্ঠা 84–92)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-2-english-ch-10",
+    "book_id": "2026-primary-class-2-english",
+    "chapter_number": "Unit 10",
+    "chapter_title": "Story Time",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 93,
+    "end_page": 98,
+    "sections": [
+      {
+        "title": "Lesson 1: The crow and the jar",
+        "page": 93
+      },
+      {
+        "title": "Lesson 2: The boys and the frog",
+        "page": 96
+      }
+    ],
+    "keywords": [
+      "English for Today",
+      "দ্বিতীয় শ্রেণি",
+      "Story Time",
+      "Unit Unit 10"
+    ],
+    "summary": "দ্বিতীয় শ্রেণি এর English for Today বিষয়ের Unit Unit 10: Story Time (পৃষ্ঠা 93–98)।",
+    "total_questions": 0
   }
 ]

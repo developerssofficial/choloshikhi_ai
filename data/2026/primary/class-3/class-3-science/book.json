@@ -1,65 +1,47 @@
 {
   "id": "2026-primary-class-3-science",
+  "slug": "class-3-science",
   "academic_year": 2026,
   "level": "primary",
   "class_number": 3,
   "class_name": "তৃতীয় শ্রেণি",
-  "book_name": "প্রাথমিক বিজ্ঞান",
+  "official_book_name": "প্রাথমিক বিজ্ঞান",
   "normalized_book_name": "প্রাথমিক বিজ্ঞান",
-  "subject": "বিজ্ঞান",
+  "subject": "প্রাথমিক বিজ্ঞান",
   "subject_code": "science",
   "language": "bn",
   "version": "bangla",
-  "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b9980c4774958d7b70591",
-  "download_links": {
-    "link_1": "https://drive.google.com/file/d/1jn-X5lOgECnoypp29eYtYAw_DHZ9qhm6/view?usp=drive_link",
-    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/7eXICQ394KDIGr9",
-    "resolved_pdf_url": "https://drive.google.com/file/d/1jn-X5lOgECnoypp29eYtYAw_DHZ9qhm6/view?usp=drive_link"
-  },
-  "english_version": {
-    "official_book_name": "প্রাথমিক বিজ্ঞান",
-    "download_links": {
-      "link_1": "https://drive.google.com/file/d/1Z_dMhkriUM96PjEHDbuWoZ6J6wHmzXFk/view?usp=drive_link",
-      "link_2": "https://drive.egovcloud.gov.bd/index.php/s/hsFCqLJvlJYoTou",
-      "resolved_pdf_url": "https://drive.google.com/file/d/1Z_dMhkriUM96PjEHDbuWoZ6J6wHmzXFk/view?usp=drive_link"
-    }
-  },
   "pdf": {
     "local_path": "data/2026/primary/class-3/class-3-science/source/original.pdf",
-    "file_name": "class-3-science.pdf",
-    "file_size": 0,
-    "total_pages": 78,
-    "sha256": ""
+    "file_name": "Class-3, Science_Book.pdf",
+    "file_size": 33720479,
+    "total_pages": 0,
+    "sha256": "212cfede41299e222bdc273ac5205ba696ed8530943d2835c34cd877349c25fe"
   },
   "publication": {
-    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ",
-    "authors": [
-      "অধ্যাপক ড. শাহজাহান তপন",
-      "ড. মুহাম্মদ ইদ্রিস আলী"
-    ],
-    "editors": [
-      "অধ্যাপক ড. ইকবাল রউফ মামুন"
-    ],
-    "illustrators": [
-      "এনসিটিবি চিত্রাঙ্কন পর্ষদ"
-    ],
-    "isbn": "978-984-36-3692-2"
+    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+    "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
   },
   "table_of_contents": [
-    "1. আমাদের পরিবেশ (প্রাকৃতিক ও মানুষের তৈরি পরিবেশ) (পৃষ্ঠা 1–8)",
-    "2. জীব ও জড় (উদ্ভিদ ও প্রাণীর বৈশিষ্ট্য ও পার্থক্য) (পৃষ্ঠা 9–18)",
-    "3. বিভিন্ন ধরনের পদার্থ (কঠিন, তরল ও বায়বীয়) (পৃষ্ঠা 19–26)",
-    "4. জীবনের জন্য পানি (পানির উৎস ও পানি দূষণ প্রতিরোধ) (পৃষ্ঠা 27–36)",
-    "5. মাটি (বেলে, এঁটেল ও দোআঁশ মাটির বৈশিষ্ট্য) (পৃষ্ঠা 37–44)",
-    "6. বায়ু (বায়ুর উপাদান ও বায়ু দূষণ) (পৃষ্ঠা 45–52)",
-    "7. স্বাস্থ্যবিধি ও পুষ্টিকর খাদ্য (পৃষ্ঠা 53–62)"
+    "১. উদ্ভিদ পরিচিতি (পৃষ্ঠা 1–10)",
+    "২. প্রাণী পরিচিতি (পৃষ্ঠা 11–22)",
+    "৩. সুস্বাস্থ্যের জন্য খাদ্য (পৃষ্ঠা 23–38)",
+    "৪. পদার্থ (পৃষ্ঠা 39–58)",
+    "৫. শক্তি (পৃষ্ঠা 59–68)",
+    "৬. বস্তুর উপর বলের প্রভাব (পৃষ্ঠা 69–79)",
+    "৭. পানি (পৃষ্ঠা 80–94)",
+    "৮. মাটি (পৃষ্ঠা 95–110)",
+    "৯. জীবনের জন্য সূর্য (পৃষ্ঠা 111–121)",
+    "১০. প্রযুক্তির সঙ্গে পরিচয় (পৃষ্ঠা 122–132)",
+    "১১. তথ্য ও যোগাযোগ (পৃষ্ঠা 133–144)",
+    "১২. শব্দকোষ (পৃষ্ঠা 145–147)"
   ],
-  "total_chapters": 7,
+  "total_chapters": 12,
   "validation": {
     "download_verified": true,
     "page_count_verified": true,
     "toc_verified": true,
-    "questions_verified": true,
+    "questions_verified": false,
     "needs_review": false
   }
 }

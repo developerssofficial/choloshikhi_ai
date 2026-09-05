@@ -1,15 +1,10 @@
 {
-  "generated_at": "2026-09-04T13:42:35.099Z",
+  "version": "2.0.0",
   "academic_year": 2026,
-  "education_level": "primary",
-  "total_books": 33,
-  "books_by_class": {
-    "class-1": 3,
-    "class-2": 3,
-    "class-3": 9,
-    "class-4": 9,
-    "class-5": 9
-  },
+  "level": "primary",
+  "total_classes": 5,
+  "total_books": 27,
+  "last_updated": "2026-09-05T01:01:53.740Z",
   "books": [
     {
       "id": "2026-primary-class-1-bangla",
@@ -24,99 +19,81 @@
       "subject_code": "bangla",
       "language": "bn",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9adec4774958d7b708cd",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1hf-W5GVlAy3cHstFlozNBuE2oz7u9YXy/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/j2OipTMp0QihpIR",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1hf-W5GVlAy3cHstFlozNBuE2oz7u9YXy/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "আমার বাংলা বই",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1hf-W5GVlAy3cHstFlozNBuE2oz7u9YXy/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/j2OipTMp0QihpIR",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1hf-W5GVlAy3cHstFlozNBuE2oz7u9YXy/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-1/class-1-bangla/source/original.pdf",
-        "file_name": "class-1-bangla.pdf",
-        "file_size": 0,
+        "file_name": "Class 1, Bangla_Book.pdf",
+        "file_size": 8900382,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "9268b3d4decb46cff922503d079005dbfe774ab92c43a0cd0a4047cdef50a4d1"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. আমার পরিচয় (পৃষ্ঠা 1–1)",
-        "2. এসো রং করি ও আঁকি (পৃষ্ঠা 2–2)",
-        "3. আমি ও আমার বিদ্যালয় (পৃষ্ঠা 3–3)",
-        "4. আমি ও আমার সহপাঠীরা (পৃষ্ঠা 4–4)",
-        "5. আঁকাঝাঁকি (পৃষ্ঠা 5–7)",
-        "6. আমরা কী কী করি (পৃষ্ঠা 8–8)",
-        "7. আঁকাঝাঁকি (পৃষ্ঠা 9–10)",
-        "8. ছড়া (পৃষ্ঠা 11–11)",
-        "9. বাঘ ও রাখাল (পৃষ্ঠা 12–14)",
-        "10. বর্ণ শিখি : অ আ (পৃষ্ঠা 15–16)",
-        "11. বর্ণ শিখি : ই ঈ (পৃষ্ঠা 17–17)",
-        "12. বর্ণ শিখি : উ ঊ (পৃষ্ঠা 18–19)",
-        "13. বর্ণ শিখি : ঋ (পৃষ্ঠা 20–20)",
-        "14. বর্ণ শিখি : এ ঐ (পৃষ্ঠা 21–21)",
-        "15. বর্ণ শিখি : ও ঔ (পৃষ্ঠা 22–22)",
-        "16. স্বরবর্ণ (পৃষ্ঠা 23–23)",
-        "17. ইতল বিতল (পৃষ্ঠা 24–25)",
-        "18. কতকিছু দেখি (পৃষ্ঠা 26–27)",
-        "19. বর্ণ শিখি : ক খ গ ঘ ঙ (পৃষ্ঠা 28–31)",
-        "20. বর্ণ শিখি : চ ছ জ ঝ ঞ (পৃষ্ঠা 32–35)",
-        "21. আ-কার শিখি (পৃষ্ঠা 36–37)",
-        "22. ই-কার ঈ-কার শিখি (পৃষ্ঠা 38–39)",
-        "23. বর্ণ শিখি : ট ঠ ড ঢ ণ (পৃষ্ঠা 40–43)",
-        "24. বর্ণ শিখি : ত থ দ ধ ন (পৃষ্ঠা 44–47)",
-        "25. ট্রেন (পৃষ্ঠা 48–51)",
-        "26. বর্ণ শিখি : প ফ ব ভ ম (পৃষ্ঠা 52–55)",
-        "27. উ-কার ঊ-কার শিখি (পৃষ্ঠা 56–59)",
-        "28. ঋ-কার শিখি (পৃষ্ঠা 60–60)",
-        "29. এ-কার ঐ-কার শিখি (পৃষ্ঠা 61–61)",
-        "30. বর্ণ শিখি : য র ল (পৃষ্ঠা 62–63)",
-        "31. ও-কার ঔ-কার শিখি (পৃষ্ঠা 64–65)",
-        "32. বর্ণ শিখি : শ ষ স হ (পৃষ্ঠা 66–66)",
-        "33. বর্ণ শিখি : ড় ঢ় য় ৎ (পৃষ্ঠা 67–68)",
-        "34. বর্ণ শিখি : ং ঃ ঁ (পৃষ্ঠা 69–69)",
-        "35. ছবি দেখি শব্দ বানাই (পৃষ্ঠা 70–71)",
-        "36. এসো পড়ি ও লিখি (পৃষ্ঠা 72–72)",
-        "37. এসো পড়ি ও লিখি (পৃষ্ঠা 73–73)",
-        "38. এসো পড়ি ও লিখি (পৃষ্ঠা 74–74)",
-        "39. ব্যঞ্জনবর্ণ (পৃষ্ঠা 75–76)",
-        "40. মামার বাড়ি (পৃষ্ঠা 77–58)",
-        "41. পাখির গান (পৃষ্ঠা 59–59)",
-        "42. ভোর হলো (পৃষ্ঠা 60–60)",
-        "43. পড়ি ও লিখি (পৃষ্ঠা 61–62)",
-        "44. মেতে মেতে পড়ি (পৃষ্ঠা 63–64)",
-        "45. সাত দিনের কথা (পৃষ্ঠা 65–65)",
-        "46. পিঁপড়া ও পায়রার গল্প (পৃষ্ঠা 66–66)",
-        "47. আতঙ্কের দিন (পৃষ্ঠা 67–69)",
-        "48. ছুটি (পৃষ্ঠা 70–70)",
-        "49. আমাদের দেশ (পৃষ্ঠা 71–72)",
-        "50. মাছের রাজা (পৃষ্ঠা 73–73)",
-        "51. সংখ্যা শিখি (পৃষ্ঠা 74–75)",
-        "52. আমাদের মুক্তিযুদ্ধ (পৃষ্ঠা 76–76)",
-        "53. শব্দ দিয়ে খেলা (পৃষ্ঠা 77–79)",
-        "54. আমার ঠিকানা (পৃষ্ঠা 80–80)"
+        "১. আমার পরিচয় (পৃষ্ঠা 1–1)",
+        "২. এসো রং করি ও আঁকি (পৃষ্ঠা 2–2)",
+        "৩. আমি ও আমার বিদ্যালয় (পৃষ্ঠা 3–3)",
+        "৪. আমি ও আমার সহপাঠীরা (পৃষ্ঠা 4–5)",
+        "৫. আঁকাআঁকি (পৃষ্ঠা 6–7)",
+        "৬. আমরা কী কী করি (পৃষ্ঠা 8–8)",
+        "৭. আঁকাআঁকি (পৃষ্ঠা 9–10)",
+        "৮. ছড়া (পৃষ্ঠা 11–11)",
+        "৯. বাঘ ও রাখাল (পৃষ্ঠা 12–14)",
+        "১০. বর্ণ শিখি : অ আ (পৃষ্ঠা 15–15)",
+        "১১. বর্ণ শিখি : ই ঈ (পৃষ্ঠা 16–16)",
+        "১২. বর্ণ শিখি : উ ঊ (পৃষ্ঠা 17–17)",
+        "১৩. বর্ণ শিখি : ঋ (পৃষ্ঠা 18–19)",
+        "১৪. বর্ণ শিখি : এ ঐ (পৃষ্ঠা 20–20)",
+        "১৫. বর্ণ শিখি : ও ঔ (পৃষ্ঠা 21–21)",
+        "১৬. স্বরবর্ণ (পৃষ্ঠা 22–23)",
+        "১৭. ইতল বিতল (পৃষ্ঠা 24–24)",
+        "১৮. কারচিহ্ন দেখি (পৃষ্ঠা 25–25)",
+        "১৯. বর্ণ শিখি : ক খ গ ঘ ঙ (পৃষ্ঠা 26–27)",
+        "২০. বর্ণ শিখি : চ ছ জ ঝ ঞ (পৃষ্ঠা 28–29)",
+        "২১. আ-কার শিখি (পৃষ্ঠা 30–30)",
+        "২২. ই-কার ঈ-কার শিখি (পৃষ্ঠা 31–31)",
+        "২৩. বর্ণ শিখি : ট ঠ ড ঢ ণ (পৃষ্ঠা 32–33)",
+        "২৪. বর্ণ শিখি : ত থ দ ধ ন (পৃষ্ঠা 34–35)",
+        "২৫. ট্রেন (পৃষ্ঠা 36–36)",
+        "২৬. বর্ণ শিখি : প ফ ব ভ ম (পৃষ্ঠা 37–38)",
+        "২৭. উ-কার ঊ-কার শিখি (পৃষ্ঠা 39–39)",
+        "২৮. ঋ-কার শিখি (পৃষ্ঠা 40–40)",
+        "২৯. এ-কার ঐ-কার শিখি (পৃষ্ঠা 41–41)",
+        "৩০. বর্ণ শিখি : য র ল (পৃষ্ঠা 42–43)",
+        "৩১. ও-কার ঔ-কার শিখি (পৃষ্ঠা 44–44)",
+        "৩২. বর্ণ শিখি : শ ষ স হ (পৃষ্ঠা 45–46)",
+        "৩৩. বর্ণ শিখি : ড় ঢ় য় ৎ (পৃষ্ঠা 47–48)",
+        "৩৪. বর্ণ শিখি : ং ঃ ঁ (পৃষ্ঠা 49–50)",
+        "৩৫. ছবি দেখি শব্দ বানাই (পৃষ্ঠা 51–51)",
+        "৩৬. এসো পড়ি ও লিখি (১) (পৃষ্ঠা 52–52)",
+        "৩৭. এসো পড়ি ও লিখি (২) (পৃষ্ঠা 53–53)",
+        "৩৮. এসো পড়ি ও লিখি (৩) (পৃষ্ঠা 54–54)",
+        "৩৯. ব্যঞ্জনবর্ণ (পৃষ্ঠা 55–56)",
+        "৪০. মামার বাড়ি (পৃষ্ঠা 57–58)",
+        "৪১. তুলির ঘর (পৃষ্ঠা 59–59)",
+        "৪২. ভোর হলো (পৃষ্ঠা 60–60)",
+        "৪৩. পড়ি ও লিখি (পৃষ্ঠা 61–62)",
+        "৪৪. যেতে যেতে পড়ি (পৃষ্ঠা 63–64)",
+        "৪৫. সাত দিনের কথা (পৃষ্ঠা 65–66)",
+        "৪৬. পিঁপড়া ও পায়রার গল্প (পৃষ্ঠা 67–67)",
+        "৪৭. আজকের দিন (পৃষ্ঠা 68–69)",
+        "৪৮. ছুটি (পৃষ্ঠা 70–70)",
+        "৪৯. আমাদের দেশ (পৃষ্ঠা 71–72)",
+        "৫০. মাছের রাজা (পৃষ্ঠা 73–73)",
+        "৫১. সংখ্যা শিখি (পৃষ্ঠা 74–76)",
+        "৫২. আমাদের মুক্তিযুদ্ধ (পৃষ্ঠা 77–78)",
+        "৫৩. শব্দ নিয়ে খেলা (পৃষ্ঠা 79–79)",
+        "৫৪. আমার ঠিকানা (পৃষ্ঠা 80–80)"
       ],
-      "chapters": [],
+      "total_chapters": 54,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 54
+      }
     },
     {
       "id": "2026-primary-class-1-english",
@@ -129,77 +106,34 @@
       "normalized_book_name": "English for Today",
       "subject": "English for Today",
       "subject_code": "english",
-      "language": "bn",
+      "language": "en",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9adec4774958d7b708cd",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1UX9fbOBUKrf3mMh6E0I-Gw2emoQV-XWy/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/CW6nYiJRMJE8trb",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1UX9fbOBUKrf3mMh6E0I-Gw2emoQV-XWy/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "English for Today",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1UX9fbOBUKrf3mMh6E0I-Gw2emoQV-XWy/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/CW6nYiJRMJE8trb",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1UX9fbOBUKrf3mMh6E0I-Gw2emoQV-XWy/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-1/class-1-english/source/original.pdf",
-        "file_name": "class-1-english.pdf",
-        "file_size": 0,
+        "file_name": "Class 1, English_Book.pdf",
+        "file_size": 14738438,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "973530b8d39a50e224c6d10b9faa7ff9bd3e502d6bf96795fc4c6800307176ac"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. Greetings and Farewells (Hello, Good Morning, Goodbye) (পৃষ্ঠা 1–3)",
-        "2. Self-Introduction (What is your name? I am...) (পৃষ্ঠা 4–5)",
-        "3. Alphabet A, B, C (Apple, Ball, Cap) (পৃষ্ঠা 6–8)",
-        "4. Numbers 1, 2, 3 (Counting Objects) (পৃষ্ঠা 9–11)",
-        "5. Rhyme: Two Little Blackbirds (পৃষ্ঠা 12–13)",
-        "6. Alphabet D, E, F (Dog, Egg, Fish) (পৃষ্ঠা 14–16)",
-        "7. Numbers 4, 5, 6 (পৃষ্ঠা 17–19)",
-        "8. Classroom Commands (Stand up, Sit down, Open your book) (পৃষ্ঠা 20–21)",
-        "9. Alphabet G, H, I (Girl, Hut, Igloo) (পৃষ্ঠা 22–24)",
-        "10. Numbers 7, 8, 9, 10 (পৃষ্ঠা 25–27)",
-        "11. Colors & Shapes (Red, Blue, Green, Circle, Square) (পৃষ্ঠা 28–30)",
-        "12. Alphabet J, K, L (Jar, Kite, Lion) (পৃষ্ঠা 31–33)",
-        "13. Rhyme: Ring a Ring o' Roses (পৃষ্ঠা 34–35)",
-        "14. Alphabet M, N, O (Moon, Net, Orange) (পৃষ্ঠা 36–38)",
-        "15. Parts of the Body (Head, Eyes, Nose, Hands, Legs) (পৃষ্ঠা 39–41)",
-        "16. Alphabet P, Q, R (Pen, Queen, Rose) (পৃষ্ঠা 42–44)",
-        "17. Animals Around Us (Cat, Cow, Dog, Duck, Bird) (পৃষ্ঠা 45–47)",
-        "18. Alphabet S, T, U (Sun, Tiger, Umbrella) (পৃষ্ঠা 48–50)",
-        "19. My Family Members (Father, Mother, Brother, Sister) (পৃষ্ঠা 51–53)",
-        "20. Alphabet V, W, X (Van, Window, X-ray) (পৃষ্ঠা 54–56)",
-        "21. Alphabet Y, Z (Yo-yo, Zebra) (পৃষ্ঠা 57–58)",
-        "22. Rhyme: Alphabet Song (A B C D E F G...) (পৃষ্ঠা 59–60)",
-        "23. Food & Drinks (Milk, Rice, Water, Banana, Bread) (পৃষ্ঠা 61–62)",
-        "24. Action Words (Clap, Jump, Run, Sing, Draw) (পৃষ্ঠা 63–64)",
-        "25. Days of the Week (Saturday to Friday) (পৃষ্ঠা 65–66)",
-        "26. Story: The Golden Goose (পৃষ্ঠা 67–68)",
-        "27. Our Senses (See, Hear, Smell, Taste, Touch) (পৃষ্ঠা 69–70)",
-        "28. Seasons & Weather (Sunny, Rainy, Cold) (পৃষ্ঠা 71–72)",
-        "29. Simple Dialogue Practice (How are you? Fine, thank you) (পৃষ্ঠা 73–74)",
-        "30. Story: The Ant and the Dove (পৃষ্ঠা 75–76)"
+        "Unit 1. Greetings and Farewells (পৃষ্ঠা 2–11)",
+        "Unit 2. Alphabet and Numbers (পৃষ্ঠা 12–64)",
+        "Unit 3. Classroom Instructions (পৃষ্ঠা 65–74)",
+        "Unit 4. Questions and Answers (পৃষ্ঠা 75–85)",
+        "Unit 5. Rhymes and Sounds (পৃষ্ঠা 86–94)"
       ],
-      "chapters": [],
+      "total_chapters": 5,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 30
+      }
     },
     {
       "id": "2026-primary-class-1-math",
@@ -214,63 +148,45 @@
       "subject_code": "math",
       "language": "bn",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9adec4774958d7b708cd",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1V5eBwsQYrG-6qajVZUwwetml5Oezl10r/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/UhraLRRxdBynh1U",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1V5eBwsQYrG-6qajVZUwwetml5Oezl10r/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "প্রাথমিক গণিত",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1D8QeLW7SZ2d7oPJM3TmQei9_bOEet2i5/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/lp11ImNTfh7T9Xh",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1D8QeLW7SZ2d7oPJM3TmQei9_bOEet2i5/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-1/class-1-math/source/original.pdf",
-        "file_name": "class-1-math.pdf",
-        "file_size": 0,
+        "file_name": "Class 1, Math_Book.pdf",
+        "file_size": 11569292,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "22be8d975a23583367e6e3ae9e892893401e011bc4a0aba40665a11d77c44b26"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. তুলনা করি (কম-বেশি, বড়-ছোট, কাছে-দূরে, ভারি-হালকা) (পৃষ্ঠা 1–6)",
-        "2. গণনা করি (১ থেকে ৫ পর্যন্ত সংখ্যা গণনা ও লেখা) (পৃষ্ঠা 7–12)",
-        "3. সংখ্যা ৬ থেকে ১০ গণনা ও লেখা (পৃষ্ঠা 13–18)",
-        "4. শূন্য (০)-এর ধারণা (পৃষ্ঠা 19–22)",
-        "5. সংখ্যা তুলনা ও ক্রমানুসারে সাজানো (ছোট থেকে বড় ও বড় থেকে ছোট) (পৃষ্ঠা 23–26)",
-        "6. যোগের প্রাথমিক ধারণা (১ থেকে ১০) (পৃষ্ঠা 27–34)",
-        "7. বিয়োগের প্রাথমিক ধারণা (১ থেকে ১০) (পৃষ্ঠা 35–42)",
-        "8. সংখ্যা ১১ থেকে ২০ গণনা ও স্থানীয় মান (পৃষ্ঠা 43–48)",
-        "9. সংখ্যা ২১ থেকে ৫০ গণনা ও তালিকা (পৃষ্ঠা 49–54)",
-        "10. সংখ্যা ৫১ থেকে ১০০ গণনা ও পাঠ (পৃষ্ঠা 55–60)",
-        "11. জোড় ও বিজোড় সংখ্যা চেনা (পৃষ্ঠা 61–64)",
-        "12. যোগ (হাতে না রেখে দুই অঙ্ক) (পৃষ্ঠা 65–70)",
-        "13. বিয়োগ (হাতে না রেখে দুই অঙ্ক) (পৃষ্ঠা 71–76)",
-        "14. জ্যামিতিক আকৃতি (গোল, গোলক, চারকোনা, তিনকোনা) (পৃষ্ঠা 77–80)",
-        "15. টাকা ও পয়সার পরিচিতি (১, ২, ৫ টাকার নোট ও কয়েন) (পৃষ্ঠা 81–84)",
-        "16. পরিমাপ ও দৈর্ঘ্য-ওজন (পৃষ্ঠা 85–88)",
-        "17. সময় ও ঘড়ি (সকাল, দুপুর, রাত ও দিনপঞ্জি) (পৃষ্ঠা 89–92)",
-        "18. সহজ গাণিতিক সমস্যা ও ধাঁধা (পৃষ্ঠা 93–96)"
+        "১. তুলনা করি (পৃষ্ঠা 1–4)",
+        "২. গণনা (পৃষ্ঠা 5–8)",
+        "৩. সংখ্যা (১ থেকে ১০) (পৃষ্ঠা 9–28)",
+        "৪. যোগের ধারণা (পৃষ্ঠা 29–42)",
+        "৫. বিয়োগের ধারণা (পৃষ্ঠা 43–53)",
+        "৬. সংখ্যা : ১১ থেকে ২০ (পৃষ্ঠা 54–57)",
+        "৭. যোগ (১১ থেকে ২০) (পৃষ্ঠা 58–65)",
+        "৮. বিয়োগ (১১ থেকে ২০) (পৃষ্ঠা 66–68)",
+        "৯. সংখ্যা (২১ থেকে ৪০) (পৃষ্ঠা 69–73)",
+        "১০. স্থানীয় মান (পৃষ্ঠা 74–78)",
+        "১১. নিজে করি (১) (পৃষ্ঠা 79–81)",
+        "১২. জ্যামিতি (পৃষ্ঠা 82–85)",
+        "১৩. প্যাটার্ন (পৃষ্ঠা 86–91)",
+        "১৪. সংখ্যা (৪১ থেকে ১০০) (পৃষ্ঠা 92–96)",
+        "১৫. যোগ (পৃষ্ঠা 97–100)",
+        "১৬. বিয়োগ (পৃষ্ঠা 101–104)",
+        "১৭. বাংলাদেশি মুদ্রা (পৃষ্ঠা 105–108)",
+        "১৮. নিজে করি (২) (পৃষ্ঠা 109–114)"
       ],
-      "chapters": [],
+      "total_chapters": 18,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 18
+      }
     },
     {
       "id": "2026-primary-class-2-bangla",
@@ -285,74 +201,56 @@
       "subject_code": "bangla",
       "language": "bn",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9935c4774958d7b70508",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1XKPmmrgK1vVSjybgbzu_RZMCOVXqFHH3/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/hQkbdKeleEWmqQ5",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1XKPmmrgK1vVSjybgbzu_RZMCOVXqFHH3/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "আমার বাংলা বই",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1XKPmmrgK1vVSjybgbzu_RZMCOVXqFHH3/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/hQkbdKeleEWmqQ5",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1XKPmmrgK1vVSjybgbzu_RZMCOVXqFHH3/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-2/class-2-bangla/source/original.pdf",
-        "file_name": "class-2-bangla.pdf",
-        "file_size": 0,
+        "file_name": "Class-2, Bangla_Book.pdf",
+        "file_size": 16544682,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "ca373c6d02fd4de43ddd23952e34b1b1879f4c7cd456475eccc19a14ae5f402e"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. আমার পরিচয় (পৃষ্ঠা 1–2)",
-        "2. স্কুলে কেমন লাগছে (পৃষ্ঠা 3–5)",
-        "3. আমার বাড়ি আমার কাজ (পৃষ্ঠা 6–6)",
-        "4. ডালিমকুমার ও কঙ্কনবর্তী (পৃষ্ঠা 7–11)",
-        "5. আবার পড়ি বর্ণমালা (পৃষ্ঠা 12–14)",
-        "6. আয় দেখে যা নাচ (পৃষ্ঠা 15–15)",
-        "7. কারচিহ্ন দিয়ে শব্দ বানাই (পৃষ্ঠা 16–17)",
-        "8. সিংহ আর ইঁদুরের গল্প (পৃষ্ঠা 18–19)",
-        "9. দেখে বুঝে কাজ করি (পৃষ্ঠা 20–20)",
-        "10. যুক্তবর্ণ শিখি (পৃষ্ঠা 21–21)",
-        "11. একুশের গান (পৃষ্ঠা 22–22)",
-        "12. ফলাচিহ্ন শিখি (পৃষ্ঠা 23–26)",
-        "13. রেফ চিনি (পৃষ্ঠা 27–27)",
-        "14. নানা রকম লেখা (পৃষ্ঠা 28–29)",
-        "15. কাজের আনন্দ (পৃষ্ঠা 30–32)",
-        "16. বাক্য লিখি (পৃষ্ঠা 33–33)",
-        "17. রানুর আঁকা ছবি (পৃষ্ঠা 34–34)",
-        "18. গ্রাম ও শহর (পৃষ্ঠা 35–37)",
-        "19. প্রজাপতি (পৃষ্ঠা 38–39)",
-        "20. বিড়াল ছানা (পৃষ্ঠা 40–40)",
-        "21. ছয় ঋতু (পৃষ্ঠা 41–47)",
-        "22. নবারুণ (পৃষ্ঠা 48–49)",
-        "23. আমাদের ছোট নদী (পৃষ্ঠা 50–51)",
-        "24. নিজের মতো লিখি (পৃষ্ঠা 52–53)",
-        "25. সবাই মিলে কাজ করি (পৃষ্ঠা 54–55)",
-        "26. মুক্তিসেনা (পৃষ্ঠা 56–57)",
-        "27. দুখু মিয়ার জীবন (পৃষ্ঠা 58–59)",
-        "28. স্কুলের মাঠে (পৃষ্ঠা 60–61)",
-        "29. বাক্য নিয়ে খেলা (পৃষ্ঠা 62–63)"
+        "১. আমার পরিচয় (পৃষ্ঠা 1–2)",
+        "২. স্কুলে কেমন লাগছে (পৃষ্ঠা 3–5)",
+        "৩. আমার বাড়ি আমার কাজ (পৃষ্ঠা 6–6)",
+        "৪. ডালিমকুমার ও কঙ্কাবতী (পৃষ্ঠা 7–11)",
+        "৫. আবার পড়ি বর্ণমালা (পৃষ্ঠা 12–14)",
+        "৬. আয় দেখে যা নাচ (পৃষ্ঠা 15–15)",
+        "৭. কারচিহ্ন দিয়ে শব্দ বানাই (পৃষ্ঠা 16–17)",
+        "৮. সিংহ আর ইঁদুরের গল্প (পৃষ্ঠা 18–19)",
+        "৯. দেখে বুঝে কাজ করি (পৃষ্ঠা 20–20)",
+        "১০. যুক্তবর্ণ শিখি (পৃষ্ঠা 21–21)",
+        "১১. একুশের গান (পৃষ্ঠা 22–22)",
+        "১২. ফলাচিহ্ন শিখি (পৃষ্ঠা 23–26)",
+        "১৩. রেফ চিনি (পৃষ্ঠা 27–27)",
+        "১৪. নানা রকম লেখা (পৃষ্ঠা 28–29)",
+        "১৫. কাজের আনন্দ (পৃষ্ঠা 30–32)",
+        "১৬. বাক্য লিখি (পৃষ্ঠা 33–33)",
+        "১৭. রাজুর আঁকা ছবি (পৃষ্ঠা 34–34)",
+        "১৮. গ্রাম ও শহর (পৃষ্ঠা 35–37)",
+        "১৯. প্রজাপতি (পৃষ্ঠা 38–39)",
+        "২০. বিড়াল ছানা (পৃষ্ঠা 40–42)",
+        "২১. ছয় ঋতু (পৃষ্ঠা 43–47)",
+        "২২. নববর্ষ (পৃষ্ঠা 48–49)",
+        "২৩. আমাদের ছোটো নদী (পৃষ্ঠা 50–51)",
+        "২৪. নিজের মতো লিখি (পৃষ্ঠা 52–53)",
+        "২৫. সবাই মিলে কাজ করি (পৃষ্ঠা 54–55)",
+        "২৬. মুক্তিসেনা (পৃষ্ঠা 56–57)",
+        "২৭. দুখু মিয়ার জীবন (পৃষ্ঠা 58–59)",
+        "২৮. স্কুলের মাঠে (পৃষ্ঠা 60–61)",
+        "২৯. বাক্য নিয়ে খেলা (পৃষ্ঠা 62–64)"
       ],
-      "chapters": [],
+      "total_chapters": 29,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 29
+      }
     },
     {
       "id": "2026-primary-class-2-english",
@@ -365,75 +263,39 @@
       "normalized_book_name": "English for Today",
       "subject": "English for Today",
       "subject_code": "english",
-      "language": "bn",
+      "language": "en",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9935c4774958d7b70508",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1timM9_-X87oqE-C5yCsV5kYf2JKydzEK/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/Qg7pzPPvzl1AnPS",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1timM9_-X87oqE-C5yCsV5kYf2JKydzEK/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "English for Today",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1timM9_-X87oqE-C5yCsV5kYf2JKydzEK/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/Qg7pzPPvzl1AnPS",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1timM9_-X87oqE-C5yCsV5kYf2JKydzEK/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-2/class-2-english/source/original.pdf",
-        "file_name": "class-2-english.pdf",
-        "file_size": 0,
+        "file_name": "Class-2, english_Book.pdf",
+        "file_size": 13661292,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "93f7217ac0bc70463de029148533646a895d970ee84e51f15171a3b58e957734"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. Greetings and Introductions (Unit 1) (পৃষ্ঠা 1–3)",
-        "2. Numbers & Counting 1-20 (Unit 2) (পৃষ্ঠা 4–6)",
-        "3. Alphabet Revision & Phonics (Unit 3) (পৃষ্ঠা 7–9)",
-        "4. Classroom Objects & Instructions (Unit 4) (পৃষ্ঠা 10–12)",
-        "5. Shapes and Colors (Unit 5) (পৃষ্ঠা 13–15)",
-        "6. Days of the Week (Unit 6) (পৃষ্ঠা 16–18)",
-        "7. Months of the Year (Unit 7) (পৃষ্ঠা 19–21)",
-        "8. My Family & Home (Unit 8) (পৃষ্ঠা 22–24)",
-        "9. Animals & Their Homes (Unit 9) (পৃষ্ঠা 25–27)",
-        "10. Fruits and Vegetables (Unit 10) (পৃষ্ঠা 28–30)",
-        "11. Food and Meals: Breakfast, Lunch, Dinner (Unit 11) (পৃষ্ঠা 31–33)",
-        "12. Story: The Golden Goose (Unit 12) (পৃষ্ঠা 34–36)",
-        "13. Parts of the Body & Personal Hygiene (Unit 13) (পৃষ্ঠা 37–39)",
-        "14. Action Verbs & Daily Routine (Unit 14) (পৃষ্ঠা 40–42)",
-        "15. Rhyme: Rain, Rain, Go Away (Unit 15) (পৃষ্ঠা 43–44)",
-        "16. Clothes We Wear (Unit 16) (পৃষ্ঠা 45–47)",
-        "17. Professions in Our Community (Unit 17) (পৃষ্ঠা 48–50)",
-        "18. Story: The Fox and the Crow (Unit 18) (পৃষ্ঠা 51–53)",
-        "19. Traffic Rules & Safety Signs (Unit 19) (পৃষ্ঠা 54–55)",
-        "20. Prepositions: In, On, Under, Beside (Unit 20) (পৃষ্ঠা 56–58)",
-        "21. Rhyme: Baa Baa Black Sheep (Unit 21) (পৃষ্ঠা 59–60)",
-        "22. Feelings & Emotions (Happy, Sad, Tired) (Unit 22) (পৃষ্ঠা 61–62)",
-        "23. Story: The Hare and the Tortoise (Unit 23) (পৃষ্ঠা 63–65)",
-        "24. Seasons in Bangladesh (Unit 24) (পৃষ্ঠা 66–68)",
-        "25. Simple Wh- Questions: Who, What, Where (Unit 25) (পৃষ্ঠা 69–70)",
-        "26. Our Environment & Cleanliness (Unit 26) (পৃষ্ঠা 71–72)",
-        "27. Rhyme: Twinkle, Twinkle, Little Star (Unit 27) (পৃষ্ঠা 73–74)",
-        "28. Story: The Honest Woodcutter (Unit 28) (পৃষ্ঠা 75–76)"
+        "Unit 1. Greetings, Introductions, and Farewells (পৃষ্ঠা 1–5)",
+        "Unit 2. The Alphabet, Words and Numbers (পৃষ্ঠা 6–30)",
+        "Unit 3. Commands, Instructions, and Requests (পৃষ্ঠা 31–35)",
+        "Unit 4. Asking and Answering Questions (পৃষ্ঠা 36–41)",
+        "Unit 5. Days of The Week (পৃষ্ঠা 42–54)",
+        "Unit 6. Let's Play with Sounds (পৃষ্ঠা 55–62)",
+        "Unit 7. Colours, Shapes, and Signs (পৃষ্ঠা 63–74)",
+        "Unit 8. My Family, friends and I (পৃষ্ঠা 75–83)",
+        "Unit 9. Animals and Birds (পৃষ্ঠা 84–92)",
+        "Unit 10. Story Time (পৃষ্ঠা 93–98)"
       ],
-      "chapters": [],
+      "total_chapters": 10,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 28
+      }
     },
     {
       "id": "2026-primary-class-2-math",
@@ -448,55 +310,34 @@
       "subject_code": "math",
       "language": "bn",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9935c4774958d7b70508",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1QY1URkKhpoAqVTuPRaLHgBJZ7_3lGpyq/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/VeBQB1ZuzSZPRBJ",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1QY1URkKhpoAqVTuPRaLHgBJZ7_3lGpyq/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "প্রাথমিক গণিত",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1yofkAU1FjyoYcx2nZGEqhlnH4xbE9YHJ/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/Kw56TUvE7YsvdcL",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1yofkAU1FjyoYcx2nZGEqhlnH4xbE9YHJ/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-2/class-2-math/source/original.pdf",
-        "file_name": "class-2-math.pdf",
-        "file_size": 0,
+        "file_name": "Class-2, Math_Book.pdf",
+        "file_size": 21926241,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "d5823437e20520c522682c0194699832bd1ac84336db381684134532759ca412"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. সংখ্যা ও স্থানীয় মান (১ থেকে ১০০) (পৃষ্ঠা 1–14)",
-        "2. যোগ (হাতে রেখে ও হাতে না রেখে দুই অঙ্কের যোগ) (পৃষ্ঠা 15–28)",
-        "3. বিয়োগ (হাতে রেখে ও হাতে না রেখে দুই অঙ্কের বিয়োগ) (পৃষ্ঠা 29–40)",
-        "4. গুণের প্রাথমিক ধারণা ও নামতা (১ থেকে ১০-এর নামতা) (পৃষ্ঠা 41–54)",
-        "5. ভাগের প্রাথমিক ধারণা (সমান ভাগে বণ্টন) (পৃষ্ঠা 55–64)",
-        "6. ভগ্নাংশের প্রাথমিক ধারণা (অর্ধেক ১/২ ও এক-চতুর্থাংশ ১/৪) (পৃষ্ঠা 65–72)",
-        "7. বাংলাদেশি মুদ্রা ও টাকা-পয়সার হিসাব (পৃষ্ঠা 73–80)",
-        "8. জ্যামিতি (বিন্দু, রেখা, ত্রিভুজ, চতুর্ভুজ ও বৃত্ত) (পৃষ্ঠা 81–88)",
-        "9. পরিমাপ (দৈর্ঘ্য, ওজন ও তরলের আয়তন) (পৃষ্ঠা 89–96)",
-        "10. সময়, ক্যালেন্ডার ও ঘড়ি (পৃষ্ঠা 97–104)"
+        "১. সংখ্যা ও স্থানীয় মান (পৃষ্ঠা 1–39)",
+        "২. যোগ ও বিয়োগ (পৃষ্ঠা 40–72)",
+        "৩. গুণ (পৃষ্ঠা 73–101)",
+        "৪. জ্যামিতিক আকৃতি ও প্যাটার্ন (পৃষ্ঠা 102–106)",
+        "৫. পরিমাপ (পৃষ্ঠা 107–120)",
+        "৬. মুদ্রা (পৃষ্ঠা 121–124)",
+        "৭. উপাত্ত (পৃষ্ঠা 125–130)"
       ],
-      "chapters": [],
+      "total_chapters": 7,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 10
+      }
     },
     {
       "id": "2026-primary-class-3-bangla",
@@ -511,63 +352,57 @@
       "subject_code": "bangla",
       "language": "bn",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9980c4774958d7b70591",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1Je1KylPoJBiYt-lW5qqaH8BszIk0VJVz/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/09v2RIHbjCIHV8g",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1Je1KylPoJBiYt-lW5qqaH8BszIk0VJVz/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "আমার বাংলা বই",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1Je1KylPoJBiYt-lW5qqaH8BszIk0VJVz/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/09v2RIHbjCIHV8g",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1Je1KylPoJBiYt-lW5qqaH8BszIk0VJVz/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-3/class-3-bangla/source/original.pdf",
-        "file_name": "class-3-bangla.pdf",
-        "file_size": 0,
+        "file_name": "Class-3, Bangla_Book.pdf",
+        "file_size": 26885611,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "b3d45fdab694aa4e8c3e4047268e9d9b6f5ddb6323244024fb8add14162ae7c0"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. ছবি ও কথা (আমাদের বন্ধুরা) (পৃষ্ঠা 1–4)",
-        "2. চল্ চল্ চল্ (রণসংগীত - কাজী নজরুল ইসলাম) (পৃষ্ঠা 5–7)",
-        "3. কুঁজো বুড়ির গল্প (পৃষ্ঠা 8–12)",
-        "4. তালগাছ (কবিতা - রবীন্দ্রনাথ ঠাকুর) (পৃষ্ঠা 13–15)",
-        "5. রাজা ও তার তিন কন্যা (পৃষ্ঠা 16–21)",
-        "6. হাটে যাব (কবিতা - আহসান হাবীব) (পৃষ্ঠা 22–24)",
-        "7. একাই একটি দুর্গ (বীরশ্রেষ্ঠ মোস্তফা কামাল) (পৃষ্ঠা 25–30)",
-        "8. আমাদের গ্রাম (কবিতা - বন্দে আলী মিয়া) (পৃষ্ঠা 31–33)",
-        "9. কানামাছি ভোঁ ভোঁ (পৃষ্ঠা 34–37)",
-        "10. আদর্শ ছেলে (কবিতা - কুসুমকুমারী দাশ) (পৃষ্ঠা 38–40)",
-        "11. স্টিমারের সিটি (পৃষ্ঠা 41–46)",
-        "12. ঘুড়ি (কবিতা - আবুল হোসেন) (পৃষ্ঠা 47–49)",
-        "13. পাখিদের কথা (পৃষ্ঠা 50–55)",
-        "14. স্বাধীনতা দিবস ও জাতীয় দিবস (পৃষ্ঠা 56–60)",
-        "15. পালকির গান (কবিতা - সত্যেন্দ্রনাথ দত্ত) (পৃষ্ঠা 61–63)",
-        "16. খলিফা হযরত আবু বকর (রা.) (পৃষ্ঠা 64–68)",
-        "17. নিরাপদ সড়ক ও ট্রাফিক নিয়ম (পৃষ্ঠা 69–72)",
-        "18. ব্যাকরণ, বিপরীত শব্দ ও বাক্য গঠন (পৃষ্ঠা 73–78)"
+        "১. আমাদের কথা (পৃষ্ঠা 1–2)",
+        "২. আমাদের পরিবার ও আমাদের প্রতিবেশী (পৃষ্ঠা 3–5)",
+        "৩. ময়লার বাকসো (পৃষ্ঠা 6–11)",
+        "৪. আবার পড়ি কারচিহ্ন (পৃষ্ঠা 12–14)",
+        "৫. আবার পড়ি ফলাচিহ্ন (পৃষ্ঠা 15–18)",
+        "৬. দেখে বুঝে কাজ করি (পৃষ্ঠা 19–19)",
+        "৭. ঘাসফড়িং আর পিঁপড়ার গল্প (পৃষ্ঠা 20–22)",
+        "৮. আমি হব (পৃষ্ঠা 23–25)",
+        "৯. ব্যাঙের সাজা (পৃষ্ঠা 26–30)",
+        "১০. বাক্য পড়ি ও লিখি (পৃষ্ঠা 31–31)",
+        "১১. আনন্দের দিন (পৃষ্ঠা 32–36)",
+        "১২. বালুচরে একদিন (পৃষ্ঠা 37–41)",
+        "১৩. আমাদের গ্রাম (পৃষ্ঠা 42–44)",
+        "১৪. নদীর দেশ (পৃষ্ঠা 45–48)",
+        "১৫. হার-জিতের গল্প (পৃষ্ঠা 49–54)",
+        "১৬. হাসি (পৃষ্ঠা 55–57)",
+        "১৭. আমাদের উৎসব (পৃষ্ঠা 58–61)",
+        "১৮. রাষ্ট্রভাষা বাংলা চাই (পৃষ্ঠা 62–64)",
+        "১৯. আজিকার শিশু (পৃষ্ঠা 65–68)",
+        "২০. ঢাকাই মসলিন (পৃষ্ঠা 69–71)",
+        "২১. হজরত আবু বকর (রা) (পৃষ্ঠা 72–75)",
+        "২২. আমার পণ (পৃষ্ঠা 76–79)",
+        "২৩. মানব জয়ের গল্প (পৃষ্ঠা 80–82)",
+        "২৪. তালগাছ (পৃষ্ঠা 83–85)",
+        "২৫. রবীন্দ্রনাথ ঠাকুরের ছেলেবেলা (পৃষ্ঠা 86–88)",
+        "২৬. আদর্শ ছেলে (পৃষ্ঠা 89–91)",
+        "২৭. মুক্তিযুদ্ধে রাজারবাগ (পৃষ্ঠা 92–94)",
+        "২৮. নিজের মতো লিখি (পৃষ্ঠা 95–96)",
+        "২৯. প্রতিযোগিতায় নাম লিখি (পৃষ্ঠা 97–98)",
+        "৩০. শব্দ ভাণ্ডার (পৃষ্ঠা 99–104)"
       ],
-      "chapters": [],
+      "total_chapters": 30,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 18
+      }
     },
     {
       "id": "2026-primary-class-3-english",
@@ -577,75 +412,40 @@
       "class_number": 3,
       "class_name": "তৃতীয় শ্রেণি",
       "official_book_name": "English for Today",
-      "normalized_book_name": "English For Today",
-      "subject": "English For Today",
+      "normalized_book_name": "English for Today",
+      "subject": "English for Today",
       "subject_code": "english",
-      "language": "bn",
+      "language": "en",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9980c4774958d7b70591",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1gy7q4njDpOKGULXzGQVvhq2ZGpZMOfif/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/uBJQBKhwhLdCGSp",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1gy7q4njDpOKGULXzGQVvhq2ZGpZMOfif/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "English For Today",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1gy7q4njDpOKGULXzGQVvhq2ZGpZMOfif/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/uBJQBKhwhLdCGSp",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1gy7q4njDpOKGULXzGQVvhq2ZGpZMOfif/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-3/class-3-english/source/original.pdf",
-        "file_name": "class-3-english.pdf",
-        "file_size": 0,
+        "file_name": "Class 3, English_Book.pdf",
+        "file_size": 5928534,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "97dde4f9e01a52de79e4f8562d2fe9c8d38e5bec4647c2590952a13a39b5cbf9"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. Introducing a Student & Teacher (Unit 1) (পৃষ্ঠা 1–3)",
-        "2. Introducing Others (Unit 2) (পৃষ্ঠা 4–6)",
-        "3. Dialogue: Greetings Around the Clock (Unit 3) (পৃষ্ঠা 7–9)",
-        "4. Numbers 1-50 (Unit 4) (পৃষ্ঠা 10–12)",
-        "5. Commands, Instructions & Requests (Unit 5) (পৃষ্ঠা 13–15)",
-        "6. What Food Should We Eat? (Unit 6) (পৃষ্ঠা 16–18)",
-        "7. Commands at Home & School (Unit 7) (পৃষ্ঠা 19–21)",
-        "8. Telling the Time (Unit 8) (পৃষ্ঠা 22–24)",
-        "9. Occupations & Community Helpers (Unit 9) (পৃষ্ঠা 25–27)",
-        "10. My Family & Daily Routine (Unit 10) (পৃষ্ঠা 28–30)",
-        "11. Food We Eat (Unit 11) (পৃষ্ঠা 31–33)",
-        "12. Numbers 51-100 (Unit 12) (পৃষ্ঠা 34–36)",
-        "13. Months and Days of the Year (Unit 13) (পৃষ্ঠা 37–39)",
-        "14. Story: The Crow and the Pitcher (Unit 14) (পৃষ্ঠা 40–42)",
-        "15. Names of Months & Calendar Reading (Unit 15) (পৃষ্ঠা 43–45)",
-        "16. Clothes and Sizes (Unit 16) (পৃষ্ঠা 46–48)",
-        "17. Cleanliness & Healthy Habits (Unit 17) (পৃষ্ঠা 49–51)",
-        "18. Story: Rima and the Seed (Unit 18) (পৃষ্ঠা 52–54)",
-        "19. Animals & Their Habitats (Unit 19) (পৃষ্ঠা 55–57)",
-        "20. Prepositions of Place (In, On, Under, In Front of) (Unit 20) (পৃষ্ঠা 58–60)",
-        "21. Rhyme: Teddy Bear, Teddy Bear (Unit 21) (পৃষ্ঠা 61–62)",
-        "22. What Are They Doing? Present Continuous (Unit 22) (পৃষ্ঠা 63–65)",
-        "23. Story: The Farmer and His Sons (Unit 23) (পৃষ্ঠা 66–68)",
-        "24. My Hometown & Country (Unit 24) (পৃষ্ঠা 69–71)",
-        "25. Year-End Dialogue and Revision (Unit 25) (পৃষ্ঠা 72–76)"
+        "Unit 1. Greetings, Farewells, Introductions and Numbers (পৃষ্ঠা 1–20)",
+        "Unit 2. My Friends, Family and Numbers (পৃষ্ঠা 21–33)",
+        "Unit 3. Commands, Instructions, Requests and Numbers (পৃষ্ঠা 34–47)",
+        "Unit 4. Let's Play with Sounds and Numbers (পৃষ্ঠা 48–64)",
+        "Unit 5. Their Days (পৃষ্ঠা 65–82)",
+        "Unit 6. Cleanliness (পৃষ্ঠা 83–96)",
+        "Unit 7. Save Our Water (পৃষ্ঠা 97–108)",
+        "Unit 8. Facts and Fables (পৃষ্ঠা 109–122)"
       ],
-      "chapters": [],
+      "total_chapters": 8,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 25
+      }
     },
     {
       "id": "2026-primary-class-3-math",
@@ -660,55 +460,40 @@
       "subject_code": "math",
       "language": "bn",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9980c4774958d7b70591",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1sd7ebdMkuU6Wv0BUgccqYV4UxpwUmTyC/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/c97udcl4dlxev8s",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1sd7ebdMkuU6Wv0BUgccqYV4UxpwUmTyC/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "প্রাথমিক গণিত",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/115wNAy7MFdjmux9UvW7YzCwTYe8-tF-n/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/fZkF0x9uyNGcGmg",
-          "resolved_pdf_url": "https://drive.google.com/file/d/115wNAy7MFdjmux9UvW7YzCwTYe8-tF-n/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-3/class-3-math/source/original.pdf",
-        "file_name": "class-3-math.pdf",
-        "file_size": 0,
+        "file_name": "Class-3, Math_Book.pdf",
+        "file_size": 49150200,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "b5b2cfc192ea39f7c76408fd0027afc8caaa203cb58f046054a21e6e300d1a39"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. সংখ্যা (১ থেকে ১০০০০ পর্যন্ত স্থানীয় মান ও তুলনা) (পৃষ্ঠা 1–18)",
-        "2. যোগ (চার অঙ্ক পর্যন্ত হাতে রেখে যোগ) (পৃষ্ঠা 19–32)",
-        "3. বিয়োগ (চার অঙ্ক পর্যন্ত হাতে রেখে বিয়োগ) (পৃষ্ঠা 33–46)",
-        "4. গুণ (তিন অঙ্কের সংখ্যাকে দুই অঙ্কের সংখ্যা দ্বারা গুণ) (পৃষ্ঠা 47–60)",
-        "5. ভাগ (ভাগফল ও ভাগশেষ নির্ণয়) (পৃষ্ঠা 61–72)",
-        "6. চার প্রক্রিয়া সম্পর্কিত সমস্যাবলি (যোগ, বিয়োগ, গুণ, ভাগ) (পৃষ্ঠা 73–84)",
-        "7. বাংলাদেশি মুদ্রা ও নোটের হিসাব (পৃষ্ঠা 85–94)",
-        "8. ভগ্নাংশ (প্রকৃত, সমহর ও তুলনা) (পৃষ্ঠা 95–106)",
-        "9. পরিমাপ (দৈর্ঘ্য, ওজন, তরল ও সময়) (পৃষ্ঠা 107–120)",
-        "10. জ্যামিতি (কোণ, ত্রিভুজ, চতুর্ভুজ ও বৃত্ত) (পৃষ্ঠা 121–132)"
+        "১. সংখ্যা (পৃষ্ঠা 1–20)",
+        "২. যোগ (পৃষ্ঠা 21–30)",
+        "৩. বিয়োগ (পৃষ্ঠা 31–36)",
+        "৪. যোগ ও বিয়োগের সম্পর্ক (পৃষ্ঠা 37–41)",
+        "৫. গুণ (পৃষ্ঠা 42–62)",
+        "৬. ভাগ (পৃষ্ঠা 63–77)",
+        "৭. গুণ ও ভাগের সম্পর্ক (পৃষ্ঠা 78–83)",
+        "৮. যোগ, বিয়োগ, গুণ ও ভাগসংক্রান্ত সমস্যা (পৃষ্ঠা 84–90)",
+        "৯. ভগ্নাংশ (পৃষ্ঠা 91–106)",
+        "১০. বাংলাদেশি মুদ্রা (পৃষ্ঠা 107–117)",
+        "১১. পরিমাপ (পৃষ্ঠা 118–132)",
+        "১২. জ্যামিতি (পৃষ্ঠা 133–148)",
+        "১৩. উপাত্ত সংগ্রহ ও বিন্যস্তকরণ (পৃষ্ঠা 149–156)"
       ],
-      "chapters": [],
+      "total_chapters": 13,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 10
+      }
     },
     {
       "id": "2026-primary-class-3-science",
@@ -723,52 +508,39 @@
       "subject_code": "science",
       "language": "bn",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9980c4774958d7b70591",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1jn-X5lOgECnoypp29eYtYAw_DHZ9qhm6/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/7eXICQ394KDIGr9",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1jn-X5lOgECnoypp29eYtYAw_DHZ9qhm6/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "প্রাথমিক বিজ্ঞান",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1Z_dMhkriUM96PjEHDbuWoZ6J6wHmzXFk/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/hsFCqLJvlJYoTou",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1Z_dMhkriUM96PjEHDbuWoZ6J6wHmzXFk/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-3/class-3-science/source/original.pdf",
-        "file_name": "class-3-science.pdf",
-        "file_size": 0,
+        "file_name": "Class-3, Science_Book.pdf",
+        "file_size": 33720479,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "212cfede41299e222bdc273ac5205ba696ed8530943d2835c34cd877349c25fe"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. আমাদের পরিবেশ (প্রাকৃতিক ও মানুষের তৈরি পরিবেশ) (পৃষ্ঠা 1–8)",
-        "2. জীব ও জড় (উদ্ভিদ ও প্রাণীর বৈশিষ্ট্য ও পার্থক্য) (পৃষ্ঠা 9–18)",
-        "3. বিভিন্ন ধরনের পদার্থ (কঠিন, তরল ও বায়বীয়) (পৃষ্ঠা 19–26)",
-        "4. জীবনের জন্য পানি (পানির উৎস ও পানি দূষণ প্রতিরোধ) (পৃষ্ঠা 27–36)",
-        "5. মাটি (বেলে, এঁটেল ও দোআঁশ মাটির বৈশিষ্ট্য) (পৃষ্ঠা 37–44)",
-        "6. বায়ু (বায়ুর উপাদান ও বায়ু দূষণ) (পৃষ্ঠা 45–52)",
-        "7. স্বাস্থ্যবিধি ও পুষ্টিকর খাদ্য (পৃষ্ঠা 53–62)"
+        "১. উদ্ভিদ পরিচিতি (পৃষ্ঠা 1–10)",
+        "২. প্রাণী পরিচিতি (পৃষ্ঠা 11–22)",
+        "৩. সুস্বাস্থ্যের জন্য খাদ্য (পৃষ্ঠা 23–38)",
+        "৪. পদার্থ (পৃষ্ঠা 39–58)",
+        "৫. শক্তি (পৃষ্ঠা 59–68)",
+        "৬. বস্তুর উপর বলের প্রভাব (পৃষ্ঠা 69–79)",
+        "৭. পানি (পৃষ্ঠা 80–94)",
+        "৮. মাটি (পৃষ্ঠা 95–110)",
+        "৯. জীবনের জন্য সূর্য (পৃষ্ঠা 111–121)",
+        "১০. প্রযুক্তির সঙ্গে পরিচয় (পৃষ্ঠা 122–132)",
+        "১১. তথ্য ও যোগাযোগ (পৃষ্ঠা 133–144)",
+        "১২. শব্দকোষ (পৃষ্ঠা 145–147)"
       ],
-      "chapters": [],
+      "total_chapters": 12,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 7
+      }
     },
     {
       "id": "2026-primary-class-3-bgs",
@@ -780,54 +552,43 @@
       "official_book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
       "normalized_book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
       "subject": "বাংলাদেশ ও বিশ্বপরিচয়",
-      "subject_code": "bangla",
+      "subject_code": "bgs",
       "language": "bn",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9980c4774958d7b70591",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/15XHREkEQf7PioxmaVo7fW-EWLRKYrDEw/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/mjAT4z4uvNEVIlV",
-        "resolved_pdf_url": "https://drive.google.com/file/d/15XHREkEQf7PioxmaVo7fW-EWLRKYrDEw/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1WWn8zYXo56hGUYzl20_TJokOgr05ltig/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/nNQPqJmobrS2HXX",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1WWn8zYXo56hGUYzl20_TJokOgr05ltig/view?usp=drive_link"
-        }
-      },
       "pdf": {
-        "local_path": "data/2026/primary/class-3/class-3-bangla/source/original.pdf",
-        "file_name": "class-3-bangla.pdf",
-        "file_size": 0,
+        "local_path": "data/2026/primary/class-3/class-3-bgs/source/original.pdf",
+        "file_name": "Class-3, Bangladesh and Global Studies.pdf",
+        "file_size": 55322898,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "19596df052763cfe6136c8c0f8dd8cb1d20ad7bedc360fa4d6f6f7ccd1745c04"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. প্রাকৃতিক ও সামাজিক পরিবেশ (পৃষ্ঠা 1–8)",
-        "2. মিলেমিশে থাকা (সমতা ও সৌহার্দ্য) (পৃষ্ঠা 9–16)",
-        "3. আমাদের অধিকার ও দায়িত্ব (পৃষ্ঠা 17–24)",
-        "4. বিভিন্ন পেশার মানুষ (পৃষ্ঠা 25–34)",
-        "5. মানুষের গুণ (সততা ও পরোপকার) (পৃষ্ঠা 35–42)",
-        "6. আমাদের জাতীয় ইতিহাস ও ঐতিহ্য (পৃষ্ঠা 43–54)"
+        "১. আমাদের পরিবেশ (পৃষ্ঠা 1–11)",
+        "২. আমরা সবাই মানুষ (পৃষ্ঠা 12–20)",
+        "৩. আমাদের ইতিহাস (পৃষ্ঠা 21–34)",
+        "৪. আমাদের সংস্কৃতি (পৃষ্ঠা 35–41)",
+        "৫. মহাদেশ ও মহাসাগর (পৃষ্ঠা 42–52)",
+        "৬. পরিবার ও বিদ্যালয়ে শিশুর ভূমিকা (পৃষ্ঠা 53–61)",
+        "৭. শিশু অধিকার ও নিরাপত্তা (পৃষ্ঠা 62–71)",
+        "৮. নৈতিক ও মানবিক গুণ (পৃষ্ঠা 72–77)",
+        "৯. আমাদের দেশ (পৃষ্ঠা 78–89)",
+        "১০. বিভিন্ন পেশা (পৃষ্ঠা 90–99)",
+        "১১. টাকার ব্যবহার (পৃষ্ঠা 100–104)",
+        "১২. জরুরি পরিস্থিতি মোকাবিলা (পৃষ্ঠা 105–111)",
+        "১৩. শব্দভাণ্ডার (পৃষ্ঠা 112–114)"
       ],
-      "chapters": [],
+      "total_chapters": 13,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 6
+      }
     },
     {
       "id": "2026-primary-class-3-islam",
@@ -837,55 +598,37 @@
       "class_number": 3,
       "class_name": "তৃতীয় শ্রেণি",
       "official_book_name": "ইসলাম ও নৈতিক শিক্ষা",
-      "normalized_book_name": "ইসলাম শিক্ষা",
-      "subject": "ধর্ম ও নৈতিক শিক্ষা",
+      "normalized_book_name": "ইসলাম ও নৈতিক শিক্ষা",
+      "subject": "ইসলাম ও নৈতিক শিক্ষা",
       "subject_code": "islam",
       "language": "bn",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9980c4774958d7b70591",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1KSegBPjHNygGuJJE77byNjBAv-HNvz9y/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/PBXZ0gAlYL9JBGN",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1KSegBPjHNygGuJJE77byNjBAv-HNvz9y/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "ইসলাম শিক্ষা",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1_guOxSH27DQo8TWnoe5d0oeoF69jROfT/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/wjuY0V2AJWu0qWn",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1_guOxSH27DQo8TWnoe5d0oeoF69jROfT/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-3/class-3-islam/source/original.pdf",
-        "file_name": "class-3-islam.pdf",
-        "file_size": 0,
+        "file_name": "Class_3, Islamic Religion_Book.pdf",
+        "file_size": 35905623,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "ca113d33752fd28ae6b8c73079c7e8e8baad57f9cebf1a16a62f6bc7bfece089"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. আকাইদ (আল্লাহর পরিচয়, ঈমান ও তাওহিদ) (পৃষ্ঠা 1–12)",
-        "2. ইবাদত (পাক-পবিত্রতা, ওজু ও পাঁচ ওয়াক্ত সালাত) (পৃষ্ঠা 13–26)",
-        "3. আখলাক বা চরিত্র (পিতা-মাতার সেবা ও সত্যবাদিতা) (পৃষ্ঠা 27–38)",
-        "4. কুরআন মাজিদ শিক্ষা (আরবি হরফ ও ছোট সুরা) (পৃষ্ঠা 39–50)",
-        "5. নবী-রাসূলগণের জীবন ও আদর্শ (পৃষ্ঠা 51–62)"
+        "১. স্রষ্টা ও সৃষ্টি (পৃষ্ঠা 1–29)",
+        "২. রাসুল (স.) ও তাঁর সাহাবিগণের জীবনচরিত অনুসরণ (পৃষ্ঠা 30–39)",
+        "৩. নৈতিক ও মানবিক গুণাবলি অর্জন (পৃষ্ঠা 40–49)",
+        "৪. ধর্মীয় সম্প্রীতি (পৃষ্ঠা 50–59)",
+        "৫. জীবজগৎ ও প্রকৃতির প্রতি ভালোবাসা (পৃষ্ঠা 60–68)"
       ],
-      "chapters": [],
+      "total_chapters": 5,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 5
+      }
     },
     {
       "id": "2026-primary-class-3-hindu",
@@ -896,170 +639,36 @@
       "class_name": "তৃতীয় শ্রেণি",
       "official_book_name": "হিন্দুধর্ম শিক্ষা",
       "normalized_book_name": "হিন্দুধর্ম শিক্ষা",
-      "subject": "ধর্ম ও নৈতিক শিক্ষা",
+      "subject": "হিন্দুধর্ম শিক্ষা",
       "subject_code": "hindu",
       "language": "bn",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9980c4774958d7b70591",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1MnUeQUpgNz83fslF3lCT-ttuWaPkrRs0/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/1IZRkMQBIhWbJ9o",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1MnUeQUpgNz83fslF3lCT-ttuWaPkrRs0/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "হিন্দুধর্ম শিক্ষা",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1xSpVBi0VNZEqb1N1prIjqC945StT8Jvm/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/2srvY69AxKDas4i",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1xSpVBi0VNZEqb1N1prIjqC945StT8Jvm/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-3/class-3-hindu/source/original.pdf",
-        "file_name": "class-3-hindu.pdf",
-        "file_size": 0,
+        "file_name": "Class 3, Hindu Religion_Book.pdf",
+        "file_size": 22061178,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "a504d1298d69846f41cc96fb654b5206aede4cf3f5c7905c2167ec71843f2598"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. ঈশ্বরের স্বরূপ ও সৃষ্টি (পৃষ্ঠা 1–10)",
-        "2. দেব-দেবী ও পূজা-পার্বণ (পৃষ্ঠা 11–20)",
-        "3. ধর্মগ্রন্থ ও নীতিশিক্ষা (পৃষ্ঠা 21–30)",
-        "4. সদাচার, অহিংসা ও সেবা (পৃষ্ঠা 31–40)",
-        "5. মহাপুরুষ ও মহীয়সী নারী (পৃষ্ঠা 41–50)"
+        "১. স্রষ্টা ও সৃষ্টি এবং উপাসনা ও প্রার্থনা (পৃষ্ঠা 1–16)",
+        "২. আদর্শ জীবনচরিত (পৃষ্ঠা 17–29)",
+        "৩. নৈতিক ও মানবিক গুণাবলি (পৃষ্ঠা 30–43)",
+        "৪. ধর্মগ্রন্থ, পূজা-পার্বণ ও ধর্মীয় উৎসব এবং শান্তিপূর্ণ সহাবস্থান (পৃষ্ঠা 44–70)",
+        "৫. প্রকৃতি ও পরিবেশ এবং দেশপ্রেম (পৃষ্ঠা 71–89)"
       ],
-      "chapters": [],
+      "total_chapters": 5,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 5
-    },
-    {
-      "id": "2026-primary-class-3-buddha",
-      "slug": "class-3-buddha",
-      "academic_year": 2026,
-      "level": "primary",
-      "class_number": 3,
-      "class_name": "তৃতীয় শ্রেণি",
-      "official_book_name": "বৌদ্ধধর্ম শিক্ষা",
-      "normalized_book_name": "বৌদ্ধধর্ম শিক্ষা",
-      "subject": "ধর্ম ও নৈতিক শিক্ষা",
-      "subject_code": "buddha",
-      "language": "bn",
-      "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9980c4774958d7b70591",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1hStfhnRzkyVi-LIJ65Z2XNn-Ul-2wfC2/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/KU1IupjxdIIVIYf",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1hStfhnRzkyVi-LIJ65Z2XNn-Ul-2wfC2/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "বৌদ্ধধর্ম শিক্ষা",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1hPTTEmTG2XqcwYNAkEOq6PG13ulQC6in/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/qiP7ZgeOIPpLkJc",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1hPTTEmTG2XqcwYNAkEOq6PG13ulQC6in/view?usp=drive_link"
-        }
-      },
-      "pdf": {
-        "local_path": "data/2026/primary/class-3/class-3-buddha/source/original.pdf",
-        "file_name": "class-3-buddha.pdf",
-        "file_size": 0,
-        "total_pages": 0,
-        "sha256": ""
-      },
-      "publication": {
-        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
-      },
-      "table_of_contents": [
-        "1. সিদ্ধার্থ গৌতমের বাল্যজীবন (পৃষ্ঠা 1–10)",
-        "2. ত্রিরত্ন বন্দনা ও প্রার্থনা (পৃষ্ঠা 11–20)",
-        "3. শীল ও নীতিশিক্ষা (পৃষ্ঠা 21–30)",
-        "4. জাতকের শিক্ষণীয় গল্প (পৃষ্ঠা 31–40)",
-        "5. বৌদ্ধ ধর্মীয় উৎসব (পৃষ্ঠা 41–50)"
-      ],
-      "chapters": [],
-      "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
-        "questions_verified": false,
-        "needs_review": false
-      },
-      "total_chapters": 5
-    },
-    {
-      "id": "2026-primary-class-3-christian",
-      "slug": "class-3-christian",
-      "academic_year": 2026,
-      "level": "primary",
-      "class_number": 3,
-      "class_name": "তৃতীয় শ্রেণি",
-      "official_book_name": "খ্রিষ্টধর্ম শিক্ষা",
-      "normalized_book_name": "খ্রিষ্টধর্ম শিক্ষা",
-      "subject": "ধর্ম ও নৈতিক শিক্ষা",
-      "subject_code": "christian",
-      "language": "bn",
-      "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9980c4774958d7b70591",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1g5celNzNGe0pLzfT28PWxCIEg1pmOg_Y/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/s5iZa5K3QvSzMl4",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1g5celNzNGe0pLzfT28PWxCIEg1pmOg_Y/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "খ্রিষ্টধর্ম শিক্ষা",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1FoJO18h0TmwupjFBoLjAJlJW1gwYdoRn/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/UVqZlG7K4BaRVrK",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1FoJO18h0TmwupjFBoLjAJlJW1gwYdoRn/view?usp=drive_link"
-        }
-      },
-      "pdf": {
-        "local_path": "data/2026/primary/class-3/class-3-christian/source/original.pdf",
-        "file_name": "class-3-christian.pdf",
-        "file_size": 0,
-        "total_pages": 0,
-        "sha256": ""
-      },
-      "publication": {
-        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
-      },
-      "table_of_contents": [
-        "1. ঈশ্বর সর্বশক্তিমান সৃষ্টিকর্তা (পৃষ্ঠা 1–10)",
-        "2. প্রভু যীশু খ্রিষ্টের জন্ম ও বাল্যকাল (পৃষ্ঠা 11–20)",
-        "3. প্রার্থনা ও সৎকর্ম (পৃষ্ঠা 21–30)",
-        "4. দশ আজ্ঞা ও অনুশাসন (পৃষ্ঠা 31–40)",
-        "5. খ্রিষ্টীয় ভালোবাসা ও সেবা (পৃষ্ঠা 41–50)"
-      ],
-      "chapters": [],
-      "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
-        "questions_verified": false,
-        "needs_review": false
-      },
-      "total_chapters": 5
+      }
     },
     {
       "id": "2026-primary-class-4-bangla",
@@ -1074,65 +683,50 @@
       "subject_code": "bangla",
       "language": "bn",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b99ccc4774958d7b70680",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1X5GZzzBUU7bPZU6k9cdY3FyPf7wkZgOI/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/MBny2ZiG5TBOtdc",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1X5GZzzBUU7bPZU6k9cdY3FyPf7wkZgOI/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "আমার বাংলা বই",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1X5GZzzBUU7bPZU6k9cdY3FyPf7wkZgOI/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/MBny2ZiG5TBOtdc",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1X5GZzzBUU7bPZU6k9cdY3FyPf7wkZgOI/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-4/class-4-bangla/source/original.pdf",
-        "file_name": "class-4-bangla.pdf",
-        "file_size": 0,
+        "file_name": "Class 4, Bangla_Book.pdf",
+        "file_size": 38537029,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "af9d1f834513ea424a27dddafcd250c292605521161919108c7e0a34d8304282"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. বাংলাদেশের প্রকৃতি (পৃষ্ঠা 1–5)",
-        "2. পালকির গান (কবিতা - সত্যেন্দ্রনাথ দত্ত) (পৃষ্ঠা 6–8)",
-        "3. বড় রাজা ছোট রাজা (পৃষ্ঠা 9–14)",
-        "4. মুক্তির ছড়া (কবিতা - সানাউল হক) (পৃষ্ঠা 15–17)",
-        "5. বীরশ্রেষ্ঠদের বীরগাথা (৭ জন বীরশ্রেষ্ঠ) (পৃষ্ঠা 18–24)",
-        "6. মা (কবিতা - কাজী নজরুল ইসলাম) (পৃষ্ঠা 25–27)",
-        "7. মহীয়সী রোকেয়া (বেগম রোকেয়া সাখাওয়াত হোসেন) (পৃষ্ঠা 28–33)",
-        "8. নেমন্তন্ন (কবিতা - অন্নদাশঙ্কর রায়) (পৃষ্ঠা 34–36)",
-        "9. হাত ধুয়ে নাও (পৃষ্ঠা 37–41)",
-        "10. মোদের গরব মোদের আশা (কবিতা - অতুলপ্রসাদ সেন) (পৃষ্ঠা 42–44)",
-        "11. কাঞ্চনমালা আর কাঁকনমালা (পৃষ্ঠা 45–52)",
-        "12. কাজলা দিদি (কবিতা - যতীন্দ্রমোহন বাগচী) (পৃষ্ঠা 53–56)",
-        "13. বাংলার খোকা (বঙ্গবন্ধু শেখ মুজিবুর রহমান) (পৃষ্ঠা 57–62)",
-        "14. দূরের পাল্লা (কবিতা - সত্যেন্দ্রনাথ দত্ত) (পৃষ্ঠা 63–65)",
-        "15. লিপির গল্প (লিপিমালার আবিষ্কার) (পৃষ্ঠা 66–71)",
-        "16. বীরপুরুষ (কবিতা - রবীন্দ্রনাথ ঠাকুর) (পৃষ্ঠা 72–75)",
-        "17. মোবাইল ফোন (বিজ্ঞান ও যোগাযোগ প্রযুক্তি) (পৃষ্ঠা 76–80)",
-        "18. বাওয়ালিদের গল্প (সুন্দরবনের মধু ও গোলপাতা সংগ্রাহক) (পৃষ্ঠা 81–86)",
-        "19. খলিফা হযরত ওমর (রা.) (পৃষ্ঠা 87–92)",
-        "20. যুক্তবর্ণ, শব্দার্থ, বাক্য সংকোচন ও ব্যাকরণ (পৃষ্ঠা 93–100)"
+        "১. রূপময় বাংলাদেশ (পৃষ্ঠা 1–6)",
+        "২. কেমন বড়াই (পৃষ্ঠা 7–10)",
+        "৩. শুভেচ্ছা জানাই (পৃষ্ঠা 11–15)",
+        "৪. ভাষার খেলা (পৃষ্ঠা 16–21)",
+        "৫. জন্মেছি এই দেশে (পৃষ্ঠা 22–26)",
+        "৬. দোয়েল পাখি (পৃষ্ঠা 27–33)",
+        "৭. একুশের কবিতা (পৃষ্ঠা 34–37)",
+        "৮. চিল ও বিড়াল (পৃষ্ঠা 38–43)",
+        "৯. বৃষ্টির ছড়া (পৃষ্ঠা 44–47)",
+        "১০. ময়নামতি (পৃষ্ঠা 48–55)",
+        "১১. বাঘখেকো শিয়ালের ছানা (পৃষ্ঠা 56–62)",
+        "১২. কাজলা দিদি (পৃষ্ঠা 63–67)",
+        "১৩. দানবীর মুহসিন (পৃষ্ঠা 68–72)",
+        "১৪. অমল ও দইওয়ালা (পৃষ্ঠা 73–78)",
+        "১৫. প্রিয় স্বাধীনতা (পৃষ্ঠা 79–82)",
+        "১৬. সোনার থালা (পৃষ্ঠা 83–88)",
+        "১৭. লিচু-চোর (পৃষ্ঠা 89–93)",
+        "১৮. মহীয়সী নারী (পৃষ্ঠা 94–98)",
+        "১৯. লাল জামা (পৃষ্ঠা 99–103)",
+        "২০. চারদিকে দেখি (পৃষ্ঠা 104–108)",
+        "২১. ভয় পেয়ো না (পৃষ্ঠা 109–112)",
+        "২২. খলিফা উমর (রা) (পৃষ্ঠা 113–119)",
+        "২৩. পাঠাগারের সদস্য হই (পৃষ্ঠা 120–126)"
       ],
-      "chapters": [],
+      "total_chapters": 23,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 20
+      }
     },
     {
       "id": "2026-primary-class-4-english",
@@ -1142,78 +736,50 @@
       "class_number": 4,
       "class_name": "চতুর্থ শ্রেণি",
       "official_book_name": "English for Today",
-      "normalized_book_name": "English For Today",
-      "subject": "English For Today",
+      "normalized_book_name": "English for Today",
+      "subject": "English for Today",
       "subject_code": "english",
-      "language": "bn",
+      "language": "en",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b99ccc4774958d7b70680",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1uDrBEoEo2DNbVnTIrMTTqr4pTsaGml-4/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/5UGmR1vSkxM0dU0",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1uDrBEoEo2DNbVnTIrMTTqr4pTsaGml-4/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "English For Today",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1uDrBEoEo2DNbVnTIrMTTqr4pTsaGml-4/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/5UGmR1vSkxM0dU0",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1uDrBEoEo2DNbVnTIrMTTqr4pTsaGml-4/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-4/class-4-english/source/original.pdf",
-        "file_name": "class-4-english.pdf",
-        "file_size": 0,
+        "file_name": "Class 4, English_Book.pdf",
+        "file_size": 30579350,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "073708512d33f9a3b055e01fd11536bf08dec471b023d2396c698e3fe40b1728"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. About Me (Unit 1) (পৃষ্ঠা 1–3)",
-        "2. Days in a Calendar (Unit 2) (পৃষ্ঠা 4–6)",
-        "3. Family and Relatives (Unit 3) (পৃষ্ঠা 7–9)",
-        "4. Dialogue: Shopping and Buying Things (Unit 4) (পৃষ্ঠা 10–12)",
-        "5. Class Routine & Time Management (Unit 5) (পৃষ্ঠা 13–15)",
-        "6. Food and Health: Healthy Eating Habits (Unit 6) (পৃষ্ঠা 16–18)",
-        "7. Traffic Rules & Safety Signs (Unit 7) (পৃষ্ঠা 19–21)",
-        "8. Syllables and Phonics Pronunciation (Unit 8) (পৃষ্ঠা 22–24)",
-        "9. Occupations in Our Community (Unit 9) (পৃষ্ঠা 25–27)",
-        "10. S.M. Sultan: Famous Artist of Bangladesh (Unit 10) (পৃষ্ঠা 28–30)",
-        "11. Places in Bangladesh: Sreemangal Tea Gardens (Unit 11) (পৃষ্ঠা 31–33)",
-        "12. Story: The Lion and the Mouse (Unit 12) (পৃষ্ঠা 34–36)",
-        "13. Telling the Time & Clock Faces (Unit 13) (পৃষ্ঠা 37–39)",
-        "14. Story: The Hen and Her Chicks (Unit 14) (পৃষ্ঠা 40–42)",
-        "15. Sagar and His Family (Unit 15) (পৃষ্ঠা 43–45)",
-        "16. Months of the Year and Weather (Unit 16) (পৃষ্ঠা 46–48)",
-        "17. Sports and Hobbies (Unit 17) (পৃষ্ঠা 49–51)",
-        "18. Story: The Clever Fox (Unit 18) (পৃষ্ঠা 52–54)",
-        "19. Cleanliness and Personal Hygiene (Unit 19) (পৃষ্ঠা 55–57)",
-        "20. Prepositions and Directions (Unit 20) (পৃষ্ঠা 58–60)",
-        "21. Rhyme: Clap, Clap, Clap (Unit 21) (পৃষ্ঠা 61–62)",
-        "22. Past Tense: Yesterday's Activities (Unit 22) (পৃষ্ঠা 63–65)",
-        "23. Story: The Grasshopper and the Ant (Unit 23) (পৃষ্ঠা 66–68)",
-        "24. Natural Beauties of Bangladesh: Kuakata & Saint Martin (Unit 24) (পৃষ্ঠা 69–71)",
-        "25. Making Requests & Polite Expressions (Unit 25) (পৃষ্ঠা 72–74)",
-        "26. Reshma the Garment Worker (Unit 26) (পৃষ্ঠা 75–77)",
-        "27. Story: The Woodcutter's Honesty (Unit 27) (পৃষ্ঠা 78–80)",
-        "28. Comprehensive Review and Grammar (Unit 28) (পৃষ্ঠা 81–86)"
+        "Unit 1. Introducing One Another (পৃষ্ঠা 1–3)",
+        "Unit 2. Have a Great Day (পৃষ্ঠা 4–5)",
+        "Unit 3. My School Assembly (পৃষ্ঠা 6–8)",
+        "Unit 4. Enjoying Annual Sports (পৃষ্ঠা 9–11)",
+        "Unit 5. The Little Doctor (পৃষ্ঠা 12–17)",
+        "Unit 6. Sounds and Numbers (পৃষ্ঠা 18–21)",
+        "Unit 7. Telling the Time (পৃষ্ঠা 22–26)",
+        "Unit 8. My Family (পৃষ্ঠা 27–33)",
+        "Unit 9. Gardening (পৃষ্ঠা 34–40)",
+        "Unit 10. A Letter to a Friend (পৃষ্ঠা 41–45)",
+        "Unit 11. A Holiday Trip (পৃষ্ঠা 46–50)",
+        "Unit 12. Making Friends (পৃষ্ঠা 51–56)",
+        "Unit 13. Planning to Visit the Book Fair (পৃষ্ঠা 57–63)",
+        "Unit 14. Poem: Tears of the Earth (পৃষ্ঠা 64–66)",
+        "Unit 15. Environment Pollution (পৃষ্ঠা 67–70)",
+        "Unit 16. Talking with a Nepalese Boy (পৃষ্ঠা 71–76)",
+        "Unit 17. The Land of Mountains (পৃষ্ঠা 77–81)",
+        "Unit 18. Caring for Others (পৃষ্ঠা 82–90)"
       ],
-      "chapters": [],
+      "total_chapters": 18,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 28
+      }
     },
     {
       "id": "2026-primary-class-4-math",
@@ -1228,59 +794,38 @@
       "subject_code": "math",
       "language": "bn",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b99ccc4774958d7b70680",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1xF9mIw5rJce8_5D-lC6kepBms-ZwLxp6/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/UNNwYpHO9KeZiCU",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1xF9mIw5rJce8_5D-lC6kepBms-ZwLxp6/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "প্রাথমিক গণিত",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1ACMCZw6qi8cC-K8n7Q7Na7jiFEKHzmiY/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/TzwHt2gGa8i7Tuc",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1ACMCZw6qi8cC-K8n7Q7Na7jiFEKHzmiY/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-4/class-4-math/source/original.pdf",
-        "file_name": "class-4-math.pdf",
-        "file_size": 0,
+        "file_name": "Class 4, math_Book.pdf",
+        "file_size": 47515060,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "2c8a74c152b985132cabdcaa5dcb487cfcc0c8e64771d08fb91ddbfa89e52866"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. বড় সংখ্যা ও স্থানীয় মান (কোটি পর্যন্ত দেশীয় ও আন্তর্জাতিক পদ্ধতি) (পৃষ্ঠা 1–18)",
-        "2. যোগ ও বিয়োগ (পাঁচ ও ছয় অঙ্কের সংখ্যার হিসাব) (পৃষ্ঠা 19–32)",
-        "3. গুণ (চার অঙ্কের সংখ্যাকে তিন অঙ্কের সংখ্যা দ্বারা গুণ) (পৃষ্ঠা 33–46)",
-        "4. ভাগ (চার অঙ্কের সংখ্যাকে দুই ও তিন অঙ্কের সংখ্যা দ্বারা ভাগ) (পৃষ্ঠা 47–58)",
-        "5. চার প্রক্রিয়া সম্পর্কিত সমস্যাবলি ও বন্ধনীর ব্যবহার (পৃষ্ঠা 59–68)",
-        "6. গাণিতিক প্রতীক ও সম্পর্ক প্রতীক (খোলা বাক্য) (পৃষ্ঠা 69–76)",
-        "7. গুণনীয়ক ও গুণিতক (লসাগু ও গসাগু নির্ণয়) (পৃষ্ঠা 77–90)",
-        "8. সাধারণ ভগ্নাংশ (সমতুল ভগ্নাংশ ও যোগ-বিয়োগ) (পৃষ্ঠা 91–106)",
-        "9. দশমিক ভগ্নাংশ (দশমিকের স্থানীয় মান ও যোগ-বিয়োগ) (পৃষ্ঠা 107–120)",
-        "10. পরিমাপ (দৈর্ঘ্য, ক্ষেত্রফল, ওজন ও তরলের আয়তন) (পৃষ্ঠা 121–136)",
-        "11. সময় (ঘণ্টা, মিনিট, সেকেন্ড ও লিপ ইয়ার) (পৃষ্ঠা 137–146)",
-        "12. উপাত্ত সংগ্রহ ও বিন্যস্তকরণ (স্তম্ভলেখ বা বার ডায়াগ্রাম) (পৃষ্ঠা 147–156)",
-        "13. জ্যামিতি (রেখা, কোণ ও ত্রিভুজ) (পৃষ্ঠা 157–168)",
-        "14. জ্যামিতিক চতুর্ভুজ (আয়ত, বর্গ, সামান্তরিক ও রম্বস) (পৃষ্ঠা 169–180)"
+        "১. সংখ্যা ও স্থানীয় মান (পৃষ্ঠা 1–22)",
+        "২. যোগ ও বিয়োগ (পৃষ্ঠা 23–40)",
+        "৩. গুণ (পৃষ্ঠা 41–48)",
+        "৪. ভাগ (পৃষ্ঠা 49–66)",
+        "৫. গাণিতিক বাক্য (পৃষ্ঠা 67–80)",
+        "৬. গুণিতক ও গুণনীয়ক (পৃষ্ঠা 81–96)",
+        "৭. সাধারণ ভগ্নাংশ (পৃষ্ঠা 97–110)",
+        "৮. দশমিক ভগ্নাংশ (পৃষ্ঠা 111–120)",
+        "৯. পরিমাপ (পৃষ্ঠা 121–142)",
+        "১০. জ্যামিতি (পৃষ্ঠা 143–168)",
+        "১১. উপাত্ত সংগ্রহ ও বিন্যস্তকরণ (পৃষ্ঠা 169–176)"
       ],
-      "chapters": [],
+      "total_chapters": 11,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 14
+      }
     },
     {
       "id": "2026-primary-class-4-science",
@@ -1295,56 +840,39 @@
       "subject_code": "science",
       "language": "bn",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b99ccc4774958d7b70680",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1c4IxTVZLnNXnI1t2aCWSKWuHCxT988NL/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/DzEKA84BZVNmPLN",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1c4IxTVZLnNXnI1t2aCWSKWuHCxT988NL/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "প্রাথমিক বিজ্ঞান",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1ZZW1CKVkRWykvMTDeaVa5BP_PXbbOoHf/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/3pQob61MhopSRMM",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1ZZW1CKVkRWykvMTDeaVa5BP_PXbbOoHf/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-4/class-4-science/source/original.pdf",
-        "file_name": "class-4-science.pdf",
-        "file_size": 0,
+        "file_name": "Class 4, Science_Book.pdf",
+        "file_size": 50100839,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "641b83f8588bd1c89d8d4e0c4308adea1add1e812080b1a9add3cfa10fedbda0"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. জীব ও পরিবেশ (উদ্ভিদ ও প্রাণীর বেঁচে থাকার উপাদান) (পৃষ্ঠা 1–10)",
-        "2. উদ্ভিদ ও প্রাণী (বাসস্থান ও অভিযোজন) (পৃষ্ঠা 11–20)",
-        "3. মাটি ও মাটি দূষণ (উর্বরতা ও সংরক্ষণ) (পৃষ্ঠা 21–28)",
-        "4. খাদ্য ও পুষ্টি (আমিষ, শর্করা, স্নেহ, ভিটামিন, খনিজ লবণ ও পানি) (পৃষ্ঠা 29–38)",
-        "5. স্বাস্থ্যবিধি ও পানিবাহিত রোগ (ডায়রিয়া, কলেরা ও প্রতিরোধ) (পৃষ্ঠা 39–46)",
-        "6. পদার্থ (কঠিন, তরল, বায়বীয় ও পদার্থের ওজন-আয়তন) (পৃষ্ঠা 47–56)",
-        "7. প্রাকৃতিক সম্পদ (পানি, মাটি, বায়ু, বনজ ও খনিজ সম্পদ) (পৃষ্ঠা 57–66)",
-        "8. মহাবিশ্ব (সৌরজগৎ, গ্রহ ও চাঁদের দশা) (পৃষ্ঠা 67–76)",
-        "9. আমাদের জীবনে প্রযুক্তি (কৃষি, চিকিৎসা ও যাতায়াত প্রযুক্তি) (পৃষ্ঠা 77–86)",
-        "10. আবহাওয়া ও জলবায়ু (তাপমাত্রা, আর্দ্রতা ও ঋতু পরিবর্তন) (পৃষ্ঠা 87–94)",
-        "11. জীবনে নিরাপত্তা এবং প্রাথমিক চিকিৎসা (পৃষ্ঠা 95–104)"
+        "১. জীবের বৃদ্ধি ও প্রজনন (পৃষ্ঠা 1–11)",
+        "২. স্বাস্থ্য সুরক্ষা (পৃষ্ঠা 12–25)",
+        "৩. দুর্ঘটনা ও প্রাথমিক চিকিৎসা (পৃষ্ঠা 26–36)",
+        "৪. পদার্থ (পৃষ্ঠা 37–52)",
+        "৫. শক্তি (পৃষ্ঠা 53–66)",
+        "৬. গতি ও বল (পৃষ্ঠা 67–71)",
+        "৭. প্রাকৃতিক সম্পদ (পৃষ্ঠা 72–89)",
+        "৮. মহাবিশ্ব (পৃষ্ঠা 90–108)",
+        "৯. আবহাওয়া (পৃষ্ঠা 109–125)",
+        "১০. তথ্য ও প্রযুক্তি (পৃষ্ঠা 126–138)",
+        "১১. সমস্যা সমাধানে তথ্য ও যোগাযোগ প্রযুক্তি (পৃষ্ঠা 139–148)",
+        "১২. শব্দকোষ (পৃষ্ঠা 149–151)"
       ],
-      "chapters": [],
+      "total_chapters": 12,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 11
+      }
     },
     {
       "id": "2026-primary-class-4-bgs",
@@ -1356,64 +884,45 @@
       "official_book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
       "normalized_book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
       "subject": "বাংলাদেশ ও বিশ্বপরিচয়",
-      "subject_code": "bangla",
+      "subject_code": "bgs",
       "language": "bn",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b99ccc4774958d7b70680",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1WwAgcX-CxgYEZv9kmjDDW5M-qzSJFxa3/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/I9DhBWDI8i1dKFR",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1WwAgcX-CxgYEZv9kmjDDW5M-qzSJFxa3/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1vy3VXo5sKbdgsnsXBcJKIm3vOi0XpR5w/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/w58QzVKoKqkDhpw",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1vy3VXo5sKbdgsnsXBcJKIm3vOi0XpR5w/view?usp=drive_link"
-        }
-      },
       "pdf": {
-        "local_path": "data/2026/primary/class-4/class-4-bangla/source/original.pdf",
-        "file_name": "class-4-bangla.pdf",
-        "file_size": 0,
+        "local_path": "data/2026/primary/class-4/class-4-bgs/source/original.pdf",
+        "file_name": "Class 4, Bangladesh and Global Studies_Book.pdf",
+        "file_size": 54010510,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "e4558afe93d44a9359efe6c383453a81b0f371d14bf0c137c1fcdec4e0d725e9"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. আমাদের পরিবেশ ও সমাজ (পৃষ্ঠা 1–8)",
-        "2. সমাজে পরস্পরের সহযোগিতা (পৃষ্ঠা 9–16)",
-        "3. বাংলাদেশের ক্ষুদ্র নৃ-গোষ্ঠী (গারো, খাসি, ম্রো, সাঁওতাল) (পৃষ্ঠা 17–26)",
-        "4. নাগরিক অধিকার (সামাজিক, রাজনৈতিক ও অর্থনৈতিক অধিকার) (পৃষ্ঠা 27–34)",
-        "5. মূল্যবোধ ও আচরণ (সততা ও শৃঙ্খলা) (পৃষ্ঠা 35–42)",
-        "6. পরমতসহিষ্ণুতা (পৃষ্ঠা 43–48)",
-        "7. কাজের মর্যাদা (শ্রমের মূল্য) (পৃষ্ঠা 49–54)",
-        "8. সামাজিক ও রাষ্ট্রীয় সম্পদ (রাস্তাঘাট, সেতু, হাসপাতাল, পার্ক) (পৃষ্ঠা 55–62)",
-        "9. এলাকার উন্নয়ন (গ্রাম ও শহর উন্নয়ন) (পৃষ্ঠা 63–70)",
-        "10. এশিয়া মহাদেশ (পৃষ্ঠা 71–78)",
-        "11. বাংলাদেশের ভূপ্রকৃতি ও জলবায়ু (পৃষ্ঠা 79–86)",
-        "12. দুর্যোগ মোকাবেলা (বন্যা, ঘূর্ণিঝড় ও ভূমিকম্প) (পৃষ্ঠা 87–94)",
-        "13. বাংলাদেশের জনসংখ্যা ও জনসম্পদ (পৃষ্ঠা 95–102)",
-        "14. আমাদের ইতিহাস (প্রাচীন ও মধ্যযুগীয় বাংলা) (পৃষ্ঠা 103–110)",
-        "15. আমাদের মুক্তিযুদ্ধ (১৯৭১ সালের বিজয়) (পৃষ্ঠা 111–118)",
-        "16. আমাদের সংস্কৃতি ও উৎসব (পহেলা বৈশাখ, ঈদ, পূজা, বড়দিন) (পৃষ্ঠা 119–128)"
+        "১. প্রাকৃতিক ও সামাজিক পরিবেশ (পৃষ্ঠা 1–8)",
+        "২. ধর্মীয় সম্প্রীতি (পৃষ্ঠা 9–17)",
+        "৩. ছেলে-মেয়ে সমতা (পৃষ্ঠা 18–24)",
+        "৪. বাংলাদেশের ক্ষুদ্র নৃগোষ্ঠী (পৃষ্ঠা 25–34)",
+        "৫. বাংলাদেশের মুক্তিযুদ্ধের পটভূমি (পৃষ্ঠা 35–41)",
+        "৬. বাংলাদেশের চিরায়ত সাংস্কৃতিক উৎসব (পৃষ্ঠা 42–48)",
+        "৭. এশিয়ার ভৌগোলিক ও সাংস্কৃতিক বৈচিত্র্য (পৃষ্ঠা 49–58)",
+        "৮. সামাজিক দায়িত্ব ও নাগরিক অধিকার (পৃষ্ঠা 59–70)",
+        "৯. নৈতিক ও মানবিক গুণাবলি (পৃষ্ঠা 71–76)",
+        "১০. আমাদের দেশ (পৃষ্ঠা 77–88)",
+        "১১. বাংলাদেশের জনসংখ্যা (পৃষ্ঠা 89–94)",
+        "১২. শ্রম ও পেশা (পৃষ্ঠা 95–101)",
+        "১৩. অর্থ ও সম্পদ (পৃষ্ঠা 102–107)",
+        "১৪. জরুরি পরিস্থিতি মোকাবিলা (পৃষ্ঠা 108–115)",
+        "১৫. শব্দভান্ডার (পৃষ্ঠা 116–118)"
       ],
-      "chapters": [],
+      "total_chapters": 15,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 16
+      }
     },
     {
       "id": "2026-primary-class-4-islam",
@@ -1423,55 +932,37 @@
       "class_number": 4,
       "class_name": "চতুর্থ শ্রেণি",
       "official_book_name": "ইসলাম ও নৈতিক শিক্ষা",
-      "normalized_book_name": "ইসলাম শিক্ষা",
-      "subject": "ধর্ম ও নৈতিক শিক্ষা",
+      "normalized_book_name": "ইসলাম ও নৈতিক শিক্ষা",
+      "subject": "ইসলাম ও নৈতিক শিক্ষা",
       "subject_code": "islam",
       "language": "bn",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b99ccc4774958d7b70680",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1sZupwNI7-P5rWtUlA0CYy28TxmHJXpZ2/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/6ehJfVfdQPEmG9f",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1sZupwNI7-P5rWtUlA0CYy28TxmHJXpZ2/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "ইসলাম শিক্ষা",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1xmARvGHyEiEr7GQtnyrVqhXVDfb_Y7mc/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/qu3c488U3P7ivmo",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1xmARvGHyEiEr7GQtnyrVqhXVDfb_Y7mc/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-4/class-4-islam/source/original.pdf",
-        "file_name": "class-4-islam.pdf",
-        "file_size": 0,
+        "file_name": "Class 4, Islam Religion_Book.pdf",
+        "file_size": 44381706,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "12aad2b728c5ea86fd16742d923e68b7eeb6eec153be822d684ac621392a8ea3"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. আকাইদ (ঈমান, আল্লাহর গুণবাচক নাম ও পরকাল) (পৃষ্ঠা 1–14)",
-        "2. ইবাদত (সালাতের শর্ত, ফরজ, ওয়াজিব ও সুন্নত) (পৃষ্ঠা 15–30)",
-        "3. আখলাক ও শিষ্টাচার (সত্যবাদিতা ও পরিচ্ছন্নতা) (পৃষ্ঠা 31–44)",
-        "4. কুরআন মাজিদ শিক্ষা (মাখরাজ ও সহিহ তিলাওয়াত) (পৃষ্ঠা 45–60)",
-        "5. নবী-রাসূলগণের জীবনী (হযরত ইব্রাহিম আ. ও মহানবী সা.) (পৃষ্ঠা 61–76)"
+        "১. আকাইদ ও ইবাদত (পৃষ্ঠা 1–27)",
+        "২. নবি, রাসুল ও মহানবি (স.)-এর সাহাবিগণের জীবনচরিত (পৃষ্ঠা 28–46)",
+        "৩. নৈতিক ও মানবিক গুণাবলি অর্জন (পৃষ্ঠা 47–60)",
+        "৪. ধর্মীয় সম্প্রীতি (পৃষ্ঠা 61–68)",
+        "৫. জীবজগৎ ও প্রকৃতির প্রতি ভালোবাসা (পৃষ্ঠা 69–76)"
       ],
-      "chapters": [],
+      "total_chapters": 5,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 5
+      }
     },
     {
       "id": "2026-primary-class-4-hindu",
@@ -1482,170 +973,36 @@
       "class_name": "চতুর্থ শ্রেণি",
       "official_book_name": "হিন্দুধর্ম শিক্ষা",
       "normalized_book_name": "হিন্দুধর্ম শিক্ষা",
-      "subject": "ধর্ম ও নৈতিক শিক্ষা",
+      "subject": "হিন্দুধর্ম শিক্ষা",
       "subject_code": "hindu",
       "language": "bn",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b99ccc4774958d7b70680",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1YWpeZDJccxTUQ2li1w-VgWOVIrH_xYVo/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/pE3KtFcEF3j44R6",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1YWpeZDJccxTUQ2li1w-VgWOVIrH_xYVo/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "হিন্দুধর্ম শিক্ষা",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1L_SsS_xzhGjTHedEJyB1oQCWXJrMkwS7/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/3RImCnSjJiLNLtW",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1L_SsS_xzhGjTHedEJyB1oQCWXJrMkwS7/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-4/class-4-hindu/source/original.pdf",
-        "file_name": "class-4-hindu.pdf",
-        "file_size": 0,
+        "file_name": "Class 4, Hindu Religion_Book.pdf",
+        "file_size": 36219099,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "22ac97a3b844c417e6e17c0ba6de8f1e4d78d77e2b5047a8931cc86f2079e7ac"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. ঈশ্বরের স্বরূপ ও অবতার সাধনা (পৃষ্ঠা 1–12)",
-        "2. দেবদেবী ও পূজা-পার্বণ (শিব ও কালী পূজা) (পৃষ্ঠা 13–24)",
-        "3. ধর্মগ্রন্থ ও মহাভারতের নীতিশিক্ষা (পৃষ্ঠা 25–36)",
-        "4. সদাচার, আত্মসংযম ও পরোপকার (পৃষ্ঠা 37–48)",
-        "5. মহাপুরুষদের জীবনী (শ্রীরামকৃষ্ণ ও স্বামী বিবেকানন্দ) (পৃষ্ঠা 49–60)"
+        "১. স্রষ্টা ও সৃষ্টি এবং উপাসনা ও প্রার্থনা (পৃষ্ঠা 1–13)",
+        "২. আদর্শ জীবনচরিত (পৃষ্ঠা 14–33)",
+        "৩. নৈতিক ও মানবিক গুণাবলি (পৃষ্ঠা 34–55)",
+        "৪. ধর্মগ্রন্থ, দেব-দেবী ও পূজা-পার্বণ, যোগব্যায়াম, মন্দির ও তীর্থক্ষেত্র (পৃষ্ঠা 56–86)",
+        "৫. জীবসেবা ও দেশপ্রেম (পৃষ্ঠা 87–103)"
       ],
-      "chapters": [],
+      "total_chapters": 5,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 5
-    },
-    {
-      "id": "2026-primary-class-4-buddha",
-      "slug": "class-4-buddha",
-      "academic_year": 2026,
-      "level": "primary",
-      "class_number": 4,
-      "class_name": "চতুর্থ শ্রেণি",
-      "official_book_name": "বৌদ্ধধর্ম শিক্ষা",
-      "normalized_book_name": "বৌদ্ধধর্ম শিক্ষা",
-      "subject": "ধর্ম ও নৈতিক শিক্ষা",
-      "subject_code": "buddha",
-      "language": "bn",
-      "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b99ccc4774958d7b70680",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1JxBSAPEYJ2sS3KqSQLB6MJo7wR3mNjQw/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/BMuIqLxjEG7xsTO",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1JxBSAPEYJ2sS3KqSQLB6MJo7wR3mNjQw/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "বৌদ্ধধর্ম শিক্ষা",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1rhuwqA0wqOkyyxj6OwV8qlyR6OHg848I/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/lMF0lBowIv1Y0vU",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1rhuwqA0wqOkyyxj6OwV8qlyR6OHg848I/view?usp=drive_link"
-        }
-      },
-      "pdf": {
-        "local_path": "data/2026/primary/class-4/class-4-buddha/source/original.pdf",
-        "file_name": "class-4-buddha.pdf",
-        "file_size": 0,
-        "total_pages": 0,
-        "sha256": ""
-      },
-      "publication": {
-        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
-      },
-      "table_of_contents": [
-        "1. বুদ্ধের ধর্মোপদেশ ও মার বিজয় (পৃষ্ঠা 1–12)",
-        "2. চতুরার্য সত্য ও দুঃখ নিবৃত্তি (পৃষ্ঠা 13–24)",
-        "3. পঞ্চশীল ও অষ্টশীল পালন (পৃষ্ঠা 25–36)",
-        "4. জাতক ও মহৎ নীতিগল্প (পৃষ্ঠা 37–48)",
-        "5. বৌদ্ধ ঐতিহ্য ও তীর্থস্থান (পৃষ্ঠা 49–60)"
-      ],
-      "chapters": [],
-      "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
-        "questions_verified": false,
-        "needs_review": false
-      },
-      "total_chapters": 5
-    },
-    {
-      "id": "2026-primary-class-4-christian",
-      "slug": "class-4-christian",
-      "academic_year": 2026,
-      "level": "primary",
-      "class_number": 4,
-      "class_name": "চতুর্থ শ্রেণি",
-      "official_book_name": "খ্রিষ্টধর্ম শিক্ষা",
-      "normalized_book_name": "খ্রিষ্টধর্ম শিক্ষা",
-      "subject": "ধর্ম ও নৈতিক শিক্ষা",
-      "subject_code": "christian",
-      "language": "bn",
-      "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b99ccc4774958d7b70680",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1TSukmeDPLFBuuQEf8GsEe77d4h7tVNrQ/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/1XN0FnFF1FJw8dT",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1TSukmeDPLFBuuQEf8GsEe77d4h7tVNrQ/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "খ্রিষ্টধর্ম শিক্ষা",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1xAk2RlKFAsk9BBfqDBzqJhA8c3GxMCFn/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/PKKIfkfqbD5ig4v",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1xAk2RlKFAsk9BBfqDBzqJhA8c3GxMCFn/view?usp=drive_link"
-        }
-      },
-      "pdf": {
-        "local_path": "data/2026/primary/class-4/class-4-christian/source/original.pdf",
-        "file_name": "class-4-christian.pdf",
-        "file_size": 0,
-        "total_pages": 0,
-        "sha256": ""
-      },
-      "publication": {
-        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
-      },
-      "table_of_contents": [
-        "1. সৃষ্টিকর্তা ঈশ্বরের মহিমা ও করুণা (পৃষ্ঠা 1–12)",
-        "2. যীশু খ্রিষ্টের অলৌকিক কাজ ও দৃষ্টান্ত (পৃষ্ঠা 13–24)",
-        "3. পাপ, ক্ষমা ও পরিত্রাণ (পৃষ্ঠা 25–36)",
-        "4. দশ আজ্ঞা ও সৎ জীবন যাপন (পৃষ্ঠা 37–48)",
-        "5. মানবসেবা ও ভ্রাতৃত্ববোধ (পৃষ্ঠা 49–60)"
-      ],
-      "chapters": [],
-      "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
-        "questions_verified": false,
-        "needs_review": false
-      },
-      "total_chapters": 5
+      }
     },
     {
       "id": "2026-primary-class-5-bangla",
@@ -1660,67 +1017,50 @@
       "subject_code": "bangla",
       "language": "bn",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1tl5r94UF_9NeFC9poSv5Fdv3pTF_Qr_g/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/faKgRD9CEwmZwkf",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1tl5r94UF_9NeFC9poSv5Fdv3pTF_Qr_g/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "আমার বাংলা বই",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1tl5r94UF_9NeFC9poSv5Fdv3pTF_Qr_g/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/faKgRD9CEwmZwkf",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1tl5r94UF_9NeFC9poSv5Fdv3pTF_Qr_g/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-5/class-5-bangla/source/original.pdf",
-        "file_name": "class-5-bangla.pdf",
-        "file_size": 0,
+        "file_name": "Class 5, Bangla_Book.pdf",
+        "file_size": 42966502,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "ed1e82c50bbc755b69573d47ca6518c44f88acf7983dc63b198e9e4df262d737"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. এই দেশ এই মানুষ (পৃষ্ঠা 1–5)",
-        "2. সংকল্প (কবিতা - কাজী নজরুল ইসলাম) (পৃষ্ঠা 6–9)",
-        "3. সুন্দরবনের প্রাণী (রয়েল বেঙ্গল টাইগার ও বন্যপ্রাণী) (পৃষ্ঠা 10–15)",
-        "4. হাতি আর শিয়ালের গল্প (পৃষ্ঠা 16–21)",
-        "5. মাঠের বাঁশি (কবিতা - জসীমউদ্দীন) (পৃষ্ঠা 22–25)",
-        "6. স্মরণীয় যাঁরা চিরদিন (শহীদ বুদ্ধিজীবী ও বীর সন্তান) (পৃষ্ঠা 26–32)",
-        "7. স্বদেশ (কবিতা - আহসান হাবীব) (পৃষ্ঠা 33–35)",
-        "8. কাঞ্চনমালা আর কাঁকনমালা (পৃষ্ঠা 36–43)",
-        "9. অবাক জলপান (সুকুমার রায় - হাসির নাটক) (পৃষ্ঠা 44–50)",
-        "10. ঘাসফুল (কবিতা - জ্যোতিরিন্দ্রনাথ মৈত্র) (পৃষ্ঠা 51–53)",
-        "11. মাটির নিচে যে শহর (উয়ারী-বটেশ্বর প্রত্নতত্ত্ব) (পৃষ্ঠা 54–59)",
-        "12. শিক্ষা গুরুর মর্যাদা (কবিতা - কাজী কাদের নেওয়াজ) (পৃষ্ঠা 60–63)",
-        "13. ভাবুক ছেলেটি (স্যার জগদীশচন্দ্র বসু) (পৃষ্ঠা 64–69)",
-        "14. দুই তীরে (কবিতা - রবীন্দ্রনাথ ঠাকুর) (পৃষ্ঠা 70–72)",
-        "15. বীরের রক্তে স্বাধীন এ দেশ (বীরশ্রেষ্ঠ নূর মোহাম্মদ ও মুন্সী আবদুর রউফ) (পৃষ্ঠা 73–79)",
-        "16. ফুটবল খেলোয়াড় (কবিতা - জসীমউদ্দীন) (পৃষ্ঠা 80–83)",
-        "17. অপেক্ষা (সেলিনা হোসেনের গল্প) (পৃষ্ঠা 84–89)",
-        "18. রৌদ্র লেখে জয় (কবিতা - শামসুর রাহমান) (পৃষ্ঠা 90–92)",
-        "19. শখের মৃৎশিল্প (কুমারপাড়ার মাটির কাজ) (পৃষ্ঠা 93–98)",
-        "20. পাখির কাছে ফুলের কাছে (কবিতা - আল মাহমুদ) (পৃষ্ঠা 99–101)",
-        "21. বিদায় হজ্জ (মহানবী হযরত মুহাম্মদ সা.-এর শেষ ভাষণ) (পৃষ্ঠা 102–107)",
-        "22. যুক্তবর্ণ, বিপরীত শব্দ, ভাবসম্প্রসারণ ও ব্যাকরণ (পৃষ্ঠা 108–115)"
+        "১. বৈচিত্র্যময় বাংলাদেশ (পৃষ্ঠা 1–5)",
+        "২. তিতুমীর (পৃষ্ঠা 6–18)",
+        "৩. দূরের পাল্লা (পৃষ্ঠা 19–23)",
+        "৪. পত্র লিখি (পৃষ্ঠা 24–27)",
+        "৫. ঠিক আছে (পৃষ্ঠা 28–31)",
+        "৬. সুখ আর দুখু (পৃষ্ঠা 32–37)",
+        "৭. সাইক্লোন (পৃষ্ঠা 38–41)",
+        "৮. রয়েল বেঙ্গল টাইগার (পৃষ্ঠা 42–46)",
+        "৯. টুকটুক ও চিকু (পৃষ্ঠা 47–52)",
+        "১০. রাখাল ছেলে (পৃষ্ঠা 53–56)",
+        "১১. কুটির শিল্প (পৃষ্ঠা 57–62)",
+        "১২. শিষ্যের সাধনা (পৃষ্ঠা 63–68)",
+        "১৩. পাখির মতো (পৃষ্ঠা 69–73)",
+        "১৪. কুপোকাত (পৃষ্ঠা 74–83)",
+        "১৫. সংকল্প (পৃষ্ঠা 84–89)",
+        "১৬. স্মরণীয় যাঁরা বরণীয় যাঁরা (পৃষ্ঠা 90–97)",
+        "১৭. মাটির নিচে পুরানো নগর (পৃষ্ঠা 98–101)",
+        "১৮. ইচ্ছামতী (পৃষ্ঠা 102–106)",
+        "১৯. ভাষার খেলা (পৃষ্ঠা 107–111)",
+        "২০. শিক্ষাগুরুর মর্যাদা (পৃষ্ঠা 112–118)",
+        "২১. বিদায় হজের ভাষণ (পৃষ্ঠা 119–123)",
+        "২২. আমরা তোমাদের ভুলব না (পৃষ্ঠা 124–129)",
+        "২৩. পোস্টার লিখি, প্ল্যাকার্ড লিখি (পৃষ্ঠা 130–136)"
       ],
-      "chapters": [],
+      "total_chapters": 23,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 22
+      }
     },
     {
       "id": "2026-primary-class-5-english",
@@ -1730,75 +1070,52 @@
       "class_number": 5,
       "class_name": "পঞ্চম শ্রেণি",
       "official_book_name": "English for Today",
-      "normalized_book_name": "English For Today",
-      "subject": "English For Today",
+      "normalized_book_name": "English for Today",
+      "subject": "English for Today",
       "subject_code": "english",
-      "language": "bn",
+      "language": "en",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1zMTa3Xo26hByw7UJdAubIJlMg-jEZLMX/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/rOVIdpFOa2DA8AT",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1zMTa3Xo26hByw7UJdAubIJlMg-jEZLMX/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "English For Today",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1zMTa3Xo26hByw7UJdAubIJlMg-jEZLMX/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/rOVIdpFOa2DA8AT",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1zMTa3Xo26hByw7UJdAubIJlMg-jEZLMX/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-5/class-5-english/source/original.pdf",
-        "file_name": "class-5-english.pdf",
-        "file_size": 0,
+        "file_name": "Class 5, English_Book.pdf",
+        "file_size": 31070246,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "c3b4e33127fcdbbd0b3e5045cf13f3d23d8e747d16dc77cf31f8571e69c57d9f"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. Hello! Introducing Oneself at Railway Station (Unit 1) (পৃষ্ঠা 1–4)",
-        "2. See You! Greetings and Partings (Unit 2) (পৃষ্ঠা 5–8)",
-        "3. Saikat's Family (Unit 3) (পৃষ্ঠা 9–12)",
-        "4. Leisure Time & Hobbies (Unit 4) (পৃষ্ঠা 13–16)",
-        "5. Days in a Calendar & Time (Unit 5) (পৃষ্ঠা 17–20)",
-        "6. Eat Healthy: The Food Pyramid (Unit 6) (পৃষ্ঠা 21–24)",
-        "7. Be Healthy! Physical Fitness & Diet (Unit 7) (পৃষ্ঠা 25–28)",
-        "8. Write to Me Soon! Letter Writing Format (Unit 8) (পৃষ্ঠা 29–32)",
-        "9. Occupational Safety: Raju the Firefighter (Unit 9) (পৃষ্ঠা 33–36)",
-        "10. My Home District: Kishoreganj (Unit 10) (পৃষ্ঠা 37–40)",
-        "11. Life is Beautiful: Maria (Unit 11) (পৃষ্ঠা 41–44)",
-        "12. How Far is Saint Martin's? (Unit 12) (পৃষ্ঠা 45–48)",
-        "13. Telling the Story (Unit 13) (পৃষ্ঠা 49–52)",
-        "14. Story: The Hare and the Tortoise (Unit 14) (পৃষ্ঠা 53–56)",
-        "15. Happy Birthday! Celebrations & Customs (Unit 15) (পৃষ্ঠা 57–60)",
-        "16. May I Come In? Polite Permissions (Unit 16) (পৃষ্ঠা 61–64)",
-        "17. Sports and the Olympic Games (Unit 17) (পৃষ্ঠা 65–68)",
-        "18. City Life and Country Life (Unit 18) (পৃষ্ঠা 69–72)",
-        "19. The Liberation War Museum (Unit 19) (পৃষ্ঠা 73–76)",
-        "20. Life is Beautiful (Part 2) (Unit 20) (পৃষ্ঠা 77–80)",
-        "21. It Was a Great Day! Scout Camporee (Unit 21) (পৃষ্ঠা 81–84)",
-        "22. What Sports Do You Like? (Unit 22) (পৃষ্ঠা 85–88)",
-        "23. Stay Safe! Disaster Preparedness (Unit 23) (পৃষ্ঠা 89–92)",
-        "24. Cyclones in Bangladesh: Cyclone Aila (Unit 24) (পৃষ্ঠা 93–96)",
-        "25. Comprehensive Review & Exam Readiness (Unit 25) (পৃষ্ঠা 97–102)"
+        "Unit 1. At the Library (পৃষ্ঠা 1–6)",
+        "Unit 2. Our School Garden (পৃষ্ঠা 7–11)",
+        "Unit 3. Be Quiet, Please (পৃষ্ঠা 12–15)",
+        "Unit 4. My Home District (পৃষ্ঠা 16–23)",
+        "Unit 5. Student Council (পৃষ্ঠা 24–29)",
+        "Unit 6. An Email from Indonesia (পৃষ্ঠা 30–34)",
+        "Unit 7. The Sundarbans (পৃষ্ঠা 35–38)",
+        "Unit 8. A Field Trip to Remember (পৃষ্ঠা 39–46)",
+        "Unit 9. Get Ready to Listen (পৃষ্ঠা 47–51)",
+        "Unit 10. Poem: The Swing (পৃষ্ঠা 52–53)",
+        "Unit 11. Making Requests (পৃষ্ঠা 54–60)",
+        "Unit 12. Eating Healthy (পৃষ্ঠা 61–68)",
+        "Unit 13. Quality Time Together (পৃষ্ঠা 69–73)",
+        "Unit 14. The Champion Girl (পৃষ্ঠা 74–78)",
+        "Unit 15. Poem: The Secret Song (পৃষ্ঠা 79–81)",
+        "Unit 16. The Giving Tree (পৃষ্ঠা 82–90)",
+        "Unit 17. The Air We Share (পৃষ্ঠা 91–96)",
+        "Unit 18. Nakshi Kantha (পৃষ্ঠা 97–99)",
+        "Unit 19. The Wind and the Sun (পৃষ্ঠা 100–105)",
+        "Unit 20. Writing a Story (পৃষ্ঠা 106–112)"
       ],
-      "chapters": [],
+      "total_chapters": 20,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 25
+      }
     },
     {
       "id": "2026-primary-class-5-math",
@@ -1813,59 +1130,37 @@
       "subject_code": "math",
       "language": "bn",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1H4X4rFWz2gnNHBdPfBUcBw-E0tuHpLLR/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/gSLw96ZI64NHREV",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1H4X4rFWz2gnNHBdPfBUcBw-E0tuHpLLR/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "প্রাথমিক গণিত",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1HjEGQQLJdkehaeSol_0P83KhhelWlWZm/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/0mLSp4ncEeeqmZA",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1HjEGQQLJdkehaeSol_0P83KhhelWlWZm/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-5/class-5-math/source/original.pdf",
-        "file_name": "class-5-math.pdf",
-        "file_size": 0,
+        "file_name": "Class 5, Math_Book.pdf",
+        "file_size": 48674071,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "7fff12c46094a25c890a686d1f1ea0df71ef6d3b4aa58990e8934dcfdf85f3aa"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. গুণ প্রক্রিয়া (বড় সংখ্যার সহজ গুণ ও সূত্রাবলী) (পৃষ্ঠা 1–12)",
-        "2. ভাগ প্রক্রিয়া (নিঃশেষে বিভাজ্য ও অবিভাজ্য ভাগ) (পৃষ্ঠা 13–24)",
-        "3. চার প্রক্রিয়া সম্পর্কিত সমস্যাবলি (ঐকিক নিয়ম ও বন্ধনী) (পৃষ্ঠা 25–38)",
-        "4. গাণিতিক প্রতীক (খোলা বাক্য ও অজানা রাশি) (পৃষ্ঠা 39–46)",
-        "5. গুণনীয়ক এবং গুণিতক (মৌলিক উৎপাদক, গসাগু ও লসাগু) (পৃষ্ঠা 47–60)",
-        "6. ভগ্নাংশ (প্রকৃত, অপ্রকৃত, মিশ্র ভগ্নাংশের গুণ ও ভাগ) (পৃষ্ঠা 61–76)",
-        "7. দশমিক ভগ্নাংশ (দশমিকের গুণ, ভাগ ও রূপান্তর) (পৃষ্ঠা 77–92)",
-        "8. গড় (রাশিগুলোর গড় নির্ণয় ও সমস্যা) (পৃষ্ঠা 93–102)",
-        "9. শতকরা (লাভ-ক্ষতি, আসল, মুনাফা ও সুদের হিসাব) (পৃষ্ঠা 103–116)",
-        "10. জ্যামিতি (আয়ত, বর্গ, সামান্তরিক, রম্বস, ট্রাপিজিয়াম ও বৃত্ত) (পৃষ্ঠা 117–130)",
-        "11. পরিমাপ (দৈর্ঘ্য, ক্ষেত্রফল, আয়তন ও ঘনফল) (পৃষ্ঠা 131–144)",
-        "12. সময় (দিন, মাস, বছর, শতাব্দী ও ২৪ ঘণ্টার ঘড়ি) (পৃষ্ঠা 145–154)",
-        "13. উপাত্ত বিন্যস্তকরণ (স্তম্ভলেখ ও সারণি প্রস্তুতকরণ) (পৃষ্ঠা 155–164)",
-        "14. ক্যালকুলেটর ও কম্পিউটার (প্রাথমিক গণনা ও পরিচিতি) (পৃষ্ঠা 165–172)"
+        "১. গুণ ও ভাগ (পৃষ্ঠা 1–16)",
+        "২. গাণিতিক বাক্য (পৃষ্ঠা 17–30)",
+        "৩. গুণিতক ও গুণনীয়ক (পৃষ্ঠা 31–48)",
+        "৪. সাধারণ ভগ্নাংশ (পৃষ্ঠা 49–62)",
+        "৫. দশমিক ভগ্নাংশ (পৃষ্ঠা 63–90)",
+        "৬. শতকরা (পৃষ্ঠা 91–104)",
+        "৭. গড় (পৃষ্ঠা 105–114)",
+        "৮. পরিমাপ (পৃষ্ঠা 115–148)",
+        "৯. জ্যামিতি (পৃষ্ঠা 149–170)",
+        "১০. উপাত্ত বিন্যস্তকরণ (পৃষ্ঠা 171–184)"
       ],
-      "chapters": [],
+      "total_chapters": 10,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 14
+      }
     },
     {
       "id": "2026-primary-class-5-science",
@@ -1880,59 +1175,41 @@
       "subject_code": "science",
       "language": "bn",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/14ejrQyTTMfy5JDPDcnPOcekBAn1b9Kdf/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/5tWe5mERWEwObNe",
-        "resolved_pdf_url": "https://drive.google.com/file/d/14ejrQyTTMfy5JDPDcnPOcekBAn1b9Kdf/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "প্রাথমিক বিজ্ঞান",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1uxtq4cD70VUTyQxkcnOBvBYj2WpzX3sh/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/RUpR7HhSuggOoCC",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1uxtq4cD70VUTyQxkcnOBvBYj2WpzX3sh/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-5/class-5-science/source/original.pdf",
-        "file_name": "class-5-science.pdf",
-        "file_size": 0,
+        "file_name": "Class 5, Science_Book.pdf",
+        "file_size": 84818207,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "0bc5c6e8e4a3f7a4417a6bd38b613e740d94a9aceb13fecd35450f209d197d40"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. আমাদের পরিবেশ (বাস্তুসংস্থান, খাদ্যশৃঙ্খল ও খাদ্যজাল) (পৃষ্ঠা 1–10)",
-        "2. পরিবেশ দূষণ (বায়ু, পানি, মাটি ও শব্দ দূষণ প্রতিরোধ) (পৃষ্ঠা 11–20)",
-        "3. জীবনের জন্য পানি (পানি চক্র ও নিরাপদ পানি) (পৃষ্ঠা 21–30)",
-        "4. বায়ু (বায়ুর ব্যবহার, দূষণ ও অ্যাসিড বৃষ্টি) (পৃষ্ঠা 31–40)",
-        "5. পদার্থ ও শক্তি (শক্তির রূপান্তর ও সংরক্ষণ) (পৃষ্ঠা 41–50)",
-        "6. সুস্থ জীবনের জন্য খাদ্য (জাঙ্ক ফুড ও প্রিজারভেটিভ) (পৃষ্ঠা 51–60)",
-        "7. স্বাস্থ্যবিধি (সংক্রামক রোগ ও বয়ঃসন্ধিকাল) (পৃষ্ঠা 61–70)",
-        "8. মহাবিশ্ব (আহ্নিক ও বার্ষিক গতি, দিন-রাত ও ঋতু পরিবর্তন) (পৃষ্ঠা 71–80)",
-        "9. আমাদের জীবনে প্রযুক্তি (কৃষি ও শিল্প বিপ্লব) (পৃষ্ঠা 81–90)",
-        "10. আমাদের জীবনে তথ্য (তথ্য বিনিময়, ইন্টারনেট ও সংরক্ষণ) (পৃষ্ঠা 91–100)",
-        "11. আবহাওয়া ও জলবায়ু (নিম্নচাপ, সাইক্লোন ও কালবৈশাখী) (পৃষ্ঠা 101–110)",
-        "12. জলবায়ু পরিবর্তন (বৈশ্বিক উষ্ণায়ন ও প্রাকৃতিক দুর্যোগ) (পৃষ্ঠা 111–120)",
-        "13. প্রাকৃতিক সম্পদ (নবায়নযোগ্য ও অনবায়নযোগ্য শক্তি) (পৃষ্ঠা 121–130)",
-        "14. জনসংখ্যা ও প্রাকৃতিক পরিবেশ (বনভূমি ও বন উজাড়) (পৃষ্ঠা 131–140)"
+        "১. জীবের আবাসস্থল (পৃষ্ঠা 1–10)",
+        "২. জীব ও পরিবেশের পারস্পরিক নির্ভরশীলতা (পৃষ্ঠা 11–21)",
+        "৩. খাদ্য (পৃষ্ঠা 22–30)",
+        "৪. বয়ঃসন্ধিকাল (পৃষ্ঠা 31–39)",
+        "৫. পদার্থের গঠন (পৃষ্ঠা 40–47)",
+        "৬. শক্তির রূপান্তর (পৃষ্ঠা 48–60)",
+        "৭. বলের ধারণা (পৃষ্ঠা 61–71)",
+        "৮. ভূমিরূপ (পৃষ্ঠা 72–84)",
+        "৯. পরিবেশ সংরক্ষণ (পৃষ্ঠা 85–90)",
+        "১০. পৃথিবীর গতি (পৃষ্ঠা 91–101)",
+        "১১. জলবায়ু পরিবর্তন (পৃষ্ঠা 102–117)",
+        "১২. আমাদের জীবনে প্রযুক্তি (পৃষ্ঠা 118–128)",
+        "১৩. সমস্যা সমাধানে তথ্য ও যোগাযোগ প্রযুক্তি (পৃষ্ঠা 129–155)",
+        "১৪. শব্দকোষ (পৃষ্ঠা 156–159)"
       ],
-      "chapters": [],
+      "total_chapters": 14,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 14
+      }
     },
     {
       "id": "2026-primary-class-5-bgs",
@@ -1944,60 +1221,47 @@
       "official_book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
       "normalized_book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
       "subject": "বাংলাদেশ ও বিশ্বপরিচয়",
-      "subject_code": "bangla",
+      "subject_code": "bgs",
       "language": "bn",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1GHzZDKLvGcS6M-13XtcPZu2nOsnfkVwN/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/11OTb3vX4sca3VD",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1GHzZDKLvGcS6M-13XtcPZu2nOsnfkVwN/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "বাংলাদেশ ও বিশ্বপরিচয়",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1SEHFKa4Kb_cue9o1cWQ_SVbYTrC-2Vma/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/X3Qrwjr1u8dYEkL",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1SEHFKa4Kb_cue9o1cWQ_SVbYTrC-2Vma/view?usp=drive_link"
-        }
-      },
       "pdf": {
-        "local_path": "data/2026/primary/class-5/class-5-bangla/source/original.pdf",
-        "file_name": "class-5-bangla.pdf",
-        "file_size": 0,
+        "local_path": "data/2026/primary/class-5/class-5-bgs/source/original.pdf",
+        "file_name": "Class 5, Bangladesh and Global Studies_Book.pdf",
+        "file_size": 74548764,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "e1aa30e733133bbc3b5743aa81113929e3dd54ed8147d58ad7bebe8d5c0ca748"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. আমাদের মুক্তিযুদ্ধ (১৯৭১ সালের ঘটনাপ্রবাহ ও বীরত্ব) (পৃষ্ঠা 1–12)",
-        "2. ব্রিটিশ শাসন (পলাশীর যুদ্ধ ও ১৮৫৭ সালের মহাবিদ্রোহ) (পৃষ্ঠা 13–24)",
-        "3. ঐতিহাসিক স্থান ও নিদর্শন (মহাস্থানগড়, ময়নামতী, পাহাড়পুর, লালবাগ কেল্লা) (পৃষ্ঠা 25–36)",
-        "4. আমাদের অর্থনীতি: কৃষি ও শিল্প (ধান, পাট, চা, তৈরি পোশাক ও চামড়া) (পৃষ্ঠা 37–48)",
-        "5. জনসংখ্যা (জনসংখ্যা সমস্যা ও দক্ষ জনসম্পদ) (পৃষ্ঠা 49–58)",
-        "6. জলবায়ু ও দুর্যোগ (খরা, বন্যা ও নদীভাঙন মোকাবেলা) (পৃষ্ঠা 59–68)",
-        "7. মানবাধিকার (জাতিসংঘ মানবাধিকার সনদ ও শিশু অধিকার) (পৃষ্ঠা 69–78)",
-        "8. নারী-পুরুষ সমতা (বেগম রোকেয়া ও আন্তর্জাতিক নারী দিবস) (পৃষ্ঠা 79–86)",
-        "9. আমাদের দায়িত্ব ও কর্তব্য (পরিবার, সমাজ ও রাষ্ট্রের প্রতি) (পৃষ্ঠা 87–94)",
-        "10. গণতান্ত্রিক মনোভাব (বিদ্যালয় ও কর্মক্ষেত্রে সিদ্ধান্ত গ্রহণ) (পৃষ্ঠা 95–102)",
-        "11. বাংলাদেশের ক্ষুদ্র নৃ-গোষ্ঠী (গারো, খাসি, ম্রো, ত্রিপুরা, ওঁরাও) (পৃষ্ঠা 103–114)",
-        "12. বাংলাদেশ ও বিশ্ব (জাতিসংঘ, সার্ক ও আন্তর্জাতিক বন্ধুত্ব) (পৃষ্ঠা 115–126)"
+        "১. জলবায়ু পরিবর্তন (পৃষ্ঠা 1–8)",
+        "২. আমরা মানুষ (পৃষ্ঠা 9–18)",
+        "৩. বাংলাদেশের ক্ষুদ্র নৃগোষ্ঠী (পৃষ্ঠা 19–31)",
+        "৪. আমাদের স্মরণীয় নেতা (পৃষ্ঠা 32–40)",
+        "৫. আমাদের মুক্তিযুদ্ধ (পৃষ্ঠা 41–60)",
+        "৬. বাংলাদেশের ঐতিহাসিক স্থান ও নিদর্শন (পৃষ্ঠা 61–76)",
+        "৭. দক্ষিণ এশিয়ার সাংস্কৃতিক বৈচিত্র্য (পৃষ্ঠা 77–86)",
+        "৮. আঞ্চলিক ও আন্তর্জাতিক সংস্থা (পৃষ্ঠা 87–93)",
+        "৯. রাষ্ট্র এবং সমাজে আমার অধিকার ও কর্তব্য (পৃষ্ঠা 94–109)",
+        "১০. নৈতিক ও সামাজিক আচরণ (পৃষ্ঠা 110–114)",
+        "১১. বাংলাদেশের যোগাযোগ মানচিত্র (পৃষ্ঠা 115–125)",
+        "১২. বাংলাদেশের বনভূমি ও প্রাকৃতিক পর্যটন স্থান (পৃষ্ঠা 126–132)",
+        "১৩. বাংলাদেশের প্রাকৃতিক সম্পদ (পৃষ্ঠা 133–140)",
+        "১৪. বাংলাদেশের জনসংখ্যা ও জনসম্পদ (পৃষ্ঠা 141–147)",
+        "১৫. ব্যক্তিগত বাজেট ও ব্যাংক (পৃষ্ঠা 148–153)",
+        "১৬. জরুরি পরিস্থিতি (পৃষ্ঠা 154–159)",
+        "১৭. শব্দভান্ডার (পৃষ্ঠা 160–162)"
       ],
-      "chapters": [],
+      "total_chapters": 17,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 12
+      }
     },
     {
       "id": "2026-primary-class-5-islam",
@@ -2007,55 +1271,37 @@
       "class_number": 5,
       "class_name": "পঞ্চম শ্রেণি",
       "official_book_name": "ইসলাম ও নৈতিক শিক্ষা",
-      "normalized_book_name": "ইসলাম শিক্ষা",
-      "subject": "ধর্ম ও নৈতিক শিক্ষা",
+      "normalized_book_name": "ইসলাম ও নৈতিক শিক্ষা",
+      "subject": "ইসলাম ও নৈতিক শিক্ষা",
       "subject_code": "islam",
       "language": "bn",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1SS08MLyximWuSMTPOph_NflIIMFR2OkV/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/jQh2NI1LlT7qx6P",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1SS08MLyximWuSMTPOph_NflIIMFR2OkV/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "ইসলাম শিক্ষা",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1mCvL6jWupWQAWIMzEWAkrVYjP8e50UGj/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/yq7DbA4pDyWHiLo",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1mCvL6jWupWQAWIMzEWAkrVYjP8e50UGj/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-5/class-5-islam/source/original.pdf",
-        "file_name": "class-5-islam.pdf",
-        "file_size": 0,
+        "file_name": "Class 5, Islam Religion_Book.pdf",
+        "file_size": 48496591,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "4dc3c20c71b7cc8bc68973d956ed6865c36352095f506aae8981740870f2d5bf"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. আকাইদ (আল্লাহর একত্ববাদ, তাকদির, হাশর ও আখিরাত) (পৃষ্ঠা 1–20)",
-        "2. ইবাদত (সালাত, সাওম বা রোজা, যাকাত ও হজ্জ) (পৃষ্ঠা 21–44)",
-        "3. আখলাক বা চরিত্র (মানবসেবা, দেশপ্রেম ও সৃষ্টির সেবা) (পৃষ্ঠা 45–64)",
-        "4. কুরআন মাজিদ শিক্ষা (তাজবিদ, মাখরাজ, গুন্নাহ ও সুরা ফিল, কুরাইশ, নাস) (পৃষ্ঠা 65–88)",
-        "5. নবী-রাসূল ও খলিফাগণের জীবনী (মহানবী সা. ও খোলাফায়ে রাশেদিন) (পৃষ্ঠা 89–112)"
+        "১. আকাইদ ও ইবাদত (পৃষ্ঠা 1–35)",
+        "২. নবি, রাসুল ও মহানবি (স.)-এর সাহাবিগণের জীবনচরিত (পৃষ্ঠা 36–53)",
+        "৩. নৈতিক ও মানবিক গুণাবলি অর্জন (পৃষ্ঠা 54–65)",
+        "৪. ধর্মীয় সম্প্রীতি (পৃষ্ঠা 66–71)",
+        "৫. জীবজগৎ ও প্রকৃতির প্রতি ভালোবাসা (পৃষ্ঠা 72–80)"
       ],
-      "chapters": [],
+      "total_chapters": 5,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 5
+      }
     },
     {
       "id": "2026-primary-class-5-hindu",
@@ -2066,170 +1312,36 @@
       "class_name": "পঞ্চম শ্রেণি",
       "official_book_name": "হিন্দুধর্ম শিক্ষা",
       "normalized_book_name": "হিন্দুধর্ম শিক্ষা",
-      "subject": "ধর্ম ও নৈতিক শিক্ষা",
+      "subject": "হিন্দুধর্ম শিক্ষা",
       "subject_code": "hindu",
       "language": "bn",
       "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1FjsZYJPhB4PeUyu_BXqubCBKSAdlp4Lp/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/31bcVJSRlWOwY5B",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1FjsZYJPhB4PeUyu_BXqubCBKSAdlp4Lp/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "হিন্দুধর্ম শিক্ষা",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1Y74qy6zbzCzNMWhKxyfUbflPTvX7DOI-/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/Gycjk0Dh9xqXdGl",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1Y74qy6zbzCzNMWhKxyfUbflPTvX7DOI-/view?usp=drive_link"
-        }
-      },
       "pdf": {
         "local_path": "data/2026/primary/class-5/class-5-hindu/source/original.pdf",
-        "file_name": "class-5-hindu.pdf",
-        "file_size": 0,
+        "file_name": "Class 5, Hindu Religion_Book.pdf",
+        "file_size": 35731641,
         "total_pages": 0,
-        "sha256": ""
+        "sha256": "354a3a091d35aefa807e6c2f72b782594dc26faaa68781201b4e3fd3ff114172"
       },
       "publication": {
         "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
+        "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
       },
       "table_of_contents": [
-        "1. ঈশ্বর ও জীবসেবা (আত্মা ও পরমাত্মা) (পৃষ্ঠা 1–14)",
-        "2. দেবদেবী ও পূজার তাৎপর্য (দুর্গাপূজা ও জন্মাষ্টমী) (পৃষ্ঠা 15–28)",
-        "3. শ্রীমদ্ভগবদ্গীতা ও কর্মযোগ (পৃষ্ঠা 29–42)",
-        "4. সদাচার, যোগব্যায়াম ও স্বাস্থ্যবিধি (পৃষ্ঠা 43–56)",
-        "5. মহাপুরুষ ও মহীয়সী নারী (শ্রীচৈতন্য, শ্রীরামকৃষ্ণ ও রানি রাসমণি) (পৃষ্ঠা 57–70)"
+        "১. সৃষ্টিকর্তা ও হিন্দুধর্মের স্বরূপ (পৃষ্ঠা 1–20)",
+        "২. অবতার ও আদর্শ জীবনচরিত (পৃষ্ঠা 21–40)",
+        "৩. নৈতিক ও মানবিক গুণাবলি (পৃষ্ঠা 41–55)",
+        "৪. ধর্মগ্রন্থ, দেব-দেবী ও পূজা, মন্দির ও তীর্থক্ষেত্র (পৃষ্ঠা 56–81)",
+        "৫. জীবসেবা ও দেশপ্রেম (পৃষ্ঠা 82–96)"
       ],
-      "chapters": [],
+      "total_chapters": 5,
       "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
+        "download_verified": true,
+        "page_count_verified": true,
+        "toc_verified": true,
         "questions_verified": false,
         "needs_review": false
-      },
-      "total_chapters": 5
-    },
-    {
-      "id": "2026-primary-class-5-buddha",
-      "slug": "class-5-buddha",
-      "academic_year": 2026,
-      "level": "primary",
-      "class_number": 5,
-      "class_name": "পঞ্চম শ্রেণি",
-      "official_book_name": "বৌদ্ধধর্ম শিক্ষা",
-      "normalized_book_name": "বৌদ্ধধর্ম শিক্ষা",
-      "subject": "ধর্ম ও নৈতিক শিক্ষা",
-      "subject_code": "buddha",
-      "language": "bn",
-      "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1RypAhZAcSGOz88-2zhAMHVzbueMPbaiC/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/dcuQdDpLLvxXKHS",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1RypAhZAcSGOz88-2zhAMHVzbueMPbaiC/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "বৌদ্ধধর্ম শিক্ষা",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1qsASAatkPTl0sRfKMhUTBmI71n6HcLhU/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/GCUcbCWdOpfAzVn",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1qsASAatkPTl0sRfKMhUTBmI71n6HcLhU/view?usp=drive_link"
-        }
-      },
-      "pdf": {
-        "local_path": "data/2026/primary/class-5/class-5-buddha/source/original.pdf",
-        "file_name": "class-5-buddha.pdf",
-        "file_size": 0,
-        "total_pages": 0,
-        "sha256": ""
-      },
-      "publication": {
-        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
-      },
-      "table_of_contents": [
-        "1. গৌতম বুদ্ধের মহাপরিনির্বাণ ও ধর্মদেশনা (পৃষ্ঠা 1–14)",
-        "2. ত্রিরত্ন ও বৌদ্ধ ত্রিপিটক (বিনয়, সূত্র ও অভিধর্ম পিটক) (পৃষ্ঠা 15–28)",
-        "3. আর্য অষ্টাঙ্গিক মার্গ ও নির্বাণ (পৃষ্ঠা 29–42)",
-        "4. জাতক ও বৌদ্ধ নৈতিক কাহিনী (পৃষ্ঠা 43–56)",
-        "5. আন্তর্জাতিক বৌদ্ধ সংস্কৃতি ও শান্তি মিশন (পৃষ্ঠা 57–70)"
-      ],
-      "chapters": [],
-      "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
-        "questions_verified": false,
-        "needs_review": false
-      },
-      "total_chapters": 5
-    },
-    {
-      "id": "2026-primary-class-5-christian",
-      "slug": "class-5-christian",
-      "academic_year": 2026,
-      "level": "primary",
-      "class_number": 5,
-      "class_name": "পঞ্চম শ্রেণি",
-      "official_book_name": "খ্রিষ্টধর্ম শিক্ষা",
-      "normalized_book_name": "খ্রিষ্টধর্ম শিক্ষা",
-      "subject": "ধর্ম ও নৈতিক শিক্ষা",
-      "subject_code": "christian",
-      "language": "bn",
-      "version": "bangla",
-      "official_class_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
-      "download_links": {
-        "link_1": "https://drive.google.com/file/d/1JZQ7ZkTHdfG9WdRKtT06E3BQrLOKg42a/view?usp=drive_link",
-        "link_2": "https://drive.egovcloud.gov.bd/index.php/s/Rvs9jcgOZoZLWUY",
-        "resolved_pdf_url": "https://drive.google.com/file/d/1JZQ7ZkTHdfG9WdRKtT06E3BQrLOKg42a/view?usp=drive_link"
-      },
-      "english_version": {
-        "official_book_name": "খ্রিষ্টধর্ম শিক্ষা",
-        "download_links": {
-          "link_1": "https://drive.google.com/file/d/1NAv4_y4ymUfQDLurRBDrmPSXEixOWavX/view?usp=drive_link",
-          "link_2": "https://drive.egovcloud.gov.bd/index.php/s/LiE3ohdx5nGLaVK",
-          "resolved_pdf_url": "https://drive.google.com/file/d/1NAv4_y4ymUfQDLurRBDrmPSXEixOWavX/view?usp=drive_link"
-        }
-      },
-      "pdf": {
-        "local_path": "data/2026/primary/class-5/class-5-christian/source/original.pdf",
-        "file_name": "class-5-christian.pdf",
-        "file_size": 0,
-        "total_pages": 0,
-        "sha256": ""
-      },
-      "publication": {
-        "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-        "authors": [],
-        "editors": [],
-        "illustrators": [],
-        "isbn": null
-      },
-      "table_of_contents": [
-        "1. পরমপিতা ঈশ্বরের অসীম প্রেম ও সৃষ্টি (পৃষ্ঠা 1–14)",
-        "2. প্রভু যীশু খ্রিষ্টের ক্রুশমৃত্যু ও পুনরুত্থান (ইস্টার) (পৃষ্ঠা 15–28)",
-        "3. দশ আজ্ঞা ও পবিত্র বাইবেল শিক্ষা (পৃষ্ঠা 29–42)",
-        "4. ক্ষমা, শান্তি ও বিশ্বমানবকল্যাণ (পৃষ্ঠা 43–56)",
-        "5. খ্রিষ্টীয় মণ্ডলি ও সমাজকল্যাণমূলক সেবা (পৃষ্ঠা 57–70)"
-      ],
-      "chapters": [],
-      "validation": {
-        "download_verified": false,
-        "page_count_verified": false,
-        "toc_verified": false,
-        "questions_verified": false,
-        "needs_review": false
-      },
-      "total_chapters": 5
+      }
     }
   ]
 }

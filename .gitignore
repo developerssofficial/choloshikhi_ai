@@ -15,3 +15,8 @@ AGENTS.md
 CLAUDE.md
 tsconfig.tsbuildinfo
 .env*
+
+# Scanned PDFs and temporary OCR renders
+*.pdf
+data/pdf_toc_pages/
+

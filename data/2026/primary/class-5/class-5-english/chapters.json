@@ -1,652 +1,382 @@
 [
   {
-    "chapter_id": "c5-english-ch1",
-    "chapter_number": "1",
-    "chapter_title": "Hello! Introducing Oneself at Railway Station (Unit 1)",
+    "chapter_id": "2026-primary-class-5-english-ch-1",
+    "book_id": "2026-primary-class-5-english",
+    "chapter_number": "Unit 1",
+    "chapter_title": "At the Library",
     "chapter_type": "Unit",
     "author": null,
     "start_page": 1,
-    "end_page": 4,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 1
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 4
-      }
-    ],
+    "end_page": 6,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Hello! Introducing Oneself at Railway Station (Unit 1)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "At the Library",
+      "Unit Unit 1"
     ],
-    "summary": "Dialogue between Sima and Jessica going to Chattogram and Sylhet.",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 1: At the Library (পৃষ্ঠা 1–6)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-english-ch2",
-    "chapter_number": "2",
-    "chapter_title": "See You! Greetings and Partings (Unit 2)",
+    "chapter_id": "2026-primary-class-5-english-ch-2",
+    "book_id": "2026-primary-class-5-english",
+    "chapter_number": "Unit 2",
+    "chapter_title": "Our School Garden",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 5,
-    "end_page": 8,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 5
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 8
-      }
-    ],
+    "start_page": 7,
+    "end_page": 11,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "See You! Greetings and Partings (Unit 2)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "Our School Garden",
+      "Unit Unit 2"
     ],
-    "summary": "Expressions for saying goodbye and polite parting.",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 2: Our School Garden (পৃষ্ঠা 7–11)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-english-ch3",
-    "chapter_number": "3",
-    "chapter_title": "Saikat's Family (Unit 3)",
+    "chapter_id": "2026-primary-class-5-english-ch-3",
+    "book_id": "2026-primary-class-5-english",
+    "chapter_number": "Unit 3",
+    "chapter_title": "Be Quiet, Please",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 9,
-    "end_page": 12,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 9
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 12
-      }
-    ],
+    "start_page": 12,
+    "end_page": 15,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Saikat's Family (Unit 3)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "Be Quiet, Please",
+      "Unit Unit 3"
     ],
-    "summary": "Daily routines of Saikat, his banker father and seamstress mother.",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 3: Be Quiet, Please (পৃষ্ঠা 12–15)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-english-ch4",
-    "chapter_number": "4",
-    "chapter_title": "Leisure Time & Hobbies (Unit 4)",
+    "chapter_id": "2026-primary-class-5-english-ch-4",
+    "book_id": "2026-primary-class-5-english",
+    "chapter_number": "Unit 4",
+    "chapter_title": "My Home District",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 13,
-    "end_page": 16,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 13
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 16
-      }
-    ],
+    "start_page": 16,
+    "end_page": 23,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Leisure Time & Hobbies (Unit 4)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "My Home District",
+      "Unit Unit 4"
     ],
-    "summary": "Reading books, swimming, drawing and collecting stamps.",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 4: My Home District (পৃষ্ঠা 16–23)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-english-ch5",
-    "chapter_number": "5",
-    "chapter_title": "Days in a Calendar & Time (Unit 5)",
+    "chapter_id": "2026-primary-class-5-english-ch-5",
+    "book_id": "2026-primary-class-5-english",
+    "chapter_number": "Unit 5",
+    "chapter_title": "Student Council",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 17,
-    "end_page": 20,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 17
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 20
-      }
-    ],
+    "start_page": 24,
+    "end_page": 29,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Days in a Calendar & Time (Unit 5)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "Student Council",
+      "Unit Unit 5"
     ],
-    "summary": "Finding days, leap years and recording birthdates.",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 5: Student Council (পৃষ্ঠা 24–29)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-english-ch6",
-    "chapter_number": "6",
-    "chapter_title": "Eat Healthy: The Food Pyramid (Unit 6)",
+    "chapter_id": "2026-primary-class-5-english-ch-6",
+    "book_id": "2026-primary-class-5-english",
+    "chapter_number": "Unit 6",
+    "chapter_title": "An Email from Indonesia",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 21,
-    "end_page": 24,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 21
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 24
-      }
-    ],
+    "start_page": 30,
+    "end_page": 34,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Eat Healthy: The Food Pyramid (Unit 6)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "An Email from Indonesia",
+      "Unit Unit 6"
     ],
-    "summary": "Understanding the four tiers of the food pyramid for balanced nutrition.",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 6: An Email from Indonesia (পৃষ্ঠা 30–34)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-english-ch7",
-    "chapter_number": "7",
-    "chapter_title": "Be Healthy! Physical Fitness & Diet (Unit 7)",
+    "chapter_id": "2026-primary-class-5-english-ch-7",
+    "book_id": "2026-primary-class-5-english",
+    "chapter_number": "Unit 7",
+    "chapter_title": "The Sundarbans",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 25,
-    "end_page": 28,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 25
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 28
-      }
-    ],
+    "start_page": 35,
+    "end_page": 38,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Be Healthy! Physical Fitness & Diet (Unit 7)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "The Sundarbans",
+      "Unit Unit 7"
     ],
-    "summary": "Exercise, drinking water and avoiding illness.",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 7: The Sundarbans (পৃষ্ঠা 35–38)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-english-ch8",
-    "chapter_number": "8",
-    "chapter_title": "Write to Me Soon! Letter Writing Format (Unit 8)",
+    "chapter_id": "2026-primary-class-5-english-ch-8",
+    "book_id": "2026-primary-class-5-english",
+    "chapter_number": "Unit 8",
+    "chapter_title": "A Field Trip to Remember",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 29,
-    "end_page": 32,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 29
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 32
-      }
-    ],
+    "start_page": 39,
+    "end_page": 46,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Write to Me Soon! Letter Writing Format (Unit 8)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "A Field Trip to Remember",
+      "Unit Unit 8"
     ],
-    "summary": "Informal letter writing parts: date, greeting, body, closing and envelope.",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 8: A Field Trip to Remember (পৃষ্ঠা 39–46)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-english-ch9",
-    "chapter_number": "9",
-    "chapter_title": "Occupational Safety: Raju the Firefighter (Unit 9)",
+    "chapter_id": "2026-primary-class-5-english-ch-9",
+    "book_id": "2026-primary-class-5-english",
+    "chapter_number": "Unit 9",
+    "chapter_title": "Get Ready to Listen",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 33,
-    "end_page": 36,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 33
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 36
-      }
-    ],
+    "start_page": 47,
+    "end_page": 51,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Occupational Safety: Raju the Firefighter (Unit 9)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "Get Ready to Listen",
+      "Unit Unit 9"
     ],
-    "summary": "Inspiring story of volunteer firefighter Raju and fire safety in school.",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 9: Get Ready to Listen (পৃষ্ঠা 47–51)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-english-ch10",
-    "chapter_number": "10",
-    "chapter_title": "My Home District: Kishoreganj (Unit 10)",
+    "chapter_id": "2026-primary-class-5-english-ch-10",
+    "book_id": "2026-primary-class-5-english",
+    "chapter_number": "Unit 10",
+    "chapter_title": "Poem: The Swing",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 37,
-    "end_page": 40,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 37
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 40
-      }
-    ],
+    "start_page": 52,
+    "end_page": 53,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "My Home District: Kishoreganj (Unit 10)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "Poem: The Swing",
+      "Unit Unit 10"
     ],
-    "summary": "Solakia Eid ground, Pagla Mosque, Sukumar Ray and Syed Nazrul Islam.",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 10: Poem: The Swing (পৃষ্ঠা 52–53)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-english-ch11",
-    "chapter_number": "11",
-    "chapter_title": "Life is Beautiful: Maria (Unit 11)",
+    "chapter_id": "2026-primary-class-5-english-ch-11",
+    "book_id": "2026-primary-class-5-english",
+    "chapter_number": "Unit 11",
+    "chapter_title": "Making Requests",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 41,
-    "end_page": 44,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 41
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 44
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Life is Beautiful: Maria (Unit 11)",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "Inspirational story of visually impaired Maria using Braille.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-english-ch12",
-    "chapter_number": "12",
-    "chapter_title": "How Far is Saint Martin's? (Unit 12)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 45,
-    "end_page": 48,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 45
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 48
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "How Far is Saint Martin's? (Unit 12)",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "Coral island Saint Martin's, Cox's Bazar and scenic Bangladesh.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-english-ch13",
-    "chapter_number": "13",
-    "chapter_title": "Telling the Story (Unit 13)",
-    "chapter_type": "Story",
-    "author": null,
-    "start_page": 49,
-    "end_page": 52,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 49
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 52
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Telling the Story (Unit 13)",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "Techniques of narrating fables with linking words.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-english-ch14",
-    "chapter_number": "14",
-    "chapter_title": "Story: The Hare and the Tortoise (Unit 14)",
-    "chapter_type": "Story",
-    "author": null,
-    "start_page": 53,
-    "end_page": 56,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 53
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 56
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Story: The Hare and the Tortoise (Unit 14)",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "Classic race fable between overconfident hare and persistent tortoise.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-english-ch15",
-    "chapter_number": "15",
-    "chapter_title": "Happy Birthday! Celebrations & Customs (Unit 15)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 57,
+    "start_page": 54,
     "end_page": 60,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 57
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 60
-      }
-    ],
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Happy Birthday! Celebrations & Customs (Unit 15)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "Making Requests",
+      "Unit Unit 11"
     ],
-    "summary": "Birthday songs, candles and celebrating with friends.",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 11: Making Requests (পৃষ্ঠা 54–60)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-english-ch16",
-    "chapter_number": "16",
-    "chapter_title": "May I Come In? Polite Permissions (Unit 16)",
+    "chapter_id": "2026-primary-class-5-english-ch-12",
+    "book_id": "2026-primary-class-5-english",
+    "chapter_number": "Unit 12",
+    "chapter_title": "Eating Healthy",
     "chapter_type": "Unit",
     "author": null,
     "start_page": 61,
-    "end_page": 64,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 61
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 64
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "May I Come In? Polite Permissions (Unit 16)",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "Modal verbs can, may, could for polite asking.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-english-ch17",
-    "chapter_number": "17",
-    "chapter_title": "Sports and the Olympic Games (Unit 17)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 65,
     "end_page": 68,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 65
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 68
-      }
-    ],
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Sports and the Olympic Games (Unit 17)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "Eating Healthy",
+      "Unit Unit 12"
     ],
-    "summary": "History of the Olympics and different sporting events.",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 12: Eating Healthy (পৃষ্ঠা 61–68)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-english-ch18",
-    "chapter_number": "18",
-    "chapter_title": "City Life and Country Life (Unit 18)",
+    "chapter_id": "2026-primary-class-5-english-ch-13",
+    "book_id": "2026-primary-class-5-english",
+    "chapter_number": "Unit 13",
+    "chapter_title": "Quality Time Together",
     "chapter_type": "Unit",
     "author": null,
     "start_page": 69,
-    "end_page": 72,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 69
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 72
-      }
-    ],
+    "end_page": 73,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "City Life and Country Life (Unit 18)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "Quality Time Together",
+      "Unit Unit 13"
     ],
-    "summary": "Comparative study between urban and rural lifestyle.",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 13: Quality Time Together (পৃষ্ঠা 69–73)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-english-ch19",
-    "chapter_number": "19",
-    "chapter_title": "The Liberation War Museum (Unit 19)",
+    "chapter_id": "2026-primary-class-5-english-ch-14",
+    "book_id": "2026-primary-class-5-english",
+    "chapter_number": "Unit 14",
+    "chapter_title": "The Champion Girl",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 73,
-    "end_page": 76,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 73
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 76
-      }
-    ],
+    "start_page": 74,
+    "end_page": 78,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "The Liberation War Museum (Unit 19)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "The Champion Girl",
+      "Unit Unit 14"
     ],
-    "summary": "School trip to the Liberation War Museum in Agargaon, Dhaka.",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 14: The Champion Girl (পৃষ্ঠা 74–78)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-english-ch20",
-    "chapter_number": "20",
-    "chapter_title": "Life is Beautiful (Part 2) (Unit 20)",
+    "chapter_id": "2026-primary-class-5-english-ch-15",
+    "book_id": "2026-primary-class-5-english",
+    "chapter_number": "Unit 15",
+    "chapter_title": "Poem: The Secret Song",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 77,
-    "end_page": 80,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 77
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 80
-      }
-    ],
+    "start_page": 79,
+    "end_page": 81,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Life is Beautiful (Part 2) (Unit 20)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "Poem: The Secret Song",
+      "Unit Unit 15"
     ],
-    "summary": "Maria's dreams of going to university and becoming a teacher.",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 15: Poem: The Secret Song (পৃষ্ঠা 79–81)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-english-ch21",
-    "chapter_number": "21",
-    "chapter_title": "It Was a Great Day! Scout Camporee (Unit 21)",
+    "chapter_id": "2026-primary-class-5-english-ch-16",
+    "book_id": "2026-primary-class-5-english",
+    "chapter_number": "Unit 16",
+    "chapter_title": "The Giving Tree",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 81,
-    "end_page": 84,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 81
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 84
-      }
-    ],
+    "start_page": 82,
+    "end_page": 90,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "It Was a Great Day! Scout Camporee (Unit 21)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "The Giving Tree",
+      "Unit Unit 16"
     ],
-    "summary": "Cub Scout gathering in Sreemangal and tent life.",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 16: The Giving Tree (পৃষ্ঠা 82–90)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-english-ch22",
-    "chapter_number": "22",
-    "chapter_title": "What Sports Do You Like? (Unit 22)",
+    "chapter_id": "2026-primary-class-5-english-ch-17",
+    "book_id": "2026-primary-class-5-english",
+    "chapter_number": "Unit 17",
+    "chapter_title": "The Air We Share",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 85,
-    "end_page": 88,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 85
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 88
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "What Sports Do You Like? (Unit 22)",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "Kabaddi, cricket, football and chess dialogues.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-english-ch23",
-    "chapter_number": "23",
-    "chapter_title": "Stay Safe! Disaster Preparedness (Unit 23)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 89,
-    "end_page": 92,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 89
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 92
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Stay Safe! Disaster Preparedness (Unit 23)",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "Earthquake and emergency safety measures.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-english-ch24",
-    "chapter_number": "24",
-    "chapter_title": "Cyclones in Bangladesh: Cyclone Aila (Unit 24)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 93,
+    "start_page": 91,
     "end_page": 96,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 93
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 96
-      }
-    ],
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Cyclones in Bangladesh: Cyclone Aila (Unit 24)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "The Air We Share",
+      "Unit Unit 17"
     ],
-    "summary": "Babul's family facing Cyclone Aila in Dublar Char.",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 17: The Air We Share (পৃষ্ঠা 91–96)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-english-ch25",
-    "chapter_number": "25",
-    "chapter_title": "Comprehensive Review & Exam Readiness (Unit 25)",
+    "chapter_id": "2026-primary-class-5-english-ch-18",
+    "book_id": "2026-primary-class-5-english",
+    "chapter_number": "Unit 18",
+    "chapter_title": "Nakshi Kantha",
     "chapter_type": "Unit",
     "author": null,
     "start_page": 97,
-    "end_page": 102,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 97
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 102
-      }
-    ],
+    "end_page": 99,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Comprehensive Review & Exam Readiness (Unit 25)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "Nakshi Kantha",
+      "Unit Unit 18"
     ],
-    "summary": "Grammar, WH-questions, letter writing and comprehension.",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 18: Nakshi Kantha (পৃষ্ঠা 97–99)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-5-english-ch-19",
+    "book_id": "2026-primary-class-5-english",
+    "chapter_number": "Unit 19",
+    "chapter_title": "The Wind and the Sun",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 100,
+    "end_page": 105,
+    "sections": [],
+    "keywords": [
+      "English for Today",
+      "পঞ্চম শ্রেণি",
+      "The Wind and the Sun",
+      "Unit Unit 19"
+    ],
+    "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 19: The Wind and the Sun (পৃষ্ঠা 100–105)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-5-english-ch-20",
+    "book_id": "2026-primary-class-5-english",
+    "chapter_number": "Unit 20",
+    "chapter_title": "Writing a Story",
+    "chapter_type": "Unit",
+    "author": null,
+    "start_page": 106,
+    "end_page": 112,
+    "sections": [],
+    "keywords": [
+      "English for Today",
+      "পঞ্চম শ্রেণি",
+      "Writing a Story",
+      "Unit Unit 20"
+    ],
+    "summary": "পঞ্চম শ্রেণি এর English for Today বিষয়ের Unit Unit 20: Writing a Story (পৃষ্ঠা 106–112)।",
+    "total_questions": 0
   }
 ]

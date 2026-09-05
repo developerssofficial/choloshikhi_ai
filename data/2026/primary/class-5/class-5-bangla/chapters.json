@@ -1,574 +1,439 @@
 [
   {
-    "chapter_id": "c5-bangla-ch1",
-    "chapter_number": "1",
-    "chapter_title": "এই দেশ এই মানুষ",
-    "chapter_type": "প্রবন্ধ",
+    "chapter_id": "2026-primary-class-5-bangla-ch-1",
+    "book_id": "2026-primary-class-5-bangla",
+    "chapter_number": "১",
+    "chapter_title": "বৈচিত্র্যময় বাংলাদেশ",
+    "chapter_type": "পাঠ",
     "author": null,
     "start_page": 1,
     "end_page": 5,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 1
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 5
-      }
-    ],
+    "sections": [],
     "keywords": [
       "আমার বাংলা বই",
-      "এই দেশ এই মানুষ",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "বৈচিত্র্যময় বাংলাদেশ",
+      "পাঠ ১"
     ],
-    "summary": "বাংলাদেশের বৈচিত্র্যময় জাতিগোষ্ঠী, ভাষা ও প্রাকৃতিক সৌন্দর্য।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের পাঠ ১: বৈচিত্র্যময় বাংলাদেশ (পৃষ্ঠা 1–5)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-bangla-ch2",
-    "chapter_number": "2",
-    "chapter_title": "সংকল্প (কবিতা - কাজী নজরুল ইসলাম)",
-    "chapter_type": "ছড়া/কবিতা",
-    "author": null,
-    "start_page": 6,
-    "end_page": 9,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 6
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 9
-      }
-    ],
-    "keywords": [
-      "আমার বাংলা বই",
-      "সংকল্প (কবিতা - কাজী নজরুল ইসলাম)",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "থাকব না কো বদ্ধ ঘরে, দেখব এবার জগৎটাকে — অজানাকে জানার সংকল্প।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-bangla-ch3",
-    "chapter_number": "3",
-    "chapter_title": "সুন্দরবনের প্রাণী (রয়েল বেঙ্গল টাইগার ও বন্যপ্রাণী)",
-    "chapter_type": "প্রবন্ধ",
-    "author": null,
-    "start_page": 10,
-    "end_page": 15,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 10
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 15
-      }
-    ],
-    "keywords": [
-      "আমার বাংলা বই",
-      "সুন্দরবনের প্রাণী (রয়েল বেঙ্গল টাইগার ও বন্যপ্রাণী)",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "সুন্দরবনের জীববৈচিত্র্য ও বিলুপ্তপ্রায় প্রাণী সংরক্ষণ।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-bangla-ch4",
-    "chapter_number": "4",
-    "chapter_title": "হাতি আর শিয়ালের গল্প",
-    "chapter_type": "গল্প",
-    "author": null,
-    "start_page": 16,
-    "end_page": 21,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 16
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 21
-      }
-    ],
-    "keywords": [
-      "আমার বাংলা বই",
-      "হাতি আর শিয়ালের গল্প",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "অহংকারী হাতির শাস্তি ও চতুর শিয়ালের বুদ্ধিমত্তার নীতিকথা।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-bangla-ch5",
-    "chapter_number": "5",
-    "chapter_title": "মাঠের বাঁশি (কবিতা - জসীমউদ্দীন)",
-    "chapter_type": "ছড়া/কবিতা",
-    "author": null,
-    "start_page": 22,
-    "end_page": 25,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 22
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 25
-      }
-    ],
-    "keywords": [
-      "আমার বাংলা বই",
-      "মাঠের বাঁশি (কবিতা - জসীমউদ্দীন)",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "রাখাল বালকের বাঁশির সুর ও গ্রামবাংলার মুগ্ধ করা চিত্র।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-bangla-ch6",
-    "chapter_number": "6",
-    "chapter_title": "স্মরণীয় যাঁরা চিরদিন (শহীদ বুদ্ধিজীবী ও বীর সন্তান)",
-    "chapter_type": "ইতিহাস",
-    "author": null,
-    "start_page": 26,
-    "end_page": 32,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 26
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 32
-      }
-    ],
-    "keywords": [
-      "আমার বাংলা বই",
-      "স্মরণীয় যাঁরা চিরদিন (শহীদ বুদ্ধিজীবী ও বীর সন্তান)",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "১৯৭১ সালের মহান মুক্তিযুদ্ধে শহীদ বুদ্ধিজীবীদের আত্মত্যাগ।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-bangla-ch7",
-    "chapter_number": "7",
-    "chapter_title": "স্বদেশ (কবিতা - আহসান হাবীব)",
-    "chapter_type": "ছড়া/কবিতা",
-    "author": null,
-    "start_page": 33,
-    "end_page": 35,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 33
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 35
-      }
-    ],
-    "keywords": [
-      "আমার বাংলা বই",
-      "স্বদেশ (কবিতা - আহসান হাবীব)",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "এই যে ছবি এমন আঁকা নদীর ছবি পাতার ছবি — সবুজ শ্যামল স্বদেশ।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-bangla-ch8",
-    "chapter_number": "8",
-    "chapter_title": "কাঞ্চনমালা আর কাঁকনমালা",
-    "chapter_type": "রূপকথা",
-    "author": null,
-    "start_page": 36,
-    "end_page": 43,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 36
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 43
-      }
-    ],
-    "keywords": [
-      "আমার বাংলা বই",
-      "কাঞ্চনমালা আর কাঁকনমালা",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "সততা ও ধৈর্যের জয় এবং অহংকারের পরাজয়।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-bangla-ch9",
-    "chapter_number": "9",
-    "chapter_title": "অবাক জলপান (সুকুমার রায় - হাসির নাটক)",
-    "chapter_type": "নাটিকা",
-    "author": null,
-    "start_page": 44,
-    "end_page": 50,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 44
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 50
-      }
-    ],
-    "keywords": [
-      "আমার বাংলা বই",
-      "অবাক জলপান (সুকুমার রায় - হাসির নাটক)",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "জল পিপাসার্ত পথিকের হাস্যরসাত্মক সংলাপ ও বৈজ্ঞানিক বুদ্ধি।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-bangla-ch10",
-    "chapter_number": "10",
-    "chapter_title": "ঘাসফুল (কবিতা - জ্যোতিরিন্দ্রনাথ মৈত্র)",
-    "chapter_type": "ছড়া/কবিতা",
-    "author": null,
-    "start_page": 51,
-    "end_page": 53,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 51
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 53
-      }
-    ],
-    "keywords": [
-      "আমার বাংলা বই",
-      "ঘাসফুল (কবিতা - জ্যোতিরিন্দ্রনাথ মৈত্র)",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "ছোট ঘাসফুলের প্রাণের আকুতি — আমাদের পায়ে দলো না, ভালোবাসো।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-bangla-ch11",
-    "chapter_number": "11",
-    "chapter_title": "মাটির নিচে যে শহর (উয়ারী-বটেশ্বর প্রত্নতত্ত্ব)",
-    "chapter_type": "ইতিহাস",
-    "author": null,
-    "start_page": 54,
-    "end_page": 59,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 54
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 59
-      }
-    ],
-    "keywords": [
-      "আমার বাংলা বই",
-      "মাটির নিচে যে শহর (উয়ারী-বটেশ্বর প্রত্নতত্ত্ব)",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "আড়াই হাজার বছরের প্রাচীন সমৃদ্ধ সভ্যতার প্রত্নতাত্ত্বিক আবিষ্কার।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-bangla-ch12",
-    "chapter_number": "12",
-    "chapter_title": "শিক্ষা গুরুর মর্যাদা (কবিতা - কাজী কাদের নেওয়াজ)",
-    "chapter_type": "ছড়া/কবিতা",
-    "author": null,
-    "start_page": 60,
-    "end_page": 63,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 60
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 63
-      }
-    ],
-    "keywords": [
-      "আমার বাংলা বই",
-      "শিক্ষা গুরুর মর্যাদা (কবিতা - কাজী কাদের নেওয়াজ)",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "বাদশাহ আলমগীরের শিক্ষকের প্রতি সর্বোচ্চ শ্রদ্ধা নিবেদন।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-bangla-ch13",
-    "chapter_number": "13",
-    "chapter_title": "ভাবুক ছেলেটি (স্যার জগদীশচন্দ্র বসু)",
+    "chapter_id": "2026-primary-class-5-bangla-ch-2",
+    "book_id": "2026-primary-class-5-bangla",
+    "chapter_number": "২",
+    "chapter_title": "তিতুমীর",
     "chapter_type": "জীবনী",
     "author": null,
-    "start_page": 64,
-    "end_page": 69,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 64
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 69
-      }
-    ],
+    "start_page": 6,
+    "end_page": 18,
+    "sections": [],
     "keywords": [
       "আমার বাংলা বই",
-      "ভাবুক ছেলেটি (স্যার জগদীশচন্দ্র বসু)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "তিতুমীর",
+      "জীবনী ২"
     ],
-    "summary": "উদ্ভিদের প্রাণ আছে প্রমাণকারী বিজ্ঞানী জগদীশচন্দ্র বসুর শৈশব ও গবেষণা।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের জীবনী ২: তিতুমীর (পৃষ্ঠা 6–18)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-bangla-ch14",
-    "chapter_number": "14",
-    "chapter_title": "দুই তীরে (কবিতা - রবীন্দ্রনাথ ঠাকুর)",
-    "chapter_type": "ছড়া/কবিতা",
+    "chapter_id": "2026-primary-class-5-bangla-ch-3",
+    "book_id": "2026-primary-class-5-bangla",
+    "chapter_number": "৩",
+    "chapter_title": "দূরের পাল্লা",
+    "chapter_type": "কবিতা",
     "author": null,
-    "start_page": 70,
-    "end_page": 72,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 70
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 72
-      }
-    ],
+    "start_page": 19,
+    "end_page": 23,
+    "sections": [],
     "keywords": [
       "আমার বাংলা বই",
-      "দুই তীরে (কবিতা - রবীন্দ্রনাথ ঠাকুর)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "দূরের পাল্লা",
+      "কবিতা ৩"
     ],
-    "summary": "নদীর দুই তীরের অপরূপ দৃশ্যাবলি ও ভালোবাসার বন্ধন।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের কবিতা ৩: দূরের পাল্লা (পৃষ্ঠা 19–23)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-bangla-ch15",
-    "chapter_number": "15",
-    "chapter_title": "বীরের রক্তে স্বাধীন এ দেশ (বীরশ্রেষ্ঠ নূর মোহাম্মদ ও মুন্সী আবদুর রউফ)",
-    "chapter_type": "ইতিহাস",
+    "chapter_id": "2026-primary-class-5-bangla-ch-4",
+    "book_id": "2026-primary-class-5-bangla",
+    "chapter_number": "৪",
+    "chapter_title": "পত্র লিখি",
+    "chapter_type": "পাঠ",
     "author": null,
-    "start_page": 73,
-    "end_page": 79,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 73
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 79
-      }
-    ],
+    "start_page": 24,
+    "end_page": 27,
+    "sections": [],
     "keywords": [
       "আমার বাংলা বই",
-      "বীরের রক্তে স্বাধীন এ দেশ (বীরশ্রেষ্ঠ নূর মোহাম্মদ ও মুন্সী আবদুর রউফ)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "পত্র লিখি",
+      "পাঠ ৪"
     ],
-    "summary": "রণক্ষেত্রে বীর মুক্তিযোদ্ধাদের অবিশ্বাস্য বীরত্ব ও আত্মবলিদান।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের পাঠ ৪: পত্র লিখি (পৃষ্ঠা 24–27)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-bangla-ch16",
-    "chapter_number": "16",
-    "chapter_title": "ফুটবল খেলোয়াড় (কবিতা - জসীমউদ্দীন)",
-    "chapter_type": "ছড়া/কবিতা",
-    "author": null,
-    "start_page": 80,
-    "end_page": 83,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 80
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 83
-      }
-    ],
-    "keywords": [
-      "আমার বাংলা বই",
-      "ফুটবল খেলোয়াড় (কবিতা - জসীমউদ্দীন)",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "ইমদাদ হকের খেলার প্রতি অদম্য ভালোবাসা ও নিষ্ঠা।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-bangla-ch17",
-    "chapter_number": "17",
-    "chapter_title": "অপেক্ষা (সেলিনা হোসেনের গল্প)",
+    "chapter_id": "2026-primary-class-5-bangla-ch-5",
+    "book_id": "2026-primary-class-5-bangla",
+    "chapter_number": "৫",
+    "chapter_title": "ঠিক আছে",
     "chapter_type": "গল্প",
+    "author": null,
+    "start_page": 28,
+    "end_page": 31,
+    "sections": [],
+    "keywords": [
+      "আমার বাংলা বই",
+      "পঞ্চম শ্রেণি",
+      "ঠিক আছে",
+      "গল্প ৫"
+    ],
+    "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের গল্প ৫: ঠিক আছে (পৃষ্ঠা 28–31)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-5-bangla-ch-6",
+    "book_id": "2026-primary-class-5-bangla",
+    "chapter_number": "৬",
+    "chapter_title": "সুখ আর দুখু",
+    "chapter_type": "গল্প",
+    "author": null,
+    "start_page": 32,
+    "end_page": 37,
+    "sections": [],
+    "keywords": [
+      "আমার বাংলা বই",
+      "পঞ্চম শ্রেণি",
+      "সুখ আর দুখু",
+      "গল্প ৬"
+    ],
+    "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের গল্প ৬: সুখ আর দুখু (পৃষ্ঠা 32–37)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-5-bangla-ch-7",
+    "book_id": "2026-primary-class-5-bangla",
+    "chapter_number": "৭",
+    "chapter_title": "সাইক্লোন",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 38,
+    "end_page": 41,
+    "sections": [],
+    "keywords": [
+      "আমার বাংলা বই",
+      "পঞ্চম শ্রেণি",
+      "সাইক্লোন",
+      "পাঠ ৭"
+    ],
+    "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের পাঠ ৭: সাইক্লোন (পৃষ্ঠা 38–41)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-5-bangla-ch-8",
+    "book_id": "2026-primary-class-5-bangla",
+    "chapter_number": "৮",
+    "chapter_title": "রয়েল বেঙ্গল টাইগার",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 42,
+    "end_page": 46,
+    "sections": [],
+    "keywords": [
+      "আমার বাংলা বই",
+      "পঞ্চম শ্রেণি",
+      "রয়েল বেঙ্গল টাইগার",
+      "পাঠ ৮"
+    ],
+    "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের পাঠ ৮: রয়েল বেঙ্গল টাইগার (পৃষ্ঠা 42–46)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-5-bangla-ch-9",
+    "book_id": "2026-primary-class-5-bangla",
+    "chapter_number": "৯",
+    "chapter_title": "টুকটুক ও চিকু",
+    "chapter_type": "গল্প",
+    "author": null,
+    "start_page": 47,
+    "end_page": 52,
+    "sections": [],
+    "keywords": [
+      "আমার বাংলা বই",
+      "পঞ্চম শ্রেণি",
+      "টুকটুক ও চিকু",
+      "গল্প ৯"
+    ],
+    "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের গল্প ৯: টুকটুক ও চিকু (পৃষ্ঠা 47–52)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-5-bangla-ch-10",
+    "book_id": "2026-primary-class-5-bangla",
+    "chapter_number": "১০",
+    "chapter_title": "রাখাল ছেলে",
+    "chapter_type": "কবিতা",
+    "author": null,
+    "start_page": 53,
+    "end_page": 56,
+    "sections": [],
+    "keywords": [
+      "আমার বাংলা বই",
+      "পঞ্চম শ্রেণি",
+      "রাখাল ছেলে",
+      "কবিতা ১০"
+    ],
+    "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের কবিতা ১০: রাখাল ছেলে (পৃষ্ঠা 53–56)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-5-bangla-ch-11",
+    "book_id": "2026-primary-class-5-bangla",
+    "chapter_number": "১১",
+    "chapter_title": "কুটির শিল্প",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 57,
+    "end_page": 62,
+    "sections": [],
+    "keywords": [
+      "আমার বাংলা বই",
+      "পঞ্চম শ্রেণি",
+      "কুটির শিল্প",
+      "পাঠ ১১"
+    ],
+    "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের পাঠ ১১: কুটির শিল্প (পৃষ্ঠা 57–62)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-5-bangla-ch-12",
+    "book_id": "2026-primary-class-5-bangla",
+    "chapter_number": "১২",
+    "chapter_title": "শিষ্যের সাধনা",
+    "chapter_type": "গল্প",
+    "author": null,
+    "start_page": 63,
+    "end_page": 68,
+    "sections": [],
+    "keywords": [
+      "আমার বাংলা বই",
+      "পঞ্চম শ্রেণি",
+      "শিষ্যের সাধনা",
+      "গল্প ১২"
+    ],
+    "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের গল্প ১২: শিষ্যের সাধনা (পৃষ্ঠা 63–68)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-5-bangla-ch-13",
+    "book_id": "2026-primary-class-5-bangla",
+    "chapter_number": "১৩",
+    "chapter_title": "পাখির মতো",
+    "chapter_type": "কবিতা",
+    "author": null,
+    "start_page": 69,
+    "end_page": 73,
+    "sections": [],
+    "keywords": [
+      "আমার বাংলা বই",
+      "পঞ্চম শ্রেণি",
+      "পাখির মতো",
+      "কবিতা ১৩"
+    ],
+    "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের কবিতা ১৩: পাখির মতো (পৃষ্ঠা 69–73)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-5-bangla-ch-14",
+    "book_id": "2026-primary-class-5-bangla",
+    "chapter_number": "১৪",
+    "chapter_title": "কুপোকাত",
+    "chapter_type": "গল্প",
+    "author": null,
+    "start_page": 74,
+    "end_page": 83,
+    "sections": [],
+    "keywords": [
+      "আমার বাংলা বই",
+      "পঞ্চম শ্রেণি",
+      "কুপোকাত",
+      "গল্প ১৪"
+    ],
+    "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের গল্প ১৪: কুপোকাত (পৃষ্ঠা 74–83)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-5-bangla-ch-15",
+    "book_id": "2026-primary-class-5-bangla",
+    "chapter_number": "১৫",
+    "chapter_title": "সংকল্প",
+    "chapter_type": "কবিতা",
     "author": null,
     "start_page": 84,
     "end_page": 89,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 84
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 89
-      }
-    ],
+    "sections": [],
     "keywords": [
       "আমার বাংলা বই",
-      "অপেক্ষা (সেলিনা হোসেনের গল্প)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "সংকল্প",
+      "কবিতা ১৫"
     ],
-    "summary": "মুক্তিযুদ্ধের পটভূমিতে রুবা ও জসীমের মা রাহেলা বেগমের অপেক্ষা।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের কবিতা ১৫: সংকল্প (পৃষ্ঠা 84–89)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-bangla-ch18",
-    "chapter_number": "18",
-    "chapter_title": "রৌদ্র লেখে জয় (কবিতা - শামসুর রাহমান)",
-    "chapter_type": "ছড়া/কবিতা",
+    "chapter_id": "2026-primary-class-5-bangla-ch-16",
+    "book_id": "2026-primary-class-5-bangla",
+    "chapter_number": "১৬",
+    "chapter_title": "স্মরণীয় যাঁরা বরণীয় যাঁরা",
+    "chapter_type": "জীবনী",
     "author": null,
     "start_page": 90,
-    "end_page": 92,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 90
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 92
-      }
-    ],
+    "end_page": 97,
+    "sections": [],
     "keywords": [
       "আমার বাংলা বই",
-      "রৌদ্র লেখে জয় (কবিতা - শামসুর রাহমান)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "স্মরণীয় যাঁরা বরণীয় যাঁরা",
+      "জীবনী ১৬"
     ],
-    "summary": "বর্গি এলো খাঁজনা নিতে — রক্তের বিনিময়ে কেনা স্বাধীনতা।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের জীবনী ১৬: স্মরণীয় যাঁরা বরণীয় যাঁরা (পৃষ্ঠা 90–97)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-bangla-ch19",
-    "chapter_number": "19",
-    "chapter_title": "শখের মৃৎশিল্প (কুমারপাড়ার মাটির কাজ)",
-    "chapter_type": "সংস্কৃতি",
+    "chapter_id": "2026-primary-class-5-bangla-ch-17",
+    "book_id": "2026-primary-class-5-bangla",
+    "chapter_number": "১৭",
+    "chapter_title": "মাটির নিচে পুরানো নগর",
+    "chapter_type": "ইতিহাস",
     "author": null,
-    "start_page": 93,
-    "end_page": 98,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 93
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 98
-      }
-    ],
-    "keywords": [
-      "আমার বাংলা বই",
-      "শখের মৃৎশিল্প (কুমারপাড়ার মাটির কাজ)",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "টেপা পুতুল, মাটির হাঁড়ি ও ঐতিহ্যবাহী লোকশিল্পের ঐতিহ্য।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-bangla-ch20",
-    "chapter_number": "20",
-    "chapter_title": "পাখির কাছে ফুলের কাছে (কবিতা - আল মাহমুদ)",
-    "chapter_type": "ছড়া/কবিতা",
-    "author": null,
-    "start_page": 99,
+    "start_page": 98,
     "end_page": 101,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 99
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 101
-      }
-    ],
+    "sections": [],
     "keywords": [
       "আমার বাংলা বই",
-      "পাখির কাছে ফুলের কাছে (কবিতা - আল মাহমুদ)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "মাটির নিচে পুরানো নগর",
+      "ইতিহাস ১৭"
     ],
-    "summary": "জোনাক জ্বলা রাত ও প্রকৃতির কোলাহলে কাব্য পাঠের আনন্দ।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের ইতিহাস ১৭: মাটির নিচে পুরানো নগর (পৃষ্ঠা 98–101)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-bangla-ch21",
-    "chapter_number": "21",
-    "chapter_title": "বিদায় হজ্জ (মহানবী হযরত মুহাম্মদ সা.-এর শেষ ভাষণ)",
-    "chapter_type": "ধর্ম/ইতিহাস",
+    "chapter_id": "2026-primary-class-5-bangla-ch-18",
+    "book_id": "2026-primary-class-5-bangla",
+    "chapter_number": "১৮",
+    "chapter_title": "ইচ্ছামতী",
+    "chapter_type": "কবিতা",
     "author": null,
     "start_page": 102,
-    "end_page": 107,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 102
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 107
-      }
-    ],
+    "end_page": 106,
+    "sections": [],
     "keywords": [
       "আমার বাংলা বই",
-      "বিদায় হজ্জ (মহানবী হযরত মুহাম্মদ সা.-এর শেষ ভাষণ)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "ইচ্ছামতী",
+      "কবিতা ১৮"
     ],
-    "summary": "মানবতার মুক্তির সনদ — সাম্য, শান্তি ও মানবাধিকারের বাণী।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের কবিতা ১৮: ইচ্ছামতী (পৃষ্ঠা 102–106)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-bangla-ch22",
-    "chapter_number": "22",
-    "chapter_title": "যুক্তবর্ণ, বিপরীত শব্দ, ভাবসম্প্রসারণ ও ব্যাকরণ",
-    "chapter_type": "ব্যাকরণ",
+    "chapter_id": "2026-primary-class-5-bangla-ch-19",
+    "book_id": "2026-primary-class-5-bangla",
+    "chapter_number": "১৯",
+    "chapter_title": "ভাষার খেলা",
+    "chapter_type": "পাঠ",
     "author": null,
-    "start_page": 108,
-    "end_page": 115,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 108
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 115
-      }
-    ],
+    "start_page": 107,
+    "end_page": 111,
+    "sections": [],
     "keywords": [
       "আমার বাংলা বই",
-      "যুক্তবর্ণ, বিপরীত শব্দ, ভাবসম্প্রসারণ ও ব্যাকরণ",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "ভাষার খেলা",
+      "পাঠ ১৯"
     ],
-    "summary": "সমাপনী পরীক্ষার উপযোগী ব্যাকরণ ও ভাষা দক্ষতা।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের পাঠ ১৯: ভাষার খেলা (পৃষ্ঠা 107–111)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-5-bangla-ch-20",
+    "book_id": "2026-primary-class-5-bangla",
+    "chapter_number": "২০",
+    "chapter_title": "শিক্ষাগুরুর মর্যাদা",
+    "chapter_type": "কবিতা",
+    "author": null,
+    "start_page": 112,
+    "end_page": 118,
+    "sections": [],
+    "keywords": [
+      "আমার বাংলা বই",
+      "পঞ্চম শ্রেণি",
+      "শিক্ষাগুরুর মর্যাদা",
+      "কবিতা ২০"
+    ],
+    "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের কবিতা ২০: শিক্ষাগুরুর মর্যাদা (পৃষ্ঠা 112–118)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-5-bangla-ch-21",
+    "book_id": "2026-primary-class-5-bangla",
+    "chapter_number": "২১",
+    "chapter_title": "বিদায় হজের ভাষণ",
+    "chapter_type": "ইতিহাস",
+    "author": null,
+    "start_page": 119,
+    "end_page": 123,
+    "sections": [],
+    "keywords": [
+      "আমার বাংলা বই",
+      "পঞ্চম শ্রেণি",
+      "বিদায় হজের ভাষণ",
+      "ইতিহাস ২১"
+    ],
+    "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের ইতিহাস ২১: বিদায় হজের ভাষণ (পৃষ্ঠা 119–123)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-5-bangla-ch-22",
+    "book_id": "2026-primary-class-5-bangla",
+    "chapter_number": "২২",
+    "chapter_title": "আমরা তোমাদের ভুলব না",
+    "chapter_type": "মুক্তিযুদ্ধ",
+    "author": null,
+    "start_page": 124,
+    "end_page": 129,
+    "sections": [],
+    "keywords": [
+      "আমার বাংলা বই",
+      "পঞ্চম শ্রেণি",
+      "আমরা তোমাদের ভুলব না",
+      "মুক্তিযুদ্ধ ২২"
+    ],
+    "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের মুক্তিযুদ্ধ ২২: আমরা তোমাদের ভুলব না (পৃষ্ঠা 124–129)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-5-bangla-ch-23",
+    "book_id": "2026-primary-class-5-bangla",
+    "chapter_number": "২৩",
+    "chapter_title": "পোস্টার লিখি, প্ল্যাকার্ড লিখি",
+    "chapter_type": "পাঠ",
+    "author": null,
+    "start_page": 130,
+    "end_page": 136,
+    "sections": [],
+    "keywords": [
+      "আমার বাংলা বই",
+      "পঞ্চম শ্রেণি",
+      "পোস্টার লিখি, প্ল্যাকার্ড লিখি",
+      "পাঠ ২৩"
+    ],
+    "summary": "পঞ্চম শ্রেণি এর আমার বাংলা বই বিষয়ের পাঠ ২৩: পোস্টার লিখি, প্ল্যাকার্ড লিখি (পৃষ্ঠা 130–136)।",
+    "total_questions": 0
   }
 ]

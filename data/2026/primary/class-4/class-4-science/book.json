@@ -1,69 +1,47 @@
 {
   "id": "2026-primary-class-4-science",
+  "slug": "class-4-science",
   "academic_year": 2026,
   "level": "primary",
   "class_number": 4,
   "class_name": "চতুর্থ শ্রেণি",
-  "book_name": "প্রাথমিক বিজ্ঞান",
+  "official_book_name": "প্রাথমিক বিজ্ঞান",
   "normalized_book_name": "প্রাথমিক বিজ্ঞান",
-  "subject": "বিজ্ঞান",
+  "subject": "প্রাথমিক বিজ্ঞান",
   "subject_code": "science",
   "language": "bn",
   "version": "bangla",
-  "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b99ccc4774958d7b70680",
-  "download_links": {
-    "link_1": "https://drive.google.com/file/d/1c4IxTVZLnNXnI1t2aCWSKWuHCxT988NL/view?usp=drive_link",
-    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/DzEKA84BZVNmPLN",
-    "resolved_pdf_url": "https://drive.google.com/file/d/1c4IxTVZLnNXnI1t2aCWSKWuHCxT988NL/view?usp=drive_link"
-  },
-  "english_version": {
-    "official_book_name": "প্রাথমিক বিজ্ঞান",
-    "download_links": {
-      "link_1": "https://drive.google.com/file/d/1ZZW1CKVkRWykvMTDeaVa5BP_PXbbOoHf/view?usp=drive_link",
-      "link_2": "https://drive.egovcloud.gov.bd/index.php/s/3pQob61MhopSRMM",
-      "resolved_pdf_url": "https://drive.google.com/file/d/1ZZW1CKVkRWykvMTDeaVa5BP_PXbbOoHf/view?usp=drive_link"
-    }
-  },
   "pdf": {
     "local_path": "data/2026/primary/class-4/class-4-science/source/original.pdf",
-    "file_name": "class-4-science.pdf",
-    "file_size": 0,
-    "total_pages": 90,
-    "sha256": ""
+    "file_name": "Class 4, Science_Book.pdf",
+    "file_size": 50100839,
+    "total_pages": 0,
+    "sha256": "641b83f8588bd1c89d8d4e0c4308adea1add1e812080b1a9add3cfa10fedbda0"
   },
   "publication": {
-    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ",
-    "authors": [
-      "অধ্যাপক ড. শাহজাহান তপন",
-      "ড. মুহাম্মদ ইদ্রিস আলী"
-    ],
-    "editors": [
-      "অধ্যাপক ড. ইকবাল রউফ মামুন"
-    ],
-    "illustrators": [
-      "এনসিটিবি চিত্রাঙ্কন পর্ষদ"
-    ],
-    "isbn": "978-984-36-4268-4"
+    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+    "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
   },
   "table_of_contents": [
-    "1. জীব ও পরিবেশ (উদ্ভিদ ও প্রাণীর বেঁচে থাকার উপাদান) (পৃষ্ঠা 1–10)",
-    "2. উদ্ভিদ ও প্রাণী (বাসস্থান ও অভিযোজন) (পৃষ্ঠা 11–20)",
-    "3. মাটি ও মাটি দূষণ (উর্বরতা ও সংরক্ষণ) (পৃষ্ঠা 21–28)",
-    "4. খাদ্য ও পুষ্টি (আমিষ, শর্করা, স্নেহ, ভিটামিন, খনিজ লবণ ও পানি) (পৃষ্ঠা 29–38)",
-    "5. স্বাস্থ্যবিধি ও পানিবাহিত রোগ (ডায়রিয়া, কলেরা ও প্রতিরোধ) (পৃষ্ঠা 39–46)",
-    "6. পদার্থ (কঠিন, তরল, বায়বীয় ও পদার্থের ওজন-আয়তন) (পৃষ্ঠা 47–56)",
-    "7. প্রাকৃতিক সম্পদ (পানি, মাটি, বায়ু, বনজ ও খনিজ সম্পদ) (পৃষ্ঠা 57–66)",
-    "8. মহাবিশ্ব (সৌরজগৎ, গ্রহ ও চাঁদের দশা) (পৃষ্ঠা 67–76)",
-    "9. আমাদের জীবনে প্রযুক্তি (কৃষি, চিকিৎসা ও যাতায়াত প্রযুক্তি) (পৃষ্ঠা 77–86)",
-    "10. আবহাওয়া ও জলবায়ু (তাপমাত্রা, আর্দ্রতা ও ঋতু পরিবর্তন) (পৃষ্ঠা 87–94)",
-    "11. জীবনে নিরাপত্তা এবং প্রাথমিক চিকিৎসা (পৃষ্ঠা 95–104)"
+    "১. জীবের বৃদ্ধি ও প্রজনন (পৃষ্ঠা 1–11)",
+    "২. স্বাস্থ্য সুরক্ষা (পৃষ্ঠা 12–25)",
+    "৩. দুর্ঘটনা ও প্রাথমিক চিকিৎসা (পৃষ্ঠা 26–36)",
+    "৪. পদার্থ (পৃষ্ঠা 37–52)",
+    "৫. শক্তি (পৃষ্ঠা 53–66)",
+    "৬. গতি ও বল (পৃষ্ঠা 67–71)",
+    "৭. প্রাকৃতিক সম্পদ (পৃষ্ঠা 72–89)",
+    "৮. মহাবিশ্ব (পৃষ্ঠা 90–108)",
+    "৯. আবহাওয়া (পৃষ্ঠা 109–125)",
+    "১০. তথ্য ও প্রযুক্তি (পৃষ্ঠা 126–138)",
+    "১১. সমস্যা সমাধানে তথ্য ও যোগাযোগ প্রযুক্তি (পৃষ্ঠা 139–148)",
+    "১২. শব্দকোষ (পৃষ্ঠা 149–151)"
   ],
-  "total_chapters": 11,
+  "total_chapters": 12,
   "validation": {
     "download_verified": true,
     "page_count_verified": true,
     "toc_verified": true,
-    "questions_verified": true,
+    "questions_verified": false,
     "needs_review": false
   }
 }

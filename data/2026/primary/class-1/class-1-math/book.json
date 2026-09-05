@@ -1,76 +1,53 @@
 {
   "id": "2026-primary-class-1-math",
+  "slug": "class-1-math",
   "academic_year": 2026,
   "level": "primary",
   "class_number": 1,
   "class_name": "প্রথম শ্রেণি",
-  "book_name": "প্রাথমিক গণিত",
+  "official_book_name": "প্রাথমিক গণিত",
   "normalized_book_name": "প্রাথমিক গণিত",
-  "subject": "গণিত",
+  "subject": "প্রাথমিক গণিত",
   "subject_code": "math",
   "language": "bn",
   "version": "bangla",
-  "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b9adec4774958d7b708cd",
-  "download_links": {
-    "link_1": "https://drive.google.com/file/d/1V5eBwsQYrG-6qajVZUwwetml5Oezl10r/view?usp=drive_link",
-    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/UhraLRRxdBynh1U",
-    "resolved_pdf_url": "https://drive.google.com/file/d/1V5eBwsQYrG-6qajVZUwwetml5Oezl10r/view?usp=drive_link"
-  },
-  "english_version": {
-    "official_book_name": "প্রাথমিক গণিত",
-    "download_links": {
-      "link_1": "https://drive.google.com/file/d/1D8QeLW7SZ2d7oPJM3TmQei9_bOEet2i5/view?usp=drive_link",
-      "link_2": "https://drive.egovcloud.gov.bd/index.php/s/lp11ImNTfh7T9Xh",
-      "resolved_pdf_url": "https://drive.google.com/file/d/1D8QeLW7SZ2d7oPJM3TmQei9_bOEet2i5/view?usp=drive_link"
-    }
-  },
   "pdf": {
     "local_path": "data/2026/primary/class-1/class-1-math/source/original.pdf",
-    "file_name": "class-1-math.pdf",
-    "file_size": 0,
-    "total_pages": 68,
-    "sha256": ""
+    "file_name": "Class 1, Math_Book.pdf",
+    "file_size": 11569292,
+    "total_pages": 0,
+    "sha256": "22be8d975a23583367e6e3ae9e892893401e011bc4a0aba40665a11d77c44b26"
   },
   "publication": {
-    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ",
-    "authors": [
-      "অধ্যাপক মো. রফিকুল ইসলাম",
-      "ড. রণজিৎ কুমার বিশ্বাস"
-    ],
-    "editors": [
-      "অধ্যাপক ড. মো. আবদুল মতিন"
-    ],
-    "illustrators": [
-      "এনসিটিবি চিত্রাঙ্কন পর্ষদ"
-    ],
-    "isbn": "978-984-36-1513-5"
+    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+    "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
   },
   "table_of_contents": [
-    "1. তুলনা করি (কম-বেশি, বড়-ছোট, কাছে-দূরে, ভারি-হালকা) (পৃষ্ঠা 1–6)",
-    "2. গণনা করি (১ থেকে ৫ পর্যন্ত সংখ্যা গণনা ও লেখা) (পৃষ্ঠা 7–12)",
-    "3. সংখ্যা ৬ থেকে ১০ গণনা ও লেখা (পৃষ্ঠা 13–18)",
-    "4. শূন্য (০)-এর ধারণা (পৃষ্ঠা 19–22)",
-    "5. সংখ্যা তুলনা ও ক্রমানুসারে সাজানো (ছোট থেকে বড় ও বড় থেকে ছোট) (পৃষ্ঠা 23–26)",
-    "6. যোগের প্রাথমিক ধারণা (১ থেকে ১০) (পৃষ্ঠা 27–34)",
-    "7. বিয়োগের প্রাথমিক ধারণা (১ থেকে ১০) (পৃষ্ঠা 35–42)",
-    "8. সংখ্যা ১১ থেকে ২০ গণনা ও স্থানীয় মান (পৃষ্ঠা 43–48)",
-    "9. সংখ্যা ২১ থেকে ৫০ গণনা ও তালিকা (পৃষ্ঠা 49–54)",
-    "10. সংখ্যা ৫১ থেকে ১০০ গণনা ও পাঠ (পৃষ্ঠা 55–60)",
-    "11. জোড় ও বিজোড় সংখ্যা চেনা (পৃষ্ঠা 61–64)",
-    "12. যোগ (হাতে না রেখে দুই অঙ্ক) (পৃষ্ঠা 65–70)",
-    "13. বিয়োগ (হাতে না রেখে দুই অঙ্ক) (পৃষ্ঠা 71–76)",
-    "14. জ্যামিতিক আকৃতি (গোল, গোলক, চারকোনা, তিনকোনা) (পৃষ্ঠা 77–80)",
-    "15. টাকা ও পয়সার পরিচিতি (১, ২, ৫ টাকার নোট ও কয়েন) (পৃষ্ঠা 81–84)",
-    "16. পরিমাপ ও দৈর্ঘ্য-ওজন (পৃষ্ঠা 85–88)",
-    "17. সময় ও ঘড়ি (সকাল, দুপুর, রাত ও দিনপঞ্জি) (পৃষ্ঠা 89–92)",
-    "18. সহজ গাণিতিক সমস্যা ও ধাঁধা (পৃষ্ঠা 93–96)"
+    "১. তুলনা করি (পৃষ্ঠা 1–4)",
+    "২. গণনা (পৃষ্ঠা 5–8)",
+    "৩. সংখ্যা (১ থেকে ১০) (পৃষ্ঠা 9–28)",
+    "৪. যোগের ধারণা (পৃষ্ঠা 29–42)",
+    "৫. বিয়োগের ধারণা (পৃষ্ঠা 43–53)",
+    "৬. সংখ্যা : ১১ থেকে ২০ (পৃষ্ঠা 54–57)",
+    "৭. যোগ (১১ থেকে ২০) (পৃষ্ঠা 58–65)",
+    "৮. বিয়োগ (১১ থেকে ২০) (পৃষ্ঠা 66–68)",
+    "৯. সংখ্যা (২১ থেকে ৪০) (পৃষ্ঠা 69–73)",
+    "১০. স্থানীয় মান (পৃষ্ঠা 74–78)",
+    "১১. নিজে করি (১) (পৃষ্ঠা 79–81)",
+    "১২. জ্যামিতি (পৃষ্ঠা 82–85)",
+    "১৩. প্যাটার্ন (পৃষ্ঠা 86–91)",
+    "১৪. সংখ্যা (৪১ থেকে ১০০) (পৃষ্ঠা 92–96)",
+    "১৫. যোগ (পৃষ্ঠা 97–100)",
+    "১৬. বিয়োগ (পৃষ্ঠা 101–104)",
+    "১৭. বাংলাদেশি মুদ্রা (পৃষ্ঠা 105–108)",
+    "১৮. নিজে করি (২) (পৃষ্ঠা 109–114)"
   ],
   "total_chapters": 18,
   "validation": {
     "download_verified": true,
     "page_count_verified": true,
     "toc_verified": true,
-    "questions_verified": true,
+    "questions_verified": false,
     "needs_review": false
   }
 }

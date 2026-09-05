@@ -1,366 +1,268 @@
 [
   {
-    "chapter_id": "c5-science-ch1",
-    "chapter_number": "1",
-    "chapter_title": "আমাদের পরিবেশ (বাস্তুসংস্থান, খাদ্যশৃঙ্খল ও খাদ্যজাল)",
+    "chapter_id": "2026-primary-class-5-science-ch-1",
+    "book_id": "2026-primary-class-5-science",
+    "chapter_number": "১",
+    "chapter_title": "জীবের আবাসস্থল",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 1,
     "end_page": 10,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 1
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 10
-      }
-    ],
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "আমাদের পরিবেশ (বাস্তুসংস্থান, খাদ্যশৃঙ্খল ও খাদ্যজাল)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "জীবের আবাসস্থল",
+      "অধ্যায় ১"
     ],
-    "summary": "উৎপাদক, খাদক ও শক্তির প্রবাহ।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ১: জীবের আবাসস্থল (পৃষ্ঠা 1–10)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-science-ch2",
-    "chapter_number": "2",
-    "chapter_title": "পরিবেশ দূষণ (বায়ু, পানি, মাটি ও শব্দ দূষণ প্রতিরোধ)",
+    "chapter_id": "2026-primary-class-5-science-ch-2",
+    "book_id": "2026-primary-class-5-science",
+    "chapter_number": "২",
+    "chapter_title": "জীব ও পরিবেশের পারস্পরিক নির্ভরশীলতা",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 11,
-    "end_page": 20,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 11
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 20
-      }
-    ],
+    "end_page": 21,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "পরিবেশ দূষণ (বায়ু, পানি, মাটি ও শব্দ দূষণ প্রতিরোধ)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "জীব ও পরিবেশের পারস্পরিক নির্ভরশীলতা",
+      "অধ্যায় ২"
     ],
-    "summary": "দূষণের কারণ, ক্ষতিকর প্রভাব এবং ৩R নীতি (Reduce, Reuse, Recycle)।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ২: জীব ও পরিবেশের পারস্পরিক নির্ভরশীলতা (পৃষ্ঠা 11–21)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-science-ch3",
-    "chapter_number": "3",
-    "chapter_title": "জীবনের জন্য পানি (পানি চক্র ও নিরাপদ পানি)",
+    "chapter_id": "2026-primary-class-5-science-ch-3",
+    "book_id": "2026-primary-class-5-science",
+    "chapter_number": "৩",
+    "chapter_title": "খাদ্য",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 21,
+    "start_page": 22,
     "end_page": 30,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 21
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 30
-      }
-    ],
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "জীবনের জন্য পানি (পানি চক্র ও নিরাপদ পানি)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "খাদ্য",
+      "অধ্যায় ৩"
     ],
-    "summary": "বাষ্পীভবন, ঘনীভবন এবং আর্সেনিকমুক্ত নিরাপদ পানির ব্যবস্থা।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৩: খাদ্য (পৃষ্ঠা 22–30)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-science-ch4",
-    "chapter_number": "4",
-    "chapter_title": "বায়ু (বায়ুর ব্যবহার, দূষণ ও অ্যাসিড বৃষ্টি)",
+    "chapter_id": "2026-primary-class-5-science-ch-4",
+    "book_id": "2026-primary-class-5-science",
+    "chapter_number": "৪",
+    "chapter_title": "বয়ঃসন্ধিকাল",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 31,
-    "end_page": 40,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 31
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 40
-      }
-    ],
+    "end_page": 39,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "বায়ু (বায়ুর ব্যবহার, দূষণ ও অ্যাসিড বৃষ্টি)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "বয়ঃসন্ধিকাল",
+      "অধ্যায় ৪"
     ],
-    "summary": "গ্রিনহাউস গ্যাস ও বায়ুমণ্ডলের উষ্ণতা বৃদ্ধি প্রতিরোধ।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৪: বয়ঃসন্ধিকাল (পৃষ্ঠা 31–39)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-science-ch5",
-    "chapter_number": "5",
-    "chapter_title": "পদার্থ ও শক্তি (শক্তির রূপান্তর ও সংরক্ষণ)",
+    "chapter_id": "2026-primary-class-5-science-ch-5",
+    "book_id": "2026-primary-class-5-science",
+    "chapter_number": "৫",
+    "chapter_title": "পদার্থের গঠন",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 41,
-    "end_page": 50,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 41
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 50
-      }
-    ],
+    "start_page": 40,
+    "end_page": 47,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "পদার্থ ও শক্তি (শক্তির রূপান্তর ও সংরক্ষণ)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "পদার্থের গঠন",
+      "অধ্যায় ৫"
     ],
-    "summary": "তাপ সঞ্চালন (পরিবহন, পরিচলন, বিকিরণ) ও আলো-বিদ্যুৎ শক্তি।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৫: পদার্থের গঠন (পৃষ্ঠা 40–47)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-science-ch6",
-    "chapter_number": "6",
-    "chapter_title": "সুস্থ জীবনের জন্য খাদ্য (জাঙ্ক ফুড ও প্রিজারভেটিভ)",
+    "chapter_id": "2026-primary-class-5-science-ch-6",
+    "book_id": "2026-primary-class-5-science",
+    "chapter_number": "৬",
+    "chapter_title": "শক্তির রূপান্তর",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 51,
+    "start_page": 48,
     "end_page": 60,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 51
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 60
-      }
-    ],
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "সুস্থ জীবনের জন্য খাদ্য (জাঙ্ক ফুড ও প্রিজারভেটিভ)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "শক্তির রূপান্তর",
+      "অধ্যায় ৬"
     ],
-    "summary": "রাসায়নিকযুক্ত খাবারের ক্ষতিকর প্রভাব ও সুষম খাদ্যের গুরুত্ব।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৬: শক্তির রূপান্তর (পৃষ্ঠা 48–60)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-science-ch7",
-    "chapter_number": "7",
-    "chapter_title": "স্বাস্থ্যবিধি (সংক্রামক রোগ ও বয়ঃসন্ধিকাল)",
+    "chapter_id": "2026-primary-class-5-science-ch-7",
+    "book_id": "2026-primary-class-5-science",
+    "chapter_number": "৭",
+    "chapter_title": "বলের ধারণা",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 61,
-    "end_page": 70,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 61
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 70
-      }
-    ],
+    "end_page": 71,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "স্বাস্থ্যবিধি (সংক্রামক রোগ ও বয়ঃসন্ধিকাল)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "বলের ধারণা",
+      "অধ্যায় ৭"
     ],
-    "summary": "বায়ুবাহিত-পানিবাহিত রোগ প্রতিরোধ ও বয়ঃসন্ধিকালের শারীরিক-মানসিক যত্ন।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৭: বলের ধারণা (পৃষ্ঠা 61–71)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-science-ch8",
-    "chapter_number": "8",
-    "chapter_title": "মহাবিশ্ব (আহ্নিক ও বার্ষিক গতি, দিন-রাত ও ঋতু পরিবর্তন)",
+    "chapter_id": "2026-primary-class-5-science-ch-8",
+    "book_id": "2026-primary-class-5-science",
+    "chapter_number": "৮",
+    "chapter_title": "ভূমিরূপ",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 71,
-    "end_page": 80,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 71
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 80
-      }
-    ],
+    "start_page": 72,
+    "end_page": 84,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "মহাবিশ্ব (আহ্নিক ও বার্ষিক গতি, দিন-রাত ও ঋতু পরিবর্তন)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "ভূমিরূপ",
+      "অধ্যায় ৮"
     ],
-    "summary": "পৃথিবীর ঘূর্ণন ও অক্ষের হেলানো অবস্থানের বৈজ্ঞানিক ব্যাখ্যা।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৮: ভূমিরূপ (পৃষ্ঠা 72–84)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-science-ch9",
-    "chapter_number": "9",
-    "chapter_title": "আমাদের জীবনে প্রযুক্তি (কৃষি ও শিল্প বিপ্লব)",
+    "chapter_id": "2026-primary-class-5-science-ch-9",
+    "book_id": "2026-primary-class-5-science",
+    "chapter_number": "৯",
+    "chapter_title": "পরিবেশ সংরক্ষণ",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 81,
+    "start_page": 85,
     "end_page": 90,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 81
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 90
-      }
-    ],
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "আমাদের জীবনে প্রযুক্তি (কৃষি ও শিল্প বিপ্লব)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "পরিবেশ সংরক্ষণ",
+      "অধ্যায় ৯"
     ],
-    "summary": "জৈবপ্রযুক্তি, আধুনিক কৃষি যন্ত্রপাতি ও প্রযুক্তির সঠিক ব্যবহার।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৯: পরিবেশ সংরক্ষণ (পৃষ্ঠা 85–90)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-science-ch10",
-    "chapter_number": "10",
-    "chapter_title": "আমাদের জীবনে তথ্য (তথ্য বিনিময়, ইন্টারনেট ও সংরক্ষণ)",
+    "chapter_id": "2026-primary-class-5-science-ch-10",
+    "book_id": "2026-primary-class-5-science",
+    "chapter_number": "১০",
+    "chapter_title": "পৃথিবীর গতি",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 91,
-    "end_page": 100,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 91
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 100
-      }
-    ],
+    "end_page": 101,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "আমাদের জীবনে তথ্য (তথ্য বিনিময়, ইন্টারনেট ও সংরক্ষণ)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "পৃথিবীর গতি",
+      "অধ্যায় ১০"
     ],
-    "summary": "সার্চ ইঞ্জিন (গুগল), পেনড্রাইভ ও তথ্য আদান-প্রদানের নিরাপত্তা।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ১০: পৃথিবীর গতি (পৃষ্ঠা 91–101)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-science-ch11",
-    "chapter_number": "11",
-    "chapter_title": "আবহাওয়া ও জলবায়ু (নিম্নচাপ, সাইক্লোন ও কালবৈশাখী)",
+    "chapter_id": "2026-primary-class-5-science-ch-11",
+    "book_id": "2026-primary-class-5-science",
+    "chapter_number": "১১",
+    "chapter_title": "জলবায়ু পরিবর্তন",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 101,
-    "end_page": 110,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 101
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 110
-      }
-    ],
+    "start_page": 102,
+    "end_page": 117,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "আবহাওয়া ও জলবায়ু (নিম্নচাপ, সাইক্লোন ও কালবৈশাখী)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "জলবায়ু পরিবর্তন",
+      "অধ্যায় ১১"
     ],
-    "summary": "আর্দ্রতা, বায়ুর চাপ ও দুর্যোগের পূর্বাভাসের বিজ্ঞান।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ১১: জলবায়ু পরিবর্তন (পৃষ্ঠা 102–117)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-science-ch12",
-    "chapter_number": "12",
-    "chapter_title": "জলবায়ু পরিবর্তন (বৈশ্বিক উষ্ণায়ন ও প্রাকৃতিক দুর্যোগ)",
+    "chapter_id": "2026-primary-class-5-science-ch-12",
+    "book_id": "2026-primary-class-5-science",
+    "chapter_number": "১২",
+    "chapter_title": "আমাদের জীবনে প্রযুক্তি",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 111,
-    "end_page": 120,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 111
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 120
-      }
-    ],
+    "start_page": 118,
+    "end_page": 128,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "জলবায়ু পরিবর্তন (বৈশ্বিক উষ্ণায়ন ও প্রাকৃতিক দুর্যোগ)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "আমাদের জীবনে প্রযুক্তি",
+      "অধ্যায় ১২"
     ],
-    "summary": "কার্বন নিঃসরণ হ্রাস ও জলবায়ু পরিবর্তনের ঝুঁকি মোকাবেলা।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ১২: আমাদের জীবনে প্রযুক্তি (পৃষ্ঠা 118–128)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-science-ch13",
-    "chapter_number": "13",
-    "chapter_title": "প্রাকৃতিক সম্পদ (নবায়নযোগ্য ও অনবায়নযোগ্য শক্তি)",
+    "chapter_id": "2026-primary-class-5-science-ch-13",
+    "book_id": "2026-primary-class-5-science",
+    "chapter_number": "১৩",
+    "chapter_title": "সমস্যা সমাধানে তথ্য ও যোগাযোগ প্রযুক্তি",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 121,
-    "end_page": 130,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 121
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 130
-      }
-    ],
+    "start_page": 129,
+    "end_page": 155,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "প্রাকৃতিক সম্পদ (নবায়নযোগ্য ও অনবায়নযোগ্য শক্তি)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "সমস্যা সমাধানে তথ্য ও যোগাযোগ প্রযুক্তি",
+      "অধ্যায় ১৩"
     ],
-    "summary": "সৌরশক্তি, বায়ুপ্রবাহ এবং তেল-কয়লা-গ্যাস সম্পদের পরিমিত ব্যবহার।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ১৩: সমস্যা সমাধানে তথ্য ও যোগাযোগ প্রযুক্তি (পৃষ্ঠা 129–155)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-science-ch14",
-    "chapter_number": "14",
-    "chapter_title": "জনসংখ্যা ও প্রাকৃতিক পরিবেশ (বনভূমি ও বন উজাড়)",
-    "chapter_type": "অধ্যায়",
+    "chapter_id": "2026-primary-class-5-science-ch-14",
+    "book_id": "2026-primary-class-5-science",
+    "chapter_number": "১৪",
+    "chapter_title": "শব্দকোষ",
+    "chapter_type": "শব্দকোষ",
     "author": null,
-    "start_page": 131,
-    "end_page": 140,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 131
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 140
-      }
-    ],
+    "start_page": 156,
+    "end_page": 159,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "জনসংখ্যা ও প্রাকৃতিক পরিবেশ (বনভূমি ও বন উজাড়)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "শব্দকোষ",
+      "শব্দকোষ ১৪"
     ],
-    "summary": "জনসংখ্যা বৃদ্ধির ফলে বাস্তুসংস্থানের ক্ষতি ও টেকসই উন্নয়ন।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের শব্দকোষ ১৪: শব্দকোষ (পৃষ্ঠা 156–159)।",
+    "total_questions": 0
   }
 ]

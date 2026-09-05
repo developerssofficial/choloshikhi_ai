@@ -1,85 +1,53 @@
 {
   "id": "2026-primary-class-4-english",
+  "slug": "class-4-english",
   "academic_year": 2026,
   "level": "primary",
   "class_number": 4,
   "class_name": "চতুর্থ শ্রেণি",
-  "book_name": "English for Today",
+  "official_book_name": "English for Today",
   "normalized_book_name": "English for Today",
-  "subject": "ইংরেজি",
+  "subject": "English for Today",
   "subject_code": "english",
   "language": "en",
   "version": "bangla",
-  "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b99ccc4774958d7b70680",
-  "download_links": {
-    "link_1": "https://drive.google.com/file/d/1uDrBEoEo2DNbVnTIrMTTqr4pTsaGml-4/view?usp=drive_link",
-    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/5UGmR1vSkxM0dU0",
-    "resolved_pdf_url": "https://drive.google.com/file/d/1uDrBEoEo2DNbVnTIrMTTqr4pTsaGml-4/view?usp=drive_link"
-  },
-  "english_version": {
-    "official_book_name": "English For Today",
-    "download_links": {
-      "link_1": "https://drive.google.com/file/d/1uDrBEoEo2DNbVnTIrMTTqr4pTsaGml-4/view?usp=drive_link",
-      "link_2": "https://drive.egovcloud.gov.bd/index.php/s/5UGmR1vSkxM0dU0",
-      "resolved_pdf_url": "https://drive.google.com/file/d/1uDrBEoEo2DNbVnTIrMTTqr4pTsaGml-4/view?usp=drive_link"
-    }
-  },
   "pdf": {
     "local_path": "data/2026/primary/class-4/class-4-english/source/original.pdf",
-    "file_name": "class-4-english.pdf",
-    "file_size": 0,
-    "total_pages": 100,
-    "sha256": ""
+    "file_name": "Class 4, English_Book.pdf",
+    "file_size": 30579350,
+    "total_pages": 0,
+    "sha256": "073708512d33f9a3b055e01fd11536bf08dec471b023d2396c698e3fe40b1728"
   },
   "publication": {
     "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-    "authors": [
-      "জাতীয় শিক্ষাক্রম বিশেষজ্ঞ প্যানেল"
-    ],
-    "editors": [
-      "এনসিটিবি সম্পাদনা পর্ষদ"
-    ],
-    "illustrators": [
-      "এনসিটিবি চিত্রাঙ্কন পর্ষদ"
-    ],
-    "isbn": "978-984-36-4702-1"
+    "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
   },
   "table_of_contents": [
-    "1. About Me (Unit 1) (পৃষ্ঠা 1–3)",
-    "2. Days in a Calendar (Unit 2) (পৃষ্ঠা 4–6)",
-    "3. Family and Relatives (Unit 3) (পৃষ্ঠা 7–9)",
-    "4. Dialogue: Shopping and Buying Things (Unit 4) (পৃষ্ঠা 10–12)",
-    "5. Class Routine & Time Management (Unit 5) (পৃষ্ঠা 13–15)",
-    "6. Food and Health: Healthy Eating Habits (Unit 6) (পৃষ্ঠা 16–18)",
-    "7. Traffic Rules & Safety Signs (Unit 7) (পৃষ্ঠা 19–21)",
-    "8. Syllables and Phonics Pronunciation (Unit 8) (পৃষ্ঠা 22–24)",
-    "9. Occupations in Our Community (Unit 9) (পৃষ্ঠা 25–27)",
-    "10. S.M. Sultan: Famous Artist of Bangladesh (Unit 10) (পৃষ্ঠা 28–30)",
-    "11. Places in Bangladesh: Sreemangal Tea Gardens (Unit 11) (পৃষ্ঠা 31–33)",
-    "12. Story: The Lion and the Mouse (Unit 12) (পৃষ্ঠা 34–36)",
-    "13. Telling the Time & Clock Faces (Unit 13) (পৃষ্ঠা 37–39)",
-    "14. Story: The Hen and Her Chicks (Unit 14) (পৃষ্ঠা 40–42)",
-    "15. Sagar and His Family (Unit 15) (পৃষ্ঠা 43–45)",
-    "16. Months of the Year and Weather (Unit 16) (পৃষ্ঠা 46–48)",
-    "17. Sports and Hobbies (Unit 17) (পৃষ্ঠা 49–51)",
-    "18. Story: The Clever Fox (Unit 18) (পৃষ্ঠা 52–54)",
-    "19. Cleanliness and Personal Hygiene (Unit 19) (পৃষ্ঠা 55–57)",
-    "20. Prepositions and Directions (Unit 20) (পৃষ্ঠা 58–60)",
-    "21. Rhyme: Clap, Clap, Clap (Unit 21) (পৃষ্ঠা 61–62)",
-    "22. Past Tense: Yesterday's Activities (Unit 22) (পৃষ্ঠা 63–65)",
-    "23. Story: The Grasshopper and the Ant (Unit 23) (পৃষ্ঠা 66–68)",
-    "24. Natural Beauties of Bangladesh: Kuakata & Saint Martin (Unit 24) (পৃষ্ঠা 69–71)",
-    "25. Making Requests & Polite Expressions (Unit 25) (পৃষ্ঠা 72–74)",
-    "26. Reshma the Garment Worker (Unit 26) (পৃষ্ঠা 75–77)",
-    "27. Story: The Woodcutter's Honesty (Unit 27) (পৃষ্ঠা 78–80)",
-    "28. Comprehensive Review and Grammar (Unit 28) (পৃষ্ঠা 81–86)"
+    "Unit 1. Introducing One Another (পৃষ্ঠা 1–3)",
+    "Unit 2. Have a Great Day (পৃষ্ঠা 4–5)",
+    "Unit 3. My School Assembly (পৃষ্ঠা 6–8)",
+    "Unit 4. Enjoying Annual Sports (পৃষ্ঠা 9–11)",
+    "Unit 5. The Little Doctor (পৃষ্ঠা 12–17)",
+    "Unit 6. Sounds and Numbers (পৃষ্ঠা 18–21)",
+    "Unit 7. Telling the Time (পৃষ্ঠা 22–26)",
+    "Unit 8. My Family (পৃষ্ঠা 27–33)",
+    "Unit 9. Gardening (পৃষ্ঠা 34–40)",
+    "Unit 10. A Letter to a Friend (পৃষ্ঠা 41–45)",
+    "Unit 11. A Holiday Trip (পৃষ্ঠা 46–50)",
+    "Unit 12. Making Friends (পৃষ্ঠা 51–56)",
+    "Unit 13. Planning to Visit the Book Fair (পৃষ্ঠা 57–63)",
+    "Unit 14. Poem: Tears of the Earth (পৃষ্ঠা 64–66)",
+    "Unit 15. Environment Pollution (পৃষ্ঠা 67–70)",
+    "Unit 16. Talking with a Nepalese Boy (পৃষ্ঠা 71–76)",
+    "Unit 17. The Land of Mountains (পৃষ্ঠা 77–81)",
+    "Unit 18. Caring for Others (পৃষ্ঠা 82–90)"
   ],
-  "total_chapters": 28,
+  "total_chapters": 18,
   "validation": {
     "download_verified": true,
     "page_count_verified": true,
     "toc_verified": true,
-    "questions_verified": true,
+    "questions_verified": false,
     "needs_review": false
   }
 }

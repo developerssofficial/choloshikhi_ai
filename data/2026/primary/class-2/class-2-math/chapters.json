@@ -1,262 +1,230 @@
 [
   {
-    "chapter_id": "c2-math-ch1",
-    "chapter_number": "1",
-    "chapter_title": "সংখ্যা ও স্থানীয় মান (১ থেকে ১০০)",
+    "chapter_id": "2026-primary-class-2-math-ch-1",
+    "book_id": "2026-primary-class-2-math",
+    "chapter_number": "১",
+    "chapter_title": "সংখ্যা ও স্থানীয় মান",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 1,
-    "end_page": 14,
+    "end_page": 39,
     "sections": [
       {
-        "title": "মূল পাঠ",
+        "title": "সংখ্যা পড়ি ও কথায় লিখি (২১ থেকে ১০০)",
         "page": 1
       },
       {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
+        "title": "গণনা",
+        "page": 8
+      },
+      {
+        "title": "সংখ্যার তুলনা",
         "page": 14
-      }
-    ],
-    "keywords": [
-      "প্রাথমিক গণিত",
-      "সংখ্যা ও স্থানীয় মান (১ থেকে ১০০)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "একক ও দশকের স্থানীয় মান, সংখ্যা গঠন ও ছোট-বড় তুলনা।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-math-ch2",
-    "chapter_number": "2",
-    "chapter_title": "যোগ (হাতে রেখে ও হাতে না রেখে দুই অঙ্কের যোগ)",
-    "chapter_type": "অধ্যায়",
-    "author": null,
-    "start_page": 15,
-    "end_page": 28,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 15
       },
       {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 28
-      }
-    ],
-    "keywords": [
-      "প্রাথমিক গণিত",
-      "যোগ (হাতে রেখে ও হাতে না রেখে দুই অঙ্কের যোগ)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "পাশাপাশি ও ওপর-নিচে দুই অঙ্কের যোগ এবং ভাষার সমস্যা।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-math-ch3",
-    "chapter_number": "3",
-    "chapter_title": "বিয়োগ (হাতে রেখে ও হাতে না রেখে দুই অঙ্কের বিয়োগ)",
-    "chapter_type": "অধ্যায়",
-    "author": null,
-    "start_page": 29,
-    "end_page": 40,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 29
+        "title": "স্থানীয় মান",
+        "page": 17
       },
       {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 40
-      }
-    ],
-    "keywords": [
-      "প্রাথমিক গণিত",
-      "বিয়োগ (হাতে রেখে ও হাতে না রেখে দুই অঙ্কের বিয়োগ)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "হাতে রেখে বিয়োগের কৌশল ও বাস্তব জীবনের গাণিতিক হিসাব।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-math-ch4",
-    "chapter_number": "4",
-    "chapter_title": "গুণের প্রাথমিক ধারণা ও নামতা (১ থেকে ১০-এর নামতা)",
-    "chapter_type": "অধ্যায়",
-    "author": null,
-    "start_page": 41,
-    "end_page": 54,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 41
+        "title": "সংখ্যার তুলনা (স্থানীয় মানের সাহায্যে)",
+        "page": 22
       },
       {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 54
-      }
-    ],
-    "keywords": [
-      "প্রাথমিক গণিত",
-      "গুণের প্রাথমিক ধারণা ও নামতা (১ থেকে ১০-এর নামতা)",
-      "দ্বিতীয় শ্রেণি"
-    ],
-    "summary": "বারবার যোগের সংক্ষিপ্ত রূপ গুণ — ১ থেকে ১০ পর্যন্ত নামতা মুখস্থ ও প্রয়োগ।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c2-math-ch5",
-    "chapter_number": "5",
-    "chapter_title": "ভাগের প্রাথমিক ধারণা (সমান ভাগে বণ্টন)",
-    "chapter_type": "অধ্যায়",
-    "author": null,
-    "start_page": 55,
-    "end_page": 64,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 55
+        "title": "জোড়-বিজোড় সংখ্যা ও সংখ্যা প্যাটার্ন",
+        "page": 25
       },
       {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 64
+        "title": "ক্রমবাচক সংখ্যা",
+        "page": 34
       }
     ],
     "keywords": [
       "প্রাথমিক গণিত",
-      "ভাগের প্রাথমিক ধারণা (সমান ভাগে বণ্টন)",
-      "দ্বিতীয় শ্রেণি"
+      "দ্বিতীয় শ্রেণি",
+      "সংখ্যা ও স্থানীয় মান",
+      "অধ্যায় ১"
     ],
-    "summary": "বস্তু সমান ভাগে ভাগ করা এবং ভাগের সাথে গুণের সম্পর্ক।",
-    "total_questions": 2
+    "summary": "দ্বিতীয় শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ১: সংখ্যা ও স্থানীয় মান (পৃষ্ঠা 1–39)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c2-math-ch6",
-    "chapter_number": "6",
-    "chapter_title": "ভগ্নাংশের প্রাথমিক ধারণা (অর্ধেক ১/২ ও এক-চতুর্থাংশ ১/৪)",
+    "chapter_id": "2026-primary-class-2-math-ch-2",
+    "book_id": "2026-primary-class-2-math",
+    "chapter_number": "২",
+    "chapter_title": "যোগ ও বিয়োগ",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 65,
+    "start_page": 40,
     "end_page": 72,
     "sections": [
       {
-        "title": "মূল পাঠ",
-        "page": 65
+        "title": "যোগ (১)",
+        "page": 40
       },
       {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 72
+        "title": "বিয়োগ (১)",
+        "page": 46
+      },
+      {
+        "title": "গাণিতিক সম্পর্ক (যোগ ও বিয়োগ)",
+        "page": 53
+      },
+      {
+        "title": "যোগ (২)",
+        "page": 55
+      },
+      {
+        "title": "বিয়োগ (২)",
+        "page": 64
+      },
+      {
+        "title": "যোগ ও বিয়োগ সংক্রান্ত সমস্যা",
+        "page": 69
       }
     ],
     "keywords": [
       "প্রাথমিক গণিত",
-      "ভগ্নাংশের প্রাথমিক ধারণা (অর্ধেক ১/২ ও এক-চতুর্থাংশ ১/৪)",
-      "দ্বিতীয় শ্রেণি"
+      "দ্বিতীয় শ্রেণি",
+      "যোগ ও বিয়োগ",
+      "অধ্যায় ২"
     ],
-    "summary": "ভগ্নাংশের রূপ, লব ও হরের সহজ ধারণা।",
-    "total_questions": 2
+    "summary": "দ্বিতীয় শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ২: যোগ ও বিয়োগ (পৃষ্ঠা 40–72)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c2-math-ch7",
-    "chapter_number": "7",
-    "chapter_title": "বাংলাদেশি মুদ্রা ও টাকা-পয়সার হিসাব",
+    "chapter_id": "2026-primary-class-2-math-ch-3",
+    "book_id": "2026-primary-class-2-math",
+    "chapter_number": "৩",
+    "chapter_title": "গুণ",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 73,
-    "end_page": 80,
+    "end_page": 101,
     "sections": [
       {
-        "title": "মূল পাঠ",
+        "title": "গুণের ধারণা",
         "page": 73
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 80
       }
     ],
     "keywords": [
       "প্রাথমিক গণিত",
-      "বাংলাদেশি মুদ্রা ও টাকা-পয়সার হিসাব",
-      "দ্বিতীয় শ্রেণি"
+      "দ্বিতীয় শ্রেণি",
+      "গুণ",
+      "অধ্যায় ৩"
     ],
-    "summary": "১, ২, ৫, ১০, ২০, ৫০, ১০০ টাকার নোট ও কেনাবেচার হিসাব।",
-    "total_questions": 2
+    "summary": "দ্বিতীয় শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ৩: গুণ (পৃষ্ঠা 73–101)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c2-math-ch8",
-    "chapter_number": "8",
-    "chapter_title": "জ্যামিতি (বিন্দু, রেখা, ত্রিভুজ, চতুর্ভুজ ও বৃত্ত)",
+    "chapter_id": "2026-primary-class-2-math-ch-4",
+    "book_id": "2026-primary-class-2-math",
+    "chapter_number": "৪",
+    "chapter_title": "জ্যামিতিক আকৃতি ও প্যাটার্ন",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 81,
-    "end_page": 88,
+    "start_page": 102,
+    "end_page": 106,
     "sections": [
       {
-        "title": "মূল পাঠ",
-        "page": 81
+        "title": "জ্যামিতিক আকৃতি",
+        "page": 102
       },
       {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 88
+        "title": "প্যাটার্ন",
+        "page": 105
       }
     ],
     "keywords": [
       "প্রাথমিক গণিত",
-      "জ্যামিতি (বিন্দু, রেখা, ত্রিভুজ, চতুর্ভুজ ও বৃত্ত)",
-      "দ্বিতীয় শ্রেণি"
+      "দ্বিতীয় শ্রেণি",
+      "জ্যামিতিক আকৃতি ও প্যাটার্ন",
+      "অধ্যায় ৪"
     ],
-    "summary": "সরলরেখা, বক্ররেখা এবং বিভিন্ন জ্যামিতিক চিত্র আঁকা ও চেনা।",
-    "total_questions": 2
+    "summary": "দ্বিতীয় শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ৪: জ্যামিতিক আকৃতি ও প্যাটার্ন (পৃষ্ঠা 102–106)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c2-math-ch9",
-    "chapter_number": "9",
-    "chapter_title": "পরিমাপ (দৈর্ঘ্য, ওজন ও তরলের আয়তন)",
+    "chapter_id": "2026-primary-class-2-math-ch-5",
+    "book_id": "2026-primary-class-2-math",
+    "chapter_number": "৫",
+    "chapter_title": "পরিমাপ",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 89,
-    "end_page": 96,
+    "start_page": 107,
+    "end_page": 120,
     "sections": [
       {
-        "title": "মূল পাঠ",
-        "page": 89
+        "title": "দৈর্ঘ্য পরিমাপ",
+        "page": 107
       },
       {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 96
+        "title": "ওজন পরিমাপ",
+        "page": 111
+      },
+      {
+        "title": "তরলের আয়তন পরিমাপ",
+        "page": 114
+      },
+      {
+        "title": "সময় পরিমাপ",
+        "page": 117
       }
     ],
     "keywords": [
       "প্রাথমিক গণিত",
-      "পরিমাপ (দৈর্ঘ্য, ওজন ও তরলের আয়তন)",
-      "দ্বিতীয় শ্রেণি"
+      "দ্বিতীয় শ্রেণি",
+      "পরিমাপ",
+      "অধ্যায় ৫"
     ],
-    "summary": "মিটার, সেন্টিমিটার, কিলোগ্রাম ও লিটারের প্রাথমিক ধারণা।",
-    "total_questions": 2
+    "summary": "দ্বিতীয় শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ৫: পরিমাপ (পৃষ্ঠা 107–120)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c2-math-ch10",
-    "chapter_number": "10",
-    "chapter_title": "সময়, ক্যালেন্ডার ও ঘড়ি",
+    "chapter_id": "2026-primary-class-2-math-ch-6",
+    "book_id": "2026-primary-class-2-math",
+    "chapter_number": "৬",
+    "chapter_title": "মুদ্রা",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 97,
-    "end_page": 104,
+    "start_page": 121,
+    "end_page": 124,
     "sections": [
       {
-        "title": "মূল পাঠ",
-        "page": 97
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 104
+        "title": "বাংলাদেশি মুদ্রা",
+        "page": 121
       }
     ],
     "keywords": [
       "প্রাথমিক গণিত",
-      "সময়, ক্যালেন্ডার ও ঘড়ি",
-      "দ্বিতীয় শ্রেণি"
+      "দ্বিতীয় শ্রেণি",
+      "মুদ্রা",
+      "অধ্যায় ৬"
     ],
-    "summary": "ঘণ্টা-মিনিটের হিসাব এবং ১২ মাসের ক্যালেন্ডার পাঠ।",
-    "total_questions": 2
+    "summary": "দ্বিতীয় শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ৬: মুদ্রা (পৃষ্ঠা 121–124)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-2-math-ch-7",
+    "book_id": "2026-primary-class-2-math",
+    "chapter_number": "৭",
+    "chapter_title": "উপাত্ত",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 125,
+    "end_page": 130,
+    "sections": [
+      {
+        "title": "উপাত্ত সংগ্রহ এবং সাজানো",
+        "page": 125
+      }
+    ],
+    "keywords": [
+      "প্রাথমিক গণিত",
+      "দ্বিতীয় শ্রেণি",
+      "উপাত্ত",
+      "অধ্যায় ৭"
+    ],
+    "summary": "দ্বিতীয় শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ৭: উপাত্ত (পৃষ্ঠা 125–130)।",
+    "total_questions": 0
   }
 ]

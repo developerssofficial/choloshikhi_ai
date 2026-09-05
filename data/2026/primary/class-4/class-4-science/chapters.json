@@ -1,288 +1,230 @@
 [
   {
-    "chapter_id": "c4-science-ch1",
-    "chapter_number": "1",
-    "chapter_title": "জীব ও পরিবেশ (উদ্ভিদ ও প্রাণীর বেঁচে থাকার উপাদান)",
+    "chapter_id": "2026-primary-class-4-science-ch-1",
+    "book_id": "2026-primary-class-4-science",
+    "chapter_number": "১",
+    "chapter_title": "জীবের বৃদ্ধি ও প্রজনন",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 1,
-    "end_page": 10,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 1
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 10
-      }
-    ],
+    "end_page": 11,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "জীব ও পরিবেশ (উদ্ভিদ ও প্রাণীর বেঁচে থাকার উপাদান)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "জীবের বৃদ্ধি ও প্রজনন",
+      "অধ্যায় ১"
     ],
-    "summary": "সূর্যালোক, পানি, বায়ু ও মাটির উপর জীবের নির্ভরতা।",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ১: জীবের বৃদ্ধি ও প্রজনন (পৃষ্ঠা 1–11)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-science-ch2",
-    "chapter_number": "2",
-    "chapter_title": "উদ্ভিদ ও প্রাণী (বাসস্থান ও অভিযোজন)",
+    "chapter_id": "2026-primary-class-4-science-ch-2",
+    "book_id": "2026-primary-class-4-science",
+    "chapter_number": "২",
+    "chapter_title": "স্বাস্থ্য সুরক্ষা",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 11,
-    "end_page": 20,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 11
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 20
-      }
-    ],
+    "start_page": 12,
+    "end_page": 25,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "উদ্ভিদ ও প্রাণী (বাসস্থান ও অভিযোজন)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "স্বাস্থ্য সুরক্ষা",
+      "অধ্যায় ২"
     ],
-    "summary": "মরুভূমি, বনভূমি, জলজ ও মেরু অঞ্চলের উদ্ভিদ ও প্রাণী।",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ২: স্বাস্থ্য সুরক্ষা (পৃষ্ঠা 12–25)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-science-ch3",
-    "chapter_number": "3",
-    "chapter_title": "মাটি ও মাটি দূষণ (উর্বরতা ও সংরক্ষণ)",
+    "chapter_id": "2026-primary-class-4-science-ch-3",
+    "book_id": "2026-primary-class-4-science",
+    "chapter_number": "৩",
+    "chapter_title": "দুর্ঘটনা ও প্রাথমিক চিকিৎসা",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 21,
-    "end_page": 28,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 21
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 28
-      }
-    ],
+    "start_page": 26,
+    "end_page": 36,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "মাটি ও মাটি দূষণ (উর্বরতা ও সংরক্ষণ)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "দুর্ঘটনা ও প্রাথমিক চিকিৎসা",
+      "অধ্যায় ৩"
     ],
-    "summary": "প্লাস্টিক ও রাসায়নিক সারের ক্ষতিকর প্রভাব ও প্রতিকার।",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৩: দুর্ঘটনা ও প্রাথমিক চিকিৎসা (পৃষ্ঠা 26–36)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-science-ch4",
-    "chapter_number": "4",
-    "chapter_title": "খাদ্য ও পুষ্টি (আমিষ, শর্করা, স্নেহ, ভিটামিন, খনিজ লবণ ও পানি)",
+    "chapter_id": "2026-primary-class-4-science-ch-4",
+    "book_id": "2026-primary-class-4-science",
+    "chapter_number": "৪",
+    "chapter_title": "পদার্থ",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 29,
-    "end_page": 38,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 29
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 38
-      }
-    ],
+    "start_page": 37,
+    "end_page": 52,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "খাদ্য ও পুষ্টি (আমিষ, শর্করা, স্নেহ, ভিটামিন, খনিজ লবণ ও পানি)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "পদার্থ",
+      "অধ্যায় ৪"
     ],
-    "summary": "ছয়টি পুষ্টি উপাদানের উৎস ও অভাবজনিত রোগ।",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৪: পদার্থ (পৃষ্ঠা 37–52)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-science-ch5",
-    "chapter_number": "5",
-    "chapter_title": "স্বাস্থ্যবিধি ও পানিবাহিত রোগ (ডায়রিয়া, কলেরা ও প্রতিরোধ)",
+    "chapter_id": "2026-primary-class-4-science-ch-5",
+    "book_id": "2026-primary-class-4-science",
+    "chapter_number": "৫",
+    "chapter_title": "শক্তি",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 39,
-    "end_page": 46,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 39
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 46
-      }
-    ],
-    "keywords": [
-      "প্রাথমিক বিজ্ঞান",
-      "স্বাস্থ্যবিধি ও পানিবাহিত রোগ (ডায়রিয়া, কলেরা ও প্রতিরোধ)",
-      "চতুর্থ শ্রেণি"
-    ],
-    "summary": "খাবার স্যালাইন তৈরি ও নিরাপদ পানির ব্যবহার।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c4-science-ch6",
-    "chapter_number": "6",
-    "chapter_title": "পদার্থ (কঠিন, তরল, বায়বীয় ও পদার্থের ওজন-আয়তন)",
-    "chapter_type": "অধ্যায়",
-    "author": null,
-    "start_page": 47,
-    "end_page": 56,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 47
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 56
-      }
-    ],
-    "keywords": [
-      "প্রাথমিক বিজ্ঞান",
-      "পদার্থ (কঠিন, তরল, বায়বীয় ও পদার্থের ওজন-আয়তন)",
-      "চতুর্থ শ্রেণি"
-    ],
-    "summary": "পদার্থের তিনটি অবস্থার রূপান্তর ও পরীক্ষা।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c4-science-ch7",
-    "chapter_number": "7",
-    "chapter_title": "প্রাকৃতিক সম্পদ (পানি, মাটি, বায়ু, বনজ ও খনিজ সম্পদ)",
-    "chapter_type": "অধ্যায়",
-    "author": null,
-    "start_page": 57,
+    "start_page": 53,
     "end_page": 66,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 57
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 66
-      }
-    ],
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "প্রাকৃতিক সম্পদ (পানি, মাটি, বায়ু, বনজ ও খনিজ সম্পদ)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "শক্তি",
+      "অধ্যায় ৫"
     ],
-    "summary": "নবায়নযোগ্য ও অনবায়নযোগ্য সম্পদের ব্যবহার।",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৫: শক্তি (পৃষ্ঠা 53–66)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-science-ch8",
-    "chapter_number": "8",
-    "chapter_title": "মহাবিশ্ব (সৌরজগৎ, গ্রহ ও চাঁদের দশা)",
+    "chapter_id": "2026-primary-class-4-science-ch-6",
+    "book_id": "2026-primary-class-4-science",
+    "chapter_number": "৬",
+    "chapter_title": "গতি ও বল",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 67,
-    "end_page": 76,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 67
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 76
-      }
-    ],
+    "end_page": 71,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "মহাবিশ্ব (সৌরজগৎ, গ্রহ ও চাঁদের দশা)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "গতি ও বল",
+      "অধ্যায় ৬"
     ],
-    "summary": "সূর্য, আটটি গ্রহ ও চাঁদের আবর্তন।",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৬: গতি ও বল (পৃষ্ঠা 67–71)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-science-ch9",
-    "chapter_number": "9",
-    "chapter_title": "আমাদের জীবনে প্রযুক্তি (কৃষি, চিকিৎসা ও যাতায়াত প্রযুক্তি)",
+    "chapter_id": "2026-primary-class-4-science-ch-7",
+    "book_id": "2026-primary-class-4-science",
+    "chapter_number": "৭",
+    "chapter_title": "প্রাকৃতিক সম্পদ",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 77,
-    "end_page": 86,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 77
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 86
-      }
-    ],
+    "start_page": 72,
+    "end_page": 89,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "আমাদের জীবনে প্রযুক্তি (কৃষি, চিকিৎসা ও যাতায়াত প্রযুক্তি)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "প্রাকৃতিক সম্পদ",
+      "অধ্যায় ৭"
     ],
-    "summary": "ট্রাক্টর, আল্ট্রাসাউন্ড, কম্পিউটার ও যোগাযোগ প্রযুক্তির ভূমিকা।",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৭: প্রাকৃতিক সম্পদ (পৃষ্ঠা 72–89)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-science-ch10",
-    "chapter_number": "10",
-    "chapter_title": "আবহাওয়া ও জলবায়ু (তাপমাত্রা, আর্দ্রতা ও ঋতু পরিবর্তন)",
+    "chapter_id": "2026-primary-class-4-science-ch-8",
+    "book_id": "2026-primary-class-4-science",
+    "chapter_number": "৮",
+    "chapter_title": "মহাবিশ্ব",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 87,
-    "end_page": 94,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 87
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 94
-      }
-    ],
+    "start_page": 90,
+    "end_page": 108,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "আবহাওয়া ও জলবায়ু (তাপমাত্রা, আর্দ্রতা ও ঋতু পরিবর্তন)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "মহাবিশ্ব",
+      "অধ্যায় ৮"
     ],
-    "summary": "দৈনন্দিন আবহাওয়া পর্যবেক্ষণ ও পূর্বাভাস।",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৮: মহাবিশ্ব (পৃষ্ঠা 90–108)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-science-ch11",
-    "chapter_number": "11",
-    "chapter_title": "জীবনে নিরাপত্তা এবং প্রাথমিক চিকিৎসা",
+    "chapter_id": "2026-primary-class-4-science-ch-9",
+    "book_id": "2026-primary-class-4-science",
+    "chapter_number": "৯",
+    "chapter_title": "আবহাওয়া",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 95,
-    "end_page": 104,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 95
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 104
-      }
-    ],
+    "start_page": 109,
+    "end_page": 125,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "জীবনে নিরাপত্তা এবং প্রাথমিক চিকিৎসা",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "আবহাওয়া",
+      "অধ্যায় ৯"
     ],
-    "summary": "পানিতে ডোবা, আগুনে পোড়া ও সাপে কাটার তাৎক্ষণিক চিকিৎসা।",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৯: আবহাওয়া (পৃষ্ঠা 109–125)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-4-science-ch-10",
+    "book_id": "2026-primary-class-4-science",
+    "chapter_number": "১০",
+    "chapter_title": "তথ্য ও প্রযুক্তি",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 126,
+    "end_page": 138,
+    "sections": [],
+    "keywords": [
+      "প্রাথমিক বিজ্ঞান",
+      "চতুর্থ শ্রেণি",
+      "তথ্য ও প্রযুক্তি",
+      "অধ্যায় ১০"
+    ],
+    "summary": "চতুর্থ শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ১০: তথ্য ও প্রযুক্তি (পৃষ্ঠা 126–138)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-4-science-ch-11",
+    "book_id": "2026-primary-class-4-science",
+    "chapter_number": "১১",
+    "chapter_title": "সমস্যা সমাধানে তথ্য ও যোগাযোগ প্রযুক্তি",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 139,
+    "end_page": 148,
+    "sections": [],
+    "keywords": [
+      "প্রাথমিক বিজ্ঞান",
+      "চতুর্থ শ্রেণি",
+      "সমস্যা সমাধানে তথ্য ও যোগাযোগ প্রযুক্তি",
+      "অধ্যায় ১১"
+    ],
+    "summary": "চতুর্থ শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ১১: সমস্যা সমাধানে তথ্য ও যোগাযোগ প্রযুক্তি (পৃষ্ঠা 139–148)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-4-science-ch-12",
+    "book_id": "2026-primary-class-4-science",
+    "chapter_number": "১২",
+    "chapter_title": "শব্দকোষ",
+    "chapter_type": "শব্দকোষ",
+    "author": null,
+    "start_page": 149,
+    "end_page": 151,
+    "sections": [],
+    "keywords": [
+      "প্রাথমিক বিজ্ঞান",
+      "চতুর্থ শ্রেণি",
+      "শব্দকোষ",
+      "শব্দকোষ ১২"
+    ],
+    "summary": "চতুর্থ শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের শব্দকোষ ১২: শব্দকোষ (পৃষ্ঠা 149–151)।",
+    "total_questions": 0
   }
 ]

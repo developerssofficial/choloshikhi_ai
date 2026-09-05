@@ -1,63 +1,40 @@
 {
   "id": "2026-primary-class-5-islam",
+  "slug": "class-5-islam",
   "academic_year": 2026,
   "level": "primary",
   "class_number": 5,
   "class_name": "পঞ্চম শ্রেণি",
-  "book_name": "ইসলাম ও নৈতিক শিক্ষা",
+  "official_book_name": "ইসলাম ও নৈতিক শিক্ষা",
   "normalized_book_name": "ইসলাম ও নৈতিক শিক্ষা",
-  "subject": "ধর্ম",
+  "subject": "ইসলাম ও নৈতিক শিক্ষা",
   "subject_code": "islam",
   "language": "bn",
   "version": "bangla",
-  "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
-  "download_links": {
-    "link_1": "https://drive.google.com/file/d/1SS08MLyximWuSMTPOph_NflIIMFR2OkV/view?usp=drive_link",
-    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/jQh2NI1LlT7qx6P",
-    "resolved_pdf_url": "https://drive.google.com/file/d/1SS08MLyximWuSMTPOph_NflIIMFR2OkV/view?usp=drive_link"
-  },
-  "english_version": {
-    "official_book_name": "ইসলাম শিক্ষা",
-    "download_links": {
-      "link_1": "https://drive.google.com/file/d/1mCvL6jWupWQAWIMzEWAkrVYjP8e50UGj/view?usp=drive_link",
-      "link_2": "https://drive.egovcloud.gov.bd/index.php/s/yq7DbA4pDyWHiLo",
-      "resolved_pdf_url": "https://drive.google.com/file/d/1mCvL6jWupWQAWIMzEWAkrVYjP8e50UGj/view?usp=drive_link"
-    }
-  },
   "pdf": {
     "local_path": "data/2026/primary/class-5/class-5-islam/source/original.pdf",
-    "file_name": "class-5-islam.pdf",
-    "file_size": 0,
-    "total_pages": 96,
-    "sha256": ""
+    "file_name": "Class 5, Islam Religion_Book.pdf",
+    "file_size": 48496591,
+    "total_pages": 0,
+    "sha256": "4dc3c20c71b7cc8bc68973d956ed6865c36352095f506aae8981740870f2d5bf"
   },
   "publication": {
-    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ",
-    "authors": [
-      "ড. মুহাম্মদ মুজীবুর রাহমান",
-      "ড. মো. আসাদুজ্জামান"
-    ],
-    "editors": [
-      "অধ্যাপক ড. মুহাম্মদ শফিকুল্লাহ"
-    ],
-    "illustrators": [
-      "এনসিটিবি চিত্রাঙ্কন পর্ষদ"
-    ],
-    "isbn": "978-984-36-5679-7"
+    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+    "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
   },
   "table_of_contents": [
-    "1. আকাইদ (আল্লাহর একত্ববাদ, তাকদির, হাশর ও আখিরাত) (পৃষ্ঠা 1–20)",
-    "2. ইবাদত (সালাত, সাওম বা রোজা, যাকাত ও হজ্জ) (পৃষ্ঠা 21–44)",
-    "3. আখলাক বা চরিত্র (মানবসেবা, দেশপ্রেম ও সৃষ্টির সেবা) (পৃষ্ঠা 45–64)",
-    "4. কুরআন মাজিদ শিক্ষা (তাজবিদ, মাখরাজ, গুন্নাহ ও সুরা ফিল, কুরাইশ, নাস) (পৃষ্ঠা 65–88)",
-    "5. নবী-রাসূল ও খলিফাগণের জীবনী (মহানবী সা. ও খোলাফায়ে রাশেদিন) (পৃষ্ঠা 89–112)"
+    "১. আকাইদ ও ইবাদত (পৃষ্ঠা 1–35)",
+    "২. নবি, রাসুল ও মহানবি (স.)-এর সাহাবিগণের জীবনচরিত (পৃষ্ঠা 36–53)",
+    "৩. নৈতিক ও মানবিক গুণাবলি অর্জন (পৃষ্ঠা 54–65)",
+    "৪. ধর্মীয় সম্প্রীতি (পৃষ্ঠা 66–71)",
+    "৫. জীবজগৎ ও প্রকৃতির প্রতি ভালোবাসা (পৃষ্ঠা 72–80)"
   ],
   "total_chapters": 5,
   "validation": {
     "download_verified": true,
     "page_count_verified": true,
     "toc_verified": true,
-    "questions_verified": true,
+    "questions_verified": false,
     "needs_review": false
   }
 }

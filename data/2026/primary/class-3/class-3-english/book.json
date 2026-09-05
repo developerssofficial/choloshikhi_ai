@@ -1,82 +1,43 @@
 {
   "id": "2026-primary-class-3-english",
+  "slug": "class-3-english",
   "academic_year": 2026,
   "level": "primary",
   "class_number": 3,
   "class_name": "তৃতীয় শ্রেণি",
-  "book_name": "English for Today",
+  "official_book_name": "English for Today",
   "normalized_book_name": "English for Today",
-  "subject": "ইংরেজি",
+  "subject": "English for Today",
   "subject_code": "english",
   "language": "en",
   "version": "bangla",
-  "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b9980c4774958d7b70591",
-  "download_links": {
-    "link_1": "https://drive.google.com/file/d/1gy7q4njDpOKGULXzGQVvhq2ZGpZMOfif/view?usp=drive_link",
-    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/uBJQBKhwhLdCGSp",
-    "resolved_pdf_url": "https://drive.google.com/file/d/1gy7q4njDpOKGULXzGQVvhq2ZGpZMOfif/view?usp=drive_link"
-  },
-  "english_version": {
-    "official_book_name": "English For Today",
-    "download_links": {
-      "link_1": "https://drive.google.com/file/d/1gy7q4njDpOKGULXzGQVvhq2ZGpZMOfif/view?usp=drive_link",
-      "link_2": "https://drive.egovcloud.gov.bd/index.php/s/uBJQBKhwhLdCGSp",
-      "resolved_pdf_url": "https://drive.google.com/file/d/1gy7q4njDpOKGULXzGQVvhq2ZGpZMOfif/view?usp=drive_link"
-    }
-  },
   "pdf": {
     "local_path": "data/2026/primary/class-3/class-3-english/source/original.pdf",
-    "file_name": "class-3-english.pdf",
-    "file_size": 0,
-    "total_pages": 90,
-    "sha256": ""
+    "file_name": "Class 3, English_Book.pdf",
+    "file_size": 5928534,
+    "total_pages": 0,
+    "sha256": "97dde4f9e01a52de79e4f8562d2fe9c8d38e5bec4647c2590952a13a39b5cbf9"
   },
   "publication": {
     "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-    "authors": [
-      "জাতীয় শিক্ষাক্রম বিশেষজ্ঞ প্যানেল"
-    ],
-    "editors": [
-      "এনসিটিবি সম্পাদনা পর্ষদ"
-    ],
-    "illustrators": [
-      "এনসিটিবি চিত্রাঙ্কন পর্ষদ"
-    ],
-    "isbn": "978-984-36-3604-1"
+    "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
   },
   "table_of_contents": [
-    "1. Introducing a Student & Teacher (Unit 1) (পৃষ্ঠা 1–3)",
-    "2. Introducing Others (Unit 2) (পৃষ্ঠা 4–6)",
-    "3. Dialogue: Greetings Around the Clock (Unit 3) (পৃষ্ঠা 7–9)",
-    "4. Numbers 1-50 (Unit 4) (পৃষ্ঠা 10–12)",
-    "5. Commands, Instructions & Requests (Unit 5) (পৃষ্ঠা 13–15)",
-    "6. What Food Should We Eat? (Unit 6) (পৃষ্ঠা 16–18)",
-    "7. Commands at Home & School (Unit 7) (পৃষ্ঠা 19–21)",
-    "8. Telling the Time (Unit 8) (পৃষ্ঠা 22–24)",
-    "9. Occupations & Community Helpers (Unit 9) (পৃষ্ঠা 25–27)",
-    "10. My Family & Daily Routine (Unit 10) (পৃষ্ঠা 28–30)",
-    "11. Food We Eat (Unit 11) (পৃষ্ঠা 31–33)",
-    "12. Numbers 51-100 (Unit 12) (পৃষ্ঠা 34–36)",
-    "13. Months and Days of the Year (Unit 13) (পৃষ্ঠা 37–39)",
-    "14. Story: The Crow and the Pitcher (Unit 14) (পৃষ্ঠা 40–42)",
-    "15. Names of Months & Calendar Reading (Unit 15) (পৃষ্ঠা 43–45)",
-    "16. Clothes and Sizes (Unit 16) (পৃষ্ঠা 46–48)",
-    "17. Cleanliness & Healthy Habits (Unit 17) (পৃষ্ঠা 49–51)",
-    "18. Story: Rima and the Seed (Unit 18) (পৃষ্ঠা 52–54)",
-    "19. Animals & Their Habitats (Unit 19) (পৃষ্ঠা 55–57)",
-    "20. Prepositions of Place (In, On, Under, In Front of) (Unit 20) (পৃষ্ঠা 58–60)",
-    "21. Rhyme: Teddy Bear, Teddy Bear (Unit 21) (পৃষ্ঠা 61–62)",
-    "22. What Are They Doing? Present Continuous (Unit 22) (পৃষ্ঠা 63–65)",
-    "23. Story: The Farmer and His Sons (Unit 23) (পৃষ্ঠা 66–68)",
-    "24. My Hometown & Country (Unit 24) (পৃষ্ঠা 69–71)",
-    "25. Year-End Dialogue and Revision (Unit 25) (পৃষ্ঠা 72–76)"
+    "Unit 1. Greetings, Farewells, Introductions and Numbers (পৃষ্ঠা 1–20)",
+    "Unit 2. My Friends, Family and Numbers (পৃষ্ঠা 21–33)",
+    "Unit 3. Commands, Instructions, Requests and Numbers (পৃষ্ঠা 34–47)",
+    "Unit 4. Let's Play with Sounds and Numbers (পৃষ্ঠা 48–64)",
+    "Unit 5. Their Days (পৃষ্ঠা 65–82)",
+    "Unit 6. Cleanliness (পৃষ্ঠা 83–96)",
+    "Unit 7. Save Our Water (পৃষ্ঠা 97–108)",
+    "Unit 8. Facts and Fables (পৃষ্ঠা 109–122)"
   ],
-  "total_chapters": 25,
+  "total_chapters": 8,
   "validation": {
     "download_verified": true,
     "page_count_verified": true,
     "toc_verified": true,
-    "questions_verified": true,
+    "questions_verified": false,
     "needs_review": false
   }
 }

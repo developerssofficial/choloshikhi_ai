@@ -1,88 +1,40 @@
 {
   "id": "2026-primary-class-1-english",
+  "slug": "class-1-english",
   "academic_year": 2026,
   "level": "primary",
   "class_number": 1,
   "class_name": "প্রথম শ্রেণি",
-  "book_name": "English for Today",
+  "official_book_name": "English for Today",
   "normalized_book_name": "English for Today",
-  "subject": "ইংরেজি",
+  "subject": "English for Today",
   "subject_code": "english",
   "language": "en",
   "version": "bangla",
-  "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b9adec4774958d7b708cd",
-  "download_links": {
-    "link_1": "https://drive.google.com/file/d/1UX9fbOBUKrf3mMh6E0I-Gw2emoQV-XWy/view?usp=drive_link",
-    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/CW6nYiJRMJE8trb",
-    "resolved_pdf_url": "https://drive.google.com/file/d/1UX9fbOBUKrf3mMh6E0I-Gw2emoQV-XWy/view?usp=drive_link"
-  },
-  "english_version": {
-    "official_book_name": "English for Today",
-    "download_links": {
-      "link_1": "https://drive.google.com/file/d/1UX9fbOBUKrf3mMh6E0I-Gw2emoQV-XWy/view?usp=drive_link",
-      "link_2": "https://drive.egovcloud.gov.bd/index.php/s/CW6nYiJRMJE8trb",
-      "resolved_pdf_url": "https://drive.google.com/file/d/1UX9fbOBUKrf3mMh6E0I-Gw2emoQV-XWy/view?usp=drive_link"
-    }
-  },
   "pdf": {
     "local_path": "data/2026/primary/class-1/class-1-english/source/original.pdf",
-    "file_name": "class-1-english.pdf",
-    "file_size": 0,
-    "total_pages": 64,
-    "sha256": ""
+    "file_name": "Class 1, English_Book.pdf",
+    "file_size": 14738438,
+    "total_pages": 0,
+    "sha256": "973530b8d39a50e224c6d10b9faa7ff9bd3e502d6bf96795fc4c6800307176ac"
   },
   "publication": {
-    "publisher": "National Curriculum and Textbook Board (NCTB), Bangladesh",
-    "authors": [
-      "Prof. M S Hoque",
-      "Prof. Md. Abdur Razzaque"
-    ],
-    "editors": [
-      "Prof. Rebecca Haque"
-    ],
-    "illustrators": [
-      "এনসিটিবি চিত্রাঙ্কন পর্ষদ"
-    ],
-    "isbn": "978-984-36-1506-0"
+    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+    "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
   },
   "table_of_contents": [
-    "1. Greetings and Farewells (Hello, Good Morning, Goodbye) (পৃষ্ঠা 1–3)",
-    "2. Self-Introduction (What is your name? I am...) (পৃষ্ঠা 4–5)",
-    "3. Alphabet A, B, C (Apple, Ball, Cap) (পৃষ্ঠা 6–8)",
-    "4. Numbers 1, 2, 3 (Counting Objects) (পৃষ্ঠা 9–11)",
-    "5. Rhyme: Two Little Blackbirds (পৃষ্ঠা 12–13)",
-    "6. Alphabet D, E, F (Dog, Egg, Fish) (পৃষ্ঠা 14–16)",
-    "7. Numbers 4, 5, 6 (পৃষ্ঠা 17–19)",
-    "8. Classroom Commands (Stand up, Sit down, Open your book) (পৃষ্ঠা 20–21)",
-    "9. Alphabet G, H, I (Girl, Hut, Igloo) (পৃষ্ঠা 22–24)",
-    "10. Numbers 7, 8, 9, 10 (পৃষ্ঠা 25–27)",
-    "11. Colors & Shapes (Red, Blue, Green, Circle, Square) (পৃষ্ঠা 28–30)",
-    "12. Alphabet J, K, L (Jar, Kite, Lion) (পৃষ্ঠা 31–33)",
-    "13. Rhyme: Ring a Ring o' Roses (পৃষ্ঠা 34–35)",
-    "14. Alphabet M, N, O (Moon, Net, Orange) (পৃষ্ঠা 36–38)",
-    "15. Parts of the Body (Head, Eyes, Nose, Hands, Legs) (পৃষ্ঠা 39–41)",
-    "16. Alphabet P, Q, R (Pen, Queen, Rose) (পৃষ্ঠা 42–44)",
-    "17. Animals Around Us (Cat, Cow, Dog, Duck, Bird) (পৃষ্ঠা 45–47)",
-    "18. Alphabet S, T, U (Sun, Tiger, Umbrella) (পৃষ্ঠা 48–50)",
-    "19. My Family Members (Father, Mother, Brother, Sister) (পৃষ্ঠা 51–53)",
-    "20. Alphabet V, W, X (Van, Window, X-ray) (পৃষ্ঠা 54–56)",
-    "21. Alphabet Y, Z (Yo-yo, Zebra) (পৃষ্ঠা 57–58)",
-    "22. Rhyme: Alphabet Song (A B C D E F G...) (পৃষ্ঠা 59–60)",
-    "23. Food & Drinks (Milk, Rice, Water, Banana, Bread) (পৃষ্ঠা 61–62)",
-    "24. Action Words (Clap, Jump, Run, Sing, Draw) (পৃষ্ঠা 63–64)",
-    "25. Days of the Week (Saturday to Friday) (পৃষ্ঠা 65–66)",
-    "26. Story: The Golden Goose (পৃষ্ঠা 67–68)",
-    "27. Our Senses (See, Hear, Smell, Taste, Touch) (পৃষ্ঠা 69–70)",
-    "28. Seasons & Weather (Sunny, Rainy, Cold) (পৃষ্ঠা 71–72)",
-    "29. Simple Dialogue Practice (How are you? Fine, thank you) (পৃষ্ঠা 73–74)",
-    "30. Story: The Ant and the Dove (পৃষ্ঠা 75–76)"
+    "Unit 1. Greetings and Farewells (পৃষ্ঠা 2–11)",
+    "Unit 2. Alphabet and Numbers (পৃষ্ঠা 12–64)",
+    "Unit 3. Classroom Instructions (পৃষ্ঠা 65–74)",
+    "Unit 4. Questions and Answers (পৃষ্ঠা 75–85)",
+    "Unit 5. Rhymes and Sounds (পৃষ্ঠা 86–94)"
   ],
-  "total_chapters": 30,
+  "total_chapters": 5,
   "validation": {
     "download_verified": true,
     "page_count_verified": true,
     "toc_verified": true,
-    "questions_verified": true,
+    "questions_verified": false,
     "needs_review": false
   }
 }

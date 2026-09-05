@@ -1,72 +1,49 @@
 {
   "id": "2026-primary-class-5-science",
+  "slug": "class-5-science",
   "academic_year": 2026,
   "level": "primary",
   "class_number": 5,
   "class_name": "পঞ্চম শ্রেণি",
-  "book_name": "প্রাথমিক বিজ্ঞান",
+  "official_book_name": "প্রাথমিক বিজ্ঞান",
   "normalized_book_name": "প্রাথমিক বিজ্ঞান",
-  "subject": "বিজ্ঞান",
+  "subject": "প্রাথমিক বিজ্ঞান",
   "subject_code": "science",
   "language": "bn",
   "version": "bangla",
-  "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
-  "download_links": {
-    "link_1": "https://drive.google.com/file/d/14ejrQyTTMfy5JDPDcnPOcekBAn1b9Kdf/view?usp=drive_link",
-    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/5tWe5mERWEwObNe",
-    "resolved_pdf_url": "https://drive.google.com/file/d/14ejrQyTTMfy5JDPDcnPOcekBAn1b9Kdf/view?usp=drive_link"
-  },
-  "english_version": {
-    "official_book_name": "প্রাথমিক বিজ্ঞান",
-    "download_links": {
-      "link_1": "https://drive.google.com/file/d/1uxtq4cD70VUTyQxkcnOBvBYj2WpzX3sh/view?usp=drive_link",
-      "link_2": "https://drive.egovcloud.gov.bd/index.php/s/RUpR7HhSuggOoCC",
-      "resolved_pdf_url": "https://drive.google.com/file/d/1uxtq4cD70VUTyQxkcnOBvBYj2WpzX3sh/view?usp=drive_link"
-    }
-  },
   "pdf": {
     "local_path": "data/2026/primary/class-5/class-5-science/source/original.pdf",
-    "file_name": "class-5-science.pdf",
-    "file_size": 0,
-    "total_pages": 102,
-    "sha256": ""
+    "file_name": "Class 5, Science_Book.pdf",
+    "file_size": 84818207,
+    "total_pages": 0,
+    "sha256": "0bc5c6e8e4a3f7a4417a6bd38b613e740d94a9aceb13fecd35450f209d197d40"
   },
   "publication": {
-    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ",
-    "authors": [
-      "অধ্যাপক ড. শাহজাহান তপন",
-      "ড. মুহাম্মদ ইদ্রিস আলী"
-    ],
-    "editors": [
-      "অধ্যাপক ড. ইকবাল রউফ মামুন"
-    ],
-    "illustrators": [
-      "এনসিটিবি চিত্রাঙ্কন পর্ষদ"
-    ],
-    "isbn": "978-984-36-5252-5"
+    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+    "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
   },
   "table_of_contents": [
-    "1. আমাদের পরিবেশ (বাস্তুসংস্থান, খাদ্যশৃঙ্খল ও খাদ্যজাল) (পৃষ্ঠা 1–10)",
-    "2. পরিবেশ দূষণ (বায়ু, পানি, মাটি ও শব্দ দূষণ প্রতিরোধ) (পৃষ্ঠা 11–20)",
-    "3. জীবনের জন্য পানি (পানি চক্র ও নিরাপদ পানি) (পৃষ্ঠা 21–30)",
-    "4. বায়ু (বায়ুর ব্যবহার, দূষণ ও অ্যাসিড বৃষ্টি) (পৃষ্ঠা 31–40)",
-    "5. পদার্থ ও শক্তি (শক্তির রূপান্তর ও সংরক্ষণ) (পৃষ্ঠা 41–50)",
-    "6. সুস্থ জীবনের জন্য খাদ্য (জাঙ্ক ফুড ও প্রিজারভেটিভ) (পৃষ্ঠা 51–60)",
-    "7. স্বাস্থ্যবিধি (সংক্রামক রোগ ও বয়ঃসন্ধিকাল) (পৃষ্ঠা 61–70)",
-    "8. মহাবিশ্ব (আহ্নিক ও বার্ষিক গতি, দিন-রাত ও ঋতু পরিবর্তন) (পৃষ্ঠা 71–80)",
-    "9. আমাদের জীবনে প্রযুক্তি (কৃষি ও শিল্প বিপ্লব) (পৃষ্ঠা 81–90)",
-    "10. আমাদের জীবনে তথ্য (তথ্য বিনিময়, ইন্টারনেট ও সংরক্ষণ) (পৃষ্ঠা 91–100)",
-    "11. আবহাওয়া ও জলবায়ু (নিম্নচাপ, সাইক্লোন ও কালবৈশাখী) (পৃষ্ঠা 101–110)",
-    "12. জলবায়ু পরিবর্তন (বৈশ্বিক উষ্ণায়ন ও প্রাকৃতিক দুর্যোগ) (পৃষ্ঠা 111–120)",
-    "13. প্রাকৃতিক সম্পদ (নবায়নযোগ্য ও অনবায়নযোগ্য শক্তি) (পৃষ্ঠা 121–130)",
-    "14. জনসংখ্যা ও প্রাকৃতিক পরিবেশ (বনভূমি ও বন উজাড়) (পৃষ্ঠা 131–140)"
+    "১. জীবের আবাসস্থল (পৃষ্ঠা 1–10)",
+    "২. জীব ও পরিবেশের পারস্পরিক নির্ভরশীলতা (পৃষ্ঠা 11–21)",
+    "৩. খাদ্য (পৃষ্ঠা 22–30)",
+    "৪. বয়ঃসন্ধিকাল (পৃষ্ঠা 31–39)",
+    "৫. পদার্থের গঠন (পৃষ্ঠা 40–47)",
+    "৬. শক্তির রূপান্তর (পৃষ্ঠা 48–60)",
+    "৭. বলের ধারণা (পৃষ্ঠা 61–71)",
+    "৮. ভূমিরূপ (পৃষ্ঠা 72–84)",
+    "৯. পরিবেশ সংরক্ষণ (পৃষ্ঠা 85–90)",
+    "১০. পৃথিবীর গতি (পৃষ্ঠা 91–101)",
+    "১১. জলবায়ু পরিবর্তন (পৃষ্ঠা 102–117)",
+    "১২. আমাদের জীবনে প্রযুক্তি (পৃষ্ঠা 118–128)",
+    "১৩. সমস্যা সমাধানে তথ্য ও যোগাযোগ প্রযুক্তি (পৃষ্ঠা 129–155)",
+    "১৪. শব্দকোষ (পৃষ্ঠা 156–159)"
   ],
   "total_chapters": 14,
   "validation": {
     "download_verified": true,
     "page_count_verified": true,
     "toc_verified": true,
-    "questions_verified": true,
+    "questions_verified": false,
     "needs_review": false
   }
 }

@@ -1,62 +1,40 @@
 {
   "id": "2026-primary-class-3-islam",
+  "slug": "class-3-islam",
   "academic_year": 2026,
   "level": "primary",
   "class_number": 3,
   "class_name": "তৃতীয় শ্রেণি",
-  "book_name": "ইসলাম ও নৈতিক শিক্ষা",
+  "official_book_name": "ইসলাম ও নৈতিক শিক্ষা",
   "normalized_book_name": "ইসলাম ও নৈতিক শিক্ষা",
-  "subject": "ধর্ম",
+  "subject": "ইসলাম ও নৈতিক শিক্ষা",
   "subject_code": "islam",
   "language": "bn",
   "version": "bangla",
-  "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b9980c4774958d7b70591",
-  "download_links": {
-    "link_1": "https://drive.google.com/file/d/1KSegBPjHNygGuJJE77byNjBAv-HNvz9y/view?usp=drive_link",
-    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/PBXZ0gAlYL9JBGN",
-    "resolved_pdf_url": "https://drive.google.com/file/d/1KSegBPjHNygGuJJE77byNjBAv-HNvz9y/view?usp=drive_link"
-  },
-  "english_version": {
-    "official_book_name": "ইসলাম শিক্ষা",
-    "download_links": {
-      "link_1": "https://drive.google.com/file/d/1_guOxSH27DQo8TWnoe5d0oeoF69jROfT/view?usp=drive_link",
-      "link_2": "https://drive.egovcloud.gov.bd/index.php/s/wjuY0V2AJWu0qWn",
-      "resolved_pdf_url": "https://drive.google.com/file/d/1_guOxSH27DQo8TWnoe5d0oeoF69jROfT/view?usp=drive_link"
-    }
-  },
   "pdf": {
     "local_path": "data/2026/primary/class-3/class-3-islam/source/original.pdf",
-    "file_name": "class-3-islam.pdf",
-    "file_size": 0,
-    "total_pages": 90,
-    "sha256": ""
+    "file_name": "Class_3, Islamic Religion_Book.pdf",
+    "file_size": 35905623,
+    "total_pages": 0,
+    "sha256": "ca113d33752fd28ae6b8c73079c7e8e8baad57f9cebf1a16a62f6bc7bfece089"
   },
   "publication": {
     "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-    "authors": [
-      "জাতীয় শিক্ষাক্রম বিশেষজ্ঞ প্যানেল"
-    ],
-    "editors": [
-      "এনসিটিবি সম্পাদনা পর্ষদ"
-    ],
-    "illustrators": [
-      "এনসিটিবি চিত্রাঙ্কন পর্ষদ"
-    ],
-    "isbn": "978-984-36-3459-0"
+    "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
   },
   "table_of_contents": [
-    "1. আকাইদ (আল্লাহর পরিচয়, ঈমান ও তাওহিদ) (পৃষ্ঠা 1–12)",
-    "2. ইবাদত (পাক-পবিত্রতা, ওজু ও পাঁচ ওয়াক্ত সালাত) (পৃষ্ঠা 13–26)",
-    "3. আখলাক বা চরিত্র (পিতা-মাতার সেবা ও সত্যবাদিতা) (পৃষ্ঠা 27–38)",
-    "4. কুরআন মাজিদ শিক্ষা (আরবি হরফ ও ছোট সুরা) (পৃষ্ঠা 39–50)",
-    "5. নবী-রাসূলগণের জীবন ও আদর্শ (পৃষ্ঠা 51–62)"
+    "১. স্রষ্টা ও সৃষ্টি (পৃষ্ঠা 1–29)",
+    "২. রাসুল (স.) ও তাঁর সাহাবিগণের জীবনচরিত অনুসরণ (পৃষ্ঠা 30–39)",
+    "৩. নৈতিক ও মানবিক গুণাবলি অর্জন (পৃষ্ঠা 40–49)",
+    "৪. ধর্মীয় সম্প্রীতি (পৃষ্ঠা 50–59)",
+    "৫. জীবজগৎ ও প্রকৃতির প্রতি ভালোবাসা (পৃষ্ঠা 60–68)"
   ],
   "total_chapters": 5,
   "validation": {
     "download_verified": true,
     "page_count_verified": true,
     "toc_verified": true,
-    "questions_verified": true,
+    "questions_verified": false,
     "needs_review": false
   }
 }

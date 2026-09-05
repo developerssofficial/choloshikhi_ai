@@ -1,418 +1,287 @@
 [
   {
-    "chapter_id": "c4-bgs-ch1",
-    "chapter_number": "1",
-    "chapter_title": "আমাদের পরিবেশ ও সমাজ",
+    "chapter_id": "2026-primary-class-4-bgs-ch-1",
+    "book_id": "2026-primary-class-4-bgs",
+    "chapter_number": "১",
+    "chapter_title": "প্রাকৃতিক ও সামাজিক পরিবেশ",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 1,
     "end_page": 8,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 1
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 8
-      }
-    ],
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "আমাদের পরিবেশ ও সমাজ",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "প্রাকৃতিক ও সামাজিক পরিবেশ",
+      "অধ্যায় ১"
     ],
-    "summary": "প্রাকৃতিক পরিবেশের ভিন্নতা ও মানুষের সমাজের সম্পর্ক।",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ১: প্রাকৃতিক ও সামাজিক পরিবেশ (পৃষ্ঠা 1–8)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-bgs-ch2",
-    "chapter_number": "2",
-    "chapter_title": "সমাজে পরস্পরের সহযোগিতা",
+    "chapter_id": "2026-primary-class-4-bgs-ch-2",
+    "book_id": "2026-primary-class-4-bgs",
+    "chapter_number": "২",
+    "chapter_title": "ধর্মীয় সম্প্রীতি",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 9,
-    "end_page": 16,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 9
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 16
-      }
-    ],
+    "end_page": 17,
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "সমাজে পরস্পরের সহযোগিতা",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "ধর্মীয় সম্প্রীতি",
+      "অধ্যায় ২"
     ],
-    "summary": "পরিবার ও বিদ্যালয়ে পারস্পরিক শ্রদ্ধা ও সহমর্মিতা।",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ২: ধর্মীয় সম্প্রীতি (পৃষ্ঠা 9–17)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-bgs-ch3",
-    "chapter_number": "3",
-    "chapter_title": "বাংলাদেশের ক্ষুদ্র নৃ-গোষ্ঠী (গারো, খাসি, ম্রো, সাঁওতাল)",
+    "chapter_id": "2026-primary-class-4-bgs-ch-3",
+    "book_id": "2026-primary-class-4-bgs",
+    "chapter_number": "৩",
+    "chapter_title": "ছেলে-মেয়ে সমতা",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 17,
-    "end_page": 26,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 17
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 26
-      }
-    ],
+    "start_page": 18,
+    "end_page": 24,
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "বাংলাদেশের ক্ষুদ্র নৃ-গোষ্ঠী (গারো, খাসি, ম্রো, সাঁওতাল)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "ছেলে-মেয়ে সমতা",
+      "অধ্যায় ৩"
     ],
-    "summary": "ক্ষুদ্র নৃ-গোষ্ঠীর ভাষা, সমাজ, পোশাক ও উৎসব।",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ৩: ছেলে-মেয়ে সমতা (পৃষ্ঠা 18–24)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-bgs-ch4",
-    "chapter_number": "4",
-    "chapter_title": "নাগরিক অধিকার (সামাজিক, রাজনৈতিক ও অর্থনৈতিক অধিকার)",
+    "chapter_id": "2026-primary-class-4-bgs-ch-4",
+    "book_id": "2026-primary-class-4-bgs",
+    "chapter_number": "৪",
+    "chapter_title": "বাংলাদেশের ক্ষুদ্র নৃগোষ্ঠী",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 27,
+    "start_page": 25,
     "end_page": 34,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 27
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 34
-      }
-    ],
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "নাগরিক অধিকার (সামাজিক, রাজনৈতিক ও অর্থনৈতিক অধিকার)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "বাংলাদেশের ক্ষুদ্র নৃগোষ্ঠী",
+      "অধ্যায় ৪"
     ],
-    "summary": "বেঁচে থাকার, মত প্রকাশের ও কাজের অধিকার।",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ৪: বাংলাদেশের ক্ষুদ্র নৃগোষ্ঠী (পৃষ্ঠা 25–34)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-bgs-ch5",
-    "chapter_number": "5",
-    "chapter_title": "মূল্যবোধ ও আচরণ (সততা ও শৃঙ্খলা)",
+    "chapter_id": "2026-primary-class-4-bgs-ch-5",
+    "book_id": "2026-primary-class-4-bgs",
+    "chapter_number": "৫",
+    "chapter_title": "বাংলাদেশের মুক্তিযুদ্ধের পটভূমি",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 35,
-    "end_page": 42,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 35
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 42
-      }
-    ],
+    "end_page": 41,
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "মূল্যবোধ ও আচরণ (সততা ও শৃঙ্খলা)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "বাংলাদেশের মুক্তিযুদ্ধের পটভূমি",
+      "অধ্যায় ৫"
     ],
-    "summary": "নৈতিক মূল্যবোধ ও দায়িত্বশীল নাগরিকের আচরণ।",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ৫: বাংলাদেশের মুক্তিযুদ্ধের পটভূমি (পৃষ্ঠা 35–41)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-bgs-ch6",
-    "chapter_number": "6",
-    "chapter_title": "পরমতসহিষ্ণুতা",
+    "chapter_id": "2026-primary-class-4-bgs-ch-6",
+    "book_id": "2026-primary-class-4-bgs",
+    "chapter_number": "৬",
+    "chapter_title": "বাংলাদেশের চিরায়ত সাংস্কৃতিক উৎসব",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 43,
+    "start_page": 42,
     "end_page": 48,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 43
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 48
-      }
-    ],
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "পরমতসহিষ্ণুতা",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "বাংলাদেশের চিরায়ত সাংস্কৃতিক উৎসব",
+      "অধ্যায় ৬"
     ],
-    "summary": "অন্যের মতামতকে শ্রদ্ধা ও গণতান্ত্রিক মনোভাব চর্চা।",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ৬: বাংলাদেশের চিরায়ত সাংস্কৃতিক উৎসব (পৃষ্ঠা 42–48)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-bgs-ch7",
-    "chapter_number": "7",
-    "chapter_title": "কাজের মর্যাদা (শ্রমের মূল্য)",
+    "chapter_id": "2026-primary-class-4-bgs-ch-7",
+    "book_id": "2026-primary-class-4-bgs",
+    "chapter_number": "৭",
+    "chapter_title": "এশিয়ার ভৌগোলিক ও সাংস্কৃতিক বৈচিত্র্য",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 49,
-    "end_page": 54,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 49
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 54
-      }
-    ],
+    "end_page": 58,
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "কাজের মর্যাদা (শ্রমের মূল্য)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "এশিয়ার ভৌগোলিক ও সাংস্কৃতিক বৈচিত্র্য",
+      "অধ্যায় ৭"
     ],
-    "summary": "সকল বৈধ পেশার প্রতি সম্মান প্রদর্শন।",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ৭: এশিয়ার ভৌগোলিক ও সাংস্কৃতিক বৈচিত্র্য (পৃষ্ঠা 49–58)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-bgs-ch8",
-    "chapter_number": "8",
-    "chapter_title": "সামাজিক ও রাষ্ট্রীয় সম্পদ (রাস্তাঘাট, সেতু, হাসপাতাল, পার্ক)",
+    "chapter_id": "2026-primary-class-4-bgs-ch-8",
+    "book_id": "2026-primary-class-4-bgs",
+    "chapter_number": "৮",
+    "chapter_title": "সামাজিক দায়িত্ব ও নাগরিক অধিকার",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 55,
-    "end_page": 62,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 55
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 62
-      }
-    ],
-    "keywords": [
-      "বাংলাদেশ ও বিশ্বপরিচয়",
-      "সামাজিক ও রাষ্ট্রীয় সম্পদ (রাস্তাঘাট, সেতু, হাসপাতাল, পার্ক)",
-      "চতুর্থ শ্রেণি"
-    ],
-    "summary": "জাতীয় সম্পদ সংরক্ষণ ও অপচয় রোধ।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c4-bgs-ch9",
-    "chapter_number": "9",
-    "chapter_title": "এলাকার উন্নয়ন (গ্রাম ও শহর উন্নয়ন)",
-    "chapter_type": "অধ্যায়",
-    "author": null,
-    "start_page": 63,
+    "start_page": 59,
     "end_page": 70,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 63
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 70
-      }
-    ],
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "এলাকার উন্নয়ন (গ্রাম ও শহর উন্নয়ন)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "সামাজিক দায়িত্ব ও নাগরিক অধিকার",
+      "অধ্যায় ৮"
     ],
-    "summary": "ইউনিয়ন পরিষদ ও পৌরসভার নাগরিক সুবিধাসমূহ।",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ৮: সামাজিক দায়িত্ব ও নাগরিক অধিকার (পৃষ্ঠা 59–70)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-bgs-ch10",
-    "chapter_number": "10",
-    "chapter_title": "এশিয়া মহাদেশ",
+    "chapter_id": "2026-primary-class-4-bgs-ch-9",
+    "book_id": "2026-primary-class-4-bgs",
+    "chapter_number": "৯",
+    "chapter_title": "নৈতিক ও মানবিক গুণাবলি",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 71,
-    "end_page": 78,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 71
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 78
-      }
-    ],
+    "end_page": 76,
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "এশিয়া মহাদেশ",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "নৈতিক ও মানবিক গুণাবলি",
+      "অধ্যায় ৯"
     ],
-    "summary": "এশিয়ার ভূপ্রকৃতি, জলবায়ু, দেশ ও জনসংখ্যা।",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ৯: নৈতিক ও মানবিক গুণাবলি (পৃষ্ঠা 71–76)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-bgs-ch11",
-    "chapter_number": "11",
-    "chapter_title": "বাংলাদেশের ভূপ্রকৃতি ও জলবায়ু",
+    "chapter_id": "2026-primary-class-4-bgs-ch-10",
+    "book_id": "2026-primary-class-4-bgs",
+    "chapter_number": "১০",
+    "chapter_title": "আমাদের দেশ",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 79,
-    "end_page": 86,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 79
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 86
-      }
-    ],
+    "start_page": 77,
+    "end_page": 88,
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "বাংলাদেশের ভূপ্রকৃতি ও জলবায়ু",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "আমাদের দেশ",
+      "অধ্যায় ১০"
     ],
-    "summary": "পাহাড়, সমতল ভূমি, নদনদী ও মৌসুমি বায়ু।",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ১০: আমাদের দেশ (পৃষ্ঠা 77–88)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-bgs-ch12",
-    "chapter_number": "12",
-    "chapter_title": "দুর্যোগ মোকাবেলা (বন্যা, ঘূর্ণিঝড় ও ভূমিকম্প)",
+    "chapter_id": "2026-primary-class-4-bgs-ch-11",
+    "book_id": "2026-primary-class-4-bgs",
+    "chapter_number": "১১",
+    "chapter_title": "বাংলাদেশের জনসংখ্যা",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 87,
+    "start_page": 89,
     "end_page": 94,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 87
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 94
-      }
-    ],
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "দুর্যোগ মোকাবেলা (বন্যা, ঘূর্ণিঝড় ও ভূমিকম্প)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "বাংলাদেশের জনসংখ্যা",
+      "অধ্যায় ১১"
     ],
-    "summary": "প্রাকৃতিক দুর্যোগে প্রস্তুতি ও উদ্ধার তৎপরতা।",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ১১: বাংলাদেশের জনসংখ্যা (পৃষ্ঠা 89–94)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-bgs-ch13",
-    "chapter_number": "13",
-    "chapter_title": "বাংলাদেশের জনসংখ্যা ও জনসম্পদ",
+    "chapter_id": "2026-primary-class-4-bgs-ch-12",
+    "book_id": "2026-primary-class-4-bgs",
+    "chapter_number": "১২",
+    "chapter_title": "শ্রম ও পেশা",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 95,
-    "end_page": 102,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 95
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 102
-      }
-    ],
+    "end_page": 101,
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "বাংলাদেশের জনসংখ্যা ও জনসম্পদ",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "শ্রম ও পেশা",
+      "অধ্যায় ১২"
     ],
-    "summary": "জনসংখ্যা বৃদ্ধির প্রভাব ও শিক্ষার গুরুত্ব।",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ১২: শ্রম ও পেশা (পৃষ্ঠা 95–101)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-bgs-ch14",
-    "chapter_number": "14",
-    "chapter_title": "আমাদের ইতিহাস (প্রাচীন ও মধ্যযুগীয় বাংলা)",
+    "chapter_id": "2026-primary-class-4-bgs-ch-13",
+    "book_id": "2026-primary-class-4-bgs",
+    "chapter_number": "১৩",
+    "chapter_title": "অর্থ ও সম্পদ",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 103,
-    "end_page": 110,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 103
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 110
-      }
-    ],
+    "start_page": 102,
+    "end_page": 107,
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "আমাদের ইতিহাস (প্রাচীন ও মধ্যযুগীয় বাংলা)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "অর্থ ও সম্পদ",
+      "অধ্যায় ১৩"
     ],
-    "summary": "মৌর্য, গুপ্ত, পাল, সেন ও সুলতানি আমলের ইতিহাস।",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ১৩: অর্থ ও সম্পদ (পৃষ্ঠা 102–107)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-bgs-ch15",
-    "chapter_number": "15",
-    "chapter_title": "আমাদের মুক্তিযুদ্ধ (১৯৭১ সালের বিজয়)",
+    "chapter_id": "2026-primary-class-4-bgs-ch-14",
+    "book_id": "2026-primary-class-4-bgs",
+    "chapter_number": "১৪",
+    "chapter_title": "জরুরি পরিস্থিতি মোকাবিলা",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 111,
+    "start_page": 108,
+    "end_page": 115,
+    "sections": [],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "চতুর্থ শ্রেণি",
+      "জরুরি পরিস্থিতি মোকাবিলা",
+      "অধ্যায় ১৪"
+    ],
+    "summary": "চতুর্থ শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ১৪: জরুরি পরিস্থিতি মোকাবিলা (পৃষ্ঠা 108–115)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-4-bgs-ch-15",
+    "book_id": "2026-primary-class-4-bgs",
+    "chapter_number": "১৫",
+    "chapter_title": "শব্দভান্ডার",
+    "chapter_type": "শব্দকোষ",
+    "author": null,
+    "start_page": 116,
     "end_page": 118,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 111
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 118
-      }
-    ],
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "আমাদের মুক্তিযুদ্ধ (১৯৭১ সালের বিজয়)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "শব্দভান্ডার",
+      "শব্দকোষ ১৫"
     ],
-    "summary": "বঙ্গবন্ধুর ৭ই মার্চের ভাষণ, গণহত্যা ও ১৬ই ডিসেম্বর বিজয়।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c4-bgs-ch16",
-    "chapter_number": "16",
-    "chapter_title": "আমাদের সংস্কৃতি ও উৎসব (পহেলা বৈশাখ, ঈদ, পূজা, বড়দিন)",
-    "chapter_type": "অধ্যায়",
-    "author": null,
-    "start_page": 119,
-    "end_page": 128,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 119
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 128
-      }
-    ],
-    "keywords": [
-      "বাংলাদেশ ও বিশ্বপরিচয়",
-      "আমাদের সংস্কৃতি ও উৎসব (পহেলা বৈশাখ, ঈদ, পূজা, বড়দিন)",
-      "চতুর্থ শ্রেণি"
-    ],
-    "summary": "বাংলাদেশের ঐতিহ্যবাহী সাংস্কৃতিক সম্প্রীতি।",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের শব্দকোষ ১৫: শব্দভান্ডার (পৃষ্ঠা 116–118)।",
+    "total_questions": 0
   }
 ]

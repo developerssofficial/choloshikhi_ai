@@ -1,314 +1,325 @@
 [
   {
-    "chapter_id": "c5-bgs-ch1",
-    "chapter_number": "1",
-    "chapter_title": "আমাদের মুক্তিযুদ্ধ (১৯৭১ সালের ঘটনাপ্রবাহ ও বীরত্ব)",
+    "chapter_id": "2026-primary-class-5-bgs-ch-1",
+    "book_id": "2026-primary-class-5-bgs",
+    "chapter_number": "১",
+    "chapter_title": "জলবায়ু পরিবর্তন",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 1,
-    "end_page": 12,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 1
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 12
-      }
-    ],
+    "end_page": 8,
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "আমাদের মুক্তিযুদ্ধ (১৯৭১ সালের ঘটনাপ্রবাহ ও বীরত্ব)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "জলবায়ু পরিবর্তন",
+      "অধ্যায় ১"
     ],
-    "summary": "মুজিবনগর সরকার, মুক্তিবাহিনী, বুদ্ধিজীবী হত্যাকাণ্ড ও বিজয়।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ১: জলবায়ু পরিবর্তন (পৃষ্ঠা 1–8)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-bgs-ch2",
-    "chapter_number": "2",
-    "chapter_title": "ব্রিটিশ শাসন (পলাশীর যুদ্ধ ও ১৮৫৭ সালের মহাবিদ্রোহ)",
+    "chapter_id": "2026-primary-class-5-bgs-ch-2",
+    "book_id": "2026-primary-class-5-bgs",
+    "chapter_number": "২",
+    "chapter_title": "আমরা মানুষ",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 13,
-    "end_page": 24,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 13
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 24
-      }
-    ],
+    "start_page": 9,
+    "end_page": 18,
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "ব্রিটিশ শাসন (পলাশীর যুদ্ধ ও ১৮৫৭ সালের মহাবিদ্রোহ)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "আমরা মানুষ",
+      "অধ্যায় ২"
     ],
-    "summary": "ইস্ট ইন্ডিয়া কোম্পানির শাসন, সিপাহি বিদ্রোহ ও তিতুমীরের বাঁশের কেল্লা।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ২: আমরা মানুষ (পৃষ্ঠা 9–18)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-bgs-ch3",
-    "chapter_number": "3",
-    "chapter_title": "ঐতিহাসিক স্থান ও নিদর্শন (মহাস্থানগড়, ময়নামতী, পাহাড়পুর, লালবাগ কেল্লা)",
+    "chapter_id": "2026-primary-class-5-bgs-ch-3",
+    "book_id": "2026-primary-class-5-bgs",
+    "chapter_number": "৩",
+    "chapter_title": "বাংলাদেশের ক্ষুদ্র নৃগোষ্ঠী",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 25,
-    "end_page": 36,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 25
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 36
-      }
-    ],
+    "start_page": 19,
+    "end_page": 31,
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "ঐতিহাসিক স্থান ও নিদর্শন (মহাস্থানগড়, ময়নামতী, পাহাড়পুর, লালবাগ কেল্লা)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "বাংলাদেশের ক্ষুদ্র নৃগোষ্ঠী",
+      "অধ্যায় ৩"
     ],
-    "summary": "সোমপুর মহাবিহার ও পানাম নগরের ঐতিহাসিক প্রত্নতত্ত্ব।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ৩: বাংলাদেশের ক্ষুদ্র নৃগোষ্ঠী (পৃষ্ঠা 19–31)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-bgs-ch4",
-    "chapter_number": "4",
-    "chapter_title": "আমাদের অর্থনীতি: কৃষি ও শিল্প (ধান, পাট, চা, তৈরি পোশাক ও চামড়া)",
+    "chapter_id": "2026-primary-class-5-bgs-ch-4",
+    "book_id": "2026-primary-class-5-bgs",
+    "chapter_number": "৪",
+    "chapter_title": "আমাদের স্মরণীয় নেতা",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 37,
-    "end_page": 48,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 37
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 48
-      }
-    ],
+    "start_page": 32,
+    "end_page": 40,
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "আমাদের অর্থনীতি: কৃষি ও শিল্প (ধান, পাট, চা, তৈরি পোশাক ও চামড়া)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "আমাদের স্মরণীয় নেতা",
+      "অধ্যায় ৪"
     ],
-    "summary": "অর্থকরী ফসল ও বাংলাদেশের রপ্তানিমুখী বৈদেশিক মুদ্রা অর্জন।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ৪: আমাদের স্মরণীয় নেতা (পৃষ্ঠা 32–40)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-bgs-ch5",
-    "chapter_number": "5",
-    "chapter_title": "জনসংখ্যা (জনসংখ্যা সমস্যা ও দক্ষ জনসম্পদ)",
+    "chapter_id": "2026-primary-class-5-bgs-ch-5",
+    "book_id": "2026-primary-class-5-bgs",
+    "chapter_number": "৫",
+    "chapter_title": "আমাদের মুক্তিযুদ্ধ",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 49,
-    "end_page": 58,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 49
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 58
-      }
-    ],
+    "start_page": 41,
+    "end_page": 60,
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "জনসংখ্যা (জনসংখ্যা সমস্যা ও দক্ষ জনসম্পদ)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "আমাদের মুক্তিযুদ্ধ",
+      "অধ্যায় ৫"
     ],
-    "summary": "শিক্ষিত ও কারিগরি দক্ষতাসম্পন্ন নাগরিক গড়ে তোলার কৌশল।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ৫: আমাদের মুক্তিযুদ্ধ (পৃষ্ঠা 41–60)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-bgs-ch6",
-    "chapter_number": "6",
-    "chapter_title": "জলবায়ু ও দুর্যোগ (খরা, বন্যা ও নদীভাঙন মোকাবেলা)",
+    "chapter_id": "2026-primary-class-5-bgs-ch-6",
+    "book_id": "2026-primary-class-5-bgs",
+    "chapter_number": "৬",
+    "chapter_title": "বাংলাদেশের ঐতিহাসিক স্থান ও নিদর্শন",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 59,
-    "end_page": 68,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 59
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 68
-      }
-    ],
+    "start_page": 61,
+    "end_page": 76,
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "জলবায়ু ও দুর্যোগ (খরা, বন্যা ও নদীভাঙন মোকাবেলা)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "বাংলাদেশের ঐতিহাসিক স্থান ও নিদর্শন",
+      "অধ্যায় ৬"
     ],
-    "summary": "জলবায়ু পরিবর্তনের প্রভাব ও সামাজিক দুর্যোগ সহনশীলতা।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ৬: বাংলাদেশের ঐতিহাসিক স্থান ও নিদর্শন (পৃষ্ঠা 61–76)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-bgs-ch7",
-    "chapter_number": "7",
-    "chapter_title": "মানবাধিকার (জাতিসংঘ মানবাধিকার সনদ ও শিশু অধিকার)",
+    "chapter_id": "2026-primary-class-5-bgs-ch-7",
+    "book_id": "2026-primary-class-5-bgs",
+    "chapter_number": "৭",
+    "chapter_title": "দক্ষিণ এশিয়ার সাংস্কৃতিক বৈচিত্র্য",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 69,
-    "end_page": 78,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 69
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 78
-      }
-    ],
-    "keywords": [
-      "বাংলাদেশ ও বিশ্বপরিচয়",
-      "মানবাধিকার (জাতিসংঘ মানবাধিকার সনদ ও শিশু অধিকার)",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "শিশুশ্রম বন্ধ, নারী নির্যাতন প্রতিরোধ ও সমান অধিকার নিশ্চিতকরণ।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-bgs-ch8",
-    "chapter_number": "8",
-    "chapter_title": "নারী-পুরুষ সমতা (বেগম রোকেয়া ও আন্তর্জাতিক নারী দিবস)",
-    "chapter_type": "অধ্যায়",
-    "author": null,
-    "start_page": 79,
+    "start_page": 77,
     "end_page": 86,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 79
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 86
-      }
-    ],
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "নারী-পুরুষ সমতা (বেগম রোকেয়া ও আন্তর্জাতিক নারী দিবস)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "দক্ষিণ এশিয়ার সাংস্কৃতিক বৈচিত্র্য",
+      "অধ্যায় ৭"
     ],
-    "summary": "৮ই মার্চ নারী দিবস ও সমাজে নারীর অবদান।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ৭: দক্ষিণ এশিয়ার সাংস্কৃতিক বৈচিত্র্য (পৃষ্ঠা 77–86)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-bgs-ch9",
-    "chapter_number": "9",
-    "chapter_title": "আমাদের দায়িত্ব ও কর্তব্য (পরিবার, সমাজ ও রাষ্ট্রের প্রতি)",
+    "chapter_id": "2026-primary-class-5-bgs-ch-8",
+    "book_id": "2026-primary-class-5-bgs",
+    "chapter_number": "৮",
+    "chapter_title": "আঞ্চলিক ও আন্তর্জাতিক সংস্থা",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 87,
-    "end_page": 94,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 87
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 94
-      }
-    ],
+    "end_page": 93,
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "আমাদের দায়িত্ব ও কর্তব্য (পরিবার, সমাজ ও রাষ্ট্রের প্রতি)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "আঞ্চলিক ও আন্তর্জাতিক সংস্থা",
+      "অধ্যায় ৮"
     ],
-    "summary": "আইন মেনে চলা, কর দেওয়া ও ভোটাধিকার প্রয়োগ।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ৮: আঞ্চলিক ও আন্তর্জাতিক সংস্থা (পৃষ্ঠা 87–93)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-bgs-ch10",
-    "chapter_number": "10",
-    "chapter_title": "গণতান্ত্রিক মনোভাব (বিদ্যালয় ও কর্মক্ষেত্রে সিদ্ধান্ত গ্রহণ)",
+    "chapter_id": "2026-primary-class-5-bgs-ch-9",
+    "book_id": "2026-primary-class-5-bgs",
+    "chapter_number": "৯",
+    "chapter_title": "রাষ্ট্র এবং সমাজে আমার অধিকার ও কর্তব্য",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 95,
-    "end_page": 102,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 95
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 102
-      }
-    ],
+    "start_page": 94,
+    "end_page": 109,
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "গণতান্ত্রিক মনোভাব (বিদ্যালয় ও কর্মক্ষেত্রে সিদ্ধান্ত গ্রহণ)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "রাষ্ট্র এবং সমাজে আমার অধিকার ও কর্তব্য",
+      "অধ্যায় ৯"
     ],
-    "summary": "অধিকাংশের মতামতের ভিত্তিতে ক্লাস ক্যাপ্টেন নির্বাচন ও সহনশীলতা।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ৯: রাষ্ট্র এবং সমাজে আমার অধিকার ও কর্তব্য (পৃষ্ঠা 94–109)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-bgs-ch11",
-    "chapter_number": "11",
-    "chapter_title": "বাংলাদেশের ক্ষুদ্র নৃ-গোষ্ঠী (গারো, খাসি, ম্রো, ত্রিপুরা, ওঁরাও)",
+    "chapter_id": "2026-primary-class-5-bgs-ch-10",
+    "book_id": "2026-primary-class-5-bgs",
+    "chapter_number": "১০",
+    "chapter_title": "নৈতিক ও সামাজিক আচরণ",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 103,
+    "start_page": 110,
     "end_page": 114,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 103
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 114
-      }
-    ],
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "বাংলাদেশের ক্ষুদ্র নৃ-গোষ্ঠী (গারো, খাসি, ম্রো, ত্রিপুরা, ওঁরাও)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "নৈতিক ও সামাজিক আচরণ",
+      "অধ্যায় ১০"
     ],
-    "summary": "মাতৃতান্ত্রিক গারো সমাজ, ওয়াংগালা উৎসব ও ভাষা-সংস্কৃতি।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ১০: নৈতিক ও সামাজিক আচরণ (পৃষ্ঠা 110–114)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-bgs-ch12",
-    "chapter_number": "12",
-    "chapter_title": "বাংলাদেশ ও বিশ্ব (জাতিসংঘ, সার্ক ও আন্তর্জাতিক বন্ধুত্ব)",
+    "chapter_id": "2026-primary-class-5-bgs-ch-11",
+    "book_id": "2026-primary-class-5-bgs",
+    "chapter_number": "১১",
+    "chapter_title": "বাংলাদেশের যোগাযোগ মানচিত্র",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 115,
-    "end_page": 126,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 115
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 126
-      }
-    ],
+    "end_page": 125,
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "বাংলাদেশ ও বিশ্ব (জাতিসংঘ, সার্ক ও আন্তর্জাতিক বন্ধুত্ব)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "বাংলাদেশের যোগাযোগ মানচিত্র",
+      "অধ্যায় ১১"
     ],
-    "summary": "জাতিসংঘের ৬টি শাখা (ইউনিসেফ, ইউনেস্কো, হু) ও বিশ্বশান্তি।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ১১: বাংলাদেশের যোগাযোগ মানচিত্র (পৃষ্ঠা 115–125)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-5-bgs-ch-12",
+    "book_id": "2026-primary-class-5-bgs",
+    "chapter_number": "১২",
+    "chapter_title": "বাংলাদেশের বনভূমি ও প্রাকৃতিক পর্যটন স্থান",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 126,
+    "end_page": 132,
+    "sections": [],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "পঞ্চম শ্রেণি",
+      "বাংলাদেশের বনভূমি ও প্রাকৃতিক পর্যটন স্থান",
+      "অধ্যায় ১২"
+    ],
+    "summary": "পঞ্চম শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ১২: বাংলাদেশের বনভূমি ও প্রাকৃতিক পর্যটন স্থান (পৃষ্ঠা 126–132)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-5-bgs-ch-13",
+    "book_id": "2026-primary-class-5-bgs",
+    "chapter_number": "১৩",
+    "chapter_title": "বাংলাদেশের প্রাকৃতিক সম্পদ",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 133,
+    "end_page": 140,
+    "sections": [],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "পঞ্চম শ্রেণি",
+      "বাংলাদেশের প্রাকৃতিক সম্পদ",
+      "অধ্যায় ১৩"
+    ],
+    "summary": "পঞ্চম শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ১৩: বাংলাদেশের প্রাকৃতিক সম্পদ (পৃষ্ঠা 133–140)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-5-bgs-ch-14",
+    "book_id": "2026-primary-class-5-bgs",
+    "chapter_number": "১৪",
+    "chapter_title": "বাংলাদেশের জনসংখ্যা ও জনসম্পদ",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 141,
+    "end_page": 147,
+    "sections": [],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "পঞ্চম শ্রেণি",
+      "বাংলাদেশের জনসংখ্যা ও জনসম্পদ",
+      "অধ্যায় ১৪"
+    ],
+    "summary": "পঞ্চম শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ১৪: বাংলাদেশের জনসংখ্যা ও জনসম্পদ (পৃষ্ঠা 141–147)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-5-bgs-ch-15",
+    "book_id": "2026-primary-class-5-bgs",
+    "chapter_number": "১৫",
+    "chapter_title": "ব্যক্তিগত বাজেট ও ব্যাংক",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 148,
+    "end_page": 153,
+    "sections": [],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "পঞ্চম শ্রেণি",
+      "ব্যক্তিগত বাজেট ও ব্যাংক",
+      "অধ্যায় ১৫"
+    ],
+    "summary": "পঞ্চম শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ১৫: ব্যক্তিগত বাজেট ও ব্যাংক (পৃষ্ঠা 148–153)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-5-bgs-ch-16",
+    "book_id": "2026-primary-class-5-bgs",
+    "chapter_number": "১৬",
+    "chapter_title": "জরুরি পরিস্থিতি",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 154,
+    "end_page": 159,
+    "sections": [],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "পঞ্চম শ্রেণি",
+      "জরুরি পরিস্থিতি",
+      "অধ্যায় ১৬"
+    ],
+    "summary": "পঞ্চম শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ১৬: জরুরি পরিস্থিতি (পৃষ্ঠা 154–159)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-5-bgs-ch-17",
+    "book_id": "2026-primary-class-5-bgs",
+    "chapter_number": "১৭",
+    "chapter_title": "শব্দভান্ডার",
+    "chapter_type": "শব্দকোষ",
+    "author": null,
+    "start_page": 160,
+    "end_page": 162,
+    "sections": [],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "পঞ্চম শ্রেণি",
+      "শব্দভান্ডার",
+      "শব্দকোষ ১৭"
+    ],
+    "summary": "পঞ্চম শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের শব্দকোষ ১৭: শব্দভান্ডার (পৃষ্ঠা 160–162)।",
+    "total_questions": 0
   }
 ]

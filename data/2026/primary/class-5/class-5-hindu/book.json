@@ -1,62 +1,40 @@
 {
   "id": "2026-primary-class-5-hindu",
+  "slug": "class-5-hindu",
   "academic_year": 2026,
   "level": "primary",
   "class_number": 5,
   "class_name": "পঞ্চম শ্রেণি",
-  "book_name": "হিন্দুধর্ম শিক্ষা",
+  "official_book_name": "হিন্দুধর্ম শিক্ষা",
   "normalized_book_name": "হিন্দুধর্ম শিক্ষা",
-  "subject": "ধর্ম",
+  "subject": "হিন্দুধর্ম শিক্ষা",
   "subject_code": "hindu",
   "language": "bn",
   "version": "bangla",
-  "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b9a68c4774958d7b707a5",
-  "download_links": {
-    "link_1": "https://drive.google.com/file/d/1FjsZYJPhB4PeUyu_BXqubCBKSAdlp4Lp/view?usp=drive_link",
-    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/31bcVJSRlWOwY5B",
-    "resolved_pdf_url": "https://drive.google.com/file/d/1FjsZYJPhB4PeUyu_BXqubCBKSAdlp4Lp/view?usp=drive_link"
-  },
-  "english_version": {
-    "official_book_name": "হিন্দুধর্ম শিক্ষা",
-    "download_links": {
-      "link_1": "https://drive.google.com/file/d/1Y74qy6zbzCzNMWhKxyfUbflPTvX7DOI-/view?usp=drive_link",
-      "link_2": "https://drive.egovcloud.gov.bd/index.php/s/Gycjk0Dh9xqXdGl",
-      "resolved_pdf_url": "https://drive.google.com/file/d/1Y74qy6zbzCzNMWhKxyfUbflPTvX7DOI-/view?usp=drive_link"
-    }
-  },
   "pdf": {
     "local_path": "data/2026/primary/class-5/class-5-hindu/source/original.pdf",
-    "file_name": "class-5-hindu.pdf",
-    "file_size": 0,
-    "total_pages": 110,
-    "sha256": ""
+    "file_name": "Class 5, Hindu Religion_Book.pdf",
+    "file_size": 35731641,
+    "total_pages": 0,
+    "sha256": "354a3a091d35aefa807e6c2f72b782594dc26faaa68781201b4e3fd3ff114172"
   },
   "publication": {
     "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
-    "authors": [
-      "জাতীয় শিক্ষাক্রম বিশেষজ্ঞ প্যানেল"
-    ],
-    "editors": [
-      "এনসিটিবি সম্পাদনা পর্ষদ"
-    ],
-    "illustrators": [
-      "এনসিটিবি চিত্রাঙ্কন পর্ষদ"
-    ],
-    "isbn": "978-984-36-5261-1"
+    "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
   },
   "table_of_contents": [
-    "1. ঈশ্বর ও জীবসেবা (আত্মা ও পরমাত্মা) (পৃষ্ঠা 1–14)",
-    "2. দেবদেবী ও পূজার তাৎপর্য (দুর্গাপূজা ও জন্মাষ্টমী) (পৃষ্ঠা 15–28)",
-    "3. শ্রীমদ্ভগবদ্গীতা ও কর্মযোগ (পৃষ্ঠা 29–42)",
-    "4. সদাচার, যোগব্যায়াম ও স্বাস্থ্যবিধি (পৃষ্ঠা 43–56)",
-    "5. মহাপুরুষ ও মহীয়সী নারী (শ্রীচৈতন্য, শ্রীরামকৃষ্ণ ও রানি রাসমণি) (পৃষ্ঠা 57–70)"
+    "১. সৃষ্টিকর্তা ও হিন্দুধর্মের স্বরূপ (পৃষ্ঠা 1–20)",
+    "২. অবতার ও আদর্শ জীবনচরিত (পৃষ্ঠা 21–40)",
+    "৩. নৈতিক ও মানবিক গুণাবলি (পৃষ্ঠা 41–55)",
+    "৪. ধর্মগ্রন্থ, দেব-দেবী ও পূজা, মন্দির ও তীর্থক্ষেত্র (পৃষ্ঠা 56–81)",
+    "৫. জীবসেবা ও দেশপ্রেম (পৃষ্ঠা 82–96)"
   ],
   "total_chapters": 5,
   "validation": {
     "download_verified": true,
     "page_count_verified": true,
     "toc_verified": true,
-    "questions_verified": true,
+    "questions_verified": false,
     "needs_review": false
   }
 }

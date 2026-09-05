@@ -1,184 +1,230 @@
 [
   {
-    "chapter_id": "c3-science-ch1",
-    "chapter_number": "1",
-    "chapter_title": "আমাদের পরিবেশ (প্রাকৃতিক ও মানুষের তৈরি পরিবেশ)",
+    "chapter_id": "2026-primary-class-3-science-ch-1",
+    "book_id": "2026-primary-class-3-science",
+    "chapter_number": "১",
+    "chapter_title": "উদ্ভিদ পরিচিতি",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 1,
-    "end_page": 8,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 1
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 8
-      }
-    ],
+    "end_page": 10,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "আমাদের পরিবেশ (প্রাকৃতিক ও মানুষের তৈরি পরিবেশ)",
-      "তৃতীয় শ্রেণি"
+      "তৃতীয় শ্রেণি",
+      "উদ্ভিদ পরিচিতি",
+      "অধ্যায় ১"
     ],
-    "summary": "পরিবেশের বিভিন্ন উপাদান এবং পরিবেশের ভারসাম্য রক্ষা।",
-    "total_questions": 2
+    "summary": "তৃতীয় শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ১: উদ্ভিদ পরিচিতি (পৃষ্ঠা 1–10)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c3-science-ch2",
-    "chapter_number": "2",
-    "chapter_title": "জীব ও জড় (উদ্ভিদ ও প্রাণীর বৈশিষ্ট্য ও পার্থক্য)",
+    "chapter_id": "2026-primary-class-3-science-ch-2",
+    "book_id": "2026-primary-class-3-science",
+    "chapter_number": "২",
+    "chapter_title": "প্রাণী পরিচিতি",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 9,
-    "end_page": 18,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 9
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 18
-      }
-    ],
+    "start_page": 11,
+    "end_page": 22,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "জীব ও জড় (উদ্ভিদ ও প্রাণীর বৈশিষ্ট্য ও পার্থক্য)",
-      "তৃতীয় শ্রেণি"
+      "তৃতীয় শ্রেণি",
+      "প্রাণী পরিচিতি",
+      "অধ্যায় ২"
     ],
-    "summary": "উদ্ভিদ ও প্রাণীর খাদ্য গ্রহণ, বংশবৃদ্ধি ও বেঁচে থাকার উপায়।",
-    "total_questions": 2
+    "summary": "তৃতীয় শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ২: প্রাণী পরিচিতি (পৃষ্ঠা 11–22)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c3-science-ch3",
-    "chapter_number": "3",
-    "chapter_title": "বিভিন্ন ধরনের পদার্থ (কঠিন, তরল ও বায়বীয়)",
+    "chapter_id": "2026-primary-class-3-science-ch-3",
+    "book_id": "2026-primary-class-3-science",
+    "chapter_number": "৩",
+    "chapter_title": "সুস্বাস্থ্যের জন্য খাদ্য",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 19,
-    "end_page": 26,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 19
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 26
-      }
-    ],
+    "start_page": 23,
+    "end_page": 38,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "বিভিন্ন ধরনের পদার্থ (কঠিন, তরল ও বায়বীয়)",
-      "তৃতীয় শ্রেণি"
+      "তৃতীয় শ্রেণি",
+      "সুস্বাস্থ্যের জন্য খাদ্য",
+      "অধ্যায় ৩"
     ],
-    "summary": "পদার্থের ভর, ওজন ও তিন অবস্থার বৈশিষ্ট্য।",
-    "total_questions": 2
+    "summary": "তৃতীয় শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৩: সুস্বাস্থ্যের জন্য খাদ্য (পৃষ্ঠা 23–38)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c3-science-ch4",
-    "chapter_number": "4",
-    "chapter_title": "জীবনের জন্য পানি (পানির উৎস ও পানি দূষণ প্রতিরোধ)",
+    "chapter_id": "2026-primary-class-3-science-ch-4",
+    "book_id": "2026-primary-class-3-science",
+    "chapter_number": "৪",
+    "chapter_title": "পদার্থ",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 27,
-    "end_page": 36,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 27
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 36
-      }
-    ],
+    "start_page": 39,
+    "end_page": 58,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "জীবনের জন্য পানি (পানির উৎস ও পানি দূষণ প্রতিরোধ)",
-      "তৃতীয় শ্রেণি"
+      "তৃতীয় শ্রেণি",
+      "পদার্থ",
+      "অধ্যায় ৪"
     ],
-    "summary": "নিরাপদ পানি, ফুটানো ও ফিল্টারিং এবং পানিবাহিত রোগ প্রতিরোধ।",
-    "total_questions": 2
+    "summary": "তৃতীয় শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৪: পদার্থ (পৃষ্ঠা 39–58)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c3-science-ch5",
-    "chapter_number": "5",
-    "chapter_title": "মাটি (বেলে, এঁটেল ও দোআঁশ মাটির বৈশিষ্ট্য)",
+    "chapter_id": "2026-primary-class-3-science-ch-5",
+    "book_id": "2026-primary-class-3-science",
+    "chapter_number": "৫",
+    "chapter_title": "শক্তি",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 37,
-    "end_page": 44,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 37
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 44
-      }
-    ],
+    "start_page": 59,
+    "end_page": 68,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "মাটি (বেলে, এঁটেল ও দোআঁশ মাটির বৈশিষ্ট্য)",
-      "তৃতীয় শ্রেণি"
+      "তৃতীয় শ্রেণি",
+      "শক্তি",
+      "অধ্যায় ৫"
     ],
-    "summary": "মাটির উপাদান ও ফসলের জন্য উপযোগী মাটির গুণাগুণ।",
-    "total_questions": 2
+    "summary": "তৃতীয় শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৫: শক্তি (পৃষ্ঠা 59–68)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c3-science-ch6",
-    "chapter_number": "6",
-    "chapter_title": "বায়ু (বায়ুর উপাদান ও বায়ু দূষণ)",
+    "chapter_id": "2026-primary-class-3-science-ch-6",
+    "book_id": "2026-primary-class-3-science",
+    "chapter_number": "৬",
+    "chapter_title": "বস্তুর উপর বলের প্রভাব",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 45,
-    "end_page": 52,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 45
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 52
-      }
-    ],
+    "start_page": 69,
+    "end_page": 79,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "বায়ু (বায়ুর উপাদান ও বায়ু দূষণ)",
-      "তৃতীয় শ্রেণি"
+      "তৃতীয় শ্রেণি",
+      "বস্তুর উপর বলের প্রভাব",
+      "অধ্যায় ৬"
     ],
-    "summary": "অক্সিজেন, নাইট্রোজেন, কার্বন ডাই-অক্সাইড এবং দূষণমুক্ত বায়ু।",
-    "total_questions": 2
+    "summary": "তৃতীয় শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৬: বস্তুর উপর বলের প্রভাব (পৃষ্ঠা 69–79)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c3-science-ch7",
-    "chapter_number": "7",
-    "chapter_title": "স্বাস্থ্যবিধি ও পুষ্টিকর খাদ্য",
+    "chapter_id": "2026-primary-class-3-science-ch-7",
+    "book_id": "2026-primary-class-3-science",
+    "chapter_number": "৭",
+    "chapter_title": "পানি",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 53,
-    "end_page": 62,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 53
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 62
-      }
-    ],
+    "start_page": 80,
+    "end_page": 94,
+    "sections": [],
     "keywords": [
       "প্রাথমিক বিজ্ঞান",
-      "স্বাস্থ্যবিধি ও পুষ্টিকর খাদ্য",
-      "তৃতীয় শ্রেণি"
+      "তৃতীয় শ্রেণি",
+      "পানি",
+      "অধ্যায় ৭"
     ],
-    "summary": "ভিটামিন ও খনিজের প্রয়োজনীয়তা এবং সুষম খাদ্যের তালিকা।",
-    "total_questions": 2
+    "summary": "তৃতীয় শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৭: পানি (পৃষ্ঠা 80–94)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-3-science-ch-8",
+    "book_id": "2026-primary-class-3-science",
+    "chapter_number": "৮",
+    "chapter_title": "মাটি",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 95,
+    "end_page": 110,
+    "sections": [],
+    "keywords": [
+      "প্রাথমিক বিজ্ঞান",
+      "তৃতীয় শ্রেণি",
+      "মাটি",
+      "অধ্যায় ৮"
+    ],
+    "summary": "তৃতীয় শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৮: মাটি (পৃষ্ঠা 95–110)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-3-science-ch-9",
+    "book_id": "2026-primary-class-3-science",
+    "chapter_number": "৯",
+    "chapter_title": "জীবনের জন্য সূর্য",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 111,
+    "end_page": 121,
+    "sections": [],
+    "keywords": [
+      "প্রাথমিক বিজ্ঞান",
+      "তৃতীয় শ্রেণি",
+      "জীবনের জন্য সূর্য",
+      "অধ্যায় ৯"
+    ],
+    "summary": "তৃতীয় শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ৯: জীবনের জন্য সূর্য (পৃষ্ঠা 111–121)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-3-science-ch-10",
+    "book_id": "2026-primary-class-3-science",
+    "chapter_number": "১০",
+    "chapter_title": "প্রযুক্তির সঙ্গে পরিচয়",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 122,
+    "end_page": 132,
+    "sections": [],
+    "keywords": [
+      "প্রাথমিক বিজ্ঞান",
+      "তৃতীয় শ্রেণি",
+      "প্রযুক্তির সঙ্গে পরিচয়",
+      "অধ্যায় ১০"
+    ],
+    "summary": "তৃতীয় শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ১০: প্রযুক্তির সঙ্গে পরিচয় (পৃষ্ঠা 122–132)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-3-science-ch-11",
+    "book_id": "2026-primary-class-3-science",
+    "chapter_number": "১১",
+    "chapter_title": "তথ্য ও যোগাযোগ",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 133,
+    "end_page": 144,
+    "sections": [],
+    "keywords": [
+      "প্রাথমিক বিজ্ঞান",
+      "তৃতীয় শ্রেণি",
+      "তথ্য ও যোগাযোগ",
+      "অধ্যায় ১১"
+    ],
+    "summary": "তৃতীয় শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের অধ্যায় ১১: তথ্য ও যোগাযোগ (পৃষ্ঠা 133–144)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-3-science-ch-12",
+    "book_id": "2026-primary-class-3-science",
+    "chapter_number": "১২",
+    "chapter_title": "শব্দকোষ",
+    "chapter_type": "শব্দকোষ",
+    "author": null,
+    "start_page": 145,
+    "end_page": 147,
+    "sections": [],
+    "keywords": [
+      "প্রাথমিক বিজ্ঞান",
+      "তৃতীয় শ্রেণি",
+      "শব্দকোষ",
+      "শব্দকোষ ১২"
+    ],
+    "summary": "তৃতীয় শ্রেণি এর প্রাথমিক বিজ্ঞান বিষয়ের শব্দকোষ ১২: শব্দকোষ (পৃষ্ঠা 145–147)।",
+    "total_questions": 0
   }
 ]

@@ -1,68 +1,48 @@
 {
   "id": "2026-primary-class-3-math",
+  "slug": "class-3-math",
   "academic_year": 2026,
   "level": "primary",
   "class_number": 3,
   "class_name": "তৃতীয় শ্রেণি",
-  "book_name": "প্রাথমিক গণিত",
+  "official_book_name": "প্রাথমিক গণিত",
   "normalized_book_name": "প্রাথমিক গণিত",
-  "subject": "গণিত",
+  "subject": "প্রাথমিক গণিত",
   "subject_code": "math",
   "language": "bn",
   "version": "bangla",
-  "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b9980c4774958d7b70591",
-  "download_links": {
-    "link_1": "https://drive.google.com/file/d/1sd7ebdMkuU6Wv0BUgccqYV4UxpwUmTyC/view?usp=drive_link",
-    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/c97udcl4dlxev8s",
-    "resolved_pdf_url": "https://drive.google.com/file/d/1sd7ebdMkuU6Wv0BUgccqYV4UxpwUmTyC/view?usp=drive_link"
-  },
-  "english_version": {
-    "official_book_name": "প্রাথমিক গণিত",
-    "download_links": {
-      "link_1": "https://drive.google.com/file/d/115wNAy7MFdjmux9UvW7YzCwTYe8-tF-n/view?usp=drive_link",
-      "link_2": "https://drive.egovcloud.gov.bd/index.php/s/fZkF0x9uyNGcGmg",
-      "resolved_pdf_url": "https://drive.google.com/file/d/115wNAy7MFdjmux9UvW7YzCwTYe8-tF-n/view?usp=drive_link"
-    }
-  },
   "pdf": {
     "local_path": "data/2026/primary/class-3/class-3-math/source/original.pdf",
-    "file_name": "class-3-math.pdf",
-    "file_size": 0,
-    "total_pages": 88,
-    "sha256": ""
+    "file_name": "Class-3, Math_Book.pdf",
+    "file_size": 49150200,
+    "total_pages": 0,
+    "sha256": "b5b2cfc192ea39f7c76408fd0027afc8caaa203cb58f046054a21e6e300d1a39"
   },
   "publication": {
-    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ",
-    "authors": [
-      "অধ্যাপক ড. মো. আবদুল মতিন",
-      "ড. রণজিৎ কুমার বিশ্বাস"
-    ],
-    "editors": [
-      "অধ্যাপক ড. মো. রফিকুল ইসলাম"
-    ],
-    "illustrators": [
-      "এনসিটিবি চিত্রাঙ্কন পর্ষদ"
-    ],
-    "isbn": "978-984-36-3281-7"
+    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+    "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
   },
   "table_of_contents": [
-    "1. সংখ্যা (১ থেকে ১০০০০ পর্যন্ত স্থানীয় মান ও তুলনা) (পৃষ্ঠা 1–18)",
-    "2. যোগ (চার অঙ্ক পর্যন্ত হাতে রেখে যোগ) (পৃষ্ঠা 19–32)",
-    "3. বিয়োগ (চার অঙ্ক পর্যন্ত হাতে রেখে বিয়োগ) (পৃষ্ঠা 33–46)",
-    "4. গুণ (তিন অঙ্কের সংখ্যাকে দুই অঙ্কের সংখ্যা দ্বারা গুণ) (পৃষ্ঠা 47–60)",
-    "5. ভাগ (ভাগফল ও ভাগশেষ নির্ণয়) (পৃষ্ঠা 61–72)",
-    "6. চার প্রক্রিয়া সম্পর্কিত সমস্যাবলি (যোগ, বিয়োগ, গুণ, ভাগ) (পৃষ্ঠা 73–84)",
-    "7. বাংলাদেশি মুদ্রা ও নোটের হিসাব (পৃষ্ঠা 85–94)",
-    "8. ভগ্নাংশ (প্রকৃত, সমহর ও তুলনা) (পৃষ্ঠা 95–106)",
-    "9. পরিমাপ (দৈর্ঘ্য, ওজন, তরল ও সময়) (পৃষ্ঠা 107–120)",
-    "10. জ্যামিতি (কোণ, ত্রিভুজ, চতুর্ভুজ ও বৃত্ত) (পৃষ্ঠা 121–132)"
+    "১. সংখ্যা (পৃষ্ঠা 1–20)",
+    "২. যোগ (পৃষ্ঠা 21–30)",
+    "৩. বিয়োগ (পৃষ্ঠা 31–36)",
+    "৪. যোগ ও বিয়োগের সম্পর্ক (পৃষ্ঠা 37–41)",
+    "৫. গুণ (পৃষ্ঠা 42–62)",
+    "৬. ভাগ (পৃষ্ঠা 63–77)",
+    "৭. গুণ ও ভাগের সম্পর্ক (পৃষ্ঠা 78–83)",
+    "৮. যোগ, বিয়োগ, গুণ ও ভাগসংক্রান্ত সমস্যা (পৃষ্ঠা 84–90)",
+    "৯. ভগ্নাংশ (পৃষ্ঠা 91–106)",
+    "১০. বাংলাদেশি মুদ্রা (পৃষ্ঠা 107–117)",
+    "১১. পরিমাপ (পৃষ্ঠা 118–132)",
+    "১২. জ্যামিতি (পৃষ্ঠা 133–148)",
+    "১৩. উপাত্ত সংগ্রহ ও বিন্যস্তকরণ (পৃষ্ঠা 149–156)"
   ],
-  "total_chapters": 10,
+  "total_chapters": 13,
   "validation": {
     "download_verified": true,
     "page_count_verified": true,
     "toc_verified": true,
-    "questions_verified": true,
+    "questions_verified": false,
     "needs_review": false
   }
 }

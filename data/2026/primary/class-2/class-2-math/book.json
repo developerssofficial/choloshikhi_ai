@@ -1,68 +1,42 @@
 {
   "id": "2026-primary-class-2-math",
+  "slug": "class-2-math",
   "academic_year": 2026,
   "level": "primary",
   "class_number": 2,
   "class_name": "দ্বিতীয় শ্রেণি",
-  "book_name": "প্রাথমিক গণিত",
+  "official_book_name": "প্রাথমিক গণিত",
   "normalized_book_name": "প্রাথমিক গণিত",
-  "subject": "গণিত",
+  "subject": "প্রাথমিক গণিত",
   "subject_code": "math",
   "language": "bn",
   "version": "bangla",
-  "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b9935c4774958d7b70508",
-  "download_links": {
-    "link_1": "https://drive.google.com/file/d/1QY1URkKhpoAqVTuPRaLHgBJZ7_3lGpyq/view?usp=drive_link",
-    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/VeBQB1ZuzSZPRBJ",
-    "resolved_pdf_url": "https://drive.google.com/file/d/1QY1URkKhpoAqVTuPRaLHgBJZ7_3lGpyq/view?usp=drive_link"
-  },
-  "english_version": {
-    "official_book_name": "প্রাথমিক গণিত",
-    "download_links": {
-      "link_1": "https://drive.google.com/file/d/1yofkAU1FjyoYcx2nZGEqhlnH4xbE9YHJ/view?usp=drive_link",
-      "link_2": "https://drive.egovcloud.gov.bd/index.php/s/Kw56TUvE7YsvdcL",
-      "resolved_pdf_url": "https://drive.google.com/file/d/1yofkAU1FjyoYcx2nZGEqhlnH4xbE9YHJ/view?usp=drive_link"
-    }
-  },
   "pdf": {
     "local_path": "data/2026/primary/class-2/class-2-math/source/original.pdf",
-    "file_name": "class-2-math.pdf",
-    "file_size": 0,
-    "total_pages": 76,
-    "sha256": ""
+    "file_name": "Class-2, Math_Book.pdf",
+    "file_size": 21926241,
+    "total_pages": 0,
+    "sha256": "d5823437e20520c522682c0194699832bd1ac84336db381684134532759ca412"
   },
   "publication": {
-    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ",
-    "authors": [
-      "অধ্যাপক ড. রণজিৎ কুমার বিশ্বাস",
-      "ড. মো. আসাদুজ্জামান"
-    ],
-    "editors": [
-      "অধ্যাপক ড. মো. আবদুল মতিন"
-    ],
-    "illustrators": [
-      "এনসিটিবি চিত্রাঙ্কন পর্ষদ"
-    ],
-    "isbn": "978-984-36-2786-8"
+    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+    "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
   },
   "table_of_contents": [
-    "1. সংখ্যা ও স্থানীয় মান (১ থেকে ১০০) (পৃষ্ঠা 1–14)",
-    "2. যোগ (হাতে রেখে ও হাতে না রেখে দুই অঙ্কের যোগ) (পৃষ্ঠা 15–28)",
-    "3. বিয়োগ (হাতে রেখে ও হাতে না রেখে দুই অঙ্কের বিয়োগ) (পৃষ্ঠা 29–40)",
-    "4. গুণের প্রাথমিক ধারণা ও নামতা (১ থেকে ১০-এর নামতা) (পৃষ্ঠা 41–54)",
-    "5. ভাগের প্রাথমিক ধারণা (সমান ভাগে বণ্টন) (পৃষ্ঠা 55–64)",
-    "6. ভগ্নাংশের প্রাথমিক ধারণা (অর্ধেক ১/২ ও এক-চতুর্থাংশ ১/৪) (পৃষ্ঠা 65–72)",
-    "7. বাংলাদেশি মুদ্রা ও টাকা-পয়সার হিসাব (পৃষ্ঠা 73–80)",
-    "8. জ্যামিতি (বিন্দু, রেখা, ত্রিভুজ, চতুর্ভুজ ও বৃত্ত) (পৃষ্ঠা 81–88)",
-    "9. পরিমাপ (দৈর্ঘ্য, ওজন ও তরলের আয়তন) (পৃষ্ঠা 89–96)",
-    "10. সময়, ক্যালেন্ডার ও ঘড়ি (পৃষ্ঠা 97–104)"
+    "১. সংখ্যা ও স্থানীয় মান (পৃষ্ঠা 1–39)",
+    "২. যোগ ও বিয়োগ (পৃষ্ঠা 40–72)",
+    "৩. গুণ (পৃষ্ঠা 73–101)",
+    "৪. জ্যামিতিক আকৃতি ও প্যাটার্ন (পৃষ্ঠা 102–106)",
+    "৫. পরিমাপ (পৃষ্ঠা 107–120)",
+    "৬. মুদ্রা (পৃষ্ঠা 121–124)",
+    "৭. উপাত্ত (পৃষ্ঠা 125–130)"
   ],
-  "total_chapters": 10,
+  "total_chapters": 7,
   "validation": {
     "download_verified": true,
     "page_count_verified": true,
     "toc_verified": true,
-    "questions_verified": true,
+    "questions_verified": false,
     "needs_review": false
   }
 }

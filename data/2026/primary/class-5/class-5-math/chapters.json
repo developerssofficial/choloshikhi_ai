@@ -1,366 +1,192 @@
 [
   {
-    "chapter_id": "c5-math-ch1",
-    "chapter_number": "1",
-    "chapter_title": "গুণ প্রক্রিয়া (বড় সংখ্যার সহজ গুণ ও সূত্রাবলী)",
+    "chapter_id": "2026-primary-class-5-math-ch-1",
+    "book_id": "2026-primary-class-5-math",
+    "chapter_number": "১",
+    "chapter_title": "গুণ ও ভাগ",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 1,
-    "end_page": 12,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 1
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 12
-      }
-    ],
+    "end_page": 16,
+    "sections": [],
     "keywords": [
       "প্রাথমিক গণিত",
-      "গুণ প্রক্রিয়া (বড় সংখ্যার সহজ গুণ ও সূত্রাবলী)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "গুণ ও ভাগ",
+      "অধ্যায় ১"
     ],
-    "summary": "গুণ্য × গুণক = গুণফল এবং শূন্যযুক্ত সংখ্যার সংক্ষিপ্ত গুণ।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ১: গুণ ও ভাগ (পৃষ্ঠা 1–16)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-math-ch2",
-    "chapter_number": "2",
-    "chapter_title": "ভাগ প্রক্রিয়া (নিঃশেষে বিভাজ্য ও অবিভাজ্য ভাগ)",
+    "chapter_id": "2026-primary-class-5-math-ch-2",
+    "book_id": "2026-primary-class-5-math",
+    "chapter_number": "২",
+    "chapter_title": "গাণিতিক বাক্য",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 13,
-    "end_page": 24,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 13
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 24
-      }
-    ],
+    "start_page": 17,
+    "end_page": 30,
+    "sections": [],
     "keywords": [
       "প্রাথমিক গণিত",
-      "ভাগ প্রক্রিয়া (নিঃশেষে বিভাজ্য ও অবিভাজ্য ভাগ)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "গাণিতিক বাক্য",
+      "অধ্যায় ২"
     ],
-    "summary": "ভাজ্য = ভাজক × ভাগফল + ভাগশেষ সূত্র ও সমস্যার সমাধান।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ২: গাণিতিক বাক্য (পৃষ্ঠা 17–30)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-math-ch3",
-    "chapter_number": "3",
-    "chapter_title": "চার প্রক্রিয়া সম্পর্কিত সমস্যাবলি (ঐকিক নিয়ম ও বন্ধনী)",
+    "chapter_id": "2026-primary-class-5-math-ch-3",
+    "book_id": "2026-primary-class-5-math",
+    "chapter_number": "৩",
+    "chapter_title": "গুণিতক ও গুণনীয়ক",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 25,
-    "end_page": 38,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 25
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 38
-      }
-    ],
+    "start_page": 31,
+    "end_page": 48,
+    "sections": [],
     "keywords": [
       "প্রাথমিক গণিত",
-      "চার প্রক্রিয়া সম্পর্কিত সমস্যাবলি (ঐকিক নিয়ম ও বন্ধনী)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "গুণিতক ও গুণনীয়ক",
+      "অধ্যায় ৩"
     ],
-    "summary": "বন্ধনীযুক্ত সরল অঙ্ক ও ঐকিক নিয়মের মাধ্যমে বাস্তব সমস্যা সমাধান।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ৩: গুণিতক ও গুণনীয়ক (পৃষ্ঠা 31–48)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-math-ch4",
-    "chapter_number": "4",
-    "chapter_title": "গাণিতিক প্রতীক (খোলা বাক্য ও অজানা রাশি)",
+    "chapter_id": "2026-primary-class-5-math-ch-4",
+    "book_id": "2026-primary-class-5-math",
+    "chapter_number": "৪",
+    "chapter_title": "সাধারণ ভগ্নাংশ",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 39,
-    "end_page": 46,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 39
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 46
-      }
-    ],
+    "start_page": 49,
+    "end_page": 62,
+    "sections": [],
     "keywords": [
       "প্রাথমিক গণিত",
-      "গাণিতিক প্রতীক (খোলা বাক্য ও অজানা রাশি)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "সাধারণ ভগ্নাংশ",
+      "অধ্যায় ৪"
     ],
-    "summary": "অক্ষর প্রতীক (ক, খ) ব্যবহার করে খোলা বাক্যের সমাধান।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ৪: সাধারণ ভগ্নাংশ (পৃষ্ঠা 49–62)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-math-ch5",
-    "chapter_number": "5",
-    "chapter_title": "গুণনীয়ক এবং গুণিতক (মৌলিক উৎপাদক, গসাগু ও লসাগু)",
+    "chapter_id": "2026-primary-class-5-math-ch-5",
+    "book_id": "2026-primary-class-5-math",
+    "chapter_number": "৫",
+    "chapter_title": "দশমিক ভগ্নাংশ",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 47,
-    "end_page": 60,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 47
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 60
-      }
-    ],
+    "start_page": 63,
+    "end_page": 90,
+    "sections": [],
     "keywords": [
       "প্রাথমিক গণিত",
-      "গুণনীয়ক এবং গুণিতক (মৌলিক উৎপাদক, গসাগু ও লসাগু)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "দশমিক ভগ্নাংশ",
+      "অধ্যায় ৫"
     ],
-    "summary": "ইউক্লিডীয় ও মৌলিক উৎপাদকের সাহায্যে লসাগু-গসাগু ও ঘণ্টার বাজার সমস্যা।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ৫: দশমিক ভগ্নাংশ (পৃষ্ঠা 63–90)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-math-ch6",
-    "chapter_number": "6",
-    "chapter_title": "ভগ্নাংশ (প্রকৃত, অপ্রকৃত, মিশ্র ভগ্নাংশের গুণ ও ভাগ)",
+    "chapter_id": "2026-primary-class-5-math-ch-6",
+    "book_id": "2026-primary-class-5-math",
+    "chapter_number": "৬",
+    "chapter_title": "শতকরা",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 61,
-    "end_page": 76,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 61
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 76
-      }
-    ],
+    "start_page": 91,
+    "end_page": 104,
+    "sections": [],
     "keywords": [
       "প্রাথমিক গণিত",
-      "ভগ্নাংশ (প্রকৃত, অপ্রকৃত, মিশ্র ভগ্নাংশের গুণ ও ভাগ)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "শতকরা",
+      "অধ্যায় ৬"
     ],
-    "summary": "ভগ্নাংশের বিপরীত ভগ্নাংশ ও জটিল হিসাবের সমাধান।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ৬: শতকরা (পৃষ্ঠা 91–104)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-math-ch7",
-    "chapter_number": "7",
-    "chapter_title": "দশমিক ভগ্নাংশ (দশমিকের গুণ, ভাগ ও রূপান্তর)",
+    "chapter_id": "2026-primary-class-5-math-ch-7",
+    "book_id": "2026-primary-class-5-math",
+    "chapter_number": "৭",
+    "chapter_title": "গড়",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 77,
-    "end_page": 92,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 77
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 92
-      }
-    ],
+    "start_page": 105,
+    "end_page": 114,
+    "sections": [],
     "keywords": [
       "প্রাথমিক গণিত",
-      "দশমিক ভগ্নাংশ (দশমিকের গুণ, ভাগ ও রূপান্তর)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "গড়",
+      "অধ্যায় ৭"
     ],
-    "summary": "১০ ও ১০০ দ্বারা গুণ-ভাগ এবং বাস্তব জীবনের দশমিক হিসাব।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ৭: গড় (পৃষ্ঠা 105–114)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-math-ch8",
-    "chapter_number": "8",
-    "chapter_title": "গড় (রাশিগুলোর গড় নির্ণয় ও সমস্যা)",
+    "chapter_id": "2026-primary-class-5-math-ch-8",
+    "book_id": "2026-primary-class-5-math",
+    "chapter_number": "৮",
+    "chapter_title": "পরিমাপ",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 93,
-    "end_page": 102,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 93
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 102
-      }
-    ],
+    "start_page": 115,
+    "end_page": 148,
+    "sections": [],
     "keywords": [
       "প্রাথমিক গণিত",
-      "গড় (রাশিগুলোর গড় নির্ণয় ও সমস্যা)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "পরিমাপ",
+      "অধ্যায় ৮"
     ],
-    "summary": "গড় = রাশিগুলোর যোগফল ÷ রাশির সংখ্যা সূত্রের প্রয়োগ।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ৮: পরিমাপ (পৃষ্ঠা 115–148)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-math-ch9",
-    "chapter_number": "9",
-    "chapter_title": "শতকরা (লাভ-ক্ষতি, আসল, মুনাফা ও সুদের হিসাব)",
+    "chapter_id": "2026-primary-class-5-math-ch-9",
+    "book_id": "2026-primary-class-5-math",
+    "chapter_number": "৯",
+    "chapter_title": "জ্যামিতি",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 103,
-    "end_page": 116,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 103
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 116
-      }
-    ],
+    "start_page": 149,
+    "end_page": 170,
+    "sections": [],
     "keywords": [
       "প্রাথমিক গণিত",
-      "শতকরা (লাভ-ক্ষতি, আসল, মুনাফা ও সুদের হিসাব)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "জ্যামিতি",
+      "অধ্যায় ৯"
     ],
-    "summary": "মুনাফা = (আসল × মুনাফার হার × সময়) / ১০০ সূত্র ও ব্যাংক হিসাব।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ৯: জ্যামিতি (পৃষ্ঠা 149–170)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c5-math-ch10",
-    "chapter_number": "10",
-    "chapter_title": "জ্যামিতি (আয়ত, বর্গ, সামান্তরিক, রম্বস, ট্রাপিজিয়াম ও বৃত্ত)",
+    "chapter_id": "2026-primary-class-5-math-ch-10",
+    "book_id": "2026-primary-class-5-math",
+    "chapter_number": "১০",
+    "chapter_title": "উপাত্ত বিন্যস্তকরণ",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 117,
-    "end_page": 130,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 117
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 130
-      }
-    ],
+    "start_page": 171,
+    "end_page": 184,
+    "sections": [],
     "keywords": [
       "প্রাথমিক গণিত",
-      "জ্যামিতি (আয়ত, বর্গ, সামান্তরিক, রম্বস, ট্রাপিজিয়াম ও বৃত্ত)",
-      "পঞ্চম শ্রেণি"
+      "পঞ্চম শ্রেণি",
+      "উপাত্ত বিন্যস্তকরণ",
+      "অধ্যায় ১০"
     ],
-    "summary": "চতুর্ভুজের বৈশিষ্ট্য এবং বৃত্তের ব্যাসার্ধ, ব্যাস ও পরিধি।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-math-ch11",
-    "chapter_number": "11",
-    "chapter_title": "পরিমাপ (দৈর্ঘ্য, ক্ষেত্রফল, আয়তন ও ঘনফল)",
-    "chapter_type": "অধ্যায়",
-    "author": null,
-    "start_page": 131,
-    "end_page": 144,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 131
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 144
-      }
-    ],
-    "keywords": [
-      "প্রাথমিক গণিত",
-      "পরিমাপ (দৈর্ঘ্য, ক্ষেত্রফল, আয়তন ও ঘনফল)",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "ত্রিভুজ ও সামান্তরিকের ক্ষেত্রফল = (ভূমি × উচ্চতা) / ২।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-math-ch12",
-    "chapter_number": "12",
-    "chapter_title": "সময় (দিন, মাস, বছর, শতাব্দী ও ২৪ ঘণ্টার ঘড়ি)",
-    "chapter_type": "অধ্যায়",
-    "author": null,
-    "start_page": 145,
-    "end_page": 154,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 145
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 154
-      }
-    ],
-    "keywords": [
-      "প্রাথমিক গণিত",
-      "সময় (দিন, মাস, বছর, শতাব্দী ও ২৪ ঘণ্টার ঘড়ি)",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "আন্তর্জাতিক সময় পদ্ধতি ও শতাব্দীর হিসাব।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-math-ch13",
-    "chapter_number": "13",
-    "chapter_title": "উপাত্ত বিন্যস্তকরণ (স্তম্ভলেখ ও সারণি প্রস্তুতকরণ)",
-    "chapter_type": "অধ্যায়",
-    "author": null,
-    "start_page": 155,
-    "end_page": 164,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 155
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 164
-      }
-    ],
-    "keywords": [
-      "প্রাথমিক গণিত",
-      "উপাত্ত বিন্যস্তকরণ (স্তম্ভলেখ ও সারণি প্রস্তুতকরণ)",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "জনসংখ্যা ও নম্বরের স্তম্ভলেখ বিশ্লেষণ।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c5-math-ch14",
-    "chapter_number": "14",
-    "chapter_title": "ক্যালকুলেটর ও কম্পিউটার (প্রাথমিক গণনা ও পরিচিতি)",
-    "chapter_type": "অধ্যায়",
-    "author": null,
-    "start_page": 165,
-    "end_page": 172,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 165
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 172
-      }
-    ],
-    "keywords": [
-      "প্রাথমিক গণিত",
-      "ক্যালকুলেটর ও কম্পিউটার (প্রাথমিক গণনা ও পরিচিতি)",
-      "পঞ্চম শ্রেণি"
-    ],
-    "summary": "ক্যালকুলেটরের বোতামের কাজ ও কম্পিউটারের ইনপুট-আউটপুট।",
-    "total_questions": 2
+    "summary": "পঞ্চম শ্রেণি এর প্রাথমিক গণিত বিষয়ের অধ্যায় ১০: উপাত্ত বিন্যস্তকরণ (পৃষ্ঠা 171–184)।",
+    "total_questions": 0
   }
 ]

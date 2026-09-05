@@ -1,72 +1,46 @@
 {
   "id": "2026-primary-class-4-math",
+  "slug": "class-4-math",
   "academic_year": 2026,
   "level": "primary",
   "class_number": 4,
   "class_name": "চতুর্থ শ্রেণি",
-  "book_name": "প্রাথমিক গণিত",
+  "official_book_name": "প্রাথমিক গণিত",
   "normalized_book_name": "প্রাথমিক গণিত",
-  "subject": "গণিত",
+  "subject": "প্রাথমিক গণিত",
   "subject_code": "math",
   "language": "bn",
   "version": "bangla",
-  "official_page_url": "https://nctb.gov.bd/pages/static-pages/695b99ccc4774958d7b70680",
-  "download_links": {
-    "link_1": "https://drive.google.com/file/d/1xF9mIw5rJce8_5D-lC6kepBms-ZwLxp6/view?usp=drive_link",
-    "link_2": "https://drive.egovcloud.gov.bd/index.php/s/UNNwYpHO9KeZiCU",
-    "resolved_pdf_url": "https://drive.google.com/file/d/1xF9mIw5rJce8_5D-lC6kepBms-ZwLxp6/view?usp=drive_link"
-  },
-  "english_version": {
-    "official_book_name": "প্রাথমিক গণিত",
-    "download_links": {
-      "link_1": "https://drive.google.com/file/d/1ACMCZw6qi8cC-K8n7Q7Na7jiFEKHzmiY/view?usp=drive_link",
-      "link_2": "https://drive.egovcloud.gov.bd/index.php/s/TzwHt2gGa8i7Tuc",
-      "resolved_pdf_url": "https://drive.google.com/file/d/1ACMCZw6qi8cC-K8n7Q7Na7jiFEKHzmiY/view?usp=drive_link"
-    }
-  },
   "pdf": {
     "local_path": "data/2026/primary/class-4/class-4-math/source/original.pdf",
-    "file_name": "class-4-math.pdf",
-    "file_size": 0,
-    "total_pages": 104,
-    "sha256": ""
+    "file_name": "Class 4, math_Book.pdf",
+    "file_size": 47515060,
+    "total_pages": 0,
+    "sha256": "2c8a74c152b985132cabdcaa5dcb487cfcc0c8e64771d08fb91ddbfa89e52866"
   },
   "publication": {
-    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ",
-    "authors": [
-      "অধ্যাপক ড. রণজিৎ কুমার বিশ্বাস",
-      "ড. মো. আসাদুজ্জামান"
-    ],
-    "editors": [
-      "অধ্যাপক ড. মো. আবদুল মতিন"
-    ],
-    "illustrators": [
-      "এনসিটিবি চিত্রাঙ্কন পর্ষদ"
-    ],
-    "isbn": "978-984-36-4808-8"
+    "publisher": "জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড, বাংলাদেশ (NCTB)",
+    "edition": "পরিমার্জিত সংস্করণ ২০২৪ / শিক্ষাবর্ষ ২০২৬"
   },
   "table_of_contents": [
-    "1. বড় সংখ্যা ও স্থানীয় মান (কোটি পর্যন্ত দেশীয় ও আন্তর্জাতিক পদ্ধতি) (পৃষ্ঠা 1–18)",
-    "2. যোগ ও বিয়োগ (পাঁচ ও ছয় অঙ্কের সংখ্যার হিসাব) (পৃষ্ঠা 19–32)",
-    "3. গুণ (চার অঙ্কের সংখ্যাকে তিন অঙ্কের সংখ্যা দ্বারা গুণ) (পৃষ্ঠা 33–46)",
-    "4. ভাগ (চার অঙ্কের সংখ্যাকে দুই ও তিন অঙ্কের সংখ্যা দ্বারা ভাগ) (পৃষ্ঠা 47–58)",
-    "5. চার প্রক্রিয়া সম্পর্কিত সমস্যাবলি ও বন্ধনীর ব্যবহার (পৃষ্ঠা 59–68)",
-    "6. গাণিতিক প্রতীক ও সম্পর্ক প্রতীক (খোলা বাক্য) (পৃষ্ঠা 69–76)",
-    "7. গুণনীয়ক ও গুণিতক (লসাগু ও গসাগু নির্ণয়) (পৃষ্ঠা 77–90)",
-    "8. সাধারণ ভগ্নাংশ (সমতুল ভগ্নাংশ ও যোগ-বিয়োগ) (পৃষ্ঠা 91–106)",
-    "9. দশমিক ভগ্নাংশ (দশমিকের স্থানীয় মান ও যোগ-বিয়োগ) (পৃষ্ঠা 107–120)",
-    "10. পরিমাপ (দৈর্ঘ্য, ক্ষেত্রফল, ওজন ও তরলের আয়তন) (পৃষ্ঠা 121–136)",
-    "11. সময় (ঘণ্টা, মিনিট, সেকেন্ড ও লিপ ইয়ার) (পৃষ্ঠা 137–146)",
-    "12. উপাত্ত সংগ্রহ ও বিন্যস্তকরণ (স্তম্ভলেখ বা বার ডায়াগ্রাম) (পৃষ্ঠা 147–156)",
-    "13. জ্যামিতি (রেখা, কোণ ও ত্রিভুজ) (পৃষ্ঠা 157–168)",
-    "14. জ্যামিতিক চতুর্ভুজ (আয়ত, বর্গ, সামান্তরিক ও রম্বস) (পৃষ্ঠা 169–180)"
+    "১. সংখ্যা ও স্থানীয় মান (পৃষ্ঠা 1–22)",
+    "২. যোগ ও বিয়োগ (পৃষ্ঠা 23–40)",
+    "৩. গুণ (পৃষ্ঠা 41–48)",
+    "৪. ভাগ (পৃষ্ঠা 49–66)",
+    "৫. গাণিতিক বাক্য (পৃষ্ঠা 67–80)",
+    "৬. গুণিতক ও গুণনীয়ক (পৃষ্ঠা 81–96)",
+    "৭. সাধারণ ভগ্নাংশ (পৃষ্ঠা 97–110)",
+    "৮. দশমিক ভগ্নাংশ (পৃষ্ঠা 111–120)",
+    "৯. পরিমাপ (পৃষ্ঠা 121–142)",
+    "১০. জ্যামিতি (পৃষ্ঠা 143–168)",
+    "১১. উপাত্ত সংগ্রহ ও বিন্যস্তকরণ (পৃষ্ঠা 169–176)"
   ],
-  "total_chapters": 14,
+  "total_chapters": 11,
   "validation": {
     "download_verified": true,
     "page_count_verified": true,
     "toc_verified": true,
-    "questions_verified": true,
+    "questions_verified": false,
     "needs_review": false
   }
 }

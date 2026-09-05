@@ -1,158 +1,249 @@
 [
   {
-    "chapter_id": "c3-bgs-ch1",
-    "chapter_number": "1",
-    "chapter_title": "প্রাকৃতিক ও সামাজিক পরিবেশ",
+    "chapter_id": "2026-primary-class-3-bgs-ch-1",
+    "book_id": "2026-primary-class-3-bgs",
+    "chapter_number": "১",
+    "chapter_title": "আমাদের পরিবেশ",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 1,
-    "end_page": 8,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 1
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 8
-      }
-    ],
+    "end_page": 11,
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "প্রাকৃতিক ও সামাজিক পরিবেশ",
-      "তৃতীয় শ্রেণি"
+      "তৃতীয় শ্রেণি",
+      "আমাদের পরিবেশ",
+      "অধ্যায় ১"
     ],
-    "summary": "আমাদের চারপাশে গাছপালা, নদী এবং ঘরবাড়ি ও বিদ্যালয়ের সমাজ।",
-    "total_questions": 2
+    "summary": "তৃতীয় শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ১: আমাদের পরিবেশ (পৃষ্ঠা 1–11)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c3-bgs-ch2",
-    "chapter_number": "2",
-    "chapter_title": "মিলেমিশে থাকা (সমতা ও সৌহার্দ্য)",
+    "chapter_id": "2026-primary-class-3-bgs-ch-2",
+    "book_id": "2026-primary-class-3-bgs",
+    "chapter_number": "২",
+    "chapter_title": "আমরা সবাই মানুষ",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 9,
-    "end_page": 16,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 9
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 16
-      }
-    ],
+    "start_page": 12,
+    "end_page": 20,
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "মিলেমিশে থাকা (সমতা ও সৌহার্দ্য)",
-      "তৃতীয় শ্রেণি"
+      "তৃতীয় শ্রেণি",
+      "আমরা সবাই মানুষ",
+      "অধ্যায় ২"
     ],
-    "summary": "নারী-পুরুষ, ধনী-দরিদ্র ও বিশেষ চাহিদাসম্পন্ন শিশুদের সাথে সমতা।",
-    "total_questions": 2
+    "summary": "তৃতীয় শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ২: আমরা সবাই মানুষ (পৃষ্ঠা 12–20)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c3-bgs-ch3",
-    "chapter_number": "3",
-    "chapter_title": "আমাদের অধিকার ও দায়িত্ব",
+    "chapter_id": "2026-primary-class-3-bgs-ch-3",
+    "book_id": "2026-primary-class-3-bgs",
+    "chapter_number": "৩",
+    "chapter_title": "আমাদের ইতিহাস",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 17,
-    "end_page": 24,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 17
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 24
-      }
-    ],
-    "keywords": [
-      "বাংলাদেশ ও বিশ্বপরিচয়",
-      "আমাদের অধিকার ও দায়িত্ব",
-      "তৃতীয় শ্রেণি"
-    ],
-    "summary": "শিশুর বেঁচে থাকার অধিকার, শিক্ষার অধিকার ও পরিবারের প্রতি দায়িত্ব।",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c3-bgs-ch4",
-    "chapter_number": "4",
-    "chapter_title": "বিভিন্ন পেশার মানুষ",
-    "chapter_type": "অধ্যায়",
-    "author": null,
-    "start_page": 25,
+    "start_page": 21,
     "end_page": 34,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 25
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 34
-      }
-    ],
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "বিভিন্ন পেশার মানুষ",
-      "তৃতীয় শ্রেণি"
+      "তৃতীয় শ্রেণি",
+      "আমাদের ইতিহাস",
+      "অধ্যায় ৩"
     ],
-    "summary": "কৃষক, জেলে, কামার, কুমার, ডাক্তার, শিক্ষক ও অন্যান্য পেশার মর্যাদা।",
-    "total_questions": 2
+    "summary": "তৃতীয় শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ৩: আমাদের ইতিহাস (পৃষ্ঠা 21–34)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c3-bgs-ch5",
-    "chapter_number": "5",
-    "chapter_title": "মানুষের গুণ (সততা ও পরোপকার)",
+    "chapter_id": "2026-primary-class-3-bgs-ch-4",
+    "book_id": "2026-primary-class-3-bgs",
+    "chapter_number": "৪",
+    "chapter_title": "আমাদের সংস্কৃতি",
     "chapter_type": "অধ্যায়",
     "author": null,
     "start_page": 35,
-    "end_page": 42,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 35
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 42
-      }
-    ],
+    "end_page": 41,
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "মানুষের গুণ (সততা ও পরোপকার)",
-      "তৃতীয় শ্রেণি"
+      "তৃতীয় শ্রেণি",
+      "আমাদের সংস্কৃতি",
+      "অধ্যায় ৪"
     ],
-    "summary": "সত্য বলা, বড়দের সম্মান করা ও বিপদে মানুষকে সাহায্য করার শিক্ষা।",
-    "total_questions": 2
+    "summary": "তৃতীয় শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ৪: আমাদের সংস্কৃতি (পৃষ্ঠা 35–41)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c3-bgs-ch6",
-    "chapter_number": "6",
-    "chapter_title": "আমাদের জাতীয় ইতিহাস ও ঐতিহ্য",
+    "chapter_id": "2026-primary-class-3-bgs-ch-5",
+    "book_id": "2026-primary-class-3-bgs",
+    "chapter_number": "৫",
+    "chapter_title": "মহাদেশ ও মহাসাগর",
     "chapter_type": "অধ্যায়",
     "author": null,
-    "start_page": 43,
-    "end_page": 54,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 43
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 54
-      }
-    ],
+    "start_page": 42,
+    "end_page": 52,
+    "sections": [],
     "keywords": [
       "বাংলাদেশ ও বিশ্বপরিচয়",
-      "আমাদের জাতীয় ইতিহাস ও ঐতিহ্য",
-      "তৃতীয় শ্রেণি"
+      "তৃতীয় শ্রেণি",
+      "মহাদেশ ও মহাসাগর",
+      "অধ্যায় ৫"
     ],
-    "summary": "১৯৫২ সালের ভাষা আন্দোলন ও ১৯৭১ সালের মহান মুক্তিযুদ্ধ।",
-    "total_questions": 2
+    "summary": "তৃতীয় শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ৫: মহাদেশ ও মহাসাগর (পৃষ্ঠা 42–52)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-3-bgs-ch-6",
+    "book_id": "2026-primary-class-3-bgs",
+    "chapter_number": "৬",
+    "chapter_title": "পরিবার ও বিদ্যালয়ে শিশুর ভূমিকা",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 53,
+    "end_page": 61,
+    "sections": [],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "তৃতীয় শ্রেণি",
+      "পরিবার ও বিদ্যালয়ে শিশুর ভূমিকা",
+      "অধ্যায় ৬"
+    ],
+    "summary": "তৃতীয় শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ৬: পরিবার ও বিদ্যালয়ে শিশুর ভূমিকা (পৃষ্ঠা 53–61)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-3-bgs-ch-7",
+    "book_id": "2026-primary-class-3-bgs",
+    "chapter_number": "৭",
+    "chapter_title": "শিশু অধিকার ও নিরাপত্তা",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 62,
+    "end_page": 71,
+    "sections": [],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "তৃতীয় শ্রেণি",
+      "শিশু অধিকার ও নিরাপত্তা",
+      "অধ্যায় ৭"
+    ],
+    "summary": "তৃতীয় শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ৭: শিশু অধিকার ও নিরাপত্তা (পৃষ্ঠা 62–71)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-3-bgs-ch-8",
+    "book_id": "2026-primary-class-3-bgs",
+    "chapter_number": "৮",
+    "chapter_title": "নৈতিক ও মানবিক গুণ",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 72,
+    "end_page": 77,
+    "sections": [],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "তৃতীয় শ্রেণি",
+      "নৈতিক ও মানবিক গুণ",
+      "অধ্যায় ৮"
+    ],
+    "summary": "তৃতীয় শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ৮: নৈতিক ও মানবিক গুণ (পৃষ্ঠা 72–77)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-3-bgs-ch-9",
+    "book_id": "2026-primary-class-3-bgs",
+    "chapter_number": "৯",
+    "chapter_title": "আমাদের দেশ",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 78,
+    "end_page": 89,
+    "sections": [],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "তৃতীয় শ্রেণি",
+      "আমাদের দেশ",
+      "অধ্যায় ৯"
+    ],
+    "summary": "তৃতীয় শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ৯: আমাদের দেশ (পৃষ্ঠা 78–89)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-3-bgs-ch-10",
+    "book_id": "2026-primary-class-3-bgs",
+    "chapter_number": "১০",
+    "chapter_title": "বিভিন্ন পেশা",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 90,
+    "end_page": 99,
+    "sections": [],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "তৃতীয় শ্রেণি",
+      "বিভিন্ন পেশা",
+      "অধ্যায় ১০"
+    ],
+    "summary": "তৃতীয় শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ১০: বিভিন্ন পেশা (পৃষ্ঠা 90–99)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-3-bgs-ch-11",
+    "book_id": "2026-primary-class-3-bgs",
+    "chapter_number": "১১",
+    "chapter_title": "টাকার ব্যবহার",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 100,
+    "end_page": 104,
+    "sections": [],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "তৃতীয় শ্রেণি",
+      "টাকার ব্যবহার",
+      "অধ্যায় ১১"
+    ],
+    "summary": "তৃতীয় শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ১১: টাকার ব্যবহার (পৃষ্ঠা 100–104)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-3-bgs-ch-12",
+    "book_id": "2026-primary-class-3-bgs",
+    "chapter_number": "১২",
+    "chapter_title": "জরুরি পরিস্থিতি মোকাবিলা",
+    "chapter_type": "অধ্যায়",
+    "author": null,
+    "start_page": 105,
+    "end_page": 111,
+    "sections": [],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "তৃতীয় শ্রেণি",
+      "জরুরি পরিস্থিতি মোকাবিলা",
+      "অধ্যায় ১২"
+    ],
+    "summary": "তৃতীয় শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের অধ্যায় ১২: জরুরি পরিস্থিতি মোকাবিলা (পৃষ্ঠা 105–111)।",
+    "total_questions": 0
+  },
+  {
+    "chapter_id": "2026-primary-class-3-bgs-ch-13",
+    "book_id": "2026-primary-class-3-bgs",
+    "chapter_number": "১৩",
+    "chapter_title": "শব্দভাণ্ডার",
+    "chapter_type": "শব্দকোষ",
+    "author": null,
+    "start_page": 112,
+    "end_page": 114,
+    "sections": [],
+    "keywords": [
+      "বাংলাদেশ ও বিশ্বপরিচয়",
+      "তৃতীয় শ্রেণি",
+      "শব্দভাণ্ডার",
+      "শব্দকোষ ১৩"
+    ],
+    "summary": "তৃতীয় শ্রেণি এর বাংলাদেশ ও বিশ্বপরিচয় বিষয়ের শব্দকোষ ১৩: শব্দভাণ্ডার (পৃষ্ঠা 112–114)।",
+    "total_questions": 0
   }
 ]

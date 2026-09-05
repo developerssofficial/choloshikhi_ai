@@ -1,730 +1,344 @@
 [
   {
-    "chapter_id": "c4-english-ch1",
-    "chapter_number": "1",
-    "chapter_title": "About Me (Unit 1)",
+    "chapter_id": "2026-primary-class-4-english-ch-1",
+    "book_id": "2026-primary-class-4-english",
+    "chapter_number": "Unit 1",
+    "chapter_title": "Introducing One Another",
     "chapter_type": "Unit",
     "author": null,
     "start_page": 1,
     "end_page": 3,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 1
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 3
-      }
-    ],
+    "sections": [],
     "keywords": [
       "English for Today",
-      "About Me (Unit 1)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "Introducing One Another",
+      "Unit Unit 1"
     ],
-    "summary": "Introducing self, age, school and class details.",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 1: Introducing One Another (পৃষ্ঠা 1–3)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-english-ch2",
-    "chapter_number": "2",
-    "chapter_title": "Days in a Calendar (Unit 2)",
+    "chapter_id": "2026-primary-class-4-english-ch-2",
+    "book_id": "2026-primary-class-4-english",
+    "chapter_number": "Unit 2",
+    "chapter_title": "Have a Great Day",
     "chapter_type": "Unit",
     "author": null,
     "start_page": 4,
-    "end_page": 6,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 4
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 6
-      }
-    ],
+    "end_page": 5,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Days in a Calendar (Unit 2)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "Have a Great Day",
+      "Unit Unit 2"
     ],
-    "summary": "Calendar reading, months, and leap years.",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 2: Have a Great Day (পৃষ্ঠা 4–5)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-english-ch3",
-    "chapter_number": "3",
-    "chapter_title": "Family and Relatives (Unit 3)",
+    "chapter_id": "2026-primary-class-4-english-ch-3",
+    "book_id": "2026-primary-class-4-english",
+    "chapter_number": "Unit 3",
+    "chapter_title": "My School Assembly",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 7,
-    "end_page": 9,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 7
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 9
-      }
-    ],
+    "start_page": 6,
+    "end_page": 8,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Family and Relatives (Unit 3)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "My School Assembly",
+      "Unit Unit 3"
     ],
-    "summary": "Extended family, grandparents and occupations.",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 3: My School Assembly (পৃষ্ঠা 6–8)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-english-ch4",
-    "chapter_number": "4",
-    "chapter_title": "Dialogue: Shopping and Buying Things (Unit 4)",
+    "chapter_id": "2026-primary-class-4-english-ch-4",
+    "book_id": "2026-primary-class-4-english",
+    "chapter_number": "Unit 4",
+    "chapter_title": "Enjoying Annual Sports",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 10,
-    "end_page": 12,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 10
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 12
-      }
-    ],
+    "start_page": 9,
+    "end_page": 11,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Dialogue: Shopping and Buying Things (Unit 4)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "Enjoying Annual Sports",
+      "Unit Unit 4"
     ],
-    "summary": "Can I help you? How much is it? shopping phrases.",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 4: Enjoying Annual Sports (পৃষ্ঠা 9–11)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-english-ch5",
-    "chapter_number": "5",
-    "chapter_title": "Class Routine & Time Management (Unit 5)",
+    "chapter_id": "2026-primary-class-4-english-ch-5",
+    "book_id": "2026-primary-class-4-english",
+    "chapter_number": "Unit 5",
+    "chapter_title": "The Little Doctor",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 13,
-    "end_page": 15,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 13
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 15
-      }
-    ],
+    "start_page": 12,
+    "end_page": 17,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Class Routine & Time Management (Unit 5)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "The Little Doctor",
+      "Unit Unit 5"
     ],
-    "summary": "Timetable, study periods and discipline.",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 5: The Little Doctor (পৃষ্ঠা 12–17)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-english-ch6",
-    "chapter_number": "6",
-    "chapter_title": "Food and Health: Healthy Eating Habits (Unit 6)",
+    "chapter_id": "2026-primary-class-4-english-ch-6",
+    "book_id": "2026-primary-class-4-english",
+    "chapter_number": "Unit 6",
+    "chapter_title": "Sounds and Numbers",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 16,
-    "end_page": 18,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 16
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 18
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Food and Health: Healthy Eating Habits (Unit 6)",
-      "চতুর্থ শ্রেণি"
-    ],
-    "summary": "Nutritious diet, fruits, milk and avoiding junk food.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c4-english-ch7",
-    "chapter_number": "7",
-    "chapter_title": "Traffic Rules & Safety Signs (Unit 7)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 19,
+    "start_page": 18,
     "end_page": 21,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 19
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 21
-      }
-    ],
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Traffic Rules & Safety Signs (Unit 7)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "Sounds and Numbers",
+      "Unit Unit 6"
     ],
-    "summary": "Road safety, pedestrian crossing and street signals.",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 6: Sounds and Numbers (পৃষ্ঠা 18–21)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-english-ch8",
-    "chapter_number": "8",
-    "chapter_title": "Syllables and Phonics Pronunciation (Unit 8)",
+    "chapter_id": "2026-primary-class-4-english-ch-7",
+    "book_id": "2026-primary-class-4-english",
+    "chapter_number": "Unit 7",
+    "chapter_title": "Telling the Time",
     "chapter_type": "Unit",
     "author": null,
     "start_page": 22,
-    "end_page": 24,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 22
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 24
-      }
-    ],
+    "end_page": 26,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Syllables and Phonics Pronunciation (Unit 8)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "Telling the Time",
+      "Unit Unit 7"
     ],
-    "summary": "Breaking words into syllables and stress patterns.",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 7: Telling the Time (পৃষ্ঠা 22–26)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-english-ch9",
-    "chapter_number": "9",
-    "chapter_title": "Occupations in Our Community (Unit 9)",
+    "chapter_id": "2026-primary-class-4-english-ch-8",
+    "book_id": "2026-primary-class-4-english",
+    "chapter_number": "Unit 8",
+    "chapter_title": "My Family",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 25,
-    "end_page": 27,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 25
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 27
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Occupations in Our Community (Unit 9)",
-      "চতুর্থ শ্রেণি"
-    ],
-    "summary": "Doctors, postmen, firefighters and cleaners.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c4-english-ch10",
-    "chapter_number": "10",
-    "chapter_title": "S.M. Sultan: Famous Artist of Bangladesh (Unit 10)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 28,
-    "end_page": 30,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 28
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 30
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "S.M. Sultan: Famous Artist of Bangladesh (Unit 10)",
-      "চতুর্থ শ্রেণি"
-    ],
-    "summary": "Biography and paintings of artist S.M. Sultan.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c4-english-ch11",
-    "chapter_number": "11",
-    "chapter_title": "Places in Bangladesh: Sreemangal Tea Gardens (Unit 11)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 31,
+    "start_page": 27,
     "end_page": 33,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 31
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 33
-      }
-    ],
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Places in Bangladesh: Sreemangal Tea Gardens (Unit 11)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "My Family",
+      "Unit Unit 8"
     ],
-    "summary": "Travelogue visiting Sylhet and Sreemangal tea estates.",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 8: My Family (পৃষ্ঠা 27–33)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-english-ch12",
-    "chapter_number": "12",
-    "chapter_title": "Story: The Lion and the Mouse (Unit 12)",
-    "chapter_type": "Story",
+    "chapter_id": "2026-primary-class-4-english-ch-9",
+    "book_id": "2026-primary-class-4-english",
+    "chapter_number": "Unit 9",
+    "chapter_title": "Gardening",
+    "chapter_type": "Unit",
     "author": null,
     "start_page": 34,
-    "end_page": 36,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 34
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 36
-      }
-    ],
+    "end_page": 40,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Story: The Lion and the Mouse (Unit 12)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "Gardening",
+      "Unit Unit 9"
     ],
-    "summary": "No one is too small to help a friend in trouble.",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 9: Gardening (পৃষ্ঠা 34–40)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-english-ch13",
-    "chapter_number": "13",
-    "chapter_title": "Telling the Time & Clock Faces (Unit 13)",
+    "chapter_id": "2026-primary-class-4-english-ch-10",
+    "book_id": "2026-primary-class-4-english",
+    "chapter_number": "Unit 10",
+    "chapter_title": "A Letter to a Friend",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 37,
-    "end_page": 39,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 37
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 39
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Telling the Time & Clock Faces (Unit 13)",
-      "চতুর্থ শ্রেণি"
-    ],
-    "summary": "A.M., P.M., quarter past, quarter to and digital clock.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c4-english-ch14",
-    "chapter_number": "14",
-    "chapter_title": "Story: The Hen and Her Chicks (Unit 14)",
-    "chapter_type": "Story",
-    "author": null,
-    "start_page": 40,
-    "end_page": 42,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 40
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 42
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Story: The Hen and Her Chicks (Unit 14)",
-      "চতুর্থ শ্রেণি"
-    ],
-    "summary": "Mother hen protecting her little chicks from danger.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c4-english-ch15",
-    "chapter_number": "15",
-    "chapter_title": "Sagar and His Family (Unit 15)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 43,
+    "start_page": 41,
     "end_page": 45,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 43
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 45
-      }
-    ],
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Sagar and His Family (Unit 15)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "A Letter to a Friend",
+      "Unit Unit 10"
     ],
-    "summary": "Reading comprehension about Sagar's family life.",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 10: A Letter to a Friend (পৃষ্ঠা 41–45)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-english-ch16",
-    "chapter_number": "16",
-    "chapter_title": "Months of the Year and Weather (Unit 16)",
+    "chapter_id": "2026-primary-class-4-english-ch-11",
+    "book_id": "2026-primary-class-4-english",
+    "chapter_number": "Unit 11",
+    "chapter_title": "A Holiday Trip",
     "chapter_type": "Unit",
     "author": null,
     "start_page": 46,
-    "end_page": 48,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 46
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 48
-      }
-    ],
+    "end_page": 50,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Months of the Year and Weather (Unit 16)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "A Holiday Trip",
+      "Unit Unit 11"
     ],
-    "summary": "Weather characteristics across 12 months.",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 11: A Holiday Trip (পৃষ্ঠা 46–50)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-english-ch17",
-    "chapter_number": "17",
-    "chapter_title": "Sports and Hobbies (Unit 17)",
+    "chapter_id": "2026-primary-class-4-english-ch-12",
+    "book_id": "2026-primary-class-4-english",
+    "chapter_number": "Unit 12",
+    "chapter_title": "Making Friends",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 49,
-    "end_page": 51,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 49
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 51
-      }
-    ],
+    "start_page": 51,
+    "end_page": 56,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Sports and Hobbies (Unit 17)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "Making Friends",
+      "Unit Unit 12"
     ],
-    "summary": "Football, cricket, swimming and gardening.",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 12: Making Friends (পৃষ্ঠা 51–56)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-english-ch18",
-    "chapter_number": "18",
-    "chapter_title": "Story: The Clever Fox (Unit 18)",
-    "chapter_type": "Story",
-    "author": null,
-    "start_page": 52,
-    "end_page": 54,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 52
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 54
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Story: The Clever Fox (Unit 18)",
-      "চতুর্থ শ্রেণি"
-    ],
-    "summary": "Fable of the clever fox and the goat.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c4-english-ch19",
-    "chapter_number": "19",
-    "chapter_title": "Cleanliness and Personal Hygiene (Unit 19)",
+    "chapter_id": "2026-primary-class-4-english-ch-13",
+    "book_id": "2026-primary-class-4-english",
+    "chapter_number": "Unit 13",
+    "chapter_title": "Planning to Visit the Book Fair",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 55,
-    "end_page": 57,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 55
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 57
-      }
-    ],
+    "start_page": 57,
+    "end_page": 63,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Cleanliness and Personal Hygiene (Unit 19)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "Planning to Visit the Book Fair",
+      "Unit Unit 13"
     ],
-    "summary": "Proper dental care, bathing and healthy living.",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 13: Planning to Visit the Book Fair (পৃষ্ঠা 57–63)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-english-ch20",
-    "chapter_number": "20",
-    "chapter_title": "Prepositions and Directions (Unit 20)",
+    "chapter_id": "2026-primary-class-4-english-ch-14",
+    "book_id": "2026-primary-class-4-english",
+    "chapter_number": "Unit 14",
+    "chapter_title": "Poem: Tears of the Earth",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 58,
-    "end_page": 60,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 58
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 60
-      }
-    ],
+    "start_page": 64,
+    "end_page": 66,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Prepositions and Directions (Unit 20)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "Poem: Tears of the Earth",
+      "Unit Unit 14"
     ],
-    "summary": "Turn left, go straight, opposite the bank.",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 14: Poem: Tears of the Earth (পৃষ্ঠা 64–66)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-english-ch21",
-    "chapter_number": "21",
-    "chapter_title": "Rhyme: Clap, Clap, Clap (Unit 21)",
-    "chapter_type": "Rhyme",
-    "author": null,
-    "start_page": 61,
-    "end_page": 62,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 61
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 62
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Rhyme: Clap, Clap, Clap (Unit 21)",
-      "চতুর্থ শ্রেণি"
-    ],
-    "summary": "Fun movement rhyme for classroom interaction.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c4-english-ch22",
-    "chapter_number": "22",
-    "chapter_title": "Past Tense: Yesterday's Activities (Unit 22)",
+    "chapter_id": "2026-primary-class-4-english-ch-15",
+    "book_id": "2026-primary-class-4-english",
+    "chapter_number": "Unit 15",
+    "chapter_title": "Environment Pollution",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 63,
-    "end_page": 65,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 63
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 65
-      }
-    ],
+    "start_page": 67,
+    "end_page": 70,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Past Tense: Yesterday's Activities (Unit 22)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "Environment Pollution",
+      "Unit Unit 15"
     ],
-    "summary": "Regular and irregular past tense verbs.",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 15: Environment Pollution (পৃষ্ঠা 67–70)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-english-ch23",
-    "chapter_number": "23",
-    "chapter_title": "Story: The Grasshopper and the Ant (Unit 23)",
-    "chapter_type": "Story",
-    "author": null,
-    "start_page": 66,
-    "end_page": 68,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 66
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 68
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Story: The Grasshopper and the Ant (Unit 23)",
-      "চতুর্থ শ্রেণি"
-    ],
-    "summary": "Hard work versus laziness moral fable.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c4-english-ch24",
-    "chapter_number": "24",
-    "chapter_title": "Natural Beauties of Bangladesh: Kuakata & Saint Martin (Unit 24)",
+    "chapter_id": "2026-primary-class-4-english-ch-16",
+    "book_id": "2026-primary-class-4-english",
+    "chapter_number": "Unit 16",
+    "chapter_title": "Talking with a Nepalese Boy",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 69,
-    "end_page": 71,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 69
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 71
-      }
-    ],
+    "start_page": 71,
+    "end_page": 76,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Natural Beauties of Bangladesh: Kuakata & Saint Martin (Unit 24)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "Talking with a Nepalese Boy",
+      "Unit Unit 16"
     ],
-    "summary": "Scenic spots of Bangladesh.",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 16: Talking with a Nepalese Boy (পৃষ্ঠা 71–76)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-english-ch25",
-    "chapter_number": "25",
-    "chapter_title": "Making Requests & Polite Expressions (Unit 25)",
+    "chapter_id": "2026-primary-class-4-english-ch-17",
+    "book_id": "2026-primary-class-4-english",
+    "chapter_number": "Unit 17",
+    "chapter_title": "The Land of Mountains",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 72,
-    "end_page": 74,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 72
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 74
-      }
-    ],
+    "start_page": 77,
+    "end_page": 81,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Making Requests & Polite Expressions (Unit 25)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "The Land of Mountains",
+      "Unit Unit 17"
     ],
-    "summary": "Would you please, may I, excuse me.",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 17: The Land of Mountains (পৃষ্ঠা 77–81)।",
+    "total_questions": 0
   },
   {
-    "chapter_id": "c4-english-ch26",
-    "chapter_number": "26",
-    "chapter_title": "Reshma the Garment Worker (Unit 26)",
+    "chapter_id": "2026-primary-class-4-english-ch-18",
+    "book_id": "2026-primary-class-4-english",
+    "chapter_number": "Unit 18",
+    "chapter_title": "Caring for Others",
     "chapter_type": "Unit",
     "author": null,
-    "start_page": 75,
-    "end_page": 77,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 75
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 77
-      }
-    ],
+    "start_page": 82,
+    "end_page": 90,
+    "sections": [],
     "keywords": [
       "English for Today",
-      "Reshma the Garment Worker (Unit 26)",
-      "চতুর্থ শ্রেণি"
+      "চতুর্থ শ্রেণি",
+      "Caring for Others",
+      "Unit Unit 18"
     ],
-    "summary": "Life of a hardworking RMG worker in Dhaka.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c4-english-ch27",
-    "chapter_number": "27",
-    "chapter_title": "Story: The Woodcutter's Honesty (Unit 27)",
-    "chapter_type": "Story",
-    "author": null,
-    "start_page": 78,
-    "end_page": 80,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 78
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 80
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Story: The Woodcutter's Honesty (Unit 27)",
-      "চতুর্থ শ্রেণি"
-    ],
-    "summary": "Honesty brings reward from the river fairy.",
-    "total_questions": 2
-  },
-  {
-    "chapter_id": "c4-english-ch28",
-    "chapter_number": "28",
-    "chapter_title": "Comprehensive Review and Grammar (Unit 28)",
-    "chapter_type": "Unit",
-    "author": null,
-    "start_page": 81,
-    "end_page": 86,
-    "sections": [
-      {
-        "title": "মূল পাঠ",
-        "page": 81
-      },
-      {
-        "title": "অনুশীলনী ও প্রশ্নোত্তর",
-        "page": 86
-      }
-    ],
-    "keywords": [
-      "English for Today",
-      "Comprehensive Review and Grammar (Unit 28)",
-      "চতুর্থ শ্রেণি"
-    ],
-    "summary": "Tense, sentence structure and writing practice.",
-    "total_questions": 2
+    "summary": "চতুর্থ শ্রেণি এর English for Today বিষয়ের Unit Unit 18: Caring for Others (পৃষ্ঠা 82–90)।",
+    "total_questions": 0
   }
 ]
